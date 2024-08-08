@@ -1,0 +1,861 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2D Image Rotation Performance &#8212; splineops 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2d17d8c7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/2D_Image_Rotation_Performance';</script>
+    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="First Steps With the TensorSpline API" href="First_Steps_Tensorspline_Api.html" />
+    <link rel="prev" title="2D Image Rotation" href="2D_Image_Rotation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="splineops 0.0.1 documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="splineops 0.0.1 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Biomedical-Imaging-Group/splineops" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/splineops/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i>
+            <span class="sr-only"></span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Biomedical-Imaging-Group/splineops" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/splineops/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i>
+            <span class="sr-only"></span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2D_Image_Rotation.html">2D Image Rotation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2D Image Rotation Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="First_Steps_Tensorspline_Api.html">First Steps With the TensorSpline API</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Examples</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">2D Image...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-auto-examples-2d-image-rotation-performance-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code.</p>
+</div>
+<section class="sphx-glr-example-title" id="d-image-rotation-performance">
+<span id="sphx-glr-auto-examples-2d-image-rotation-performance-py"></span><h1>2D Image Rotation Performance<a class="headerlink" href="#d-image-rotation-performance" title="Link to this heading">#</a></h1>
+<p>This example demonstrates how to create a basic rotation using the TensorSpline API and comparing against Scipy’s.</p>
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>Import necessary libraries.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span><span class="p">,</span> <span class="n">datasets</span>
+
+<span class="kn">from</span> <span class="nn">splineops.interpolate.tensorspline</span> <span class="kn">import</span> <span class="n">TensorSpline</span>
+</pre></div>
+</div>
+</section>
+<section id="calculate-inscribed-rectangle-bounds-from-image">
+<h2>Calculate Inscribed Rectangle Bounds from Image<a class="headerlink" href="#calculate-inscribed-rectangle-bounds-from-image" title="Link to this heading">#</a></h2>
+<p>Calculate the bounds for the largest rectangle that can be inscribed within a circle, which itself is inscribed within the original image, based on the image array directly.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_inscribed_rectangle_bounds_from_image</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the bounds for the largest rectangle that can be inscribed</span>
+<span class="sd">    within a circle, which itself is inscribed within the original image,</span>
+<span class="sd">    based on the image array directly.</span>
+
+<span class="sd">    The rectangle and the circle are centered within the original image.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - image: The input image as a 2D or 3D numpy array.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - A tuple (x_min, y_min, x_max, y_max) representing the bounds for cropping.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Extract image dimensions</span>
+    <span class="n">height</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="c1"># Calculate the radius of the inscribed circle</span>
+    <span class="n">radius</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+    <span class="c1"># The side length of the square (largest inscribed rectangle in a circle)</span>
+    <span class="n">side_length</span> <span class="o">=</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Calculate the center of the image</span>
+    <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">/</span> <span class="mi">2</span>
+
+    <span class="c1"># Calculate the bounds of the largest inscribed rectangle</span>
+    <span class="n">x_min</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">cx</span> <span class="o">-</span> <span class="n">side_length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">y_min</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">cy</span> <span class="o">-</span> <span class="n">side_length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">x_max</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">cx</span> <span class="o">+</span> <span class="n">side_length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">y_max</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">cy</span> <span class="o">+</span> <span class="n">side_length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x_min</span><span class="p">,</span> <span class="n">y_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">y_max</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="crop-image-to-bounds">
+<h2>Crop Image to Bounds<a class="headerlink" href="#crop-image-to-bounds" title="Link to this heading">#</a></h2>
+<p>Crop an image to the specified bounds.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">crop_image_to_bounds</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">bounds</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Crop an image to the specified bounds.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - image: The input image as a 2D numpy array.</span>
+<span class="sd">    - bounds: An array of (x_min, y_min, x_max, y_max) defining the crop bounds,</span>
+<span class="sd">              where these values are absolute pixel coordinates in the image.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - Cropped image as a 2D numpy array.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x_min</span><span class="p">,</span> <span class="n">y_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">bounds</span>
+    <span class="k">return</span> <span class="n">image</span><span class="p">[</span><span class="n">y_min</span><span class="p">:</span><span class="n">y_max</span><span class="p">,</span> <span class="n">x_min</span><span class="p">:</span><span class="n">x_max</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="calculate-signal-to-noise-ratio-snr">
+<h2>Calculate Signal-to-Noise Ratio (SNR)<a class="headerlink" href="#calculate-signal-to-noise-ratio-snr" title="Link to this heading">#</a></h2>
+<p>Compute the Signal-to-Noise Ratio (SNR) between the original and modified images.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_snr</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">modified</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the Signal-to-Noise Ratio (SNR) between the original and modified images.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - original: The original image as a 2D numpy array.</span>
+<span class="sd">    - modified: The modified (rotated) image as a 2D numpy array.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - SNR value as a float.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">original_normalized</span> <span class="o">=</span> <span class="n">original</span> <span class="o">/</span> <span class="mf">255.0</span> <span class="k">if</span> <span class="n">original</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">original</span>
+    <span class="n">processed_normalized</span> <span class="o">=</span> <span class="n">modified</span> <span class="o">/</span> <span class="mf">255.0</span> <span class="k">if</span> <span class="n">modified</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">modified</span>
+    <span class="n">noise</span> <span class="o">=</span> <span class="n">original_normalized</span> <span class="o">-</span> <span class="n">processed_normalized</span>
+    <span class="n">mean_signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">original_normalized</span><span class="p">)</span>
+    <span class="n">variance_noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">noise</span><span class="p">)</span>
+    <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1e-3</span>
+    <span class="n">snr</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">((</span><span class="n">mean_signal</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">variance_noise</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">snr</span>
+</pre></div>
+</div>
+</section>
+<section id="calculate-mean-squared-error-mse">
+<h2>Calculate Mean Squared Error (MSE)<a class="headerlink" href="#calculate-mean-squared-error-mse" title="Link to this heading">#</a></h2>
+<p>Compute the Mean Squared Error (MSE) between the original and modified images.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_mse</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">modified</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the Mean Squared Error (MSE) between the original and modified images.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - original: The original image as a 2D numpy array.</span>
+<span class="sd">    - modified: The modified (rotated) image as a 2D numpy array.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - MSE value as a float.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">original</span> <span class="o">-</span> <span class="n">modified</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mse</span>
+</pre></div>
+</div>
+</section>
+<section id="rotate-image-and-crop-using-splineops">
+<h2>Rotate Image and Crop using SplineOps<a class="headerlink" href="#rotate-image-and-crop-using-splineops" title="Link to this heading">#</a></h2>
+<p>Rotate an image by a specified angle using the splineops library’s TensorSpline method and crop the result.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rotate_image_and_crop_splineops</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;zero&quot;</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Rotate an image by a specified angle using the splineops library&#39;s TensorSpline method and crop the result.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - image: The input image as a 2D numpy array.</span>
+<span class="sd">    - angle: The rotation angle in degrees.</span>
+<span class="sd">    - degree: The degree of the spline (0-7).</span>
+<span class="sd">    - mode: The mode for handling boundaries (default is &quot;zero&quot;).</span>
+<span class="sd">    - iterations: The number of iterations to apply the rotation.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - Rotated image as a 2D numpy array.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dtype</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">dtype</span>
+    <span class="n">ny</span><span class="p">,</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ny</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="n">rotated_image</span> <span class="o">=</span> <span class="n">data</span>
+
+    <span class="n">degree</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">degree</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+    <span class="n">basis</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;bspline</span><span class="si">{</span><span class="n">degree</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iterations</span><span class="p">):</span>
+        <span class="n">tensor_spline</span> <span class="o">=</span> <span class="n">TensorSpline</span><span class="p">(</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">rotated_image</span><span class="p">,</span> <span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><span class="n">yy</span><span class="p">,</span> <span class="n">xx</span><span class="p">),</span> <span class="n">bases</span><span class="o">=</span><span class="n">basis</span><span class="p">,</span> <span class="n">modes</span><span class="o">=</span><span class="n">mode</span>
+        <span class="p">)</span>
+        <span class="n">angle_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="n">angle</span><span class="p">)</span>
+        <span class="n">cos_angle</span><span class="p">,</span> <span class="n">sin_angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle_rad</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle_rad</span><span class="p">)</span>
+        <span class="n">original_center_x</span><span class="p">,</span> <span class="n">original_center_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="p">(</span><span class="n">ny</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span>
+        <span class="n">oy</span><span class="p">,</span> <span class="n">ox</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">ny</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">nx</span><span class="p">]</span>
+        <span class="n">ox</span> <span class="o">=</span> <span class="n">ox</span> <span class="o">-</span> <span class="n">original_center_x</span>
+        <span class="n">oy</span> <span class="o">=</span> <span class="n">oy</span> <span class="o">-</span> <span class="n">original_center_y</span>
+
+        <span class="n">nx_coords</span> <span class="o">=</span> <span class="n">cos_angle</span> <span class="o">*</span> <span class="n">ox</span> <span class="o">+</span> <span class="n">sin_angle</span> <span class="o">*</span> <span class="n">oy</span> <span class="o">+</span> <span class="n">original_center_x</span>
+        <span class="n">ny_coords</span> <span class="o">=</span> <span class="o">-</span><span class="n">sin_angle</span> <span class="o">*</span> <span class="n">ox</span> <span class="o">+</span> <span class="n">cos_angle</span> <span class="o">*</span> <span class="n">oy</span> <span class="o">+</span> <span class="n">original_center_y</span>
+
+        <span class="n">eval_coords</span> <span class="o">=</span> <span class="n">ny_coords</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">nx_coords</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="n">interpolated_values</span> <span class="o">=</span> <span class="n">tensor_spline</span><span class="p">(</span><span class="n">coordinates</span><span class="o">=</span><span class="n">eval_coords</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">rotated_image</span> <span class="o">=</span> <span class="n">interpolated_values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">rotated_image</span>
+</pre></div>
+</div>
+</section>
+<section id="rotate-image-and-crop-using-scipy">
+<h2>Rotate Image and Crop using SciPy<a class="headerlink" href="#rotate-image-and-crop-using-scipy" title="Link to this heading">#</a></h2>
+<p>Rotate an image by a specified angle using SciPy’s ndimage.rotate function and crop the result.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rotate_image_and_crop_scipy</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Rotate an image by a specified angle using SciPy&#39;s ndimage.rotate function and crop the result.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - image: The input image as a 2D numpy array.</span>
+<span class="sd">    - angle: The rotation angle in degrees.</span>
+<span class="sd">    - order: The order of the spline (0-5).</span>
+<span class="sd">    - iterations: The number of iterations to apply the rotation.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - Rotated image as a 2D numpy array.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rotated_image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iterations</span><span class="p">):</span>
+        <span class="n">rotated_image</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span>
+            <span class="n">rotated_image</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">reshape</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;constant&quot;</span><span class="p">,</span> <span class="n">cval</span><span class="o">=</span><span class="mi">0</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">rotated_image</span>
+</pre></div>
+</div>
+</section>
+<section id="benchmark-and-display-rotation">
+<h2>Benchmark and Display Rotation<a class="headerlink" href="#benchmark-and-display-rotation" title="Link to this heading">#</a></h2>
+<p>Perform a benchmark of the rotation operation for both SplineOps and SciPy libraries and display images.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">benchmark_and_display_rotation</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">degree</span><span class="p">,</span> <span class="n">iterations</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Perform a benchmark of the rotation operation for both splineops and SciPy libraries and display images.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - image: The input image as a 2D numpy array.</span>
+<span class="sd">    - angle: The rotation angle in degrees.</span>
+<span class="sd">    - degree: The degree of the spline (0-7).</span>
+<span class="sd">    - iterations: The number of iterations to apply the rotation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">start_time_custom</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">custom_rotated_and_cropped_splineops</span> <span class="o">=</span> <span class="n">rotate_image_and_crop_splineops</span><span class="p">(</span>
+        <span class="n">image</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="n">degree</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;zero&quot;</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="n">iterations</span>
+    <span class="p">)</span>
+    <span class="n">time_custom</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time_custom</span>
+
+    <span class="n">start_time_scipy</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">scipy_rotated_and_cropped</span> <span class="o">=</span> <span class="n">rotate_image_and_crop_scipy</span><span class="p">(</span>
+        <span class="n">image</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">degree</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="n">iterations</span>
+    <span class="p">)</span>
+    <span class="n">time_scipy</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time_scipy</span>
+
+    <span class="n">bounds</span> <span class="o">=</span> <span class="n">calculate_inscribed_rectangle_bounds_from_image</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+    <span class="n">image_cropped</span> <span class="o">=</span> <span class="n">crop_image_to_bounds</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">bounds</span><span class="p">)</span>
+    <span class="n">custom_rotated_and_cropped_splineops</span> <span class="o">=</span> <span class="n">crop_image_to_bounds</span><span class="p">(</span>
+        <span class="n">custom_rotated_and_cropped_splineops</span><span class="p">,</span> <span class="n">bounds</span>
+    <span class="p">)</span>
+    <span class="n">scipy_rotated_and_cropped</span> <span class="o">=</span> <span class="n">crop_image_to_bounds</span><span class="p">(</span><span class="n">scipy_rotated_and_cropped</span><span class="p">,</span> <span class="n">bounds</span><span class="p">)</span>
+
+    <span class="n">snr_splineops</span> <span class="o">=</span> <span class="n">calculate_snr</span><span class="p">(</span><span class="n">image_cropped</span><span class="p">,</span> <span class="n">custom_rotated_and_cropped_splineops</span><span class="p">)</span>
+    <span class="n">snr_scipy</span> <span class="o">=</span> <span class="n">calculate_snr</span><span class="p">(</span><span class="n">image_cropped</span><span class="p">,</span> <span class="n">scipy_rotated_and_cropped</span><span class="p">)</span>
+    <span class="n">mse_splineops</span> <span class="o">=</span> <span class="n">calculate_mse</span><span class="p">(</span><span class="n">image_cropped</span><span class="p">,</span> <span class="n">custom_rotated_and_cropped_splineops</span><span class="p">)</span>
+    <span class="n">mse_scipy</span> <span class="o">=</span> <span class="n">calculate_mse</span><span class="p">(</span><span class="n">image_cropped</span><span class="p">,</span> <span class="n">scipy_rotated_and_cropped</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_cropped</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Original Image&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">custom_rotated_and_cropped_splineops</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;SplineOps Rotated</span><span class="se">\n</span><span class="s2">SNR: </span><span class="si">{</span><span class="n">snr_splineops</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">dB, MSE: </span><span class="si">{</span><span class="n">mse_splineops</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="se">\n</span><span class="s2">Angle: </span><span class="si">{</span><span class="n">angle</span><span class="si">}</span><span class="s2">°, Iter: </span><span class="si">{</span><span class="n">iterations</span><span class="si">}</span><span class="se">\n</span><span class="s2">Degree: </span><span class="si">{</span><span class="n">degree</span><span class="si">}</span><span class="s2">, Time: </span><span class="si">{</span><span class="n">time_custom</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">s&quot;</span>
+    <span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">scipy_rotated_and_cropped</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;SciPy Rotated</span><span class="se">\n</span><span class="s2">SNR: </span><span class="si">{</span><span class="n">snr_scipy</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">dB, MSE: </span><span class="si">{</span><span class="n">mse_scipy</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="se">\n</span><span class="s2">Angle: </span><span class="si">{</span><span class="n">angle</span><span class="si">}</span><span class="s2">°, Iter: </span><span class="si">{</span><span class="n">iterations</span><span class="si">}</span><span class="se">\n</span><span class="s2">Degree: </span><span class="si">{</span><span class="n">degree</span><span class="si">}</span><span class="s2">, Time: </span><span class="si">{</span><span class="n">time_scipy</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">s&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="load-image-and-perform-rotations">
+<h2>Load Image and Perform Rotations<a class="headerlink" href="#load-image-and-perform-rotations" title="Link to this heading">#</a></h2>
+<p>Load the image, perform rotations using both SplineOps and SciPy methods, and display the results.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Image size, Rotation angle and iterations and degree of spline interpolation</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">angle</span> <span class="o">=</span> <span class="mi">72</span>  <span class="c1"># 72</span>
+<span class="n">iterations</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># 5</span>
+<span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># Load and resize the ascent image</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">ascent</span><span class="p">()</span>
+<span class="n">image_resized</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span>
+    <span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="n">size</span> <span class="o">/</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span> <span class="o">/</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">order</span><span class="o">=</span><span class="n">degree</span>
+<span class="p">)</span>
+
+<span class="c1"># Convert to float32</span>
+<span class="n">image_resized</span> <span class="o">=</span> <span class="n">image_resized</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+<span class="c1"># Benchmark and display rotation results</span>
+<span class="n">benchmark_and_display_rotation</span><span class="p">(</span><span class="n">image_resized</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">degree</span><span class="p">,</span> <span class="n">iterations</span><span class="p">)</span>
+</pre></div>
+</div>
+<img src="../_images/sphx_glr_2D_Image_Rotation_Performance_001.png" srcset="../_images/sphx_glr_2D_Image_Rotation_Performance_001.png" alt="Original Image, SplineOps Rotated SNR: 20.34dB, MSE: 6.30e-02 Angle: 72°, Iter: 5 Degree: 3, Time: 2.57s, SciPy Rotated SNR: 20.34dB, MSE: 6.30e-02 Angle: 72°, Iter: 5 Degree: 3, Time: 0.63s" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 3.893 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2d-image-rotation-performance-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/4cd4148ab9085f576574bcc7cbad5213/2D_Image_Rotation_Performance.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">2D_Image_Rotation_Performance.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/ca58b677f85454971f2abc624ec815ac/2D_Image_Rotation_Performance.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">2D_Image_Rotation_Performance.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-zip docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/8bacb6fcc70e3b9432fc3a9cb9a3453e/2D_Image_Rotation_Performance.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">2D_Image_Rotation_Performance.zip</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2D_Image_Rotation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2D Image Rotation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="First_Steps_Tensorspline_Api.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">First Steps With the TensorSpline API</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-inscribed-rectangle-bounds-from-image">Calculate Inscribed Rectangle Bounds from Image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crop-image-to-bounds">Crop Image to Bounds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-signal-to-noise-ratio-snr">Calculate Signal-to-Noise Ratio (SNR)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-mean-squared-error-mse">Calculate Mean Squared Error (MSE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotate-image-and-crop-using-splineops">Rotate Image and Crop using SplineOps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotate-image-and-crop-using-scipy">Rotate Image and Crop using SciPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-and-display-rotation">Benchmark and Display Rotation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-image-and-perform-rotations">Load Image and Perform Rotations</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/Biomedical-Imaging-Group/splineops/edit/main/docs/auto_examples/2D_Image_Rotation_Performance.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/auto_examples/2D_Image_Rotation_Performance.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Biomedical Imaging Group.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
