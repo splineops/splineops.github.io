@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2024-08-12T12:28:58.062236Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2024-08-12T12:28:44.025730Z",
+      "mimetype": null,
+      "name": "2D_Image_Rotation.ipynb",
+      "path": "auto_examples/2D_Image_Rotation.ipynb",
+      "size": 6124,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2024-08-12T12:28:58.062236Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2024-08-12T12:28:47.849457Z",
+      "mimetype": null,
+      "name": "2D_Image_Rotation_Performance.ipynb",
+      "path": "auto_examples/2D_Image_Rotation_Performance.ipynb",
+      "size": 12972,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2024-08-12T12:28:58.070263Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2024-08-12T12:28:48.359132Z",
+      "mimetype": null,
+      "name": "First_Steps_Tensorspline_Api.ipynb",
+      "path": "auto_examples/First_Steps_Tensorspline_Api.ipynb",
+      "size": 5600,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2024-08-12T12:28:58.058236Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2024-08-12T12:28:58.094299Z",
+  "mimetype": null,
+  "name": "auto_examples",
+  "path": "auto_examples",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

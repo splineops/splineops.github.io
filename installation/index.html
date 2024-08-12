@@ -30,12 +30,14 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=ca70e7f1" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2d17d8c7" />
+    <link rel="stylesheet" type="text/css" href="../_static/_static/css/custom.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -47,6 +49,7 @@
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/jupyterlite_sphinx.js?v=d6bdf5f8"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'installation/index';</script>
     <link rel="icon" href="../_static/logo.ico"/>
@@ -533,7 +536,7 @@ tox<span class="w"> </span>-e<span class="w"> </span>py312
 <section id="building-the-documentation">
 <h3>Building the documentation<a class="headerlink" href="#building-the-documentation" title="Link to this heading">#</a></h3>
 <p>To build the Sphinx documentation, install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> doc dependencies</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>pooch<span class="w"> </span>IPython<span class="w"> </span>sphinx<span class="w"> </span>sphinx-gallery<span class="w"> </span>sphinx-prompt<span class="w"> </span>sphinx-copybutton<span class="w"> </span>sphinx-remove-toctrees<span class="w"> </span>pydata-sphinx-theme<span class="w"> </span>myst-parser
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>pooch<span class="w"> </span>IPython<span class="w"> </span>sphinx<span class="w"> </span>sphinx-gallery<span class="w"> </span>sphinx-prompt<span class="w"> </span>sphinx-copybutton<span class="w"> </span>sphinx-remove-toctrees<span class="w"> </span>pydata-sphinx-theme<span class="w"> </span>myst-parser<span class="w"> </span>jupyterlite-sphinx<span class="w"> </span>jupyterlite-pyodide-kernel
 </pre></div>
 </div>
 <p>Install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> doc environment in editable mode</p>
