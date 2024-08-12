@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:21.231** total execution time for 3 files **from all galleries**:
+**00:21.040** total execution time for 3 files **from all galleries**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples_2D_Image_Rotation.py` (``..\examples\2D_Image_Rotation.py``)
-     - 00:17.171
+     - 00:16.1000
      - 0.0
    * - :ref:`sphx_glr_auto_examples_2D_Image_Rotation_Performance.py` (``..\examples\2D_Image_Rotation_Performance.py``)
-     - 00:03.665
+     - 00:03.658
      - 0.0
    * - :ref:`sphx_glr_auto_examples_First_Steps_Tensorspline_Api.py` (``..\examples\First_Steps_Tensorspline_Api.py``)
-     - 00:00.395
+     - 00:00.383
      - 0.0
