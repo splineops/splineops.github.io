@@ -52,7 +52,7 @@
     <link rel="icon" href="_static/logo.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="User Guide" href="user-guide/index.html" />
+    <link rel="next" title="Installation" href="installation/index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -149,8 +149,15 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="user-guide/index.html">
-    User Guide
+  <a class="nav-link nav-internal" href="installation/index.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="gpu-support/index.html">
+    GPU Support
   </a>
 </li>
 
@@ -287,8 +294,15 @@ document.write(`
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="user-guide/index.html">
-    User Guide
+  <a class="nav-link nav-internal" href="installation/index.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="gpu-support/index.html">
+    GPU Support
   </a>
 </li>
 
@@ -389,75 +403,42 @@ document.write(`
                   
   <section id="splineops-spline-operations">
 <h1>SplineOps - Spline Operations<a class="headerlink" href="#splineops-spline-operations" title="Link to this heading">#</a></h1>
-<div id="hero" style="display: flex; align-items: center; justify-content: space-between;">
-    <div id="hero-left" style="flex: 1; margin-right: 20px;">
-        <p>
-            <strong>SplineOps</strong> is an innovative open-source software library dedicated to high-performance signal processing with splines. Designed to empower researchers, engineers, and data scientists, SplineOps excels in processing large datasets efficiently, supporting both CPU and GPU computations across a wide spectrum of applications. From data smoothing to complex multidimensional data interpolation, SplineOps offers precision and speed for your computational needs.
-        </p>
-        <p>
-            By embracing modern computing architectures and seamless integration with the PyData ecosystem, SplineOps enhances computational pipelines, enabling users to focus on forward-thinking innovation and data exploration.
-        </p>
-    </div>
-    <div id="hero-right" style="flex: 1;">
-        <img src="_static/waveletbird_full.jpeg" alt="Main Feature of SplineOps" style="max-width: 100%; height: auto;">
-    </div>
-</div><div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="user-guide/index.html">User Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="user-guide/installation.html">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user-guide/cupy_guide.html">GPU Interoperability using CuPy</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api/index.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/index.html#indices-and-tables">Indices and tables</a></li>
-</ul>
-</li>
-</ul>
-</div>
+<p><strong>SplineOps</strong> is an innovative open-source software library dedicated to high-performance signal processing with splines. Designed to empower researchers, engineers, and data scientists, SplineOps excels in processing large datasets efficiently, supporting both CPU and GPU computations across a wide spectrum of applications. From data smoothing to complex multidimensional data interpolation, SplineOps offers precision and speed for your computational needs.</p>
+<p>By embracing modern computing architectures and seamless integration with the PyData ecosystem, SplineOps enhances computational pipelines, enabling users to focus on forward-thinking innovation and data exploration.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/waveletbird_full.jpeg"><img alt="Main Feature of SplineOps" src="_images/waveletbird_full.jpeg" style="width: 576.8000000000001px; height: 460.40000000000003px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Different representations of spline functions and their derivatives</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="key-features-capabilities">
 <h1>Key Features &amp; Capabilities<a class="headerlink" href="#key-features-capabilities" title="Link to this heading">#</a></h1>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-3 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none sd-border-0 docutils">
-<div class="sd-card-body docutils">
-<figure class="align-default">
-<img alt="_images/feature_01.jpg" class="no-scaled-link" src="_images/feature_01.jpg" style="width: 195.0px; height: 180.0px;" />
+<ul class="simple">
+<li><p><strong>Optimized Performance</strong>: Engineered for optimal efficiency, leveraging both CPU and GPU architectures to handle large-scale signal data sets swiftly and effectively.</p></li>
+<li><p><strong>Precision and Flexibility</strong>: Advanced capabilities for precise, high-degree spline interpolations across multiple dimensions, ensuring versatile and powerful data manipulation.</p></li>
+<li><p><strong>Scalability and Extensibility</strong>: Designed with scalability in mind, SplineOps is straightforward to use and can be effortlessly expanded to incorporate new functionalities tailored to specific applications.</p></li>
+</ul>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/feature_01.jpg"><img alt="Key Feature Illustration" src="_images/feature_01.jpg" style="width: 468.0px; height: 432.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">General B-Spline formula</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
 </figure>
-<p style="text-align: center;">
-<strong> Optimized Performance </strong> <br/>
-Engineered for optimal efficiency, leveraging both CPU and GPU architectures to handle large-scale signal data sets swiftly and effectively.
-</p></div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none sd-border-0 docutils">
-<div class="sd-card-body docutils">
-<figure class="align-default">
-<img alt="_images/feature_02.jpg" class="no-scaled-link" src="_images/feature_02.jpg" style="width: 148.75px; height: 206.75px;" />
-</figure>
-<p style="text-align: center;">
-<strong> Precision and Flexibility </strong> <br/>
-Advanced capabilities for precise, high-degree spline interpolations across multiple dimensions, ensuring versatile and powerful data manipulation.
-</p></div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none sd-border-0 docutils">
-<div class="sd-card-body docutils">
-<figure class="align-default">
-<img alt="_images/feature_03.jpg" class="no-scaled-link" src="_images/feature_03.jpg" style="width: 225.0px; height: 180.0px;" />
-</figure>
-<p style="text-align: center;">
-<strong> Scalability and Extensibility </strong> <br/>
-Designed with scalability in mind, SplineOps is straightforward to use and can be effortlessly expanded to incorporate new functionalities tailored to specific applications.
-</p></div>
-</div>
-</div>
-</div>
+</section>
+<section id="contents">
+<h1>Contents<a class="headerlink" href="#contents" title="Link to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu-support/index.html">GPU Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
 </div>
 </section>
 
@@ -472,11 +453,11 @@ Designed with scalability in mind, SplineOps is straightforward to use and can b
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="user-guide/index.html"
+       href="installation/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">User Guide</p>
+        <p class="prev-next-title">Installation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -500,6 +481,7 @@ Designed with scalability in mind, SplineOps is straightforward to use and can b
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">SplineOps - Spline Operations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features-capabilities">Key Features &amp; Capabilities</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
 </ul>
 
   </nav></div>
