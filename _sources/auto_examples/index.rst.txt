@@ -14,14 +14,65 @@ Explore the example gallery to see how to use the SplineOps library.
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to create a basic interpolation using the TensorSpline API.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_001_First_Steps_Tensorspline_Api_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_001_First_Steps_Tensorspline_Api.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">First Steps With the TensorSpline API</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to plot the spline bases of the library.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_002_Plotting_Spline_Bases_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_002_Plotting_Spline_Bases.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Plotting Spline Bases</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows current extension modes Finite Support Coefficients and Narrow Mirroring.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_003_Extension_Modes_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_003_Extension_Modes.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Displaying Extension Modes</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="This script demonstrates how to rotate an 2D image being from 0 to 360 degrees using the Tensor Spline Interpolation, with each rotation performed on top of the last rotated image to observe error accumulation.">
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_2D_Image_Rotation_thumb.png
+  .. image:: /auto_examples/images/thumb/sphx_glr_004_2D_Image_Rotation_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_2D_Image_Rotation.py`
+  :ref:`sphx_glr_auto_examples_004_2D_Image_Rotation.py`
 
 .. raw:: html
 
@@ -35,31 +86,14 @@ Explore the example gallery to see how to use the SplineOps library.
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_2D_Image_Rotation_Performance_thumb.png
+  .. image:: /auto_examples/images/thumb/sphx_glr_005_2D_Image_Rotation_Performance_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_2D_Image_Rotation_Performance.py`
+  :ref:`sphx_glr_auto_examples_005_2D_Image_Rotation_Performance.py`
 
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">2D Image Rotation Performance</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to create a basic interpolation using the TensorSpline API.">
-
-.. only:: html
-
-  .. image:: /auto_examples/images/thumb/sphx_glr_First_Steps_Tensorspline_Api_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_auto_examples_First_Steps_Tensorspline_Api.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">First Steps With the TensorSpline API</div>
     </div>
 
 
@@ -73,9 +107,11 @@ Explore the example gallery to see how to use the SplineOps library.
 .. toctree::
    :hidden:
 
-   /auto_examples/2D_Image_Rotation
-   /auto_examples/2D_Image_Rotation_Performance
-   /auto_examples/First_Steps_Tensorspline_Api
+   /auto_examples/001_First_Steps_Tensorspline_Api
+   /auto_examples/002_Plotting_Spline_Bases
+   /auto_examples/003_Extension_Modes
+   /auto_examples/004_2D_Image_Rotation
+   /auto_examples/005_2D_Image_Rotation_Performance
 
 
 .. only:: html

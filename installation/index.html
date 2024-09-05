@@ -442,7 +442,8 @@ document.write(`
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h1>
 <section id="splineops-spline-operations">
 <h2>SplineOps: Spline Operations<a class="headerlink" href="#splineops-spline-operations" title="Link to this heading">#</a></h2>
-<p>SplineOps is a Python-based N-dimensional signal processing library with support for GPU computing.</p>
+<p>SplineOps is a Python-based N-dimensional signal processing library with
+support for GPU computing.</p>
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
 <p>Install minimal dependencies in a dedicated environment
@@ -452,7 +453,8 @@ document.write(`
 mamba<span class="w"> </span>activate<span class="w"> </span>myenv
 </pre></div>
 </div>
-<p>Make sure you have the conda-forge channel added to your conda configuration. If not, you can add it using</p>
+<p>Make sure you have the conda-forge channel added to your conda configuration.
+If not, you can add it using</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>conda-forge
 </pre></div>
 </div>
@@ -467,7 +469,8 @@ A wheel is needed and can be obtained from the source (see Packaging below)</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>splineops
 </pre></div>
 </div>
-<p>To run the examples, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">pooch</span></code> (for built-in image datasets) and <code class="docutils literal notranslate"><span class="pre">IPython</span></code> (for Python UI widgets) will also be required.</p>
+<p>To run the examples, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">pooch</span></code> (for built-in image datasets)
+and <code class="docutils literal notranslate"><span class="pre">IPython</span></code> (for Python UI widgets) will also be required.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>matplotlib<span class="w"> </span>pooch<span class="w"> </span>IPython
 </pre></div>
 </div>
@@ -536,7 +539,7 @@ tox<span class="w"> </span>-e<span class="w"> </span>py312
 <section id="building-the-documentation">
 <h3>Building the documentation<a class="headerlink" href="#building-the-documentation" title="Link to this heading">#</a></h3>
 <p>To build the Sphinx documentation, install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> doc dependencies</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>pooch<span class="w"> </span>IPython<span class="w"> </span>sphinx<span class="w"> </span>sphinx-gallery<span class="w"> </span>sphinx-prompt<span class="w"> </span>sphinx-copybutton<span class="w"> </span>sphinx-remove-toctrees<span class="w"> </span>pydata-sphinx-theme<span class="w"> </span>myst-parser<span class="w"> </span>jupyterlite-sphinx<span class="w"> </span>jupyterlite-pyodide-kernel
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>pooch<span class="w"> </span>IPython<span class="w"> </span>sphinx<span class="w"> </span>sphinx-gallery<span class="w"> </span>sphinx-prompt<span class="w"> </span>sphinx-copybutton<span class="w"> </span>sphinx-remove-toctrees<span class="w"> </span>pydata-sphinx-theme<span class="w"> </span>sphinx-design<span class="w"> </span>myst-parser<span class="w"> </span>jupyterlite-sphinx<span class="w"> </span>jupyterlite-pyodide-kernel
 </pre></div>
 </div>
 <p>Install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> doc environment in editable mode</p>
@@ -548,7 +551,8 @@ tox<span class="w"> </span>-e<span class="w"> </span>py312
 make<span class="w"> </span>html
 </pre></div>
 </div>
-<p>Then, go to <code class="docutils literal notranslate"><span class="pre">docs/_build/html</span></code> and open <code class="docutils literal notranslate"><span class="pre">index.html</span></code> to navigate the documentation locally.</p>
+<p>Then, go to <code class="docutils literal notranslate"><span class="pre">docs/_build/html</span></code> and open <code class="docutils literal notranslate"><span class="pre">index.html</span></code> to navigate the
+documentation locally.</p>
 </section>
 </section>
 </section>

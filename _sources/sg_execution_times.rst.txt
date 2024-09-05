@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:20.727** total execution time for 3 files **from all galleries**:
+**00:15.811** total execution time for 5 files **from all galleries**:
 
 .. container::
 
@@ -32,12 +32,18 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_auto_examples_2D_Image_Rotation.py` (``..\examples\2D_Image_Rotation.py``)
-     - 00:16.693
+   * - :ref:`sphx_glr_auto_examples_004_2D_Image_Rotation.py` (``../examples/004_2D_Image_Rotation.py``)
+     - 00:12.813
      - 0.0
-   * - :ref:`sphx_glr_auto_examples_2D_Image_Rotation_Performance.py` (``..\examples\2D_Image_Rotation_Performance.py``)
-     - 00:03.656
+   * - :ref:`sphx_glr_auto_examples_005_2D_Image_Rotation_Performance.py` (``../examples/005_2D_Image_Rotation_Performance.py``)
+     - 00:02.242
      - 0.0
-   * - :ref:`sphx_glr_auto_examples_First_Steps_Tensorspline_Api.py` (``..\examples\First_Steps_Tensorspline_Api.py``)
-     - 00:00.379
+   * - :ref:`sphx_glr_auto_examples_001_First_Steps_Tensorspline_Api.py` (``../examples/001_First_Steps_Tensorspline_Api.py``)
+     - 00:00.306
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_002_Plotting_Spline_Bases.py` (``../examples/002_Plotting_Spline_Bases.py``)
+     - 00:00.272
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_003_Extension_Modes.py` (``../examples/003_Extension_Modes.py``)
+     - 00:00.178
      - 0.0
