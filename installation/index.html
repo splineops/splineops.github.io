@@ -553,6 +553,9 @@ make<span class="w"> </span>html
 </div>
 <p>Then, go to <code class="docutils literal notranslate"><span class="pre">docs/_build/html</span></code> and open <code class="docutils literal notranslate"><span class="pre">index.html</span></code> to navigate the
 documentation locally.</p>
+<p>If you want to make a “clean” build, go to <code class="docutils literal notranslate"><span class="pre">docs</span></code> and manually delete the folders <code class="docutils literal notranslate"><span class="pre">_build</span></code>, <code class="docutils literal notranslate"><span class="pre">auto_examples</span></code>, <code class="docutils literal notranslate"><span class="pre">gen_modules</span></code>, <code class="docutils literal notranslate"><span class="pre">notebooks_jupyterlite</span></code> and the file <code class="docutils literal notranslate"><span class="pre">sg_execution_times.rst</span></code>.
+Why isn’t this done automatically? Because Sphinx optimizes speed and removes redundant tasks, by not re-creating the examples’ notebooks if they have already been created.
+If you for example modify the name of the examples’ files, you will have to delete at least the folder <code class="docutils literal notranslate"><span class="pre">auto_examples</span></code>. Otherwise, the old examples’ files will not have disappeared automatically, and Sphinx will raise an internal warning referring to a toctree.</p>
 </section>
 </section>
 </section>
