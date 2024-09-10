@@ -204,7 +204,7 @@ Plot for Keys basis function
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.380 seconds)
+   **Total running time of the script:** (0 minutes 0.340 seconds)
 
 
 .. _sphx_glr_download_auto_examples_002_spline_bases.py:
