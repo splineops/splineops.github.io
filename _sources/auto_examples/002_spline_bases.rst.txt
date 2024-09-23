@@ -204,7 +204,7 @@ Plot for Keys basis function
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.272 seconds)
+   **Total running time of the script:** (0 minutes 0.266 seconds)
 
 
 .. _sphx_glr_download_auto_examples_002_spline_bases.py:
@@ -216,7 +216,7 @@ Plot for Keys basis function
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/splineops/splineops/main?urlpath=lab/tree/notebooks_binder/auto_examples/002_spline_bases.ipynb
+        :target: https://mybinder.org/v2/gh/splineops/splineops.github.io/main?urlpath=lab/tree/notebooks_binder/auto_examples/002_spline_bases.ipynb
         :alt: Launch binder
         :width: 150 px
 

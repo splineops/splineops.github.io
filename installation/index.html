@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Installation &#8212; splineops 0.0.1 documentation</title>
+    <title>Installation &#8212; splineops Documentation</title>
   
   
   
@@ -44,7 +44,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="../_static/documentation_options.js?v=8da8c241"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -136,8 +136,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="splineops 0.0.1 documentation - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="splineops 0.0.1 documentation - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="splineops Documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="splineops Documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -442,10 +442,11 @@ document.write(`
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h1>
 <section id="splineops-spline-operations">
 <h2>SplineOps: Spline Operations<a class="headerlink" href="#splineops-spline-operations" title="Link to this heading">#</a></h2>
-<p>SplineOps is a Python-based N-dimensional signal processing library with
+<p><code class="docutils literal notranslate"><span class="pre">splineops</span></code> is a Python-based N-dimensional signal processing library with
 support for GPU computing.</p>
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
+<p>You need at least <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.10</span></code> to install <code class="docutils literal notranslate"><span class="pre">splineops</span></code>, and ideally <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.12</span></code>. <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.11</span></code> is also compatible.</p>
 <p>Install minimal dependencies in a dedicated environment
 (shown here using <a class="reference external" href="https://mamba.readthedocs.io/en/latest/">Mamba</a>).</p>
 <p>Create and activate your environment</p>
@@ -519,7 +520,7 @@ tox<span class="w"> </span>-e<span class="w"> </span>py312
 </section>
 <section id="gpu-compatibility">
 <h3>GPU compatibility<a class="headerlink" href="#gpu-compatibility" title="Link to this heading">#</a></h3>
-<p>You can use SplineOps with <code class="docutils literal notranslate"><span class="pre">cupy</span></code>. If a specific CUDA version is required do</p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">splineops</span></code> with <code class="docutils literal notranslate"><span class="pre">cupy</span></code>. If a specific CUDA version is required do</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>cupy<span class="w"> </span>cuda-version<span class="o">=</span><span class="m">12</span>.3
 </pre></div>
 </div>
@@ -649,7 +650,7 @@ If you for example modify the name of the examples’ files, you will have to de
 
   <p class="copyright">
     
-      © Copyright 2021 - 2024, SplineOps developers (BSD 3-Clause License).
+      © Copyright 2024, SplineOps authors.
       <br/>
     
   </p>
