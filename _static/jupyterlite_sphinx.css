@@ -11,7 +11,8 @@
   border-color: #d8d8d8;
   position: relative;
   cursor: pointer;
-  box-shadow: 0 0.2rem 0.5rem #d8d8d8;
+  box-shadow: 0 0.2rem 0.5rem rgba(19, 23, 29, 0.4);
+  margin-bottom: 1.5rem;
 }
 
 .jupyterlite_sphinx_iframe {
@@ -32,10 +33,11 @@
   text-align: center;
   white-space: nowrap;
   background-color: #f7dc1e;
+  color: #13171d;
   border-radius: 50%;
   font-family: vibur;
   font-size: larger;
-  box-shadow: 0 0.2rem 0.5rem #d8d8d8;
+  box-shadow: 0 0.2rem 0.5rem rgba(19, 23, 29, 0.4);
 }
 
 .try_examples_outer_container {
@@ -64,14 +66,5 @@
 @keyframes l13 {
   100% {
     transform: rotate(1turn);
-  }
-}
-
-/* we do not want the button to show on smaller screens (phones), as clicking
- * can download a lot of data. 480px is a commonly used breakpoint to identify if a device is a smartphone.  */
-
-@media (max-width: 480px), (max-height: 480px) {
-  div.try_examples_button_container {
-    display: none;
   }
 }

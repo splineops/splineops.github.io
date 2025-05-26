@@ -16,22 +16,24 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=ca70e7f1" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=8ee2c72c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
@@ -39,26 +41,28 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/_static/css/custom.css" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=8da8c241"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/documentation_options.js?v=29d04658"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/jupyterlite_sphinx.js?v=d6bdf5f8"></script>
+    <script src="../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'installation/index';</script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="GPU Support" href="../gpu-support/index.html" />
-    <link rel="prev" title="SplineOps - Spline Operations" href="../index.html" />
+    <link rel="next" title="User Guide" href="../user-guide/index.html" />
+    <link rel="prev" title="SplineOps—Spline Operations" href="../index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -74,19 +78,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -94,7 +87,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -102,8 +94,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -136,9 +128,11 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="splineops Documentation - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="splineops Documentation - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt=""/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
   
+  
+    <p class="title logo__title">SplineOps</p>
   
 </a></div>
     
@@ -160,8 +154,8 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../gpu-support/index.html">
-    GPU Support
+  <a class="nav-link nav-internal" href="../user-guide/index.html">
+    User Guide
   </a>
 </li>
 
@@ -190,29 +184,21 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -253,15 +239,11 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
@@ -280,7 +262,8 @@ document.write(`
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -303,8 +286,8 @@ document.write(`
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../gpu-support/index.html">
-    GPU Support
+  <a class="nav-link nav-internal" href="../user-guide/index.html">
+    User Guide
   </a>
 </li>
 
@@ -334,15 +317,11 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -391,9 +370,14 @@ document.write(`
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -411,8 +395,6 @@ document.write(`
       
         <div class="header-article-item">
 
-
-
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
@@ -421,7 +403,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">Installation</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Installation</span></li>
   </ul>
 </nav>
 </div>
@@ -442,59 +424,61 @@ document.write(`
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h1>
 <section id="splineops-spline-operations">
 <h2>SplineOps: Spline Operations<a class="headerlink" href="#splineops-spline-operations" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">splineops</span></code> is a Python-based N-dimensional signal processing library with
+<p><code class="docutils literal notranslate"><span class="pre">splineops</span></code> is a Python-based N-dimensional signal-processing library with
 support for GPU computing.</p>
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
-<p>You need at least <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.10</span></code> to install <code class="docutils literal notranslate"><span class="pre">splineops</span></code>, and ideally <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.12</span></code>. <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.11</span></code> is also compatible.</p>
-<p>Install minimal dependencies in a dedicated environment
-(shown here using <a class="reference external" href="https://mamba.readthedocs.io/en/latest/">Mamba</a>).</p>
-<p>Create and activate your environment</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>myenv
-mamba<span class="w"> </span>activate<span class="w"> </span>myenv
+<p>You need at least <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.10</span></code> to install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> (ideally <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.12</span></code>). <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.11</span></code> is also compatible.</p>
+<p>Create and activate your Python virtual environment (on Unix or MacOS)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>/path/to/splineops-env
+<span class="nb">source</span><span class="w"> </span>/path/to/splineops-env/bin/activate
 </pre></div>
 </div>
-<p>Make sure you have the conda-forge channel added to your conda configuration.
-If not, you can add it using</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>conda-forge
+<p>On Windows,</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>/path/to/splineops-env
+./path/to/splineops-env/Scripts/Activate
 </pre></div>
 </div>
-<p>Minimal requirements:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy
+<p>To deactivate the environment use</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>deactivate
 </pre></div>
 </div>
-<p>Simply install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> using <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p>
+<p>Minimal requirement:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy
+</pre></div>
+</div>
+<p>Simply install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> using <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>splineops
 </pre></div>
 </div>
-<p>To run the examples, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">pooch</span></code> (for built-in image datasets)
-and <code class="docutils literal notranslate"><span class="pre">IPython</span></code> (for Python UI widgets) will also be required.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>matplotlib<span class="w"> </span>pooch<span class="w"> </span>IPython
+<p>To run the examples, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>
+and <code class="docutils literal notranslate"><span class="pre">IPython</span></code> (for Python UI widgets) will also be required</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>matplotlib<span class="w"> </span>IPython
 </pre></div>
 </div>
 </section>
 <section id="formatting-type-checking-and-testing">
-<h3>Formatting, type checking, and testing<a class="headerlink" href="#formatting-type-checking-and-testing" title="Link to this heading">#</a></h3>
-<p>Formatting and type checking is performed using the following commands</p>
+<h3>Formatting, Type Checking, and Testing<a class="headerlink" href="#formatting-type-checking-and-testing" title="Link to this heading">#</a></h3>
+<p>Formatting and type checking is performed as</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tox<span class="w"> </span>-e<span class="w"> </span>format
 tox<span class="w"> </span>-e<span class="w"> </span><span class="nb">type</span>
 </pre></div>
 </div>
-<p>Testing requires a valid environment with a supported Python version and <code class="docutils literal notranslate"><span class="pre">tox</span></code>
-installed. Tests can be run with the following command (automatic pick of the
-Python version).</p>
+<p>The testing requires a valid environment with a supported Python version and <code class="docutils literal notranslate"><span class="pre">tox</span></code>
+installed. The tests are run with the following command (automatic pick of the
+Python version)</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tox
 </pre></div>
 </div>
-<p>Tests can also be launched for a specific Python version (must match the one
+<p>The tests can also be launched for a specific Python version (must match the one
 installed in the active environment)</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tox<span class="w"> </span>-e<span class="w"> </span>py310
 tox<span class="w"> </span>-e<span class="w"> </span>py311
 tox<span class="w"> </span>-e<span class="w"> </span>py312
 </pre></div>
 </div>
-<p><em>IMPORTANT:</em> Since CI is not implemented, make sure to run, pass and/or fix
-<code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">-e</span> <span class="pre">format</span></code>, <code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">-e</span> <span class="pre">type</span></code> and <code class="docutils literal notranslate"><span class="pre">tox</span></code>.</p>
+<p><em>IMPORTANT:</em> Since CI is not implemented, make sure to run, pass, and/or fix
+<code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">-e</span> <span class="pre">format</span></code>, <code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">-e</span> <span class="pre">type</span></code>, and <code class="docutils literal notranslate"><span class="pre">tox</span></code>.</p>
 </section>
 <section id="packaging">
 <h3>Packaging<a class="headerlink" href="#packaging" title="Link to this heading">#</a></h3>
@@ -508,9 +492,9 @@ tox<span class="w"> </span>-e<span class="w"> </span>py312
 </div>
 </section>
 <section id="development-environment">
-<h3>Development environment<a class="headerlink" href="#development-environment" title="Link to this heading">#</a></h3>
+<h3>Development Environment<a class="headerlink" href="#development-environment" title="Link to this heading">#</a></h3>
 <p>Easiest way to install dev dependencies</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>pooch<span class="w"> </span>IPython<span class="w"> </span>black<span class="w"> </span>mypy<span class="w"> </span>tox<span class="w"> </span>hatch<span class="w"> </span>pytest
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>IPython<span class="w"> </span>black<span class="w"> </span>mypy<span class="w"> </span>tox<span class="w"> </span>hatch<span class="w"> </span>pytest
 </pre></div>
 </div>
 <p>Install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> development environment in editable mode</p>
@@ -519,9 +503,9 @@ tox<span class="w"> </span>-e<span class="w"> </span>py312
 </div>
 </section>
 <section id="gpu-compatibility">
-<h3>GPU compatibility<a class="headerlink" href="#gpu-compatibility" title="Link to this heading">#</a></h3>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">splineops</span></code> with <code class="docutils literal notranslate"><span class="pre">cupy</span></code>. If a specific CUDA version is required do</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>cupy<span class="w"> </span>cuda-version<span class="o">=</span><span class="m">12</span>.3
+<h3>GPU Compatibility<a class="headerlink" href="#gpu-compatibility" title="Link to this heading">#</a></h3>
+<p>You can benefit of <code class="docutils literal notranslate"><span class="pre">cupy</span></code> to deploy <code class="docutils literal notranslate"><span class="pre">splineops</span></code>. If a specific CUDA version is required, do</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>cupy<span class="w"> </span>cuda-version<span class="o">=</span><span class="m">12</span>.3
 </pre></div>
 </div>
 <p>Install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> cupy development environment in editable mode</p>
@@ -530,14 +514,14 @@ tox<span class="w"> </span>-e<span class="w"> </span>py312
 </div>
 <p>Potential other CuPy libraries
 (<a class="reference external" href="https://docs.cupy.dev/en/stable/install.html#installing-cupy-from-conda-forge">CuPy from Conda-Forge</a>)</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>cupy<span class="w"> </span>cutensor<span class="w"> </span>cudnn<span class="w"> </span>nccl
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>cupy<span class="w"> </span>cutensor<span class="w"> </span>cudnn<span class="w"> </span>nccl
 </pre></div>
 </div>
 </section>
-<section id="building-the-documentation">
-<h3>Building the documentation<a class="headerlink" href="#building-the-documentation" title="Link to this heading">#</a></h3>
+<section id="building-of-the-documentation">
+<h3>Building of the Documentation<a class="headerlink" href="#building-of-the-documentation" title="Link to this heading">#</a></h3>
 <p>To build the Sphinx documentation, install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> doc dependencies</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>pooch<span class="w"> </span>IPython<span class="w"> </span>sphinx<span class="w"> </span>sphinx-gallery<span class="w"> </span>sphinx-prompt<span class="w"> </span>sphinx-copybutton<span class="w"> </span>sphinx-remove-toctrees<span class="w"> </span>pydata-sphinx-theme<span class="w"> </span>sphinx-design<span class="w"> </span>myst-parser<span class="w"> </span>jupyterlite-sphinx<span class="w"> </span>jupyterlite-pyodide-kernel
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>IPython<span class="w"> </span>sphinx<span class="w"> </span>sphinx-gallery<span class="w"> </span>sphinx-prompt<span class="w"> </span>sphinx-copybutton<span class="w"> </span>sphinx-remove-toctrees<span class="w"> </span>pydata-sphinx-theme<span class="w"> </span>sphinx-design<span class="w"> </span>myst-parser<span class="w"> </span>jupyterlite-sphinx<span class="w"> </span>jupyterlite-pyodide-kernel
 </pre></div>
 </div>
 <p>Install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> doc environment in editable mode</p>
@@ -551,9 +535,12 @@ make<span class="w"> </span>html
 </div>
 <p>Then, go to <code class="docutils literal notranslate"><span class="pre">docs/_build/html</span></code> and open <code class="docutils literal notranslate"><span class="pre">index.html</span></code> to navigate the
 documentation locally.</p>
-<p>If you want to make a “clean” build, go to <code class="docutils literal notranslate"><span class="pre">docs</span></code> and manually delete the folders <code class="docutils literal notranslate"><span class="pre">_build</span></code>, <code class="docutils literal notranslate"><span class="pre">auto_examples</span></code>, <code class="docutils literal notranslate"><span class="pre">gen_modules</span></code>, <code class="docutils literal notranslate"><span class="pre">notebooks_jupyterlite</span></code> and the file <code class="docutils literal notranslate"><span class="pre">sg_execution_times.rst</span></code>.
-Why isn’t this done automatically? Because Sphinx optimizes speed and removes redundant tasks, by not re-creating the examples’ notebooks if they have already been created.
-If you for example modify the name of the examples’ files, you will have to delete at least the folder <code class="docutils literal notranslate"><span class="pre">auto_examples</span></code>. Otherwise, the old examples’ files will not have disappeared automatically, and Sphinx will raise an internal warning referring to a toctree.</p>
+<section id="troubleshooting">
+<h4>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h4>
+<p>If you want to make a “clean” build, go to <code class="docutils literal notranslate"><span class="pre">docs</span></code> and manually delete the folders <code class="docutils literal notranslate"><span class="pre">_build</span></code>, <code class="docutils literal notranslate"><span class="pre">auto_examples</span></code>, <code class="docutils literal notranslate"><span class="pre">gen_modules</span></code>, <code class="docutils literal notranslate"><span class="pre">notebooks_jupyterlite</span></code>, and the file <code class="docutils literal notranslate"><span class="pre">sg_execution_times.rst</span></code>.
+Why isn’t this done automatically? Because Sphinx optimizes speed and removes redundant tasks, by not re-creating the examples notebooks if they have already been created.
+If you, for example, modify the name of the examples files, you will have to delete at least the folder <code class="docutils literal notranslate"><span class="pre">auto_examples</span></code>. Otherwise, the old examples files will not have disappeared automatically and Sphinx will raise an internal warning referring to a toctree.</p>
+</section>
 </section>
 </section>
 </section>
@@ -574,15 +561,15 @@ If you for example modify the name of the examples’ files, you will have to de
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">SplineOps - Spline Operations</p>
+        <p class="prev-next-title">SplineOps—Spline Operations</p>
       </div>
     </a>
     <a class="right-next"
-       href="../gpu-support/index.html"
+       href="../user-guide/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">GPU Support</p>
+        <p class="prev-next-title">User Guide</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -593,7 +580,8 @@ If you for example modify the name of the examples’ files, you will have to de
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -606,24 +594,27 @@ If you for example modify the name of the examples’ files, you will have to de
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops-spline-operations">SplineOps: Spline Operations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-type-checking-and-testing">Formatting, type checking, and testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-type-checking-and-testing">Formatting, Type Checking, and Testing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packaging">Packaging</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-environment">Development environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu-compatibility">GPU compatibility</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-documentation">Building the documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-environment">Development Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu-compatibility">GPU Compatibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-of-the-documentation">Building of the Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
-
-  <div class="tocsection sourcelink">
-    <a href="../_sources/installation/index.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/installation/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
 
 </div></div>
               
@@ -638,8 +629,8 @@ If you for example modify the name of the examples’ files, you will have to de
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -650,7 +641,7 @@ If you for example modify the name of the examples’ files, you will have to de
 
   <p class="copyright">
     
-      © Copyright 2024, SplineOps authors.
+      © Copyright 2025, SplineOps authors.
       <br/>
     
   </p>
@@ -659,7 +650,7 @@ If you for example modify the name of the examples’ files, you will have to de
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     <br/>
   </p>
 </div>
@@ -672,7 +663,8 @@ If you for example modify the name of the examples’ files, you will have to de
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
 </p></div>
       
     </div>

@@ -15,22 +15,24 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
-    <link rel="stylesheet" type="text/css" href="_static/jupyterlite_sphinx.css?v=ca70e7f1" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyterlite_sphinx.css?v=8ee2c72c" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
@@ -38,17 +40,18 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/_static/css/custom.css" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=8da8c241"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/documentation_options.js?v=29d04658"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/jupyterlite_sphinx.js?v=d6bdf5f8"></script>
+    <script src="_static/jupyterlite_sphinx.js?v=96e329c5"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
     <link rel="icon" href="_static/logo.ico"/>
@@ -56,6 +59,7 @@
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -71,19 +75,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -91,7 +84,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -99,8 +91,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -133,9 +125,11 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="splineops Documentation - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="splineops Documentation - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
   
+  
+    <p class="title logo__title">SplineOps</p>
   
 </a></div>
     
@@ -157,8 +151,8 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="gpu-support/index.html">
-    GPU Support
+  <a class="nav-link nav-internal" href="user-guide/index.html">
+    User Guide
   </a>
 </li>
 
@@ -187,29 +181,21 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -250,15 +236,11 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
@@ -275,7 +257,8 @@ document.write(`
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -298,8 +281,8 @@ document.write(`
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="gpu-support/index.html">
-    GPU Support
+  <a class="nav-link nav-internal" href="user-guide/index.html">
+    User Guide
   </a>
 </li>
 
@@ -329,15 +312,11 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -377,9 +356,14 @@ document.write(`
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -403,16 +387,66 @@ document.write(`
 
 <div class="genindex-jumpbox">
  <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
+ | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
+ | <a href="#W"><strong>W</strong></a>
  
 </div>
 <h2 id="_">_</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/tensorspline.html#splineops.interpolate.tensorspline.TensorSpline.__init__">__init__() (splineops.interpolate.tensorspline.TensorSpline method)</a>
+      <li><a href="api/01_interpolate.html#splineops.interpolate.tensorspline.TensorSpline.__call__">__call__() (splineops.interpolate.tensorspline.TensorSpline method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.__init__">__init__() (splineops.differentiate.differentials.differentials method)</a>
+
+      <ul>
+        <li><a href="api/01_interpolate.html#splineops.interpolate.tensorspline.TensorSpline.__init__">(splineops.interpolate.tensorspline.TensorSpline method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.abstractwavelets.AbstractWavelets">AbstractWavelets (class in splineops.decompose.wavelets.abstractwavelets)</a>
+</li>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.abstractwavelets.AbstractWavelets.analysis">analysis() (splineops.decompose.wavelets.abstractwavelets.AbstractWavelets method)</a>
+</li>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.abstractwavelets.AbstractWavelets.analysis1">analysis1() (splineops.decompose.wavelets.abstractwavelets.AbstractWavelets method)</a>
+
+      <ul>
+        <li><a href="api/07_decompose.html#splineops.decompose.wavelets.haar.HaarWavelets.analysis1">(splineops.decompose.wavelets.haar.HaarWavelets method)</a>
+</li>
+        <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewavelets.SplineWavelets.analysis1">(splineops.decompose.wavelets.splinewavelets.SplineWavelets method)</a>
+</li>
+        <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewaveletstool.SplineWaveletsTool.analysis1">(splineops.decompose.wavelets.splinewaveletstool.SplineWaveletsTool method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.anti_symmetric_fir_mirror_on_bounds">anti_symmetric_fir_mirror_on_bounds() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials">differentials (class in splineops.differentiate.differentials)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -420,7 +454,125 @@ document.write(`
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/tensorspline.html#splineops.interpolate.tensorspline.TensorSpline.eval">eval() (splineops.interpolate.tensorspline.TensorSpline method)</a>
+      <li><a href="api/01_interpolate.html#splineops.interpolate.tensorspline.TensorSpline.eval">eval() (splineops.interpolate.tensorspline.TensorSpline method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/07_decompose.html#splineops.decompose.pyramid.expand_1d">expand_1d() (in module splineops.decompose.pyramid)</a>
+</li>
+      <li><a href="api/07_decompose.html#splineops.decompose.pyramid.expand_2d">expand_2d() (in module splineops.decompose.pyramid)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewavelets.SplineWavelets.filter">filter (splineops.decompose.wavelets.splinewavelets.SplineWavelets attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewaveletstool.SplineWaveletsTool.filters">filters (splineops.decompose.wavelets.splinewaveletstool.SplineWaveletsTool attribute)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.FLT_EPSILON">FLT_EPSILON (splineops.differentiate.differentials.differentials attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.get_cross_hessian">get_cross_hessian() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.abstractwavelets.AbstractWavelets.get_documentation">get_documentation() (splineops.decompose.wavelets.abstractwavelets.AbstractWavelets method)</a>
+
+      <ul>
+        <li><a href="api/07_decompose.html#splineops.decompose.wavelets.haar.HaarWavelets.get_documentation">(splineops.decompose.wavelets.haar.HaarWavelets method)</a>
+</li>
+        <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewavelets.Spline1Wavelets.get_documentation">(splineops.decompose.wavelets.splinewavelets.Spline1Wavelets method)</a>
+</li>
+        <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewavelets.Spline3Wavelets.get_documentation">(splineops.decompose.wavelets.splinewavelets.Spline3Wavelets method)</a>
+</li>
+        <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewavelets.Spline5Wavelets.get_documentation">(splineops.decompose.wavelets.splinewavelets.Spline5Wavelets method)</a>
+</li>
+        <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewavelets.SplineWavelets.get_documentation">(splineops.decompose.wavelets.splinewavelets.SplineWavelets method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.get_gradient">get_gradient() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.get_hessian">get_hessian() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.get_horizontal_gradient">get_horizontal_gradient() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.get_horizontal_hessian">get_horizontal_hessian() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.get_initial_anti_causal_coefficient_mirror_on_bounds">get_initial_anti_causal_coefficient_mirror_on_bounds() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.get_initial_causal_coefficient_mirror_on_bounds">get_initial_causal_coefficient_mirror_on_bounds() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.abstractwavelets.AbstractWavelets.get_name">get_name() (splineops.decompose.wavelets.abstractwavelets.AbstractWavelets method)</a>
+
+      <ul>
+        <li><a href="api/07_decompose.html#splineops.decompose.wavelets.haar.HaarWavelets.get_name">(splineops.decompose.wavelets.haar.HaarWavelets method)</a>
+</li>
+        <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewavelets.Spline1Wavelets.get_name">(splineops.decompose.wavelets.splinewavelets.Spline1Wavelets method)</a>
+</li>
+        <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewavelets.Spline3Wavelets.get_name">(splineops.decompose.wavelets.splinewavelets.Spline3Wavelets method)</a>
+</li>
+        <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewavelets.Spline5Wavelets.get_name">(splineops.decompose.wavelets.splinewavelets.Spline5Wavelets method)</a>
+</li>
+        <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewavelets.SplineWavelets.get_name">(splineops.decompose.wavelets.splinewavelets.SplineWavelets method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/07_decompose.html#splineops.decompose.pyramid.get_pyramid_filter">get_pyramid_filter() (in module splineops.decompose.pyramid)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.get_spline_interpolation_coefficients">get_spline_interpolation_coefficients() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.get_vertical_gradient">get_vertical_gradient() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.get_vertical_hessian">get_vertical_hessian() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.GRADIENT_DIRECTION">GRADIENT_DIRECTION (splineops.differentiate.differentials.differentials attribute)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.gradient_direction">gradient_direction() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.GRADIENT_MAGNITUDE">GRADIENT_MAGNITUDE (splineops.differentiate.differentials.differentials attribute)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.gradient_magnitude">gradient_magnitude() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.haar.HaarWavelets">HaarWavelets (class in splineops.decompose.wavelets.haar)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.HESSIAN_ORIENTATION">HESSIAN_ORIENTATION (splineops.differentiate.differentials.differentials attribute)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.hessian_orientation">hessian_orientation() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.LAPLACIAN">LAPLACIAN (splineops.differentiate.differentials.differentials attribute)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.laplacian">laplacian() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.LARGEST_HESSIAN">LARGEST_HESSIAN (splineops.differentiate.differentials.differentials attribute)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.largest_hessian">largest_hessian() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+      <li><a href="api/04_regress.html#splineops.regress.sparsification.linear_spline">linear_spline() (in module splineops.regress.sparsification)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -428,24 +580,194 @@ document.write(`
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewaveletstool.merge_mirror_1d">merge_mirror_1d() (in module splineops.decompose.wavelets.splinewaveletstool)</a>
+</li>
       <li>
     module
 
       <ul>
-        <li><a href="api/tensorspline.html#module-splineops.interpolate.tensorspline">splineops.interpolate.tensorspline</a>
+        <li><a href="api/07_decompose.html#module-splineops.decompose.pyramid">splineops.decompose.pyramid</a>
+</li>
+        <li><a href="api/07_decompose.html#module-splineops.decompose.wavelets.abstractwavelets">splineops.decompose.wavelets.abstractwavelets</a>
+</li>
+        <li><a href="api/07_decompose.html#module-splineops.decompose.wavelets.haar">splineops.decompose.wavelets.haar</a>
+</li>
+        <li><a href="api/07_decompose.html#module-splineops.decompose.wavelets.splinewavelets">splineops.decompose.wavelets.splinewavelets</a>
+</li>
+        <li><a href="api/07_decompose.html#module-splineops.decompose.wavelets.splinewaveletstool">splineops.decompose.wavelets.splinewaveletstool</a>
+</li>
+        <li><a href="api/06_differentiate.html#module-splineops.differentiate.differentials">splineops.differentiate.differentials</a>
+</li>
+        <li><a href="api/01_interpolate.html#module-splineops.interpolate.tensorspline">splineops.interpolate.tensorspline</a>
+</li>
+        <li><a href="api/04_regress.html#module-splineops.regress.sparsification">splineops.regress.sparsification</a>
+</li>
+        <li><a href="api/02_resize.html#module-splineops.resize.resize">splineops.resize.resize</a>
+</li>
+        <li><a href="api/03_rotate.html#module-splineops.rotate.rotate">splineops.rotate.rotate</a>
+</li>
+        <li><a href="api/05_smooth.html#module-splineops.smooth.smoothing_spline">splineops.smooth.smoothing_spline</a>
 </li>
       </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/05_smooth.html#splineops.smooth.smoothing_spline.periodize">periodize() (in module splineops.smooth.smoothing_spline)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.haar.HaarWavelets.q">q (splineops.decompose.wavelets.haar.HaarWavelets attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/05_smooth.html#splineops.smooth.smoothing_spline.recursive_smoothing_spline">recursive_smoothing_spline() (in module splineops.smooth.smoothing_spline)</a>
+</li>
+      <li><a href="api/07_decompose.html#splineops.decompose.pyramid.reduce_1d">reduce_1d() (in module splineops.decompose.pyramid)</a>
+</li>
+      <li><a href="api/07_decompose.html#splineops.decompose.pyramid.reduce_2d">reduce_2d() (in module splineops.decompose.pyramid)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/02_resize.html#splineops.resize.resize.resize">resize() (in module splineops.resize.resize)</a>
+</li>
+      <li><a href="api/03_rotate.html#splineops.rotate.rotate.rotate">rotate() (in module splineops.rotate.rotate)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.run">run() (splineops.differentiate.differentials.differentials method)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.abstractwavelets.AbstractWavelets.scales">scales (splineops.decompose.wavelets.abstractwavelets.AbstractWavelets attribute)</a>
+</li>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.abstractwavelets.AbstractWavelets.set_scale">set_scale() (splineops.decompose.wavelets.abstractwavelets.AbstractWavelets method)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.SMALLEST_HESSIAN">SMALLEST_HESSIAN (splineops.differentiate.differentials.differentials attribute)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.smallest_hessian">smallest_hessian() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+      <li><a href="api/05_smooth.html#splineops.smooth.smoothing_spline.smoothing_spline">smoothing_spline() (in module splineops.smooth.smoothing_spline)</a>
+</li>
+      <li><a href="api/05_smooth.html#splineops.smooth.smoothing_spline.smoothing_spline_nd">smoothing_spline_nd() (in module splineops.smooth.smoothing_spline)</a>
+</li>
+      <li><a href="api/04_regress.html#splineops.regress.sparsification.sparsest_interpolant">sparsest_interpolant() (in module splineops.regress.sparsification)</a>
+</li>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewavelets.Spline1Wavelets">Spline1Wavelets (class in splineops.decompose.wavelets.splinewavelets)</a>
+</li>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewavelets.Spline3Wavelets">Spline3Wavelets (class in splineops.decompose.wavelets.splinewavelets)</a>
+</li>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewavelets.Spline5Wavelets">Spline5Wavelets (class in splineops.decompose.wavelets.splinewavelets)</a>
+</li>
+      <li>
+    splineops.decompose.pyramid
+
+      <ul>
+        <li><a href="api/07_decompose.html#module-splineops.decompose.pyramid">module</a>
+</li>
+      </ul></li>
+      <li>
+    splineops.decompose.wavelets.abstractwavelets
+
+      <ul>
+        <li><a href="api/07_decompose.html#module-splineops.decompose.wavelets.abstractwavelets">module</a>
+</li>
+      </ul></li>
+      <li>
+    splineops.decompose.wavelets.haar
+
+      <ul>
+        <li><a href="api/07_decompose.html#module-splineops.decompose.wavelets.haar">module</a>
+</li>
+      </ul></li>
+      <li>
+    splineops.decompose.wavelets.splinewavelets
+
+      <ul>
+        <li><a href="api/07_decompose.html#module-splineops.decompose.wavelets.splinewavelets">module</a>
+</li>
+      </ul></li>
+      <li>
+    splineops.decompose.wavelets.splinewaveletstool
+
+      <ul>
+        <li><a href="api/07_decompose.html#module-splineops.decompose.wavelets.splinewaveletstool">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    splineops.differentiate.differentials
+
+      <ul>
+        <li><a href="api/06_differentiate.html#module-splineops.differentiate.differentials">module</a>
+</li>
+      </ul></li>
       <li>
     splineops.interpolate.tensorspline
 
       <ul>
-        <li><a href="api/tensorspline.html#module-splineops.interpolate.tensorspline">module</a>
+        <li><a href="api/01_interpolate.html#module-splineops.interpolate.tensorspline">module</a>
+</li>
+      </ul></li>
+      <li>
+    splineops.regress.sparsification
+
+      <ul>
+        <li><a href="api/04_regress.html#module-splineops.regress.sparsification">module</a>
+</li>
+      </ul></li>
+      <li>
+    splineops.resize.resize
+
+      <ul>
+        <li><a href="api/02_resize.html#module-splineops.resize.resize">module</a>
+</li>
+      </ul></li>
+      <li>
+    splineops.rotate.rotate
+
+      <ul>
+        <li><a href="api/03_rotate.html#module-splineops.rotate.rotate">module</a>
+</li>
+      </ul></li>
+      <li>
+    splineops.smooth.smoothing_spline
+
+      <ul>
+        <li><a href="api/05_smooth.html#module-splineops.smooth.smoothing_spline">module</a>
+</li>
+      </ul></li>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewavelets.SplineWavelets">SplineWavelets (class in splineops.decompose.wavelets.splinewavelets)</a>
+</li>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewaveletstool.SplineWaveletsTool">SplineWaveletsTool (class in splineops.decompose.wavelets.splinewaveletstool)</a>
+</li>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewaveletstool.split_mirror_1d">split_mirror_1d() (in module splineops.decompose.wavelets.splinewaveletstool)</a>
+</li>
+      <li><a href="api/06_differentiate.html#splineops.differentiate.differentials.differentials.symmetric_fir_mirror_on_bounds">symmetric_fir_mirror_on_bounds() (splineops.differentiate.differentials.differentials method)</a>
+</li>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.abstractwavelets.AbstractWavelets.synthesis">synthesis() (splineops.decompose.wavelets.abstractwavelets.AbstractWavelets method)</a>
+</li>
+      <li><a href="api/07_decompose.html#splineops.decompose.wavelets.abstractwavelets.AbstractWavelets.synthesis1">synthesis1() (splineops.decompose.wavelets.abstractwavelets.AbstractWavelets method)</a>
+
+      <ul>
+        <li><a href="api/07_decompose.html#splineops.decompose.wavelets.haar.HaarWavelets.synthesis1">(splineops.decompose.wavelets.haar.HaarWavelets method)</a>
+</li>
+        <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewavelets.SplineWavelets.synthesis1">(splineops.decompose.wavelets.splinewavelets.SplineWavelets method)</a>
+</li>
+        <li><a href="api/07_decompose.html#splineops.decompose.wavelets.splinewaveletstool.SplineWaveletsTool.synthesis1">(splineops.decompose.wavelets.splinewaveletstool.SplineWaveletsTool method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -454,7 +776,15 @@ document.write(`
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/tensorspline.html#splineops.interpolate.tensorspline.TensorSpline">TensorSpline (class in splineops.interpolate.tensorspline)</a>
+      <li><a href="api/01_interpolate.html#splineops.interpolate.tensorspline.TensorSpline">TensorSpline (class in splineops.interpolate.tensorspline)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/07_decompose.html#splineops.decompose.pyramid.wrap_reflect">wrap_reflect() (in module splineops.decompose.pyramid)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -488,8 +818,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -500,7 +830,7 @@ document.write(`
 
   <p class="copyright">
     
-      © Copyright 2024, SplineOps authors.
+      © Copyright 2025, SplineOps authors.
       <br/>
     
   </p>
@@ -509,7 +839,7 @@ document.write(`
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     <br/>
   </p>
 </div>
@@ -522,7 +852,8 @@ document.write(`
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
 </p></div>
       
     </div>
