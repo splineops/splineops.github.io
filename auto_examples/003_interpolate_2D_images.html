@@ -37,7 +37,7 @@
 <!-- Pre-loaded scripts that we'll load fully later -->
 <link as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" rel="preload"/>
 <link as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" rel="preload"/>
-<script src="../_static/documentation_options.js?v=29d04658"></script>
+<script src="../_static/documentation_options.js?v=c1cae59a"></script>
 <script src="../_static/doctools.js?v=9bcbadda"></script>
 <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
 <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -543,7 +543,7 @@ We convert it to grayscale in [0, 1].</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Scipy Resized Zoom: (0.25, 0.25), Time: 0.0063s" class="sphx-glr-single-img" src="../_images/sphx_glr_003_interpolate_2D_images_002.png" srcset="../_images/sphx_glr_003_interpolate_2D_images_002.png"/></section>
+<img alt="Scipy Resized Zoom: (0.25, 0.25), Time: 0.0074s" class="sphx-glr-single-img" src="../_images/sphx_glr_003_interpolate_2D_images_002.png" srcset="../_images/sphx_glr_003_interpolate_2D_images_002.png"/></section>
 <section id="recovered-image">
 <h3>Recovered Image<a class="headerlink" href="#recovered-image" title="Link to this heading">#</a></h3>
 <p>We plot the recovered image after a reversing of the zoom factors.</p>
@@ -594,7 +594,7 @@ We convert it to grayscale in [0, 1].</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Interpolation Resized Zoom: (0.25, 0.25), Time: 0.0141s" class="sphx-glr-single-img" src="../_images/sphx_glr_003_interpolate_2D_images_005.png" srcset="../_images/sphx_glr_003_interpolate_2D_images_005.png"/></section>
+<img alt="Interpolation Resized Zoom: (0.25, 0.25), Time: 0.0156s" class="sphx-glr-single-img" src="../_images/sphx_glr_003_interpolate_2D_images_005.png" srcset="../_images/sphx_glr_003_interpolate_2D_images_005.png"/></section>
 <section id="id2">
 <h3>Recovered Image<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>We plot the recovered image after a reversing of the zoom factors.</p>
@@ -731,7 +731,7 @@ MSE (TensorSpline vs. resize()) recovered: 1.133506e-30
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Least-squares Resized Zoom: (0.25, 0.25), Time: 1.1893s" class="sphx-glr-single-img" src="../_images/sphx_glr_003_interpolate_2D_images_009.png" srcset="../_images/sphx_glr_003_interpolate_2D_images_009.png"/></section>
+<img alt="Least-squares Resized Zoom: (0.25, 0.25), Time: 1.1927s" class="sphx-glr-single-img" src="../_images/sphx_glr_003_interpolate_2D_images_009.png" srcset="../_images/sphx_glr_003_interpolate_2D_images_009.png"/></section>
 <section id="id5">
 <h3>Recovered Image<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>We plot the recovered image after reversing zoom factors.</p>
@@ -782,7 +782,7 @@ MSE (TensorSpline vs. resize()) recovered: 1.133506e-30
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Oblique Resized Zoom: (0.25, 0.25), Time: 0.9369s" class="sphx-glr-single-img" src="../_images/sphx_glr_003_interpolate_2D_images_012.png" srcset="../_images/sphx_glr_003_interpolate_2D_images_012.png"/></section>
+<img alt="Oblique Resized Zoom: (0.25, 0.25), Time: 0.9280s" class="sphx-glr-single-img" src="../_images/sphx_glr_003_interpolate_2D_images_012.png" srcset="../_images/sphx_glr_003_interpolate_2D_images_012.png"/></section>
 <section id="id8">
 <h3>Recovered Image<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>We plot the recovered image after a reversing of the zoom factors.</p>
@@ -829,10 +829,10 @@ MSE (TensorSpline vs. resize()) recovered: 1.133506e-30
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Method                      SNR (dB)              MSE     Time (s)
 ------------------------------------------------------------------
-SciPy Interpolation            20.62         8.45e-04       0.0063
-Trivial Interpolation          20.62         8.45e-04       0.0141
-Least-Squares Projection       22.52         5.45e-04       1.1893
-Oblique Projection             22.44         5.55e-04       0.9369
+SciPy Interpolation            20.62         8.45e-04       0.0074
+Trivial Interpolation          20.62         8.45e-04       0.0156
+Least-Squares Projection       22.52         5.45e-04       1.1927
+Oblique Projection             22.44         5.55e-04       0.9280
 </pre></div>
 </div>
 </section>
@@ -902,7 +902,7 @@ the same values as the trivial interpolation.</p>
 <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="Trivial, Least-Squares, and Oblique interpolation SNR vs. Reduction Factor" class="sphx-glr-single-img" src="../_images/sphx_glr_003_interpolate_2D_images_015.png" srcset="../_images/sphx_glr_003_interpolate_2D_images_015.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 12.003 seconds)</p>
+<img alt="Trivial, Least-Squares, and Oblique interpolation SNR vs. Reduction Factor" class="sphx-glr-single-img" src="../_images/sphx_glr_003_interpolate_2D_images_015.png" srcset="../_images/sphx_glr_003_interpolate_2D_images_015.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 11.734 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>
