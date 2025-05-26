@@ -240,7 +240,7 @@ Gradient Magnitude
 
  .. code-block:: none
 
-    Completed in 1.19 seconds
+    Completed in 1.21 seconds
 
 
 
@@ -283,7 +283,7 @@ Gradient Direction
 
  .. code-block:: none
 
-    Completed in 1.20 seconds
+    Completed in 1.25 seconds
 
 
 
@@ -349,7 +349,7 @@ Largest Hessian
 
  .. code-block:: none
 
-    Completed in 2.63 seconds
+    Completed in 2.65 seconds
 
 
 
@@ -382,7 +382,7 @@ Smallest Hessian
 
  .. code-block:: none
 
-    Completed in 2.59 seconds
+    Completed in 2.65 seconds
 
 
 
@@ -420,7 +420,7 @@ Hessian Orientation
 
  .. code-block:: none
 
-    Completed in 2.63 seconds
+    Completed in 2.64 seconds
 
 
 
@@ -428,7 +428,7 @@ Hessian Orientation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 14.020 seconds)
+   **Total running time of the script:** (0 minutes 13.606 seconds)
 
 
 .. _sphx_glr_download_auto_examples_008_differentiate_module.py:
