@@ -128,8 +128,8 @@ The sequence is then denoised and oversampled by a factor m using the optimal fr
 
     Number of measurements is 256, oversampling factor is 4.
     mSNR (SNR at the mid-point) of the measured sequence      is 20.00 dB.
-    mSNR improvement of the denoised sequence                 is 8.09 dB.
-    mSNR improvement of the denoised and oversampled sequence is 7.96 dB.
+    mSNR improvement of the denoised sequence                 is 7.33 dB.
+    mSNR improvement of the denoised and oversampled sequence is 7.16 dB.
 
 
 
@@ -308,7 +308,7 @@ To avoid excessive computations, the verification is performed over one realizat
 
 
 .. image-sg:: /auto_examples/images/sphx_glr_007_smooth_module_004.png
-   :alt: Original Cameraman Image, Noisy Image (SNR=10.00 dB), Smoothed Image (SNR=16.24 dB)
+   :alt: Original Cameraman Image, Noisy Image (SNR=9.99 dB), Smoothed Image (SNR=16.27 dB)
    :srcset: /auto_examples/images/sphx_glr_007_smooth_module_004.png
    :class: sphx-glr-single-img
 
@@ -318,9 +318,9 @@ To avoid excessive computations, the verification is performed over one realizat
  .. code-block:: none
 
     Cameraman Image:
-    SNR of noisy image: 10.00 dB
-    SNR after smoothing: 16.24 dB
-    SNR improvement: 6.23 dB
+    SNR of noisy image: 9.99 dB
+    SNR after smoothing: 16.27 dB
+    SNR improvement: 6.28 dB
 
 
 
@@ -403,7 +403,7 @@ Sinusoid 3D Data
 
 
 .. image-sg:: /auto_examples/images/sphx_glr_007_smooth_module_005.png
-   :alt: Clean Volume Slice, Noisy Slice (SNR=10.02 dB), Smoothed Slice (SNR=24.78 dB)
+   :alt: Clean Volume Slice, Noisy Slice (SNR=10.01 dB), Smoothed Slice (SNR=24.92 dB)
    :srcset: /auto_examples/images/sphx_glr_007_smooth_module_005.png
    :class: sphx-glr-single-img
 
@@ -413,9 +413,9 @@ Sinusoid 3D Data
  .. code-block:: none
 
     3D Sinusoid Volume:
-    SNR of noisy volume: 10.02 dB
-    SNR after smoothing: 24.78 dB
-    SNR improvement: 14.76 dB
+    SNR of noisy volume: 10.01 dB
+    SNR after smoothing: 24.92 dB
+    SNR improvement: 14.92 dB
 
 
 
@@ -487,9 +487,9 @@ Recursive Smoothing Spline
 
 
     Mean Squared Error (MSE) between Recursive and Fractional Smoothing Spline:
-    λ=0.005: MSE = 0.000032
-    λ=0.050: MSE = 0.001067
-    λ=0.100: MSE = 0.003688
+    λ=0.005: MSE = 0.000038
+    λ=0.050: MSE = 0.001012
+    λ=0.100: MSE = 0.003458
 
 
 
@@ -497,7 +497,7 @@ Recursive Smoothing Spline
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 4.731 seconds)
+   **Total running time of the script:** (0 minutes 4.692 seconds)
 
 
 .. _sphx_glr_download_auto_examples_007_smooth_module.py:
