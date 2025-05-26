@@ -398,7 +398,7 @@ We plot the resized image with SciPy interpolation.
 
 
 .. image-sg:: /auto_examples/images/sphx_glr_003_interpolate_2D_images_002.png
-   :alt: Scipy Resized Zoom: (0.25, 0.25), Time: 0.0072s
+   :alt: Scipy Resized Zoom: (0.25, 0.25), Time: 0.0062s
    :srcset: /auto_examples/images/sphx_glr_003_interpolate_2D_images_002.png
    :class: sphx-glr-single-img
 
@@ -520,7 +520,7 @@ We plot the resized image with standard interpolation.
 
 
 .. image-sg:: /auto_examples/images/sphx_glr_003_interpolate_2D_images_005.png
-   :alt: Interpolation Resized Zoom: (0.25, 0.25), Time: 0.0140s
+   :alt: Interpolation Resized Zoom: (0.25, 0.25), Time: 0.0139s
    :srcset: /auto_examples/images/sphx_glr_003_interpolate_2D_images_005.png
    :class: sphx-glr-single-img
 
@@ -764,7 +764,7 @@ We plot the resized image with least-squares projection method.
 
 
 .. image-sg:: /auto_examples/images/sphx_glr_003_interpolate_2D_images_009.png
-   :alt: Least-squares Resized Zoom: (0.25, 0.25), Time: 1.1968s
+   :alt: Least-squares Resized Zoom: (0.25, 0.25), Time: 1.1855s
    :srcset: /auto_examples/images/sphx_glr_003_interpolate_2D_images_009.png
    :class: sphx-glr-single-img
 
@@ -886,7 +886,7 @@ We plot the resized image with the oblique-projection method.
 
 
 .. image-sg:: /auto_examples/images/sphx_glr_003_interpolate_2D_images_012.png
-   :alt: Oblique Resized Zoom: (0.25, 0.25), Time: 0.9379s
+   :alt: Oblique Resized Zoom: (0.25, 0.25), Time: 0.9352s
    :srcset: /auto_examples/images/sphx_glr_003_interpolate_2D_images_012.png
    :class: sphx-glr-single-img
 
@@ -998,10 +998,10 @@ We print the SNR, MSE, and timing data for each method.
 
     Method                      SNR (dB)              MSE     Time (s)
     ------------------------------------------------------------------
-    SciPy Interpolation            20.62         8.45e-04       0.0072
-    Trivial Interpolation          20.62         8.45e-04       0.0140
-    Least-Squares Projection       22.52         5.45e-04       1.1968
-    Oblique Projection             22.44         5.55e-04       0.9379
+    SciPy Interpolation            20.62         8.45e-04       0.0062
+    Trivial Interpolation          20.62         8.45e-04       0.0139
+    Least-Squares Projection       22.52         5.45e-04       1.1855
+    Oblique Projection             22.44         5.55e-04       0.9352
 
 
 
@@ -1094,7 +1094,7 @@ the same values as the trivial interpolation.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 11.899 seconds)
+   **Total running time of the script:** (1 minutes 12.167 seconds)
 
 
 .. _sphx_glr_download_auto_examples_003_interpolate_2D_images.py:
