@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-13T16:02:59.884399Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-13T16:02:19.763410Z",
+      "mimetype": null,
+      "name": "06_03_3d_volume_smoothing.ipynb",
+      "path": "auto_examples/06_denoise/06_03_3d_volume_smoothing.ipynb",
+      "size": 4066,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-13T16:02:59.884399Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-13T16:02:19.482410Z",
+      "mimetype": null,
+      "name": "06_02_2d_image_smoothing.ipynb",
+      "path": "auto_examples/06_denoise/06_02_2d_image_smoothing.ipynb",
+      "size": 3848,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-13T16:02:59.884399Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-13T16:02:17.438410Z",
+      "mimetype": null,
+      "name": "06_01_1d_fractional_brownian_motion.ipynb",
+      "path": "auto_examples/06_denoise/06_01_1d_fractional_brownian_motion.ipynb",
+      "size": 4082,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-13T16:02:59.884399Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-13T16:02:20.010410Z",
+      "mimetype": null,
+      "name": "06_04_recursive_smoothing_spline.ipynb",
+      "path": "auto_examples/06_denoise/06_04_recursive_smoothing_spline.ipynb",
+      "size": 3159,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-13T16:02:59.884399Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-13T16:02:59.884399Z",
+  "mimetype": null,
+  "name": "06_denoise",
+  "path": "auto_examples/06_denoise",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

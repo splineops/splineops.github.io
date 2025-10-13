@@ -1,0 +1,137 @@
+
+
+.. _sphx_glr_auto_examples_03_resampling_using_2D_interpolation:
+
+.. splineops/examples/03_resampling_using_2d_interpolation/GALLERY_HEADER.rst
+
+Resampling using 2D Samples
+===========================
+
+Examples using the Resize module on 2D samples.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Shrink and re-expand a 2-D RGB image with splineops, then discuss aliasing.">
+
+.. only:: html
+
+  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_01_resize_module_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_01_resize_module.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Resize Module</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 2D images with standard interpolation. Compare them to SciPy zoom. We compute SNR and MSE on a face ROI (not the whole frame) to focus on detail and avoid boundary artifacts.">
+
+.. only:: html
+
+  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_02_standard_interpolation_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_02_standard_interpolation.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Standard Interpolation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 2D images with least-squares projection. Compare them to standard interpolation. We compute SNR and MSE only on a central region to exclude boundary artifacts.">
+
+.. only:: html
+
+  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_03_least-squares_projection_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_03_least-squares_projection.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Least-Squares Projection</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="We construct an A/B corner mix image where, in each 2x2 tile, the top-left pixel comes from image A and the other three come from B. Then we downsample by 0.5 using:">
+
+.. only:: html
+
+  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_04_antialiasing_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_04_antialiasing.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Antialiasing</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 2D images with and oblique projection.">
+
+.. only:: html
+
+  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_05_oblique_projection_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_05_oblique_projection.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Oblique Projection</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A summary of the cost/benefit tradeoff of the three interpolation methods  is provided in this example.">
+
+.. only:: html
+
+  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_06_compare_different_methods_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_06_compare_different_methods.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Compare Different Methods</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/03_resampling_using_2D_interpolation/03_01_resize_module
+   /auto_examples/03_resampling_using_2D_interpolation/03_02_standard_interpolation
+   /auto_examples/03_resampling_using_2D_interpolation/03_03_least-squares_projection
+   /auto_examples/03_resampling_using_2D_interpolation/03_04_antialiasing
+   /auto_examples/03_resampling_using_2D_interpolation/03_05_oblique_projection
+   /auto_examples/03_resampling_using_2D_interpolation/03_06_compare_different_methods
+

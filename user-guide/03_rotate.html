@@ -47,7 +47,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=03f3338f"></script>
+    <script src="../_static/documentation_options.js?v=1dd76d02"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -367,11 +367,11 @@
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_interpolate.html">Interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_interpolate.html">Spline Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Rotate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_regress.html">Regress</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_smooth.html">Smooth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_denoise.html">Denoise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_differentiate.html">Differentiate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_decompose.html">Decompose</a></li>
 </ul>
@@ -516,10 +516,11 @@ dimensions while minimizing artifacts like aliasing. The process asks one to fir
 with the origin, then to apply the appropriate 2D or 3D rotation matrix to the recentered coordinates, followed by a translation of the rotated recentered coordinates
 back to their original reference frame, to compensate for the recentering step, and finally to use spline interpolation to determine the data values at these new positions.</p>
 </section>
-<section id="rotate-example">
-<h2>Rotate Example<a class="headerlink" href="#rotate-example" title="Link to this heading">#</a></h2>
+<section id="rotate-examples">
+<h2>Rotate Examples<a class="headerlink" href="#rotate-examples" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../auto_examples/005_rotate_module.html#sphx-glr-auto-examples-005-rotate-module-py"><span class="std std-ref">Rotate Module</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/04_rotate/04_01_rotate_image.html#sphx-glr-auto-examples-04-rotate-04-01-rotate-image-py"><span class="std std-ref">Rotate Image</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/04_rotate/04_02_rotation_animation.html#sphx-glr-auto-examples-04-rotate-04-02-rotation-animation-py"><span class="std std-ref">Rotation Animation</span></a></p></li>
 </ul>
 </section>
 <section id="references">
@@ -586,7 +587,7 @@ vol. 16, no. 6, pp. 22–38, November 1999.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-rotation">2D Rotation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3D Rotation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation">Interpolation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotate-example">Rotate Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotate-examples">Rotate Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>

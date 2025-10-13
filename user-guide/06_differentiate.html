@@ -47,7 +47,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=03f3338f"></script>
+    <script src="../_static/documentation_options.js?v=1dd76d02"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -60,7 +60,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Decompose" href="07_decompose.html" />
-    <link rel="prev" title="Smooth" href="05_smooth.html" />
+    <link rel="prev" title="Denoise" href="05_denoise.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -367,11 +367,11 @@
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_interpolate.html">Interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_interpolate.html">Spline Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_rotate.html">Rotate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_regress.html">Regress</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_smooth.html">Smooth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_denoise.html">Denoise</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Differentiate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_decompose.html">Decompose</a></li>
 </ul>
@@ -512,10 +512,10 @@ This operation returns the orientation that corresponds to the maximal second de
 its interpolation coefficients. The differential-based computations that we perform are then perfectly consistent with this continuously defined function.
 We finally build the output image by sampling the ideal, continuously defined intermediate result.</p>
 </section>
-<section id="differentiate-example">
-<h2>Differentiate Example<a class="headerlink" href="#differentiate-example" title="Link to this heading">#</a></h2>
+<section id="differentiate-examples">
+<h2>Differentiate Examples<a class="headerlink" href="#differentiate-examples" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../auto_examples/008_differentiate_module.html#sphx-glr-auto-examples-008-differentiate-module-py"><span class="std std-ref">Differentiate Module</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/07_differentiate/07_01_differentiate_module.html#sphx-glr-auto-examples-07-differentiate-07-01-differentiate-module-py"><span class="std std-ref">Differentiate Module</span></a></p></li>
 </ul>
 </section>
 <section id="references">
@@ -547,12 +547,12 @@ SIAM Review, vol. 42, no. 1, pp. 43–67, March 2000.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="05_smooth.html"
+       href="05_denoise.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Smooth</p>
+        <p class="prev-next-title">Denoise</p>
       </div>
     </a>
     <a class="right-next"
@@ -587,7 +587,7 @@ SIAM Review, vol. 42, no. 1, pp. 43–67, March 2000.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-representation">Image Representation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentiation-operations">Differentiation Operations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-details">Implementation Details</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentiate-example">Differentiate Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentiate-examples">Differentiate Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>

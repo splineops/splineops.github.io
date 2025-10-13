@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-13T16:02:59.882399Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-13T16:01:59.237402Z",
+      "mimetype": null,
+      "name": "04_01_rotate_image.ipynb",
+      "path": "auto_examples/04_rotate/04_01_rotate_image.ipynb",
+      "size": 3605,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-13T16:02:59.883399Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-13T16:02:16.929410Z",
+      "mimetype": null,
+      "name": "04_02_rotation_animation.ipynb",
+      "path": "auto_examples/04_rotate/04_02_rotation_animation.ipynb",
+      "size": 6224,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-13T16:02:59.883399Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-13T16:02:59.883399Z",
+  "mimetype": null,
+  "name": "04_rotate",
+  "path": "auto_examples/04_rotate",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

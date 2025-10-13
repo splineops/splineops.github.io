@@ -1,0 +1,84 @@
+
+
+.. _sphx_glr_auto_examples_02_resampling_using_1d_interpolation:
+
+.. splineops/examples/02_resampling_using_1d_interpolation/GALLERY_HEADER.rst
+
+Resampling using 1D Samples
+===========================
+
+Examples using the Resize module on 1D samples.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 1D samples with standard interpolation.">
+
+.. only:: html
+
+  .. image:: /auto_examples/02_resampling_using_1d_interpolation/images/thumb/sphx_glr_02_01_interpolate_1d_samples_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_02_resampling_using_1d_interpolation_02_01_interpolate_1d_samples.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Interpolate 1D samples</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Resample a 1D spline with different sampling rate.">
+
+.. only:: html
+
+  .. image:: /auto_examples/02_resampling_using_1d_interpolation/images/thumb/sphx_glr_02_02_resample_a_1d_spline_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_02_resampling_using_1d_interpolation_02_02_resample_a_1d_spline.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Resample a 1D spline</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Obtain a spline through different methods and compare the results.">
+
+.. only:: html
+
+  .. image:: /auto_examples/02_resampling_using_1d_interpolation/images/thumb/sphx_glr_02_03_compare_different_splines_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_02_resampling_using_1d_interpolation_02_03_compare_different_splines.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Compare different splines</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/02_resampling_using_1d_interpolation/02_01_interpolate_1d_samples
+   /auto_examples/02_resampling_using_1d_interpolation/02_02_resample_a_1d_spline
+   /auto_examples/02_resampling_using_1d_interpolation/02_03_compare_different_splines
+

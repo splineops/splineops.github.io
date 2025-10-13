@@ -1,0 +1,47 @@
+
+
+.. _sphx_glr_auto_examples_05_regress:
+
+.. splineops/examples/05_regress/GALLERY_HEADER.rst
+
+Regress examples
+================
+
+Examples using the Regress module.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="We use the regress module to perform linear regression on a set of 1D points.">
+
+.. only:: html
+
+  .. image:: /auto_examples/05_regress/images/thumb/sphx_glr_05_01_regress_module_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_05_regress_05_01_regress_module.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Regress Module</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/05_regress/05_01_regress_module
+

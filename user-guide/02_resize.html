@@ -47,7 +47,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=03f3338f"></script>
+    <script src="../_static/documentation_options.js?v=1dd76d02"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -60,7 +60,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Rotate" href="03_rotate.html" />
-    <link rel="prev" title="Interpolate" href="01_interpolate.html" />
+    <link rel="prev" title="Spline Interpolation" href="01_interpolate.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -367,11 +367,11 @@
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_interpolate.html">Interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_interpolate.html">Spline Interpolation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Resize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_rotate.html">Rotate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_regress.html">Regress</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_smooth.html">Smooth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_denoise.html">Denoise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_differentiate.html">Differentiate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_decompose.html">Decompose</a></li>
 </ul>
@@ -438,18 +438,21 @@
 <h1>Resize<a class="headerlink" href="#resize" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>The <cite>resize</cite> function in the <cite>splineops</cite> library enables the resizing (scaling) of N-dimensional data arrays through advanced spline-based methods <a class="footnote-reference brackets" href="#id4" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id5" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id6" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</p>
-<p>Three resizing methods are available:</p>
+<p>The <cite>resize</cite> function in the <cite>splineops</cite> library delivers high-performance, high-fidelity resizing for N-dimensional data arrays using advanced spline-based methods <a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</p>
+<p>It offers three distinct modes, each designed for a different balance of speed, accuracy and control:</p>
 <ul class="simple">
-<li><p>Standard Interpolation: Smooth, continuous interpolation.</p></li>
-<li><p>Least-Squares Projection: Optimal resizing with minimal approximation error. Slower than standard interpolation but with better interpolation quality. It requires 64-bit float precision.</p></li>
-<li><p>Oblique Projection: Similar to least-squares projection, with tunable speed at the expense of quality. It works well with with 32-bit float precision.</p></li>
+<li><p>Standard Interpolation: fast and smooth. Ideal for real-time and general-purpose applications. Efficient in memory and compatible with float32 precision.</p></li>
+<li><p>Least-Squares Projection: highest quality. Designed for applications where fidelity matters most (e.g. medical imaging, scientific computing). Optimized for float64 precision.</p></li>
+<li><p>Oblique Projection: the sweet spot. Balances quality and performance, using smart approximations to deliver nearly least-squares quality at interpolation-level speed.</p></li>
 </ul>
-<p>It is recommended to use standard interpolation for most cases; in case higher accuracy is required and float64 precision is used, least-squares projection is recommended.
-Oblique projection provides a finer balance of performance, speed, and accuracy.</p>
+<a class="reference internal image-reference" href="../_images/resizefig01.png"><img alt="../_images/resizefig01.png" class="align-center" src="../_images/resizefig01.png" style="width: 288pt;" />
+</a>
+<p>Each method is built on solid spline theory and engineered for performance in real-world applications. Whether you’re building fast visualizations or precision-critical
+pipelines, <cite>resize</cite> adapts to your needs with consistent, artifact-resistant output and a clean API.</p>
 </section>
 <section id="standard-interpolation">
 <h2>Standard Interpolation<a class="headerlink" href="#standard-interpolation" title="Link to this heading">#</a></h2>
+<p><em>Fast and efficient spline-based interpolation, suitable for most applications.</em></p>
 <p>B-spline interpolation reconstructs a smooth function from samples using a B-spline as basis function.
 The interpolation function is defined as</p>
 <div class="math notranslate nohighlight">
@@ -468,54 +471,135 @@ of a recursive IIR filter to the sequence <span class="math notranslate nohighli
 </section>
 <section id="least-squares-projection">
 <h2>Least-Squares Projection<a class="headerlink" href="#least-squares-projection" title="Link to this heading">#</a></h2>
-<p>Least-squares projection provides an optimal approximation of a function. Instead of direct interpolation,
-the least-squares approach seeks to find the function <span class="math notranslate nohighlight">\(s(x)\)</span> in a spline space <span class="math notranslate nohighlight">\(V_n\)</span> that best approximates a given function <span class="math notranslate nohighlight">\(f(x)\)</span> in the sense of</p>
+<p><em>For applications where quality is paramount. Produces optimal approximations in a spline space, minimizing aliasing and reconstruction error.</em></p>
+<p>Least-squares projection aims to reconstruct a signal by projecting it onto a spline space in a way that minimizes the <span class="math notranslate nohighlight">\(L_2\)</span>
+error between the original signal and its resized version.</p>
+<p>This approach uses two spline families:</p>
+<ul class="simple">
+<li><p>Synthesis spline: defines the space onto which the resized image is reconstructed (e.g., cubic B-spline basis).</p></li>
+<li><p>Analysis spline: used to analyze the input image before projection, typically chosen to be biorthogonal to the synthesis spline to ensure a true orthogonal projection.</p></li>
+</ul>
+<p>Both the analysis and synthesis functions are typically B-splines of the same degree (e.g., degree 3 for cubic splines),
+ensuring that the projection is orthogonal and optimal in the least-squares sense. The interpolation spline is also of the same degree, providing a consistent model throughout.</p>
+<p>The goal is to find the spline function <span class="math notranslate nohighlight">\(s(x)\)</span> in the synthesis space <span class="math notranslate nohighlight">\(V_n\)</span> that best approximates a given input <span class="math notranslate nohighlight">\(f(x)\)</span> by minimizing the squared error:</p>
 <div class="math notranslate nohighlight">
 \[\min_{s \in V_n} \int |f(x) - s(x)|^2 \mathrm{d}x.\]</div>
-<p>The least-squares approximation is obtained by projecting <span class="math notranslate nohighlight">\(f(x)\)</span> onto the space spanned by the basis functions. This projection is given by</p>
+<p>This leads to a projection of the form:</p>
 <div class="math notranslate nohighlight">
 \[s(x) = \sum_k \langle f, \varphi_k \rangle \tilde{\varphi}_k(x),\]</div>
-<p>where</p>
+<p>where:</p>
 <ul class="simple">
-<li><p>the basis functions are <span class="math notranslate nohighlight">\(\varphi_k(x)\)</span> (typically, B-splines);</p></li>
-<li><p>the duals of the basis functions are <span class="math notranslate nohighlight">\(\tilde{\varphi}_k(x)\)</span>, which ensures biorthonormality.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\varphi_k(x)\)</span> are the shifted synthesis splines (e.g., cubic B-splines),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\tilde{\varphi}_k(x)\)</span> are the corresponding analysis functions (their duals),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\langle f, \varphi_k \rangle\)</span> represents inner products with these duals.</p></li>
 </ul>
-<p>This method effectively reduces aliasing and blocking artifacts. It improves image quality, especially for downsampling.</p>
+<p>The biorthonormality condition</p>
+<div class="math notranslate nohighlight">
+\[\langle \tilde{\varphi}_k, \varphi_\ell \rangle = \delta_{k\ell}\]</div>
+<p>ensures that this projection minimizes energy loss. The use of matching spline degrees for both analysis and synthesis (e.g., cubic–cubic)
+ensures an orthogonal projection and yields the best possible approximation in terms of signal-to-noise ratio (SNR).</p>
+<p>This method is especially powerful for:</p>
+<ul class="simple">
+<li><p>downsampling, where aliasing suppression is critical,</p></li>
+<li><p>interpolating scientific or medical data, where signal fidelity matters most,</p></li>
+<li><p>use in invertible pipelines, as the projection preserves information structure well.</p></li>
+</ul>
+<p>While least-squares projection is computationally more intensive and designed for float64 precision, it offers the gold standard in quality
+among the available resizing methods in <cite>splineops</cite>.</p>
 </section>
 <section id="oblique-projection">
 <h2>Oblique Projection<a class="headerlink" href="#oblique-projection" title="Link to this heading">#</a></h2>
-<p>Oblique projection is a generalization of least-squares projection where the approximation space and the analysis space are allowed to differ.
-Instead of computing an orthonormal projection, we use an auxiliary analysis function <span class="math notranslate nohighlight">\(\psi(x)\)</span>, which leads to the approximation</p>
+<p><em>A near-optimal, performance-friendly alternative to least-squares projection. Achieves high-quality resizing with significantly lower computational cost.</em></p>
+<p>Oblique projection is a generalization of least-squares projection where the synthesis and analysis spline spaces are allowed to differ.
+Instead of computing an orthogonal projection (where the same basis is used for both approximation and analysis), the method employs an auxiliary
+analysis function <span class="math notranslate nohighlight">\(\psi(x)\)</span> distinct from the synthesis function <span class="math notranslate nohighlight">\(\tilde{\varphi}(x)\)</span>. The resulting approximation is given by:</p>
 <div class="math notranslate nohighlight">
-\[s(x) = \sum_k \langle f, \psi_k \rangle \tilde{\varphi}_k(x).\]</div>
-<p>If <span class="math notranslate nohighlight">\(\psi_k = \tilde{\varphi}_k\)</span>, we obtain the orthonormal projection (least-squares solution). Otherwise, when <span class="math notranslate nohighlight">\(\psi_k\)</span> differs from <span class="math notranslate nohighlight">\(\tilde{\varphi}_k\)</span>,
-the projection is oblique.</p>
-<p>The computational complexity of an oblique projection is lower than that of a least-squares projection, as the former avoids the explicit computation of the optimal prefilter.
-However, some approximation error arises, depending on the angle between the analysis and synthesis spaces.</p>
-</section>
-<section id="resize-example">
-<h2>Resize Example<a class="headerlink" href="#resize-example" title="Link to this heading">#</a></h2>
+\[s(x) = \sum_k \langle f, \psi_k \rangle \tilde{\varphi}_k(x),\]</div>
+<p>where:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../auto_examples/004_resize_module.html#sphx-glr-auto-examples-004-resize-module-py"><span class="std std-ref">Resize Module</span></a></p></li>
+<li><p><span class="math notranslate nohighlight">\(\tilde{\varphi}_k(x)\)</span> are the synthesis basis functions (typically B-splines of degree <span class="math notranslate nohighlight">\(n\)</span>);</p></li>
+<li><p><span class="math notranslate nohighlight">\(\psi_k(x)\)</span> are the translated analysis functions, often chosen to be simpler or more localized.</p></li>
+</ul>
+<p>This formulation leads to an <em>oblique</em> rather than orthogonal projection. It trades off a small loss in optimality for improved speed and numerical stability.
+Empirical results show that the signal-to-noise ratio (SNR) degrades only slightly (e.g., 0.1–0.4 dB) compared to the exact least-squares projection <a class="footnote-reference brackets" href="#id6" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<section id="spline-degrees">
+<h3>Spline Degrees<a class="headerlink" href="#spline-degrees" title="Link to this heading">#</a></h3>
+<p>In the <cite>splineops.resize</cite> implementation, the oblique projection is configured to use:</p>
+<ul class="simple">
+<li><p>Interpolation degree: determines the input model and spline interpolation order.</p></li>
+<li><p>Synthesis spline: matches the interpolation degree (used to reconstruct the resized image).</p></li>
+<li><p>Analysis spline: set to a lower degree, typically <cite>interpolation degree - 1</cite>.</p></li>
+</ul>
+<p>For example:</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id8">
+<caption><span class="caption-text">Spline degree configuration in oblique projection</span><a class="headerlink" href="#id8" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Interpolation Degree</p></th>
+<th class="head"><p>Synthesis Spline Degree</p></th>
+<th class="head"><p>Analysis Spline Degree</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">linear-fast_antialiasing</span></code></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">quadratic-fast_antialiasing</span></code></p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cubic-fast_antialiasing</span></code></p></td>
+<td><p>3</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The synthesis spline determines the space onto which the image is projected. The analysis spline is used to compute inner products with the scaled signal,
+effectively acting as a prefilter. Choosing a lower-degree analysis spline (e.g., linear) simplifies the filter computation and enables efficient recursive implementations
+using finite differences.</p>
+<p><strong>Computational and Practical Implications</strong></p>
+<ul class="simple">
+<li><p>The oblique method retains much of the quality of least-squares projection, especially for moderate downsampling factors.</p></li>
+<li><p>It operates correctly in float32 precision and requires less memory and fewer computations than its least-squares counterpart.</p></li>
+<li><p>Because the projection is not orthogonal, there may be small residual aliasing or reconstruction errors, especially for high-frequency content or very aggressive downsampling.</p></li>
+</ul>
+<p>This makes oblique projection a compelling compromise: faster and more stable than least-squares, but still significantly more accurate than naive interpolation.</p>
+</section>
+</section>
+<section id="resize-examples">
+<h2>Resize Examples<a class="headerlink" href="#resize-examples" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../auto_examples/03_resampling_using_2D_interpolation/03_01_resize_module.html#sphx-glr-auto-examples-03-resampling-using-2d-interpolation-03-01-resize-module-py"><span class="std std-ref">Resize Module</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/03_resampling_using_2D_interpolation/03_02_standard_interpolation.html#sphx-glr-auto-examples-03-resampling-using-2d-interpolation-03-02-standard-interpolation-py"><span class="std std-ref">Standard Interpolation</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/03_resampling_using_2D_interpolation/03_03_least-squares_projection.html#sphx-glr-auto-examples-03-resampling-using-2d-interpolation-03-03-least-squares-projection-py"><span class="std std-ref">Least-Squares Projection</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/03_resampling_using_2D_interpolation/03_04_antialiasing.html#sphx-glr-auto-examples-03-resampling-using-2d-interpolation-03-04-antialiasing-py"><span class="std std-ref">Antialiasing</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/03_resampling_using_2D_interpolation/03_05_oblique_projection.html#sphx-glr-auto-examples-03-resampling-using-2d-interpolation-03-05-oblique-projection-py"><span class="std std-ref">Oblique Projection</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/03_resampling_using_2D_interpolation/03_06_compare_different_methods.html#sphx-glr-auto-examples-03-resampling-using-2d-interpolation-03-06-compare-different-methods-py"><span class="std std-ref">Compare Different Methods</span></a></p></li>
 </ul>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id4" role="doc-footnote">
+<aside class="footnote brackets" id="id5" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>M. Unser, <a class="reference external" href="https://doi.org/10.1109/79.799930">Splines: A Perfect Fit for Signal and Image Processing</a>,
 IEEE-SPS best paper award, IEEE Signal Processing Magazine,
 vol. 16, no. 6, pp. 22–38, November 1999.</p>
 </aside>
-<aside class="footnote brackets" id="id5" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id6" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id4">2</a>)</span>
 <p>A. Muñoz Barrutia, T. Blu, M. Unser,
 <a class="reference external" href="https://doi.org/10.1109/83.941860">Least-Squares Image Resizing Using Finite Differences</a>,
 IEEE Transactions on Image Processing, vol. 10, no. 9, pp. 1365–1378,
 September 2001.</p>
 </aside>
-<aside class="footnote brackets" id="id6" role="doc-footnote">
+<aside class="footnote brackets" id="id7" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
 <p>P. Thévenaz, T. Blu, M. Unser,
 <a class="reference external" href="https://doi.org/10.1109/42.875199">Interpolation Revisited</a>,
@@ -542,7 +626,7 @@ July 2000.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Interpolate</p>
+        <p class="prev-next-title">Spline Interpolation</p>
       </div>
     </a>
     <a class="right-next"
@@ -576,8 +660,11 @@ July 2000.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-interpolation">Standard Interpolation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-projection">Least-Squares Projection</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oblique-projection">Oblique Projection</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resize-example">Resize Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oblique-projection">Oblique Projection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spline-degrees">Spline Degrees</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resize-examples">Resize Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>
