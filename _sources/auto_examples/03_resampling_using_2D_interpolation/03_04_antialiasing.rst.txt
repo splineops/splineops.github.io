@@ -37,11 +37,11 @@ Imports
 
 .. code-block:: Python
 
+
     import numpy as np
     import requests
     from io import BytesIO
     from PIL import Image
-    import matplotlib.pyplot as plt
 
     from splineops.resize.resize import resize
     from splineops.utils import show_roi_zoom
@@ -109,9 +109,10 @@ Load A and B, convert to grayscale, and define the ROI on the originals.
 Image A (with ROI)
 ------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 71-73
+.. GENERATED FROM PYTHON SOURCE LINES 71-74
 
 .. code-block:: Python
+
 
     _ = show_roi_zoom(A, ax_titles=("Image A (with ROI)", None), **roi_kwargs_orig)
 
@@ -127,14 +128,15 @@ Image A (with ROI)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-76
+.. GENERATED FROM PYTHON SOURCE LINES 75-77
 
 Image B (with ROI)
 ------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-78
+.. GENERATED FROM PYTHON SOURCE LINES 77-80
 
 .. code-block:: Python
+
 
     _ = show_roi_zoom(B, ax_titles=("Image B (with ROI)", None), **roi_kwargs_orig)
 
@@ -150,13 +152,13 @@ Image B (with ROI)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-82
+.. GENERATED FROM PYTHON SOURCE LINES 81-84
 
 Construct A/B corner mix
 ------------------------
 A fills the top-left of each 2×2 block; the other three pixels come from B.
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-88
+.. GENERATED FROM PYTHON SOURCE LINES 84-90
 
 .. code-block:: Python
 
@@ -178,12 +180,12 @@ A fills the top-left of each 2×2 block; the other three pixels come from B.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 89-91
+.. GENERATED FROM PYTHON SOURCE LINES 91-93
 
-Resized (standard cubic)
-------------------------
+Resized (standard)
+------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 91-136
+.. GENERATED FROM PYTHON SOURCE LINES 93-138
 
 .. code-block:: Python
 
@@ -244,12 +246,12 @@ Resized (standard cubic)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 137-139
+.. GENERATED FROM PYTHON SOURCE LINES 139-141
 
 Resized (least-squares, best AA)
 --------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 139-144
+.. GENERATED FROM PYTHON SOURCE LINES 141-146
 
 .. code-block:: Python
 
@@ -270,7 +272,7 @@ Resized (least-squares, best AA)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 145-166
+.. GENERATED FROM PYTHON SOURCE LINES 147-168
 
 Discussion
 ----------
@@ -287,18 +289,18 @@ elsewhere (i.e., 25% A, 75% B per block).
 • Least-squares projection (best AA) performs a proper low-pass
   (anti-aliasing) filtering matched to the downsampling, then decimates.
   On this pattern, that filter averages over each 2×2 neighborhood, so the
-  result tends toward 25% A + 75% B — visually “more B,” i.e., more like
-  the mix. This is exactly what anti-aliasing should do: remove the high-freq
+  result tends toward 25% A + 75% B — visually “more B”, more like
+  the mix. This is exactly what anti-aliasing should do: remove the high-frequency
   checkerboard content so it doesn’t fold (alias) into the downsample.
 
-In short: interpolation without AA = sample-and-alias (here it locks onto A
-due to phase); least-squares = low-pass-then-sample, preserving what would
+In short: interpolation without AA does sample-and-aliasing (here it locks onto A
+due to phase). Least-squares proejction does low-pass-then-sample, preserving what would
 survive an ideal anti-aliased decimation.
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 6.669 seconds)
+   **Total running time of the script:** (0 minutes 5.573 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_04_antialiasing.py:

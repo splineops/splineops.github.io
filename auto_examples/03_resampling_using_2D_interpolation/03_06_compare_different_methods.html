@@ -37,7 +37,7 @@
 <!-- Pre-loaded scripts that we'll load fully later -->
 <link as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" rel="preload"/>
 <link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" rel="preload"/>
-<script src="../../_static/documentation_options.js?v=1dd76d02"></script>
+<script src="../../_static/documentation_options.js?v=b9afe91b"></script>
 <script src="../../_static/doctools.js?v=9bcbadda"></script>
 <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
 <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -427,14 +427,14 @@ We convert it to grayscale in [0, 1].</p>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Method                      SNR (dB)              MSE     Time (s)
 ------------------------------------------------------------------
-Standard Interpolation         12.15         2.20e-02       0.0184
-Least-Squares Projection       14.28         1.35e-02       1.4357
-Oblique Projection             14.24         1.36e-02       1.1230
+Standard Interpolation         12.15         2.20e-02       0.0187
+Least-Squares Projection       14.28         1.35e-02       1.4392
+Oblique Projection             14.24         1.36e-02       1.1208
 </pre></div>
 </div>
 </section>
-<section id="visual-comparison-of-all-methods">
-<h3>Visual Comparison of all Methods<a class="headerlink" href="#visual-comparison-of-all-methods" title="Link to this heading">#</a></h3>
+<section id="all-methods">
+<h3>All Methods<a class="headerlink" href="#all-methods" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list"><span class="n">recovered_stack</span></a> <span class="o">=</span> <span class="p">[</span>
     <span class="p">(</span><span class="s2">"Standard (Cubic)"</span><span class="p">,</span>       <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recovered_2d_interp</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">snr_2d_interp</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">mse_2d_interp</span></a><span class="p">),</span>
     <span class="p">(</span><span class="s2">"Least-Squares (Best)"</span><span class="p">,</span>   <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recovered_2d_ls</span></a><span class="p">,</span>     <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">snr_2d_ls</span></a><span class="p">,</span>     <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">mse_2d_ls</span></a><span class="p">),</span>
@@ -453,8 +453,8 @@ Oblique Projection             14.24         1.36e-02       1.1230
 </pre></div>
 </div>
 <img alt="Standard (Cubic) SNR: 12.15 dB  ·  MSE: 2.20e-02, Least-Squares (Best) SNR: 14.28 dB  ·  MSE: 1.35e-02, Oblique (Fast AA) SNR: 14.24 dB  ·  MSE: 1.36e-02" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_compare_different_methods_001.png" srcset="../../_images/sphx_glr_03_06_compare_different_methods_001.png"/></section>
-<section id="visual-comparison-of-standard-interpolation">
-<h3>Visual Comparison of Standard Interpolation<a class="headerlink" href="#visual-comparison-of-standard-interpolation" title="Link to this heading">#</a></h3>
+<section id="id1">
+<h3>Standard Interpolation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">_</span></a> <span class="o">=</span> <span class="n">show_roi_zoom</span><span class="p">(</span>
     <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recovered_2d_interp</span></a><span class="p">,</span>     <span class="c1"># image to inspect</span>
     <span class="n">ax_titles</span><span class="o">=</span><span class="p">(</span><span class="s2">"Standard (Cubic)"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>  <span class="c1"># customise left title; right auto</span>
@@ -463,8 +463,8 @@ Oblique Projection             14.24         1.36e-02       1.1230
 </pre></div>
 </div>
 <img alt="Standard (Cubic)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_compare_different_methods_002.png" srcset="../../_images/sphx_glr_03_06_compare_different_methods_002.png"/></section>
-<section id="visual-comparison-of-least-squares-projection">
-<h3>Visual Comparison of Least-Squares Projection<a class="headerlink" href="#visual-comparison-of-least-squares-projection" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>Least-Squares Projection<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">_</span></a> <span class="o">=</span> <span class="n">show_roi_zoom</span><span class="p">(</span>
     <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recovered_2d_ls</span></a><span class="p">,</span>     <span class="c1"># image to inspect</span>
     <span class="n">ax_titles</span><span class="o">=</span><span class="p">(</span><span class="s2">"Least-Squares (Best)"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>  <span class="c1"># customise left title; right auto</span>
@@ -473,8 +473,8 @@ Oblique Projection             14.24         1.36e-02       1.1230
 </pre></div>
 </div>
 <img alt="Least-Squares (Best)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_compare_different_methods_003.png" srcset="../../_images/sphx_glr_03_06_compare_different_methods_003.png"/></section>
-<section id="visual-comparison-of-oblique-projection">
-<h3>Visual Comparison of Oblique Projection<a class="headerlink" href="#visual-comparison-of-oblique-projection" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>Oblique Projection<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">_</span></a> <span class="o">=</span> <span class="n">show_roi_zoom</span><span class="p">(</span>
     <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recovered_2d_ob</span></a><span class="p">,</span>     <span class="c1"># image to inspect</span>
     <span class="n">ax_titles</span><span class="o">=</span><span class="p">(</span><span class="s2">"Oblique (Fast AA)"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>  <span class="c1"># customise left title; right auto</span>
@@ -482,7 +482,7 @@ Oblique Projection             14.24         1.36e-02       1.1230
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Oblique (Fast AA)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_compare_different_methods_004.png" srcset="../../_images/sphx_glr_03_06_compare_different_methods_004.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 10.183 seconds)</p>
+<img alt="Oblique (Fast AA)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_compare_different_methods_004.png" srcset="../../_images/sphx_glr_03_06_compare_different_methods_004.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 9.684 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>
@@ -523,10 +523,10 @@ Oblique Projection             14.24         1.36e-02       1.1230
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oblique-projection">Oblique Projection</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-table">Comparison Table</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-comparison-of-all-methods">Visual Comparison of all Methods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-comparison-of-standard-interpolation">Visual Comparison of Standard Interpolation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-comparison-of-least-squares-projection">Visual Comparison of Least-Squares Projection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-comparison-of-oblique-projection">Visual Comparison of Oblique Projection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#all-methods">All Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Standard Interpolation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Least-Squares Projection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Oblique Projection</a></li>
 </ul>
 </li>
 </ul>

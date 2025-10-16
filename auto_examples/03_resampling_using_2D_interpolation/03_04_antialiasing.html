@@ -37,7 +37,7 @@
 <!-- Pre-loaded scripts that we'll load fully later -->
 <link as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" rel="preload"/>
 <link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" rel="preload"/>
-<script src="../../_static/documentation_options.js?v=1dd76d02"></script>
+<script src="../../_static/documentation_options.js?v=b9afe91b"></script>
 <script src="../../_static/doctools.js?v=9bcbadda"></script>
 <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
 <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -301,7 +301,6 @@ Then we downsample by 0.5 using:</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-io sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/io.html#io.BytesIO" title="io.BytesIO"><span class="n">BytesIO</span></a>
 <span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">splineops.resize.resize</span><span class="w"> </span><span class="kn">import</span> <span class="n">resize</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">splineops.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">show_roi_zoom</span>
@@ -367,8 +366,8 @@ Then we downsample by 0.5 using:</p>
 </pre></div>
 </div>
 <img alt="A/B corner mix (A at TL of each 2x2)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_04_antialiasing_003.png" srcset="../../_images/sphx_glr_03_04_antialiasing_003.png"/></section>
-<section id="resized-standard-cubic">
-<h2>Resized (standard cubic)<a class="headerlink" href="#resized-standard-cubic" title="Link to this heading">#</a></h2>
+<section id="resized-standard">
+<h2>Resized (standard)<a class="headerlink" href="#resized-standard" title="Link to this heading">#</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">H</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">W</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">mixed</span><span class="o">.</span><span class="n">shape</span></a>
 <span class="k">if</span> <span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">H</span></a> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">W</span></a> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
     <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">mixed_odd</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">mixed</span></a><span class="p">[:</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">H</span></a> <span class="o">-</span> <span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">H</span></a> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">),</span> <span class="p">:</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">W</span></a> <span class="o">-</span> <span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">W</span></a> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)]</span>
@@ -436,14 +435,14 @@ point-sampling at a favorable phase for this pattern.</p></li>
 <li><p>Least-squares projection (best AA) performs a proper low-pass
 (anti-aliasing) filtering matched to the downsampling, then decimates.
 On this pattern, that filter averages over each 2×2 neighborhood, so the
-result tends toward 25% A + 75% B — visually “more B,” i.e., more like
-the mix. This is exactly what anti-aliasing should do: remove the high-freq
+result tends toward 25% A + 75% B — visually “more B”, more like
+the mix. This is exactly what anti-aliasing should do: remove the high-frequency
 checkerboard content so it doesn’t fold (alias) into the downsample.</p></li>
 </ul>
-<p>In short: interpolation without AA = sample-and-alias (here it locks onto A
-due to phase); least-squares = low-pass-then-sample, preserving what would
+<p>In short: interpolation without AA does sample-and-aliasing (here it locks onto A
+due to phase). Least-squares proejction does low-pass-then-sample, preserving what would
 survive an ideal anti-aliased decimation.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 6.669 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 5.573 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>
@@ -481,7 +480,7 @@ survive an ideal anti-aliased decimation.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-a-with-roi">Image A (with ROI)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-b-with-roi">Image B (with ROI)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construct-a-b-corner-mix">Construct A/B corner mix</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resized-standard-cubic">Resized (standard cubic)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resized-standard">Resized (standard)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resized-least-squares-best-aa">Resized (least-squares, best AA)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
 </ul>

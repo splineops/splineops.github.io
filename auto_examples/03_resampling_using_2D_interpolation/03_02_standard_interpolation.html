@@ -37,7 +37,7 @@
 <!-- Pre-loaded scripts that we'll load fully later -->
 <link as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" rel="preload"/>
 <link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" rel="preload"/>
-<script src="../../_static/documentation_options.js?v=1dd76d02"></script>
+<script src="../../_static/documentation_options.js?v=b9afe91b"></script>
 <script src="../../_static/doctools.js?v=9bcbadda"></script>
 <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
 <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -439,8 +439,8 @@ grayscale in [0, 1].</p>
 </div>
 <img alt="Recovered Image (standard)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_02_standard_interpolation_004.png" srcset="../../_images/sphx_glr_03_02_standard_interpolation_004.png"/></section>
 </section>
-<section id="scipy-interpolation-reference">
-<h2>SciPy Interpolation (reference)<a class="headerlink" href="#scipy-interpolation-reference" title="Link to this heading">#</a></h2>
+<section id="scipy-interpolation">
+<h2>SciPy Interpolation<a class="headerlink" href="#scipy-interpolation" title="Link to this heading">#</a></h2>
 <p>For comparison, we also use SciPy’s zoom method. Metrics are computed on the ROI.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">resized_2d_scipy</span></a><span class="p">,</span>
@@ -469,8 +469,10 @@ grayscale in [0, 1].</p>
 </div>
 <img alt="Recovered Image (SciPy)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_02_standard_interpolation_005.png" srcset="../../_images/sphx_glr_03_02_standard_interpolation_005.png"/></section>
 </section>
-<section id="difference-standard-vs-scipy-on-roi">
-<h2>Difference: Standard vs SciPy (on ROI)<a class="headerlink" href="#difference-standard-vs-scipy-on-roi" title="Link to this heading">#</a></h2>
+<section id="difference-images">
+<h2>Difference Images<a class="headerlink" href="#difference-images" title="Link to this heading">#</a></h2>
+<section id="standard-vs-scipy">
+<h3>Standard vs SciPy<a class="headerlink" href="#standard-vs-scipy" title="Link to this heading">#</a></h3>
 <p>Compare the two recovered images on the face ROI and plot that difference.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">snr_scipy_vs_interp</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">mse_scipy_vs_interp</span></a> <span class="o">=</span> <span class="n">compute_snr_and_mse_region</span><span class="p">(</span>
     <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recovered_2d_scipy</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recovered_2d_interp</span></a><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">roi_rect</span></a>
@@ -486,8 +488,9 @@ grayscale in [0, 1].</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Recovered diff (standard vs SciPy) (ROI) SNR: inf dB, MSE: 4.48e-31" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_02_standard_interpolation_006.png" srcset="../../_images/sphx_glr_03_02_standard_interpolation_006.png"/><section id="difference-with-original-image">
-<h3>Difference with original image<a class="headerlink" href="#difference-with-original-image" title="Link to this heading">#</a></h3>
+<img alt="Recovered diff (standard vs SciPy) (ROI) SNR: inf dB, MSE: 4.48e-31" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_02_standard_interpolation_006.png" srcset="../../_images/sphx_glr_03_02_standard_interpolation_006.png"/></section>
+<section id="original-vs-standard">
+<h3>Original vs Standard<a class="headerlink" href="#original-vs-standard" title="Link to this heading">#</a></h3>
 <p>For completeness, show the difference image
 (original - recovered with standard interpolation) on the ROI.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_difference_image</span><span class="p">(</span>
@@ -561,7 +564,7 @@ grayscale in [0, 1].</p>
 MSE (TensorSpline vs. resize()) recovered: 3.525702e-30
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.802 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.268 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>
@@ -602,12 +605,13 @@ MSE (TensorSpline vs. resize()) recovered: 3.525702e-30
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recovered-image-standard">Recovered Image (standard)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy-interpolation-reference">SciPy Interpolation (reference)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy-interpolation">SciPy Interpolation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recovered-image-scipy">Recovered Image (SciPy)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-standard-vs-scipy-on-roi">Difference: Standard vs SciPy (on ROI)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-with-original-image">Difference with original image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-images">Difference Images</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-vs-scipy">Standard vs SciPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#original-vs-standard">Original vs Standard</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-using-tensorspline">Alternative using TensorSpline</a></li>

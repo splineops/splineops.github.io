@@ -30,9 +30,10 @@ central region to exclude boundary artifacts.
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-31
+.. GENERATED FROM PYTHON SOURCE LINES 17-32
 
 .. code-block:: Python
+
 
     import numpy as np
 
@@ -55,14 +56,15 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-35
+.. GENERATED FROM PYTHON SOURCE LINES 34-36
 
 Pipeline Diagram
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-40
+.. GENERATED FROM PYTHON SOURCE LINES 36-42
 
 .. code-block:: Python
+
 
     _ = draw_standard_vs_leastsq_pipeline(
         include_upsample_labels=True,
@@ -81,14 +83,14 @@ Pipeline Diagram
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-45
+.. GENERATED FROM PYTHON SOURCE LINES 43-47
 
 Highlights: ROI comparison
 --------------------------
 
 Load once, compute BOTH methods (keeping recovered + metrics) if missing
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-111
+.. GENERATED FROM PYTHON SOURCE LINES 47-113
 
 .. code-block:: Python
 
@@ -170,14 +172,15 @@ Load once, compute BOTH methods (keeping recovered + metrics) if missing
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 112-114
+.. GENERATED FROM PYTHON SOURCE LINES 114-116
 
 Load and Normalize an Image
 ---------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-164
+.. GENERATED FROM PYTHON SOURCE LINES 116-167
 
 .. code-block:: Python
+
 
     if "input_image_normalized" not in locals():
         url = 'https://r0k.us/graphics/kodak/kodak/kodim14.png'
@@ -241,14 +244,20 @@ Load and Normalize an Image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 165-167
+.. GENERATED FROM PYTHON SOURCE LINES 168-170
+
+Resized Images
+--------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 172-174
 
 Least-Squares Projection
-------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 167-180
+.. GENERATED FROM PYTHON SOURCE LINES 174-209
 
 .. code-block:: Python
+
 
     need_ls = not all(
         v in locals()
@@ -262,22 +271,6 @@ Least-Squares Projection
             border_fraction=border_fraction,
             roi=roi_rect
         )
-
-
-
-
-
-
-
-
-.. GENERATED FROM PYTHON SOURCE LINES 181-183
-
-Resized Image (least-squares)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. GENERATED FROM PYTHON SOURCE LINES 183-204
-
-.. code-block:: Python
 
     h_res_ls, w_res_ls = resized_2d_ls.shape
 
@@ -312,14 +305,15 @@ Resized Image (least-squares)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 205-207
+.. GENERATED FROM PYTHON SOURCE LINES 210-212
 
 Standard Interpolation
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 207-220
+.. GENERATED FROM PYTHON SOURCE LINES 212-246
 
 .. code-block:: Python
+
 
     need_std = not all(
         v in locals()
@@ -333,22 +327,6 @@ Standard Interpolation
             border_fraction=border_fraction,
             roi=roi_rect
         )
-
-
-
-
-
-
-
-
-.. GENERATED FROM PYTHON SOURCE LINES 221-223
-
-Resized Image (standard)
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. GENERATED FROM PYTHON SOURCE LINES 223-243
-
-.. code-block:: Python
 
     h_res_std, w_res_std = resized_2d_std.shape
 
@@ -382,14 +360,20 @@ Resized Image (standard)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 244-246
+.. GENERATED FROM PYTHON SOURCE LINES 247-249
 
-Recovered Image (least-squares)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Recovered Images
+----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 246-252
+.. GENERATED FROM PYTHON SOURCE LINES 251-253
+
+Least-Squares Projection
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. GENERATED FROM PYTHON SOURCE LINES 253-260
 
 .. code-block:: Python
+
 
     _ = show_roi_zoom(
         recovered_2d_ls,
@@ -409,14 +393,15 @@ Recovered Image (least-squares)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 253-255
+.. GENERATED FROM PYTHON SOURCE LINES 261-263
 
-Recovered Image (standard)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Standard Interpolation
+~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 255-261
+.. GENERATED FROM PYTHON SOURCE LINES 263-270
 
 .. code-block:: Python
+
 
     _ = show_roi_zoom(
         recovered_2d_std,
@@ -436,14 +421,22 @@ Recovered Image (standard)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 262-264
+.. GENERATED FROM PYTHON SOURCE LINES 271-273
 
-Difference with original image (least-squares)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Difference Images
+-----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 264-273
+.. GENERATED FROM PYTHON SOURCE LINES 275-279
+
+Least-Squares Projection
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Difference with original image on ROI.
+
+.. GENERATED FROM PYTHON SOURCE LINES 279-289
 
 .. code-block:: Python
+
 
     plot_difference_image(
         original=input_image_normalized,
@@ -466,14 +459,17 @@ Difference with original image (least-squares)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 274-276
+.. GENERATED FROM PYTHON SOURCE LINES 290-294
 
-Difference with original image (standard)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Standard Interpolation
+~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 276-284
+Difference with original image on ROI.
+
+.. GENERATED FROM PYTHON SOURCE LINES 294-303
 
 .. code-block:: Python
+
 
     plot_difference_image(
         original=input_image_normalized,
@@ -498,7 +494,7 @@ Difference with original image (standard)
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 11.772 seconds)
+   **Total running time of the script:** (0 minutes 12.054 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_03_least-squares_projection.py:

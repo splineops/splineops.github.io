@@ -47,7 +47,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=1dd76d02"></script>
+    <script src="../_static/documentation_options.js?v=b9afe91b"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -446,16 +446,15 @@ support for GPU computing.</p>
 </pre></div>
 </div>
 <p>Minimal requirement:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>requests
 </pre></div>
 </div>
 <p>Simply install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> using <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>splineops
 </pre></div>
 </div>
-<p>To run the examples, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>
-and <code class="docutils literal notranslate"><span class="pre">IPython</span></code> (for Python UI widgets) will also be required</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>matplotlib<span class="w"> </span>IPython
+<p>To run the examples, <code class="docutils literal notranslate"><span class="pre">IPython</span></code> (for Python UI widgets) will also be required</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>IPython
 </pre></div>
 </div>
 </section>
@@ -496,7 +495,7 @@ tox<span class="w"> </span>-e<span class="w"> </span>py312
 <section id="development-environment">
 <h3>Development Environment<a class="headerlink" href="#development-environment" title="Link to this heading">#</a></h3>
 <p>Easiest way to install dev dependencies</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>IPython<span class="w"> </span>black<span class="w"> </span>mypy<span class="w"> </span>tox<span class="w"> </span>hatch<span class="w"> </span>pytest
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>requests<span class="w"> </span>IPython<span class="w"> </span>black<span class="w"> </span>mypy<span class="w"> </span>tox<span class="w"> </span>hatch<span class="w"> </span>pytest
 </pre></div>
 </div>
 <p>Install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> development environment in editable mode</p>
@@ -523,7 +522,7 @@ tox<span class="w"> </span>-e<span class="w"> </span>py312
 <section id="building-of-the-documentation">
 <h3>Building of the Documentation<a class="headerlink" href="#building-of-the-documentation" title="Link to this heading">#</a></h3>
 <p>To build the Sphinx documentation, install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> doc dependencies</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>IPython<span class="w"> </span>sphinx<span class="w"> </span>sphinx-gallery<span class="w"> </span>sphinx-prompt<span class="w"> </span>sphinx-copybutton<span class="w"> </span>sphinx-remove-toctrees<span class="w"> </span>pydata-sphinx-theme<span class="w"> </span>sphinx-design<span class="w"> </span>myst-parser<span class="w"> </span>jupyterlite-sphinx<span class="w"> </span>jupyterlite-pyodide-kernel
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>requests<span class="w"> </span>IPython<span class="w"> </span>sphinx<span class="w"> </span>sphinx-gallery<span class="w"> </span>sphinx-prompt<span class="w"> </span>sphinx-copybutton<span class="w"> </span>sphinx-remove-toctrees<span class="w"> </span>pydata-sphinx-theme<span class="w"> </span>sphinx-design<span class="w"> </span>myst-parser<span class="w"> </span>jupyterlite-sphinx<span class="w"> </span>jupyterlite-pyodide-kernel
 </pre></div>
 </div>
 <p>Install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> doc environment in editable mode</p>

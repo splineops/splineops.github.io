@@ -37,7 +37,7 @@
 <!-- Pre-loaded scripts that we'll load fully later -->
 <link as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" rel="preload"/>
 <link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" rel="preload"/>
-<script src="../../_static/documentation_options.js?v=1dd76d02"></script>
+<script src="../../_static/documentation_options.js?v=b9afe91b"></script>
 <script src="../../_static/doctools.js?v=9bcbadda"></script>
 <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
 <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -442,8 +442,10 @@ central region to exclude boundary artifacts.</p>
 </pre></div>
 </div>
 <img alt="Original Image" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_03_least-squares_projection_003.png" srcset="../../_images/sphx_glr_03_03_least-squares_projection_003.png"/></section>
+<section id="resized-images">
+<h2>Resized Images<a class="headerlink" href="#resized-images" title="Link to this heading">#</a></h2>
 <section id="id1">
-<h2>Least-Squares Projection<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h3>Least-Squares Projection<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">need_ls</span></a> <span class="o">=</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span>
     <span class="n">v</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"resized_2d_ls"</span><span class="p">,</span> <span class="s2">"recovered_2d_ls"</span><span class="p">,</span> <span class="s2">"snr_2d_ls"</span><span class="p">,</span> <span class="s2">"mse_2d_ls"</span><span class="p">,</span> <span class="s2">"time_2d_ls"</span><span class="p">)</span>
@@ -456,11 +458,8 @@ central region to exclude boundary artifacts.</p>
         <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">border_fraction</span></a><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">border_fraction</span></a><span class="p">,</span>
         <span class="n">roi</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">roi_rect</span></a>
     <span class="p">)</span>
-</pre></div>
-</div>
-<section id="resized-image-least-squares">
-<h3>Resized Image (least-squares)<a class="headerlink" href="#resized-image-least-squares" title="Link to this heading">#</a></h3>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">h_res_ls</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">w_res_ls</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">resized_2d_ls</span><span class="o">.</span><span class="n">shape</span></a>
+
+<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">h_res_ls</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">w_res_ls</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">resized_2d_ls</span><span class="o">.</span><span class="n">shape</span></a>
 
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">row_top_res_ls</span></a> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">center_r_res</span></a> <span class="o">-</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">roi_h_res</span></a> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">h_res_ls</span></a> <span class="o">-</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">roi_h_res</span></a><span class="p">))</span>
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">col_left_res_ls</span></a> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">center_c_res</span></a> <span class="o">-</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">roi_w_res</span></a> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">w_res_ls</span></a> <span class="o">-</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">roi_w_res</span></a><span class="p">))</span>
@@ -483,9 +482,8 @@ central region to exclude boundary artifacts.</p>
 </pre></div>
 </div>
 <img alt="Resized Image (least-squares)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_03_least-squares_projection_004.png" srcset="../../_images/sphx_glr_03_03_least-squares_projection_004.png"/></section>
-</section>
 <section id="standard-interpolation">
-<h2>Standard Interpolation<a class="headerlink" href="#standard-interpolation" title="Link to this heading">#</a></h2>
+<h3>Standard Interpolation<a class="headerlink" href="#standard-interpolation" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">need_std</span></a> <span class="o">=</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span>
     <span class="n">v</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"resized_2d_std"</span><span class="p">,</span> <span class="s2">"recovered_2d_std"</span><span class="p">,</span> <span class="s2">"snr_2d_std"</span><span class="p">,</span> <span class="s2">"mse_2d_std"</span><span class="p">,</span> <span class="s2">"time_2d_std"</span><span class="p">)</span>
@@ -498,11 +496,8 @@ central region to exclude boundary artifacts.</p>
         <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">border_fraction</span></a><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">border_fraction</span></a><span class="p">,</span>
         <span class="n">roi</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">roi_rect</span></a>
     <span class="p">)</span>
-</pre></div>
-</div>
-<section id="resized-image-standard">
-<h3>Resized Image (standard)<a class="headerlink" href="#resized-image-standard" title="Link to this heading">#</a></h3>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">h_res_std</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">w_res_std</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">resized_2d_std</span><span class="o">.</span><span class="n">shape</span></a>
+
+<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">h_res_std</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">w_res_std</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">resized_2d_std</span><span class="o">.</span><span class="n">shape</span></a>
 
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">row_top_res_std</span></a> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">center_r_res</span></a> <span class="o">-</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">roi_h_res</span></a> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">h_res_std</span></a> <span class="o">-</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">roi_h_res</span></a><span class="p">))</span>
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">col_left_res_std</span></a> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">center_c_res</span></a> <span class="o">-</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">roi_w_res</span></a> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">w_res_std</span></a> <span class="o">-</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">roi_w_res</span></a><span class="p">))</span>
@@ -524,8 +519,11 @@ central region to exclude boundary artifacts.</p>
 </pre></div>
 </div>
 <img alt="Resized Image (standard)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_03_least-squares_projection_005.png" srcset="../../_images/sphx_glr_03_03_least-squares_projection_005.png"/></section>
-<section id="recovered-image-least-squares">
-<h3>Recovered Image (least-squares)<a class="headerlink" href="#recovered-image-least-squares" title="Link to this heading">#</a></h3>
+</section>
+<section id="recovered-images">
+<h2>Recovered Images<a class="headerlink" href="#recovered-images" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h3>Least-Squares Projection<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">_</span></a> <span class="o">=</span> <span class="n">show_roi_zoom</span><span class="p">(</span>
     <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recovered_2d_ls</span></a><span class="p">,</span>
     <span class="n">ax_titles</span><span class="o">=</span><span class="p">(</span><span class="s2">"Recovered Image (least-squares projection)"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
@@ -534,8 +532,8 @@ central region to exclude boundary artifacts.</p>
 </pre></div>
 </div>
 <img alt="Recovered Image (least-squares projection)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_03_least-squares_projection_006.png" srcset="../../_images/sphx_glr_03_03_least-squares_projection_006.png"/></section>
-<section id="recovered-image-standard">
-<h3>Recovered Image (standard)<a class="headerlink" href="#recovered-image-standard" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>Standard Interpolation<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">_</span></a> <span class="o">=</span> <span class="n">show_roi_zoom</span><span class="p">(</span>
     <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recovered_2d_std</span></a><span class="p">,</span>
     <span class="n">ax_titles</span><span class="o">=</span><span class="p">(</span><span class="s2">"Recovered Image (standard interpolation)"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
@@ -544,8 +542,12 @@ central region to exclude boundary artifacts.</p>
 </pre></div>
 </div>
 <img alt="Recovered Image (standard interpolation)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_03_least-squares_projection_007.png" srcset="../../_images/sphx_glr_03_03_least-squares_projection_007.png"/></section>
-<section id="difference-with-original-image-least-squares">
-<h3>Difference with original image (least-squares)<a class="headerlink" href="#difference-with-original-image-least-squares" title="Link to this heading">#</a></h3>
+</section>
+<section id="difference-images">
+<h2>Difference Images<a class="headerlink" href="#difference-images" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h3>Least-Squares Projection<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Difference with original image on ROI.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_difference_image</span><span class="p">(</span>
     <span class="n">original</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">input_image_normalized</span></a><span class="p">,</span>
     <span class="n">recovered</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recovered_2d_ls</span></a><span class="p">,</span>
@@ -557,8 +559,9 @@ central region to exclude boundary artifacts.</p>
 </pre></div>
 </div>
 <img alt="Difference (least-squares) (ROI) SNR: 14.28 dB, MSE: 1.35e-02" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_03_least-squares_projection_008.png" srcset="../../_images/sphx_glr_03_03_least-squares_projection_008.png"/></section>
-<section id="difference-with-original-image-standard">
-<h3>Difference with original image (standard)<a class="headerlink" href="#difference-with-original-image-standard" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>Standard Interpolation<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Difference with original image on ROI.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_difference_image</span><span class="p">(</span>
     <span class="n">original</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">input_image_normalized</span></a><span class="p">,</span>
     <span class="n">recovered</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recovered_2d_std</span></a><span class="p">,</span>
@@ -569,7 +572,7 @@ central region to exclude boundary artifacts.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Difference (standard) (ROI) SNR: 12.15 dB, MSE: 2.20e-02" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_03_least-squares_projection_009.png" srcset="../../_images/sphx_glr_03_03_least-squares_projection_009.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 11.772 seconds)</p>
+<img alt="Difference (standard) (ROI) SNR: 12.15 dB, MSE: 2.20e-02" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_03_least-squares_projection_009.png" srcset="../../_images/sphx_glr_03_03_least-squares_projection_009.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 12.054 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>
@@ -607,16 +610,19 @@ central region to exclude boundary artifacts.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-diagram">Pipeline Diagram</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#highlights-roi-comparison">Highlights: ROI comparison</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-normalize-an-image">Load and Normalize an Image</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Least-Squares Projection</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resized-image-least-squares">Resized Image (least-squares)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resized-images">Resized Images</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Least-Squares Projection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-interpolation">Standard Interpolation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-interpolation">Standard Interpolation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resized-image-standard">Resized Image (standard)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recovered-image-least-squares">Recovered Image (least-squares)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recovered-image-standard">Recovered Image (standard)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-with-original-image-least-squares">Difference with original image (least-squares)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-with-original-image-standard">Difference with original image (standard)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recovered-images">Recovered Images</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Least-Squares Projection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Standard Interpolation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-images">Difference Images</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Least-Squares Projection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Standard Interpolation</a></li>
 </ul>
 </li>
 </ul>

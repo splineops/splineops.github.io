@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-16T08:54:36.462588Z",
+      "created": "2025-10-16T09:21:08.114708Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-16T08:54:27.443510Z",
+      "last_modified": "2025-10-16T09:20:59.192724Z",
       "mimetype": null,
       "name": "08_02_wavelet_decomposition.ipynb",
       "path": "auto_examples/08_decompose/08_02_wavelet_decomposition.ipynb",
@@ -16,11 +16,11 @@
     },
     {
       "content": null,
-      "created": "2025-10-16T08:54:36.462588Z",
+      "created": "2025-10-16T09:21:08.114708Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-16T08:54:23.215473Z",
+      "last_modified": "2025-10-16T09:20:55.484730Z",
       "mimetype": null,
       "name": "08_01_pyramid_decomposition.ipynb",
       "path": "auto_examples/08_decompose/08_01_pyramid_decomposition.ipynb",
@@ -29,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-16T08:54:36.462588Z",
+  "created": "2025-10-16T09:21:08.114708Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-16T08:54:36.462588Z",
+  "last_modified": "2025-10-16T09:21:08.114708Z",
   "mimetype": null,
   "name": "08_decompose",
   "path": "auto_examples/08_decompose",

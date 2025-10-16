@@ -278,8 +278,8 @@ We plot the recovered image (after reversing the zoom) with the same ROI.
 
 .. GENERATED FROM PYTHON SOURCE LINES 169-173
 
-SciPy Interpolation (reference)
--------------------------------
+SciPy Interpolation
+-------------------
 
 For comparison, we also use SciPy's zoom method. Metrics are computed on the ROI.
 
@@ -337,14 +337,19 @@ Recovered Image (SciPy)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 199-203
+.. GENERATED FROM PYTHON SOURCE LINES 199-201
 
-Difference: Standard vs SciPy (on ROI)
---------------------------------------
+Difference Images
+-----------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 203-207
+
+Standard vs SciPy
+~~~~~~~~~~~~~~~~~
 
 Compare the two recovered images on the face ROI and plot that difference.
 
-.. GENERATED FROM PYTHON SOURCE LINES 203-217
+.. GENERATED FROM PYTHON SOURCE LINES 207-221
 
 .. code-block:: Python
 
@@ -374,15 +379,15 @@ Compare the two recovered images on the face ROI and plot that difference.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 218-223
+.. GENERATED FROM PYTHON SOURCE LINES 222-227
 
-Difference with original image
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Original vs Standard
+~~~~~~~~~~~~~~~~~~~~
 
 For completeness, show the difference image
 (original - recovered with standard interpolation) on the ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 223-233
+.. GENERATED FROM PYTHON SOURCE LINES 227-237
 
 .. code-block:: Python
 
@@ -408,7 +413,7 @@ For completeness, show the difference image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 234-239
+.. GENERATED FROM PYTHON SOURCE LINES 238-243
 
 Alternative using TensorSpline
 ------------------------------
@@ -416,7 +421,7 @@ Alternative using TensorSpline
 As an alternative, we can replicate the same interpolation manually using the 
 ``TensorSpline`` class, which underpins the `resize()` function behind the scenes.
 
-.. GENERATED FROM PYTHON SOURCE LINES 239-289
+.. GENERATED FROM PYTHON SOURCE LINES 243-293
 
 .. code-block:: Python
 
@@ -487,7 +492,7 @@ As an alternative, we can replicate the same interpolation manually using the
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.802 seconds)
+   **Total running time of the script:** (0 minutes 2.268 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_02_standard_interpolation.py:
