@@ -438,17 +438,17 @@
 <h1>Resize<a class="headerlink" href="#resize" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>The <cite>resize</cite> function in the <cite>splineops</cite> library delivers high-performance, high-fidelity resizing for N-dimensional data arrays using advanced spline-based methods <a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</p>
+<p>The <em>resize</em> function in the <em>splineops</em> library delivers high-performance, high-fidelity resizing for N-dimensional data arrays using advanced spline-based methods <a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</p>
 <p>It offers three distinct modes, each designed for a different balance of speed, accuracy and control:</p>
 <ul class="simple">
-<li><p>Standard Interpolation: fast and smooth. Ideal for real-time and general-purpose applications. Efficient in memory and compatible with float32 precision.</p></li>
-<li><p>Least-Squares Projection: highest quality. Designed for applications where fidelity matters most (e.g. medical imaging, scientific computing). Optimized for float64 precision.</p></li>
-<li><p>Oblique Projection: the sweet spot. Balances quality and performance, using smart approximations to deliver nearly least-squares quality at interpolation-level speed.</p></li>
+<li><p><strong>Standard Interpolation</strong>: <em>fast and smooth</em>. Ideal for real-time and general-purpose applications. Efficient in memory and compatible with float32 precision.</p></li>
+<li><p><strong>Least-Squares Projection</strong>: <em>highest quality</em>. Designed for applications where fidelity matters most (e.g. medical imaging, scientific computing). Optimized for float64 precision.</p></li>
+<li><p><strong>Oblique Projection</strong>: <em>the sweet spot</em>. Balances quality and performance, using smart approximations to deliver nearly least-squares quality at interpolation-level speed.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/resizefig01.png"><img alt="../_images/resizefig01.png" class="align-center" src="../_images/resizefig01.png" style="width: 288pt;" />
 </a>
 <p>Each method is built on solid spline theory and engineered for performance in real-world applications. Whether you’re building fast visualizations or precision-critical
-pipelines, <cite>resize</cite> adapts to your needs with consistent, artifact-resistant output and a clean API.</p>
+pipelines, <em>resize</em> adapts to your needs with consistent, artifact-resistant output and a clean API.</p>
 </section>
 <section id="standard-interpolation">
 <h2>Standard Interpolation<a class="headerlink" href="#standard-interpolation" title="Link to this heading">#</a></h2>
@@ -528,7 +528,7 @@ Empirical results show that the signal-to-noise ratio (SNR) degrades only slight
 <ul class="simple">
 <li><p>Interpolation degree: determines the input model and spline interpolation order.</p></li>
 <li><p>Synthesis spline: matches the interpolation degree (used to reconstruct the resized image).</p></li>
-<li><p>Analysis spline: set to a lower degree, typically <cite>interpolation degree - 1</cite>.</p></li>
+<li><p>Analysis spline: set to a lower degree, typically <em>interpolation degree - 1</em>.</p></li>
 </ul>
 <p>For example:</p>
 <div class="pst-scrollable-table-container"><table class="table" id="id8">

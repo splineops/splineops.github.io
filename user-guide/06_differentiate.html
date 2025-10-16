@@ -438,7 +438,7 @@
 <h1>Differentiate<a class="headerlink" href="#differentiate" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>The <cite>differentiate</cite> module in <cite>splineops</cite> provides a collection of algorithms for the computation of image differentials based on cubic B‑spline interpolation <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.
+<p>The <em>differentiate</em> module in <em>splineops</em> provides a collection of algorithms for the computation of image differentials based on cubic B‑spline interpolation <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.
 By modeling a grayscale image as a continuous function reconstructed from its discrete samples, the module enables the accurate computation of derivatives.
 It offers several operations such as</p>
 <ul class="simple">
@@ -508,7 +508,7 @@ This operation returns the orientation that corresponds to the maximal second de
 </section>
 <section id="implementation-details">
 <h2>Implementation Details<a class="headerlink" href="#implementation-details" title="Link to this heading">#</a></h2>
-<p>The <cite>Differentials</cite> class implements these operations as follows: the input image is provided by its samples. We assume it to be a cubic B-spline and first determine
+<p>The <em>Differentials</em> class implements these operations as follows: the input image is provided by its samples. We assume it to be a cubic B-spline and first determine
 its interpolation coefficients. The differential-based computations that we perform are then perfectly consistent with this continuously defined function.
 We finally build the output image by sampling the ideal, continuously defined intermediate result.</p>
 </section>
