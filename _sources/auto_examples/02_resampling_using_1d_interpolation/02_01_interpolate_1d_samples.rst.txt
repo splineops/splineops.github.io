@@ -74,7 +74,7 @@ These are the input samples that we are going to interpolate.
 
     number_of_samples = 27
 
-    f_support = np.arange(number_of_samples)
+    f_support = np.arange(number_of_samples, dtype=np.float64)
     f_support_length = len(f_support) # It's equal to number_of_samples
 
     f_samples = np.array([
@@ -83,7 +83,7 @@ These are the input samples that we are going to interpolate.
         0.0901577, 0.219599, 0.374669, 0.384896, 0.301386, 0.128646,
         -0.00811776, 0.0153119, 0.106126, 0.21688, 0.347629, 0.419532,
         0.50695, 0.544767, 0.555373
-    ])
+    ], dtype=np.float64)
 
     plt.figure(figsize=(10, 4))
     plt.title("f[k] samples")
@@ -200,7 +200,7 @@ The resize method with standard interpolation yields the same result.
     # with `desired_length` points. This matches the domain and size that the `resize`
     # function will produce below, ensuring the two outputs are sampled at the exact
     # same x-positions, and thus comparable point-by-point.
-    f_coords_resize = np.linspace(0, f_support_length - 1, desired_length)
+    f_coords_resize = np.linspace(0, f_support_length - 1, desired_length, dtype=np.float64)
 
     f_data_resize = resize(
         data=f_samples,             # 1D input
@@ -270,7 +270,7 @@ Plot of the Spline f
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.214 seconds)
+   **Total running time of the script:** (0 minutes 0.206 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resampling_using_1d_interpolation_02_01_interpolate_1d_samples.py:

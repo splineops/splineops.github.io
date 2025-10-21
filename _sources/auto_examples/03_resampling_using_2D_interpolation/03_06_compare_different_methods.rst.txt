@@ -250,9 +250,9 @@ We print the SNR, MSE, and timing data for each method.
 
     Method                      SNR (dB)              MSE     Time (s)
     ------------------------------------------------------------------
-    Standard Interpolation         12.15         2.20e-02       0.0187
-    Least-Squares Projection       14.28         1.35e-02       1.4392
-    Oblique Projection             14.24         1.36e-02       1.1208
+    Standard Interpolation         12.15         2.20e-02       0.0172
+    Least-Squares Projection       14.28         1.35e-02       0.0377
+    Oblique Projection             14.24         1.36e-02       0.0212
 
 
 
@@ -380,7 +380,7 @@ Oblique Projection
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 9.684 seconds)
+   **Total running time of the script:** (0 minutes 2.358 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_06_compare_different_methods.py:

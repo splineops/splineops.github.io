@@ -142,7 +142,7 @@ Imports
 
 
 .. image-sg:: /auto_examples/06_denoise/images/sphx_glr_06_02_2d_image_smoothing_001.png
-   :alt: Original Image, Noisy Image (SNR=10.00 dB), Smoothed Image (SNR=17.69 dB)
+   :alt: Original Image, Noisy Image (SNR=10.00 dB), Smoothed Image (SNR=17.68 dB)
    :srcset: /auto_examples/06_denoise/images/sphx_glr_06_02_2d_image_smoothing_001.png
    :class: sphx-glr-single-img
 
@@ -153,11 +153,11 @@ Imports
 
     Image:
     SNR of noisy image: 10.00 dB
-    SNR after smoothing: 17.69 dB
-    SNR improvement: 7.69 dB
+    SNR after smoothing: 17.68 dB
+    SNR improvement: 7.68 dB
 
-    Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [-0.6702387206030012..1.76025280954446].
-    Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [-0.09837255519596473..1.1837520472210685].
+    Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [-0.6595024135859052..1.8249647953707053].
+    Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [-0.07019484953244569..1.1551881321195299].
 
 
 
@@ -165,7 +165,7 @@ Imports
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.474 seconds)
+   **Total running time of the script:** (0 minutes 2.344 seconds)
 
 
 .. _sphx_glr_download_auto_examples_06_denoise_06_02_2d_image_smoothing.py:

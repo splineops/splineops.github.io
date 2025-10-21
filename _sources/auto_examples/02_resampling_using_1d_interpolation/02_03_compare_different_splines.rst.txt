@@ -40,7 +40,7 @@ Obtain a spline through different methods and compare the results.
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-80
+.. GENERATED FROM PYTHON SOURCE LINES 27-79
 
 .. code-block:: Python
 
@@ -60,7 +60,7 @@ Imports
 
     number_of_samples = 27
 
-    f_support = np.arange(number_of_samples)
+    f_support = np.arange(number_of_samples, dtype=np.float64)
     f_support_length = len(f_support) # It's equal to number_of_samples
 
     f_samples = np.array([
@@ -69,7 +69,7 @@ Imports
         0.0901577, 0.219599, 0.374669, 0.384896, 0.301386, 0.128646,
         -0.00811776, 0.0153119, 0.106126, 0.21688, 0.347629, 0.419532,
         0.50695, 0.544767, 0.555373
-    ])
+    ], dtype=np.float64)
 
     plot_points_per_unit = 12
 
@@ -88,13 +88,12 @@ Imports
     val_T = np.pi
 
     g_support_length = round(f_support_length // val_T)
-    g_support = np.arange(g_support_length)  
-    f_resampled_coords = np.array([q * val_T for q in range(g_support_length)])
+    g_support = np.arange(g_support_length, dtype=np.float64)
+    f_resampled_coords = np.linspace(0, (g_support_length - 1) * val_T, g_support_length, dtype=np.float64)
     g_samples = f(coordinates=(f_resampled_coords,), grid=False)
     g = TensorSpline(data=g_samples, coordinates=g_support, bases=base, modes=mode)
 
-    g_coords = np.array([q/plot_points_per_unit 
-                         for q in range(plot_points_per_unit * len(g_support))])
+    g_coords = np.linspace(0, g_support_length - 1, plot_points_per_unit * g_support_length, dtype=np.float64)
     g_data = g(coordinates=(g_coords,), grid=False)
 
 
@@ -104,7 +103,7 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 81-94
+.. GENERATED FROM PYTHON SOURCE LINES 80-93
 
 Expand g to Obtain h
 --------------------
@@ -120,7 +119,7 @@ where :math:`g` is the continuously defined spline built from the
 discrete points :math:`g[k]`. Hence, :math:`h` and :math:`f` have the same support 
 and can be directly compared (e.g., by computing an MSE).
 
-.. GENERATED FROM PYTHON SOURCE LINES 94-208
+.. GENERATED FROM PYTHON SOURCE LINES 93-207
 
 .. code-block:: Python
 
@@ -250,7 +249,7 @@ and can be directly compared (e.g., by computing an MSE).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 209-229
+.. GENERATED FROM PYTHON SOURCE LINES 208-228
 
 MSE Between f and h
 -------------------
@@ -273,7 +272,7 @@ Summing across all points produces the approximation
 
 The normalization by :math:`(b-a)` yields the MSE.
 
-.. GENERATED FROM PYTHON SOURCE LINES 229-250
+.. GENERATED FROM PYTHON SOURCE LINES 228-249
 
 .. code-block:: Python
 
@@ -284,7 +283,7 @@ The normalization by :math:`(b-a)` yields the MSE.
     a = (f_support_length - 1) * padding_fraction
     b = (f_support_length - 1) * (1 - padding_fraction)
     dx = (b - a) / N
-    mid_x = np.linspace(a + dx/2, b - dx/2, N)  # midpoints
+    mid_x = np.linspace(a + dx/2, b - dx/2, N, dtype=np.float64)  # midpoints
 
     # 2) Evaluate f(x) and h(x) at those midpoints
     f_mid = f(coordinates=(mid_x,), grid=False)
@@ -311,7 +310,7 @@ The normalization by :math:`(b-a)` yields the MSE.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 251-256
+.. GENERATED FROM PYTHON SOURCE LINES 250-255
 
 Variation with Linear Splines
 -----------------------------
@@ -319,7 +318,7 @@ Variation with Linear Splines
 We repeat exactly everything with linear splines. As the MSE increases, we conclude that splines of degree 3 provide a better representation
 of the original signal than splines of degree 1.
 
-.. GENERATED FROM PYTHON SOURCE LINES 256-392
+.. GENERATED FROM PYTHON SOURCE LINES 255-391
 
 .. code-block:: Python
 
@@ -446,7 +445,7 @@ of the original signal than splines of degree 1.
     dx = (b - a) / N
 
     # mid_x are the midpoints of each subinterval
-    mid_x = np.linspace(a + dx/2, b - dx/2, N)
+    mid_x = np.linspace(a + dx/2, b - dx/2, N, dtype=np.float64)
 
     # Evaluate f_lin and h_lin at midpoints
     f_lin_mid = f_lin(coordinates=(mid_x,), grid=False)
@@ -480,7 +479,7 @@ of the original signal than splines of degree 1.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.874 seconds)
+   **Total running time of the script:** (0 minutes 0.849 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resampling_using_1d_interpolation_02_03_compare_different_splines.py:
