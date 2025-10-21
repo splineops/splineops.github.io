@@ -212,22 +212,51 @@ Comparison
 
 We compare the performance of the different methods being analyzed.
 
-.. GENERATED FROM PYTHON SOURCE LINES 136-140
+.. GENERATED FROM PYTHON SOURCE LINES 134-151
+
+.. code-block:: Python
+
+
+    # SciPy Interpolation (reference)
+    (
+        resized_2d_scipy,
+        recovered_2d_scipy,
+        snr_2d_scipy,
+        mse_2d_scipy,
+        time_2d_scipy
+    ) = resize_and_compute_metrics(
+        input_image_normalized,
+        method="scipy",
+        scipy_order=3,  # cubic
+        zoom_factors=zoom_factors_2d,
+        border_fraction=border_fraction,
+        roi=roi_rect,   # compute metrics on the same ROI
+    )
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 152-156
 
 Comparison Table
 ~~~~~~~~~~~~~~~~
 
 We print the SNR, MSE, and timing data for each method.
 
-.. GENERATED FROM PYTHON SOURCE LINES 140-157
+.. GENERATED FROM PYTHON SOURCE LINES 156-174
 
 .. code-block:: Python
 
 
     methods = [
-        ("Standard Interpolation", snr_2d_interp, mse_2d_interp, time_2d_interp),
-        ("Least-Squares Projection", snr_2d_ls, mse_2d_ls, time_2d_ls),
-        ("Oblique Projection", snr_2d_ob, mse_2d_ob, time_2d_ob),
+        ("SciPy Interpolation",      snr_2d_scipy,  mse_2d_scipy,  time_2d_scipy),
+        ("Standard Interpolation",   snr_2d_interp, mse_2d_interp, time_2d_interp),
+        ("Least-Squares Projection", snr_2d_ls,     mse_2d_ls,     time_2d_ls),
+        ("Oblique Projection",       snr_2d_ob,     mse_2d_ob,     time_2d_ob),
     ]
 
     # Print the table header using the same widths as we'll use for data
@@ -250,19 +279,20 @@ We print the SNR, MSE, and timing data for each method.
 
     Method                      SNR (dB)              MSE     Time (s)
     ------------------------------------------------------------------
-    Standard Interpolation         12.15         2.20e-02       0.0188
-    Least-Squares Projection       14.28         1.35e-02       0.0376
-    Oblique Projection             14.24         1.36e-02       0.0213
+    SciPy Interpolation            12.15         2.20e-02       0.0106
+    Standard Interpolation         12.15         2.20e-02       0.0156
+    Least-Squares Projection       14.28         1.35e-02       0.0408
+    Oblique Projection             14.24         1.36e-02       0.0227
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 158-160
+.. GENERATED FROM PYTHON SOURCE LINES 175-177
 
 All Methods
 ~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 160-177
+.. GENERATED FROM PYTHON SOURCE LINES 177-194
 
 .. code-block:: Python
 
@@ -295,12 +325,12 @@ All Methods
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-180
+.. GENERATED FROM PYTHON SOURCE LINES 195-197
 
 Standard Interpolation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 180-187
+.. GENERATED FROM PYTHON SOURCE LINES 197-204
 
 .. code-block:: Python
 
@@ -323,12 +353,12 @@ Standard Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 188-190
+.. GENERATED FROM PYTHON SOURCE LINES 205-207
 
 Least-Squares Projection
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 190-197
+.. GENERATED FROM PYTHON SOURCE LINES 207-214
 
 .. code-block:: Python
 
@@ -351,12 +381,12 @@ Least-Squares Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 198-200
+.. GENERATED FROM PYTHON SOURCE LINES 215-217
 
 Oblique Projection
 ~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 200-205
+.. GENERATED FROM PYTHON SOURCE LINES 217-222
 
 .. code-block:: Python
 
@@ -380,7 +410,7 @@ Oblique Projection
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 3.622 seconds)
+   **Total running time of the script:** (0 minutes 2.321 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_06_compare_different_methods.py:

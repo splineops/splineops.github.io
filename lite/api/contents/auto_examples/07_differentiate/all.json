@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-21T09:42:23.764225Z",
+      "created": "2025-10-21T13:45:45.702519Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-21T09:41:56.229678Z",
+      "last_modified": "2025-10-21T13:45:21.013626Z",
       "mimetype": null,
       "name": "07_01_differentiate_module.ipynb",
       "path": "auto_examples/07_differentiate/07_01_differentiate_module.ipynb",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-21T09:42:23.764225Z",
+  "created": "2025-10-21T13:45:45.702519Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-21T09:42:23.764225Z",
+  "last_modified": "2025-10-21T13:45:45.702519Z",
   "mimetype": null,
   "name": "07_differentiate",
   "path": "auto_examples/07_differentiate",

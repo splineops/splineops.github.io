@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-21T09:42:23.762225Z",
+      "created": "2025-10-21T13:45:45.701519Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-21T09:41:37.663334Z",
+      "last_modified": "2025-10-21T13:45:04.170801Z",
       "mimetype": null,
       "name": "05_01_regress_module.ipynb",
       "path": "auto_examples/05_regress/05_01_regress_module.ipynb",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-21T09:42:23.762225Z",
+  "created": "2025-10-21T13:45:45.701519Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-21T09:42:23.762225Z",
+  "last_modified": "2025-10-21T13:45:45.701519Z",
   "mimetype": null,
   "name": "05_regress",
   "path": "auto_examples/05_regress",
