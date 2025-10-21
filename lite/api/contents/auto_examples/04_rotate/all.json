@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-21T08:34:15.150670Z",
+      "created": "2025-10-21T09:25:20.684444Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-21T08:33:15.656575Z",
+      "last_modified": "2025-10-21T09:24:17.991720Z",
       "mimetype": null,
       "name": "04_01_rotate_image.ipynb",
       "path": "auto_examples/04_rotate/04_01_rotate_image.ipynb",
@@ -16,11 +16,11 @@
     },
     {
       "content": null,
-      "created": "2025-10-21T08:34:15.150670Z",
+      "created": "2025-10-21T09:25:20.685444Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-21T08:33:33.263605Z",
+      "last_modified": "2025-10-21T09:24:35.437641Z",
       "mimetype": null,
       "name": "04_02_rotation_animation.ipynb",
       "path": "auto_examples/04_rotate/04_02_rotation_animation.ipynb",
@@ -29,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-21T08:34:15.150670Z",
+  "created": "2025-10-21T09:25:20.685444Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-21T08:34:15.150670Z",
+  "last_modified": "2025-10-21T09:25:20.685444Z",
   "mimetype": null,
   "name": "04_rotate",
   "path": "auto_examples/04_rotate",
