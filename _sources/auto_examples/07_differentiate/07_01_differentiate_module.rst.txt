@@ -312,7 +312,7 @@ Laplacian
 
  .. code-block:: none
 
-    Completed in 1.35 seconds
+    Completed in 1.37 seconds
 
 
 
@@ -345,7 +345,7 @@ Largest Hessian
 
  .. code-block:: none
 
-    Completed in 2.50 seconds
+    Completed in 2.51 seconds
 
 
 
@@ -416,7 +416,7 @@ Hessian Orientation
 
  .. code-block:: none
 
-    Completed in 2.49 seconds
+    Completed in 2.51 seconds
 
 
 
@@ -424,7 +424,7 @@ Hessian Orientation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 14.142 seconds)
+   **Total running time of the script:** (0 minutes 13.834 seconds)
 
 
 .. _sphx_glr_download_auto_examples_07_differentiate_07_01_differentiate_module.py:

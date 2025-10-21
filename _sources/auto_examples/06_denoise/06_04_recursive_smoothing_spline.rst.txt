@@ -112,9 +112,9 @@ Recursive Smoothing Spline
 
 
     Mean Squared Error (MSE) between Recursive and Fractional Smoothing Spline:
-    λ=0.005: MSE = 0.000032
-    λ=0.050: MSE = 0.001042
-    λ=0.100: MSE = 0.003595
+    λ=0.005: MSE = 0.000034
+    λ=0.050: MSE = 0.001112
+    λ=0.100: MSE = 0.003833
 
 
 
@@ -122,7 +122,7 @@ Recursive Smoothing Spline
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.114 seconds)
+   **Total running time of the script:** (0 minutes 0.119 seconds)
 
 
 .. _sphx_glr_download_auto_examples_06_denoise_06_04_recursive_smoothing_spline.py:
