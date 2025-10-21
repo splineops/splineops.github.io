@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-21T13:45:45.701519Z",
+      "created": "2025-10-21T13:50:27.845509Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-21T13:44:47.074986Z",
+      "last_modified": "2025-10-21T13:49:27.546347Z",
       "mimetype": null,
       "name": "04_01_rotate_image.ipynb",
       "path": "auto_examples/04_rotate/04_01_rotate_image.ipynb",
@@ -16,11 +16,11 @@
     },
     {
       "content": null,
-      "created": "2025-10-21T13:45:45.701519Z",
+      "created": "2025-10-21T13:50:27.845509Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-21T13:45:03.971804Z",
+      "last_modified": "2025-10-21T13:49:44.218379Z",
       "mimetype": null,
       "name": "04_02_rotation_animation.ipynb",
       "path": "auto_examples/04_rotate/04_02_rotation_animation.ipynb",
@@ -29,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-21T13:45:45.701519Z",
+  "created": "2025-10-21T13:50:27.845509Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-21T13:45:45.701519Z",
+  "last_modified": "2025-10-21T13:50:27.845509Z",
   "mimetype": null,
   "name": "04_rotate",
   "path": "auto_examples/04_rotate",
