@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_06_compare_different_methods.py>`
-        to download the full example code. or to run this example in your browser via JupyterLite or Binder
+        to download the full example code. or to run this example in your browser via Binder
 
 .. rst-class:: sphx-glr-example-title
 
@@ -279,10 +279,10 @@ We print the SNR, MSE, and timing data for each method.
 
     Method                      SNR (dB)              MSE     Time (s)
     ------------------------------------------------------------------
-    SciPy Interpolation            12.15         2.20e-02       0.0091
-    Standard Interpolation         12.15         2.20e-02       0.0180
-    Least-Squares Projection       14.28         1.35e-02       0.0379
-    Oblique Projection             14.24         1.36e-02       0.0209
+    SciPy Interpolation            12.15         2.20e-02       0.0092
+    Standard Interpolation         12.15         2.20e-02       0.0186
+    Least-Squares Projection       14.28         1.35e-02       0.0381
+    Oblique Projection             14.24         1.36e-02       0.0212
 
 
 
@@ -410,7 +410,7 @@ Oblique Projection
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.419 seconds)
+   **Total running time of the script:** (0 minutes 2.251 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_06_compare_different_methods.py:
@@ -424,13 +424,6 @@ Oblique Projection
       .. image:: images/binder_badge_logo.svg
         :target: https://mybinder.org/v2/gh/splineops/splineops.github.io/main?urlpath=lab/tree/notebooks_binder/auto_examples/03_resampling_using_2D_interpolation/03_06_compare_different_methods.ipynb
         :alt: Launch binder
-        :width: 150 px
-
-    .. container:: lite-badge
-
-      .. image:: images/jupyterlite_badge_logo.svg
-        :target: ../../lite/lab/index.html?path=auto_examples/03_resampling_using_2D_interpolation/03_06_compare_different_methods.ipynb
-        :alt: Launch JupyterLite
         :width: 150 px
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter

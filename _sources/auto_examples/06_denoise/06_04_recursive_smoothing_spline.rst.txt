@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_auto_examples_06_denoise_06_04_recursive_smoothing_spline.py>`
-        to download the full example code. or to run this example in your browser via JupyterLite or Binder
+        to download the full example code. or to run this example in your browser via Binder
 
 .. rst-class:: sphx-glr-example-title
 
@@ -112,9 +112,9 @@ Recursive Smoothing Spline
 
 
     Mean Squared Error (MSE) between Recursive and Fractional Smoothing Spline:
-    λ=0.005: MSE = 0.000035
-    λ=0.050: MSE = 0.001015
-    λ=0.100: MSE = 0.003478
+    λ=0.005: MSE = 0.000036
+    λ=0.050: MSE = 0.001084
+    λ=0.100: MSE = 0.003725
 
 
 
@@ -122,7 +122,7 @@ Recursive Smoothing Spline
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.113 seconds)
+   **Total running time of the script:** (0 minutes 0.117 seconds)
 
 
 .. _sphx_glr_download_auto_examples_06_denoise_06_04_recursive_smoothing_spline.py:
@@ -136,13 +136,6 @@ Recursive Smoothing Spline
       .. image:: images/binder_badge_logo.svg
         :target: https://mybinder.org/v2/gh/splineops/splineops.github.io/main?urlpath=lab/tree/notebooks_binder/auto_examples/06_denoise/06_04_recursive_smoothing_spline.ipynb
         :alt: Launch binder
-        :width: 150 px
-
-    .. container:: lite-badge
-
-      .. image:: images/jupyterlite_badge_logo.svg
-        :target: ../../lite/lab/index.html?path=auto_examples/06_denoise/06_04_recursive_smoothing_spline.ipynb
-        :alt: Launch JupyterLite
         :width: 150 px
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter

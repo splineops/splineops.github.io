@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_05_oblique_projection.py>`
-        to download the full example code. or to run this example in your browser via JupyterLite or Binder
+        to download the full example code. or to run this example in your browser via Binder
 
 .. rst-class:: sphx-glr-example-title
 
@@ -111,7 +111,7 @@ then show a 1×3 ROI triptych.
     border_fraction = locals().get("border_fraction", 0.3)
     ROI_SIZE_PX = locals().get("ROI_SIZE_PX", 64)
 
-    # ROI 
+    # ROI
     FACE_ROW    = locals().get("FACE_ROW", 400)
     FACE_COL    = locals().get("FACE_COL", 600)
 
@@ -297,7 +297,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_004.png
-   :alt: Resized Image (least-squares; t=38.1 ms)
+   :alt: Resized Image (least-squares; t=38.4 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_004.png
    :class: sphx-glr-single-img
 
@@ -352,7 +352,7 @@ Oblique Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_005.png
-   :alt: Resized Image (oblique; t=20.6 ms)
+   :alt: Resized Image (oblique; t=20.9 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_005.png
    :class: sphx-glr-single-img
 
@@ -525,7 +525,7 @@ Performance: Time Comparison
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_010.png
-   :alt: Oblique is ≈ 1.85× faster (46.0% less time)
+   :alt: Oblique is ≈ 1.84× faster (45.7% less time)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_010.png
    :class: sphx-glr-single-img
 
@@ -534,9 +534,9 @@ Performance: Time Comparison
 
  .. code-block:: none
 
-    [Timing] Least-Squares: 38.1 ms
-    [Timing] Oblique      : 20.6 ms
-    [Timing] Speedup (LS/OB): 1.85×  (~46.0% less time)
+    [Timing] Least-Squares: 38.4 ms
+    [Timing] Oblique      : 20.9 ms
+    [Timing] Speedup (LS/OB): 1.84×  (~45.7% less time)
 
 
 
@@ -544,7 +544,7 @@ Performance: Time Comparison
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 3.130 seconds)
+   **Total running time of the script:** (0 minutes 2.904 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_05_oblique_projection.py:
@@ -558,13 +558,6 @@ Performance: Time Comparison
       .. image:: images/binder_badge_logo.svg
         :target: https://mybinder.org/v2/gh/splineops/splineops.github.io/main?urlpath=lab/tree/notebooks_binder/auto_examples/03_resampling_using_2D_interpolation/03_05_oblique_projection.ipynb
         :alt: Launch binder
-        :width: 150 px
-
-    .. container:: lite-badge
-
-      .. image:: images/jupyterlite_badge_logo.svg
-        :target: ../../lite/lab/index.html?path=auto_examples/03_resampling_using_2D_interpolation/03_05_oblique_projection.ipynb
-        :alt: Launch JupyterLite
         :width: 150 px
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter

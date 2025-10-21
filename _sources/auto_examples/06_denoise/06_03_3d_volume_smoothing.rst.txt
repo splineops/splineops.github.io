@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_auto_examples_06_denoise_06_03_3d_volume_smoothing.py>`
-        to download the full example code. or to run this example in your browser via JupyterLite or Binder
+        to download the full example code. or to run this example in your browser via Binder
 
 .. rst-class:: sphx-glr-example-title
 
@@ -135,7 +135,7 @@ Sinusoid 3D Data
 
 
 .. image-sg:: /auto_examples/06_denoise/images/sphx_glr_06_03_3d_volume_smoothing_001.png
-   :alt: Clean Volume Slice, Noisy Slice (SNR=9.98 dB), Smoothed Slice (SNR=24.98 dB)
+   :alt: Clean Volume Slice, Noisy Slice (SNR=10.01 dB), Smoothed Slice (SNR=24.89 dB)
    :srcset: /auto_examples/06_denoise/images/sphx_glr_06_03_3d_volume_smoothing_001.png
    :class: sphx-glr-single-img
 
@@ -145,9 +145,9 @@ Sinusoid 3D Data
  .. code-block:: none
 
     3D Sinusoid Volume:
-    SNR of noisy volume: 9.98 dB
-    SNR after smoothing: 24.98 dB
-    SNR improvement: 15.00 dB
+    SNR of noisy volume: 10.01 dB
+    SNR after smoothing: 24.89 dB
+    SNR improvement: 14.87 dB
 
 
 
@@ -156,7 +156,7 @@ Sinusoid 3D Data
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.161 seconds)
+   **Total running time of the script:** (0 minutes 0.158 seconds)
 
 
 .. _sphx_glr_download_auto_examples_06_denoise_06_03_3d_volume_smoothing.py:
@@ -170,13 +170,6 @@ Sinusoid 3D Data
       .. image:: images/binder_badge_logo.svg
         :target: https://mybinder.org/v2/gh/splineops/splineops.github.io/main?urlpath=lab/tree/notebooks_binder/auto_examples/06_denoise/06_03_3d_volume_smoothing.ipynb
         :alt: Launch binder
-        :width: 150 px
-
-    .. container:: lite-badge
-
-      .. image:: images/jupyterlite_badge_logo.svg
-        :target: ../../lite/lab/index.html?path=auto_examples/06_denoise/06_03_3d_volume_smoothing.ipynb
-        :alt: Launch JupyterLite
         :width: 150 px
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
