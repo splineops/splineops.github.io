@@ -479,7 +479,7 @@ of the original signal than splines of degree 1.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.884 seconds)
+   **Total running time of the script:** (0 minutes 0.854 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resampling_using_1d_interpolation_02_03_compare_different_splines.py:

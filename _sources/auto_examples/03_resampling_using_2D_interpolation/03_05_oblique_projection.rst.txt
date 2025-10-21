@@ -297,7 +297,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_004.png
-   :alt: Resized Image (least-squares; t=38.4 ms)
+   :alt: Resized Image (least-squares; t=38.3 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_004.png
    :class: sphx-glr-single-img
 
@@ -352,7 +352,7 @@ Oblique Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_005.png
-   :alt: Resized Image (oblique; t=20.9 ms)
+   :alt: Resized Image (oblique; t=21.1 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_005.png
    :class: sphx-glr-single-img
 
@@ -525,7 +525,7 @@ Performance: Time Comparison
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_010.png
-   :alt: Oblique is ≈ 1.84× faster (45.7% less time)
+   :alt: Oblique is ≈ 1.81× faster (44.9% less time)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_010.png
    :class: sphx-glr-single-img
 
@@ -534,9 +534,9 @@ Performance: Time Comparison
 
  .. code-block:: none
 
-    [Timing] Least-Squares: 38.4 ms
-    [Timing] Oblique      : 20.9 ms
-    [Timing] Speedup (LS/OB): 1.84×  (~45.7% less time)
+    [Timing] Least-Squares: 38.3 ms
+    [Timing] Oblique      : 21.1 ms
+    [Timing] Speedup (LS/OB): 1.81×  (~44.9% less time)
 
 
 
@@ -544,7 +544,7 @@ Performance: Time Comparison
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.904 seconds)
+   **Total running time of the script:** (0 minutes 2.991 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_05_oblique_projection.py:

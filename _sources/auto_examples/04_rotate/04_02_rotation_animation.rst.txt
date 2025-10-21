@@ -388,42 +388,42 @@ Create the animation of the image being rotated from 0 to 360 degrees. Explore t
      </style>
 
      <div class="animation">
-       <img id="_anim_imgc37fc8447e9a4f149edc34af625b37a2">
+       <img id="_anim_imgc0d42505bad647c4815c5eaac4af1f5b">
        <div class="anim-controls">
-         <input id="_anim_sliderc37fc8447e9a4f149edc34af625b37a2" type="range" class="anim-slider"
+         <input id="_anim_sliderc0d42505bad647c4815c5eaac4af1f5b" type="range" class="anim-slider"
                 name="points" min="0" max="1" step="1" value="0"
-                oninput="animc37fc8447e9a4f149edc34af625b37a2.set_frame(parseInt(this.value));">
+                oninput="animc0d42505bad647c4815c5eaac4af1f5b.set_frame(parseInt(this.value));">
          <div class="anim-buttons">
-           <button title="Decrease speed" aria-label="Decrease speed" onclick="animc37fc8447e9a4f149edc34af625b37a2.slower()">
+           <button title="Decrease speed" aria-label="Decrease speed" onclick="animc0d42505bad647c4815c5eaac4af1f5b.slower()">
                <i class="fa fa-minus"></i></button>
-           <button title="First frame" aria-label="First frame" onclick="animc37fc8447e9a4f149edc34af625b37a2.first_frame()">
+           <button title="First frame" aria-label="First frame" onclick="animc0d42505bad647c4815c5eaac4af1f5b.first_frame()">
              <i class="fa fa-fast-backward"></i></button>
-           <button title="Previous frame" aria-label="Previous frame" onclick="animc37fc8447e9a4f149edc34af625b37a2.previous_frame()">
+           <button title="Previous frame" aria-label="Previous frame" onclick="animc0d42505bad647c4815c5eaac4af1f5b.previous_frame()">
                <i class="fa fa-step-backward"></i></button>
-           <button title="Play backwards" aria-label="Play backwards" onclick="animc37fc8447e9a4f149edc34af625b37a2.reverse_animation()">
+           <button title="Play backwards" aria-label="Play backwards" onclick="animc0d42505bad647c4815c5eaac4af1f5b.reverse_animation()">
                <i class="fa fa-play fa-flip-horizontal"></i></button>
-           <button title="Pause" aria-label="Pause" onclick="animc37fc8447e9a4f149edc34af625b37a2.pause_animation()">
+           <button title="Pause" aria-label="Pause" onclick="animc0d42505bad647c4815c5eaac4af1f5b.pause_animation()">
                <i class="fa fa-pause"></i></button>
-           <button title="Play" aria-label="Play" onclick="animc37fc8447e9a4f149edc34af625b37a2.play_animation()">
+           <button title="Play" aria-label="Play" onclick="animc0d42505bad647c4815c5eaac4af1f5b.play_animation()">
                <i class="fa fa-play"></i></button>
-           <button title="Next frame" aria-label="Next frame" onclick="animc37fc8447e9a4f149edc34af625b37a2.next_frame()">
+           <button title="Next frame" aria-label="Next frame" onclick="animc0d42505bad647c4815c5eaac4af1f5b.next_frame()">
                <i class="fa fa-step-forward"></i></button>
-           <button title="Last frame" aria-label="Last frame" onclick="animc37fc8447e9a4f149edc34af625b37a2.last_frame()">
+           <button title="Last frame" aria-label="Last frame" onclick="animc0d42505bad647c4815c5eaac4af1f5b.last_frame()">
                <i class="fa fa-fast-forward"></i></button>
-           <button title="Increase speed" aria-label="Increase speed" onclick="animc37fc8447e9a4f149edc34af625b37a2.faster()">
+           <button title="Increase speed" aria-label="Increase speed" onclick="animc0d42505bad647c4815c5eaac4af1f5b.faster()">
                <i class="fa fa-plus"></i></button>
          </div>
-         <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selectc37fc8447e9a4f149edc34af625b37a2"
+         <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selectc0d42505bad647c4815c5eaac4af1f5b"
                class="anim-state">
-           <input type="radio" name="state" value="once" id="_anim_radio1_c37fc8447e9a4f149edc34af625b37a2"
+           <input type="radio" name="state" value="once" id="_anim_radio1_c0d42505bad647c4815c5eaac4af1f5b"
                   >
-           <label for="_anim_radio1_c37fc8447e9a4f149edc34af625b37a2">Once</label>
-           <input type="radio" name="state" value="loop" id="_anim_radio2_c37fc8447e9a4f149edc34af625b37a2"
+           <label for="_anim_radio1_c0d42505bad647c4815c5eaac4af1f5b">Once</label>
+           <input type="radio" name="state" value="loop" id="_anim_radio2_c0d42505bad647c4815c5eaac4af1f5b"
                   checked>
-           <label for="_anim_radio2_c37fc8447e9a4f149edc34af625b37a2">Loop</label>
-           <input type="radio" name="state" value="reflect" id="_anim_radio3_c37fc8447e9a4f149edc34af625b37a2"
+           <label for="_anim_radio2_c0d42505bad647c4815c5eaac4af1f5b">Loop</label>
+           <input type="radio" name="state" value="reflect" id="_anim_radio3_c0d42505bad647c4815c5eaac4af1f5b"
                   >
-           <label for="_anim_radio3_c37fc8447e9a4f149edc34af625b37a2">Reflect</label>
+           <label for="_anim_radio3_c0d42505bad647c4815c5eaac4af1f5b">Reflect</label>
          </form>
        </div>
      </div>
@@ -433,9 +433,9 @@ Create the animation of the image being rotated from 0 to 360 degrees. Explore t
        /* Instantiate the Animation class. */
        /* The IDs given should match those used in the template above. */
        (function() {
-         var img_id = "_anim_imgc37fc8447e9a4f149edc34af625b37a2";
-         var slider_id = "_anim_sliderc37fc8447e9a4f149edc34af625b37a2";
-         var loop_select_id = "_anim_loop_selectc37fc8447e9a4f149edc34af625b37a2";
+         var img_id = "_anim_imgc0d42505bad647c4815c5eaac4af1f5b";
+         var slider_id = "_anim_sliderc0d42505bad647c4815c5eaac4af1f5b";
+         var loop_select_id = "_anim_loop_selectc0d42505bad647c4815c5eaac4af1f5b";
          var frames = new Array(36);
     
        frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAASwCAYAAADVKxxdAAAAOnRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -181442,7 +181442,7 @@ Create the animation of the image being rotated from 0 to 360 degrees. Explore t
          /* set a timeout to make sure all the above elements are created before
             the object is initialized. */
          setTimeout(function() {
-             animc37fc8447e9a4f149edc34af625b37a2 = new Animation(frames, img_id, slider_id, 250.0,
+             animc0d42505bad647c4815c5eaac4af1f5b = new Animation(frames, img_id, slider_id, 250.0,
                                       loop_select_id);
          }, 0);
        })()
@@ -181456,7 +181456,7 @@ Create the animation of the image being rotated from 0 to 360 degrees. Explore t
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 16.973 seconds)
+   **Total running time of the script:** (0 minutes 17.166 seconds)
 
 
 .. _sphx_glr_download_auto_examples_04_rotate_04_02_rotation_animation.py:
