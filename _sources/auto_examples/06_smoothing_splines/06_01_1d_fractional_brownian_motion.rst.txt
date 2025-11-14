@@ -139,8 +139,8 @@ The sequence is then denoised and oversampled by a factor m using the optimal fr
 
     Number of measurements is 256, oversampling factor is 4.
     mSNR (SNR at the mid-point) of the measured sequence      is 20.00 dB.
-    mSNR improvement of the denoised sequence                 is 6.96 dB.
-    mSNR improvement of the denoised and oversampled sequence is 6.76 dB.
+    mSNR improvement of the denoised sequence                 is 7.23 dB.
+    mSNR improvement of the denoised and oversampled sequence is 7.17 dB.
 
 
 
@@ -148,7 +148,7 @@ The sequence is then denoised and oversampled by a factor m using the optimal fr
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.159 seconds)
+   **Total running time of the script:** (0 minutes 0.162 seconds)
 
 
 .. _sphx_glr_download_auto_examples_06_smoothing_splines_06_01_1d_fractional_brownian_motion.py:

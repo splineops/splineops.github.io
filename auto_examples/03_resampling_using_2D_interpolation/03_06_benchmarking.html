@@ -35,7 +35,7 @@
 <!-- Pre-loaded scripts that we'll load fully later -->
 <link as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" rel="preload"/>
 <link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" rel="preload"/>
-<script src="../../_static/documentation_options.js?v=8d563738"></script>
+<script src="../../_static/documentation_options.js?v=292eb321"></script>
 <script src="../../_static/doctools.js?v=9bcbadda"></script>
 <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
 <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -45,7 +45,7 @@
 <link href="../../_static/logo.ico" rel="icon"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="../../search.html" rel="search" title="Search"/>
-<link href="../04_rotate/index.html" rel="next" title="Rotate Examples"/>
+<link href="03_07_benchmarking_plot.html" rel="next" title="Benchmarking: Zoom Sweep"/>
 <link href="03_05_oblique_projection.html" rel="prev" title="Oblique Projection"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="en" name="docsearch:language"/>
@@ -220,6 +220,7 @@
 <li class="toctree-l2"><a class="reference internal" href="03_04_how_bad_aliasing_can_be.html">How Bad Aliasing Can Be</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_05_oblique_projection.html">Oblique Projection</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_07_benchmarking_plot.html">Benchmarking: Zoom Sweep</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04_rotate/index.html">Rotate Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -288,9 +289,9 @@
 <p>This example benchmarks several 2D downsampling methods over a <em>set</em> of test
 images. For each image we:</p>
 <ol class="arabic simple">
-<li><p>Downsample by an image-specific zoom factor</p></li>
-<li><p>Measure the runtime of the <strong>forward pass</strong> only</p></li>
-<li><p>Visualise the results with ROI-aware zooms, one method per figure</p></li>
+<li><p>Downsample by an image-specific zoom factor.</p></li>
+<li><p>Measure the runtime of the forward pass only.</p></li>
+<li><p>Visualise the results with ROI-aware zooms, one method per figure.</p></li>
 </ol>
 <p>We compare:</p>
 <ul class="simple">
@@ -572,55 +573,55 @@ Image: kodim05  (zoom=0.15)
   URL: https://r0k.us/graphics/kodak/kodak/kodim05.png
   Method                           Time (s, avg±sd)
   -------------------------------------------------
-  SciPy                             0.0073 ± 0.0000
-  Standard                          0.0016 ± 0.0000
-  Least-Squares                     0.0045 ± 0.0000
+  SciPy                             0.0077 ± 0.0001
+  Standard                          0.0017 ± 0.0000
+  Least-Squares                     0.0044 ± 0.0001
   Oblique                           0.0032 ± 0.0000
 
 Image: kodim07  (zoom=0.15)
   URL: https://r0k.us/graphics/kodak/kodak/kodim07.png
   Method                           Time (s, avg±sd)
   -------------------------------------------------
-  SciPy                             0.0076 ± 0.0001
+  SciPy                             0.0073 ± 0.0000
   Standard                          0.0016 ± 0.0000
-  Least-Squares                     0.0044 ± 0.0002
-  Oblique                           0.0031 ± 0.0001
+  Least-Squares                     0.0045 ± 0.0001
+  Oblique                           0.0032 ± 0.0001
 
 Image: kodim14  (zoom=0.3)
   URL: https://r0k.us/graphics/kodak/kodak/kodim14.png
   Method                           Time (s, avg±sd)
   -------------------------------------------------
-  SciPy                             0.0091 ± 0.0001
+  SciPy                             0.0090 ± 0.0001
   Standard                          0.0019 ± 0.0000
-  Least-Squares                     0.0051 ± 0.0001
+  Least-Squares                     0.0054 ± 0.0000
   Oblique                           0.0038 ± 0.0001
 
 Image: kodim15  (zoom=0.3)
   URL: https://r0k.us/graphics/kodak/kodak/kodim15.png
   Method                           Time (s, avg±sd)
   -------------------------------------------------
-  SciPy                             0.0092 ± 0.0000
-  Standard                          0.0019 ± 0.0000
-  Least-Squares                     0.0058 ± 0.0015
-  Oblique                           0.0037 ± 0.0000
+  SciPy                             0.0091 ± 0.0000
+  Standard                          0.0020 ± 0.0000
+  Least-Squares                     0.0054 ± 0.0000
+  Oblique                           0.0038 ± 0.0001
 
 Image: kodim19  (zoom=0.2)
   URL: https://r0k.us/graphics/kodak/kodak/kodim19.png
   Method                           Time (s, avg±sd)
   -------------------------------------------------
-  SciPy                             0.0104 ± 0.0001
-  Standard                          0.0016 ± 0.0000
-  Least-Squares                     0.0034 ± 0.0000
+  SciPy                             0.0109 ± 0.0000
+  Standard                          0.0021 ± 0.0011
+  Least-Squares                     0.0039 ± 0.0014
   Oblique                           0.0027 ± 0.0000
 
 Image: kodim23  (zoom=0.15)
   URL: https://r0k.us/graphics/kodak/kodak/kodim23.png
   Method                           Time (s, avg±sd)
   -------------------------------------------------
-  SciPy                             0.0073 ± 0.0000
-  Standard                          0.0016 ± 0.0000
-  Least-Squares                     0.0044 ± 0.0001
-  Oblique                           0.0031 ± 0.0001
+  SciPy                             0.0088 ± 0.0023
+  Standard                          0.0017 ± 0.0001
+  Least-Squares                     0.0046 ± 0.0000
+  Oblique                           0.0034 ± 0.0001
 
 Timings averaged over 10 runs (1 warm-up run not counted).
 
@@ -630,7 +631,7 @@ Runtime context:
   CPU         : x86_64 | logical cores: 4
   NumPy/SciPy : 2.3.4/1.16.3
   Matplotlib  : 3.10.7 | backend: agg
-  splineops   : 1.0.0 | native ext present: True
+  splineops   : 1.0.1 | native ext present: True
   SPLINEOPS_ACCEL=always
   OMP_NUM_THREADS=4
 </pre></div>
@@ -792,7 +793,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="SciPy (zoom=0.150, orig=512×768) 7.3 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_002.png" srcset="../../_images/sphx_glr_03_06_benchmarking_002.png"/></section>
+<img alt="SciPy (zoom=0.150, orig=512×768) 7.7 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_002.png" srcset="../../_images/sphx_glr_03_06_benchmarking_002.png"/></section>
 <section id="standard-interpolation">
 <h3>Standard Interpolation<a class="headerlink" href="#standard-interpolation" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">down_std</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">down_by_label</span></a><span class="p">[</span><span class="s2">"Standard"</span><span class="p">]</span>
@@ -823,7 +824,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Standard (zoom=0.150, orig=512×768) 1.6 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_003.png" srcset="../../_images/sphx_glr_03_06_benchmarking_003.png"/></section>
+<img alt="Standard (zoom=0.150, orig=512×768) 1.7 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_003.png" srcset="../../_images/sphx_glr_03_06_benchmarking_003.png"/></section>
 <section id="least-squares-projection">
 <h3>Least-Squares Projection<a class="headerlink" href="#least-squares-projection" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">down_ls</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">down_by_label</span></a><span class="p">[</span><span class="s2">"Least-Squares"</span><span class="p">]</span>
@@ -854,7 +855,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Least-Squares (zoom=0.150, orig=512×768) 4.5 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_004.png" srcset="../../_images/sphx_glr_03_06_benchmarking_004.png"/></section>
+<img alt="Least-Squares (zoom=0.150, orig=512×768) 4.4 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_004.png" srcset="../../_images/sphx_glr_03_06_benchmarking_004.png"/></section>
 <section id="oblique-projection">
 <h3>Oblique Projection<a class="headerlink" href="#oblique-projection" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">down_ob</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">down_by_label</span></a><span class="p">[</span><span class="s2">"Oblique"</span><span class="p">]</span>
@@ -906,7 +907,7 @@ Runtime context:
 <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="Downsampled ROI comparison, SciPy 7.3 ms ± 0.0 ms, Standard 1.6 ms ± 0.0 ms, Least-Squares 4.5 ms ± 0.0 ms, Oblique 3.2 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_006.png" srcset="../../_images/sphx_glr_03_06_benchmarking_006.png"/></section>
+<img alt="Downsampled ROI comparison, SciPy 7.7 ms ± 0.1 ms, Standard 1.7 ms ± 0.0 ms, Least-Squares 4.4 ms ± 0.1 ms, Oblique 3.2 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_006.png" srcset="../../_images/sphx_glr_03_06_benchmarking_006.png"/></section>
 </section>
 <section id="id1">
 <h2>Image<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
@@ -986,7 +987,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="SciPy (zoom=0.150, orig=512×768) 7.6 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_008.png" srcset="../../_images/sphx_glr_03_06_benchmarking_008.png"/></section>
+<img alt="SciPy (zoom=0.150, orig=512×768) 7.3 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_008.png" srcset="../../_images/sphx_glr_03_06_benchmarking_008.png"/></section>
 <section id="id4">
 <h3>Standard Interpolation<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">down_std</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">down_by_label</span></a><span class="p">[</span><span class="s2">"Standard"</span><span class="p">]</span>
@@ -1048,7 +1049,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Least-Squares (zoom=0.150, orig=512×768) 4.4 ms ± 0.2 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_010.png" srcset="../../_images/sphx_glr_03_06_benchmarking_010.png"/></section>
+<img alt="Least-Squares (zoom=0.150, orig=512×768) 4.5 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_010.png" srcset="../../_images/sphx_glr_03_06_benchmarking_010.png"/></section>
 <section id="id6">
 <h3>Oblique Projection<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">down_ob</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">down_by_label</span></a><span class="p">[</span><span class="s2">"Oblique"</span><span class="p">]</span>
@@ -1079,7 +1080,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Oblique (zoom=0.150, orig=512×768) 3.1 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_011.png" srcset="../../_images/sphx_glr_03_06_benchmarking_011.png"/></section>
+<img alt="Oblique (zoom=0.150, orig=512×768) 3.2 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_011.png" srcset="../../_images/sphx_glr_03_06_benchmarking_011.png"/></section>
 <section id="id7">
 <h3>ROI Comparison<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list"><span class="n">roi_big_list</span></a> <span class="o">=</span> <span class="p">[</span><span class="n">_nearest_big</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">r</span></a><span class="p">,</span> <span class="mi">256</span><span class="p">)</span> <span class="k">for</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">r</span></a> <span class="ow">in</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list"><span class="n">roi_patches</span></a><span class="p">]</span>
@@ -1100,7 +1101,7 @@ Runtime context:
 <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="Downsampled ROI comparison, SciPy 7.6 ms ± 0.1 ms, Standard 1.6 ms ± 0.0 ms, Least-Squares 4.4 ms ± 0.2 ms, Oblique 3.1 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_012.png" srcset="../../_images/sphx_glr_03_06_benchmarking_012.png"/></section>
+<img alt="Downsampled ROI comparison, SciPy 7.3 ms ± 0.0 ms, Standard 1.6 ms ± 0.0 ms, Least-Squares 4.5 ms ± 0.1 ms, Oblique 3.2 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_012.png" srcset="../../_images/sphx_glr_03_06_benchmarking_012.png"/></section>
 </section>
 <section id="id8">
 <h2>Image<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
@@ -1180,7 +1181,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="SciPy (zoom=0.300, orig=512×768) 9.1 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_014.png" srcset="../../_images/sphx_glr_03_06_benchmarking_014.png"/></section>
+<img alt="SciPy (zoom=0.300, orig=512×768) 9.0 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_014.png" srcset="../../_images/sphx_glr_03_06_benchmarking_014.png"/></section>
 <section id="id11">
 <h3>Standard Interpolation<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">down_std</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">down_by_label</span></a><span class="p">[</span><span class="s2">"Standard"</span><span class="p">]</span>
@@ -1242,7 +1243,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Least-Squares (zoom=0.300, orig=512×768) 5.1 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_016.png" srcset="../../_images/sphx_glr_03_06_benchmarking_016.png"/></section>
+<img alt="Least-Squares (zoom=0.300, orig=512×768) 5.4 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_016.png" srcset="../../_images/sphx_glr_03_06_benchmarking_016.png"/></section>
 <section id="id13">
 <h3>Oblique Projection<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">down_ob</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">down_by_label</span></a><span class="p">[</span><span class="s2">"Oblique"</span><span class="p">]</span>
@@ -1294,7 +1295,7 @@ Runtime context:
 <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="Downsampled ROI comparison, SciPy 9.1 ms ± 0.1 ms, Standard 1.9 ms ± 0.0 ms, Least-Squares 5.1 ms ± 0.1 ms, Oblique 3.8 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_018.png" srcset="../../_images/sphx_glr_03_06_benchmarking_018.png"/></section>
+<img alt="Downsampled ROI comparison, SciPy 9.0 ms ± 0.1 ms, Standard 1.9 ms ± 0.0 ms, Least-Squares 5.4 ms ± 0.0 ms, Oblique 3.8 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_018.png" srcset="../../_images/sphx_glr_03_06_benchmarking_018.png"/></section>
 </section>
 <section id="id15">
 <h2>Image<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
@@ -1374,7 +1375,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="SciPy (zoom=0.300, orig=512×768) 9.2 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_020.png" srcset="../../_images/sphx_glr_03_06_benchmarking_020.png"/></section>
+<img alt="SciPy (zoom=0.300, orig=512×768) 9.1 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_020.png" srcset="../../_images/sphx_glr_03_06_benchmarking_020.png"/></section>
 <section id="id18">
 <h3>Standard Interpolation<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">down_std</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">down_by_label</span></a><span class="p">[</span><span class="s2">"Standard"</span><span class="p">]</span>
@@ -1405,7 +1406,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Standard (zoom=0.300, orig=512×768) 1.9 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_021.png" srcset="../../_images/sphx_glr_03_06_benchmarking_021.png"/></section>
+<img alt="Standard (zoom=0.300, orig=512×768) 2.0 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_021.png" srcset="../../_images/sphx_glr_03_06_benchmarking_021.png"/></section>
 <section id="id19">
 <h3>Least-Squares Projection<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">down_ls</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">down_by_label</span></a><span class="p">[</span><span class="s2">"Least-Squares"</span><span class="p">]</span>
@@ -1436,7 +1437,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Least-Squares (zoom=0.300, orig=512×768) 5.8 ms ± 1.5 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_022.png" srcset="../../_images/sphx_glr_03_06_benchmarking_022.png"/></section>
+<img alt="Least-Squares (zoom=0.300, orig=512×768) 5.4 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_022.png" srcset="../../_images/sphx_glr_03_06_benchmarking_022.png"/></section>
 <section id="id20">
 <h3>Oblique Projection<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">down_ob</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">down_by_label</span></a><span class="p">[</span><span class="s2">"Oblique"</span><span class="p">]</span>
@@ -1467,7 +1468,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Oblique (zoom=0.300, orig=512×768) 3.7 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_023.png" srcset="../../_images/sphx_glr_03_06_benchmarking_023.png"/></section>
+<img alt="Oblique (zoom=0.300, orig=512×768) 3.8 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_023.png" srcset="../../_images/sphx_glr_03_06_benchmarking_023.png"/></section>
 <section id="id21">
 <h3>ROI Comparison<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list"><span class="n">roi_big_list</span></a> <span class="o">=</span> <span class="p">[</span><span class="n">_nearest_big</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">r</span></a><span class="p">,</span> <span class="mi">256</span><span class="p">)</span> <span class="k">for</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">r</span></a> <span class="ow">in</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list"><span class="n">roi_patches</span></a><span class="p">]</span>
@@ -1488,7 +1489,7 @@ Runtime context:
 <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="Downsampled ROI comparison, SciPy 9.2 ms ± 0.0 ms, Standard 1.9 ms ± 0.0 ms, Least-Squares 5.8 ms ± 1.5 ms, Oblique 3.7 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_024.png" srcset="../../_images/sphx_glr_03_06_benchmarking_024.png"/></section>
+<img alt="Downsampled ROI comparison, SciPy 9.1 ms ± 0.0 ms, Standard 2.0 ms ± 0.0 ms, Least-Squares 5.4 ms ± 0.0 ms, Oblique 3.8 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_024.png" srcset="../../_images/sphx_glr_03_06_benchmarking_024.png"/></section>
 </section>
 <section id="id22">
 <h2>Image<a class="headerlink" href="#id22" title="Link to this heading">#</a></h2>
@@ -1568,7 +1569,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="SciPy (zoom=0.200, orig=768×512) 10.4 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_026.png" srcset="../../_images/sphx_glr_03_06_benchmarking_026.png"/></section>
+<img alt="SciPy (zoom=0.200, orig=768×512) 10.9 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_026.png" srcset="../../_images/sphx_glr_03_06_benchmarking_026.png"/></section>
 <section id="id25">
 <h3>Standard Interpolation<a class="headerlink" href="#id25" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">down_std</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">down_by_label</span></a><span class="p">[</span><span class="s2">"Standard"</span><span class="p">]</span>
@@ -1599,7 +1600,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Standard (zoom=0.200, orig=768×512) 1.6 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_027.png" srcset="../../_images/sphx_glr_03_06_benchmarking_027.png"/></section>
+<img alt="Standard (zoom=0.200, orig=768×512) 2.1 ms ± 1.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_027.png" srcset="../../_images/sphx_glr_03_06_benchmarking_027.png"/></section>
 <section id="least-squares-interpolation">
 <h3>Least-Squares Interpolation<a class="headerlink" href="#least-squares-interpolation" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">down_ls</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">down_by_label</span></a><span class="p">[</span><span class="s2">"Least-Squares"</span><span class="p">]</span>
@@ -1630,7 +1631,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Least-Squares (zoom=0.200, orig=768×512) 3.4 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_028.png" srcset="../../_images/sphx_glr_03_06_benchmarking_028.png"/></section>
+<img alt="Least-Squares (zoom=0.200, orig=768×512) 3.9 ms ± 1.4 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_028.png" srcset="../../_images/sphx_glr_03_06_benchmarking_028.png"/></section>
 <section id="id26">
 <h3>Oblique Projection<a class="headerlink" href="#id26" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">down_ob</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">down_by_label</span></a><span class="p">[</span><span class="s2">"Oblique"</span><span class="p">]</span>
@@ -1682,7 +1683,7 @@ Runtime context:
 <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="Downsampled ROI comparison, SciPy 10.4 ms ± 0.1 ms, Standard 1.6 ms ± 0.0 ms, Least-Squares 3.4 ms ± 0.0 ms, Oblique 2.7 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_030.png" srcset="../../_images/sphx_glr_03_06_benchmarking_030.png"/></section>
+<img alt="Downsampled ROI comparison, SciPy 10.9 ms ± 0.0 ms, Standard 2.1 ms ± 1.1 ms, Least-Squares 3.9 ms ± 1.4 ms, Oblique 2.7 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_030.png" srcset="../../_images/sphx_glr_03_06_benchmarking_030.png"/></section>
 </section>
 <section id="id28">
 <h2>Image<a class="headerlink" href="#id28" title="Link to this heading">#</a></h2>
@@ -1762,7 +1763,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="SciPy (zoom=0.150, orig=512×768) 7.3 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_032.png" srcset="../../_images/sphx_glr_03_06_benchmarking_032.png"/></section>
+<img alt="SciPy (zoom=0.150, orig=512×768) 8.8 ms ± 2.3 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_032.png" srcset="../../_images/sphx_glr_03_06_benchmarking_032.png"/></section>
 <section id="id31">
 <h3>Standard Interpolation<a class="headerlink" href="#id31" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">down_std</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">down_by_label</span></a><span class="p">[</span><span class="s2">"Standard"</span><span class="p">]</span>
@@ -1793,7 +1794,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Standard (zoom=0.150, orig=512×768) 1.6 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_033.png" srcset="../../_images/sphx_glr_03_06_benchmarking_033.png"/></section>
+<img alt="Standard (zoom=0.150, orig=512×768) 1.7 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_033.png" srcset="../../_images/sphx_glr_03_06_benchmarking_033.png"/></section>
 <section id="id32">
 <h3>Least-Squares Projection<a class="headerlink" href="#id32" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">down_ls</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">down_by_label</span></a><span class="p">[</span><span class="s2">"Least-Squares"</span><span class="p">]</span>
@@ -1824,7 +1825,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Least-Squares (zoom=0.150, orig=512×768) 4.4 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_034.png" srcset="../../_images/sphx_glr_03_06_benchmarking_034.png"/></section>
+<img alt="Least-Squares (zoom=0.150, orig=512×768) 4.6 ms ± 0.0 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_034.png" srcset="../../_images/sphx_glr_03_06_benchmarking_034.png"/></section>
 <section id="id33">
 <h3>Oblique Projection<a class="headerlink" href="#id33" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">down_ob</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">down_by_label</span></a><span class="p">[</span><span class="s2">"Oblique"</span><span class="p">]</span>
@@ -1855,7 +1856,7 @@ Runtime context:
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Oblique (zoom=0.150, orig=512×768) 3.1 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_035.png" srcset="../../_images/sphx_glr_03_06_benchmarking_035.png"/></section>
+<img alt="Oblique (zoom=0.150, orig=512×768) 3.4 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_035.png" srcset="../../_images/sphx_glr_03_06_benchmarking_035.png"/></section>
 <section id="id34">
 <h3>ROI Comparison<a class="headerlink" href="#id34" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list"><span class="n">roi_big_list</span></a> <span class="o">=</span> <span class="p">[</span><span class="n">_nearest_big</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">r</span></a><span class="p">,</span> <span class="mi">256</span><span class="p">)</span> <span class="k">for</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">r</span></a> <span class="ow">in</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list"><span class="n">roi_patches</span></a><span class="p">]</span>
@@ -1876,7 +1877,7 @@ Runtime context:
 <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="Downsampled ROI comparison, SciPy 7.3 ms ± 0.0 ms, Standard 1.6 ms ± 0.0 ms, Least-Squares 4.4 ms ± 0.1 ms, Oblique 3.1 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_036.png" srcset="../../_images/sphx_glr_03_06_benchmarking_036.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 16.415 seconds)</p>
+<img alt="Downsampled ROI comparison, SciPy 8.8 ms ± 2.3 ms, Standard 1.7 ms ± 0.1 ms, Least-Squares 4.6 ms ± 0.0 ms, Oblique 3.4 ms ± 0.1 ms" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_06_benchmarking_036.png" srcset="../../_images/sphx_glr_03_06_benchmarking_036.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 13.439 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>
@@ -1892,10 +1893,10 @@ Runtime context:
 <p class="prev-next-title">Oblique Projection</p>
 </div>
 </a>
-<a class="right-next" href="../04_rotate/index.html" title="next page">
+<a class="right-next" href="03_07_benchmarking_plot.html" title="next page">
 <div class="prev-next-info">
 <p class="prev-next-subtitle">next</p>
-<p class="prev-next-title">Rotate Examples</p>
+<p class="prev-next-title">Benchmarking: Zoom Sweep</p>
 </div>
 <i class="fa-solid fa-angle-right"></i>
 </a>

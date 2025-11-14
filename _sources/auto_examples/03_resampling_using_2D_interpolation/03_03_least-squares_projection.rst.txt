@@ -358,7 +358,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_004.png
-   :alt: Resized Image (least-squares, 5.4 ms)
+   :alt: Resized Image (least-squares, 5.6 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_004.png
    :class: sphx-glr-single-img
 
@@ -403,7 +403,7 @@ Standard Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_005.png
-   :alt: Resized Image (standard, 1.9 ms)
+   :alt: Resized Image (standard, 2.1 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_005.png
    :class: sphx-glr-single-img
 
@@ -594,8 +594,8 @@ standard interpolation and least-squares projection.
 
     Method                             SNR (dB)              MSE     Time (s)
     -------------------------------------------------------------------------
-    Standard Interpolation (cubic)        15.51         6.34e-03       0.0030
-    Least-Squares Projection              17.53         3.98e-03       0.0094
+    Standard Interpolation (cubic)        15.51         6.34e-03       0.0032
+    Least-Squares Projection              17.53         3.98e-03       0.0096
 
 
 
@@ -603,7 +603,7 @@ standard interpolation and least-squares projection.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.959 seconds)
+   **Total running time of the script:** (0 minutes 2.115 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_03_least-squares_projection.py:

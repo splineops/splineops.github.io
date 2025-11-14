@@ -363,7 +363,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_004.png
-   :alt: Resized Image (least-squares, 5.5 ms)
+   :alt: Resized Image (least-squares, 5.4 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_004.png
    :class: sphx-glr-single-img
 
@@ -657,7 +657,7 @@ Performance Comparison
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_010.png
-   :alt: Standard vs LS vs Oblique (Oblique is ≈ 1.37× faster than LS)
+   :alt: Standard vs LS vs Oblique (Oblique is ≈ 1.39× faster than LS)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_010.png
    :class: sphx-glr-single-img
 
@@ -666,10 +666,10 @@ Performance Comparison
 
  .. code-block:: none
 
-    [Timing averages over 10 runs] Standard     : 3.1 ± 0.0 ms
-    [Timing averages over 10 runs] Least-Squares: 9.3 ± 0.2 ms
-    [Timing averages over 10 runs] Oblique      : 6.8 ± 0.2 ms
-    [Timing] Speedup (LS/OB): 1.37×  (~26.9% less time)
+    [Timing averages over 10 runs] Standard     : 3.0 ± 0.0 ms
+    [Timing averages over 10 runs] Least-Squares: 9.5 ± 0.3 ms
+    [Timing averages over 10 runs] Oblique      : 6.9 ± 0.1 ms
+    [Timing] Speedup (LS/OB): 1.39×  (~28.3% less time)
 
 
 
@@ -718,16 +718,16 @@ Central-region SNR/MSE (via border_fraction) plus averaged total
 
     Method                         SNR (dB)              MSE       Time (s, avg±sd)
     -------------------------------------------------------------------------------
-    Standard (cubic)                  15.51         6.34e-03        0.0031 ± 0.0000
-    Least-Squares (best AA)           17.53         3.98e-03        0.0093 ± 0.0002
-    Oblique (fast AA)                 17.47         4.03e-03        0.0068 ± 0.0002
+    Standard (cubic)                  15.51         6.34e-03        0.0030 ± 0.0000
+    Least-Squares (best AA)           17.53         3.98e-03        0.0095 ± 0.0003
+    Oblique (fast AA)                 17.47         4.03e-03        0.0069 ± 0.0001
     Runtime context:
       Python      : 3.12.12 (CPython)
       OS          : Linux 6.11.0-1018-azure (x86_64)
       CPU         : x86_64 | logical cores: 4
       NumPy/SciPy : 2.3.4/1.16.3
       Matplotlib  : 3.10.7 | backend: agg
-      splineops   : 1.0.0 | native ext present: True
+      splineops   : 1.0.1 | native ext present: True
       SPLINEOPS_ACCEL=always
       OMP_NUM_THREADS=4
 
@@ -737,7 +737,7 @@ Central-region SNR/MSE (via border_fraction) plus averaged total
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.861 seconds)
+   **Total running time of the script:** (0 minutes 2.443 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_05_oblique_projection.py:

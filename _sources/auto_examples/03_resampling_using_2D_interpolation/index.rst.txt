@@ -118,6 +118,23 @@ Examples using the Resize module on 2D samples.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example performs a 1D sweep of zoom factors and evaluates how different 2D downsampling methods behave in terms of">
+
+.. only:: html
+
+  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_07_benchmarking_plot_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_07_benchmarking_plot.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Benchmarking: Zoom Sweep</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -134,4 +151,5 @@ Examples using the Resize module on 2D samples.
    /auto_examples/03_resampling_using_2D_interpolation/03_04_how_bad_aliasing_can_be
    /auto_examples/03_resampling_using_2D_interpolation/03_05_oblique_projection
    /auto_examples/03_resampling_using_2D_interpolation/03_06_benchmarking
+   /auto_examples/03_resampling_using_2D_interpolation/03_07_benchmarking_plot
 

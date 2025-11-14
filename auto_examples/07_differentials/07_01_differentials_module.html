@@ -35,7 +35,7 @@
 <!-- Pre-loaded scripts that we'll load fully later -->
 <link as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" rel="preload"/>
 <link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" rel="preload"/>
-<script src="../../_static/documentation_options.js?v=8d563738"></script>
+<script src="../../_static/documentation_options.js?v=292eb321"></script>
 <script src="../../_static/doctools.js?v=9bcbadda"></script>
 <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
 <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -220,6 +220,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03_resampling_using_2D_interpolation/03_04_how_bad_aliasing_can_be.html">How Bad Aliasing Can Be</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03_resampling_using_2D_interpolation/03_05_oblique_projection.html">Oblique Projection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03_resampling_using_2D_interpolation/03_06_benchmarking.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_resampling_using_2D_interpolation/03_07_benchmarking_plot.html">Benchmarking: Zoom Sweep</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04_rotate/index.html">Rotate Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -420,7 +421,7 @@ and normalize its intensities to the [0,1] range.</p>
 <span class="n">show_result_with_colorbar</span><span class="p">(</span><span class="s2">"Gradient Magnitude"</span><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">grad_magnitude_result</span></a><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">"Value"</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Gradient Magnitude" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_01_differentials_module_002.png" srcset="../../_images/sphx_glr_07_01_differentials_module_002.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Completed in 1.21 seconds
+<img alt="Gradient Magnitude" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_01_differentials_module_002.png" srcset="../../_images/sphx_glr_07_01_differentials_module_002.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Completed in 1.20 seconds
 </pre></div>
 </div>
 </section>
@@ -442,7 +443,7 @@ and normalize its intensities to the [0,1] range.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Gradient Direction" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_01_differentials_module_003.png" srcset="../../_images/sphx_glr_07_01_differentials_module_003.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Completed in 1.21 seconds
+<img alt="Gradient Direction" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_01_differentials_module_003.png" srcset="../../_images/sphx_glr_07_01_differentials_module_003.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Completed in 1.24 seconds
 </pre></div>
 </div>
 </section>
@@ -455,7 +456,7 @@ and normalize its intensities to the [0,1] range.</p>
 <span class="n">show_result_with_colorbar</span><span class="p">(</span><span class="s2">"Laplacian"</span><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">laplacian_result</span></a><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">"Value"</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Laplacian" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_01_differentials_module_004.png" srcset="../../_images/sphx_glr_07_01_differentials_module_004.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Completed in 1.46 seconds
+<img alt="Laplacian" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_01_differentials_module_004.png" srcset="../../_images/sphx_glr_07_01_differentials_module_004.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Completed in 1.45 seconds
 </pre></div>
 </div>
 </section>
@@ -468,7 +469,7 @@ and normalize its intensities to the [0,1] range.</p>
 <span class="n">show_result_with_colorbar</span><span class="p">(</span><span class="s2">"Largest Hessian Eigenvalue"</span><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">largest_hessian_result</span></a><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">"Value"</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Largest Hessian Eigenvalue" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_01_differentials_module_005.png" srcset="../../_images/sphx_glr_07_01_differentials_module_005.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Completed in 2.69 seconds
+<img alt="Largest Hessian Eigenvalue" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_01_differentials_module_005.png" srcset="../../_images/sphx_glr_07_01_differentials_module_005.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Completed in 2.74 seconds
 </pre></div>
 </div>
 </section>
@@ -481,7 +482,7 @@ and normalize its intensities to the [0,1] range.</p>
 <span class="n">show_result_with_colorbar</span><span class="p">(</span><span class="s2">"Smallest Hessian Eigenvalue"</span><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">smallest_hessian_result</span></a><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">"Value"</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Smallest Hessian Eigenvalue" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_01_differentials_module_006.png" srcset="../../_images/sphx_glr_07_01_differentials_module_006.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Completed in 2.64 seconds
+<img alt="Smallest Hessian Eigenvalue" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_01_differentials_module_006.png" srcset="../../_images/sphx_glr_07_01_differentials_module_006.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Completed in 2.70 seconds
 </pre></div>
 </div>
 </section>
@@ -499,10 +500,10 @@ and normalize its intensities to the [0,1] range.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Hessian Orientation" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_01_differentials_module_007.png" srcset="../../_images/sphx_glr_07_01_differentials_module_007.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Completed in 2.69 seconds
+<img alt="Hessian Orientation" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_01_differentials_module_007.png" srcset="../../_images/sphx_glr_07_01_differentials_module_007.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Completed in 2.70 seconds
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 14.649 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 13.914 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>
