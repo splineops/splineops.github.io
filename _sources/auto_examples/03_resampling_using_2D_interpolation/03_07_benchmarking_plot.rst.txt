@@ -18,8 +18,8 @@
 .. _sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_07_benchmarking_plot.py:
 
 
-Benchmarking: Zoom Sweep
-========================
+Benchmarking Plot
+=================
 
 This example performs a 1D sweep of zoom factors and evaluates how different
 2D downsampling methods behave in terms of
@@ -32,20 +32,17 @@ are compared on the same task.
 
 We compare four methods:
 
-- SciPy cubic interpolation (:func:`scipy.ndimage.zoom`, order=3)
-- Standard cubic interpolation (:func:`splineops.resize`, ``method="cubic"``)
-- Least-Squares cubic anti-aliasing (``"cubic-best_antialiasing"``)
-- Oblique cubic fast anti-aliasing (``"cubic-fast_antialiasing"``)
+- SciPy cubic interpolation.
+- Standard cubic interpolation.
+- Least-Squares cubic anti-aliasing.
+- Oblique cubic fast anti-aliasing.
 
-The experiment is based on a single fixed test image (Kodak ``kodim19.png``),
-converted to grayscale in [0, 1].
-
-.. GENERATED FROM PYTHON SOURCE LINES 30-32
+.. GENERATED FROM PYTHON SOURCE LINES 27-29
 
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-55
+.. GENERATED FROM PYTHON SOURCE LINES 29-52
 
 .. code-block:: Python
 
@@ -79,16 +76,15 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-63
+.. GENERATED FROM PYTHON SOURCE LINES 54-59
 
 Load and Normalize an Image
 ---------------------------
 
-We use a fixed test image (Kodak ``kodim19.png``), convert it to grayscale
-and normalise it to [0, 1]. This keeps the benchmark fully reproducible
-when Sphinx-Gallery runs the example.
+We use a fixed test image, convert it to grayscale
+and normalize it to [0, 1].
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-82
+.. GENERATED FROM PYTHON SOURCE LINES 59-78
 
 .. code-block:: Python
 
@@ -124,7 +120,7 @@ when Sphinx-Gallery runs the example.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-88
+.. GENERATED FROM PYTHON SOURCE LINES 79-84
 
 Original Image
 --------------
@@ -132,7 +128,7 @@ Original Image
 For reference, we display the grayscale image that will be used throughout
 the benchmark.
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-97
+.. GENERATED FROM PYTHON SOURCE LINES 84-93
 
 .. code-block:: Python
 
@@ -157,12 +153,12 @@ the benchmark.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-100
+.. GENERATED FROM PYTHON SOURCE LINES 94-96
 
 Helpers
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 100-130
+.. GENERATED FROM PYTHON SOURCE LINES 96-126
 
 .. code-block:: Python
 
@@ -203,16 +199,15 @@ Helpers
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 131-137
+.. GENERATED FROM PYTHON SOURCE LINES 127-132
 
 Round-trip Runners
 ------------------
 
 Each method is evaluated by a round-trip (downsample then upsample back
-to the original shape) so that differences in anti-aliasing and interpolation
-behaviour become visible in both timing and SNR.
+to the original shape).
 
-.. GENERATED FROM PYTHON SOURCE LINES 137-184
+.. GENERATED FROM PYTHON SOURCE LINES 132-179
 
 .. code-block:: Python
 
@@ -270,15 +265,15 @@ behaviour become visible in both timing and SNR.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 185-190
+.. GENERATED FROM PYTHON SOURCE LINES 180-185
 
 Zoom Sweep and Methods
 ----------------------
 
-We sweep zoom factors and keep only those zooms that
+We sweep zoom factors and keep only those that
 preserve the original image size after a forward/backward round-trip.
 
-.. GENERATED FROM PYTHON SOURCE LINES 190-216
+.. GENERATED FROM PYTHON SOURCE LINES 185-211
 
 .. code-block:: Python
 
@@ -321,19 +316,19 @@ preserve the original image size after a forward/backward round-trip.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 217-226
+.. GENERATED FROM PYTHON SOURCE LINES 212-221
 
 Run the Sweep
 -------------
 
-For each zoom and each method:
+For each zoom and each method we:
 
 - perform a forward + backward resize,
 - average the runtime over a number of runs,
 - compute the SNR between the original and recovered image,
 - store results for plotting.
 
-.. GENERATED FROM PYTHON SOURCE LINES 226-242
+.. GENERATED FROM PYTHON SOURCE LINES 221-237
 
 .. code-block:: Python
 
@@ -360,7 +355,7 @@ For each zoom and each method:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 243-248
+.. GENERATED FROM PYTHON SOURCE LINES 238-243
 
 Timing vs Zoom
 --------------
@@ -368,7 +363,7 @@ Timing vs Zoom
 We start by plotting the average round-trip runtime (forward + backward)
 as a function of the zoom factor.
 
-.. GENERATED FROM PYTHON SOURCE LINES 248-264
+.. GENERATED FROM PYTHON SOURCE LINES 243-259
 
 .. code-block:: Python
 
@@ -400,7 +395,7 @@ as a function of the zoom factor.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 265-271
+.. GENERATED FROM PYTHON SOURCE LINES 260-266
 
 SNR vs Zoom
 -----------
@@ -409,7 +404,7 @@ Next, we look at the round-trip SNR for each method as a function of zoom.
 Points with infinite SNR (exact round-trip) are hidden to keep the scale
 readable; in practice they indicate numerically perfect reconstruction.
 
-.. GENERATED FROM PYTHON SOURCE LINES 271-288
+.. GENERATED FROM PYTHON SOURCE LINES 266-283
 
 .. code-block:: Python
 
@@ -442,22 +437,19 @@ readable; in practice they indicate numerically perfect reconstruction.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 289-295
+.. GENERATED FROM PYTHON SOURCE LINES 284-288
 
 Runtime Context
 ---------------
 
-Finally, we print a short summary of the runtime environment, which is
-useful when interpreting the timing results (CPU model, number of threads,
-BLAS backend, optional native acceleration, etc.).
+Finally, we print a short summary of the runtime environment.
 
-.. GENERATED FROM PYTHON SOURCE LINES 295-297
+.. GENERATED FROM PYTHON SOURCE LINES 288-289
 
 .. code-block:: Python
 
 
     print_runtime_context()
-
 
 
 
@@ -481,7 +473,7 @@ BLAS backend, optional native acceleration, etc.).
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 15.052 seconds)
+   **Total running time of the script:** (1 minutes 18.224 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_07_benchmarking_plot.py:

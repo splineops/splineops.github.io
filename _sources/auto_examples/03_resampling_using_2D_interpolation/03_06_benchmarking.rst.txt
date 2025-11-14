@@ -30,20 +30,17 @@ images. For each image we:
 
 We compare:
 
-- SciPy cubic interpolation (:func:`scipy.ndimage.zoom`)
-- Standard cubic interpolation (:func:`splineops.resize`, ``method="cubic"``)
-- Least-Squares cubic anti-aliasing (``"cubic-best_antialiasing"``)
-- Oblique cubic fast anti-aliasing (``"cubic-fast_antialiasing"``)
+- SciPy cubic interpolation.
+- Standard cubic interpolation.
+- Least-Squares cubic anti-aliasing.
+- Oblique cubic fast anti-aliasing.
 
-The goal is to inspect both the speed and the visual appearance of the
-downsampled results, especially on a small detail region (ROI).
-
-.. GENERATED FROM PYTHON SOURCE LINES 28-30
+.. GENERATED FROM PYTHON SOURCE LINES 25-27
 
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-53
+.. GENERATED FROM PYTHON SOURCE LINES 27-50
 
 .. code-block:: Python
 
@@ -77,7 +74,7 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-63
+.. GENERATED FROM PYTHON SOURCE LINES 51-60
 
 Test Image Configuration
 ------------------------
@@ -89,7 +86,7 @@ to [0, 1]. For each image we also define:
 - an ROI size (square),
 - an ROI center given as (row_frac, col_frac) in [0, 1].
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-134
+.. GENERATED FROM PYTHON SOURCE LINES 60-131
 
 .. code-block:: Python
 
@@ -171,14 +168,14 @@ to [0, 1]. For each image we also define:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 135-139
+.. GENERATED FROM PYTHON SOURCE LINES 132-136
 
 Benchmark Configuration
 -----------------------
 
 Number of timing runs per (image, method). One warm-up run is not counted.
 
-.. GENERATED FROM PYTHON SOURCE LINES 139-154
+.. GENERATED FROM PYTHON SOURCE LINES 136-151
 
 .. code-block:: Python
 
@@ -204,7 +201,7 @@ Number of timing runs per (image, method). One warm-up run is not counted.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 155-160
+.. GENERATED FROM PYTHON SOURCE LINES 152-157
 
 Timing Helper
 -------------
@@ -212,7 +209,7 @@ Timing Helper
 For each method we only time the **forward** (downsampling) pass. We still
 keep the downsampled image so we can display it later.
 
-.. GENERATED FROM PYTHON SOURCE LINES 160-226
+.. GENERATED FROM PYTHON SOURCE LINES 157-223
 
 .. code-block:: Python
 
@@ -289,7 +286,7 @@ keep the downsampled image so we can display it later.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 227-234
+.. GENERATED FROM PYTHON SOURCE LINES 224-231
 
 Run Benchmark
 -------------
@@ -299,7 +296,7 @@ For each image and each method, we run the benchmark and store:
 - Average runtime and standard deviation
 - One downsampled image (for visual inspection)
 
-.. GENERATED FROM PYTHON SOURCE LINES 234-292
+.. GENERATED FROM PYTHON SOURCE LINES 231-289
 
 .. code-block:: Python
 
@@ -382,55 +379,55 @@ For each image and each method, we run the benchmark and store:
       URL: https://r0k.us/graphics/kodak/kodak/kodim05.png
       Method                           Time (s, avg±sd)
       -------------------------------------------------
-      SciPy                             0.0077 ± 0.0001
-      Standard                          0.0017 ± 0.0000
-      Least-Squares                     0.0044 ± 0.0001
-      Oblique                           0.0032 ± 0.0000
+      SciPy                             0.0078 ± 0.0002
+      Standard                          0.0016 ± 0.0000
+      Least-Squares                     0.0045 ± 0.0002
+      Oblique                           0.0032 ± 0.0001
 
     Image: kodim07  (zoom=0.15)
       URL: https://r0k.us/graphics/kodak/kodak/kodim07.png
       Method                           Time (s, avg±sd)
       -------------------------------------------------
-      SciPy                             0.0073 ± 0.0000
+      SciPy                             0.0078 ± 0.0001
       Standard                          0.0016 ± 0.0000
-      Least-Squares                     0.0045 ± 0.0001
-      Oblique                           0.0032 ± 0.0001
+      Least-Squares                     0.0045 ± 0.0002
+      Oblique                           0.0031 ± 0.0001
 
     Image: kodim14  (zoom=0.3)
       URL: https://r0k.us/graphics/kodak/kodak/kodim14.png
       Method                           Time (s, avg±sd)
       -------------------------------------------------
-      SciPy                             0.0090 ± 0.0001
-      Standard                          0.0019 ± 0.0000
-      Least-Squares                     0.0054 ± 0.0000
-      Oblique                           0.0038 ± 0.0001
+      SciPy                             0.0091 ± 0.0000
+      Standard                          0.0020 ± 0.0001
+      Least-Squares                     0.0056 ± 0.0001
+      Oblique                           0.0043 ± 0.0007
 
     Image: kodim15  (zoom=0.3)
       URL: https://r0k.us/graphics/kodak/kodak/kodim15.png
       Method                           Time (s, avg±sd)
       -------------------------------------------------
-      SciPy                             0.0091 ± 0.0000
-      Standard                          0.0020 ± 0.0000
-      Least-Squares                     0.0054 ± 0.0000
-      Oblique                           0.0038 ± 0.0001
+      SciPy                             0.0093 ± 0.0001
+      Standard                          0.0020 ± 0.0001
+      Least-Squares                     0.0057 ± 0.0000
+      Oblique                           0.0041 ± 0.0002
 
     Image: kodim19  (zoom=0.2)
       URL: https://r0k.us/graphics/kodak/kodak/kodim19.png
       Method                           Time (s, avg±sd)
       -------------------------------------------------
-      SciPy                             0.0109 ± 0.0000
-      Standard                          0.0021 ± 0.0011
-      Least-Squares                     0.0039 ± 0.0014
-      Oblique                           0.0027 ± 0.0000
+      SciPy                             0.0114 ± 0.0001
+      Standard                          0.0017 ± 0.0000
+      Least-Squares                     0.0035 ± 0.0000
+      Oblique                           0.0028 ± 0.0000
 
     Image: kodim23  (zoom=0.15)
       URL: https://r0k.us/graphics/kodak/kodak/kodim23.png
       Method                           Time (s, avg±sd)
       -------------------------------------------------
-      SciPy                             0.0088 ± 0.0023
-      Standard                          0.0017 ± 0.0001
-      Least-Squares                     0.0046 ± 0.0000
-      Oblique                           0.0034 ± 0.0001
+      SciPy                             0.0074 ± 0.0001
+      Standard                          0.0016 ± 0.0000
+      Least-Squares                     0.0044 ± 0.0001
+      Oblique                           0.0031 ± 0.0001
 
     Timings averaged over 10 runs (1 warm-up run not counted).
 
@@ -447,14 +444,14 @@ For each image and each method, we run the benchmark and store:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 293-297
+.. GENERATED FROM PYTHON SOURCE LINES 290-294
 
 ROI Helpers
 -----------
 
 We will focus on image-specific square ROIs to inspect aliasing in detail.
 
-.. GENERATED FROM PYTHON SOURCE LINES 297-371
+.. GENERATED FROM PYTHON SOURCE LINES 294-368
 
 .. code-block:: Python
 
@@ -539,12 +536,12 @@ We will focus on image-specific square ROIs to inspect aliasing in detail.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 372-374
+.. GENERATED FROM PYTHON SOURCE LINES 369-371
 
 Image
 -----
 
-.. GENERATED FROM PYTHON SOURCE LINES 374-406
+.. GENERATED FROM PYTHON SOURCE LINES 371-403
 
 .. code-block:: Python
 
@@ -587,12 +584,12 @@ Image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 407-409
+.. GENERATED FROM PYTHON SOURCE LINES 404-406
 
 Original with ROI
 ~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 409-420
+.. GENERATED FROM PYTHON SOURCE LINES 406-417
 
 .. code-block:: Python
 
@@ -619,12 +616,12 @@ Original with ROI
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 421-423
+.. GENERATED FROM PYTHON SOURCE LINES 418-420
 
 SciPy Interpolation
 ~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 423-451
+.. GENERATED FROM PYTHON SOURCE LINES 420-448
 
 .. code-block:: Python
 
@@ -660,7 +657,7 @@ SciPy Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_002.png
-   :alt: SciPy (zoom=0.150, orig=512×768) 7.7 ms ± 0.1 ms
+   :alt: SciPy (zoom=0.150, orig=512×768) 7.8 ms ± 0.2 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_002.png
    :class: sphx-glr-single-img
 
@@ -668,12 +665,12 @@ SciPy Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 452-454
+.. GENERATED FROM PYTHON SOURCE LINES 449-451
 
 Standard Interpolation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 454-482
+.. GENERATED FROM PYTHON SOURCE LINES 451-479
 
 .. code-block:: Python
 
@@ -709,7 +706,7 @@ Standard Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_003.png
-   :alt: Standard (zoom=0.150, orig=512×768) 1.7 ms ± 0.0 ms
+   :alt: Standard (zoom=0.150, orig=512×768) 1.6 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_003.png
    :class: sphx-glr-single-img
 
@@ -717,12 +714,12 @@ Standard Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 483-485
+.. GENERATED FROM PYTHON SOURCE LINES 480-482
 
 Least-Squares Projection
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 485-513
+.. GENERATED FROM PYTHON SOURCE LINES 482-510
 
 .. code-block:: Python
 
@@ -758,7 +755,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_004.png
-   :alt: Least-Squares (zoom=0.150, orig=512×768) 4.4 ms ± 0.1 ms
+   :alt: Least-Squares (zoom=0.150, orig=512×768) 4.5 ms ± 0.2 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_004.png
    :class: sphx-glr-single-img
 
@@ -766,12 +763,12 @@ Least-Squares Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 514-516
+.. GENERATED FROM PYTHON SOURCE LINES 511-513
 
 Oblique Projection
 ~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 516-544
+.. GENERATED FROM PYTHON SOURCE LINES 513-541
 
 .. code-block:: Python
 
@@ -807,7 +804,7 @@ Oblique Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_005.png
-   :alt: Oblique (zoom=0.150, orig=512×768) 3.2 ms ± 0.0 ms
+   :alt: Oblique (zoom=0.150, orig=512×768) 3.2 ms ± 0.1 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_005.png
    :class: sphx-glr-single-img
 
@@ -815,12 +812,12 @@ Oblique Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 545-547
+.. GENERATED FROM PYTHON SOURCE LINES 542-544
 
 ROI Comparison
 ~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 547-565
+.. GENERATED FROM PYTHON SOURCE LINES 544-562
 
 .. code-block:: Python
 
@@ -846,7 +843,7 @@ ROI Comparison
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_006.png
-   :alt: Downsampled ROI comparison, SciPy 7.7 ms ± 0.1 ms, Standard 1.7 ms ± 0.0 ms, Least-Squares 4.4 ms ± 0.1 ms, Oblique 3.2 ms ± 0.0 ms
+   :alt: Downsampled ROI comparison, SciPy 7.8 ms ± 0.2 ms, Standard 1.6 ms ± 0.0 ms, Least-Squares 4.5 ms ± 0.2 ms, Oblique 3.2 ms ± 0.1 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_006.png
    :class: sphx-glr-single-img
 
@@ -854,12 +851,12 @@ ROI Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 566-568
+.. GENERATED FROM PYTHON SOURCE LINES 563-565
 
 Image
 -----
 
-.. GENERATED FROM PYTHON SOURCE LINES 568-600
+.. GENERATED FROM PYTHON SOURCE LINES 565-597
 
 .. code-block:: Python
 
@@ -902,12 +899,12 @@ Image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 601-603
+.. GENERATED FROM PYTHON SOURCE LINES 598-600
 
 Original with ROI
 ~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 603-614
+.. GENERATED FROM PYTHON SOURCE LINES 600-611
 
 .. code-block:: Python
 
@@ -934,12 +931,12 @@ Original with ROI
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 615-617
+.. GENERATED FROM PYTHON SOURCE LINES 612-614
 
 SciPy Interpolation
 ~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 617-645
+.. GENERATED FROM PYTHON SOURCE LINES 614-642
 
 .. code-block:: Python
 
@@ -975,7 +972,7 @@ SciPy Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_008.png
-   :alt: SciPy (zoom=0.150, orig=512×768) 7.3 ms ± 0.0 ms
+   :alt: SciPy (zoom=0.150, orig=512×768) 7.8 ms ± 0.1 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_008.png
    :class: sphx-glr-single-img
 
@@ -983,12 +980,12 @@ SciPy Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 646-648
+.. GENERATED FROM PYTHON SOURCE LINES 643-645
 
 Standard Interpolation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 648-676
+.. GENERATED FROM PYTHON SOURCE LINES 645-673
 
 .. code-block:: Python
 
@@ -1032,12 +1029,12 @@ Standard Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 677-679
+.. GENERATED FROM PYTHON SOURCE LINES 674-676
 
 Least-Squares Projection
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 679-707
+.. GENERATED FROM PYTHON SOURCE LINES 676-704
 
 .. code-block:: Python
 
@@ -1073,7 +1070,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_010.png
-   :alt: Least-Squares (zoom=0.150, orig=512×768) 4.5 ms ± 0.1 ms
+   :alt: Least-Squares (zoom=0.150, orig=512×768) 4.5 ms ± 0.2 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_010.png
    :class: sphx-glr-single-img
 
@@ -1081,12 +1078,12 @@ Least-Squares Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 708-710
+.. GENERATED FROM PYTHON SOURCE LINES 705-707
 
 Oblique Projection
 ~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 710-738
+.. GENERATED FROM PYTHON SOURCE LINES 707-735
 
 .. code-block:: Python
 
@@ -1122,7 +1119,7 @@ Oblique Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_011.png
-   :alt: Oblique (zoom=0.150, orig=512×768) 3.2 ms ± 0.1 ms
+   :alt: Oblique (zoom=0.150, orig=512×768) 3.1 ms ± 0.1 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_011.png
    :class: sphx-glr-single-img
 
@@ -1130,12 +1127,12 @@ Oblique Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 739-741
+.. GENERATED FROM PYTHON SOURCE LINES 736-738
 
 ROI Comparison
 ~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 741-759
+.. GENERATED FROM PYTHON SOURCE LINES 738-756
 
 .. code-block:: Python
 
@@ -1161,7 +1158,7 @@ ROI Comparison
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_012.png
-   :alt: Downsampled ROI comparison, SciPy 7.3 ms ± 0.0 ms, Standard 1.6 ms ± 0.0 ms, Least-Squares 4.5 ms ± 0.1 ms, Oblique 3.2 ms ± 0.1 ms
+   :alt: Downsampled ROI comparison, SciPy 7.8 ms ± 0.1 ms, Standard 1.6 ms ± 0.0 ms, Least-Squares 4.5 ms ± 0.2 ms, Oblique 3.1 ms ± 0.1 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_012.png
    :class: sphx-glr-single-img
 
@@ -1169,12 +1166,12 @@ ROI Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 760-762
+.. GENERATED FROM PYTHON SOURCE LINES 757-759
 
 Image
 -----
 
-.. GENERATED FROM PYTHON SOURCE LINES 762-794
+.. GENERATED FROM PYTHON SOURCE LINES 759-791
 
 .. code-block:: Python
 
@@ -1217,12 +1214,12 @@ Image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 795-797
+.. GENERATED FROM PYTHON SOURCE LINES 792-794
 
 Original with ROI
 ~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 797-808
+.. GENERATED FROM PYTHON SOURCE LINES 794-805
 
 .. code-block:: Python
 
@@ -1249,12 +1246,12 @@ Original with ROI
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 809-811
+.. GENERATED FROM PYTHON SOURCE LINES 806-808
 
 SciPy Interpolation
 ~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 811-839
+.. GENERATED FROM PYTHON SOURCE LINES 808-836
 
 .. code-block:: Python
 
@@ -1290,7 +1287,7 @@ SciPy Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_014.png
-   :alt: SciPy (zoom=0.300, orig=512×768) 9.0 ms ± 0.1 ms
+   :alt: SciPy (zoom=0.300, orig=512×768) 9.1 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_014.png
    :class: sphx-glr-single-img
 
@@ -1298,12 +1295,12 @@ SciPy Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 840-842
+.. GENERATED FROM PYTHON SOURCE LINES 837-839
 
 Standard Interpolation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 842-870
+.. GENERATED FROM PYTHON SOURCE LINES 839-867
 
 .. code-block:: Python
 
@@ -1339,7 +1336,7 @@ Standard Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_015.png
-   :alt: Standard (zoom=0.300, orig=512×768) 1.9 ms ± 0.0 ms
+   :alt: Standard (zoom=0.300, orig=512×768) 2.0 ms ± 0.1 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_015.png
    :class: sphx-glr-single-img
 
@@ -1347,12 +1344,12 @@ Standard Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 871-873
+.. GENERATED FROM PYTHON SOURCE LINES 868-870
 
 Least-Squares Projection
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 873-901
+.. GENERATED FROM PYTHON SOURCE LINES 870-898
 
 .. code-block:: Python
 
@@ -1388,7 +1385,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_016.png
-   :alt: Least-Squares (zoom=0.300, orig=512×768) 5.4 ms ± 0.0 ms
+   :alt: Least-Squares (zoom=0.300, orig=512×768) 5.6 ms ± 0.1 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_016.png
    :class: sphx-glr-single-img
 
@@ -1396,12 +1393,12 @@ Least-Squares Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 902-904
+.. GENERATED FROM PYTHON SOURCE LINES 899-901
 
 Oblique Projection
 ~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 904-932
+.. GENERATED FROM PYTHON SOURCE LINES 901-929
 
 .. code-block:: Python
 
@@ -1437,7 +1434,7 @@ Oblique Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_017.png
-   :alt: Oblique (zoom=0.300, orig=512×768) 3.8 ms ± 0.1 ms
+   :alt: Oblique (zoom=0.300, orig=512×768) 4.3 ms ± 0.7 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_017.png
    :class: sphx-glr-single-img
 
@@ -1445,12 +1442,12 @@ Oblique Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 933-935
+.. GENERATED FROM PYTHON SOURCE LINES 930-932
 
 ROI Comparison
 ~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 935-953
+.. GENERATED FROM PYTHON SOURCE LINES 932-950
 
 .. code-block:: Python
 
@@ -1476,7 +1473,7 @@ ROI Comparison
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_018.png
-   :alt: Downsampled ROI comparison, SciPy 9.0 ms ± 0.1 ms, Standard 1.9 ms ± 0.0 ms, Least-Squares 5.4 ms ± 0.0 ms, Oblique 3.8 ms ± 0.1 ms
+   :alt: Downsampled ROI comparison, SciPy 9.1 ms ± 0.0 ms, Standard 2.0 ms ± 0.1 ms, Least-Squares 5.6 ms ± 0.1 ms, Oblique 4.3 ms ± 0.7 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_018.png
    :class: sphx-glr-single-img
 
@@ -1484,12 +1481,12 @@ ROI Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 954-956
+.. GENERATED FROM PYTHON SOURCE LINES 951-953
 
 Image
 -----
 
-.. GENERATED FROM PYTHON SOURCE LINES 956-988
+.. GENERATED FROM PYTHON SOURCE LINES 953-985
 
 .. code-block:: Python
 
@@ -1532,12 +1529,12 @@ Image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 989-991
+.. GENERATED FROM PYTHON SOURCE LINES 986-988
 
 Original with ROI
 ~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 991-1002
+.. GENERATED FROM PYTHON SOURCE LINES 988-999
 
 .. code-block:: Python
 
@@ -1564,12 +1561,12 @@ Original with ROI
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1003-1005
+.. GENERATED FROM PYTHON SOURCE LINES 1000-1002
 
 SciPy Interpolation
 ~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 1005-1033
+.. GENERATED FROM PYTHON SOURCE LINES 1002-1030
 
 .. code-block:: Python
 
@@ -1605,7 +1602,7 @@ SciPy Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_020.png
-   :alt: SciPy (zoom=0.300, orig=512×768) 9.1 ms ± 0.0 ms
+   :alt: SciPy (zoom=0.300, orig=512×768) 9.3 ms ± 0.1 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_020.png
    :class: sphx-glr-single-img
 
@@ -1613,12 +1610,12 @@ SciPy Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1034-1036
+.. GENERATED FROM PYTHON SOURCE LINES 1031-1033
 
 Standard Interpolation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 1036-1064
+.. GENERATED FROM PYTHON SOURCE LINES 1033-1061
 
 .. code-block:: Python
 
@@ -1654,7 +1651,7 @@ Standard Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_021.png
-   :alt: Standard (zoom=0.300, orig=512×768) 2.0 ms ± 0.0 ms
+   :alt: Standard (zoom=0.300, orig=512×768) 2.0 ms ± 0.1 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_021.png
    :class: sphx-glr-single-img
 
@@ -1662,12 +1659,12 @@ Standard Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1065-1067
+.. GENERATED FROM PYTHON SOURCE LINES 1062-1064
 
 Least-Squares Projection
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 1067-1095
+.. GENERATED FROM PYTHON SOURCE LINES 1064-1092
 
 .. code-block:: Python
 
@@ -1703,7 +1700,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_022.png
-   :alt: Least-Squares (zoom=0.300, orig=512×768) 5.4 ms ± 0.0 ms
+   :alt: Least-Squares (zoom=0.300, orig=512×768) 5.7 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_022.png
    :class: sphx-glr-single-img
 
@@ -1711,12 +1708,12 @@ Least-Squares Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1096-1098
+.. GENERATED FROM PYTHON SOURCE LINES 1093-1095
 
 Oblique Projection
 ~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 1098-1126
+.. GENERATED FROM PYTHON SOURCE LINES 1095-1123
 
 .. code-block:: Python
 
@@ -1752,7 +1749,7 @@ Oblique Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_023.png
-   :alt: Oblique (zoom=0.300, orig=512×768) 3.8 ms ± 0.1 ms
+   :alt: Oblique (zoom=0.300, orig=512×768) 4.1 ms ± 0.2 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_023.png
    :class: sphx-glr-single-img
 
@@ -1760,12 +1757,12 @@ Oblique Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1127-1129
+.. GENERATED FROM PYTHON SOURCE LINES 1124-1126
 
 ROI Comparison
 ~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 1129-1147
+.. GENERATED FROM PYTHON SOURCE LINES 1126-1144
 
 .. code-block:: Python
 
@@ -1791,7 +1788,7 @@ ROI Comparison
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_024.png
-   :alt: Downsampled ROI comparison, SciPy 9.1 ms ± 0.0 ms, Standard 2.0 ms ± 0.0 ms, Least-Squares 5.4 ms ± 0.0 ms, Oblique 3.8 ms ± 0.1 ms
+   :alt: Downsampled ROI comparison, SciPy 9.3 ms ± 0.1 ms, Standard 2.0 ms ± 0.1 ms, Least-Squares 5.7 ms ± 0.0 ms, Oblique 4.1 ms ± 0.2 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_024.png
    :class: sphx-glr-single-img
 
@@ -1799,12 +1796,12 @@ ROI Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1148-1150
+.. GENERATED FROM PYTHON SOURCE LINES 1145-1147
 
 Image
 -----
 
-.. GENERATED FROM PYTHON SOURCE LINES 1150-1182
+.. GENERATED FROM PYTHON SOURCE LINES 1147-1179
 
 .. code-block:: Python
 
@@ -1847,12 +1844,12 @@ Image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1183-1185
+.. GENERATED FROM PYTHON SOURCE LINES 1180-1182
 
 Original with ROI
 ~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 1185-1196
+.. GENERATED FROM PYTHON SOURCE LINES 1182-1193
 
 .. code-block:: Python
 
@@ -1879,12 +1876,12 @@ Original with ROI
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1197-1199
+.. GENERATED FROM PYTHON SOURCE LINES 1194-1196
 
 SciPy Interpolation
 ~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 1199-1227
+.. GENERATED FROM PYTHON SOURCE LINES 1196-1224
 
 .. code-block:: Python
 
@@ -1920,7 +1917,7 @@ SciPy Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_026.png
-   :alt: SciPy (zoom=0.200, orig=768×512) 10.9 ms ± 0.0 ms
+   :alt: SciPy (zoom=0.200, orig=768×512) 11.4 ms ± 0.1 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_026.png
    :class: sphx-glr-single-img
 
@@ -1928,12 +1925,12 @@ SciPy Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1228-1230
+.. GENERATED FROM PYTHON SOURCE LINES 1225-1227
 
 Standard Interpolation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 1230-1258
+.. GENERATED FROM PYTHON SOURCE LINES 1227-1255
 
 .. code-block:: Python
 
@@ -1969,7 +1966,7 @@ Standard Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_027.png
-   :alt: Standard (zoom=0.200, orig=768×512) 2.1 ms ± 1.1 ms
+   :alt: Standard (zoom=0.200, orig=768×512) 1.7 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_027.png
    :class: sphx-glr-single-img
 
@@ -1977,12 +1974,12 @@ Standard Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1259-1261
+.. GENERATED FROM PYTHON SOURCE LINES 1256-1258
 
 Least-Squares Interpolation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 1261-1289
+.. GENERATED FROM PYTHON SOURCE LINES 1258-1286
 
 .. code-block:: Python
 
@@ -2018,7 +2015,7 @@ Least-Squares Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_028.png
-   :alt: Least-Squares (zoom=0.200, orig=768×512) 3.9 ms ± 1.4 ms
+   :alt: Least-Squares (zoom=0.200, orig=768×512) 3.5 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_028.png
    :class: sphx-glr-single-img
 
@@ -2026,12 +2023,12 @@ Least-Squares Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1290-1292
+.. GENERATED FROM PYTHON SOURCE LINES 1287-1289
 
 Oblique Projection
 ~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 1292-1320
+.. GENERATED FROM PYTHON SOURCE LINES 1289-1317
 
 .. code-block:: Python
 
@@ -2067,7 +2064,7 @@ Oblique Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_029.png
-   :alt: Oblique (zoom=0.200, orig=768×512) 2.7 ms ± 0.0 ms
+   :alt: Oblique (zoom=0.200, orig=768×512) 2.8 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_029.png
    :class: sphx-glr-single-img
 
@@ -2075,12 +2072,12 @@ Oblique Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1321-1323
+.. GENERATED FROM PYTHON SOURCE LINES 1318-1320
 
 ROI Comparison
 ~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 1323-1341
+.. GENERATED FROM PYTHON SOURCE LINES 1320-1338
 
 .. code-block:: Python
 
@@ -2106,7 +2103,7 @@ ROI Comparison
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_030.png
-   :alt: Downsampled ROI comparison, SciPy 10.9 ms ± 0.0 ms, Standard 2.1 ms ± 1.1 ms, Least-Squares 3.9 ms ± 1.4 ms, Oblique 2.7 ms ± 0.0 ms
+   :alt: Downsampled ROI comparison, SciPy 11.4 ms ± 0.1 ms, Standard 1.7 ms ± 0.0 ms, Least-Squares 3.5 ms ± 0.0 ms, Oblique 2.8 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_030.png
    :class: sphx-glr-single-img
 
@@ -2114,12 +2111,12 @@ ROI Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1342-1344
+.. GENERATED FROM PYTHON SOURCE LINES 1339-1341
 
 Image
 -----
 
-.. GENERATED FROM PYTHON SOURCE LINES 1344-1376
+.. GENERATED FROM PYTHON SOURCE LINES 1341-1373
 
 .. code-block:: Python
 
@@ -2162,12 +2159,12 @@ Image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1377-1379
+.. GENERATED FROM PYTHON SOURCE LINES 1374-1376
 
 Original with ROI
 ~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 1379-1390
+.. GENERATED FROM PYTHON SOURCE LINES 1376-1387
 
 .. code-block:: Python
 
@@ -2194,12 +2191,12 @@ Original with ROI
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1391-1393
+.. GENERATED FROM PYTHON SOURCE LINES 1388-1390
 
 SciPy Interpolation
 ~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 1393-1421
+.. GENERATED FROM PYTHON SOURCE LINES 1390-1418
 
 .. code-block:: Python
 
@@ -2235,7 +2232,7 @@ SciPy Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_032.png
-   :alt: SciPy (zoom=0.150, orig=512×768) 8.8 ms ± 2.3 ms
+   :alt: SciPy (zoom=0.150, orig=512×768) 7.4 ms ± 0.1 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_032.png
    :class: sphx-glr-single-img
 
@@ -2243,12 +2240,12 @@ SciPy Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1422-1424
+.. GENERATED FROM PYTHON SOURCE LINES 1419-1421
 
 Standard Interpolation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 1424-1452
+.. GENERATED FROM PYTHON SOURCE LINES 1421-1449
 
 .. code-block:: Python
 
@@ -2284,7 +2281,7 @@ Standard Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_033.png
-   :alt: Standard (zoom=0.150, orig=512×768) 1.7 ms ± 0.1 ms
+   :alt: Standard (zoom=0.150, orig=512×768) 1.6 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_033.png
    :class: sphx-glr-single-img
 
@@ -2292,12 +2289,12 @@ Standard Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1453-1455
+.. GENERATED FROM PYTHON SOURCE LINES 1450-1452
 
 Least-Squares Projection
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 1455-1483
+.. GENERATED FROM PYTHON SOURCE LINES 1452-1480
 
 .. code-block:: Python
 
@@ -2333,7 +2330,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_034.png
-   :alt: Least-Squares (zoom=0.150, orig=512×768) 4.6 ms ± 0.0 ms
+   :alt: Least-Squares (zoom=0.150, orig=512×768) 4.4 ms ± 0.1 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_034.png
    :class: sphx-glr-single-img
 
@@ -2341,12 +2338,12 @@ Least-Squares Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1484-1486
+.. GENERATED FROM PYTHON SOURCE LINES 1481-1483
 
 Oblique Projection
 ~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 1486-1514
+.. GENERATED FROM PYTHON SOURCE LINES 1483-1511
 
 .. code-block:: Python
 
@@ -2382,7 +2379,7 @@ Oblique Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_035.png
-   :alt: Oblique (zoom=0.150, orig=512×768) 3.4 ms ± 0.1 ms
+   :alt: Oblique (zoom=0.150, orig=512×768) 3.1 ms ± 0.1 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_035.png
    :class: sphx-glr-single-img
 
@@ -2390,12 +2387,12 @@ Oblique Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1515-1517
+.. GENERATED FROM PYTHON SOURCE LINES 1512-1514
 
 ROI Comparison
 ~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 1517-1533
+.. GENERATED FROM PYTHON SOURCE LINES 1514-1530
 
 .. code-block:: Python
 
@@ -2419,7 +2416,7 @@ ROI Comparison
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_036.png
-   :alt: Downsampled ROI comparison, SciPy 8.8 ms ± 2.3 ms, Standard 1.7 ms ± 0.1 ms, Least-Squares 4.6 ms ± 0.0 ms, Oblique 3.4 ms ± 0.1 ms
+   :alt: Downsampled ROI comparison, SciPy 7.4 ms ± 0.1 ms, Standard 1.6 ms ± 0.0 ms, Least-Squares 4.4 ms ± 0.1 ms, Oblique 3.1 ms ± 0.1 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_036.png
    :class: sphx-glr-single-img
 
@@ -2430,7 +2427,7 @@ ROI Comparison
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 13.439 seconds)
+   **Total running time of the script:** (0 minutes 15.835 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_06_benchmarking.py:

@@ -131,7 +131,7 @@ Examples using the Resize module on 2D samples.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Benchmarking: Zoom Sweep</div>
+      <div class="sphx-glr-thumbnail-title">Benchmarking Plot</div>
     </div>
 
 

@@ -220,7 +220,7 @@
 <li class="toctree-l2"><a class="reference internal" href="03_04_how_bad_aliasing_can_be.html">How Bad Aliasing Can Be</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Oblique Projection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_06_benchmarking.html">Benchmarking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_07_benchmarking_plot.html">Benchmarking: Zoom Sweep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_07_benchmarking_plot.html">Benchmarking Plot</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04_rotate/index.html">Rotate Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -482,7 +482,7 @@ comparisons use a face ROI.</p>
 <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="Original ROI, Recovered (Least-Squares, 4.0 ms), Recovered (Oblique, 2.9 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_05_oblique_projection_002.png" srcset="../../_images/sphx_glr_03_05_oblique_projection_002.png"/></section>
+<img alt="Original ROI, Recovered (Least-Squares, 4.0 ms), Recovered (Oblique, 3.0 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_05_oblique_projection_002.png" srcset="../../_images/sphx_glr_03_05_oblique_projection_002.png"/></section>
 <section id="original-with-roi">
 <h2>Original (with ROI)<a class="headerlink" href="#original-with-roi" title="Link to this heading">#</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">_</span></a> <span class="o">=</span> <span class="n">show_roi_zoom</span><span class="p">(</span>
@@ -518,7 +518,7 @@ comparisons use a face ROI.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Resized Image (least-squares, 5.4 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_05_oblique_projection_004.png" srcset="../../_images/sphx_glr_03_05_oblique_projection_004.png"/></section>
+<img alt="Resized Image (least-squares, 5.5 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_05_oblique_projection_004.png" srcset="../../_images/sphx_glr_03_05_oblique_projection_004.png"/></section>
 <section id="id1">
 <h3>Oblique Projection<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">h_res_ob</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">w_res_ob</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">resized_2d_ob</span><span class="o">.</span><span class="n">shape</span></a>
@@ -565,7 +565,7 @@ comparisons use a face ROI.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Recovered Image (oblique projection, 2.9 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_05_oblique_projection_007.png" srcset="../../_images/sphx_glr_03_05_oblique_projection_007.png"/></section>
+<img alt="Recovered Image (oblique projection, 3.0 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_05_oblique_projection_007.png" srcset="../../_images/sphx_glr_03_05_oblique_projection_007.png"/></section>
 </section>
 <section id="difference-images">
 <h2>Difference Images<a class="headerlink" href="#difference-images" title="Link to this heading">#</a></h2>
@@ -699,10 +699,10 @@ central-region metrics, not strictly ROI-only).</p>
 <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="Standard vs LS vs Oblique (Oblique is ≈ 1.39× faster than LS)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_05_oblique_projection_010.png" srcset="../../_images/sphx_glr_03_05_oblique_projection_010.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[Timing averages over 10 runs] Standard     : 3.0 ± 0.0 ms
-[Timing averages over 10 runs] Least-Squares: 9.5 ± 0.3 ms
-[Timing averages over 10 runs] Oblique      : 6.9 ± 0.1 ms
-[Timing] Speedup (LS/OB): 1.39×  (~28.3% less time)
+<img alt="Standard vs LS vs Oblique (Oblique is ≈ 0.71× faster than LS)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_05_oblique_projection_010.png" srcset="../../_images/sphx_glr_03_05_oblique_projection_010.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[Timing averages over 10 runs] Standard     : 3.4 ± 0.0 ms
+[Timing averages over 10 runs] Least-Squares: 9.5 ± 0.1 ms
+[Timing averages over 10 runs] Oblique      : 13.4 ± 6.9 ms
+[Timing] Speedup (LS/OB): 0.71×  (~0.0% less time)
 </pre></div>
 </div>
 </section>
@@ -734,9 +734,9 @@ central-region metrics, not strictly ROI-only).</p>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Method                         SNR (dB)              MSE       Time (s, avg±sd)
 -------------------------------------------------------------------------------
-Standard (cubic)                  15.51         6.34e-03        0.0030 ± 0.0000
-Least-Squares (best AA)           17.53         3.98e-03        0.0095 ± 0.0003
-Oblique (fast AA)                 17.47         4.03e-03        0.0069 ± 0.0001
+Standard (cubic)                  15.51         6.34e-03        0.0034 ± 0.0000
+Least-Squares (best AA)           17.53         3.98e-03        0.0095 ± 0.0001
+Oblique (fast AA)                 17.47         4.03e-03        0.0134 ± 0.0069
 Runtime context:
   Python      : 3.12.12 (CPython)
   OS          : Linux 6.11.0-1018-azure (x86_64)
@@ -748,7 +748,7 @@ Runtime context:
   OMP_NUM_THREADS=4
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.443 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 3.072 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>
