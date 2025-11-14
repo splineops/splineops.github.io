@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=45def3bc"></script>
+    <script src="../_static/documentation_options.js?v=8d563738"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -422,7 +422,6 @@
 <!-- splineops/README.md -->
 <section id="splineops-spline-operations">
 <h2>SplineOps: Spline Operations<a class="headerlink" href="#splineops-spline-operations" title="Link to this heading">#</a></h2>
-<p>See https://splineops.github.io/ for the documentation.</p>
 <p><code class="docutils literal notranslate"><span class="pre">splineops</span></code> is a Python-based N-dimensional signal-processing library with
 support for GPU computing.</p>
 <section id="installation">
@@ -443,7 +442,7 @@ support for GPU computing.</p>
 </pre></div>
 </div>
 <p>Minimal requirement:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>requests
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib
 </pre></div>
 </div>
 <p>Simply install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> using <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
@@ -523,7 +522,7 @@ make<span class="w"> </span>html
 documentation locally.</p>
 <section id="troubleshooting">
 <h4>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h4>
-<p>If you want to make a “clean” build, go to <code class="docutils literal notranslate"><span class="pre">docs</span></code> and manually delete the folders <code class="docutils literal notranslate"><span class="pre">_build</span></code>, <code class="docutils literal notranslate"><span class="pre">auto_examples</span></code>, <code class="docutils literal notranslate"><span class="pre">gen_modules</span></code>, <code class="docutils literal notranslate"><span class="pre">notebooks_jupyterlite</span></code>, and the file <code class="docutils literal notranslate"><span class="pre">sg_execution_times.rst</span></code>.
+<p>If you want to make a “clean” build, go to <code class="docutils literal notranslate"><span class="pre">docs</span></code> and manually delete the folders <code class="docutils literal notranslate"><span class="pre">_build</span></code>, <code class="docutils literal notranslate"><span class="pre">auto_examples</span></code>, <code class="docutils literal notranslate"><span class="pre">gen_modules</span></code>, and the file <code class="docutils literal notranslate"><span class="pre">sg_execution_times.rst</span></code>.
 Why isn’t this done automatically? Because Sphinx optimizes speed and removes redundant tasks, by not re-creating the examples notebooks if they have already been created.
 If you, for example, modify the name of the examples files, you will have to delete at least the folder <code class="docutils literal notranslate"><span class="pre">auto_examples</span></code>. Otherwise, the old examples files will not have disappeared automatically and Sphinx will raise an internal warning referring to a toctree.</p>
 </section>

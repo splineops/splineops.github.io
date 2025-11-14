@@ -1,0 +1,65 @@
+
+
+.. _sphx_glr_auto_examples_08_multiscale:
+
+.. splineops/examples/08_multiscale/GALLERY_HEADER.rst
+
+Multiscale Examples
+===================
+
+Examples using the Multiscale module.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to use the pyramid decomposition (reduce &amp; expand) in 1D and 2D.">
+
+.. only:: html
+
+  .. image:: /auto_examples/08_multiscale/images/thumb/sphx_glr_08_01_pyramid_decomposition_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_08_multiscale_08_01_pyramid_decomposition.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Pyramid Decomposition</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to use the Haar wavelet decomposition (analysis &amp; synthesis) in 2D.">
+
+.. only:: html
+
+  .. image:: /auto_examples/08_multiscale/images/thumb/sphx_glr_08_02_wavelet_decomposition_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_08_multiscale_08_02_wavelet_decomposition.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Wavelet Decomposition</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/08_multiscale/08_01_pyramid_decomposition
+   /auto_examples/08_multiscale/08_02_wavelet_decomposition
+

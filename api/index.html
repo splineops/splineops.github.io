@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=45def3bc"></script>
+    <script src="../_static/documentation_options.js?v=8d563738"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -55,8 +55,8 @@
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Interpolate" href="01_interpolate.html" />
-    <link rel="prev" title="Wavelet Decomposition" href="../auto_examples/08_decompose/08_02_wavelet_decomposition.html" />
+    <link rel="next" title="Spline interpolation" href="01_spline_interpolation.html" />
+    <link rel="prev" title="Wavelet Decomposition" href="../auto_examples/08_multiscale/08_02_wavelet_decomposition.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -362,13 +362,13 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_interpolate.html">Interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_spline_interpolation.html">Spline interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_rotate.html">Rotate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_regress.html">Regress</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_denoise.html">Denoise</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_differentiate.html">Differentiate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_decompose.html">Decompose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_adaptive_regression_splines.html">Adaptive Regression Splines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_smoothing_splines.html">Smoothing Splines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_differentials.html">Differentials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_multiscale.html">Multiscale</a></li>
 </ul>
 </div>
 </nav></div>
@@ -439,8 +439,8 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="01_interpolate.html#api-interpolate"><span class="std std-ref">Interpolate</span></a></p></td>
-<td><p>Core interpolation class for N-D data.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="01_spline_interpolation.html#api-spline-interpolation"><span class="std std-ref">Spline interpolation</span></a></p></td>
+<td><p>Core interpolation class for multidimensional data.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="02_resize.html#api-resize"><span class="std std-ref">Resize</span></a></p></td>
 <td><p>Resize using splines or LS/Oblique projection.</p></td>
@@ -448,16 +448,16 @@
 <tr class="row-even"><td><p><a class="reference internal" href="03_rotate.html#api-rotate"><span class="std std-ref">Rotate</span></a></p></td>
 <td><p>Rotate 2D/3D data about a user-defined center.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="04_regress.html#api-regress"><span class="std std-ref">Regress</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="04_adaptive_regression_splines.html#api-adaptive-regression-splines"><span class="std std-ref">Adaptive regression splines</span></a></p></td>
 <td><p>Perform sparsest linear regression on 1D data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="05_denoise.html#api-denoise"><span class="std std-ref">Denoise</span></a></p></td>
-<td><p>Denoise N-D data.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="05_smoothing_splines.html#api-smoothing-splines"><span class="std std-ref">Smoothing splines</span></a></p></td>
+<td><p>Fit splines to noisy data.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="06_differentiate.html#api-differentiate"><span class="std std-ref">Differentiate</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="06_differentials.html#api-differentials"><span class="std std-ref">Differentials</span></a></p></td>
 <td><p>Differentiate 2D images.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="07_decompose.html#api-decompose"><span class="std std-ref">Decompose</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="07_multiscale.html#api-multiscale"><span class="std std-ref">Decompose</span></a></p></td>
 <td><p>Decompose 1D signals and 2D images.</p></td>
 </tr>
 </tbody>
@@ -478,7 +478,7 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../auto_examples/08_decompose/08_02_wavelet_decomposition.html"
+       href="../auto_examples/08_multiscale/08_02_wavelet_decomposition.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -487,11 +487,11 @@
       </div>
     </a>
     <a class="right-next"
-       href="01_interpolate.html"
+       href="01_spline_interpolation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Interpolate</p>
+        <p class="prev-next-title">Spline interpolation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -69,24 +69,24 @@ Examples using the Resize module on 2D samples.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We construct an A/B corner mix image where, in each 2x2 tile, the top-left pixel comes from image A and the other three come from B. Then we downsample by 0.5 using:">
+    <div class="sphx-glr-thumbcontainer" tooltip="We construct an A/B corner mix image where, in each 2x2 tile, the top-left pixel comes from image A and the other three come from B. We then:">
 
 .. only:: html
 
-  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_04_antialiasing_thumb.png
+  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_04_how_bad_aliasing_can_be_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_04_antialiasing.py`
+  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_04_how_bad_aliasing_can_be.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Antialiasing</div>
+      <div class="sphx-glr-thumbnail-title">How Bad Aliasing Can Be</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 2D images with and oblique projection.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 2D images with an oblique projection and compare against least-squares projection. SNR/MSE are computed on a central region (via border_fraction) to reduce boundary artifacts, while visual comparisons use a face ROI.">
 
 .. only:: html
 
@@ -103,18 +103,18 @@ Examples using the Resize module on 2D samples.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="A summary of the cost/benefit tradeoff of the three interpolation methods  is provided in this example.">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example benchmarks several 2D downsampling methods over a set of test images. For each image we:">
 
 .. only:: html
 
-  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_06_compare_different_methods_thumb.png
+  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_06_benchmarking_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_06_compare_different_methods.py`
+  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_06_benchmarking.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Compare Different Methods</div>
+      <div class="sphx-glr-thumbnail-title">Benchmarking</div>
     </div>
 
 
@@ -131,7 +131,7 @@ Examples using the Resize module on 2D samples.
    /auto_examples/03_resampling_using_2D_interpolation/03_01_resize_module
    /auto_examples/03_resampling_using_2D_interpolation/03_02_standard_interpolation
    /auto_examples/03_resampling_using_2D_interpolation/03_03_least-squares_projection
-   /auto_examples/03_resampling_using_2D_interpolation/03_04_antialiasing
+   /auto_examples/03_resampling_using_2D_interpolation/03_04_how_bad_aliasing_can_be
    /auto_examples/03_resampling_using_2D_interpolation/03_05_oblique_projection
-   /auto_examples/03_resampling_using_2D_interpolation/03_06_compare_different_methods
+   /auto_examples/03_resampling_using_2D_interpolation/03_06_benchmarking
 

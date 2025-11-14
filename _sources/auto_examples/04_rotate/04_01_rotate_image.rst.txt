@@ -28,7 +28,7 @@ We use the rotate module to rotate a 2D image.
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-25
+.. GENERATED FROM PYTHON SOURCE LINES 15-24
 
 .. code-block:: Python
 
@@ -37,9 +37,8 @@ Imports
     import matplotlib.pyplot as plt
     from matplotlib import animation
     from splineops.rotate.rotate import rotate
-    from splineops.resize.resize import resize
-    import requests
-    from io import BytesIO
+    from splineops.resize import resize
+    from urllib.request import urlopen
     from PIL import Image
 
 
@@ -49,24 +48,24 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-32
+.. GENERATED FROM PYTHON SOURCE LINES 25-31
 
-Load and Preprocess the Image
------------------------------
+Load and Rotate the Image
+-------------------------
 
 Load a Kodak image, convert it to grayscale, normalize it,
 and then resize it by a factor of (0.5, 0.5). After that,
 scale its intensity back to [0, 255] before rotation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-102
+.. GENERATED FROM PYTHON SOURCE LINES 31-101
 
 .. code-block:: Python
 
 
     # Load the 'kodim17.png' image
     url = 'https://r0k.us/graphics/kodak/kodak/kodim22.png'
-    response = requests.get(url)
-    img = Image.open(BytesIO(response.content))
+    with urlopen(url, timeout=10) as resp:
+        img = Image.open(resp)
     data = np.array(img, dtype=np.float64)
 
     # Convert to grayscale using a standard formula
@@ -147,7 +146,7 @@ scale its intensity back to [0, 255] before rotation.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.827 seconds)
+   **Total running time of the script:** (0 minutes 2.311 seconds)
 
 
 .. _sphx_glr_download_auto_examples_04_rotate_04_01_rotate_image.py:

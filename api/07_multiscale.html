@@ -1,0 +1,1279 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Multiscale &#8212; splineops Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7e28914a" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/07_multiscale';</script>
+    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Differentials" href="06_differentials.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt=""/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">SplineOps</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation/index.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/splineops/splineops" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/splineops/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i>
+            <span class="sr-only"></span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation/index.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/splineops/splineops" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/splineops/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i>
+            <span class="sr-only"></span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_spline_interpolation.html">Spline interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_rotate.html">Rotate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_adaptive_regression_splines.html">Adaptive Regression Splines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_smoothing_splines.html">Smoothing Splines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_differentials.html">Differentials</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Multiscale</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">API Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Multiscale</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="multiscale">
+<span id="api-multiscale"></span><h1>Multiscale<a class="headerlink" href="#multiscale" title="Link to this heading">#</a></h1>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale</span></code> package provides functionality for <strong>pyramid decomposition</strong> (downsampling/up-sampling) and <strong>wavelet transforms</strong> (analysis and synthesis) based on spline models.</p>
+<section id="pyramid-module">
+<h2>Pyramid Module<a class="headerlink" href="#pyramid-module" title="Link to this heading">#</a></h2>
+<p>The <a class="reference internal" href="#module-splineops.multiscale.pyramid" title="splineops.multiscale.pyramid"><code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale.pyramid</span></code></a> module implements 1D and 2D REDUCE/EXPAND operations with mirror boundary handling. These form the foundation for many wavelet constructions.</p>
+<p>Key functionalities:</p>
+<ul class="simple">
+<li><p><strong>get_pyramid_filter</strong>
+Retrieve filter coefficients (g for REDUCE, h for EXPAND) plus a “centered” flag.</p></li>
+<li><p><strong>reduce_1d</strong>, <strong>expand_1d</strong>
+Down/upsample a 1D signal using the specified filters and mirror reflection.</p></li>
+<li><p><strong>reduce_2d</strong>, <strong>expand_2d</strong>
+Down/upsample a 2D image row-by-row and column-by-column.</p></li>
+</ul>
+</section>
+<section id="example-pyramid-usage">
+<h2>Example (pyramid usage)<a class="headerlink" href="#example-pyramid-usage" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops.multiscale.pyramid</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_pyramid_filter</span><span class="p">,</span> <span class="n">reduce_1d</span><span class="p">,</span> <span class="n">expand_1d</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Retrieve filter for a spline of order 3</span>
+<span class="n">g</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">centered</span> <span class="o">=</span> <span class="n">get_pyramid_filter</span><span class="p">(</span><span class="s2">&quot;Spline&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># 1D reduce/expand</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">x_reduced</span> <span class="o">=</span> <span class="n">reduce_1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">centered</span><span class="p">)</span>
+<span class="n">x_expanded</span> <span class="o">=</span> <span class="n">expand_1d</span><span class="p">(</span><span class="n">x_reduced</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">centered</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reduced: &quot;</span><span class="p">,</span> <span class="n">x_reduced</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Expanded:&quot;</span><span class="p">,</span> <span class="n">x_expanded</span><span class="p">)</span>
+
+<span class="c1"># 2D reduce/expand</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">arr_reduced</span> <span class="o">=</span> <span class="n">reduce_2d</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">centered</span><span class="p">)</span>
+<span class="n">arr_expanded</span> <span class="o">=</span> <span class="n">expand_2d</span><span class="p">(</span><span class="n">arr_reduced</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">centered</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="module-splineops.multiscale.pyramid">
+<span id="api-reference-pyramid"></span><h2>API Reference: Pyramid<a class="headerlink" href="#module-splineops.multiscale.pyramid" title="Link to this heading">#</a></h2>
+<section id="pyramid-py">
+<h3>pyramid.py<a class="headerlink" href="#pyramid-py" title="Link to this heading">#</a></h3>
+<p>Implements pyramid decomposition (reduce &amp; expand) in 1D and 2D using
+filters derived from spline expansions. Boundary handling is done via
+mirror reflection, closely mimicking original C routines:</p>
+<ul class="simple">
+<li><p>“ReduceStandard_1D” / “ExpandStandard_1D”</p></li>
+<li><p>“ReduceCentered_1D” / “ExpandCentered_1D”</p></li>
+</ul>
+</section>
+<section id="usage-example">
+<h3>Usage Example<a class="headerlink" href="#usage-example" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops.multiscale.pyramid</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_pyramid_filter</span><span class="p">,</span>
+    <span class="n">reduce_1d</span><span class="p">,</span> <span class="n">expand_1d</span><span class="p">,</span>
+    <span class="n">reduce_2d</span><span class="p">,</span> <span class="n">expand_2d</span>
+<span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Retrieve filter</span>
+<span class="n">g</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">is_centered</span> <span class="o">=</span> <span class="n">get_pyramid_filter</span><span class="p">(</span><span class="s2">&quot;Spline&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># 1D reduce/expand</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">x_reduced</span> <span class="o">=</span> <span class="n">reduce_1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">is_centered</span><span class="p">)</span>
+<span class="n">x_expanded</span> <span class="o">=</span> <span class="n">expand_1d</span><span class="p">(</span><span class="n">x_reduced</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">is_centered</span><span class="p">)</span>
+
+<span class="c1"># 2D reduce/expand</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">arr_reduced</span> <span class="o">=</span> <span class="n">reduce_2d</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">is_centered</span><span class="p">)</span>
+<span class="n">arr_expanded</span> <span class="o">=</span> <span class="n">expand_2d</span><span class="p">(</span><span class="n">arr_reduced</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">is_centered</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<dl class="py function">
+<dt class="sig sig-object py" id="splineops.multiscale.pyramid.get_pyramid_filter">
+<span class="sig-prename descclassname"><span class="pre">splineops.multiscale.pyramid.</span></span><span class="sig-name descname"><span class="pre">get_pyramid_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.pyramid.get_pyramid_filter" title="Link to this definition">#</a></dt>
+<dd><p>Retrieve the reduce/expand filters for a particular spline family and order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Filter family name, e.g. “Spline”, “Centered Spline”.</p></li>
+<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Spline order (e.g. 3).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>g</strong> (<em>np.ndarray</em>) – 1D filter for REDUCE operation.</p></li>
+<li><p><strong>h</strong> (<em>np.ndarray</em>) – 1D filter for EXPAND operation.</p></li>
+<li><p><strong>is_centered</strong> (<em>bool</em>) – True if the filter is a centered variant; False otherwise.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If the combination of name/order is not implemented.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="splineops.multiscale.pyramid.wrap_reflect">
+<span class="sig-prename descclassname"><span class="pre">splineops.multiscale.pyramid.</span></span><span class="sig-name descname"><span class="pre">wrap_reflect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#splineops.multiscale.pyramid.wrap_reflect" title="Link to this definition">#</a></dt>
+<dd><p>Mirror boundary reflection of index <cite>i</cite> into the range [0..n-1].</p>
+<p>If n &gt;= 2, uses period = 2*(n-1).
+If n &lt; 2, everything maps to 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Original index (may be out of bounds).</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Length of the signal.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reflected index within [0..n-1].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="splineops.multiscale.pyramid.reduce_1d">
+<span class="sig-prename descclassname"><span class="pre">splineops.multiscale.pyramid.</span></span><span class="sig-name descname"><span class="pre">reduce_1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.pyramid.reduce_1d" title="Link to this definition">#</a></dt>
+<dd><p>Reduce a 1D signal by factor of 2 using filter g.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>signal</strong> (<em>np.ndarray</em>) – Input 1D signal of length &gt;= 2.</p></li>
+<li><p><strong>g</strong> (<em>np.ndarray</em>) – Filter for reduction (REDUCE).</p></li>
+<li><p><strong>centered</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – Indicates if the filter is a centered variant.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reduced signal of length roughly n/2.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="splineops.multiscale.pyramid.expand_1d">
+<span class="sig-prename descclassname"><span class="pre">splineops.multiscale.pyramid.</span></span><span class="sig-name descname"><span class="pre">expand_1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.pyramid.expand_1d" title="Link to this definition">#</a></dt>
+<dd><p>Expand a 1D signal by factor of 2 using filter h.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>signal</strong> (<em>np.ndarray</em>) – Input 1D signal (coarse scale).</p></li>
+<li><p><strong>h</strong> (<em>np.ndarray</em>) – Filter for expansion (EXPAND).</p></li>
+<li><p><strong>centered</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – Indicates if the filter is a centered variant.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Expanded signal of length ~ 2*n.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="splineops.multiscale.pyramid.reduce_2d">
+<span class="sig-prename descclassname"><span class="pre">splineops.multiscale.pyramid.</span></span><span class="sig-name descname"><span class="pre">reduce_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.pyramid.reduce_2d" title="Link to this definition">#</a></dt>
+<dd><p>Reduce a 2D image by factor of 2 in each dimension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>np.ndarray</em>) – Input 2D array (ny, nx).</p></li>
+<li><p><strong>g</strong> (<em>np.ndarray</em>) – 1D reduce filter.</p></li>
+<li><p><strong>centered</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – True if using centered reduce logic.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reduced image of shape (ny//2, nx//2) if ny,nx &gt;= 2, else smaller.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="splineops.multiscale.pyramid.expand_2d">
+<span class="sig-prename descclassname"><span class="pre">splineops.multiscale.pyramid.</span></span><span class="sig-name descname"><span class="pre">expand_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.pyramid.expand_2d" title="Link to this definition">#</a></dt>
+<dd><p>Expand a 2D image by factor of 2 in each dimension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>np.ndarray</em>) – Input 2D array (coarse scale).</p></li>
+<li><p><strong>h</strong> (<em>np.ndarray</em>) – 1D expand filter.</p></li>
+<li><p><strong>centered</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – True if using centered expand logic.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Expanded image, roughly 2*ny by 2*nx.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="wavelet-modules">
+<h2>Wavelet Modules<a class="headerlink" href="#wavelet-modules" title="Link to this heading">#</a></h2>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale.wavelets</span></code> subpackage provides various wavelet transforms (Haar, spline-based) using row-column (or column-row) passes. Classes typically define:</p>
+<ul class="simple">
+<li><p><strong>analysis</strong> (multi-scale forward transform)</p></li>
+<li><p><strong>synthesis</strong> (multi-scale inverse transform)</p></li>
+</ul>
+<p>Submodules:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#module-splineops.multiscale.wavelets.abstractwavelets" title="splineops.multiscale.wavelets.abstractwavelets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale.wavelets.abstractwavelets</span></code></a> - Base <cite>AbstractWavelets</cite> class</p></li>
+<li><p><a class="reference internal" href="#module-splineops.multiscale.wavelets.haar" title="splineops.multiscale.wavelets.haar"><code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale.wavelets.haar</span></code></a> - Pure 2D Haar wavelets (<cite>HaarWavelets</cite>)</p></li>
+<li><p><a class="reference internal" href="#module-splineops.multiscale.wavelets.splinewavelets" title="splineops.multiscale.wavelets.splinewavelets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale.wavelets.splinewavelets</span></code></a> - Spline wavelets, e.g. <cite>Spline1Wavelets</cite>, <cite>Spline3Wavelets</cite>, etc.</p></li>
+<li><p><a class="reference internal" href="#module-splineops.multiscale.wavelets.splinewaveletstool" title="splineops.multiscale.wavelets.splinewaveletstool"><code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale.wavelets.splinewaveletstool</span></code></a> - Low-level “splitMirror” &amp; “mergeMirror” routines, plus <cite>SplineWaveletsTool</cite> class</p></li>
+</ul>
+</section>
+<section id="module-splineops.multiscale.wavelets.abstractwavelets">
+<span id="api-reference-wavelets"></span><h2>API Reference: Wavelets<a class="headerlink" href="#module-splineops.multiscale.wavelets.abstractwavelets" title="Link to this heading">#</a></h2>
+<section id="abstractwavelets-py">
+<h3>abstractwavelets.py<a class="headerlink" href="#abstractwavelets-py" title="Link to this heading">#</a></h3>
+<p>Defines a base class for wavelet analysis &amp; synthesis on 2D (or 3D) signals.</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.abstractwavelets.</span></span><span class="sig-name descname"><span class="pre">AbstractWavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Base class for wavelet decomposition with multi-scale analysis &amp; synthesis.</p>
+<dl class="simple">
+<dt>Subclasses must override:</dt><dd><ul class="simple">
+<li><p>analysis1()  (single-scale wavelet decomposition)</p></li>
+<li><p>synthesis1() (single-scale wavelet reconstruction)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scales</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Number of scales for multi-scale decomposition.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.scales">
+<span class="sig-name descname"><span class="pre">scales</span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.scales" title="Link to this definition">#</a></dt>
+<dd><p>Number of scales for repeated analysis/synthesis steps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.analysis">
+<span class="sig-name descname"><span class="pre">analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.analysis" title="Link to this definition">#</a></dt>
+<dd><p>Multi-scale wavelet analysis in 2D (or 3D).
+Repeatedly calls analysis1() from fine to coarse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inp</strong> (<em>np.ndarray</em>) – Input array with shape (ny, nx) or (nz, ny, nx).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Full wavelet decomposition (in-place layout).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.analysis1">
+<span class="sig-name descname"><span class="pre">analysis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.analysis1" title="Link to this definition">#</a></dt>
+<dd><p>Single-scale wavelet transform of inp -&gt; out. Must be overridden.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inp</strong> (<em>np.ndarray</em>) – Input array (2D or 3D typically).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Transformed array (same shape).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.get_documentation">
+<span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.get_documentation" title="Link to this definition">#</a></dt>
+<dd><p>Returns a short description of the wavelet.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.get_name">
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.get_name" title="Link to this definition">#</a></dt>
+<dd><p>Returns a descriptive name for the wavelet transform.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.set_scale">
+<span class="sig-name descname"><span class="pre">set_scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.set_scale" title="Link to this definition">#</a></dt>
+<dd><p>Update the number of scales.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – New scale value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.synthesis">
+<span class="sig-name descname"><span class="pre">synthesis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.synthesis" title="Link to this definition">#</a></dt>
+<dd><p>Multi-scale wavelet synthesis in 2D (or 3D).
+Repeatedly calls synthesis1() from coarsest to finest.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inp</strong> (<em>np.ndarray</em>) – Wavelet decomposition array (same shape as original).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reconstructed array (same shape as input).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.synthesis1">
+<span class="sig-name descname"><span class="pre">synthesis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.synthesis1" title="Link to this definition">#</a></dt>
+<dd><p>Single-scale inverse wavelet transform of inp -&gt; out. Must be overridden.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inp</strong> (<em>np.ndarray</em>) – Input wavelet coefficients (single scale).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reconstructed array at that scale.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="haar-py">
+<span id="module-splineops.multiscale.wavelets.haar"></span><h3>haar.py<a class="headerlink" href="#haar-py" title="Link to this heading">#</a></h3>
+<p>Implements a 2D Haar wavelet transform via row-&gt;column decomposition
+(analysis) and column-&gt;row synthesis. Requires ny &gt;= 2 and nx &gt;= 2.</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.haar.HaarWavelets">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.haar.</span></span><span class="sig-name descname"><span class="pre">HaarWavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.haar.HaarWavelets" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets" title="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractWavelets</span></code></a></p>
+<p>A 2D Haar wavelet transform for images with shape (ny, nx).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scales</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Number of scales (defaults to 3).</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.haar.HaarWavelets.q">
+<span class="sig-name descname"><span class="pre">q</span></span><a class="headerlink" href="#splineops.multiscale.wavelets.haar.HaarWavelets.q" title="Link to this definition">#</a></dt>
+<dd><p>Normalization factor, sqrt(2).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If ny &lt; 2 or nx &lt; 2 at any scale.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<dl class="simple">
+<dt>Single-scale steps:</dt><dd><ol class="arabic simple">
+<li><p>row-wise split</p></li>
+<li><p>column-wise split</p></li>
+</ol>
+</dd>
+<dt>Synthesis:</dt><dd><ol class="arabic simple">
+<li><p>column-wise merge</p></li>
+<li><p>row-wise merge</p></li>
+</ol>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.haar.HaarWavelets.analysis1">
+<span class="sig-name descname"><span class="pre">analysis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.haar.HaarWavelets.analysis1" title="Link to this definition">#</a></dt>
+<dd><p>Single-scale 2D Haar analysis (row-split, then col-split).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inp</strong> (<em>np.ndarray</em>) – 2D array with shape (ny, nx), both &gt;= 2.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Transformed array (same shape).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.haar.HaarWavelets.get_documentation">
+<span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.haar.HaarWavelets.get_documentation" title="Link to this definition">#</a></dt>
+<dd><p>Return short docstring for Haar wavelets.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.haar.HaarWavelets.get_name">
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.haar.HaarWavelets.get_name" title="Link to this definition">#</a></dt>
+<dd><p>Return ‘Haar2D’.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.haar.HaarWavelets.synthesis1">
+<span class="sig-name descname"><span class="pre">synthesis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.haar.HaarWavelets.synthesis1" title="Link to this definition">#</a></dt>
+<dd><p>Single-scale 2D Haar synthesis (inverse of analysis1).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inp</strong> (<em>np.ndarray</em>) – 2D array (ny, nx), both &gt;= 2.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reconstructed array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="splinewavelets-py">
+<span id="module-splineops.multiscale.wavelets.splinewavelets"></span><h3>splinewavelets.py<a class="headerlink" href="#splinewavelets-py" title="Link to this heading">#</a></h3>
+<p>Implements Spline wavelet transforms of orders 1, 3, 5.</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.splinewavelets.</span></span><span class="sig-name descname"><span class="pre">Spline1Wavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets" title="splineops.multiscale.wavelets.splinewavelets.SplineWavelets"><code class="xref py py-class docutils literal notranslate"><span class="pre">SplineWavelets</span></code></a></p>
+<p>Spline Wavelets of order=1.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets.get_documentation">
+<span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets.get_documentation" title="Link to this definition">#</a></dt>
+<dd><p>Return a short docstring describing the spline wavelet order.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets.get_name">
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets.get_name" title="Link to this definition">#</a></dt>
+<dd><p>Return ‘Spline{order}’.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.splinewavelets.</span></span><span class="sig-name descname"><span class="pre">Spline3Wavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets" title="splineops.multiscale.wavelets.splinewavelets.SplineWavelets"><code class="xref py py-class docutils literal notranslate"><span class="pre">SplineWavelets</span></code></a></p>
+<p>Spline Wavelets of order=3.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets.get_documentation">
+<span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets.get_documentation" title="Link to this definition">#</a></dt>
+<dd><p>Return a short docstring describing the spline wavelet order.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets.get_name">
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets.get_name" title="Link to this definition">#</a></dt>
+<dd><p>Return ‘Spline{order}’.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.splinewavelets.</span></span><span class="sig-name descname"><span class="pre">Spline5Wavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets" title="splineops.multiscale.wavelets.splinewavelets.SplineWavelets"><code class="xref py py-class docutils literal notranslate"><span class="pre">SplineWavelets</span></code></a></p>
+<p>Spline Wavelets of order=5.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets.get_documentation">
+<span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets.get_documentation" title="Link to this definition">#</a></dt>
+<dd><p>Return a short docstring describing the spline wavelet order.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets.get_name">
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets.get_name" title="Link to this definition">#</a></dt>
+<dd><p>Return ‘Spline{order}’.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.SplineWavelets">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.splinewavelets.</span></span><span class="sig-name descname"><span class="pre">SplineWavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets" title="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractWavelets</span></code></a></p>
+<p>A generic spline wavelet class that references a given ‘order’ (1,3,5).
+Uses row-&gt;column passes with mirror boundary to compute detail.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scales</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Number of scales.</p></li>
+<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Spline order (1,3,5).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.SplineWavelets.filter">
+<span class="sig-name descname"><span class="pre">filter</span></span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.filter" title="Link to this definition">#</a></dt>
+<dd><p>Holds the arrays h[] (lowpass) and g[] (highpass).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>SplineFilter</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.SplineWavelets.analysis1">
+<span class="sig-name descname"><span class="pre">analysis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.analysis1" title="Link to this definition">#</a></dt>
+<dd><p>Single-scale 2D spline wavelet analysis pass:
+- Row pass (splitMirror)
+- Column pass (splitMirror)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inp</strong> (<em>np.ndarray</em>) – 2D array.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Transformed 2D array (same shape).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.SplineWavelets.get_documentation">
+<span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.get_documentation" title="Link to this definition">#</a></dt>
+<dd><p>Return a short docstring describing the spline wavelet order.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.SplineWavelets.get_name">
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.get_name" title="Link to this definition">#</a></dt>
+<dd><p>Return ‘Spline{order}’.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.SplineWavelets.synthesis1">
+<span class="sig-name descname"><span class="pre">synthesis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.synthesis1" title="Link to this definition">#</a></dt>
+<dd><p>Single-scale 2D spline wavelet synthesis pass:
+- Column pass (mergeMirror)
+- Row pass (mergeMirror)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inp</strong> (<em>np.ndarray</em>) – 2D array of wavelet coefficients (one scale).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reconstructed array (same shape).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="splinewaveletstool-py">
+<span id="module-splineops.multiscale.wavelets.splinewaveletstool"></span><h3>splinewaveletstool.py<a class="headerlink" href="#splinewaveletstool-py" title="Link to this heading">#</a></h3>
+<p>Uses a SplineFilter to get h[] and g[], then does ‘splitMirror’ and
+‘mergeMirror’ passes on rows, then columns.</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.splinewaveletstool.</span></span><span class="sig-name descname"><span class="pre">SplineWaveletsTool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Equivalent of SplineWaveletsTool.java for 2D analysis/synthesis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Number of scales (used externally, if needed).</p></li>
+<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Spline order, e.g. 3.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.filters">
+<span class="sig-name descname"><span class="pre">filters</span></span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.filters" title="Link to this definition">#</a></dt>
+<dd><p>Holds arrays h (lowpass) and g (highpass).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>SplineFilter</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.analysis1">
+<span class="sig-name descname"><span class="pre">analysis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.analysis1" title="Link to this definition">#</a></dt>
+<dd><p>Single-scale 2D analysis (row pass then column pass).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.synthesis1">
+<span class="sig-name descname"><span class="pre">synthesis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.synthesis1" title="Link to this definition">#</a></dt>
+<dd><p>Single-scale 2D synthesis (inverse).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewaveletstool.merge_mirror_1d">
+<span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.splinewaveletstool.</span></span><span class="sig-name descname"><span class="pre">merge_mirror_1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewaveletstool.merge_mirror_1d" title="Link to this definition">#</a></dt>
+<dd><p>Inverse of split_mirror_1d. Recombines lowpass and highpass into original signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vin</strong> (<em>np.ndarray</em>) – 1D array, half is lowpass, half is highpass.</p></li>
+<li><p><strong>h</strong> (<em>np.ndarray</em>) – Lowpass filter.</p></li>
+<li><p><strong>g</strong> (<em>np.ndarray</em>) – Highpass filter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>1D reconstructed array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewaveletstool.split_mirror_1d">
+<span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.splinewaveletstool.</span></span><span class="sig-name descname"><span class="pre">split_mirror_1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewaveletstool.split_mirror_1d" title="Link to this definition">#</a></dt>
+<dd><p>1D mirror-based ‘split’ producing lowpass + highpass sub-bands.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vin</strong> (<em>np.ndarray</em>) – 1D input array.</p></li>
+<li><p><strong>h</strong> (<em>np.ndarray</em>) – Lowpass filter coefficients.</p></li>
+<li><p><strong>g</strong> (<em>np.ndarray</em>) – Highpass filter coefficients.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>1D array same length as vin, first half = lowpass, second half = detail.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="06_differentials.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Differentials</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyramid-module">Pyramid Module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-pyramid-usage">Example (pyramid usage)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-splineops.multiscale.pyramid">API Reference: Pyramid</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyramid-py">pyramid.py</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-example">Usage Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.pyramid.get_pyramid_filter"><code class="docutils literal notranslate"><span class="pre">get_pyramid_filter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.pyramid.wrap_reflect"><code class="docutils literal notranslate"><span class="pre">wrap_reflect()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.pyramid.reduce_1d"><code class="docutils literal notranslate"><span class="pre">reduce_1d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.pyramid.expand_1d"><code class="docutils literal notranslate"><span class="pre">expand_1d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.pyramid.reduce_2d"><code class="docutils literal notranslate"><span class="pre">reduce_2d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.pyramid.expand_2d"><code class="docutils literal notranslate"><span class="pre">expand_2d()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wavelet-modules">Wavelet Modules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-splineops.multiscale.wavelets.abstractwavelets">API Reference: Wavelets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abstractwavelets-py">abstractwavelets.py</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.scales"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.scales</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.analysis"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.analysis()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.analysis1"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.analysis1()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.get_documentation"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.get_documentation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.get_name"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.get_name()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.set_scale"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.set_scale()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.synthesis"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.synthesis()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.synthesis1"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.synthesis1()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#haar-py">haar.py</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.haar.HaarWavelets"><code class="docutils literal notranslate"><span class="pre">HaarWavelets</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.haar.HaarWavelets.q"><code class="docutils literal notranslate"><span class="pre">HaarWavelets.q</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.haar.HaarWavelets.analysis1"><code class="docutils literal notranslate"><span class="pre">HaarWavelets.analysis1()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.haar.HaarWavelets.get_documentation"><code class="docutils literal notranslate"><span class="pre">HaarWavelets.get_documentation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.haar.HaarWavelets.get_name"><code class="docutils literal notranslate"><span class="pre">HaarWavelets.get_name()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.haar.HaarWavelets.synthesis1"><code class="docutils literal notranslate"><span class="pre">HaarWavelets.synthesis1()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splinewavelets-py">splinewavelets.py</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets"><code class="docutils literal notranslate"><span class="pre">Spline1Wavelets</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets.get_documentation"><code class="docutils literal notranslate"><span class="pre">Spline1Wavelets.get_documentation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets.get_name"><code class="docutils literal notranslate"><span class="pre">Spline1Wavelets.get_name()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets"><code class="docutils literal notranslate"><span class="pre">Spline3Wavelets</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets.get_documentation"><code class="docutils literal notranslate"><span class="pre">Spline3Wavelets.get_documentation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets.get_name"><code class="docutils literal notranslate"><span class="pre">Spline3Wavelets.get_name()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets"><code class="docutils literal notranslate"><span class="pre">Spline5Wavelets</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets.get_documentation"><code class="docutils literal notranslate"><span class="pre">Spline5Wavelets.get_documentation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets.get_name"><code class="docutils literal notranslate"><span class="pre">Spline5Wavelets.get_name()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets"><code class="docutils literal notranslate"><span class="pre">SplineWavelets</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.filter"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.filter</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.analysis1"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.analysis1()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.get_documentation"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.get_documentation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.get_name"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.get_name()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.synthesis1"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.synthesis1()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splinewaveletstool-py">splinewaveletstool.py</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool"><code class="docutils literal notranslate"><span class="pre">SplineWaveletsTool</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.filters"><code class="docutils literal notranslate"><span class="pre">SplineWaveletsTool.filters</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.analysis1"><code class="docutils literal notranslate"><span class="pre">SplineWaveletsTool.analysis1()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.synthesis1"><code class="docutils literal notranslate"><span class="pre">SplineWaveletsTool.synthesis1()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewaveletstool.merge_mirror_1d"><code class="docutils literal notranslate"><span class="pre">merge_mirror_1d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewaveletstool.split_mirror_1d"><code class="docutils literal notranslate"><span class="pre">split_mirror_1d()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/07_multiscale.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, SplineOps authors.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

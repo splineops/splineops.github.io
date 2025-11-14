@@ -30,33 +30,37 @@ and avoid boundary artifacts.
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-32
+.. GENERATED FROM PYTHON SOURCE LINES 17-36
 
 .. code-block:: Python
 
 
     import numpy as np
+    import time
 
-    import requests
-    from io import BytesIO
+    from urllib.request import urlopen
     from PIL import Image
+    from scipy.ndimage import zoom as _scipy_zoom
 
-    from splineops.utils import (
-        resize_and_compute_metrics,      # resampling + metrics (returns SNR/MSE)
-        compute_snr_and_mse_region,      # ROI / mask aware metrics for pairwise diffs
-        plot_difference_image,
-        show_roi_zoom,
-        draw_standard_vs_scipy_pipeline,
-    )
+    from splineops.resize import resize
+    from splineops.utils.metrics import compute_snr_and_mse_region
+    from splineops.utils.plotting import plot_difference_image, show_roi_zoom
+    from splineops.utils.diagram import draw_standard_vs_scipy_pipeline
 
 
-
-
-
+    def fmt_ms(seconds: float) -> str:
+        """Format seconds as a short 'X.X ms' string."""
+        return f"{seconds * 1000.0:.1f} ms"
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-39
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 38-43
 
 Pipeline Diagram
 ----------------
@@ -64,7 +68,7 @@ Pipeline Diagram
 These experiments validate the standard interpolation against SciPy's by
 showing they produce (nearly) the same result, and where tiny differences are.
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-47
+.. GENERATED FROM PYTHON SOURCE LINES 43-51
 
 .. code-block:: Python
 
@@ -88,7 +92,7 @@ showing they produce (nearly) the same result, and where tiny differences are.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-53
+.. GENERATED FROM PYTHON SOURCE LINES 52-57
 
 Load and Normalize an Image
 ---------------------------
@@ -96,14 +100,14 @@ Load and Normalize an Image
 Here, we load an example image from an online repository and convert to
 grayscale in [0, 1].
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-98
+.. GENERATED FROM PYTHON SOURCE LINES 57-103
 
 .. code-block:: Python
 
 
     url = 'https://r0k.us/graphics/kodak/kodak/kodim14.png'
-    response = requests.get(url)
-    img = Image.open(BytesIO(response.content))
+    with urlopen(url, timeout=10) as resp:
+        img = Image.open(resp)
     data = np.array(img, dtype=np.float64)
 
     # Convert to [0..1]
@@ -116,7 +120,8 @@ grayscale in [0, 1].
         input_image_normalized[:, :, 2] * 0.1140    # Blue channel
     )
 
-    zoom_factors_2d = (0.25, 0.25)
+    zoom = np.pi / 6            # ≈ 0.5235987756
+    zoom_factors_2d = (zoom, zoom)
     border_fraction = 0.3  # still available as a fallback (unused when roi=... is set)
 
     # Face-centered 64×64 ROI (focus region for metrics & diffs)
@@ -157,30 +162,44 @@ grayscale in [0, 1].
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-103
+.. GENERATED FROM PYTHON SOURCE LINES 104-109
 
 Standard Interpolation
 ----------------------
 
-We use our standard interpolation method (cubic). SNR/MSE are computed on the ROI.
+We use our standard interpolation method (cubic). SNR/MSE are computed on
+the face ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 103-118
+.. GENERATED FROM PYTHON SOURCE LINES 109-137
 
 .. code-block:: Python
 
 
-    (
-        resized_2d_interp, 
-        recovered_2d_interp, 
-        snr_2d_interp, 
-        mse_2d_interp, 
-        time_2d_interp
-    ) = resize_and_compute_metrics(
+    # Forward + backward resize with splineops.resize.resize
+    t0 = time.perf_counter()
+    resized_2d_interp = resize(
         input_image_normalized,
-        method="cubic",
         zoom_factors=zoom_factors_2d,
-        border_fraction=border_fraction,  # kept for API parity; ROI takes precedence in metrics
-        roi=roi_rect                      # <-- metrics measured on the face ROI
+        method="cubic",
+    )
+    t1 = time.perf_counter()
+    recovered_2d_interp = resize(
+        resized_2d_interp,
+        output_size=input_image_normalized.shape,
+        method="cubic",
+    )
+    t2 = time.perf_counter()
+
+    time_2d_interp_fwd = t1 - t0
+    time_2d_interp_back = t2 - t1
+    time_2d_interp = t2 - t0  # total pipeline time
+
+    # Metrics (ROI-aware)
+    snr_2d_interp, mse_2d_interp = compute_snr_and_mse_region(
+        input_image_normalized,
+        recovered_2d_interp,
+        roi=roi_rect,
+        border_fraction=border_fraction,
     )
 
 
@@ -190,19 +209,19 @@ We use our standard interpolation method (cubic). SNR/MSE are computed on the RO
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 119-123
+.. GENERATED FROM PYTHON SOURCE LINES 138-142
 
 Resized Image
 ~~~~~~~~~~~~~
 
 Show the resized image pasted on a white canvas (for zoom-out), plus the ROI zoom.
 
-.. GENERATED FROM PYTHON SOURCE LINES 123-156
+.. GENERATED FROM PYTHON SOURCE LINES 142-175
 
 .. code-block:: Python
 
 
-    # Zoomed face detail for the resized (cubic) image — pasted onto original-size canvas ===
+    # Zoomed face detail for the resized (cubic) image pasted onto original-size canvas
     h_res, w_res = resized_2d_interp.shape
     zoom_r, zoom_c = zoom_factors_2d
 
@@ -230,7 +249,7 @@ Show the resized image pasted on a white canvas (for zoom-out), plus the ROI zoo
 
     _ = show_roi_zoom(
         canvas,
-        ax_titles=("Resized Image (standard)", None),
+        ax_titles=(f"Resized Image (standard, {fmt_ms(time_2d_interp_fwd)})", None),
         **roi_kwargs_on_canvas
     )
 
@@ -238,7 +257,7 @@ Show the resized image pasted on a white canvas (for zoom-out), plus the ROI zoo
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_02_standard_interpolation_003.png
-   :alt: Resized Image (standard)
+   :alt: Resized Image (standard, 2.8 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_02_standard_interpolation_003.png
    :class: sphx-glr-single-img
 
@@ -246,21 +265,21 @@ Show the resized image pasted on a white canvas (for zoom-out), plus the ROI zoo
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 157-161
+.. GENERATED FROM PYTHON SOURCE LINES 176-180
 
-Recovered Image (standard)
+Recovered Image (Standard)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We plot the recovered image (after reversing the zoom) with the same ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 161-168
+.. GENERATED FROM PYTHON SOURCE LINES 180-187
 
 .. code-block:: Python
 
 
     _ = show_roi_zoom(
         recovered_2d_interp,
-        ax_titles=("Recovered Image (standard)", None),
+        ax_titles=(f"Recovered Image (standard, {fmt_ms(time_2d_interp_back)})", None),
         **roi_kwargs
     )
 
@@ -268,7 +287,7 @@ We plot the recovered image (after reversing the zoom) with the same ROI.
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_02_standard_interpolation_004.png
-   :alt: Recovered Image (standard)
+   :alt: Recovered Image (standard, 1.5 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_02_standard_interpolation_004.png
    :class: sphx-glr-single-img
 
@@ -276,31 +295,41 @@ We plot the recovered image (after reversing the zoom) with the same ROI.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 169-173
+.. GENERATED FROM PYTHON SOURCE LINES 188-192
 
 SciPy Interpolation
 -------------------
 
 For comparison, we also use SciPy's zoom method. Metrics are computed on the ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 173-189
+.. GENERATED FROM PYTHON SOURCE LINES 192-218
 
 .. code-block:: Python
 
 
-    (
-        resized_2d_scipy,
-        recovered_2d_scipy,
-        snr_2d_scipy,
-        mse_2d_scipy,
-        time_2d_scipy
-    ) = resize_and_compute_metrics(
+    t0 = time.perf_counter()
+    resized_2d_scipy = _scipy_zoom(
         input_image_normalized,
-        method="scipy",
-        scipy_order=3,
-        zoom_factors=zoom_factors_2d,
-        border_fraction=border_fraction,  # kept for parity
-        roi=roi_rect                      # <-- metrics measured on the face ROI
+        zoom_factors_2d,
+        order=3,
+    )
+    t1 = time.perf_counter()
+    recovered_2d_scipy = _scipy_zoom(
+        resized_2d_scipy,
+        1.0 / np.asarray(zoom_factors_2d),
+        order=3,
+    )
+    t2 = time.perf_counter()
+
+    time_2d_scipy_fwd = t1 - t0
+    time_2d_scipy_back = t2 - t1
+    time_2d_scipy = t2 - t0  # total pipeline time
+
+    snr_2d_scipy, mse_2d_scipy = compute_snr_and_mse_region(
+        input_image_normalized,
+        recovered_2d_scipy,
+        roi=roi_rect,
+        border_fraction=border_fraction,
     )
 
 
@@ -310,18 +339,19 @@ For comparison, we also use SciPy's zoom method. Metrics are computed on the ROI
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 190-192
+.. GENERATED FROM PYTHON SOURCE LINES 219-221
 
 Recovered Image (SciPy)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 192-198
+.. GENERATED FROM PYTHON SOURCE LINES 221-228
 
 .. code-block:: Python
 
+
     _ = show_roi_zoom(
         recovered_2d_scipy,
-        ax_titles=("Recovered Image (SciPy)", None),
+        ax_titles=(f"Recovered Image (SciPy, {fmt_ms(time_2d_scipy_back)})", None),
         **roi_kwargs
     )
 
@@ -329,7 +359,7 @@ Recovered Image (SciPy)
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_02_standard_interpolation_005.png
-   :alt: Recovered Image (SciPy)
+   :alt: Recovered Image (SciPy, 24.9 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_02_standard_interpolation_005.png
    :class: sphx-glr-single-img
 
@@ -337,19 +367,19 @@ Recovered Image (SciPy)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 199-201
+.. GENERATED FROM PYTHON SOURCE LINES 229-231
 
 Difference Images
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 203-207
+.. GENERATED FROM PYTHON SOURCE LINES 233-237
 
 Standard vs SciPy
 ~~~~~~~~~~~~~~~~~
 
 Compare the two recovered images on the face ROI and plot that difference.
 
-.. GENERATED FROM PYTHON SOURCE LINES 207-221
+.. GENERATED FROM PYTHON SOURCE LINES 237-251
 
 .. code-block:: Python
 
@@ -364,14 +394,14 @@ Compare the two recovered images on the face ROI and plot that difference.
         snr=snr_scipy_vs_interp,
         mse=mse_scipy_vs_interp,
         roi=roi_rect,
-        title_prefix="Recovered diff (standard vs SciPy)"
+        title_prefix="Recovered diff (standard vs SciPy)",
     )
 
 
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_02_standard_interpolation_006.png
-   :alt: Recovered diff (standard vs SciPy) (ROI) SNR: inf dB, MSE: 4.48e-31
+   :alt: Recovered diff (standard vs SciPy) (ROI) SNR: inf dB, MSE: 4.70e-31
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_02_standard_interpolation_006.png
    :class: sphx-glr-single-img
 
@@ -379,7 +409,7 @@ Compare the two recovered images on the face ROI and plot that difference.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 222-227
+.. GENERATED FROM PYTHON SOURCE LINES 252-257
 
 Original vs Standard
 ~~~~~~~~~~~~~~~~~~~~
@@ -387,7 +417,7 @@ Original vs Standard
 For completeness, show the difference image
 (original - recovered with standard interpolation) on the ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 227-237
+.. GENERATED FROM PYTHON SOURCE LINES 257-267
 
 .. code-block:: Python
 
@@ -398,14 +428,14 @@ For completeness, show the difference image
         snr=snr_2d_interp,
         mse=mse_2d_interp,
         roi=roi_rect,
-        title_prefix="Difference (original vs standard)"
+        title_prefix="Difference (original vs standard)",
     )
 
 
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_02_standard_interpolation_007.png
-   :alt: Difference (original vs standard) (ROI) SNR: 12.15 dB, MSE: 2.20e-02
+   :alt: Difference (original vs standard) (ROI) SNR: 19.91 dB, MSE: 3.69e-03
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_02_standard_interpolation_007.png
    :class: sphx-glr-single-img
 
@@ -413,7 +443,7 @@ For completeness, show the difference image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 238-243
+.. GENERATED FROM PYTHON SOURCE LINES 268-273
 
 Alternative using TensorSpline
 ------------------------------
@@ -421,12 +451,12 @@ Alternative using TensorSpline
 As an alternative, we can replicate the same interpolation manually using the 
 ``TensorSpline`` class, which underpins the `resize()` function behind the scenes.
 
-.. GENERATED FROM PYTHON SOURCE LINES 243-293
+.. GENERATED FROM PYTHON SOURCE LINES 273-323
 
 .. code-block:: Python
 
 
-    from splineops.interpolate.tensorspline import TensorSpline
+    from splineops.spline_interpolation.tensorspline import TensorSpline
 
     # 1) Build uniform coordinate arrays that match the shape of 'input_image_normalized'
     height, width = input_image_normalized.shape
@@ -483,8 +513,8 @@ As an alternative, we can replicate the same interpolation manually using the
 
  .. code-block:: none
 
-    MSE (TensorSpline vs. resize()) resized:  0.000000e+00
-    MSE (TensorSpline vs. resize()) recovered: 3.525702e-30
+    MSE (TensorSpline vs. resize()) resized:  1.299681e-24
+    MSE (TensorSpline vs. resize()) recovered: 3.909287e-24
 
 
 
@@ -492,7 +522,7 @@ As an alternative, we can replicate the same interpolation manually using the
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.360 seconds)
+   **Total running time of the script:** (0 minutes 2.925 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_02_standard_interpolation.py:
