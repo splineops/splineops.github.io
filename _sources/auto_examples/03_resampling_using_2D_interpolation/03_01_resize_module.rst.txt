@@ -289,7 +289,7 @@ Now we repeat the same shrink/expand pipeline, but this time we use the
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.957 seconds)
+   **Total running time of the script:** (0 minutes 2.496 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_01_resize_module.py:

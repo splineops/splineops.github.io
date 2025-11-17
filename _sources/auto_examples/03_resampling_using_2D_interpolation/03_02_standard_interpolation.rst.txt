@@ -287,7 +287,7 @@ We plot the recovered image (after reversing the zoom) with the same ROI.
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_02_standard_interpolation_004.png
-   :alt: Recovered Image (standard, 1.6 ms)
+   :alt: Recovered Image (standard, 1.5 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_02_standard_interpolation_004.png
    :class: sphx-glr-single-img
 
@@ -359,7 +359,7 @@ Recovered Image (SciPy)
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_02_standard_interpolation_005.png
-   :alt: Recovered Image (SciPy, 25.2 ms)
+   :alt: Recovered Image (SciPy, 24.9 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_02_standard_interpolation_005.png
    :class: sphx-glr-single-img
 
@@ -522,7 +522,7 @@ As an alternative, we can replicate the same interpolation manually using the
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 3.306 seconds)
+   **Total running time of the script:** (0 minutes 2.458 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_02_standard_interpolation.py:

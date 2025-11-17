@@ -141,7 +141,7 @@ Imports
 
 
 .. image-sg:: /auto_examples/06_smoothing_splines/images/sphx_glr_06_02_2d_image_smoothing_001.png
-   :alt: Original Image, Noisy Image (SNR=10.01 dB), Smoothed Image (SNR=17.68 dB)
+   :alt: Original Image, Noisy Image (SNR=10.00 dB), Smoothed Image (SNR=17.67 dB)
    :srcset: /auto_examples/06_smoothing_splines/images/sphx_glr_06_02_2d_image_smoothing_001.png
    :class: sphx-glr-single-img
 
@@ -151,12 +151,12 @@ Imports
  .. code-block:: none
 
     Image:
-    SNR of noisy image: 10.01 dB
-    SNR after smoothing: 17.68 dB
+    SNR of noisy image: 10.00 dB
+    SNR after smoothing: 17.67 dB
     SNR improvement: 7.67 dB
 
-    Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [-0.5549295843504768..1.8403562208548052].
-    Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [-0.0925098616322132..1.1575412275287473].
+    Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [-0.618365609019382..1.6901298392850173].
+    Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [-0.09496870951268505..1.1668832207993793].
 
 
 
@@ -164,7 +164,7 @@ Imports
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.046 seconds)
+   **Total running time of the script:** (0 minutes 1.585 seconds)
 
 
 .. _sphx_glr_download_auto_examples_06_smoothing_splines_06_02_2d_image_smoothing.py:
