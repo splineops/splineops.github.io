@@ -30,7 +30,7 @@ central region to exclude boundary artifacts.
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-35
+.. GENERATED FROM PYTHON SOURCE LINES 17-38
 
 .. code-block:: Python
 
@@ -52,6 +52,8 @@ Imports
         """Format seconds as a short 'X.X ms' string."""
         return f"{seconds * 1000.0:.1f} ms"
 
+    # Use float32 for storage / IO (resize still computes internally in float64)
+    DTYPE = np.float32
 
 
 
@@ -59,12 +61,13 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-39
+
+.. GENERATED FROM PYTHON SOURCE LINES 40-42
 
 Pipeline Diagram
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-45
+.. GENERATED FROM PYTHON SOURCE LINES 42-48
 
 .. code-block:: Python
 
@@ -86,12 +89,12 @@ Pipeline Diagram
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-48
+.. GENERATED FROM PYTHON SOURCE LINES 49-51
 
 Load and Normalize an Image
 ---------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-91
+.. GENERATED FROM PYTHON SOURCE LINES 51-98
 
 .. code-block:: Python
 
@@ -108,6 +111,10 @@ Load and Normalize an Image
         input_image_normalized[:, :, 1] * 0.5870 +  # Green channel
         input_image_normalized[:, :, 2] * 0.1140    # Blue channel
     )
+
+    # Run the spline backend in float32 for performance
+    # (it still computes internally in float64).
+    input_image_normalized = input_image_normalized.astype(DTYPE, copy=False)
 
     h_img, w_img = input_image_normalized.shape
 
@@ -145,12 +152,12 @@ Load and Normalize an Image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 92-94
+.. GENERATED FROM PYTHON SOURCE LINES 99-101
 
 Standard Interpolation
 ----------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 94-120
+.. GENERATED FROM PYTHON SOURCE LINES 101-127
 
 .. code-block:: Python
 
@@ -187,12 +194,12 @@ Standard Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 121-123
+.. GENERATED FROM PYTHON SOURCE LINES 128-130
 
 Least-Squares Projection
 ------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 123-148
+.. GENERATED FROM PYTHON SOURCE LINES 130-155
 
 .. code-block:: Python
 
@@ -228,7 +235,7 @@ Least-Squares Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 149-154
+.. GENERATED FROM PYTHON SOURCE LINES 156-161
 
 ROI Comparison
 --------------
@@ -236,7 +243,7 @@ ROI Comparison
 Build a quick ROI triptych (nearest-neighbour magnification) from the
 recovered images for visual comparison.
 
-.. GENERATED FROM PYTHON SOURCE LINES 154-190
+.. GENERATED FROM PYTHON SOURCE LINES 161-197
 
 .. code-block:: Python
 
@@ -280,7 +287,7 @@ recovered images for visual comparison.
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_002.png
-   :alt: Original ROI, Recovered (Standard, 1.0 ms), Recovered (Least-Squares, 4.0 ms)
+   :alt: Original ROI, Recovered (Standard, 1.0 ms), Recovered (Least-Squares, 1.1 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_002.png
    :class: sphx-glr-single-img
 
@@ -288,12 +295,12 @@ recovered images for visual comparison.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 191-193
+.. GENERATED FROM PYTHON SOURCE LINES 198-200
 
 Original with ROI
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 193-200
+.. GENERATED FROM PYTHON SOURCE LINES 200-207
 
 .. code-block:: Python
 
@@ -316,17 +323,17 @@ Original with ROI
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 201-203
+.. GENERATED FROM PYTHON SOURCE LINES 208-210
 
 Resized Images
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 205-207
+.. GENERATED FROM PYTHON SOURCE LINES 212-214
 
 Least-Squares Projection
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 207-231
+.. GENERATED FROM PYTHON SOURCE LINES 214-238
 
 .. code-block:: Python
 
@@ -358,7 +365,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_004.png
-   :alt: Resized Image (least-squares, 5.4 ms)
+   :alt: Resized Image (least-squares, 5.3 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_004.png
    :class: sphx-glr-single-img
 
@@ -366,12 +373,12 @@ Least-Squares Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 232-234
+.. GENERATED FROM PYTHON SOURCE LINES 239-241
 
 Standard Interpolation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 234-258
+.. GENERATED FROM PYTHON SOURCE LINES 241-265
 
 .. code-block:: Python
 
@@ -411,17 +418,17 @@ Standard Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 259-261
+.. GENERATED FROM PYTHON SOURCE LINES 266-268
 
 Recovered Images
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 263-265
+.. GENERATED FROM PYTHON SOURCE LINES 270-272
 
 Least-Squares Projection
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 265-275
+.. GENERATED FROM PYTHON SOURCE LINES 272-282
 
 .. code-block:: Python
 
@@ -439,7 +446,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_006.png
-   :alt: Recovered Image (least-squares projection, 4.0 ms)
+   :alt: Recovered Image (least-squares projection, 1.1 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_006.png
    :class: sphx-glr-single-img
 
@@ -447,12 +454,12 @@ Least-Squares Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 276-278
+.. GENERATED FROM PYTHON SOURCE LINES 283-285
 
 Standard Interpolation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 278-288
+.. GENERATED FROM PYTHON SOURCE LINES 285-295
 
 .. code-block:: Python
 
@@ -478,12 +485,12 @@ Standard Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 289-291
+.. GENERATED FROM PYTHON SOURCE LINES 296-298
 
 Difference Images
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 293-298
+.. GENERATED FROM PYTHON SOURCE LINES 300-305
 
 Least-Squares Projection
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -491,7 +498,7 @@ Least-Squares Projection
 Difference with original image on ROI (SNR/MSE numbers are from the
 central-region metrics computed earlier).
 
-.. GENERATED FROM PYTHON SOURCE LINES 298-308
+.. GENERATED FROM PYTHON SOURCE LINES 305-315
 
 .. code-block:: Python
 
@@ -509,7 +516,7 @@ central-region metrics computed earlier).
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_008.png
-   :alt: Difference (least-squares) (ROI) SNR: 17.53 dB, MSE: 3.98e-03
+   :alt: Difference (least-squares) (ROI) SNR: 17.52 dB, MSE: 3.99e-03
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_008.png
    :class: sphx-glr-single-img
 
@@ -517,14 +524,14 @@ central-region metrics computed earlier).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 309-313
+.. GENERATED FROM PYTHON SOURCE LINES 316-320
 
 Standard Interpolation
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Difference with original image on ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 313-323
+.. GENERATED FROM PYTHON SOURCE LINES 320-330
 
 .. code-block:: Python
 
@@ -550,7 +557,7 @@ Difference with original image on ROI.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 324-334
+.. GENERATED FROM PYTHON SOURCE LINES 331-341
 
 Performance Comparison
 ----------------------
@@ -563,7 +570,7 @@ As a compact summary, we print a table with:
 This lets you see the cost/benefit trade-off between
 standard interpolation and least-squares projection.
 
-.. GENERATED FROM PYTHON SOURCE LINES 334-351
+.. GENERATED FROM PYTHON SOURCE LINES 341-358
 
 .. code-block:: Python
 
@@ -594,8 +601,8 @@ standard interpolation and least-squares projection.
 
     Method                             SNR (dB)              MSE     Time (s)
     -------------------------------------------------------------------------
-    Standard Interpolation (cubic)        15.51         6.34e-03       0.0031
-    Least-Squares Projection              17.53         3.98e-03       0.0094
+    Standard Interpolation (cubic)        15.51         6.34e-03       0.0032
+    Least-Squares Projection              17.52         3.99e-03       0.0064
 
 
 
@@ -603,7 +610,7 @@ standard interpolation and least-squares projection.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.542 seconds)
+   **Total running time of the script:** (0 minutes 2.130 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_03_least-squares_projection.py:

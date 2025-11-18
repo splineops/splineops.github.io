@@ -135,7 +135,7 @@ Sinusoid 3D Data
 
 
 .. image-sg:: /auto_examples/06_smoothing_splines/images/sphx_glr_06_03_3d_volume_smoothing_001.png
-   :alt: Clean Volume Slice, Noisy Slice (SNR=10.00 dB), Smoothed Slice (SNR=24.96 dB)
+   :alt: Clean Volume Slice, Noisy Slice (SNR=9.98 dB), Smoothed Slice (SNR=25.06 dB)
    :srcset: /auto_examples/06_smoothing_splines/images/sphx_glr_06_03_3d_volume_smoothing_001.png
    :class: sphx-glr-single-img
 
@@ -145,9 +145,9 @@ Sinusoid 3D Data
  .. code-block:: none
 
     3D Sinusoid Volume:
-    SNR of noisy volume: 10.00 dB
-    SNR after smoothing: 24.96 dB
-    SNR improvement: 14.96 dB
+    SNR of noisy volume: 9.98 dB
+    SNR after smoothing: 25.06 dB
+    SNR improvement: 15.08 dB
 
 
 
@@ -156,7 +156,7 @@ Sinusoid 3D Data
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.160 seconds)
+   **Total running time of the script:** (0 minutes 0.158 seconds)
 
 
 .. _sphx_glr_download_auto_examples_06_smoothing_splines_06_03_3d_volume_smoothing.py:

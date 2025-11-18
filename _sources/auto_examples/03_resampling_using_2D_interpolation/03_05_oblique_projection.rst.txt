@@ -31,7 +31,7 @@ comparisons use a face ROI.
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-75
+.. GENERATED FROM PYTHON SOURCE LINES 18-76
 
 .. code-block:: Python
 
@@ -49,11 +49,12 @@ Imports
     from splineops.utils.diagram import draw_leastsq_vs_oblique_pipeline
     from splineops.utils.specs import print_runtime_context
 
-
     def fmt_ms(seconds: float) -> str:
         """Format seconds as a short 'X.X ms' string."""
         return f"{seconds * 1000.0:.1f} ms"
 
+    # Use float32 for storage / IO (resize still computes internally in float64).
+    DTYPE = np.float32
 
     # Small helper: run one resize pipeline for a given method
     def _run_pipeline(
@@ -99,12 +100,12 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-79
+.. GENERATED FROM PYTHON SOURCE LINES 78-80
 
 Pipeline Diagram
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-85
+.. GENERATED FROM PYTHON SOURCE LINES 80-86
 
 .. code-block:: Python
 
@@ -126,12 +127,12 @@ Pipeline Diagram
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-88
+.. GENERATED FROM PYTHON SOURCE LINES 87-89
 
 Load and Normalize an Image
 ---------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-131
+.. GENERATED FROM PYTHON SOURCE LINES 89-134
 
 .. code-block:: Python
 
@@ -148,6 +149,8 @@ Load and Normalize an Image
         input_image_normalized[:, :, 1] * 0.5870 +  # Green
         input_image_normalized[:, :, 2] * 0.1140    # Blue
     )
+
+    input_image_normalized = input_image_normalized.astype(DTYPE, copy=False)
 
     h_img, w_img = input_image_normalized.shape
 
@@ -185,12 +188,12 @@ Load and Normalize an Image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 132-134
+.. GENERATED FROM PYTHON SOURCE LINES 135-137
 
 Least-Squares vs Oblique
 ------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 134-168
+.. GENERATED FROM PYTHON SOURCE LINES 137-171
 
 .. code-block:: Python
 
@@ -235,14 +238,14 @@ Least-Squares vs Oblique
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 169-173
+.. GENERATED FROM PYTHON SOURCE LINES 172-176
 
 ROI Comparison
 --------------
 
 Build a 1×3 ROI triptych (nearest-neighbour magnification).
 
-.. GENERATED FROM PYTHON SOURCE LINES 173-211
+.. GENERATED FROM PYTHON SOURCE LINES 176-214
 
 .. code-block:: Python
 
@@ -288,7 +291,7 @@ Build a 1×3 ROI triptych (nearest-neighbour magnification).
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_002.png
-   :alt: Original ROI, Recovered (Least-Squares, 4.0 ms), Recovered (Oblique, 3.0 ms)
+   :alt: Original ROI, Recovered (Least-Squares, 1.0 ms), Recovered (Oblique, 1.0 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_002.png
    :class: sphx-glr-single-img
 
@@ -296,12 +299,12 @@ Build a 1×3 ROI triptych (nearest-neighbour magnification).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 212-214
+.. GENERATED FROM PYTHON SOURCE LINES 215-217
 
 Original (with ROI)
 -------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 214-221
+.. GENERATED FROM PYTHON SOURCE LINES 217-224
 
 .. code-block:: Python
 
@@ -324,17 +327,17 @@ Original (with ROI)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 222-224
+.. GENERATED FROM PYTHON SOURCE LINES 225-227
 
 Resized Images
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 226-228
+.. GENERATED FROM PYTHON SOURCE LINES 229-231
 
 Least-Squares Projection
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 228-249
+.. GENERATED FROM PYTHON SOURCE LINES 231-252
 
 .. code-block:: Python
 
@@ -363,7 +366,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_004.png
-   :alt: Resized Image (least-squares, 5.6 ms)
+   :alt: Resized Image (least-squares, 5.4 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_004.png
    :class: sphx-glr-single-img
 
@@ -371,12 +374,12 @@ Least-Squares Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 250-252
+.. GENERATED FROM PYTHON SOURCE LINES 253-255
 
 Oblique Projection
 ~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 252-273
+.. GENERATED FROM PYTHON SOURCE LINES 255-276
 
 .. code-block:: Python
 
@@ -405,7 +408,7 @@ Oblique Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_005.png
-   :alt: Resized Image (oblique, 4.1 ms)
+   :alt: Resized Image (oblique, 3.9 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_005.png
    :class: sphx-glr-single-img
 
@@ -413,17 +416,17 @@ Oblique Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 274-276
+.. GENERATED FROM PYTHON SOURCE LINES 277-279
 
 Recovered Images
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 278-280
+.. GENERATED FROM PYTHON SOURCE LINES 281-283
 
 Least-Squares Projection
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 280-287
+.. GENERATED FROM PYTHON SOURCE LINES 283-290
 
 .. code-block:: Python
 
@@ -438,7 +441,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_006.png
-   :alt: Recovered Image (least-squares projection, 4.0 ms)
+   :alt: Recovered Image (least-squares projection, 1.0 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_006.png
    :class: sphx-glr-single-img
 
@@ -446,12 +449,12 @@ Least-Squares Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 288-290
+.. GENERATED FROM PYTHON SOURCE LINES 291-293
 
 Oblique Projection
 ~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 290-297
+.. GENERATED FROM PYTHON SOURCE LINES 293-300
 
 .. code-block:: Python
 
@@ -466,7 +469,7 @@ Oblique Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_007.png
-   :alt: Recovered Image (oblique projection, 3.0 ms)
+   :alt: Recovered Image (oblique projection, 1.0 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_007.png
    :class: sphx-glr-single-img
 
@@ -474,12 +477,12 @@ Oblique Projection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 298-300
+.. GENERATED FROM PYTHON SOURCE LINES 301-303
 
 Difference Images
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 302-307
+.. GENERATED FROM PYTHON SOURCE LINES 305-310
 
 Least-Squares Projection
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -487,7 +490,7 @@ Least-Squares Projection
 Difference with original image on the face ROI (SNR/MSE shown come from the
 central-region metrics, not strictly ROI-only).
 
-.. GENERATED FROM PYTHON SOURCE LINES 307-317
+.. GENERATED FROM PYTHON SOURCE LINES 310-320
 
 .. code-block:: Python
 
@@ -505,7 +508,7 @@ central-region metrics, not strictly ROI-only).
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_008.png
-   :alt: Difference (least-squares) (ROI) SNR: 17.53 dB, MSE: 3.98e-03
+   :alt: Difference (least-squares) (ROI) SNR: 17.52 dB, MSE: 3.99e-03
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_008.png
    :class: sphx-glr-single-img
 
@@ -513,14 +516,14 @@ central-region metrics, not strictly ROI-only).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 318-322
+.. GENERATED FROM PYTHON SOURCE LINES 321-325
 
 Oblique Projection
 ~~~~~~~~~~~~~~~~~~
 
 Difference with original image on the face ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 322-332
+.. GENERATED FROM PYTHON SOURCE LINES 325-335
 
 .. code-block:: Python
 
@@ -538,7 +541,7 @@ Difference with original image on the face ROI.
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_009.png
-   :alt: Difference (oblique) (ROI) SNR: 17.47 dB, MSE: 4.03e-03
+   :alt: Difference (oblique) (ROI) SNR: 17.47 dB, MSE: 4.04e-03
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_009.png
    :class: sphx-glr-single-img
 
@@ -546,12 +549,12 @@ Difference with original image on the face ROI.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 333-335
+.. GENERATED FROM PYTHON SOURCE LINES 336-338
 
 Performance Comparison
 ----------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 335-433
+.. GENERATED FROM PYTHON SOURCE LINES 338-436
 
 .. code-block:: Python
 
@@ -657,7 +660,7 @@ Performance Comparison
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_010.png
-   :alt: Standard vs LS vs Oblique (Oblique is ≈ 1.36× faster than LS)
+   :alt: Standard vs LS vs Oblique (Oblique is ≈ 1.32× faster than LS)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_05_oblique_projection_010.png
    :class: sphx-glr-single-img
 
@@ -666,16 +669,16 @@ Performance Comparison
 
  .. code-block:: none
 
-    [Timing averages over 10 runs] Standard     : 3.1 ± 0.1 ms
-    [Timing averages over 10 runs] Least-Squares: 9.5 ± 0.1 ms
-    [Timing averages over 10 runs] Oblique      : 7.0 ± 0.0 ms
-    [Timing] Speedup (LS/OB): 1.36×  (~26.5% less time)
+    [Timing averages over 10 runs] Standard     : 3.3 ± 0.0 ms
+    [Timing averages over 10 runs] Least-Squares: 6.4 ± 0.2 ms
+    [Timing averages over 10 runs] Oblique      : 4.8 ± 0.1 ms
+    [Timing] Speedup (LS/OB): 1.32×  (~24.1% less time)
 
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 434-439
+.. GENERATED FROM PYTHON SOURCE LINES 437-442
 
 Summary Table
 -------------
@@ -683,7 +686,7 @@ Summary Table
 Central-region SNR/MSE (via border_fraction) plus averaged total
 (forward + backward) timings for all three methods in this example.
 
-.. GENERATED FROM PYTHON SOURCE LINES 439-460
+.. GENERATED FROM PYTHON SOURCE LINES 442-463
 
 .. code-block:: Python
 
@@ -718,16 +721,16 @@ Central-region SNR/MSE (via border_fraction) plus averaged total
 
     Method                         SNR (dB)              MSE       Time (s, avg±sd)
     -------------------------------------------------------------------------------
-    Standard (cubic)                  15.51         6.34e-03        0.0031 ± 0.0001
-    Least-Squares (best AA)           17.53         3.98e-03        0.0095 ± 0.0001
-    Oblique (fast AA)                 17.47         4.03e-03        0.0070 ± 0.0000
+    Standard (cubic)                  15.51         6.34e-03        0.0033 ± 0.0000
+    Least-Squares (best AA)           17.52         3.99e-03        0.0064 ± 0.0002
+    Oblique (fast AA)                 17.47         4.04e-03        0.0048 ± 0.0001
     Runtime context:
       Python      : 3.12.12 (CPython)
       OS          : Linux 6.11.0-1018-azure (x86_64)
       CPU         : x86_64 | logical cores: 4
       NumPy/SciPy : 2.3.5/1.16.3
       Matplotlib  : 3.10.7 | backend: agg
-      splineops   : 1.0.1 | native ext present: True
+      splineops   : 1.0.2 | native ext present: True
       SPLINEOPS_ACCEL=always
       OMP_NUM_THREADS=4
 
@@ -737,7 +740,7 @@ Central-region SNR/MSE (via border_fraction) plus averaged total
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.451 seconds)
+   **Total running time of the script:** (0 minutes 2.371 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_05_oblique_projection.py:

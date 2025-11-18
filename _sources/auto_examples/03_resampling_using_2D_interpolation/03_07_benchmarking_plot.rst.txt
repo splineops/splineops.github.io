@@ -37,12 +37,15 @@ We compare four methods:
 - Least-Squares cubic anti-aliasing.
 - Oblique cubic fast anti-aliasing.
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-29
+By default, the benchmark runs in float32 for performance. You can switch
+to float64 by changing the DTYPE constant below.
+
+.. GENERATED FROM PYTHON SOURCE LINES 30-32
 
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-52
+.. GENERATED FROM PYTHON SOURCE LINES 32-59
 
 .. code-block:: Python
 
@@ -69,6 +72,8 @@ Imports
         return f"{seconds * 1000.0:.1f} ms"
 
 
+    # You can switch this to np.float64 if you want full double precision.
+    DTYPE = np.float32
 
 
 
@@ -76,7 +81,9 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-59
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 61-66
 
 Load and Normalize an Image
 ---------------------------
@@ -84,7 +91,7 @@ Load and Normalize an Image
 We use a fixed test image, convert it to grayscale
 and normalize it to [0, 1].
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-78
+.. GENERATED FROM PYTHON SOURCE LINES 66-90
 
 .. code-block:: Python
 
@@ -93,6 +100,8 @@ and normalize it to [0, 1].
 
     with urlopen(KODAK_URL, timeout=10) as resp:
         img = Image.open(resp)
+
+    # Do the basic math in float64, then cast once to DTYPE.
     data = np.asarray(img, dtype=np.float64)  # H×W×3, 0–255
 
     # Convert to [0,1] + grayscale
@@ -102,10 +111,13 @@ and normalize it to [0, 1].
         0.5870 * data01[..., 1] +  # G
         0.1140 * data01[..., 2]    # B
     )
-    img_gray = np.ascontiguousarray(img_gray, dtype=np.float64)
+
+    # Use DTYPE (e.g. float32) for the interpolation backends.
+    img_gray = np.ascontiguousarray(img_gray, dtype=DTYPE)
 
     H, W = img_gray.shape
     print(f"Loaded test image: shape = {H}×{W}, dtype = {img_gray.dtype}")
+
 
 
 
@@ -115,12 +127,12 @@ and normalize it to [0, 1].
 
  .. code-block:: none
 
-    Loaded test image: shape = 768×512, dtype = float64
+    Loaded test image: shape = 768×512, dtype = float32
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-84
+.. GENERATED FROM PYTHON SOURCE LINES 91-96
 
 Original Image
 --------------
@@ -128,7 +140,7 @@ Original Image
 For reference, we display the grayscale image that will be used throughout
 the benchmark.
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-93
+.. GENERATED FROM PYTHON SOURCE LINES 96-105
 
 .. code-block:: Python
 
@@ -153,12 +165,12 @@ the benchmark.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 94-96
+.. GENERATED FROM PYTHON SOURCE LINES 106-108
 
 Helpers
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 96-126
+.. GENERATED FROM PYTHON SOURCE LINES 108-139
 
 .. code-block:: Python
 
@@ -183,6 +195,7 @@ Helpers
 
         Returns +inf for a perfect match.
         """
+        # Use float64 for the accumulations, regardless of storage dtype.
         num = float(np.sum(x * x, dtype=np.float64))
         den = float(np.sum((x - y) ** 2, dtype=np.float64))
         if den == 0.0:
@@ -199,7 +212,7 @@ Helpers
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-132
+.. GENERATED FROM PYTHON SOURCE LINES 140-145
 
 Round-trip Runners
 ------------------
@@ -207,7 +220,7 @@ Round-trip Runners
 Each method is evaluated by a round-trip (downsample then upsample back
 to the original shape).
 
-.. GENERATED FROM PYTHON SOURCE LINES 132-179
+.. GENERATED FROM PYTHON SOURCE LINES 145-192
 
 .. code-block:: Python
 
@@ -265,7 +278,7 @@ to the original shape).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 180-185
+.. GENERATED FROM PYTHON SOURCE LINES 193-198
 
 Zoom Sweep and Methods
 ----------------------
@@ -273,7 +286,7 @@ Zoom Sweep and Methods
 We sweep zoom factors and keep only those that
 preserve the original image size after a forward/backward round-trip.
 
-.. GENERATED FROM PYTHON SOURCE LINES 185-211
+.. GENERATED FROM PYTHON SOURCE LINES 198-224
 
 .. code-block:: Python
 
@@ -316,7 +329,7 @@ preserve the original image size after a forward/backward round-trip.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 212-221
+.. GENERATED FROM PYTHON SOURCE LINES 225-234
 
 Run the Sweep
 -------------
@@ -328,7 +341,7 @@ For each zoom and each method we:
 - compute the SNR between the original and recovered image,
 - store results for plotting.
 
-.. GENERATED FROM PYTHON SOURCE LINES 221-237
+.. GENERATED FROM PYTHON SOURCE LINES 234-250
 
 .. code-block:: Python
 
@@ -355,7 +368,7 @@ For each zoom and each method we:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 238-243
+.. GENERATED FROM PYTHON SOURCE LINES 251-256
 
 Timing vs Zoom
 --------------
@@ -363,7 +376,7 @@ Timing vs Zoom
 We start by plotting the average round-trip runtime (forward + backward)
 as a function of the zoom factor.
 
-.. GENERATED FROM PYTHON SOURCE LINES 243-259
+.. GENERATED FROM PYTHON SOURCE LINES 256-272
 
 .. code-block:: Python
 
@@ -377,7 +390,7 @@ as a function of the zoom factor.
 
     plt.xlabel("Zoom factor (1.0 excluded)")
     plt.ylabel(f"Time (s)  [avg of {REPEATS} runs, forward + backward]")
-    plt.title(f"Round-Trip Timing vs Zoom  (H×W = {H}×{W})")
+    plt.title(f"Round-Trip Timing vs Zoom  (H×W = {H}×{W}, dtype = {img_gray.dtype})")
     plt.grid(True, alpha=0.35)
     plt.legend()
     plt.tight_layout()
@@ -387,7 +400,7 @@ as a function of the zoom factor.
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_07_benchmarking_plot_002.png
-   :alt: Round-Trip Timing vs Zoom  (H×W = 768×512)
+   :alt: Round-Trip Timing vs Zoom  (H×W = 768×512, dtype = float32)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_07_benchmarking_plot_002.png
    :class: sphx-glr-single-img
 
@@ -395,7 +408,7 @@ as a function of the zoom factor.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 260-266
+.. GENERATED FROM PYTHON SOURCE LINES 273-279
 
 SNR vs Zoom
 -----------
@@ -404,7 +417,7 @@ Next, we look at the round-trip SNR for each method as a function of zoom.
 Points with infinite SNR (exact round-trip) are hidden to keep the scale
 readable; in practice they indicate numerically perfect reconstruction.
 
-.. GENERATED FROM PYTHON SOURCE LINES 266-283
+.. GENERATED FROM PYTHON SOURCE LINES 279-296
 
 .. code-block:: Python
 
@@ -419,7 +432,7 @@ readable; in practice they indicate numerically perfect reconstruction.
 
     plt.xlabel("Zoom factor (1.0 excluded)")
     plt.ylabel("SNR (dB)  [original vs recovered]")
-    plt.title(f"Round-Trip SNR vs Zoom  (H×W = {H}×{W})")
+    plt.title(f"Round-Trip SNR vs Zoom  (H×W = {H}×{W}, dtype = {img_gray.dtype})")
     plt.grid(True, alpha=0.35)
     plt.legend()
     plt.tight_layout()
@@ -429,7 +442,7 @@ readable; in practice they indicate numerically perfect reconstruction.
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_07_benchmarking_plot_003.png
-   :alt: Round-Trip SNR vs Zoom  (H×W = 768×512)
+   :alt: Round-Trip SNR vs Zoom  (H×W = 768×512, dtype = float32)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_07_benchmarking_plot_003.png
    :class: sphx-glr-single-img
 
@@ -437,19 +450,21 @@ readable; in practice they indicate numerically perfect reconstruction.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 284-288
+.. GENERATED FROM PYTHON SOURCE LINES 297-301
 
 Runtime Context
 ---------------
 
 Finally, we print a short summary of the runtime environment.
 
-.. GENERATED FROM PYTHON SOURCE LINES 288-289
+.. GENERATED FROM PYTHON SOURCE LINES 301-304
 
 .. code-block:: Python
 
 
     print_runtime_context()
+    print(f"Benchmark storage dtype: {DTYPE}")
+
 
 
 
@@ -463,9 +478,10 @@ Finally, we print a short summary of the runtime environment.
       CPU         : x86_64 | logical cores: 4
       NumPy/SciPy : 2.3.5/1.16.3
       Matplotlib  : 3.10.7 | backend: agg
-      splineops   : 1.0.1 | native ext present: True
+      splineops   : 1.0.2 | native ext present: True
       SPLINEOPS_ACCEL=always
       OMP_NUM_THREADS=4
+    Benchmark storage dtype: <class 'numpy.float32'>
 
 
 
@@ -473,7 +489,7 @@ Finally, we print a short summary of the runtime environment.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 15.648 seconds)
+   **Total running time of the script:** (1 minutes 6.416 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_07_benchmarking_plot.py:
