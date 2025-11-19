@@ -74,7 +74,7 @@ Imports
 
     # You can switch this to np.float64 if you want full double precision.
     DTYPE = np.float32
-
+    DTYPE_NAME = np.dtype(DTYPE).name
 
 
 
@@ -390,7 +390,7 @@ as a function of the zoom factor.
 
     plt.xlabel("Zoom factor (1.0 excluded)")
     plt.ylabel(f"Time (s)  [avg of {REPEATS} runs, forward + backward]")
-    plt.title(f"Round-Trip Timing vs Zoom  (H×W = {H}×{W}, dtype = {img_gray.dtype})")
+    plt.title(f"Round-Trip Timing vs Zoom  (H×W = {H}×{W}, dtype = {DTYPE_NAME})")
     plt.grid(True, alpha=0.35)
     plt.legend()
     plt.tight_layout()
@@ -432,7 +432,7 @@ readable; in practice they indicate numerically perfect reconstruction.
 
     plt.xlabel("Zoom factor (1.0 excluded)")
     plt.ylabel("SNR (dB)  [original vs recovered]")
-    plt.title(f"Round-Trip SNR vs Zoom  (H×W = {H}×{W}, dtype = {img_gray.dtype})")
+    plt.title(f"Round-Trip SNR vs Zoom  (H×W = {H}×{W}, dtype = {DTYPE_NAME})")
     plt.grid(True, alpha=0.35)
     plt.legend()
     plt.tight_layout()
@@ -476,9 +476,10 @@ Finally, we print a short summary of the runtime environment.
       Python      : 3.12.12 (CPython)
       OS          : Linux 6.11.0-1018-azure (x86_64)
       CPU         : x86_64 | logical cores: 4
+      Process     : pid=2335 | Python threads=1
       NumPy/SciPy : 2.3.5/1.16.3
       Matplotlib  : 3.10.7 | backend: agg
-      splineops   : 1.0.2 | native ext present: True
+      splineops   : 1.0.3 | native ext present: True
       SPLINEOPS_ACCEL=always
       OMP_NUM_THREADS=4
     Benchmark storage dtype: <class 'numpy.float32'>
@@ -489,7 +490,7 @@ Finally, we print a short summary of the runtime environment.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 6.416 seconds)
+   **Total running time of the script:** (1 minutes 7.293 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_07_benchmarking_plot.py:

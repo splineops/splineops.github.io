@@ -311,7 +311,7 @@ Biggest lambda
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.654 seconds)
+   **Total running time of the script:** (0 minutes 0.643 seconds)
 
 
 .. _sphx_glr_download_auto_examples_05_adaptive_regression_splines_05_01_adaptive_regression_splines_module.py:

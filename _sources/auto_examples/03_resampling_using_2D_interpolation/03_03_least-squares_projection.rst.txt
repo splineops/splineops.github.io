@@ -287,7 +287,7 @@ recovered images for visual comparison.
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_002.png
-   :alt: Original ROI, Recovered (Standard, 1.0 ms), Recovered (Least-Squares, 1.1 ms)
+   :alt: Original ROI, Recovered (Standard, 1.4 ms), Recovered (Least-Squares, 1.4 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_002.png
    :class: sphx-glr-single-img
 
@@ -410,7 +410,7 @@ Standard Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_005.png
-   :alt: Resized Image (standard, 2.1 ms)
+   :alt: Resized Image (standard, 2.3 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_005.png
    :class: sphx-glr-single-img
 
@@ -446,7 +446,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_006.png
-   :alt: Recovered Image (least-squares projection, 1.1 ms)
+   :alt: Recovered Image (least-squares projection, 1.4 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_006.png
    :class: sphx-glr-single-img
 
@@ -477,7 +477,7 @@ Standard Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_007.png
-   :alt: Recovered Image (standard interpolation, 1.0 ms)
+   :alt: Recovered Image (standard interpolation, 1.4 ms)
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_03_least-squares_projection_007.png
    :class: sphx-glr-single-img
 
@@ -601,8 +601,8 @@ standard interpolation and least-squares projection.
 
     Method                             SNR (dB)              MSE     Time (s)
     -------------------------------------------------------------------------
-    Standard Interpolation (cubic)        15.51         6.34e-03       0.0032
-    Least-Squares Projection              17.52         3.99e-03       0.0064
+    Standard Interpolation (cubic)        15.51         6.34e-03       0.0037
+    Least-Squares Projection              17.52         3.99e-03       0.0067
 
 
 
@@ -610,7 +610,7 @@ standard interpolation and least-squares projection.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.130 seconds)
+   **Total running time of the script:** (0 minutes 2.098 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_03_least-squares_projection.py:

@@ -139,8 +139,8 @@ The sequence is then denoised and oversampled by a factor m using the optimal fr
 
     Number of measurements is 256, oversampling factor is 4.
     mSNR (SNR at the mid-point) of the measured sequence      is 20.00 dB.
-    mSNR improvement of the denoised sequence                 is 5.84 dB.
-    mSNR improvement of the denoised and oversampled sequence is 5.89 dB.
+    mSNR improvement of the denoised sequence                 is 8.79 dB.
+    mSNR improvement of the denoised and oversampled sequence is 8.75 dB.
 
 
 
