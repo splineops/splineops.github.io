@@ -382,55 +382,55 @@ For each image and each method, we run the benchmark and store:
       URL: https://r0k.us/graphics/kodak/kodak/kodim05.png
       Method                           Time (s, avg±sd)
       -------------------------------------------------
-      SciPy                             0.0070 ± 0.0000
-      Standard                          0.0018 ± 0.0000
-      Least-Squares                     0.0044 ± 0.0000
-      Oblique                           0.0032 ± 0.0001
+      SciPy                             0.0069 ± 0.0000
+      Standard                          0.0013 ± 0.0000
+      Least-Squares                     0.0027 ± 0.0000
+      Oblique                           0.0021 ± 0.0000
 
     Image: kodim07  (zoom=0.15)
       URL: https://r0k.us/graphics/kodak/kodak/kodim07.png
       Method                           Time (s, avg±sd)
       -------------------------------------------------
-      SciPy                             0.0071 ± 0.0000
-      Standard                          0.0018 ± 0.0000
-      Least-Squares                     0.0044 ± 0.0001
-      Oblique                           0.0032 ± 0.0001
+      SciPy                             0.0069 ± 0.0000
+      Standard                          0.0013 ± 0.0000
+      Least-Squares                     0.0027 ± 0.0000
+      Oblique                           0.0021 ± 0.0000
 
     Image: kodim14  (zoom=0.3)
       URL: https://r0k.us/graphics/kodak/kodak/kodim14.png
       Method                           Time (s, avg±sd)
       -------------------------------------------------
-      SciPy                             0.0087 ± 0.0000
-      Standard                          0.0021 ± 0.0000
-      Least-Squares                     0.0050 ± 0.0001
-      Oblique                           0.0037 ± 0.0000
+      SciPy                             0.0085 ± 0.0000
+      Standard                          0.0015 ± 0.0000
+      Least-Squares                     0.0035 ± 0.0000
+      Oblique                           0.0027 ± 0.0000
 
     Image: kodim15  (zoom=0.3)
       URL: https://r0k.us/graphics/kodak/kodak/kodim15.png
       Method                           Time (s, avg±sd)
       -------------------------------------------------
-      SciPy                             0.0087 ± 0.0000
-      Standard                          0.0021 ± 0.0000
-      Least-Squares                     0.0051 ± 0.0001
-      Oblique                           0.0037 ± 0.0001
+      SciPy                             0.0085 ± 0.0000
+      Standard                          0.0015 ± 0.0000
+      Least-Squares                     0.0034 ± 0.0000
+      Oblique                           0.0027 ± 0.0000
 
     Image: kodim19  (zoom=0.2)
       URL: https://r0k.us/graphics/kodak/kodak/kodim19.png
       Method                           Time (s, avg±sd)
       -------------------------------------------------
-      SciPy                             0.0093 ± 0.0000
-      Standard                          0.0017 ± 0.0000
-      Least-Squares                     0.0036 ± 0.0000
-      Oblique                           0.0028 ± 0.0000
+      SciPy                             0.0087 ± 0.0000
+      Standard                          0.0014 ± 0.0000
+      Least-Squares                     0.0030 ± 0.0000
+      Oblique                           0.0023 ± 0.0000
 
     Image: kodim23  (zoom=0.15)
       URL: https://r0k.us/graphics/kodak/kodak/kodim23.png
       Method                           Time (s, avg±sd)
       -------------------------------------------------
-      SciPy                             0.0070 ± 0.0000
-      Standard                          0.0018 ± 0.0000
-      Least-Squares                     0.0044 ± 0.0000
-      Oblique                           0.0032 ± 0.0001
+      SciPy                             0.0069 ± 0.0000
+      Standard                          0.0013 ± 0.0000
+      Least-Squares                     0.0027 ± 0.0000
+      Oblique                           0.0021 ± 0.0000
 
     Timings averaged over 10 runs (1 warm-up run not counted).
 
@@ -438,10 +438,11 @@ For each image and each method, we run the benchmark and store:
       Python      : 3.12.12 (CPython)
       OS          : Linux 6.11.0-1018-azure (x86_64)
       CPU         : x86_64 | logical cores: 4
-      Process     : pid=2335 | Python threads=1
+      Process     : pid=2336 | Python threads=1
       NumPy/SciPy : 2.3.5/1.16.3
       Matplotlib  : 3.10.7 | backend: agg
-      splineops   : 1.0.3 | native ext present: True
+      splineops   : 1.0.4 | native ext present: True
+      Extra libs  : Pillow=12.0.0
       SPLINEOPS_ACCEL=always
       OMP_NUM_THREADS=4
 
@@ -661,7 +662,7 @@ SciPy Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_002.png
-   :alt: SciPy (zoom=0.150, orig=512×768) 7.0 ms ± 0.0 ms
+   :alt: SciPy (zoom=0.150, orig=512×768) 6.9 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_002.png
    :class: sphx-glr-single-img
 
@@ -710,7 +711,7 @@ Standard Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_003.png
-   :alt: Standard (zoom=0.150, orig=512×768) 1.8 ms ± 0.0 ms
+   :alt: Standard (zoom=0.150, orig=512×768) 1.3 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_003.png
    :class: sphx-glr-single-img
 
@@ -759,7 +760,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_004.png
-   :alt: Least-Squares (zoom=0.150, orig=512×768) 4.4 ms ± 0.0 ms
+   :alt: Least-Squares (zoom=0.150, orig=512×768) 2.7 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_004.png
    :class: sphx-glr-single-img
 
@@ -808,7 +809,7 @@ Oblique Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_005.png
-   :alt: Oblique (zoom=0.150, orig=512×768) 3.2 ms ± 0.1 ms
+   :alt: Oblique (zoom=0.150, orig=512×768) 2.1 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_005.png
    :class: sphx-glr-single-img
 
@@ -847,7 +848,7 @@ ROI Comparison
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_006.png
-   :alt: Downsampled ROI comparison, SciPy 7.0 ms ± 0.0 ms, Standard 1.8 ms ± 0.0 ms, Least-Squares 4.4 ms ± 0.0 ms, Oblique 3.2 ms ± 0.1 ms
+   :alt: Downsampled ROI comparison, SciPy 6.9 ms ± 0.0 ms, Standard 1.3 ms ± 0.0 ms, Least-Squares 2.7 ms ± 0.0 ms, Oblique 2.1 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_006.png
    :class: sphx-glr-single-img
 
@@ -976,7 +977,7 @@ SciPy Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_008.png
-   :alt: SciPy (zoom=0.150, orig=512×768) 7.1 ms ± 0.0 ms
+   :alt: SciPy (zoom=0.150, orig=512×768) 6.9 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_008.png
    :class: sphx-glr-single-img
 
@@ -1025,7 +1026,7 @@ Standard Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_009.png
-   :alt: Standard (zoom=0.150, orig=512×768) 1.8 ms ± 0.0 ms
+   :alt: Standard (zoom=0.150, orig=512×768) 1.3 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_009.png
    :class: sphx-glr-single-img
 
@@ -1074,7 +1075,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_010.png
-   :alt: Least-Squares (zoom=0.150, orig=512×768) 4.4 ms ± 0.1 ms
+   :alt: Least-Squares (zoom=0.150, orig=512×768) 2.7 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_010.png
    :class: sphx-glr-single-img
 
@@ -1123,7 +1124,7 @@ Oblique Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_011.png
-   :alt: Oblique (zoom=0.150, orig=512×768) 3.2 ms ± 0.1 ms
+   :alt: Oblique (zoom=0.150, orig=512×768) 2.1 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_011.png
    :class: sphx-glr-single-img
 
@@ -1162,7 +1163,7 @@ ROI Comparison
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_012.png
-   :alt: Downsampled ROI comparison, SciPy 7.1 ms ± 0.0 ms, Standard 1.8 ms ± 0.0 ms, Least-Squares 4.4 ms ± 0.1 ms, Oblique 3.2 ms ± 0.1 ms
+   :alt: Downsampled ROI comparison, SciPy 6.9 ms ± 0.0 ms, Standard 1.3 ms ± 0.0 ms, Least-Squares 2.7 ms ± 0.0 ms, Oblique 2.1 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_012.png
    :class: sphx-glr-single-img
 
@@ -1291,7 +1292,7 @@ SciPy Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_014.png
-   :alt: SciPy (zoom=0.300, orig=512×768) 8.7 ms ± 0.0 ms
+   :alt: SciPy (zoom=0.300, orig=512×768) 8.5 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_014.png
    :class: sphx-glr-single-img
 
@@ -1340,7 +1341,7 @@ Standard Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_015.png
-   :alt: Standard (zoom=0.300, orig=512×768) 2.1 ms ± 0.0 ms
+   :alt: Standard (zoom=0.300, orig=512×768) 1.5 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_015.png
    :class: sphx-glr-single-img
 
@@ -1389,7 +1390,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_016.png
-   :alt: Least-Squares (zoom=0.300, orig=512×768) 5.0 ms ± 0.1 ms
+   :alt: Least-Squares (zoom=0.300, orig=512×768) 3.5 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_016.png
    :class: sphx-glr-single-img
 
@@ -1438,7 +1439,7 @@ Oblique Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_017.png
-   :alt: Oblique (zoom=0.300, orig=512×768) 3.7 ms ± 0.0 ms
+   :alt: Oblique (zoom=0.300, orig=512×768) 2.7 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_017.png
    :class: sphx-glr-single-img
 
@@ -1477,7 +1478,7 @@ ROI Comparison
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_018.png
-   :alt: Downsampled ROI comparison, SciPy 8.7 ms ± 0.0 ms, Standard 2.1 ms ± 0.0 ms, Least-Squares 5.0 ms ± 0.1 ms, Oblique 3.7 ms ± 0.0 ms
+   :alt: Downsampled ROI comparison, SciPy 8.5 ms ± 0.0 ms, Standard 1.5 ms ± 0.0 ms, Least-Squares 3.5 ms ± 0.0 ms, Oblique 2.7 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_018.png
    :class: sphx-glr-single-img
 
@@ -1606,7 +1607,7 @@ SciPy Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_020.png
-   :alt: SciPy (zoom=0.300, orig=512×768) 8.7 ms ± 0.0 ms
+   :alt: SciPy (zoom=0.300, orig=512×768) 8.5 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_020.png
    :class: sphx-glr-single-img
 
@@ -1655,7 +1656,7 @@ Standard Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_021.png
-   :alt: Standard (zoom=0.300, orig=512×768) 2.1 ms ± 0.0 ms
+   :alt: Standard (zoom=0.300, orig=512×768) 1.5 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_021.png
    :class: sphx-glr-single-img
 
@@ -1704,7 +1705,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_022.png
-   :alt: Least-Squares (zoom=0.300, orig=512×768) 5.1 ms ± 0.1 ms
+   :alt: Least-Squares (zoom=0.300, orig=512×768) 3.4 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_022.png
    :class: sphx-glr-single-img
 
@@ -1753,7 +1754,7 @@ Oblique Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_023.png
-   :alt: Oblique (zoom=0.300, orig=512×768) 3.7 ms ± 0.1 ms
+   :alt: Oblique (zoom=0.300, orig=512×768) 2.7 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_023.png
    :class: sphx-glr-single-img
 
@@ -1792,7 +1793,7 @@ ROI Comparison
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_024.png
-   :alt: Downsampled ROI comparison, SciPy 8.7 ms ± 0.0 ms, Standard 2.1 ms ± 0.0 ms, Least-Squares 5.1 ms ± 0.1 ms, Oblique 3.7 ms ± 0.1 ms
+   :alt: Downsampled ROI comparison, SciPy 8.5 ms ± 0.0 ms, Standard 1.5 ms ± 0.0 ms, Least-Squares 3.4 ms ± 0.0 ms, Oblique 2.7 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_024.png
    :class: sphx-glr-single-img
 
@@ -1921,7 +1922,7 @@ SciPy Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_026.png
-   :alt: SciPy (zoom=0.200, orig=768×512) 9.3 ms ± 0.0 ms
+   :alt: SciPy (zoom=0.200, orig=768×512) 8.7 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_026.png
    :class: sphx-glr-single-img
 
@@ -1970,7 +1971,7 @@ Standard Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_027.png
-   :alt: Standard (zoom=0.200, orig=768×512) 1.7 ms ± 0.0 ms
+   :alt: Standard (zoom=0.200, orig=768×512) 1.4 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_027.png
    :class: sphx-glr-single-img
 
@@ -2019,7 +2020,7 @@ Least-Squares Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_028.png
-   :alt: Least-Squares (zoom=0.200, orig=768×512) 3.6 ms ± 0.0 ms
+   :alt: Least-Squares (zoom=0.200, orig=768×512) 3.0 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_028.png
    :class: sphx-glr-single-img
 
@@ -2068,7 +2069,7 @@ Oblique Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_029.png
-   :alt: Oblique (zoom=0.200, orig=768×512) 2.8 ms ± 0.0 ms
+   :alt: Oblique (zoom=0.200, orig=768×512) 2.3 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_029.png
    :class: sphx-glr-single-img
 
@@ -2107,7 +2108,7 @@ ROI Comparison
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_030.png
-   :alt: Downsampled ROI comparison, SciPy 9.3 ms ± 0.0 ms, Standard 1.7 ms ± 0.0 ms, Least-Squares 3.6 ms ± 0.0 ms, Oblique 2.8 ms ± 0.0 ms
+   :alt: Downsampled ROI comparison, SciPy 8.7 ms ± 0.0 ms, Standard 1.4 ms ± 0.0 ms, Least-Squares 3.0 ms ± 0.0 ms, Oblique 2.3 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_030.png
    :class: sphx-glr-single-img
 
@@ -2236,7 +2237,7 @@ SciPy Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_032.png
-   :alt: SciPy (zoom=0.150, orig=512×768) 7.0 ms ± 0.0 ms
+   :alt: SciPy (zoom=0.150, orig=512×768) 6.9 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_032.png
    :class: sphx-glr-single-img
 
@@ -2285,7 +2286,7 @@ Standard Interpolation
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_033.png
-   :alt: Standard (zoom=0.150, orig=512×768) 1.8 ms ± 0.0 ms
+   :alt: Standard (zoom=0.150, orig=512×768) 1.3 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_033.png
    :class: sphx-glr-single-img
 
@@ -2334,7 +2335,7 @@ Least-Squares Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_034.png
-   :alt: Least-Squares (zoom=0.150, orig=512×768) 4.4 ms ± 0.0 ms
+   :alt: Least-Squares (zoom=0.150, orig=512×768) 2.7 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_034.png
    :class: sphx-glr-single-img
 
@@ -2383,7 +2384,7 @@ Oblique Projection
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_035.png
-   :alt: Oblique (zoom=0.150, orig=512×768) 3.2 ms ± 0.1 ms
+   :alt: Oblique (zoom=0.150, orig=512×768) 2.1 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_035.png
    :class: sphx-glr-single-img
 
@@ -2420,7 +2421,7 @@ ROI Comparison
 
 
 .. image-sg:: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_036.png
-   :alt: Downsampled ROI comparison, SciPy 7.0 ms ± 0.0 ms, Standard 1.8 ms ± 0.0 ms, Least-Squares 4.4 ms ± 0.0 ms, Oblique 3.2 ms ± 0.1 ms
+   :alt: Downsampled ROI comparison, SciPy 6.9 ms ± 0.0 ms, Standard 1.3 ms ± 0.0 ms, Least-Squares 2.7 ms ± 0.0 ms, Oblique 2.1 ms ± 0.0 ms
    :srcset: /auto_examples/03_resampling_using_2D_interpolation/images/sphx_glr_03_06_benchmarking_036.png
    :class: sphx-glr-single-img
 
@@ -2431,7 +2432,7 @@ ROI Comparison
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 15.487 seconds)
+   **Total running time of the script:** (0 minutes 14.355 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_resampling_using_2D_interpolation_03_06_benchmarking.py:
