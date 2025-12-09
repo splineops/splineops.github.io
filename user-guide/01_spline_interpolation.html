@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=71272d9f"></script>
+    <script src="../_static/documentation_options.js?v=d55fa986"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -433,131 +433,366 @@
                   
   <section id="spline-interpolation">
 <h1>Spline Interpolation<a class="headerlink" href="#spline-interpolation" title="Link to this heading">#</a></h1>
-<section id="spline-processing">
-<h2>Spline Processing<a class="headerlink" href="#spline-processing" title="Link to this heading">#</a></h2>
-<p>Splines are real functions that are <em>continuously</em> defined while being <em>parameterized</em> by discrete data. This gives access to many interesting operations that would otherwise be illegitimate with purely discrete data since these operations are truly valid in the continuum only, for instance:</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Splines are real functions that are <em>continuously</em> defined while being
+<em>parameterized</em> by discrete data. They provide a principled bridge between
+discrete samples and a continuous representation, which makes a number of
+operations possible (or at least much safer) than in a purely discrete setting:</p>
 <ul class="simple">
-<li><p>differentiation—gradients are often relied upon to detect edges in images, or to minimize some cost function, or in the handling of the differential equations of physical models, while discrete data give access to finite differences, not to gradients;</p></li>
-<li><p>arbitrary geometric transformations—it is very much desirable to be able to evaluate a function at any desired coordinate, while discrete data can be evaluated at the samples only;</p></li>
-<li><p>specific geometric transformations such as resizing—the aliasing inherent with the downsizing of data can be handled much more safely in the continuous domain than it can with discrete data.</p></li>
+<li><p>Differentiation: true gradients instead of finite differences, useful for
+edge detection, variational methods, and differential models.</p></li>
+<li><p>Arbitrary geometric transformations: evaluation at any real-valued
+coordinate, not only at sample locations.</p></li>
+<li><p>Resizing and other scale changes: downsampling with reduced aliasing thanks
+to a continuous-domain model.</p></li>
 </ul>
-<p>There are many brands of splines. In the graphics world, one often relies on splines to represent curves, for instance with nonuniform rational B-splines. The SplineOps library is not meant to be used for such applications; in return, it is well-suited to the handling of data defined on a uniform Cartesian grid and offers highly successful tradeoffs between quality of representation and computational efficiency <a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id7" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id8" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id9" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id10" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>.</p>
+<p>There are many brands of splines. In the graphics world, one often relies on
+splines to represent curves, for instance with nonuniform rational B-splines.
+This library is not meant to be used for such applications; instead,
+it is well-suited to the handling of data defined on a uniform Cartesian grid
+and offers successful tradeoffs between quality of representation and
+computational efficiency <a class="footnote-reference brackets" href="#id7" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id8" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id10" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id11" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id12" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.</p>
 <p><strong>Pros</strong></p>
 <ul class="simple">
 <li><p>Bridge between the discrete world and the continuous world.</p></li>
-<li><p>Tunable tradeoff between speed and quality.</p></li>
+<li><p>Tunable trade-off between speed and quality.</p></li>
 <li><p>Efficient continuously defined representation of uniform data in multiple dimensions.</p></li>
 </ul>
 <p><strong>Cons</strong></p>
 <ul class="simple">
 <li><p>The spline may overshoot/undershoot the data samples.</p></li>
 <li><p>Along a path, the spline may not be monotonous in regions where the data samples are.</p></li>
-<li><p>The spline is nonlocal, by which we mean that the update of just one data sample requires the update of the whole spline.</p></li>
+<li><p>The spline is nonlocal, by which we mean that the update of just one data sample
+requires the update of the whole spline.</p></li>
 </ul>
-<p><strong>Roadmap</strong></p>
-<ul class="simple">
-<li><p>In what follows, we first introduce <em>B-splines</em> as convenient building blocks of splines. We give a productive formula that defines polynomial B-splines and illustrate them.</p></li>
-<li><p>We then build a <em>spline</em> as an arbitrary combination of B-splines. At first, we do so with exuberance.</p></li>
-<li><p>Finally, we rein in splines and limit ourselves to <em>regular</em> splines. They allow one to efficiently interpolate discrete data.</p></li>
-</ul>
-</section>
-<section id="b-splines">
-<h2>B-Splines<a class="headerlink" href="#b-splines" title="Link to this heading">#</a></h2>
-<p>A one-dimensional polynomial B-spline is a member of a family of real functions <span class="math notranslate nohighlight">\(\beta^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\beta^{n}(x)\)</span> that are characterized by their degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}\)</span> (<em>e.g.</em>, linear, cubic). There, the degree <span class="math notranslate nohighlight">\(n\)</span> is a superscript—as opposed to a power. Several equivalent explicit formulations of <span class="math notranslate nohighlight">\(\beta^{n}\)</span> exist. One of them, valid for <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}_{&gt;0}\)</span>, is</p>
-<div class="math notranslate nohighlight">
-\[\beta^{n}(x)=\frac{1}{n!}\,\sum_{k=0}^{n+1}\,\left(-1\right)^{k}\,{n\choose k}\,{\mathrm{ReLu}}^{n}(x+\frac{n+1}{2}-k),\]</div>
-<p>where <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> is the argument of the B-spline and where one recognizes an interplay between signed binomial coefficients and the <span class="math notranslate nohighlight">\(n\)</span>-th power of the celebrated <span class="math notranslate nohighlight">\({\mathrm{ReLu}}\)</span> function of artificial-intelligence fame, with <span class="math notranslate nohighlight">\({\mathrm{ReLu}}(x)=\max(x,0)\)</span> for all <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}.\)</span></p>
-<p>Here is the plot of a cubic B-spline.</p>
-<a class="reference internal image-reference" href="../_images/interpolatefig01.png"><img alt="../_images/interpolatefig01.png" class="align-center" src="../_images/interpolatefig01.png" style="width: 288pt;" />
-</a>
-<p>Now, let us shift this B-spline horizontally by one third.</p>
-<a class="reference internal image-reference" href="../_images/interpolatefig02.png"><img alt="../_images/interpolatefig02.png" class="align-center" src="../_images/interpolatefig02.png" style="width: 288pt;" />
-</a>
-<p>Moreover, let us shrink it by 60%.</p>
-<a class="reference internal image-reference" href="../_images/interpolatefig03.png"><img alt="../_images/interpolatefig03.png" class="align-center" src="../_images/interpolatefig03.png" style="width: 288pt;" />
-</a>
-<p>Finally, let us multiply it by one fourth. This multiplicative step is called a <em>weighting</em> of the B-spline.</p>
-<a class="reference internal image-reference" href="../_images/interpolatefig04.png"><img alt="../_images/interpolatefig04.png" class="align-center" src="../_images/interpolatefig04.png" style="width: 288pt;" />
-</a>
-<p>Likewise, we could play with any other combination of (shift, shrink, weight) to obtain a zoo of other functions, including some with negative weight. In the present case, all of them would be said to be cubic B-splines, up to their individual (shift, shrink, weight). Here are some.</p>
-<a class="reference internal image-reference" href="../_images/interpolatefig05.png"><img alt="../_images/interpolatefig05.png" class="align-center" src="../_images/interpolatefig05.png" style="width: 288pt;" />
-</a>
-<p>B-splines have many relevant properties. Among them, the (technical) fact that they have an optimal <em>order of approximation</em> explains why these functions are so good at representing discrete data. In nearly every case of relevance, their most important (practical) property is that their <em>support</em> is finite.</p>
 </section>
 <section id="splines">
 <h2>Splines<a class="headerlink" href="#splines" title="Link to this heading">#</a></h2>
-<p>Now, we are going to do something bold. Let us sum together the functions of the previous figure.</p>
-<a class="reference internal image-reference" href="../_images/interpolatefig06.png"><img alt="../_images/interpolatefig06.png" class="align-center" src="../_images/interpolatefig06.png" style="width: 288pt;" />
+<section id="b-splines">
+<h3>B-Splines<a class="headerlink" href="#b-splines" title="Link to this heading">#</a></h3>
+<p>A one-dimensional polynomial B-spline is a member of a family of real functions
+<span class="math notranslate nohighlight">\(\beta^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}}, x\mapsto\beta^{n}(x)\)</span> that are
+characterized by their degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}\)</span> (<em>e.g.</em>, linear, cubic). There,
+the degree <span class="math notranslate nohighlight">\(n\)</span> is a superscript—as opposed to a power. Several equivalent
+explicit formulations of <span class="math notranslate nohighlight">\(\beta^{n}\)</span> exist. One convenient closed-form expression,
+valid for <span class="math notranslate nohighlight">\(n \in {\mathbb{N}}_{&gt;0}\)</span>, is</p>
+<div class="math notranslate nohighlight">
+\[\beta^{n}(x)
+= \frac{1}{n!}\,\sum_{k=0}^{n+1} (-1)^{k} \binom{n+1}{k}
+  \bigl(x + \tfrac{n+1}{2} - k\bigr)_{+}^{\,n},\]</div>
+<p>where <span class="math notranslate nohighlight">\((t)_{+} = \max(t, 0)\)</span> denotes the positive part of <span class="math notranslate nohighlight">\(t\)</span> and
+<span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> is the argument of the B-spline.</p>
+<p>Here is the plot of a cubic B-spline.</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_004.png"><img alt="../_images/sphx_glr_01_02_spline_bases_004.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_004.png" style="width: 100%;" />
 </a>
-<p>We were able to create some combined function that seems to be kind of arbitrary. This combined function somehow retains the characteristics of B-splines, but it is no more a B-spline (the letter B stands for Basis); instead it is called a <em>spline</em> (without the B).</p>
+<p>Now, let us shift this B-spline horizontally by one third.</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_005.png"><img alt="../_images/sphx_glr_01_02_spline_bases_005.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_005.png" style="width: 100%;" />
+</a>
+<p>Moreover, let us shrink it by 60%.</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_006.png"><img alt="../_images/sphx_glr_01_02_spline_bases_006.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_006.png" style="width: 100%;" />
+</a>
+<p>Finally, let us multiply it by one fourth. This multiplicative step is called a <em>weighting</em> of the B-spline.</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_007.png"><img alt="../_images/sphx_glr_01_02_spline_bases_007.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_007.png" style="width: 100%;" />
+</a>
+<p>Likewise, we could play with any other combination of (shift, shrink, weight) to obtain a zoo of other functions, including some with negative weight. In the
+present case, all of them would be said to be cubic B-splines, up to their individual (shift, shrink, weight). Here are some.</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_008.png"><img alt="../_images/sphx_glr_01_02_spline_bases_008.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_008.png" style="width: 100%;" />
+</a>
+<p>B-splines have many relevant properties. Among them, the (technical) fact that they have an optimal <em>order of approximation</em> explains why these functions are so
+good at representing discrete data. In nearly every case of relevance, their most important (practical) property is that their <em>support</em> is finite.</p>
+</section>
+<section id="spline-definition">
+<h3>Spline Definition<a class="headerlink" href="#spline-definition" title="Link to this heading">#</a></h3>
+<p>Now, we are going to do something bold. Let us sum together the functions of the previous figure.</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_009.png"><img alt="../_images/sphx_glr_01_02_spline_bases_009.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_009.png" style="width: 100%;" />
+</a>
+<p>We were able to create some combined function that seems to be kind of arbitrary. This combined function somehow retains the characteristics of B-splines, but
+it is no more a B-spline (the letter B stands for Basis); instead it is called a <em>spline</em> (without the B).</p>
+<p>In one dimension, and for a fixed spline degree <span class="math notranslate nohighlight">\(n\)</span>, such a spline can be written as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  f &amp; : &amp; \mathbb{R} &amp;\rightarrow \mathbb{R}, \\
+    &amp;   &amp; x          &amp;\mapsto f(x) = \sum_{k \in \mathbb{Z}} c[k]\,\beta^{n}(x - k),
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\beta^{n}\)</span> is the degree-<span class="math notranslate nohighlight">\(n\)</span> B-spline and <span class="math notranslate nohighlight">\(c[k]\)</span> is an arbitrary
+sequence of real coefficients. Different choices of <span class="math notranslate nohighlight">\(c[k]\)</span> produce different spline
+functions, all built from the same shifted B-spline basis.</p>
+</section>
 </section>
 <section id="interpolation">
 <h2>Interpolation<a class="headerlink" href="#interpolation" title="Link to this heading">#</a></h2>
-<p>We are going to use splines to <em>interpolate</em> data, which is an operation whose purpose is to build a continuously defined function out of arbitrary discrete samples, in such a way that the samples of the built function are identical to the provided ones. To make our life simple, from now on we are going to consider only integer-valued shifts (the spline is then said to be a <em>regular</em> spline). Also, we are not going to either shrink or expand B-splines anymore, nor are we ever going to consider splines made of a mix of degrees. Yet, we want to maintain our free choice of the weights of the B-splines; this will give us sufficient freedom to build splines that can be shaped any way we want.</p>
+<section id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h3>
+<p>We are going to use splines to <em>interpolate</em> data, which is an operation whose purpose is to build a continuously defined function out of arbitrary discrete samples,
+in such a way that the samples of the built function are identical to the provided ones. To make our life simple, from now on we are going to consider only
+integer-valued shifts (the spline is then said to be a <em>regular</em> spline). Also, we are not going to either shrink or expand B-splines anymore, nor are we
+ever going to consider splines made of a mix of degrees. Yet, we want to maintain our free choice of the weights of the B-splines; this will give us
+sufficient freedom to build splines that can be shaped any way we want.</p>
 <p>Here is some uniform spline (thick curve), along with its additive constituents (arbitrarily weighted and integer-shifted B-splines of same degree, thin curves).</p>
-<a class="reference internal image-reference" href="../_images/interpolatefig07.png"><img alt="../_images/interpolatefig07.png" class="align-center" src="../_images/interpolatefig07.png" style="width: 288pt;" />
+<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_010.png"><img alt="../_images/sphx_glr_01_02_spline_bases_010.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_010.png" style="width: 100%;" />
 </a>
 <p>We now mark with dots the samples at the integers of this particular spline.</p>
-<a class="reference internal image-reference" href="../_images/interpolatefig08.png"><img alt="../_images/interpolatefig08.png" class="align-center" src="../_images/interpolatefig08.png" style="width: 288pt;" />
+<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_011.png"><img alt="../_images/sphx_glr_01_02_spline_bases_011.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_011.png" style="width: 100%;" />
 </a>
-<p>These samples make for a discrete list of values (<em>i.e.</em>, the data samples). Since we want to interpolate these data, a natural question that arises is as follows: is there a way to reverse the process and to first impose a list of arbitrary sample values, then only to determine which B-spline weights are appropriate to build the uniform spline that happens to go through these samples? Here is the succession of operations we have in mind.</p>
-<a class="reference internal image-reference" href="../_images/interpolatefig09.png"><img alt="../_images/interpolatefig09.png" class="align-center" src="../_images/interpolatefig09.png" style="width: 928pt;" />
+<p>These samples make for a discrete list of values (<em>i.e.</em>, the data samples). Since we want to interpolate these data, a natural question that arises is as
+follows: is there a way to reverse the process and to first impose a list of arbitrary sample values, then only to determine which B-spline weights are
+appropriate to build the uniform spline that happens to go through these samples? Here is the succession of operations we have in mind.</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_012.png"><img alt="../_images/sphx_glr_01_02_spline_bases_012.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_012.png" style="width: 100%;" />
 </a>
-<p>The answer is yes, we can go from discrete samples to continuously defined curve, but one needs to do it right. For instance, the weighting process is not trivial; the center panel of the figure above illustrates the fact that the value of a weight is usually not equal to the value of a sample—for a clear case, do inspect abscissa at 2.</p>
+<p>The answer is yes, we can go from discrete samples to continuously defined curve, but one needs to do it right. For instance, the weighting process is
+not trivial; the center panel of the figure above illustrates the fact that the value of a weight is usually not equal to the value of a sample—for a
+clear case, do inspect abscissa at 2.</p>
 </section>
-<section id="multidimensional-splines">
-<h2>Multidimensional Splines<a class="headerlink" href="#multidimensional-splines" title="Link to this heading">#</a></h2>
-<p>The class <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> solves the difficulties for you in an efficient way and in multiple dimensions, for many degrees of splines. Internally, it considers the continuously defined <span class="math notranslate nohighlight">\(d\)</span>-dimensional real function</p>
+<section id="d-interpolation-example">
+<h3>1D Interpolation Example<a class="headerlink" href="#d-interpolation-example" title="Link to this heading">#</a></h3>
+<p>The example
+<a class="reference internal" href="../auto_examples/02_resampling_using_1d_samples/02_01_interpolate_1d_samples.html#sphx-glr-auto-examples-02-resampling-using-1d-samples-02-01-interpolate-1d-samples-py"><span class="std std-ref">Interpolate 1D Samples</span></a>
+illustrates how a 1D sequence of samples <span class="math notranslate nohighlight">\(f[k]\)</span> is interpolated by a
+cubic B-spline, and how this spline can be written as a sum of shifted and
+weighted basis functions.</p>
+<p>Given a discrete sequence <span class="math notranslate nohighlight">\(\{f[k]\}\)</span> of samples, we seek a continuously defined
+spline <span class="math notranslate nohighlight">\(f(x)\)</span> of the form</p>
 <div class="math notranslate nohighlight">
-\[f:{\mathbb{R}}^{d}\rightarrow{\mathbb{R}},{\mathbf{x}}\mapsto f({\mathbf{x}})=\sum_{{\mathbf{k}}\in{\mathbb{Z}}^{d}}\,c[{\mathbf{k}}]\,\prod_{p=1}^{d}\,\beta^{n}(x_{p}-k_{p}),\]</div>
-<p>where <span class="math notranslate nohighlight">\({\mathbf{x}}\)</span> is the function argument in <span class="math notranslate nohighlight">\(d\)</span> dimensions and <span class="math notranslate nohighlight">\(c\)</span> is an infinite list of real coefficients with indices in <span class="math notranslate nohighlight">\(d\)</span> dimensions, too. These coefficients are carefully tuned in such a way that</p>
+\[f(x) = \sum_{k \in \mathbb{Z}} c[k] \,\beta^{3}(x - k),\]</div>
+<p>such that the interpolation condition</p>
 <div class="math notranslate nohighlight">
-\[\forall{\mathbf{q}}\in\Omega:f({\mathbf{q}})=s[{\mathbf{q}}],\]</div>
-<p>where the function <span class="math notranslate nohighlight">\(f\)</span> is the spline and where the list <span class="math notranslate nohighlight">\(s\)</span> contains the samples that we want to interpolate, as provided over a set <span class="math notranslate nohighlight">\(\Omega\subset{\mathbb{N}}^{d}\)</span> of indices. Since this set is finite in practice while the coefficients <span class="math notranslate nohighlight">\(c\)</span> must be defined for infinitely many indices, one has to invent values for those coefficients that are far away from <span class="math notranslate nohighlight">\(\Omega\)</span>. Arbitrary recipes are followed to that effect. For instance, the argument <code class="docutils literal notranslate"><span class="pre">modes</span></code> of the class <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> of this library allows one to choose from among a few recipes.</p>
+\[f(k) = f[k]\]</div>
+<p>is satisfied for all integer <span class="math notranslate nohighlight">\(k\)</span>. The key point is that the spline coefficients
+<span class="math notranslate nohighlight">\(c[k]\)</span> are generally not equal to the samples <span class="math notranslate nohighlight">\(f[k]\)</span>. Instead, they are
+obtained from <span class="math notranslate nohighlight">\(\{f[k]\}\)</span> by a digital prefiltering step, implemented as a
+recursive IIR filter. This prefilter enforces the interpolation constraints while
+preserving the smoothness and locality properties of the cubic B-spline basis.</p>
+<p>Below we reproduce three of the figures from that example.</p>
+<p>The first figure shows the discrete samples <span class="math notranslate nohighlight">\(f[k]\)</span> alone:</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_02_01_interpolate_1d_samples_001.png"><img alt="../_images/sphx_glr_02_01_interpolate_1d_samples_001.png" class="align-center" src="../_images/sphx_glr_02_01_interpolate_1d_samples_001.png" style="width: 100%;" />
+</a>
+<p>The second figure displays the shifted cubic B-splines <span class="math notranslate nohighlight">\(\beta^{3}(x-k)\)</span>
+weighted by the corresponding coefficients <span class="math notranslate nohighlight">\(c[k]\)</span>. Each thin curve is one term
+<span class="math notranslate nohighlight">\(c[k]\beta^{3}(x-k)\)</span> in the spline expansion:</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_02_01_interpolate_1d_samples_002.png"><img alt="../_images/sphx_glr_02_01_interpolate_1d_samples_002.png" class="align-center" src="../_images/sphx_glr_02_01_interpolate_1d_samples_002.png" style="width: 100%;" />
+</a>
+<p>The third figure shows the resulting interpolating spline <span class="math notranslate nohighlight">\(f(x)\)</span> (smooth curve)
+overlaid with the original samples <span class="math notranslate nohighlight">\(f[k]\)</span> (stems). One can see that the spline
+passes exactly through all sample points, while providing a smooth, continuously
+defined representation in between:</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_02_01_interpolate_1d_samples_003.png"><img alt="../_images/sphx_glr_02_01_interpolate_1d_samples_003.png" class="align-center" src="../_images/sphx_glr_02_01_interpolate_1d_samples_003.png" style="width: 100%;" />
+</a>
+</section>
+</section>
+<section id="in-multiple-dimensions">
+<h2>In Multiple Dimensions<a class="headerlink" href="#in-multiple-dimensions" title="Link to this heading">#</a></h2>
+<p>In multiple dimensions, a regular spline generalizes naturally to a tensor
+product of one-dimensional B-splines. For a fixed spline degree <span class="math notranslate nohighlight">\(n\)</span>, we
+consider a <span class="math notranslate nohighlight">\(d\)</span>-dimensional real function</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  f &amp; : &amp; \mathbb{R}^{d} &amp;\rightarrow \mathbb{R}, \\
+    &amp;   &amp; \mathbf{x}     &amp;\mapsto f(\mathbf{x})
+                           = \sum_{\mathbf{k}\in\mathbb{Z}^{d}} c[\mathbf{k}] \prod_{p=1}^{d} \beta^{n}(x_{p} - k_{p}),
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is the function argument in <span class="math notranslate nohighlight">\(d\)</span> dimensions and
+<span class="math notranslate nohighlight">\(c[\mathbf{k}]\)</span> is an infinite list of real coefficients with indices in
+<span class="math notranslate nohighlight">\(d\)</span> dimensions too. These coefficients are tuned in such a way that</p>
+<div class="math notranslate nohighlight">
+\[\forall{\mathbf{q}}\in\Omega:\quad f({\mathbf{q}})=s[{\mathbf{q}}],\]</div>
+<p>where the function <span class="math notranslate nohighlight">\(f\)</span> is the spline and where the list <span class="math notranslate nohighlight">\(s\)</span>
+contains the samples that we want to interpolate, as provided over a finite set
+<span class="math notranslate nohighlight">\(\Omega\subset{\mathbb{N}}^{d}\)</span> of indices. Since this set is finite in
+practice while the coefficients <span class="math notranslate nohighlight">\(c[\mathbf{k}]\)</span> must be defined for
+infinitely many indices, one has to invent values for those coefficients that
+are far away from <span class="math notranslate nohighlight">\(\Omega\)</span>. Arbitrary recipes are followed to that
+effect. For instance, the boundary “modes” used in this library (mirror,
+periodic, zero-padding, etc.) are different ways of controlling how the spline
+behaves outside the sampled domain.</p>
+</section>
+<section id="tensorspline-and-resize-apis">
+<h2>TensorSpline and Resize APIs<a class="headerlink" href="#tensorspline-and-resize-apis" title="Link to this heading">#</a></h2>
+<p>The mathematical model above is implemented in SplineOps by two complementary
+APIs:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../api/01_spline_interpolation.html#splineops.spline_interpolation.tensor_spline.TensorSpline" title="splineops.spline_interpolation.tensor_spline.TensorSpline"><code class="xref py py-class docutils literal notranslate"><span class="pre">splineops.spline_interpolation.tensor_spline.TensorSpline</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">splineops.resize.resize()</span></code></a> and <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize_degrees" title="splineops.resize.resize_degrees"><code class="xref py py-func docutils literal notranslate"><span class="pre">splineops.resize.resize_degrees()</span></code></a></p></li>
+</ul>
+<p>They share the same spline formulation but target slightly different use cases.</p>
+<section id="comparison">
+<h3>Comparison<a class="headerlink" href="#comparison" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 35.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">resize</span></code> / <code class="docutils literal notranslate"><span class="pre">resize_degrees</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Purpose</p></td>
+<td><p>Generic spline interpolant: evaluate <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> at arbitrary coordinates.</p></td>
+<td><p>High-level N-D resizing on uniform grids (images, volumes, time series).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Grid / coordinates</p></td>
+<td><p>Arbitrary coordinate arrays (not necessarily uniform).</p></td>
+<td><p>Uniform grids only; you specify zoom factors or output size.</p></td>
+</tr>
+<tr class="row-even"><td><p>Bases / degrees</p></td>
+<td><p>Many bases (B-splines 0–9, OMOMS, Keys, …), any supported degree of the chosen basis.</p></td>
+<td><p>Degrees 0–3 via presets (<code class="docutils literal notranslate"><span class="pre">&quot;fast&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;linear&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;quadratic&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;cubic&quot;</span></code>) and their antialiasing variants.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Boundary handling</p></td>
+<td><p>Modes per axis (<code class="docutils literal notranslate"><span class="pre">&quot;mirror&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;zero&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;periodic&quot;</span></code>, …).</p></td>
+<td><p>Currently uses mirror-like handling, tailored for resizing.</p></td>
+</tr>
+<tr class="row-even"><td><p>Implementation / performance</p></td>
+<td><p>Pure Python (with optional CuPy for GPU); very flexible but slower.</p></td>
+<td><p>C++ backend when available, with Python fallback; much faster and more memory-friendly.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Typical use</p></td>
+<td><p>Custom interpolation at arbitrary points, nonuniform sampling, algorithm prototyping.</p></td>
+<td><p>Production resizing, antialiasing downsampling, and large N-D data processing.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="equivalence-for-standard-interpolation">
+<h3>Equivalence for standard interpolation<a class="headerlink" href="#equivalence-for-standard-interpolation" title="Link to this heading">#</a></h3>
+<p>In the special case of a uniform grid, B-spline degrees 0–3 and mirror
+boundaries, standard interpolation via <code class="xref py py-class docutils literal notranslate"><span class="pre">TensorSpline</span></code> matches the
+corresponding <code class="docutils literal notranslate"><span class="pre">resize</span></code> presets exactly:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">resize</span></code> method</p></th>
+<th class="head"><p>Equivalent <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> configuration</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">resize(data,</span> <span class="pre">zoom_factors=zoom_factors,</span> <span class="pre">method=&quot;fast&quot;)</span></code>
+(degree 0 / nearest)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TensorSpline(data,</span> <span class="pre">coordinates,</span> <span class="pre">bases=&quot;bspline0&quot;,</span> <span class="pre">modes=&quot;mirror&quot;)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">resize(data,</span> <span class="pre">zoom_factors=zoom_factors,</span> <span class="pre">method=&quot;linear&quot;)</span></code>
+(degree 1)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TensorSpline(data,</span> <span class="pre">coordinates,</span> <span class="pre">bases=&quot;bspline1&quot;,</span> <span class="pre">modes=&quot;mirror&quot;)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">resize(data,</span> <span class="pre">zoom_factors=zoom_factors,</span> <span class="pre">method=&quot;quadratic&quot;)</span></code>
+(degree 2)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TensorSpline(data,</span> <span class="pre">coordinates,</span> <span class="pre">bases=&quot;bspline2&quot;,</span> <span class="pre">modes=&quot;mirror&quot;)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">resize(data,</span> <span class="pre">zoom_factors=zoom_factors,</span> <span class="pre">method=&quot;cubic&quot;)</span></code>
+(degree 3)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TensorSpline(data,</span> <span class="pre">coordinates,</span> <span class="pre">bases=&quot;bspline3&quot;,</span> <span class="pre">modes=&quot;mirror&quot;)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In other words, for these settings:</p>
+<ul class="simple">
+<li><p>the spline model is the same,</p></li>
+<li><p>the interpolation values agree up to numerical precision,</p></li>
+<li><p>but <code class="docutils literal notranslate"><span class="pre">resize</span></code> is usually much faster thanks to its C++ core and optimized
+memory access patterns.</p></li>
+</ul>
+</section>
+<section id="code-use">
+<h3>Code Use<a class="headerlink" href="#code-use" title="Link to this heading">#</a></h3>
+<p>Using <code class="xref py py-class docutils literal notranslate"><span class="pre">TensorSpline</span></code> directly:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">splineops.spline_interpolation.tensor_spline</span><span class="w"> </span><span class="kn">import</span> <span class="n">TensorSpline</span>
+
+<span class="c1"># 2-D data on a uniform grid</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">ts</span> <span class="o">=</span> <span class="n">TensorSpline</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+    <span class="n">coordinates</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span>
+    <span class="n">bases</span><span class="o">=</span><span class="s2">&quot;bspline3&quot;</span><span class="p">,</span>  <span class="c1"># cubic spline</span>
+    <span class="n">modes</span><span class="o">=</span><span class="s2">&quot;mirror&quot;</span><span class="p">,</span>    <span class="c1"># boundary handling</span>
+<span class="p">)</span>
+
+<span class="c1"># Evaluate on a finer grid (e.g. 2× upsample)</span>
+<span class="n">x_fine</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">y_fine</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">data_upsampled</span> <span class="o">=</span> <span class="n">ts</span><span class="p">(</span><span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><span class="n">x_fine</span><span class="p">,</span> <span class="n">y_fine</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Using <code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code> for the same operation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">splineops.resize</span><span class="w"> </span><span class="kn">import</span> <span class="n">resize</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+<span class="c1"># 2× zoom along both axes with cubic interpolation</span>
+<span class="n">zoom_factors</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="n">data_upsampled</span> <span class="o">=</span> <span class="n">resize</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">,</span>
+    <span class="n">zoom_factors</span><span class="o">=</span><span class="n">zoom_factors</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;cubic&quot;</span><span class="p">,</span>  <span class="c1"># matches bspline3 + mirror in the TensorSpline call</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="interpolation-examples">
 <h2>Interpolation Examples<a class="headerlink" href="#interpolation-examples" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../auto_examples/01_quick-start/01_01_tensorspline_class.html#sphx-glr-auto-examples-01-quick-start-01-01-tensorspline-class-py"><span class="std std-ref">Class TensorSpline</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/01_quick-start/01_02_spline_bases.html#sphx-glr-auto-examples-01-quick-start-01-02-spline-bases-py"><span class="std std-ref">Spline bases</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/01_quick-start/01_03_extension_modes.html#sphx-glr-auto-examples-01-quick-start-01-03-extension-modes-py"><span class="std std-ref">Extension modes</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/02_resampling_using_1d_interpolation/02_01_interpolate_1d_samples.html#sphx-glr-auto-examples-02-resampling-using-1d-interpolation-02-01-interpolate-1d-samples-py"><span class="std std-ref">Interpolate 1D samples</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/02_resampling_using_1d_interpolation/02_02_resample_a_1d_spline.html#sphx-glr-auto-examples-02-resampling-using-1d-interpolation-02-02-resample-a-1d-spline-py"><span class="std std-ref">Resample a 1D spline</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/02_resampling_using_1d_interpolation/02_03_compare_different_splines.html#sphx-glr-auto-examples-02-resampling-using-1d-interpolation-02-03-compare-different-splines-py"><span class="std std-ref">Compare different splines</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/01_quick-start/01_02_spline_bases.html#sphx-glr-auto-examples-01-quick-start-01-02-spline-bases-py"><span class="std std-ref">Spline Bases</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/01_quick-start/01_03_extension_modes.html#sphx-glr-auto-examples-01-quick-start-01-03-extension-modes-py"><span class="std std-ref">Extension Modes</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/02_resampling_using_1d_samples/02_01_interpolate_1d_samples.html#sphx-glr-auto-examples-02-resampling-using-1d-samples-02-01-interpolate-1d-samples-py"><span class="std std-ref">Interpolate 1D Samples</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/02_resampling_using_1d_samples/02_02_resample_a_1d_spline.html#sphx-glr-auto-examples-02-resampling-using-1d-samples-02-02-resample-a-1d-spline-py"><span class="std std-ref">Resample a 1D Spline</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/02_resampling_using_1d_samples/02_03_compare_different_splines.html#sphx-glr-auto-examples-02-resampling-using-1d-samples-02-03-compare-different-splines-py"><span class="std std-ref">Compare Different Splines</span></a></p></li>
 </ul>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id6" role="doc-footnote">
+<aside class="footnote brackets" id="id7" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>M. Unser, A. Aldroubi, M. Eden,
 <a class="reference external" href="https://doi.org/10.1109/78.193220">B-Spline Signal Processing: Part I—Theory</a>,
 IEEE-SPS best paper award, IEEE Transactions on
 Signal Processing, vol. 41, no. 2, pp. 821-833, February 1993.</p>
 </aside>
-<aside class="footnote brackets" id="id7" role="doc-footnote">
+<aside class="footnote brackets" id="id8" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>M. Unser, A. Aldroubi, M. Eden,
 <a class="reference external" href="https://doi.org/10.1109/78.193221">B-Spline Signal Processing: Part II—Efficient Design and Applications</a>,
 IEEE Transactions
 on Signal Processing, vol. 41, no. 2, pp. 834-848, February 1993.</p>
 </aside>
-<aside class="footnote brackets" id="id8" role="doc-footnote">
+<aside class="footnote brackets" id="id9" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>M. Unser, <a class="reference external" href="https://doi.org/10.1109/79.799930">Splines: A Perfect Fit for Signal and Image Processing</a>,
+IEEE-SPS best paper award, IEEE Signal Processing Magazine,
+vol. 16, no. 6, pp. 22-38, November 1999.</p>
+</aside>
+<aside class="footnote brackets" id="id10" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>P. Thévenaz, T. Blu, M. Unser,
+<a class="reference external" href="https://doi.org/10.1109/42.875199">Interpolation Revisited</a>,
+IEEE Transactions on Medical Imaging, vol. 19, no. 7, pp. 739-758,
+July 2000.</p>
+</aside>
+<aside class="footnote brackets" id="id11" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
 <p>M. Unser, J. Zerubia,
 <a class="reference external" href="https://doi.org/10.1109/82.718806">A Generalized Sampling Theory Without Band-Limiting Constraints</a>,
 IEEE Transactions on Circuits and
 Systems—II: Analog and Digital Signal Processing, vol. 45, no. 8, pp. 959-969, August 1998.</p>
 </aside>
-<aside class="footnote brackets" id="id9" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
-<p>M. Unser, <a class="reference external" href="https://doi.org/10.1109/79.799930">Splines: A Perfect Fit for Signal and Image Processing</a>,
-IEEE-SPS best paper award, IEEE Signal Processing Magazine,
-vol. 16, no. 6, pp. 22–38, November 1999.</p>
-</aside>
-<aside class="footnote brackets" id="id10" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id12" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
 <p>M. Unser, <a class="reference external" href="https://doi.org/10.1109/5.843002">Sampling—50 Years After Shannon</a>,
 Proceedings of the IEEE, vol. 88, no. 4, pp. 569-587, April 2000.</p>
 </aside>
@@ -612,11 +847,24 @@ Proceedings of the IEEE, vol. 88, no. 4, pp. 569-587, April 2000.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spline-processing">Spline Processing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-splines">B-Splines</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splines">Splines</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation">Interpolation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multidimensional-splines">Multidimensional Splines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splines">Splines</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-splines">B-Splines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spline-definition">Spline Definition</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation">Interpolation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-interpolation-example">1D Interpolation Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-multiple-dimensions">In Multiple Dimensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorspline-and-resize-apis">TensorSpline and Resize APIs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equivalence-for-standard-interpolation">Equivalence for standard interpolation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-use">Code Use</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-examples">Interpolation Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>

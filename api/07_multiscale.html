@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=71272d9f"></script>
+    <script src="../_static/documentation_options.js?v=d55fa986"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -645,21 +645,21 @@ If n &lt; 2, everything maps to 0.</p>
 </ul>
 <p>Submodules:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#module-splineops.multiscale.wavelets.abstractwavelets" title="splineops.multiscale.wavelets.abstractwavelets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale.wavelets.abstractwavelets</span></code></a> - Base <cite>AbstractWavelets</cite> class</p></li>
+<li><p><a class="reference internal" href="#module-splineops.multiscale.wavelets.abstract_wavelets" title="splineops.multiscale.wavelets.abstract_wavelets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale.wavelets.abstract_wavelets</span></code></a> - Base <cite>AbstractWavelets</cite> class</p></li>
 <li><p><a class="reference internal" href="#module-splineops.multiscale.wavelets.haar" title="splineops.multiscale.wavelets.haar"><code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale.wavelets.haar</span></code></a> - Pure 2D Haar wavelets (<cite>HaarWavelets</cite>)</p></li>
-<li><p><a class="reference internal" href="#module-splineops.multiscale.wavelets.splinewavelets" title="splineops.multiscale.wavelets.splinewavelets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale.wavelets.splinewavelets</span></code></a> - Spline wavelets, e.g. <cite>Spline1Wavelets</cite>, <cite>Spline3Wavelets</cite>, etc.</p></li>
-<li><p><a class="reference internal" href="#module-splineops.multiscale.wavelets.splinewaveletstool" title="splineops.multiscale.wavelets.splinewaveletstool"><code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale.wavelets.splinewaveletstool</span></code></a> - Low-level “splitMirror” &amp; “mergeMirror” routines, plus <cite>SplineWaveletsTool</cite> class</p></li>
+<li><p><a class="reference internal" href="#module-splineops.multiscale.wavelets.spline_wavelets" title="splineops.multiscale.wavelets.spline_wavelets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale.wavelets.spline_wavelets</span></code></a> - Spline wavelets, e.g. <cite>Spline1Wavelets</cite>, <cite>Spline3Wavelets</cite>, etc.</p></li>
+<li><p><a class="reference internal" href="#module-splineops.multiscale.wavelets.spline_wavelets_tool" title="splineops.multiscale.wavelets.spline_wavelets_tool"><code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale.wavelets.spline_wavelets_tool</span></code></a> - Low-level “splitMirror” &amp; “mergeMirror” routines, plus <cite>SplineWaveletsTool</cite> class</p></li>
 </ul>
 </section>
-<section id="module-splineops.multiscale.wavelets.abstractwavelets">
-<span id="api-reference-wavelets"></span><h2>API Reference: Wavelets<a class="headerlink" href="#module-splineops.multiscale.wavelets.abstractwavelets" title="Link to this heading">#</a></h2>
-<section id="abstractwavelets-py">
-<h3>abstractwavelets.py<a class="headerlink" href="#abstractwavelets-py" title="Link to this heading">#</a></h3>
+<section id="module-splineops.multiscale.wavelets.abstract_wavelets">
+<span id="api-reference-wavelets"></span><h2>API Reference: Wavelets<a class="headerlink" href="#module-splineops.multiscale.wavelets.abstract_wavelets" title="Link to this heading">#</a></h2>
+<section id="abstract-wavelets-py">
+<h3>abstract_wavelets.py<a class="headerlink" href="#abstract-wavelets-py" title="Link to this heading">#</a></h3>
 <p>Defines a base class for wavelet analysis &amp; synthesis on 2D (or 3D) signals.</p>
 </section>
 <dl class="py class">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.abstractwavelets.</span></span><span class="sig-name descname"><span class="pre">AbstractWavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.abstract_wavelets.</span></span><span class="sig-name descname"><span class="pre">AbstractWavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Base class for wavelet decomposition with multi-scale analysis &amp; synthesis.</p>
 <dl class="simple">
@@ -675,8 +675,8 @@ If n &lt; 2, everything maps to 0.</p>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.scales">
-<span class="sig-name descname"><span class="pre">scales</span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.scales" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.scales">
+<span class="sig-name descname"><span class="pre">scales</span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.scales" title="Link to this definition">#</a></dt>
 <dd><p>Number of scales for repeated analysis/synthesis steps.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -686,8 +686,8 @@ If n &lt; 2, everything maps to 0.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.analysis">
-<span class="sig-name descname"><span class="pre">analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.analysis" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.analysis">
+<span class="sig-name descname"><span class="pre">analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.analysis" title="Link to this definition">#</a></dt>
 <dd><p>Multi-scale wavelet analysis in 2D (or 3D).
 Repeatedly calls analysis1() from fine to coarse.</p>
 <dl class="field-list simple">
@@ -704,8 +704,8 @@ Repeatedly calls analysis1() from fine to coarse.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.analysis1">
-<span class="sig-name descname"><span class="pre">analysis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.analysis1" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.analysis1">
+<span class="sig-name descname"><span class="pre">analysis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.analysis1" title="Link to this definition">#</a></dt>
 <dd><p>Single-scale wavelet transform of inp -&gt; out. Must be overridden.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -721,20 +721,20 @@ Repeatedly calls analysis1() from fine to coarse.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.get_documentation">
-<span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.get_documentation" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.get_documentation">
+<span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.get_documentation" title="Link to this definition">#</a></dt>
 <dd><p>Returns a short description of the wavelet.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.get_name">
-<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.get_name" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.get_name">
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.get_name" title="Link to this definition">#</a></dt>
 <dd><p>Returns a descriptive name for the wavelet transform.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.set_scale">
-<span class="sig-name descname"><span class="pre">set_scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.set_scale" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.set_scale">
+<span class="sig-name descname"><span class="pre">set_scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.set_scale" title="Link to this definition">#</a></dt>
 <dd><p>Update the number of scales.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -744,8 +744,8 @@ Repeatedly calls analysis1() from fine to coarse.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.synthesis">
-<span class="sig-name descname"><span class="pre">synthesis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.synthesis" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.synthesis">
+<span class="sig-name descname"><span class="pre">synthesis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.synthesis" title="Link to this definition">#</a></dt>
 <dd><p>Multi-scale wavelet synthesis in 2D (or 3D).
 Repeatedly calls synthesis1() from coarsest to finest.</p>
 <dl class="field-list simple">
@@ -762,8 +762,8 @@ Repeatedly calls synthesis1() from coarsest to finest.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.synthesis1">
-<span class="sig-name descname"><span class="pre">synthesis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.synthesis1" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.synthesis1">
+<span class="sig-name descname"><span class="pre">synthesis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.synthesis1" title="Link to this definition">#</a></dt>
 <dd><p>Single-scale inverse wavelet transform of inp -&gt; out. Must be overridden.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -788,7 +788,7 @@ Repeatedly calls synthesis1() from coarsest to finest.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="splineops.multiscale.wavelets.haar.HaarWavelets">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.haar.</span></span><span class="sig-name descname"><span class="pre">HaarWavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.haar.HaarWavelets" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets" title="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractWavelets</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets" title="splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractWavelets</span></code></a></p>
 <p>A 2D Haar wavelet transform for images with shape (ny, nx).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -872,71 +872,71 @@ Repeatedly calls synthesis1() from coarsest to finest.</p>
 
 </dd></dl>
 
-<section id="splinewavelets-py">
-<span id="module-splineops.multiscale.wavelets.splinewavelets"></span><h3>splinewavelets.py<a class="headerlink" href="#splinewavelets-py" title="Link to this heading">#</a></h3>
+<section id="spline-wavelets-py">
+<span id="module-splineops.multiscale.wavelets.spline_wavelets"></span><h3>spline_wavelets.py<a class="headerlink" href="#spline-wavelets-py" title="Link to this heading">#</a></h3>
 <p>Implements Spline wavelet transforms of orders 1, 3, 5.</p>
 </section>
 <dl class="py class">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.splinewavelets.</span></span><span class="sig-name descname"><span class="pre">Spline1Wavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets" title="splineops.multiscale.wavelets.splinewavelets.SplineWavelets"><code class="xref py py-class docutils literal notranslate"><span class="pre">SplineWavelets</span></code></a></p>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.Spline1Wavelets">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.spline_wavelets.</span></span><span class="sig-name descname"><span class="pre">Spline1Wavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.Spline1Wavelets" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets" title="splineops.multiscale.wavelets.spline_wavelets.SplineWavelets"><code class="xref py py-class docutils literal notranslate"><span class="pre">SplineWavelets</span></code></a></p>
 <p>Spline Wavelets of order=1.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets.get_documentation">
-<span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets.get_documentation" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.Spline1Wavelets.get_documentation">
+<span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.Spline1Wavelets.get_documentation" title="Link to this definition">#</a></dt>
 <dd><p>Return a short docstring describing the spline wavelet order.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets.get_name">
-<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets.get_name" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.Spline1Wavelets.get_name">
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.Spline1Wavelets.get_name" title="Link to this definition">#</a></dt>
 <dd><p>Return ‘Spline{order}’.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.splinewavelets.</span></span><span class="sig-name descname"><span class="pre">Spline3Wavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets" title="splineops.multiscale.wavelets.splinewavelets.SplineWavelets"><code class="xref py py-class docutils literal notranslate"><span class="pre">SplineWavelets</span></code></a></p>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.Spline3Wavelets">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.spline_wavelets.</span></span><span class="sig-name descname"><span class="pre">Spline3Wavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.Spline3Wavelets" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets" title="splineops.multiscale.wavelets.spline_wavelets.SplineWavelets"><code class="xref py py-class docutils literal notranslate"><span class="pre">SplineWavelets</span></code></a></p>
 <p>Spline Wavelets of order=3.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets.get_documentation">
-<span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets.get_documentation" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.Spline3Wavelets.get_documentation">
+<span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.Spline3Wavelets.get_documentation" title="Link to this definition">#</a></dt>
 <dd><p>Return a short docstring describing the spline wavelet order.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets.get_name">
-<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets.get_name" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.Spline3Wavelets.get_name">
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.Spline3Wavelets.get_name" title="Link to this definition">#</a></dt>
 <dd><p>Return ‘Spline{order}’.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.splinewavelets.</span></span><span class="sig-name descname"><span class="pre">Spline5Wavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets" title="splineops.multiscale.wavelets.splinewavelets.SplineWavelets"><code class="xref py py-class docutils literal notranslate"><span class="pre">SplineWavelets</span></code></a></p>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.Spline5Wavelets">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.spline_wavelets.</span></span><span class="sig-name descname"><span class="pre">Spline5Wavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.Spline5Wavelets" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets" title="splineops.multiscale.wavelets.spline_wavelets.SplineWavelets"><code class="xref py py-class docutils literal notranslate"><span class="pre">SplineWavelets</span></code></a></p>
 <p>Spline Wavelets of order=5.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets.get_documentation">
-<span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets.get_documentation" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.Spline5Wavelets.get_documentation">
+<span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.Spline5Wavelets.get_documentation" title="Link to this definition">#</a></dt>
 <dd><p>Return a short docstring describing the spline wavelet order.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets.get_name">
-<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets.get_name" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.Spline5Wavelets.get_name">
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.Spline5Wavelets.get_name" title="Link to this definition">#</a></dt>
 <dd><p>Return ‘Spline{order}’.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.SplineWavelets">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.splinewavelets.</span></span><span class="sig-name descname"><span class="pre">SplineWavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets" title="splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractWavelets</span></code></a></p>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.SplineWavelets">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.spline_wavelets.</span></span><span class="sig-name descname"><span class="pre">SplineWavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets" title="splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractWavelets</span></code></a></p>
 <p>A generic spline wavelet class that references a given ‘order’ (1,3,5).
 Uses row-&gt;column passes with mirror boundary to compute detail.</p>
 <dl class="field-list simple">
@@ -948,8 +948,8 @@ Uses row-&gt;column passes with mirror boundary to compute detail.</p>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.SplineWavelets.filter">
-<span class="sig-name descname"><span class="pre">filter</span></span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.filter" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.filter">
+<span class="sig-name descname"><span class="pre">filter</span></span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.filter" title="Link to this definition">#</a></dt>
 <dd><p>Holds the arrays h[] (lowpass) and g[] (highpass).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -959,8 +959,8 @@ Uses row-&gt;column passes with mirror boundary to compute detail.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.SplineWavelets.analysis1">
-<span class="sig-name descname"><span class="pre">analysis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.analysis1" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.analysis1">
+<span class="sig-name descname"><span class="pre">analysis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.analysis1" title="Link to this definition">#</a></dt>
 <dd><p>Single-scale 2D spline wavelet analysis pass:
 - Row pass (splitMirror)
 - Column pass (splitMirror)</p>
@@ -978,20 +978,20 @@ Uses row-&gt;column passes with mirror boundary to compute detail.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.SplineWavelets.get_documentation">
-<span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.get_documentation" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.get_documentation">
+<span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.get_documentation" title="Link to this definition">#</a></dt>
 <dd><p>Return a short docstring describing the spline wavelet order.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.SplineWavelets.get_name">
-<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.get_name" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.get_name">
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.get_name" title="Link to this definition">#</a></dt>
 <dd><p>Return ‘Spline{order}’.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewavelets.SplineWavelets.synthesis1">
-<span class="sig-name descname"><span class="pre">synthesis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.synthesis1" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.synthesis1">
+<span class="sig-name descname"><span class="pre">synthesis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.synthesis1" title="Link to this definition">#</a></dt>
 <dd><p>Single-scale 2D spline wavelet synthesis pass:
 - Column pass (mergeMirror)
 - Row pass (mergeMirror)</p>
@@ -1010,14 +1010,14 @@ Uses row-&gt;column passes with mirror boundary to compute detail.</p>
 
 </dd></dl>
 
-<section id="splinewaveletstool-py">
-<span id="module-splineops.multiscale.wavelets.splinewaveletstool"></span><h3>splinewaveletstool.py<a class="headerlink" href="#splinewaveletstool-py" title="Link to this heading">#</a></h3>
+<section id="spline-wavelets-tool-py">
+<span id="module-splineops.multiscale.wavelets.spline_wavelets_tool"></span><h3>spline_wavelets_tool.py<a class="headerlink" href="#spline-wavelets-tool-py" title="Link to this heading">#</a></h3>
 <p>Uses a SplineFilter to get h[] and g[], then does ‘splitMirror’ and
 ‘mergeMirror’ passes on rows, then columns.</p>
 </section>
 <dl class="py class">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.splinewaveletstool.</span></span><span class="sig-name descname"><span class="pre">SplineWaveletsTool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets_tool.SplineWaveletsTool">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.spline_wavelets_tool.</span></span><span class="sig-name descname"><span class="pre">SplineWaveletsTool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets_tool.SplineWaveletsTool" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Equivalent of SplineWaveletsTool.java for 2D analysis/synthesis.</p>
 <dl class="field-list simple">
@@ -1029,8 +1029,8 @@ Uses row-&gt;column passes with mirror boundary to compute detail.</p>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.filters">
-<span class="sig-name descname"><span class="pre">filters</span></span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.filters" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets_tool.SplineWaveletsTool.filters">
+<span class="sig-name descname"><span class="pre">filters</span></span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets_tool.SplineWaveletsTool.filters" title="Link to this definition">#</a></dt>
 <dd><p>Holds arrays h (lowpass) and g (highpass).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1040,22 +1040,22 @@ Uses row-&gt;column passes with mirror boundary to compute detail.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.analysis1">
-<span class="sig-name descname"><span class="pre">analysis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.analysis1" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets_tool.SplineWaveletsTool.analysis1">
+<span class="sig-name descname"><span class="pre">analysis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets_tool.SplineWaveletsTool.analysis1" title="Link to this definition">#</a></dt>
 <dd><p>Single-scale 2D analysis (row pass then column pass).</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.synthesis1">
-<span class="sig-name descname"><span class="pre">synthesis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.synthesis1" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets_tool.SplineWaveletsTool.synthesis1">
+<span class="sig-name descname"><span class="pre">synthesis1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets_tool.SplineWaveletsTool.synthesis1" title="Link to this definition">#</a></dt>
 <dd><p>Single-scale 2D synthesis (inverse).</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewaveletstool.merge_mirror_1d">
-<span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.splinewaveletstool.</span></span><span class="sig-name descname"><span class="pre">merge_mirror_1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewaveletstool.merge_mirror_1d" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets_tool.merge_mirror_1d">
+<span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.spline_wavelets_tool.</span></span><span class="sig-name descname"><span class="pre">merge_mirror_1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets_tool.merge_mirror_1d" title="Link to this definition">#</a></dt>
 <dd><p>Inverse of split_mirror_1d. Recombines lowpass and highpass into original signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1075,8 +1075,8 @@ Uses row-&gt;column passes with mirror boundary to compute detail.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="splineops.multiscale.wavelets.splinewaveletstool.split_mirror_1d">
-<span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.splinewaveletstool.</span></span><span class="sig-name descname"><span class="pre">split_mirror_1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.splinewaveletstool.split_mirror_1d" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets_tool.split_mirror_1d">
+<span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.spline_wavelets_tool.</span></span><span class="sig-name descname"><span class="pre">split_mirror_1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets_tool.split_mirror_1d" title="Link to this definition">#</a></dt>
 <dd><p>1D mirror-based ‘split’ producing lowpass + highpass sub-bands.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1150,17 +1150,17 @@ Uses row-&gt;column passes with mirror boundary to compute detail.</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wavelet-modules">Wavelet Modules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-splineops.multiscale.wavelets.abstractwavelets">API Reference: Wavelets</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abstractwavelets-py">abstractwavelets.py</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.scales"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.scales</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.analysis"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.analysis()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.analysis1"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.analysis1()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.get_documentation"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.get_documentation()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.get_name"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.get_name()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.set_scale"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.set_scale()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.synthesis"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.synthesis()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstractwavelets.AbstractWavelets.synthesis1"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.synthesis1()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-splineops.multiscale.wavelets.abstract_wavelets">API Reference: Wavelets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract-wavelets-py">abstract_wavelets.py</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.scales"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.scales</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.analysis"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.analysis()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.analysis1"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.analysis1()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.get_documentation"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.get_documentation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.get_name"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.get_name()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.set_scale"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.set_scale()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.synthesis"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.synthesis()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.synthesis1"><code class="docutils literal notranslate"><span class="pre">AbstractWavelets.synthesis1()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#haar-py">haar.py</a></li>
@@ -1172,39 +1172,39 @@ Uses row-&gt;column passes with mirror boundary to compute detail.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.haar.HaarWavelets.synthesis1"><code class="docutils literal notranslate"><span class="pre">HaarWavelets.synthesis1()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splinewavelets-py">splinewavelets.py</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets"><code class="docutils literal notranslate"><span class="pre">Spline1Wavelets</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets.get_documentation"><code class="docutils literal notranslate"><span class="pre">Spline1Wavelets.get_documentation()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline1Wavelets.get_name"><code class="docutils literal notranslate"><span class="pre">Spline1Wavelets.get_name()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spline-wavelets-py">spline_wavelets.py</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.Spline1Wavelets"><code class="docutils literal notranslate"><span class="pre">Spline1Wavelets</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.Spline1Wavelets.get_documentation"><code class="docutils literal notranslate"><span class="pre">Spline1Wavelets.get_documentation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.Spline1Wavelets.get_name"><code class="docutils literal notranslate"><span class="pre">Spline1Wavelets.get_name()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets"><code class="docutils literal notranslate"><span class="pre">Spline3Wavelets</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets.get_documentation"><code class="docutils literal notranslate"><span class="pre">Spline3Wavelets.get_documentation()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline3Wavelets.get_name"><code class="docutils literal notranslate"><span class="pre">Spline3Wavelets.get_name()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.Spline3Wavelets"><code class="docutils literal notranslate"><span class="pre">Spline3Wavelets</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.Spline3Wavelets.get_documentation"><code class="docutils literal notranslate"><span class="pre">Spline3Wavelets.get_documentation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.Spline3Wavelets.get_name"><code class="docutils literal notranslate"><span class="pre">Spline3Wavelets.get_name()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets"><code class="docutils literal notranslate"><span class="pre">Spline5Wavelets</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets.get_documentation"><code class="docutils literal notranslate"><span class="pre">Spline5Wavelets.get_documentation()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.Spline5Wavelets.get_name"><code class="docutils literal notranslate"><span class="pre">Spline5Wavelets.get_name()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.Spline5Wavelets"><code class="docutils literal notranslate"><span class="pre">Spline5Wavelets</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.Spline5Wavelets.get_documentation"><code class="docutils literal notranslate"><span class="pre">Spline5Wavelets.get_documentation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.Spline5Wavelets.get_name"><code class="docutils literal notranslate"><span class="pre">Spline5Wavelets.get_name()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets"><code class="docutils literal notranslate"><span class="pre">SplineWavelets</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.filter"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.filter</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.analysis1"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.analysis1()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.get_documentation"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.get_documentation()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.get_name"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.get_name()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewavelets.SplineWavelets.synthesis1"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.synthesis1()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets"><code class="docutils literal notranslate"><span class="pre">SplineWavelets</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.filter"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.filter</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.analysis1"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.analysis1()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.get_documentation"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.get_documentation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.get_name"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.get_name()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.synthesis1"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.synthesis1()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splinewaveletstool-py">splinewaveletstool.py</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool"><code class="docutils literal notranslate"><span class="pre">SplineWaveletsTool</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.filters"><code class="docutils literal notranslate"><span class="pre">SplineWaveletsTool.filters</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.analysis1"><code class="docutils literal notranslate"><span class="pre">SplineWaveletsTool.analysis1()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewaveletstool.SplineWaveletsTool.synthesis1"><code class="docutils literal notranslate"><span class="pre">SplineWaveletsTool.synthesis1()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spline-wavelets-tool-py">spline_wavelets_tool.py</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets_tool.SplineWaveletsTool"><code class="docutils literal notranslate"><span class="pre">SplineWaveletsTool</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets_tool.SplineWaveletsTool.filters"><code class="docutils literal notranslate"><span class="pre">SplineWaveletsTool.filters</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets_tool.SplineWaveletsTool.analysis1"><code class="docutils literal notranslate"><span class="pre">SplineWaveletsTool.analysis1()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets_tool.SplineWaveletsTool.synthesis1"><code class="docutils literal notranslate"><span class="pre">SplineWaveletsTool.synthesis1()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewaveletstool.merge_mirror_1d"><code class="docutils literal notranslate"><span class="pre">merge_mirror_1d()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.splinewaveletstool.split_mirror_1d"><code class="docutils literal notranslate"><span class="pre">split_mirror_1d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets_tool.merge_mirror_1d"><code class="docutils literal notranslate"><span class="pre">merge_mirror_1d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets_tool.split_mirror_1d"><code class="docutils literal notranslate"><span class="pre">split_mirror_1d()</span></code></a></li>
 </ul>
 </li>
 </ul>

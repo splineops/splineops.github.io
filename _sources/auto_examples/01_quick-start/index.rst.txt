@@ -26,7 +26,7 @@ Examples showing the basic functionality of the Spline interpolation module.
   .. image:: /auto_examples/01_quick-start/images/thumb/sphx_glr_01_01_tensorspline_class_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_01_quick-start_01_01_tensorspline_class.py`
+  :doc:`/auto_examples/01_quick-start/01_01_tensorspline_class`
 
 .. raw:: html
 
@@ -36,18 +36,18 @@ Examples showing the basic functionality of the Spline interpolation module.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Plotting the spline bases of the library.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Plotting the spline bases of the library and several transformations and operations.">
 
 .. only:: html
 
   .. image:: /auto_examples/01_quick-start/images/thumb/sphx_glr_01_02_spline_bases_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_01_quick-start_01_02_spline_bases.py`
+  :doc:`/auto_examples/01_quick-start/01_02_spline_bases`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Spline bases</div>
+      <div class="sphx-glr-thumbnail-title">Spline Bases</div>
     </div>
 
 
@@ -60,11 +60,11 @@ Examples showing the basic functionality of the Spline interpolation module.
   .. image:: /auto_examples/01_quick-start/images/thumb/sphx_glr_01_03_extension_modes_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_01_quick-start_01_03_extension_modes.py`
+  :doc:`/auto_examples/01_quick-start/01_03_extension_modes`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Extension modes</div>
+      <div class="sphx-glr-thumbnail-title">Extension Modes</div>
     </div>
 
 

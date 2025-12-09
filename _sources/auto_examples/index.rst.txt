@@ -42,7 +42,7 @@ Examples showing the basic functionality of the Spline interpolation module.
   .. image:: /auto_examples/01_quick-start/images/thumb/sphx_glr_01_01_tensorspline_class_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_01_quick-start_01_01_tensorspline_class.py`
+  :doc:`/auto_examples/01_quick-start/01_01_tensorspline_class`
 
 .. raw:: html
 
@@ -52,18 +52,18 @@ Examples showing the basic functionality of the Spline interpolation module.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Plotting the spline bases of the library.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Plotting the spline bases of the library and several transformations and operations.">
 
 .. only:: html
 
   .. image:: /auto_examples/01_quick-start/images/thumb/sphx_glr_01_02_spline_bases_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_01_quick-start_01_02_spline_bases.py`
+  :doc:`/auto_examples/01_quick-start/01_02_spline_bases`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Spline bases</div>
+      <div class="sphx-glr-thumbnail-title">Spline Bases</div>
     </div>
 
 
@@ -76,11 +76,11 @@ Examples showing the basic functionality of the Spline interpolation module.
   .. image:: /auto_examples/01_quick-start/images/thumb/sphx_glr_01_03_extension_modes_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_01_quick-start_01_03_extension_modes.py`
+  :doc:`/auto_examples/01_quick-start/01_03_extension_modes`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Extension modes</div>
+      <div class="sphx-glr-thumbnail-title">Extension Modes</div>
     </div>
 
 
@@ -90,12 +90,12 @@ Examples showing the basic functionality of the Spline interpolation module.
 
     </div>
 
-.. splineops/examples/02_resampling_using_1d_interpolation/GALLERY_HEADER.rst
+.. splineops/examples/02_resampling_using_1d_samples/GALLERY_HEADER.rst
 
 Resampling using 1D Samples
 ===========================
 
-Examples using the Resize module on 1D samples.
+Examples using the Spline Interpolation and Resize modules on 1D samples.
 
 
 
@@ -111,14 +111,14 @@ Examples using the Resize module on 1D samples.
 
 .. only:: html
 
-  .. image:: /auto_examples/02_resampling_using_1d_interpolation/images/thumb/sphx_glr_02_01_interpolate_1d_samples_thumb.png
+  .. image:: /auto_examples/02_resampling_using_1d_samples/images/thumb/sphx_glr_02_01_interpolate_1d_samples_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_02_resampling_using_1d_interpolation_02_01_interpolate_1d_samples.py`
+  :doc:`/auto_examples/02_resampling_using_1d_samples/02_01_interpolate_1d_samples`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Interpolate 1D samples</div>
+      <div class="sphx-glr-thumbnail-title">Interpolate 1D Samples</div>
     </div>
 
 
@@ -128,14 +128,14 @@ Examples using the Resize module on 1D samples.
 
 .. only:: html
 
-  .. image:: /auto_examples/02_resampling_using_1d_interpolation/images/thumb/sphx_glr_02_02_resample_a_1d_spline_thumb.png
+  .. image:: /auto_examples/02_resampling_using_1d_samples/images/thumb/sphx_glr_02_02_resample_a_1d_spline_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_02_resampling_using_1d_interpolation_02_02_resample_a_1d_spline.py`
+  :doc:`/auto_examples/02_resampling_using_1d_samples/02_02_resample_a_1d_spline`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Resample a 1D spline</div>
+      <div class="sphx-glr-thumbnail-title">Resample a 1D Spline</div>
     </div>
 
 
@@ -145,14 +145,14 @@ Examples using the Resize module on 1D samples.
 
 .. only:: html
 
-  .. image:: /auto_examples/02_resampling_using_1d_interpolation/images/thumb/sphx_glr_02_03_compare_different_splines_thumb.png
+  .. image:: /auto_examples/02_resampling_using_1d_samples/images/thumb/sphx_glr_02_03_compare_different_splines_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_02_resampling_using_1d_interpolation_02_03_compare_different_splines.py`
+  :doc:`/auto_examples/02_resampling_using_1d_samples/02_03_compare_different_splines`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Compare different splines</div>
+      <div class="sphx-glr-thumbnail-title">Compare Different Splines</div>
     </div>
 
 
@@ -162,12 +162,12 @@ Examples using the Resize module on 1D samples.
 
     </div>
 
-.. splineops/examples/03_resampling_using_2d_interpolation/GALLERY_HEADER.rst
+.. splineops/examples/03_resampling_using_nd_samples/GALLERY_HEADER.rst
 
-Resampling using 2D Samples
+Resampling using ND Samples
 ===========================
 
-Examples using the Resize module on 2D samples.
+Examples using the Spline Interpolation and Resize modules on multidimensional samples, specially 1D and 2D.
 
 
 .. raw:: html
@@ -178,18 +178,35 @@ Examples using the Resize module on 2D samples.
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Starting from a 1D signal f[k] on a unit grid, we perform a 1D resize directly on the samples and compare:">
+
+.. only:: html
+
+  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_01_resize_module_1d_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/03_resampling_using_nd_samples/03_01_resize_module_1d`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Resize Module 1D</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Shrink and re-expand a 2-D RGB image with splineops, then discuss aliasing.">
 
 .. only:: html
 
-  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_01_resize_module_thumb.png
+  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_02_resize_module_2d_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_01_resize_module.py`
+  :doc:`/auto_examples/03_resampling_using_nd_samples/03_02_resize_module_2d`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Resize Module</div>
+      <div class="sphx-glr-thumbnail-title">Resize Module 2D</div>
     </div>
 
 
@@ -199,10 +216,10 @@ Examples using the Resize module on 2D samples.
 
 .. only:: html
 
-  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_02_standard_interpolation_thumb.png
+  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_03_standard_interpolation_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_02_standard_interpolation.py`
+  :doc:`/auto_examples/03_resampling_using_nd_samples/03_03_standard_interpolation`
 
 .. raw:: html
 
@@ -212,31 +229,31 @@ Examples using the Resize module on 2D samples.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 2D images with least-squares projection. Compare them to standard interpolation. We compute SNR and MSE only on a central region to exclude boundary artifacts.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 2D images with an antialiased down-sampling step and compare the result to standard interpolation.">
 
 .. only:: html
 
-  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_03_least-squares_projection_thumb.png
+  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_04_antialiasing_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_03_least-squares_projection.py`
+  :doc:`/auto_examples/03_resampling_using_nd_samples/03_04_antialiasing`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Least-Squares Projection</div>
+      <div class="sphx-glr-thumbnail-title">Antialiasing</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We construct an A/B corner mix image where, in each 2x2 tile, the top-left pixel comes from image A and the other three come from B. We then:">
+    <div class="sphx-glr-thumbcontainer" tooltip="We construct an A/B corner mix image where, in each 2×2 tile, the top-left pixel comes from image A and the other three come from B. We then:">
 
 .. only:: html
 
-  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_04_how_bad_aliasing_can_be_thumb.png
+  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_05_how_bad_aliasing_can_be_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_04_how_bad_aliasing_can_be.py`
+  :doc:`/auto_examples/03_resampling_using_nd_samples/03_05_how_bad_aliasing_can_be`
 
 .. raw:: html
 
@@ -246,31 +263,14 @@ Examples using the Resize module on 2D samples.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 2D images with an oblique projection and compare against least-squares projection. SNR/MSE are computed on a central region (via border_fraction) to reduce boundary artifacts, while visual comparisons use a face ROI.">
-
-.. only:: html
-
-  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_05_oblique_projection_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_05_oblique_projection.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Oblique Projection</div>
-    </div>
-
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="This example benchmarks several 2D downsampling methods over a set of test images. For each image we:">
 
 .. only:: html
 
-  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_06_benchmarking_thumb.png
+  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_06_benchmarking_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_06_benchmarking.py`
+  :doc:`/auto_examples/03_resampling_using_nd_samples/03_06_benchmarking`
 
 .. raw:: html
 
@@ -280,14 +280,14 @@ Examples using the Resize module on 2D samples.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example performs a 1D sweep of zoom factors and evaluates how different 2D downsampling methods behave in terms of">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example performs a 1D sweep of zoom factors and evaluates how different 2D interpolation / downsampling methods behave in terms of">
 
 .. only:: html
 
-  .. image:: /auto_examples/03_resampling_using_2D_interpolation/images/thumb/sphx_glr_03_07_benchmarking_plot_thumb.png
+  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_07_benchmarking_plot_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_03_resampling_using_2D_interpolation_03_07_benchmarking_plot.py`
+  :doc:`/auto_examples/03_resampling_using_nd_samples/03_07_benchmarking_plot`
 
 .. raw:: html
 
@@ -324,7 +324,7 @@ Examples using the Rotate module.
   .. image:: /auto_examples/04_rotate/images/thumb/sphx_glr_04_01_rotate_image_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_04_rotate_04_01_rotate_image.py`
+  :doc:`/auto_examples/04_rotate/04_01_rotate_image`
 
 .. raw:: html
 
@@ -341,7 +341,7 @@ Examples using the Rotate module.
   .. image:: /auto_examples/04_rotate/images/thumb/sphx_glr_04_02_rotation_animation_thumb.gif
     :alt:
 
-  :ref:`sphx_glr_auto_examples_04_rotate_04_02_rotation_animation.py`
+  :doc:`/auto_examples/04_rotate/04_02_rotation_animation`
 
 .. raw:: html
 
@@ -378,7 +378,7 @@ Examples using the Adaptive regression splines module.
   .. image:: /auto_examples/05_adaptive_regression_splines/images/thumb/sphx_glr_05_01_adaptive_regression_splines_module_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_05_adaptive_regression_splines_05_01_adaptive_regression_splines_module.py`
+  :doc:`/auto_examples/05_adaptive_regression_splines/05_01_adaptive_regression_splines_module`
 
 .. raw:: html
 
@@ -415,7 +415,7 @@ Examples using the Smoothing splines module.
   .. image:: /auto_examples/06_smoothing_splines/images/thumb/sphx_glr_06_01_1d_fractional_brownian_motion_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_06_smoothing_splines_06_01_1d_fractional_brownian_motion.py`
+  :doc:`/auto_examples/06_smoothing_splines/06_01_1d_fractional_brownian_motion`
 
 .. raw:: html
 
@@ -425,14 +425,14 @@ Examples using the Smoothing splines module.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We use the smooth module to smooth a 2D image.">
+    <div class="sphx-glr-thumbcontainer" tooltip="We use the smooth module to smooth a 2D grayscale image, with strong visible noise.">
 
 .. only:: html
 
   .. image:: /auto_examples/06_smoothing_splines/images/thumb/sphx_glr_06_02_2d_image_smoothing_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_06_smoothing_splines_06_02_2d_image_smoothing.py`
+  :doc:`/auto_examples/06_smoothing_splines/06_02_2d_image_smoothing`
 
 .. raw:: html
 
@@ -449,7 +449,7 @@ Examples using the Smoothing splines module.
   .. image:: /auto_examples/06_smoothing_splines/images/thumb/sphx_glr_06_03_3d_volume_smoothing_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_06_smoothing_splines_06_03_3d_volume_smoothing.py`
+  :doc:`/auto_examples/06_smoothing_splines/06_03_3d_volume_smoothing`
 
 .. raw:: html
 
@@ -466,7 +466,7 @@ Examples using the Smoothing splines module.
   .. image:: /auto_examples/06_smoothing_splines/images/thumb/sphx_glr_06_04_recursive_smoothing_spline_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_06_smoothing_splines_06_04_recursive_smoothing_spline.py`
+  :doc:`/auto_examples/06_smoothing_splines/06_04_recursive_smoothing_spline`
 
 .. raw:: html
 
@@ -503,7 +503,7 @@ Examples using the Differentials module.
   .. image:: /auto_examples/07_differentials/images/thumb/sphx_glr_07_01_differentials_module_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_07_differentials_07_01_differentials_module.py`
+  :doc:`/auto_examples/07_differentials/07_01_differentials_module`
 
 .. raw:: html
 
@@ -540,7 +540,7 @@ Examples using the Multiscale module.
   .. image:: /auto_examples/08_multiscale/images/thumb/sphx_glr_08_01_pyramid_decomposition_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_08_multiscale_08_01_pyramid_decomposition.py`
+  :doc:`/auto_examples/08_multiscale/08_01_pyramid_decomposition`
 
 .. raw:: html
 
@@ -557,7 +557,7 @@ Examples using the Multiscale module.
   .. image:: /auto_examples/08_multiscale/images/thumb/sphx_glr_08_02_wavelet_decomposition_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_08_multiscale_08_02_wavelet_decomposition.py`
+  :doc:`/auto_examples/08_multiscale/08_02_wavelet_decomposition`
 
 .. raw:: html
 
@@ -578,8 +578,8 @@ Examples using the Multiscale module.
 
 
    /auto_examples/01_quick-start/index.rst
-   /auto_examples/02_resampling_using_1d_interpolation/index.rst
-   /auto_examples/03_resampling_using_2D_interpolation/index.rst
+   /auto_examples/02_resampling_using_1d_samples/index.rst
+   /auto_examples/03_resampling_using_nd_samples/index.rst
    /auto_examples/04_rotate/index.rst
    /auto_examples/05_adaptive_regression_splines/index.rst
    /auto_examples/06_smoothing_splines/index.rst

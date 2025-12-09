@@ -1,0 +1,155 @@
+
+
+.. _sphx_glr_auto_examples_03_resampling_using_nd_samples:
+
+.. splineops/examples/03_resampling_using_nd_samples/GALLERY_HEADER.rst
+
+Resampling using ND Samples
+===========================
+
+Examples using the Spline Interpolation and Resize modules on multidimensional samples, specially 1D and 2D.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Starting from a 1D signal f[k] on a unit grid, we perform a 1D resize directly on the samples and compare:">
+
+.. only:: html
+
+  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_01_resize_module_1d_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/03_resampling_using_nd_samples/03_01_resize_module_1d`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Resize Module 1D</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Shrink and re-expand a 2-D RGB image with splineops, then discuss aliasing.">
+
+.. only:: html
+
+  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_02_resize_module_2d_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/03_resampling_using_nd_samples/03_02_resize_module_2d`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Resize Module 2D</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 2D images with standard interpolation. Compare them to SciPy zoom. We compute SNR and MSE on a face ROI (not the whole frame) to focus on detail and avoid boundary artifacts.">
+
+.. only:: html
+
+  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_03_standard_interpolation_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/03_resampling_using_nd_samples/03_03_standard_interpolation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Standard Interpolation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 2D images with an antialiased down-sampling step and compare the result to standard interpolation.">
+
+.. only:: html
+
+  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_04_antialiasing_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/03_resampling_using_nd_samples/03_04_antialiasing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Antialiasing</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="We construct an A/B corner mix image where, in each 2×2 tile, the top-left pixel comes from image A and the other three come from B. We then:">
+
+.. only:: html
+
+  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_05_how_bad_aliasing_can_be_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/03_resampling_using_nd_samples/03_05_how_bad_aliasing_can_be`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">How Bad Aliasing Can Be</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example benchmarks several 2D downsampling methods over a set of test images. For each image we:">
+
+.. only:: html
+
+  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_06_benchmarking_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/03_resampling_using_nd_samples/03_06_benchmarking`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Benchmarking</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example performs a 1D sweep of zoom factors and evaluates how different 2D interpolation / downsampling methods behave in terms of">
+
+.. only:: html
+
+  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_07_benchmarking_plot_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/03_resampling_using_nd_samples/03_07_benchmarking_plot`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Benchmarking Plot</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/03_resampling_using_nd_samples/03_01_resize_module_1d
+   /auto_examples/03_resampling_using_nd_samples/03_02_resize_module_2d
+   /auto_examples/03_resampling_using_nd_samples/03_03_standard_interpolation
+   /auto_examples/03_resampling_using_nd_samples/03_04_antialiasing
+   /auto_examples/03_resampling_using_nd_samples/03_05_how_bad_aliasing_can_be
+   /auto_examples/03_resampling_using_nd_samples/03_06_benchmarking
+   /auto_examples/03_resampling_using_nd_samples/03_07_benchmarking_plot
+

@@ -25,7 +25,7 @@ Examples using the Smoothing splines module.
   .. image:: /auto_examples/06_smoothing_splines/images/thumb/sphx_glr_06_01_1d_fractional_brownian_motion_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_06_smoothing_splines_06_01_1d_fractional_brownian_motion.py`
+  :doc:`/auto_examples/06_smoothing_splines/06_01_1d_fractional_brownian_motion`
 
 .. raw:: html
 
@@ -35,14 +35,14 @@ Examples using the Smoothing splines module.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We use the smooth module to smooth a 2D image.">
+    <div class="sphx-glr-thumbcontainer" tooltip="We use the smooth module to smooth a 2D grayscale image, with strong visible noise.">
 
 .. only:: html
 
   .. image:: /auto_examples/06_smoothing_splines/images/thumb/sphx_glr_06_02_2d_image_smoothing_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_06_smoothing_splines_06_02_2d_image_smoothing.py`
+  :doc:`/auto_examples/06_smoothing_splines/06_02_2d_image_smoothing`
 
 .. raw:: html
 
@@ -59,7 +59,7 @@ Examples using the Smoothing splines module.
   .. image:: /auto_examples/06_smoothing_splines/images/thumb/sphx_glr_06_03_3d_volume_smoothing_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_06_smoothing_splines_06_03_3d_volume_smoothing.py`
+  :doc:`/auto_examples/06_smoothing_splines/06_03_3d_volume_smoothing`
 
 .. raw:: html
 
@@ -76,7 +76,7 @@ Examples using the Smoothing splines module.
   .. image:: /auto_examples/06_smoothing_splines/images/thumb/sphx_glr_06_04_recursive_smoothing_spline_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_06_smoothing_splines_06_04_recursive_smoothing_spline.py`
+  :doc:`/auto_examples/06_smoothing_splines/06_04_recursive_smoothing_spline`
 
 .. raw:: html
 

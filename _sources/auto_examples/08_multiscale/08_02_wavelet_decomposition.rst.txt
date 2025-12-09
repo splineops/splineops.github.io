@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_auto_examples_08_multiscale_08_02_wavelet_decomposition.py>`
-        to download the full example code. or to run this example in your browser via Binder
+        to download the full example code or to run this example in your browser via Binder.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -29,7 +29,7 @@ Haar wavelet decomposition (analysis & synthesis) in 2D.
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 16-32
+.. GENERATED FROM PYTHON SOURCE LINES 16-27
 
 .. code-block:: Python
 
@@ -43,11 +43,6 @@ Imports
 
     # Wavelet classes for 2D
     from splineops.multiscale.wavelets.haar import HaarWavelets
-    from splineops.multiscale.wavelets.splinewavelets import (
-        Spline1Wavelets,
-        Spline3Wavelets,
-        Spline5Wavelets
-    )
 
 
 
@@ -56,7 +51,7 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-38
+.. GENERATED FROM PYTHON SOURCE LINES 28-33
 
 Load and Normalize a 2D Image
 -----------------------------
@@ -64,7 +59,7 @@ Load and Normalize a 2D Image
 Here, we load an example image from an online repository. 
 We convert it to grayscale in [0,1].
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-130
+.. GENERATED FROM PYTHON SOURCE LINES 33-125
 
 .. code-block:: Python
 
@@ -173,7 +168,7 @@ We convert it to grayscale in [0,1].
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 131-136
+.. GENERATED FROM PYTHON SOURCE LINES 126-131
 
 2D Wavelet Decomposition
 ------------------------
@@ -181,7 +176,7 @@ We convert it to grayscale in [0,1].
 We demonstrate wavelet decomposition (analysis) and reconstruction (synthesis)
 using 2D Haar wavelets on a grayscale image.
 
-.. GENERATED FROM PYTHON SOURCE LINES 136-182
+.. GENERATED FROM PYTHON SOURCE LINES 131-177
 
 .. code-block:: Python
 
@@ -245,12 +240,12 @@ using 2D Haar wavelets on a grayscale image.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 183-185
+.. GENERATED FROM PYTHON SOURCE LINES 178-180
 
 1-Level Decomposition
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 185-197
+.. GENERATED FROM PYTHON SOURCE LINES 180-192
 
 .. code-block:: Python
 
@@ -278,12 +273,12 @@ using 2D Haar wavelets on a grayscale image.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 198-200
+.. GENERATED FROM PYTHON SOURCE LINES 193-195
 
 2-Level Decomposition
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 200-211
+.. GENERATED FROM PYTHON SOURCE LINES 195-206
 
 .. code-block:: Python
 
@@ -310,12 +305,12 @@ using 2D Haar wavelets on a grayscale image.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 212-214
+.. GENERATED FROM PYTHON SOURCE LINES 207-209
 
 3-Level Decomposition
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 214-224
+.. GENERATED FROM PYTHON SOURCE LINES 209-219
 
 .. code-block:: Python
 
@@ -344,7 +339,7 @@ using 2D Haar wavelets on a grayscale image.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.797 seconds)
+   **Total running time of the script:** (0 minutes 3.124 seconds)
 
 
 .. _sphx_glr_download_auto_examples_08_multiscale_08_02_wavelet_decomposition.py:
