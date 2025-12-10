@@ -1,0 +1,139 @@
+
+
+.. _sphx_glr_auto_examples_01_spline_interpolation:
+
+.. splineops/examples/01_spline_interpolation/GALLERY_HEADER.rst
+
+Spline Interpolation Examples
+=============================
+
+Examples showing the basic functionality of the Spline interpolation module.
+We also show the equivalence with Resize module methods where relevant.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Showcase TensorSpline class basic functionality.">
+
+.. only:: html
+
+  .. image:: /auto_examples/01_spline_interpolation/images/thumb/sphx_glr_01_tensorspline_class_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/01_spline_interpolation/01_tensorspline_class`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Class TensorSpline</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plotting the spline bases of the library and several transformations and operations.">
+
+.. only:: html
+
+  .. image:: /auto_examples/01_spline_interpolation/images/thumb/sphx_glr_02_spline_bases_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/01_spline_interpolation/02_spline_bases`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Spline Bases</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plotting different extension modes of signals.">
+
+.. only:: html
+
+  .. image:: /auto_examples/01_spline_interpolation/images/thumb/sphx_glr_03_extension_modes_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/01_spline_interpolation/03_extension_modes`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Extension Modes</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 1D samples with standard interpolation.">
+
+.. only:: html
+
+  .. image:: /auto_examples/01_spline_interpolation/images/thumb/sphx_glr_04_interpolate_1d_samples_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/01_spline_interpolation/04_interpolate_1d_samples`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Interpolate 1D Samples</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Resample a 1D spline with different sampling rate.">
+
+.. only:: html
+
+  .. image:: /auto_examples/01_spline_interpolation/images/thumb/sphx_glr_05_resample_a_1d_spline_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/01_spline_interpolation/05_resample_a_1d_spline`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Resample a 1D Spline</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Obtain a spline through different methods and compare the results.">
+
+.. only:: html
+
+  .. image:: /auto_examples/01_spline_interpolation/images/thumb/sphx_glr_06_compare_different_splines_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/01_spline_interpolation/06_compare_different_splines`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Compare Different Splines</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/01_spline_interpolation/01_tensorspline_class
+   /auto_examples/01_spline_interpolation/02_spline_bases
+   /auto_examples/01_spline_interpolation/03_extension_modes
+   /auto_examples/01_spline_interpolation/04_interpolate_1d_samples
+   /auto_examples/01_spline_interpolation/05_resample_a_1d_spline
+   /auto_examples/01_spline_interpolation/06_compare_different_splines
+

@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=d55fa986"></script>
+    <script src="../_static/documentation_options.js?v=fc837d61"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -365,7 +365,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_spline_interpolation.html">Spline Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_rotate.html">Rotate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_affine.html">Affine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_adaptive_regression_splines.html">Adaptive Regression Splines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_smoothing_splines.html">Smoothing Splines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_differentials.html">Differentials</a></li>
@@ -429,19 +429,86 @@
                   
   <section id="user-guide">
 <h1>User Guide<a class="headerlink" href="#user-guide" title="Link to this heading">#</a></h1>
-<p>This guide provides detailed explanations, tutorials, and examples to use the modules available in <cite>splineops</cite>.</p>
+<p>This guide provides detailed explanations, tutorials, and examples to use the modules available in <a class="reference internal" href="../api/index.html#api-index"><span class="std std-ref">SplineOps</span></a>.</p>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="01_spline_interpolation.html">Spline Interpolation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_rotate.html">Rotate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_adaptive_regression_splines.html">Adaptive Regression Splines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_smoothing_splines.html">Smoothing Splines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_differentials.html">Differentials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_multiscale.html">Multiscale</a></li>
-</ul>
 </div>
+<section id="module-overview">
+<h2>Module Overview<a class="headerlink" href="#module-overview" title="Link to this heading">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-3 sd-row-cols-xs-3 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md sd-card-hover sd-rounded-2 sd-border docutils">
+<img alt="Cubic B-spline basis" class="sd-card-img-top" src="../_images/sphx_glr_04_interpolate_1d_samples_003.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Spline Interpolation</div>
+<p class="sd-card-text">Extensible Python-based interpolation class for multidimensional data.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="01_spline_interpolation.html"><span class="doc">Spline Interpolation</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md sd-card-hover sd-rounded-2 sd-border docutils">
+<img alt="1D spline resampling" class="sd-card-img-top" src="../_images/sphx_glr_06_benchmarking_055.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Resize</div>
+<p class="sd-card-text">Fast, top quality projection methods to resample multidimensional data.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="02_resize.html"><span class="doc">Resize</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md sd-card-hover sd-rounded-2 sd-border docutils">
+<img alt="Rotated image example" class="sd-card-img-top" src="../_images/sphx_glr_01_rotate_image_001.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Affine</div>
+<p class="sd-card-text">Affine transforms on 2D/3D data using spline interpolation.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="03_affine.html"><span class="doc">Affine</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md sd-card-hover sd-rounded-2 sd-border docutils">
+<img alt="Piecewise-linear regression" class="sd-card-img-top" src="../_images/sphx_glr_01_adaptive_regression_splines_module_004.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Adaptive Regression Splines</div>
+<p class="sd-card-text">Perform sparsest linear regression on 1D data.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="04_adaptive_regression_splines.html"><span class="doc">Adaptive Regression Splines</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md sd-card-hover sd-rounded-2 sd-border docutils">
+<img alt="Smoothing spline on an image" class="sd-card-img-top" src="../_images/sphx_glr_01_1d_fractional_brownian_motion_001.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Smoothing Splines</div>
+<p class="sd-card-text">Fit splines to noisy data.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="05_smoothing_splines.html"><span class="doc">Smoothing Splines</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md sd-card-hover sd-rounded-2 sd-border docutils">
+<img alt="Gradient/Laplacian visualisation" class="sd-card-img-top" src="../_images/sphx_glr_01_differentials_module_002.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Differentials</div>
+<p class="sd-card-text">Compute first and second-order derivatives on 2D images.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="06_differentials.html"><span class="doc">Differentials</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md sd-card-hover sd-rounded-2 sd-border docutils">
+<img alt="Multiscale / wavelet decomposition" class="sd-card-img-top" src="../_images/sphx_glr_02_wavelet_decomposition_001.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Multiscale</div>
+<p class="sd-card-text">Analyze 1D signals and 2D images at multiple scales.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="07_multiscale.html"><span class="doc">Multiscale</span></a></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
 
@@ -482,6 +549,18 @@
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-overview">Module Overview</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">

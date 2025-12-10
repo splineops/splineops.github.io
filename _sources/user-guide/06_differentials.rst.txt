@@ -7,8 +7,10 @@ Differentials
 
 Overview
 --------
-The *differentials* module in *splineops* provides a collection of algorithms for the computation of image differentials based on cubic B-spline interpolation [1]_, [2]_. 
-By modeling a grayscale image as a continuous function reconstructed from its discrete samples, the module enables the accurate computation of derivatives. 
+
+The :ref:`differentials <api-differentials>` module in :ref:`SplineOps <api-index>` provides a collection of algorithms for the 
+computation of image differentials based on cubic B-spline interpolation [1]_, [2]_. By modeling a grayscale image as a continuous function 
+reconstructed from its discrete samples, the module enables the accurate computation of derivatives. 
 It offers several operations such as
 
 - Gradient Magnitude: the local rate of change of the intensity;
@@ -102,10 +104,31 @@ The *Differentials* class implements these operations as follows: the input imag
 its interpolation coefficients. The differential-based computations that we perform are then perfectly consistent with this continuously defined function.
 We finally build the output image by sampling the ideal, continuously defined intermediate result.
 
+The following figure, taken from
+:ref:`sphx_glr_auto_examples_06_differentials_01_differentials_module.py`,
+shows some of these differential maps (gradient magnitude, gradient direction,
+Laplacian and Hessian-based quantities).
+
+.. image:: /auto_examples/06_differentials/images/sphx_glr_01_differentials_module_002.png
+   :align: center
+   :width: 100%
+
+.. image:: /auto_examples/06_differentials/images/sphx_glr_01_differentials_module_003.png
+   :align: center
+   :width: 100%
+
+.. image:: /auto_examples/06_differentials/images/sphx_glr_01_differentials_module_004.png
+   :align: center
+   :width: 100%
+
+.. image:: /auto_examples/06_differentials/images/sphx_glr_01_differentials_module_005.png
+   :align: center
+   :width: 100%
+
 Differentiate Examples
 ----------------------
 
-* :ref:`sphx_glr_auto_examples_07_differentials_07_01_differentials_module.py`
+* :ref:`sphx_glr_auto_examples_06_differentials_01_differentials_module.py`
 
 References
 ----------

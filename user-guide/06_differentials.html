@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=d55fa986"></script>
+    <script src="../_static/documentation_options.js?v=fc837d61"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -366,7 +366,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_spline_interpolation.html">Spline Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_rotate.html">Rotate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_affine.html">Affine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_adaptive_regression_splines.html">Adaptive Regression Splines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_smoothing_splines.html">Smoothing Splines</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Differentials</a></li>
@@ -435,8 +435,9 @@
 <h1>Differentials<a class="headerlink" href="#differentials" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>The <em>differentials</em> module in <em>splineops</em> provides a collection of algorithms for the computation of image differentials based on cubic B-spline interpolation <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.
-By modeling a grayscale image as a continuous function reconstructed from its discrete samples, the module enables the accurate computation of derivatives.
+<p>The <a class="reference internal" href="../api/06_differentials.html#api-differentials"><span class="std std-ref">differentials</span></a> module in <a class="reference internal" href="../api/index.html#api-index"><span class="std std-ref">SplineOps</span></a> provides a collection of algorithms for the
+computation of image differentials based on cubic B-spline interpolation <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. By modeling a grayscale image as a continuous function
+reconstructed from its discrete samples, the module enables the accurate computation of derivatives.
 It offers several operations such as</p>
 <ul class="simple">
 <li><p>Gradient Magnitude: the local rate of change of the intensity;</p></li>
@@ -508,11 +509,23 @@ This operation returns the orientation that corresponds to the maximal second de
 <p>The <em>Differentials</em> class implements these operations as follows: the input image is provided by its samples. We assume it to be a cubic B-spline and first determine
 its interpolation coefficients. The differential-based computations that we perform are then perfectly consistent with this continuously defined function.
 We finally build the output image by sampling the ideal, continuously defined intermediate result.</p>
+<p>The following figure, taken from
+<a class="reference internal" href="../auto_examples/06_differentials/01_differentials_module.html#sphx-glr-auto-examples-06-differentials-01-differentials-module-py"><span class="std std-ref">Differentials Module</span></a>,
+shows some of these differential maps (gradient magnitude, gradient direction,
+Laplacian and Hessian-based quantities).</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_01_differentials_module_002.png"><img alt="../_images/sphx_glr_01_differentials_module_002.png" class="align-center" src="../_images/sphx_glr_01_differentials_module_002.png" style="width: 100%;" />
+</a>
+<a class="reference internal image-reference" href="../_images/sphx_glr_01_differentials_module_003.png"><img alt="../_images/sphx_glr_01_differentials_module_003.png" class="align-center" src="../_images/sphx_glr_01_differentials_module_003.png" style="width: 100%;" />
+</a>
+<a class="reference internal image-reference" href="../_images/sphx_glr_01_differentials_module_004.png"><img alt="../_images/sphx_glr_01_differentials_module_004.png" class="align-center" src="../_images/sphx_glr_01_differentials_module_004.png" style="width: 100%;" />
+</a>
+<a class="reference internal image-reference" href="../_images/sphx_glr_01_differentials_module_005.png"><img alt="../_images/sphx_glr_01_differentials_module_005.png" class="align-center" src="../_images/sphx_glr_01_differentials_module_005.png" style="width: 100%;" />
+</a>
 </section>
 <section id="differentiate-examples">
 <h2>Differentiate Examples<a class="headerlink" href="#differentiate-examples" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../auto_examples/07_differentials/07_01_differentials_module.html#sphx-glr-auto-examples-07-differentials-07-01-differentials-module-py"><span class="std std-ref">Differentials Module</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/06_differentials/01_differentials_module.html#sphx-glr-auto-examples-06-differentials-01-differentials-module-py"><span class="std std-ref">Differentials Module</span></a></p></li>
 </ul>
 </section>
 <section id="references">

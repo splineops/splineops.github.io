@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=d55fa986"></script>
+    <script src="../_static/documentation_options.js?v=fc837d61"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -422,10 +422,10 @@
 <!-- splineops/README.md -->
 <section id="splineops-spline-operations">
 <h2>SplineOps: Spline Operations<a class="headerlink" href="#splineops-spline-operations" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">splineops</span></code> is a Python and C++-based N-dimensional signal-processing library with support for GPU computing.</p>
+<p><code class="docutils literal notranslate"><span class="pre">SplineOps</span></code> is a Python and C++-based N-dimensional signal-processing library with support for GPU computing.</p>
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
-<p>You need at least <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.11</span></code> to install <code class="docutils literal notranslate"><span class="pre">splineops</span></code>.</p>
+<p>You need at least <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.11</span></code> to install <code class="docutils literal notranslate"><span class="pre">SplineOps</span></code>.</p>
 <p>Create and activate your Python virtual environment (on Unix or MacOS)</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>splineops-env
 <span class="nb">source</span><span class="w"> </span>splineops-env/bin/activate
@@ -444,58 +444,18 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib
 </pre></div>
 </div>
-<p>Simply install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> using <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
+<p>Simply install <code class="docutils literal notranslate"><span class="pre">SplineOps</span></code> using <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>splineops
-</pre></div>
-</div>
-</section>
-<section id="formatting-type-checking-and-testing">
-<h3>Formatting, Type Checking, and Testing<a class="headerlink" href="#formatting-type-checking-and-testing" title="Link to this heading">#</a></h3>
-<p>Formatting and type checking is performed as</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tox<span class="w"> </span>-e<span class="w"> </span>format
-tox<span class="w"> </span>-e<span class="w"> </span><span class="nb">type</span>
-</pre></div>
-</div>
-<p>The testing requires a valid environment with a supported Python version and <code class="docutils literal notranslate"><span class="pre">tox</span></code>
-installed. The tests are run with the following command (automatic pick of the
-Python version)</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tox
-</pre></div>
-</div>
-<p>The tests can also be launched for a specific Python version (must match the one
-installed in the active environment)</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tox<span class="w"> </span>-e<span class="w"> </span>py311
-tox<span class="w"> </span>-e<span class="w"> </span>py312
-</pre></div>
-</div>
-<p><em>IMPORTANT:</em> Since CI is not implemented, make sure to run, pass, and/or fix
-<code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">-e</span> <span class="pre">format</span></code>, <code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">-e</span> <span class="pre">type</span></code>, and <code class="docutils literal notranslate"><span class="pre">tox</span></code>.</p>
-</section>
-<section id="packaging">
-<h3>Packaging<a class="headerlink" href="#packaging" title="Link to this heading">#</a></h3>
-<p>Using <code class="docutils literal notranslate"><span class="pre">tox</span></code> (preferred)</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tox<span class="w"> </span>-e<span class="w"> </span>build
-</pre></div>
-</div>
-<p>Using <code class="docutils literal notranslate"><span class="pre">hatch</span></code></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>hatch<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>wheel
-</pre></div>
-</div>
-</section>
-<section id="development-environment">
-<h3>Development Environment<a class="headerlink" href="#development-environment" title="Link to this heading">#</a></h3>
-<p>Install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> development environment in editable mode</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>dev<span class="o">]</span>
 </pre></div>
 </div>
 </section>
 <section id="gpu-compatibility">
 <h3>GPU Compatibility<a class="headerlink" href="#gpu-compatibility" title="Link to this heading">#</a></h3>
-<p>You can benefit of <code class="docutils literal notranslate"><span class="pre">cupy</span></code> to deploy <code class="docutils literal notranslate"><span class="pre">splineops</span></code>. If a specific CUDA version is required, do</p>
+<p>You can benefit of <code class="docutils literal notranslate"><span class="pre">cupy</span></code> to deploy the <code class="docutils literal notranslate"><span class="pre">Spline</span> <span class="pre">Interpolation</span></code> module in <code class="docutils literal notranslate"><span class="pre">SplineOps</span></code>. If a specific CUDA version is required, do</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>cupy<span class="w"> </span>cuda-version<span class="o">=</span><span class="m">12</span>.3
 </pre></div>
 </div>
-<p>Install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> cupy development environment in editable mode</p>
+<p>Install cupy development environment in editable mode</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>dev_cupy<span class="o">]</span>
 </pre></div>
 </div>
@@ -505,25 +465,12 @@ tox<span class="w"> </span>-e<span class="w"> </span>py312
 </pre></div>
 </div>
 </section>
-<section id="building-of-the-documentation">
-<h3>Building of the Documentation<a class="headerlink" href="#building-of-the-documentation" title="Link to this heading">#</a></h3>
-<p>To build the Sphinx documentation, install <code class="docutils literal notranslate"><span class="pre">splineops</span></code> doc dependencies</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>docs<span class="o">]</span>
+<section id="development-environment">
+<h3>Development Environment<a class="headerlink" href="#development-environment" title="Link to this heading">#</a></h3>
+<p>Install development environment in editable mode</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>dev<span class="o">]</span>
 </pre></div>
 </div>
-<p>Navigate to the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory and run the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> command</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>docs
-make<span class="w"> </span>html
-</pre></div>
-</div>
-<p>Then, go to <code class="docutils literal notranslate"><span class="pre">docs/_build/html</span></code> and open <code class="docutils literal notranslate"><span class="pre">index.html</span></code> to navigate the
-documentation locally.</p>
-<section id="troubleshooting">
-<h4>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h4>
-<p>If you want to make a “clean” build, go to <code class="docutils literal notranslate"><span class="pre">docs</span></code> and manually delete the folders <code class="docutils literal notranslate"><span class="pre">_build</span></code>, <code class="docutils literal notranslate"><span class="pre">auto_examples</span></code>, <code class="docutils literal notranslate"><span class="pre">gen_modules</span></code>, and the file <code class="docutils literal notranslate"><span class="pre">sg_execution_times.rst</span></code>.
-Why isn’t this done automatically? Because Sphinx optimizes speed and removes redundant tasks, by not re-creating the examples notebooks if they have already been created.
-If you, for example, modify the name of the examples files, you will have to delete at least the folder <code class="docutils literal notranslate"><span class="pre">auto_examples</span></code>. Otherwise, the old examples files will not have disappeared automatically and Sphinx will raise an internal warning referring to a toctree.</p>
-</section>
 </section>
 </section>
 </section>
@@ -577,14 +524,8 @@ If you, for example, modify the name of the examples files, you will have to del
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops-spline-operations">SplineOps: Spline Operations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-type-checking-and-testing">Formatting, Type Checking, and Testing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packaging">Packaging</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-environment">Development Environment</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu-compatibility">GPU Compatibility</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-of-the-documentation">Building of the Documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-environment">Development Environment</a></li>
 </ul>
 </li>
 </ul>

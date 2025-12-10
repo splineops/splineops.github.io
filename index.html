@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=d55fa986"></script>
+    <script src="_static/documentation_options.js?v=fc837d61"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -387,12 +387,9 @@
                   
   <section id="splineops-spline-operations">
 <h1>SplineOps: Spline Operations<a class="headerlink" href="#splineops-spline-operations" title="Link to this heading">#</a></h1>
-<p><strong>SplineOps</strong> is an open-source software library written in Python. It provides efficient signal-processing tools based on splines.
+<p><strong>SplineOps</strong> is an open-source software library written in Python. It provides ground-breaking signal-processing tools based on splines.
 Adapted and built on the algorithms developed through the years by the <a class="reference external" href="https://bigwww.epfl.ch/">Biomedical Imaging Group at EPFL</a> (Lausanne, Switzerland),
 SplineOps is in active development and supports modern computational demands.</p>
-<p>With a focus on the handling of large datasets, SplineOps deploys both CPU and GPU computations and offers tools for data smoothing, interpolation,
-and other applications. The library aims to integrate with the PyData ecosystem and supports a variety of research and engineering needs.</p>
-<p>By leveraging modern computing architectures, SplineOps seeks to enhance computational workflows while maintaining the rigor and reliability of the original algorithms.</p>
 <figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="_images/waveletbird_full.jpeg"><img alt="Main Feature of SplineOps" src="_images/waveletbird_full.jpeg" style="width: 576.8000000000001px; height: 460.40000000000003px;" />
 </a>
@@ -401,8 +398,8 @@ and other applications. The library aims to integrate with the PyData ecosystem 
 </figcaption>
 </figure>
 </section>
-<section id="key-features-capabilities">
-<h1>Key Features &amp; Capabilities<a class="headerlink" href="#key-features-capabilities" title="Link to this heading">#</a></h1>
+<section id="key-features-and-capabilities">
+<h1>Key Features and Capabilities<a class="headerlink" href="#key-features-and-capabilities" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p><strong>Optimized Performance</strong>: Leveraging of CPU and GPU architectures to handle large-scale signal datasets effectively.</p></li>
 <li><p><strong>Precision and Flexibility</strong>: High-degree spline interpolation across multiple dimensions.</p></li>
@@ -416,6 +413,83 @@ and other applications. The library aims to integrate with the PyData ecosystem 
 </figcaption>
 </figure>
 </section>
+<section id="modules-at-a-glance">
+<h1>Modules at a Glance<a class="headerlink" href="#modules-at-a-glance" title="Link to this heading">#</a></h1>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-3 sd-row-cols-xs-3 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md sd-card-hover sd-rounded-2 sd-border docutils">
+<img alt="Cubic B-spline basis" class="sd-card-img-top" src="_images/sphx_glr_04_interpolate_1d_samples_003.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Spline Interpolation</div>
+<p class="sd-card-text">Continuous spline models from discrete data, in any dimension.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="user-guide/01_spline_interpolation.html"><span class="doc">Spline Interpolation</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md sd-card-hover sd-rounded-2 sd-border docutils">
+<img alt="1D spline resampling" class="sd-card-img-top" src="_images/sphx_glr_06_benchmarking_055.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Resize</div>
+<p class="sd-card-text">Projection-based resampler for highest-quality spline resizing and antialiasing.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="user-guide/02_resize.html"><span class="doc">Resize</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md sd-card-hover sd-rounded-2 sd-border docutils">
+<img alt="Rotated image example" class="sd-card-img-top" src="_images/sphx_glr_01_rotate_image_001.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Affine</div>
+<p class="sd-card-text">Geometric transformations on images and volumes.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="user-guide/03_affine.html"><span class="doc">Affine</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md sd-card-hover sd-rounded-2 sd-border docutils">
+<img alt="Piecewise-linear regression" class="sd-card-img-top" src="_images/sphx_glr_01_adaptive_regression_splines_module_004.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Adaptive Regression Splines</div>
+<p class="sd-card-text">Sparsest 1D piecewise-linear fits: data in, knots out.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="user-guide/04_adaptive_regression_splines.html"><span class="doc">Adaptive Regression Splines</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md sd-card-hover sd-rounded-2 sd-border docutils">
+<img alt="Smoothing spline on a 1D process" class="sd-card-img-top" src="_images/sphx_glr_01_1d_fractional_brownian_motion_001.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Smoothing Splines</div>
+<p class="sd-card-text">Fractional spline filters for principled, tunable smoothing of signals and images.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="user-guide/05_smoothing_splines.html"><span class="doc">Smoothing Splines</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md sd-card-hover sd-rounded-2 sd-border docutils">
+<img alt="Gradient/Laplacian visualisation" class="sd-card-img-top" src="_images/sphx_glr_01_differentials_module_002.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Differentials</div>
+<p class="sd-card-text">Precise gradients, Laplacians and Hessian features from a spline representation.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="user-guide/06_differentials.html"><span class="doc">Differentials</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md sd-card-hover sd-rounded-2 sd-border docutils">
+<img alt="Multiscale / wavelet decomposition" class="sd-card-img-top" src="_images/sphx_glr_02_wavelet_decomposition_001.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Multiscale</div>
+<p class="sd-card-text">Spline pyramids and wavelets for multiscale analysis and processing.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="user-guide/07_multiscale.html"><span class="doc">Multiscale</span></a></div>
+</div>
+</div>
+</div>
+</section>
 <section id="contents">
 <h1>Contents<a class="headerlink" href="#contents" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
@@ -424,10 +498,9 @@ and other applications. The library aims to integrate with the PyData ecosystem 
 <li class="toctree-l1"><a class="reference internal" href="installation/index.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user-guide/index.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#quick-start">Quick-start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#resampling-using-1d-samples">Resampling using 1D Samples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#resampling-using-nd-samples">Resampling using ND Samples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#rotate-examples">Rotate Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#spline-interpolation-examples">Spline Interpolation Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#resize-examples">Resize Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#affine-examples">Affine Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#adaptive-regression-splines-examples">Adaptive Regression Splines Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#smoothing-splines-examples">Smoothing Splines Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#differentials-examples">Differentials Examples</a></li>
@@ -476,7 +549,8 @@ and other applications. The library aims to integrate with the PyData ecosystem 
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">SplineOps: Spline Operations</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features-capabilities">Key Features &amp; Capabilities</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features-and-capabilities">Key Features and Capabilities</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modules-at-a-glance">Modules at a Glance</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
 </ul>
 

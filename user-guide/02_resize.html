@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=d55fa986"></script>
+    <script src="../_static/documentation_options.js?v=fc837d61"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -56,7 +56,7 @@
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Rotate" href="03_rotate.html" />
+    <link rel="next" title="Affine" href="03_affine.html" />
     <link rel="prev" title="Spline Interpolation" href="01_spline_interpolation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -366,7 +366,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_spline_interpolation.html">Spline Interpolation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Resize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_rotate.html">Rotate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_affine.html">Affine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_adaptive_regression_splines.html">Adaptive Regression Splines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_smoothing_splines.html">Smoothing Splines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_differentials.html">Differentials</a></li>
@@ -435,9 +435,8 @@
 <h1>Resize<a class="headerlink" href="#resize" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>The <code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code> family in <code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops</span></code> provides high-performance,
-high-fidelity resizing for N-dimensional arrays built on the spline model
-introduced in <a class="reference internal" href="01_spline_interpolation.html"><span class="doc">Spline Interpolation</span></a>.</p>
+<p>The <a class="reference internal" href="../api/02_resize.html#api-resize"><span class="std std-ref">resize</span></a> module in <a class="reference internal" href="../api/index.html#api-index"><span class="std std-ref">SplineOps</span></a> provides high-performance,
+high-fidelity resizing for N-dimensional arrays.</p>
 <p>Conceptually, resizing means:</p>
 <ul class="simple">
 <li><p>starting from a spline <span class="math notranslate nohighlight">\(f\)</span> defined on an input grid
@@ -448,16 +447,16 @@ introduced in <a class="reference internal" href="01_spline_interpolation.html">
 best represents the same underlying continuous function.</p></li>
 </ul>
 <p>We illustrate this with the 1D example
-<a class="reference internal" href="../auto_examples/02_resampling_using_1d_samples/02_02_resample_a_1d_spline.html#sphx-glr-auto-examples-02-resampling-using-1d-samples-02-02-resample-a-1d-spline-py"><span class="std std-ref">Resample a 1D Spline</span></a>,
+<a class="reference internal" href="../auto_examples/01_spline_interpolation/05_resample_a_1d_spline.html#sphx-glr-auto-examples-01-spline-interpolation-05-resample-a-1d-spline-py"><span class="std std-ref">Resample a 1D Spline</span></a>,
 which starts from a spline <span class="math notranslate nohighlight">\(f\)</span> and samples it more coarsely at positions
 <span class="math notranslate nohighlight">\(x = T k\)</span>:</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_02_02_resample_a_1d_spline_001.png"><img alt="../_images/sphx_glr_02_02_resample_a_1d_spline_001.png" class="align-center" src="../_images/sphx_glr_02_02_resample_a_1d_spline_001.png" style="width: 100%;" />
+<a class="reference internal image-reference" href="../_images/sphx_glr_05_resample_a_1d_spline_001.png"><img alt="../_images/sphx_glr_05_resample_a_1d_spline_001.png" class="align-center" src="../_images/sphx_glr_05_resample_a_1d_spline_001.png" style="width: 100%;" />
 </a>
 <p>The red stems and markers correspond to the new samples <span class="math notranslate nohighlight">\(f(Tk)\)</span> on the
 coarser grid.</p>
 </section>
-<section id="scaled-grids-and-basis-functions">
-<h2>Scaled grids and basis functions<a class="headerlink" href="#scaled-grids-and-basis-functions" title="Link to this heading">#</a></h2>
+<section id="resized-grids">
+<h2>Resized Grids<a class="headerlink" href="#resized-grids" title="Link to this heading">#</a></h2>
 <p>In the interpolation chapter we introduced a 1D spline model of the form</p>
 <div class="math notranslate nohighlight">
 \[f(x) = \sum_{k \in \mathbb{Z}} c[k]\,\varphi(x - k),\]</div>
@@ -517,7 +516,7 @@ basis functions</p>
 <p>for some coefficient sequence <span class="math notranslate nohighlight">\((c_T[k])_{k \in \mathbb{Z}}\)</span> in
 <span class="math notranslate nohighlight">\(\ell_2(\mathbb{Z})\)</span>.</p>
 <p>As a visual example, the following figure from
-<a class="reference internal" href="../auto_examples/02_resampling_using_1d_samples/02_02_resample_a_1d_spline.html#sphx-glr-auto-examples-02-resampling-using-1d-samples-02-02-resample-a-1d-spline-py"><span class="std std-ref">Resample a 1D Spline</span></a>
+<a class="reference internal" href="../auto_examples/01_spline_interpolation/05_resample_a_1d_spline.html#sphx-glr-auto-examples-01-spline-interpolation-05-resample-a-1d-spline-py"><span class="std std-ref">Resample a 1D Spline</span></a>
 has two rows. The top row shows the fine-grid samples <span class="math notranslate nohighlight">\(f[k]\)</span> together
 with their shifted basis functions <span class="math notranslate nohighlight">\(\varphi(x - k)\)</span> scaled by the
 coefficients <span class="math notranslate nohighlight">\(c[k]\)</span>, illustrating the spline space <span class="math notranslate nohighlight">\(V_1\)</span>. The
@@ -527,7 +526,7 @@ the spline space <span class="math notranslate nohighlight">\(V_T\)</span>. In t
 the cubic B-spline, and the coefficients <span class="math notranslate nohighlight">\(c[k]\)</span> and <span class="math notranslate nohighlight">\(c_T[k]\)</span>
 implement the standard interpolation scheme described in
 <a class="reference internal" href="01_spline_interpolation.html"><span class="doc">Spline Interpolation</span></a>:</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_02_02_resample_a_1d_spline_002.png"><img alt="../_images/sphx_glr_02_02_resample_a_1d_spline_002.png" class="align-center" src="../_images/sphx_glr_02_02_resample_a_1d_spline_002.png" style="width: 100%;" />
+<a class="reference internal image-reference" href="../_images/sphx_glr_05_resample_a_1d_spline_002.png"><img alt="../_images/sphx_glr_05_resample_a_1d_spline_002.png" class="align-center" src="../_images/sphx_glr_05_resample_a_1d_spline_002.png" style="width: 100%;" />
 </a>
 </section>
 <section id="resizing">
@@ -562,9 +561,19 @@ close as possible to <span class="math notranslate nohighlight">\(f\)</span> in 
 coefficients (or samples) of <span class="math notranslate nohighlight">\(f\)</span> to the coefficients <span class="math notranslate nohighlight">\(c_T[k]\)</span> of
 <span class="math notranslate nohighlight">\(g_T\)</span>.</p></li>
 </ul>
+<p>The next figure shows this operation in 1D: a fine spline <span class="math notranslate nohighlight">\(f\)</span> on
+<span class="math notranslate nohighlight">\(V_1\)</span> and its coarse counterpart <span class="math notranslate nohighlight">\(g_T\)</span> on the scaled grid
+<span class="math notranslate nohighlight">\(\Gamma_T\)</span>, obtained by standard cubic interpolation.</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_01_resize_module_1d_003.png"><img alt="../_images/sphx_glr_01_resize_module_1d_003.png" class="align-center" src="../_images/sphx_glr_01_resize_module_1d_003.png" style="width: 100%;" />
+</a>
+<p>The following figure shows the same idea in 2D: an image is resampled
+from the fine grid to a coarser grid using standard cubic interpolation,
+illustrating how <span class="math notranslate nohighlight">\(V_1 \to V_T\)</span> looks in practice on real data.</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_02_resize_module_2d_002.png"><img alt="../_images/sphx_glr_02_resize_module_2d_002.png" class="align-center" src="../_images/sphx_glr_02_resize_module_2d_002.png" style="width: 100%;" />
+</a>
 </section>
 <section id="least-squares-projection">
-<h2>Least-squares projection<a class="headerlink" href="#least-squares-projection" title="Link to this heading">#</a></h2>
+<h2>Least-Squares Projection<a class="headerlink" href="#least-squares-projection" title="Link to this heading">#</a></h2>
 <p>So far we have described elements of <span class="math notranslate nohighlight">\(V_T\)</span> by expanding them in terms of
 the shifted basis functions <span class="math notranslate nohighlight">\(\varphi_{k,T}\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -597,14 +606,14 @@ and then synthesizing with <span class="math notranslate nohighlight">\(\varphi_
 = \bigl\langle f, \tilde{\varphi}_{k,T} \bigr\rangle_{L_2(\mathbb{R})},
 \qquad k \in \mathbb{Z}.\]</div>
 <p>The resized spline <span class="math notranslate nohighlight">\(g_T\)</span> is thus the least-squares (orthogonal)
-projection of <span class="math notranslate nohighlight">\(f\)</span> onto the spline space <span class="math notranslate nohighlight">\(V_T\)</span> <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+projection of <span class="math notranslate nohighlight">\(f\)</span> onto the spline space <span class="math notranslate nohighlight">\(V_T\)</span> <a class="footnote-reference brackets" href="#id7" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 </section>
 <section id="oblique-projection">
-<h2>Oblique projection<a class="headerlink" href="#oblique-projection" title="Link to this heading">#</a></h2>
+<h2>Oblique Projection<a class="headerlink" href="#oblique-projection" title="Link to this heading">#</a></h2>
 <p>For higher spline orders, the continuous-domain prefilters associated with the
 dual functions <span class="math notranslate nohighlight">\(\tilde{\varphi}_{k,T}\)</span> can become expensive to implement.
 A practical alternative is to replace the orthogonal (least-squares) projection
-by an oblique projection <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+by an oblique projection <a class="footnote-reference brackets" href="#id8" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <p>The idea is to keep the synthesis space <span class="math notranslate nohighlight">\(V_T\)</span> unchanged, i.e. the
 approximation is still written as</p>
 <div class="math notranslate nohighlight">
@@ -619,16 +628,143 @@ the term “oblique” projection.</p>
 oblique projection retains the same approximation order as the least-squares
 projection and yields very similar quality in practice, while significantly
 reducing computational cost.</p>
+<p>The 1D example below shows how the <code class="docutils literal notranslate"><span class="pre">cubic-antialiasing</span></code> preset implements
+this oblique projection: compared to plain cubic, the coarse spline is
+slightly smoother, but tracks the underlying fine spline more faithfully
+when downsampling.</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_01_resize_module_1d_004.png"><img alt="../_images/sphx_glr_01_resize_module_1d_004.png" class="align-center" src="../_images/sphx_glr_01_resize_module_1d_004.png" style="width: 100%;" />
+</a>
+<p>The 2D example then shows the same effect on an image: the antialiasing
+preset suppresses Moiré and high-frequency artefacts in the downsampled
+ROI, while preserving the main structures and contrasts.</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_02_resize_module_2d_003.png"><img alt="../_images/sphx_glr_02_resize_module_2d_003.png" class="align-center" src="../_images/sphx_glr_02_resize_module_2d_003.png" style="width: 100%;" />
+</a>
+</section>
+<section id="the-algorithm">
+<h2>The Algorithm<a class="headerlink" href="#the-algorithm" title="Link to this heading">#</a></h2>
+<p>At implementation level, <a class="reference internal" href="../api/02_resize.html#api-resize"><span class="std std-ref">resize</span></a> follows the
+projection framework described above, but organized as a simple sequence of
+1D operations applied axis by axis.</p>
+<p>For a single axis, the algorithm works on one 1D line at a time:</p>
+<ol class="arabic simple">
+<li><p><strong>Spline prefilter.</strong>
+The input samples along the line are first converted into spline
+coefficients using a stable recursive filter. After this step, the line
+represents a continuous spline in the sense of the previous sections,
+rather than just raw samples.</p></li>
+<li><p><strong>Optional projection prefilter.</strong>
+In antialiasing modes, a small number of discrete integrations and
+differences are applied to these coefficients. This realizes the
+least-squares / oblique projection prefilter from <a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> and <a class="footnote-reference brackets" href="#id8" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>, and acts
+as a controlled low-pass filter when down-sampling. For pure
+interpolation this stage is skipped.</p></li>
+<li><p><strong>Boundary handling.</strong>
+Because real data are finite, each line is extended beyond its endpoints
+by symmetric or antisymmetric mirroring, depending on the spline degree.
+This produces a slightly longer “virtual” line on which the spline is
+evaluated, without introducing visible edge artefacts.</p></li>
+<li><p><strong>Resampling on the new grid.</strong>
+For the chosen zoom, the algorithm precomputes, once per axis, how every
+output position maps back to the original grid: which input coefficients
+contribute, and with which spline weights. During execution, each output
+sample is then obtained as a short weighted sum over that local window.
+This precomputation is what makes the method both accurate and efficient.</p></li>
+<li><p><strong>Projection tail (if enabled).</strong>
+When using antialiasing, the intermediate result is brought back from the
+analysis space to the desired spline model by applying the corresponding
+discrete differences and a final spline reconstruction on the output grid.</p></li>
+</ol>
+<p>For N-dimensional data, this 1D scheme is applied separately along each axis
+in turn (a separable algorithm). All other axes are treated as batch
+dimensions, so the same 1D logic is reused for many lines, with a single
+precomputed plan per axis and zoom configuration.</p>
 </section>
 <section id="implementation">
 <h2>Implementation<a class="headerlink" href="#implementation" title="Link to this heading">#</a></h2>
-<p>In SplineOps, the antialiasing presets of <code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code> follow this pattern: they
-use a higher-degree spline model for the resized data, combined with a lower-degree
-analysis spline to implement an efficient projection-based (low-pass) prefilter.</p>
-<p>Concretely, the presets correspond to the following degree triples
-(interpolation, analysis, synthesis):</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id5">
-<caption><span class="caption-text">Spline degree configuration for oblique projection in <code class="docutils literal notranslate"><span class="pre">resize</span></code></span><a class="headerlink" href="#id5" title="Link to this table">#</a></caption>
+<p>Internally, <a class="reference internal" href="../api/02_resize.html#api-resize"><span class="std std-ref">resize</span></a> uses two cooperating backends:</p>
+<ul>
+<li><p>A compiled C++ core, wrapped as a small extension module. This is the
+primary implementation used in normal installations.</p>
+<p>For each axis, it:</p>
+<ul class="simple">
+<li><p>builds a reusable <strong>1D resampling plan</strong> that encodes, for every output
+position, which input coefficients contribute and with which spline
+weights (including boundary handling via mirrored extension),</p></li>
+<li><p>constructs a single contiguous <strong>extended buffer</strong> per line that contains
+the mirrored input samples, so the inner loop only sees simple pointer
+arithmetic and dot products,</p></li>
+<li><p>evaluates all spline sums in <strong>double precision</strong>, using small dense
+dot products that can exploit SIMD instructions (AVX2, AVX-512, NEON)
+when available,</p></li>
+<li><p>and <strong>parallelizes over independent lines</strong> with a lightweight
+multithreading pool whenever the estimated workload is large enough.</p></li>
+</ul>
+<p>The plan is computed once per axis/zoom/degrees combination and then reused
+across all lines along that axis, which keeps the per-call overhead low even
+for large N-D arrays.</p>
+</li>
+<li><p>A pure-NumPy fallback that mirrors the same 1D scheme at a higher level.
+It reshapes the data so that each line along the resized axis is contiguous,
+processes lines in batches, and uses vectorized gathers and reductions to
+apply the same precomputed weights. This backend is mainly intended for
+environments where the C++ extension cannot be built; it is numerically
+equivalent but typically slower.</p></li>
+</ul>
+<p>Both backends perform all spline computations in 64-bit floating point; input
+and output arrays keep their original dtype (or a user-specified dtype), with
+casting only at the boundary of each axis pass.</p>
+<p>Conceptually, <a class="reference internal" href="../api/02_resize.html#api-resize"><span class="std std-ref">resize</span></a> is configured by three spline degrees:</p>
+<ul class="simple">
+<li><p>the <strong>interpolation degree</strong>, which sets the underlying spline model,</p></li>
+<li><p>the <strong>analysis degree</strong>, which controls the projection-based prefilter
+(for antialiasing; <code class="docutils literal notranslate"><span class="pre">-1</span></code> means “no projection”),</p></li>
+<li><p>and the <strong>synthesis degree</strong>, which sets the spline model on the resized
+grid.</p></li>
+</ul>
+<p>These degrees are exposed through the <a class="reference internal" href="../api/02_resize.html#api-resize"><span class="std std-ref">resize</span></a> API via the
+<code class="docutils literal notranslate"><span class="pre">method</span></code> argument. There are two main families of presets.</p>
+<p><strong>Standard interpolation presets</strong> use no projection at all (analysis degree
+<code class="docutils literal notranslate"><span class="pre">-1</span></code>) and perform plain spline interpolation:</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id9">
+<caption><span class="caption-text">Spline degree standard interpolation presets in <a class="reference internal" href="../api/02_resize.html#api-resize"><span class="std std-ref">resize</span></a></span><a class="headerlink" href="#id9" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Interpolation degree</p></th>
+<th class="head"><p>Analysis degree</p></th>
+<th class="head"><p>Synthesis degree</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;fast&quot;</span></code></p></td>
+<td><p>0</p></td>
+<td><p>-1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;linear&quot;</span></code></p></td>
+<td><p>1</p></td>
+<td><p>-1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;quadratic&quot;</span></code></p></td>
+<td><p>2</p></td>
+<td><p>-1</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;cubic&quot;</span></code></p></td>
+<td><p>3</p></td>
+<td><p>-1</p></td>
+<td><p>3</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These are appropriate when you mainly want smooth interpolation and are not
+aggressively downsampling.</p>
+<p><strong>Antialiasing presets</strong> use an oblique projection with a lower analysis
+degree and a higher synthesis degree, and are designed for downsampling
+(and its inverse round-trip):</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id10">
+<caption><span class="caption-text">Spline degree antialiasing configuration in <a class="reference internal" href="../api/02_resize.html#api-resize"><span class="std std-ref">resize</span></a></span><a class="headerlink" href="#id10" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Method</p></th>
 <th class="head"><p>Interpolation degree</p></th>
@@ -655,35 +791,191 @@ analysis spline to implement an efficient projection-based (low-pass) prefilter.
 </tbody>
 </table>
 </div>
-<p>Here, the synthesis degree matches the interpolation degree, defining the spline
-model used for the resized data, while the analysis degree is chosen lower to
-simplify the continuous prefilter and make the oblique projection more efficient,
-with only a small loss compared to the full least-squares projection.</p>
+<p>Here, the synthesis degree matches the interpolation degree, defining the
+output spline model, while the lower analysis degree keeps the projection
+prefilter short, robust, and efficient, yet still very close to the ideal
+least-squares solution in <a class="footnote-reference brackets" href="#id7" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> and <a class="footnote-reference brackets" href="#id8" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Exact least-squares configurations</strong>, where the analysis and synthesis
+degrees are equal (for example, a cubic–cubic combination), require
+high-order discrete integration in this framework. For cubic splines,
+the theory calls for fourth-order integration: a running-sum operator
+applied four times in a row to implement the continuous prefilter. Each
+pass is stable in exact arithmetic, but in double precision they amplify
+tiny rounding errors, especially on long lines, which can lead to slow
+drift in the mean level and other visible artefacts. For this reason such
+configurations <strong>are not exposed as presets and are not recommended</strong>
+in routine use. <strong>The oblique antialiasing presets above avoid the
+problematic high-order integration while remaining very close in quality</strong>
+to the ideal least-squares projection.</p>
+</div>
+</section>
+<section id="benchmarking">
+<h2>Benchmarking<a class="headerlink" href="#benchmarking" title="Link to this heading">#</a></h2>
+<p>We compare our module <a class="reference internal" href="../api/02_resize.html#api-resize"><span class="std std-ref">resize</span></a> against widely used interpolation libraries on
+realistic image resizing tasks, in these two examples:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../auto_examples/02_resize/06_benchmarking.html#sphx-glr-auto-examples-02-resize-06-benchmarking-py"><span class="std std-ref">Benchmarking</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/02_resize/07_benchmarking_plot.html#sphx-glr-auto-examples-02-resize-07-benchmarking-plot-py"><span class="std std-ref">Benchmarking Plot</span></a></p></li>
+</ul>
+<section id="round-trip-roi-benchmark">
+<h3>Round-trip ROI benchmark<a class="headerlink" href="#round-trip-roi-benchmark" title="Link to this heading">#</a></h3>
+<p>The first example benchmarks several test images by:</p>
+<ol class="arabic simple">
+<li><p>Downsampling each image with an image-specific zoom factor
+<span class="math notranslate nohighlight">\(z &lt; 1\)</span>,</p></li>
+<li><p>Upsampling back to the original size with the same method (round-trip),</p></li>
+<li><p>Evaluating a small region of interest (ROI) using</p>
+<ul class="simple">
+<li><p>round-trip runtime (mean ± standard deviation),</p></li>
+<li><p>SNR and MSE on the ROI,</p></li>
+<li><p>SSIM on the ROI.</p></li>
+</ul>
+</li>
+</ol>
+<p>For each image and method, it also builds ROI montages and normalized error
+maps that make aliasing and blur easy to see by eye.</p>
+<p>The compared methods include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.zoom.html">scipy.ndimage.zoom</a> (cubic),</p></li>
+<li><p><a class="reference external" href="https://docs.opencv.org/4.x/da/d54/group__imgproc__transform.html">cv2.resize</a> with <code class="docutils literal notranslate"><span class="pre">INTER_CUBIC</span></code>,</p></li>
+<li><p><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">PIL.Image.resize</a> with BICUBIC resampling,</p></li>
+<li><p><a class="reference external" href="https://scikit-image.org/docs/0.25.x/api/skimage.transform.html#skimage.transform.resize">skimage.transform.resize</a> (cubic, with and without <code class="docutils literal notranslate"><span class="pre">anti_aliasing</span></code>),</p></li>
+<li><p><a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.functional.interpolate.html">torch.nn.functional.interpolate</a> in bicubic mode (with and without
+<code class="docutils literal notranslate"><span class="pre">antialias=True</span></code>),</p></li>
+<li><p>our method <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic&quot;</span></code> (plain cubic spline interpolation),</p></li>
+<li><p>our method <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic-antialiasing&quot;</span></code> (projection-based low-pass + resize).</p></li>
+</ul>
+<p>In these examples:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic&quot;</span></code> behaves like the “classic” cubic filters
+(SciPy, OpenCV, scikit-image, PyTorch bicubic without antialiasing): visually
+similar sharpness and very similar SNR/MSE/SSIM, often at lower cost than the
+heavier scientific stacks.</p></li>
+<li><p><a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic-antialiasing&quot;</span></code> typically improves SNR and SSIM
+by a few dB and a few hundredths of SSIM over plain cubic in the ROI when
+downsampling aggressively. Because SNR is in decibels, a 3–6 dB lead means
+roughly <span class="math notranslate nohighlight">\(1.4{-}2\times\)</span> smaller RMS error, which is a substantial
+gain for the same zoom factor.</p></li>
+</ul>
+<p>The first figure below shows the global image, the ROI used for metrics, and
+the same ROI after a first-pass with antialiasing shrink, all at a zoom
+factor of <span class="math notranslate nohighlight">\(z = 0.15\)</span>:</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_06_benchmarking_010.png"><img alt="../_images/sphx_glr_06_benchmarking_010.png" class="align-center" src="../_images/sphx_glr_06_benchmarking_010.png" style="width: 100%;" />
+</a>
+<p>The next figure compares the color ROI for the main cubic methods
+(Original, <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> Standard and Antialiasing, OpenCV, SciPy,
+scikit-image, PyTorch bicubic). It highlights visual differences such as
+aliasing and ringing in fine detail:</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_06_benchmarking_015.png"><img alt="../_images/sphx_glr_06_benchmarking_015.png" class="align-center" src="../_images/sphx_glr_06_benchmarking_015.png" style="width: 100%;" />
+</a>
+<p>The following figure shows the normalized signed error in the grayscale ROI
+for the same main subset of methods. Zero error is mid-gray; brighter or darker
+regions indicate positive or negative deviations from the original:</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_06_benchmarking_012.png"><img alt="../_images/sphx_glr_06_benchmarking_012.png" class="align-center" src="../_images/sphx_glr_06_benchmarking_012.png" style="width: 100%;" />
+</a>
+<p>The next figure compares the color ROI for the antialiasing-focused subset
+(Original, <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> Standard and Antialiasing, Pillow BICUBIC,
+scikit-image cubic with anti-aliasing, PyTorch bicubic with antialiasing).
+This isolates how different antialiasing strategies affect fine structure:</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_06_benchmarking_016.png"><img alt="../_images/sphx_glr_06_benchmarking_016.png" class="align-center" src="../_images/sphx_glr_06_benchmarking_016.png" style="width: 100%;" />
+</a>
+<p>The companion figure shows the normalized signed error in the grayscale ROI
+for this antialiasing subset, again with mid-gray indicating zero error:</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_06_benchmarking_014.png"><img alt="../_images/sphx_glr_06_benchmarking_014.png" class="align-center" src="../_images/sphx_glr_06_benchmarking_014.png" style="width: 100%;" />
+</a>
+<p>The bar chart below summarizes the round-trip runtime (forward + backward)
+for the cubic methods at <span class="math notranslate nohighlight">\(z = 0.15\)</span> on a 512×768 image. OpenCV and
+PyTorch are fastest, <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> sits comfortably in the middle, and SciPy /
+scikit-image are significantly slower:</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_06_benchmarking_017.png"><img alt="../_images/sphx_glr_06_benchmarking_017.png" class="align-center" src="../_images/sphx_glr_06_benchmarking_017.png" style="width: 100%;" />
+</a>
+<p>Finally, the last figure in this series summarizes SNR and SSIM per method
+for the same configuration, showing that <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> Cubic Antialiasing
+typically attains the highest SNR and SSIM, with the Standard cubic preset
+tightly grouped with the other classic cubic filters:</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_06_benchmarking_018.png"><img alt="../_images/sphx_glr_06_benchmarking_018.png" class="align-center" src="../_images/sphx_glr_06_benchmarking_018.png" style="width: 100%;" />
+</a>
+</section>
+<section id="zoom-sweep-benchmark">
+<h3>Zoom-sweep benchmark<a class="headerlink" href="#zoom-sweep-benchmark" title="Link to this heading">#</a></h3>
+<p>The second example uses a single Kodak image to run a 1D sweep of zoom
+factors <span class="math notranslate nohighlight">\(0 &lt; z &lt; 2\)</span>. For each method and zoom, it:</p>
+<ul class="simple">
+<li><p>performs a forward and backward resize in float32,</p></li>
+<li><p>measures round-trip time, SNR and SSIM on the full image,</p></li>
+<li><p>plots these quantities as a function of <span class="math notranslate nohighlight">\(z\)</span> for both linear and
+cubic variants.</p></li>
+</ul>
+<p>This provides an at-a-glance view of the quality–speed trade-off of each
+backend:</p>
+<ul class="simple">
+<li><p>OpenCV and PyTorch tend to be the fastest;</p></li>
+<li><p>SciPy and scikit-image tend to be the slowest;</p></li>
+<li><p><a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> sits in between, with <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic&quot;</span></code> methods matching the quality
+of traditional cubic/linear filters, and <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic-antialiasing&quot;</span></code> methods pushing
+quality (higher SNR/SSIM at small <span class="math notranslate nohighlight">\(z\)</span>) while remaining competitive
+in runtime.</p></li>
+</ul>
+<p>The first plot below shows round-trip SNR vs zoom for cubic methods:
+<a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic-antialiasing&quot;</span></code> <strong>rises well above the other curves for strong
+downsampling and remains best for all resampling factors</strong>. In the zoomed version focusing on <span class="math notranslate nohighlight">\(0 &lt; z &lt; 1\)</span>, it
+leads the next-best method by several decibels over a wide range of zoom
+factors, corresponding to a noticeably smaller reconstruction error:</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_07_benchmarking_plot_005.png"><img alt="../_images/sphx_glr_07_benchmarking_plot_005.png" class="align-center" src="../_images/sphx_glr_07_benchmarking_plot_005.png" style="width: 100%;" />
+</a>
+<p>Here is a zoom of the same plot for factors between 0 and 1:</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_07_benchmarking_plot_004.png"><img alt="../_images/sphx_glr_07_benchmarking_plot_004.png" class="align-center" src="../_images/sphx_glr_07_benchmarking_plot_004.png" style="width: 100%;" />
+</a>
+<p>The next plot shows round-trip SSIM vs zoom for the same configuration:
+all methods converge near SSIM <span class="math notranslate nohighlight">\(\approx 1\)</span> around <span class="math notranslate nohighlight">\(z = 1\)</span>, but
+<a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic-antialiasing&quot;</span></code> <strong>maintains a clear SSIM advantage for the more
+aggressive downsampling factors, meaning the recovered images preserve local
+structure better</strong>:</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_07_benchmarking_plot_007.png"><img alt="../_images/sphx_glr_07_benchmarking_plot_007.png" class="align-center" src="../_images/sphx_glr_07_benchmarking_plot_007.png" style="width: 100%;" />
+</a>
+<p>Here is a zoom of the SSIM plot for factors between 0 and 1:</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_07_benchmarking_plot_006.png"><img alt="../_images/sphx_glr_07_benchmarking_plot_006.png" class="align-center" src="../_images/sphx_glr_07_benchmarking_plot_006.png" style="width: 100%;" />
+</a>
+<p>The last plot shows round-trip runtime vs zoom. It confirms that the
+antialiasing presets add only a modest overhead over the Standard ones, while
+still remaining competitive with other high-quality methods for a wide range
+of zoom factors. The zoomed version for <span class="math notranslate nohighlight">\(0 &lt; z &lt; 1\)</span> makes this clear
+in the practically most relevant regime (downsampling):</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_07_benchmarking_plot_003.png"><img alt="../_images/sphx_glr_07_benchmarking_plot_003.png" class="align-center" src="../_images/sphx_glr_07_benchmarking_plot_003.png" style="width: 100%;" />
+</a>
+<p>Here is a zoom of the timing plot for factors between 0 and 1:</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_07_benchmarking_plot_002.png"><img alt="../_images/sphx_glr_07_benchmarking_plot_002.png" class="align-center" src="../_images/sphx_glr_07_benchmarking_plot_002.png" style="width: 100%;" />
+</a>
+</section>
 </section>
 <section id="resize-examples">
 <h2>Resize Examples<a class="headerlink" href="#resize-examples" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../auto_examples/03_resampling_using_nd_samples/03_01_resize_module_1d.html#sphx-glr-auto-examples-03-resampling-using-nd-samples-03-01-resize-module-1d-py"><span class="std std-ref">Resize Module 1D</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/03_resampling_using_nd_samples/03_02_resize_module_2d.html#sphx-glr-auto-examples-03-resampling-using-nd-samples-03-02-resize-module-2d-py"><span class="std std-ref">Resize Module 2D</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/03_resampling_using_nd_samples/03_03_standard_interpolation.html#sphx-glr-auto-examples-03-resampling-using-nd-samples-03-03-standard-interpolation-py"><span class="std std-ref">Standard Interpolation</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/03_resampling_using_nd_samples/03_04_antialiasing.html#sphx-glr-auto-examples-03-resampling-using-nd-samples-03-04-antialiasing-py"><span class="std std-ref">Antialiasing</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/03_resampling_using_nd_samples/03_05_how_bad_aliasing_can_be.html#sphx-glr-auto-examples-03-resampling-using-nd-samples-03-05-how-bad-aliasing-can-be-py"><span class="std std-ref">How Bad Aliasing Can Be</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/03_resampling_using_nd_samples/03_06_benchmarking.html#sphx-glr-auto-examples-03-resampling-using-nd-samples-03-06-benchmarking-py"><span class="std std-ref">Benchmarking</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/03_resampling_using_nd_samples/03_07_benchmarking_plot.html#sphx-glr-auto-examples-03-resampling-using-nd-samples-03-07-benchmarking-plot-py"><span class="std std-ref">Benchmarking Plot</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/02_resize/01_resize_module_1d.html#sphx-glr-auto-examples-02-resize-01-resize-module-1d-py"><span class="std std-ref">Resize Module 1D</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/02_resize/02_resize_module_2d.html#sphx-glr-auto-examples-02-resize-02-resize-module-2d-py"><span class="std std-ref">Resize Module 2D</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/02_resize/03_standard_interpolation.html#sphx-glr-auto-examples-02-resize-03-standard-interpolation-py"><span class="std std-ref">Standard Interpolation</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/02_resize/04_antialiasing.html#sphx-glr-auto-examples-02-resize-04-antialiasing-py"><span class="std std-ref">Antialiasing</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/02_resize/05_how_bad_aliasing_can_be.html#sphx-glr-auto-examples-02-resize-05-how-bad-aliasing-can-be-py"><span class="std std-ref">How Bad Aliasing Can Be</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/02_resize/06_benchmarking.html#sphx-glr-auto-examples-02-resize-06-benchmarking-py"><span class="std std-ref">Benchmarking</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/02_resize/07_benchmarking_plot.html#sphx-glr-auto-examples-02-resize-07-benchmarking-plot-py"><span class="std std-ref">Benchmarking Plot</span></a></p></li>
 </ul>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id3" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id7" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id3">2</a>,<a role="doc-backlink" href="#id5">3</a>)</span>
 <p>A. Muñoz Barrutia, T. Blu, M. Unser,
 <a class="reference external" href="https://doi.org/10.1109/83.941860">Least-Squares Image Resizing Using Finite Differences</a>,
 IEEE Transactions on Image Processing, vol. 10, no. 9, pp. 1365-1378,
 September 2001.</p>
 </aside>
-<aside class="footnote brackets" id="id4" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id8" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id4">2</a>,<a role="doc-backlink" href="#id6">3</a>)</span>
 <p>C. Lee, M. Eden, M. Unser,
 <a class="reference external" href="https://doi.org/10.1109/83.668025">High-Quality Image Resizing Using Oblique Projection Operators</a>,
 IEEE Transactions on Image Processing, vol. 7, no. 5,
@@ -713,11 +1005,11 @@ pp. 679–692, May 1998.</p>
       </div>
     </a>
     <a class="right-next"
-       href="03_rotate.html"
+       href="03_affine.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Rotate</p>
+        <p class="prev-next-title">Affine</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -741,11 +1033,17 @@ pp. 679–692, May 1998.</p>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scaled-grids-and-basis-functions">Scaled grids and basis functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resized-grids">Resized Grids</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resizing">Resizing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-projection">Least-squares projection</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oblique-projection">Oblique projection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-projection">Least-Squares Projection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oblique-projection">Oblique Projection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-algorithm">The Algorithm</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarking">Benchmarking</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#round-trip-roi-benchmark">Round-trip ROI benchmark</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zoom-sweep-benchmark">Zoom-sweep benchmark</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resize-examples">Resize Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>

@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=d55fa986"></script>
+    <script src="../_static/documentation_options.js?v=fc837d61"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -366,7 +366,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_spline_interpolation.html">Spline Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_rotate.html">Rotate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_affine.html">Affine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_adaptive_regression_splines.html">Adaptive Regression Splines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_smoothing_splines.html">Smoothing Splines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_differentials.html">Differentials</a></li>
@@ -435,7 +435,7 @@
 <h1>Multiscale<a class="headerlink" href="#multiscale" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>This module models signals and images as a hierarchy of spline approximations at progressively coarser resolutions.
+<p>The <a class="reference internal" href="../api/07_multiscale.html#api-multiscale"><span class="std std-ref">multiscale</span></a> module in <a class="reference internal" href="../api/index.html#api-index"><span class="std std-ref">SplineOps</span></a> models signals and images as a hierarchy of spline approximations at progressively coarser resolutions.
 On top of this model, it provides reduction (spline filtering + dyadic decimation) and expansion
 (upsampling + spline interpolation), which are the building blocks of pyramid and wavelet transforms <a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id7" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id8" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id9" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
 </section>
@@ -477,6 +477,13 @@ resampling and for computing exact spatial derivatives, which further stabilizes
 <h2>Wavelet Decomposition<a class="headerlink" href="#wavelet-decomposition" title="Link to this heading">#</a></h2>
 <p>We construct a spline-based multiscale basis (wavelets) by capturing the detail lost at each reduction step.
 The wavelet (detail) coefficients together with the final coarse approximation allow perfect reconstruction (synthesis).</p>
+<p>The next figure, from
+<a class="reference internal" href="../auto_examples/07_multiscale/02_wavelet_decomposition.html#sphx-glr-auto-examples-07-multiscale-02-wavelet-decomposition-py"><span class="std std-ref">Wavelet Decomposition</span></a>,
+shows a three-level 2D Haar decomposition: the coarse approximation in the
+top-left corner and the horizontal, vertical, and diagonal detail sub-bands
+at each scale.</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_02_wavelet_decomposition_001.png"><img alt="../_images/sphx_glr_02_wavelet_decomposition_001.png" class="align-center" src="../_images/sphx_glr_02_wavelet_decomposition_001.png" style="width: 100%;" />
+</a>
 <p>At each scale (analysis):</p>
 <ul class="simple">
 <li><p>an approximation is obtained (the reduced signal or image);</p></li>
@@ -497,8 +504,8 @@ to perfectly reconstruct the original data (synthesis).</p>
 <section id="multiscale-examples">
 <h2>Multiscale Examples<a class="headerlink" href="#multiscale-examples" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../auto_examples/08_multiscale/08_01_pyramid_decomposition.html#sphx-glr-auto-examples-08-multiscale-08-01-pyramid-decomposition-py"><span class="std std-ref">Pyramid Decomposition</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/08_multiscale/08_02_wavelet_decomposition.html#sphx-glr-auto-examples-08-multiscale-08-02-wavelet-decomposition-py"><span class="std std-ref">Wavelet Decomposition</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/07_multiscale/01_pyramid_decomposition.html#sphx-glr-auto-examples-07-multiscale-01-pyramid-decomposition-py"><span class="std std-ref">Pyramid Decomposition</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/07_multiscale/02_wavelet_decomposition.html#sphx-glr-auto-examples-07-multiscale-02-wavelet-decomposition-py"><span class="std std-ref">Wavelet Decomposition</span></a></p></li>
 </ul>
 </section>
 <section id="references">

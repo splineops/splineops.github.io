@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=d55fa986"></script>
+    <script src="../_static/documentation_options.js?v=fc837d61"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -366,7 +366,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_spline_interpolation.html">Spline Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_rotate.html">Rotate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_affine.html">Affine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_adaptive_regression_splines.html">Adaptive Regression Splines</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Smoothing Splines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_differentials.html">Differentials</a></li>
@@ -435,8 +435,8 @@
 <h1>Smoothing Splines<a class="headerlink" href="#smoothing-splines" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>The <em>smoothing splines</em> module provides tools to fit <em>fractional smoothing splines</em>
-to noisy data. Think of these splines as flexible low-pass filters whose sharpness can
+<p>The <a class="reference internal" href="../api/05_smoothing_splines.html#api-smoothing-splines"><span class="std std-ref">smoothing splines</span></a> module in <a class="reference internal" href="../api/index.html#api-index"><span class="std std-ref">SplineOps</span></a> provides tools
+to fit fractional smoothing splines to noisy data. Think of these splines as flexible low-pass filters whose sharpness can
 be tuned continuously, making them effective for signals and images that
 exhibit repeating, self-similar patterns.</p>
 <p>You will find:</p>
@@ -456,7 +456,7 @@ streams.</p></li>
 </ul>
 </section>
 <section id="core-idea-in-one-dimension">
-<h2>Core idea in one dimension<a class="headerlink" href="#core-idea-in-one-dimension" title="Link to this heading">#</a></h2>
+<h2>Core Idea in One Dimension<a class="headerlink" href="#core-idea-in-one-dimension" title="Link to this heading">#</a></h2>
 <p>Given noisy samples <span class="math notranslate nohighlight">\(y[k]\)</span> at integer positions, we look for a
 smooth curve <span class="math notranslate nohighlight">\(s(t)\)</span> that minimises</p>
 <div class="math notranslate nohighlight">
@@ -484,9 +484,16 @@ DFT of the solution.  The practical recipe is therefore</p>
 <li><p>inverse FFT to obtain the smoothed samples.</p></li>
 </ol>
 <p>A full derivation of this result can be found in <a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> and <a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</p>
+<p>The next figure, from
+<a class="reference internal" href="../auto_examples/05_smoothing_splines/01_1d_fractional_brownian_motion.html#sphx-glr-auto-examples-05-smoothing-splines-01-1d-fractional-brownian-motion-py"><span class="std std-ref">1D Fractional Brownian Motion</span></a>,
+illustrates these ideas on a noisy fractional Brownian motion: the original
+process, noisy measurements, and the smoothed spline estimates at the
+original and oversampled grids.</p>
+<a class="reference internal image-reference" href="../_images/sphx_glr_01_1d_fractional_brownian_motion_001.png"><img alt="../_images/sphx_glr_01_1d_fractional_brownian_motion_001.png" class="align-center" src="../_images/sphx_glr_01_1d_fractional_brownian_motion_001.png" style="width: 100%;" />
+</a>
 </section>
 <section id="core-idea-in-higher-dimensions">
-<h2>Core idea in higher dimensions<a class="headerlink" href="#core-idea-in-higher-dimensions" title="Link to this heading">#</a></h2>
+<h2>Core Idea in Higher Dimensions<a class="headerlink" href="#core-idea-in-higher-dimensions" title="Link to this heading">#</a></h2>
 <p>For a 2D image or a 3D volume we replace the one-dimensional
 fractional derivative with the fractional Laplacian
 <span class="math notranslate nohighlight">\((-\Delta)^{\gamma/2}\)</span>.  The variational cost therefore becomes</p>
@@ -514,7 +521,7 @@ computation still needs just one forward FFT and one inverse FFT,
 whatever the data dimension.</p>
 </section>
 <section id="fast-recursive-cubic-smoother">
-<h2>Fast recursive cubic smoother<a class="headerlink" href="#fast-recursive-cubic-smoother" title="Link to this heading">#</a></h2>
+<h2>Fast Recursive Cubic Smoother<a class="headerlink" href="#fast-recursive-cubic-smoother" title="Link to this heading">#</a></h2>
 <p>When you only need the cubic case (<span class="math notranslate nohighlight">\(\gamma = 1\)</span>) the frequency
 response above simplifies so much that it can be implemented with two
 tiny first-order filters—one run forward, the other backward.  The key
@@ -536,7 +543,7 @@ samples and with virtually no memory footprint.  A detailed derivation
 appears in <a class="footnote-reference brackets" href="#id5" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, Section IV-B.</p>
 </section>
 <section id="choosing-the-parameters">
-<h2>Choosing the parameters<a class="headerlink" href="#choosing-the-parameters" title="Link to this heading">#</a></h2>
+<h2>Choosing the Parameters<a class="headerlink" href="#choosing-the-parameters" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>gamma: controls how steeply the filter rolls off
 (larger values ⇒ steeper transition).  Typical range:
@@ -548,11 +555,12 @@ good starting interval.</p></li>
 </ul>
 </section>
 <section id="smoothing-splines-examples">
-<h2>Smoothing splines examples<a class="headerlink" href="#smoothing-splines-examples" title="Link to this heading">#</a></h2>
+<h2>Smoothing Splines Examples<a class="headerlink" href="#smoothing-splines-examples" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../auto_examples/06_smoothing_splines/06_01_1d_fractional_brownian_motion.html#sphx-glr-auto-examples-06-smoothing-splines-06-01-1d-fractional-brownian-motion-py"><span class="std std-ref">1D Fractional Brownian Motion</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/06_smoothing_splines/06_02_2d_image_smoothing.html#sphx-glr-auto-examples-06-smoothing-splines-06-02-2d-image-smoothing-py"><span class="std std-ref">2D Image Smoothing</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/06_smoothing_splines/06_04_recursive_smoothing_spline.html#sphx-glr-auto-examples-06-smoothing-splines-06-04-recursive-smoothing-spline-py"><span class="std std-ref">Recursive Smoothing Spline</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/05_smoothing_splines/01_1d_fractional_brownian_motion.html#sphx-glr-auto-examples-05-smoothing-splines-01-1d-fractional-brownian-motion-py"><span class="std std-ref">1D Fractional Brownian Motion</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/05_smoothing_splines/02_2d_image_smoothing.html#sphx-glr-auto-examples-05-smoothing-splines-02-2d-image-smoothing-py"><span class="std std-ref">2D Image Smoothing</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/05_smoothing_splines/03_3d_volume_smoothing.html#sphx-glr-auto-examples-05-smoothing-splines-03-3d-volume-smoothing-py"><span class="std std-ref">3D Volume Smoothing</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/05_smoothing_splines/04_recursive_smoothing_spline.html#sphx-glr-auto-examples-05-smoothing-splines-04-recursive-smoothing-spline-py"><span class="std std-ref">Recursive Smoothing Spline</span></a></p></li>
 </ul>
 </section>
 <section id="references">
@@ -629,11 +637,11 @@ SIAM Review, vol. 42, no. 1, pp. 43-67, March 2000.</p>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-idea-in-one-dimension">Core idea in one dimension</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-idea-in-higher-dimensions">Core idea in higher dimensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-recursive-cubic-smoother">Fast recursive cubic smoother</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-parameters">Choosing the parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smoothing-splines-examples">Smoothing splines examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-idea-in-one-dimension">Core Idea in One Dimension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-idea-in-higher-dimensions">Core Idea in Higher Dimensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-recursive-cubic-smoother">Fast Recursive Cubic Smoother</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-parameters">Choosing the Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smoothing-splines-examples">Smoothing Splines Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>

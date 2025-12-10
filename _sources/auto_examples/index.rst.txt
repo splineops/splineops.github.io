@@ -18,12 +18,13 @@ Explore the example gallery to see how to use the SplineOps library.
 
     </div>
 
-.. splineops/examples/01_quick-start/GALLERY_HEADER.rst
+.. splineops/examples/01_spline_interpolation/GALLERY_HEADER.rst
 
-Quick-start
-===========
+Spline Interpolation Examples
+=============================
 
 Examples showing the basic functionality of the Spline interpolation module.
+We also show the equivalence with Resize module methods where relevant.
 
 
 
@@ -39,10 +40,10 @@ Examples showing the basic functionality of the Spline interpolation module.
 
 .. only:: html
 
-  .. image:: /auto_examples/01_quick-start/images/thumb/sphx_glr_01_01_tensorspline_class_thumb.png
+  .. image:: /auto_examples/01_spline_interpolation/images/thumb/sphx_glr_01_tensorspline_class_thumb.png
     :alt:
 
-  :doc:`/auto_examples/01_quick-start/01_01_tensorspline_class`
+  :doc:`/auto_examples/01_spline_interpolation/01_tensorspline_class`
 
 .. raw:: html
 
@@ -56,10 +57,10 @@ Examples showing the basic functionality of the Spline interpolation module.
 
 .. only:: html
 
-  .. image:: /auto_examples/01_quick-start/images/thumb/sphx_glr_01_02_spline_bases_thumb.png
+  .. image:: /auto_examples/01_spline_interpolation/images/thumb/sphx_glr_02_spline_bases_thumb.png
     :alt:
 
-  :doc:`/auto_examples/01_quick-start/01_02_spline_bases`
+  :doc:`/auto_examples/01_spline_interpolation/02_spline_bases`
 
 .. raw:: html
 
@@ -73,10 +74,10 @@ Examples showing the basic functionality of the Spline interpolation module.
 
 .. only:: html
 
-  .. image:: /auto_examples/01_quick-start/images/thumb/sphx_glr_01_03_extension_modes_thumb.png
+  .. image:: /auto_examples/01_spline_interpolation/images/thumb/sphx_glr_03_extension_modes_thumb.png
     :alt:
 
-  :doc:`/auto_examples/01_quick-start/01_03_extension_modes`
+  :doc:`/auto_examples/01_spline_interpolation/03_extension_modes`
 
 .. raw:: html
 
@@ -84,37 +85,16 @@ Examples showing the basic functionality of the Spline interpolation module.
     </div>
 
 
-.. thumbnail-parent-div-close
-
-.. raw:: html
-
-    </div>
-
-.. splineops/examples/02_resampling_using_1d_samples/GALLERY_HEADER.rst
-
-Resampling using 1D Samples
-===========================
-
-Examples using the Spline Interpolation and Resize modules on 1D samples.
-
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbnails">
-
-.. thumbnail-parent-div-open
-
 .. raw:: html
 
     <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 1D samples with standard interpolation.">
 
 .. only:: html
 
-  .. image:: /auto_examples/02_resampling_using_1d_samples/images/thumb/sphx_glr_02_01_interpolate_1d_samples_thumb.png
+  .. image:: /auto_examples/01_spline_interpolation/images/thumb/sphx_glr_04_interpolate_1d_samples_thumb.png
     :alt:
 
-  :doc:`/auto_examples/02_resampling_using_1d_samples/02_01_interpolate_1d_samples`
+  :doc:`/auto_examples/01_spline_interpolation/04_interpolate_1d_samples`
 
 .. raw:: html
 
@@ -128,10 +108,10 @@ Examples using the Spline Interpolation and Resize modules on 1D samples.
 
 .. only:: html
 
-  .. image:: /auto_examples/02_resampling_using_1d_samples/images/thumb/sphx_glr_02_02_resample_a_1d_spline_thumb.png
+  .. image:: /auto_examples/01_spline_interpolation/images/thumb/sphx_glr_05_resample_a_1d_spline_thumb.png
     :alt:
 
-  :doc:`/auto_examples/02_resampling_using_1d_samples/02_02_resample_a_1d_spline`
+  :doc:`/auto_examples/01_spline_interpolation/05_resample_a_1d_spline`
 
 .. raw:: html
 
@@ -145,10 +125,10 @@ Examples using the Spline Interpolation and Resize modules on 1D samples.
 
 .. only:: html
 
-  .. image:: /auto_examples/02_resampling_using_1d_samples/images/thumb/sphx_glr_02_03_compare_different_splines_thumb.png
+  .. image:: /auto_examples/01_spline_interpolation/images/thumb/sphx_glr_06_compare_different_splines_thumb.png
     :alt:
 
-  :doc:`/auto_examples/02_resampling_using_1d_samples/02_03_compare_different_splines`
+  :doc:`/auto_examples/01_spline_interpolation/06_compare_different_splines`
 
 .. raw:: html
 
@@ -162,12 +142,13 @@ Examples using the Spline Interpolation and Resize modules on 1D samples.
 
     </div>
 
-.. splineops/examples/03_resampling_using_nd_samples/GALLERY_HEADER.rst
+.. splineops/examples/02_resize/GALLERY_HEADER.rst
 
-Resampling using ND Samples
-===========================
+Resize Examples
+===============
 
-Examples using the Spline Interpolation and Resize modules on multidimensional samples, specially 1D and 2D.
+Examples using the Resize module on multidimensional samples, specially 1D and 2D.
+We also show the equivalence with the Spline Interpolation module methods where relevant.
 
 
 .. raw:: html
@@ -182,10 +163,10 @@ Examples using the Spline Interpolation and Resize modules on multidimensional s
 
 .. only:: html
 
-  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_01_resize_module_1d_thumb.png
+  .. image:: /auto_examples/02_resize/images/thumb/sphx_glr_01_resize_module_1d_thumb.png
     :alt:
 
-  :doc:`/auto_examples/03_resampling_using_nd_samples/03_01_resize_module_1d`
+  :doc:`/auto_examples/02_resize/01_resize_module_1d`
 
 .. raw:: html
 
@@ -199,10 +180,10 @@ Examples using the Spline Interpolation and Resize modules on multidimensional s
 
 .. only:: html
 
-  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_02_resize_module_2d_thumb.png
+  .. image:: /auto_examples/02_resize/images/thumb/sphx_glr_02_resize_module_2d_thumb.png
     :alt:
 
-  :doc:`/auto_examples/03_resampling_using_nd_samples/03_02_resize_module_2d`
+  :doc:`/auto_examples/02_resize/02_resize_module_2d`
 
 .. raw:: html
 
@@ -216,10 +197,10 @@ Examples using the Spline Interpolation and Resize modules on multidimensional s
 
 .. only:: html
 
-  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_03_standard_interpolation_thumb.png
+  .. image:: /auto_examples/02_resize/images/thumb/sphx_glr_03_standard_interpolation_thumb.png
     :alt:
 
-  :doc:`/auto_examples/03_resampling_using_nd_samples/03_03_standard_interpolation`
+  :doc:`/auto_examples/02_resize/03_standard_interpolation`
 
 .. raw:: html
 
@@ -233,10 +214,10 @@ Examples using the Spline Interpolation and Resize modules on multidimensional s
 
 .. only:: html
 
-  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_04_antialiasing_thumb.png
+  .. image:: /auto_examples/02_resize/images/thumb/sphx_glr_04_antialiasing_thumb.png
     :alt:
 
-  :doc:`/auto_examples/03_resampling_using_nd_samples/03_04_antialiasing`
+  :doc:`/auto_examples/02_resize/04_antialiasing`
 
 .. raw:: html
 
@@ -250,10 +231,10 @@ Examples using the Spline Interpolation and Resize modules on multidimensional s
 
 .. only:: html
 
-  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_05_how_bad_aliasing_can_be_thumb.png
+  .. image:: /auto_examples/02_resize/images/thumb/sphx_glr_05_how_bad_aliasing_can_be_thumb.png
     :alt:
 
-  :doc:`/auto_examples/03_resampling_using_nd_samples/03_05_how_bad_aliasing_can_be`
+  :doc:`/auto_examples/02_resize/05_how_bad_aliasing_can_be`
 
 .. raw:: html
 
@@ -267,10 +248,10 @@ Examples using the Spline Interpolation and Resize modules on multidimensional s
 
 .. only:: html
 
-  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_06_benchmarking_thumb.png
+  .. image:: /auto_examples/02_resize/images/thumb/sphx_glr_06_benchmarking_thumb.png
     :alt:
 
-  :doc:`/auto_examples/03_resampling_using_nd_samples/03_06_benchmarking`
+  :doc:`/auto_examples/02_resize/06_benchmarking`
 
 .. raw:: html
 
@@ -284,10 +265,10 @@ Examples using the Spline Interpolation and Resize modules on multidimensional s
 
 .. only:: html
 
-  .. image:: /auto_examples/03_resampling_using_nd_samples/images/thumb/sphx_glr_03_07_benchmarking_plot_thumb.png
+  .. image:: /auto_examples/02_resize/images/thumb/sphx_glr_07_benchmarking_plot_thumb.png
     :alt:
 
-  :doc:`/auto_examples/03_resampling_using_nd_samples/03_07_benchmarking_plot`
+  :doc:`/auto_examples/02_resize/07_benchmarking_plot`
 
 .. raw:: html
 
@@ -301,12 +282,12 @@ Examples using the Spline Interpolation and Resize modules on multidimensional s
 
     </div>
 
-.. splineops/examples/04_rotate/GALLERY_HEADER.rst
+.. splineops/examples/03_affine/GALLERY_HEADER.rst
 
-Rotate Examples
+Affine Examples
 ===============
 
-Examples using the Rotate module.
+Examples using the Affine module for data rotation transformations.
 
 
 .. raw:: html
@@ -321,10 +302,10 @@ Examples using the Rotate module.
 
 .. only:: html
 
-  .. image:: /auto_examples/04_rotate/images/thumb/sphx_glr_04_01_rotate_image_thumb.png
+  .. image:: /auto_examples/03_affine/images/thumb/sphx_glr_01_rotate_image_thumb.png
     :alt:
 
-  :doc:`/auto_examples/04_rotate/04_01_rotate_image`
+  :doc:`/auto_examples/03_affine/01_rotate_image`
 
 .. raw:: html
 
@@ -338,10 +319,10 @@ Examples using the Rotate module.
 
 .. only:: html
 
-  .. image:: /auto_examples/04_rotate/images/thumb/sphx_glr_04_02_rotation_animation_thumb.gif
+  .. image:: /auto_examples/03_affine/images/thumb/sphx_glr_02_rotation_animation_thumb.gif
     :alt:
 
-  :doc:`/auto_examples/04_rotate/04_02_rotation_animation`
+  :doc:`/auto_examples/03_affine/02_rotation_animation`
 
 .. raw:: html
 
@@ -355,7 +336,7 @@ Examples using the Rotate module.
 
     </div>
 
-.. splineops/examples/05_adaptive_regression_splines/GALLERY_HEADER.rst
+.. splineops/examples/04_adaptive_regression_splines/GALLERY_HEADER.rst
 
 Adaptive Regression Splines Examples
 ====================================
@@ -375,10 +356,10 @@ Examples using the Adaptive regression splines module.
 
 .. only:: html
 
-  .. image:: /auto_examples/05_adaptive_regression_splines/images/thumb/sphx_glr_05_01_adaptive_regression_splines_module_thumb.png
+  .. image:: /auto_examples/04_adaptive_regression_splines/images/thumb/sphx_glr_01_adaptive_regression_splines_module_thumb.png
     :alt:
 
-  :doc:`/auto_examples/05_adaptive_regression_splines/05_01_adaptive_regression_splines_module`
+  :doc:`/auto_examples/04_adaptive_regression_splines/01_adaptive_regression_splines_module`
 
 .. raw:: html
 
@@ -392,7 +373,7 @@ Examples using the Adaptive regression splines module.
 
     </div>
 
-.. splineops/examples/06_smoothing_splines/GALLERY_HEADER.rst
+.. splineops/examples/05_smoothing_splines/GALLERY_HEADER.rst
 
 Smoothing Splines Examples
 ==========================
@@ -412,10 +393,10 @@ Examples using the Smoothing splines module.
 
 .. only:: html
 
-  .. image:: /auto_examples/06_smoothing_splines/images/thumb/sphx_glr_06_01_1d_fractional_brownian_motion_thumb.png
+  .. image:: /auto_examples/05_smoothing_splines/images/thumb/sphx_glr_01_1d_fractional_brownian_motion_thumb.png
     :alt:
 
-  :doc:`/auto_examples/06_smoothing_splines/06_01_1d_fractional_brownian_motion`
+  :doc:`/auto_examples/05_smoothing_splines/01_1d_fractional_brownian_motion`
 
 .. raw:: html
 
@@ -429,10 +410,10 @@ Examples using the Smoothing splines module.
 
 .. only:: html
 
-  .. image:: /auto_examples/06_smoothing_splines/images/thumb/sphx_glr_06_02_2d_image_smoothing_thumb.png
+  .. image:: /auto_examples/05_smoothing_splines/images/thumb/sphx_glr_02_2d_image_smoothing_thumb.png
     :alt:
 
-  :doc:`/auto_examples/06_smoothing_splines/06_02_2d_image_smoothing`
+  :doc:`/auto_examples/05_smoothing_splines/02_2d_image_smoothing`
 
 .. raw:: html
 
@@ -446,10 +427,10 @@ Examples using the Smoothing splines module.
 
 .. only:: html
 
-  .. image:: /auto_examples/06_smoothing_splines/images/thumb/sphx_glr_06_03_3d_volume_smoothing_thumb.png
+  .. image:: /auto_examples/05_smoothing_splines/images/thumb/sphx_glr_03_3d_volume_smoothing_thumb.png
     :alt:
 
-  :doc:`/auto_examples/06_smoothing_splines/06_03_3d_volume_smoothing`
+  :doc:`/auto_examples/05_smoothing_splines/03_3d_volume_smoothing`
 
 .. raw:: html
 
@@ -463,10 +444,10 @@ Examples using the Smoothing splines module.
 
 .. only:: html
 
-  .. image:: /auto_examples/06_smoothing_splines/images/thumb/sphx_glr_06_04_recursive_smoothing_spline_thumb.png
+  .. image:: /auto_examples/05_smoothing_splines/images/thumb/sphx_glr_04_recursive_smoothing_spline_thumb.png
     :alt:
 
-  :doc:`/auto_examples/06_smoothing_splines/06_04_recursive_smoothing_spline`
+  :doc:`/auto_examples/05_smoothing_splines/04_recursive_smoothing_spline`
 
 .. raw:: html
 
@@ -480,7 +461,7 @@ Examples using the Smoothing splines module.
 
     </div>
 
-.. splineops/examples/07_differentials/GALLERY_HEADER.rst
+.. splineops/examples/06_differentials/GALLERY_HEADER.rst
 
 Differentials Examples
 ======================
@@ -500,10 +481,10 @@ Examples using the Differentials module.
 
 .. only:: html
 
-  .. image:: /auto_examples/07_differentials/images/thumb/sphx_glr_07_01_differentials_module_thumb.png
+  .. image:: /auto_examples/06_differentials/images/thumb/sphx_glr_01_differentials_module_thumb.png
     :alt:
 
-  :doc:`/auto_examples/07_differentials/07_01_differentials_module`
+  :doc:`/auto_examples/06_differentials/01_differentials_module`
 
 .. raw:: html
 
@@ -517,7 +498,7 @@ Examples using the Differentials module.
 
     </div>
 
-.. splineops/examples/08_multiscale/GALLERY_HEADER.rst
+.. splineops/examples/07_multiscale/GALLERY_HEADER.rst
 
 Multiscale Examples
 ===================
@@ -537,10 +518,10 @@ Examples using the Multiscale module.
 
 .. only:: html
 
-  .. image:: /auto_examples/08_multiscale/images/thumb/sphx_glr_08_01_pyramid_decomposition_thumb.png
+  .. image:: /auto_examples/07_multiscale/images/thumb/sphx_glr_01_pyramid_decomposition_thumb.png
     :alt:
 
-  :doc:`/auto_examples/08_multiscale/08_01_pyramid_decomposition`
+  :doc:`/auto_examples/07_multiscale/01_pyramid_decomposition`
 
 .. raw:: html
 
@@ -554,10 +535,10 @@ Examples using the Multiscale module.
 
 .. only:: html
 
-  .. image:: /auto_examples/08_multiscale/images/thumb/sphx_glr_08_02_wavelet_decomposition_thumb.png
+  .. image:: /auto_examples/07_multiscale/images/thumb/sphx_glr_02_wavelet_decomposition_thumb.png
     :alt:
 
-  :doc:`/auto_examples/08_multiscale/08_02_wavelet_decomposition`
+  :doc:`/auto_examples/07_multiscale/02_wavelet_decomposition`
 
 .. raw:: html
 
@@ -577,14 +558,13 @@ Examples using the Multiscale module.
    :includehidden:
 
 
-   /auto_examples/01_quick-start/index.rst
-   /auto_examples/02_resampling_using_1d_samples/index.rst
-   /auto_examples/03_resampling_using_nd_samples/index.rst
-   /auto_examples/04_rotate/index.rst
-   /auto_examples/05_adaptive_regression_splines/index.rst
-   /auto_examples/06_smoothing_splines/index.rst
-   /auto_examples/07_differentials/index.rst
-   /auto_examples/08_multiscale/index.rst
+   /auto_examples/01_spline_interpolation/index.rst
+   /auto_examples/02_resize/index.rst
+   /auto_examples/03_affine/index.rst
+   /auto_examples/04_adaptive_regression_splines/index.rst
+   /auto_examples/05_smoothing_splines/index.rst
+   /auto_examples/06_differentials/index.rst
+   /auto_examples/07_multiscale/index.rst
 
 
 .. only:: html

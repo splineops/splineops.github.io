@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=d55fa986"></script>
+    <script src="../_static/documentation_options.js?v=fc837d61"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -366,7 +366,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Spline Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_rotate.html">Rotate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_affine.html">Affine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_adaptive_regression_splines.html">Adaptive Regression Splines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_smoothing_splines.html">Smoothing Splines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_differentials.html">Differentials</a></li>
@@ -484,20 +484,20 @@ valid for <span class="math notranslate nohighlight">\(n \in {\mathbb{N}}_{&gt;0
 <p>where <span class="math notranslate nohighlight">\((t)_{+} = \max(t, 0)\)</span> denotes the positive part of <span class="math notranslate nohighlight">\(t\)</span> and
 <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> is the argument of the B-spline.</p>
 <p>Here is the plot of a cubic B-spline.</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_004.png"><img alt="../_images/sphx_glr_01_02_spline_bases_004.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_004.png" style="width: 100%;" />
+<a class="reference internal image-reference" href="../_images/sphx_glr_02_spline_bases_004.png"><img alt="../_images/sphx_glr_02_spline_bases_004.png" class="align-center" src="../_images/sphx_glr_02_spline_bases_004.png" style="width: 100%;" />
 </a>
 <p>Now, let us shift this B-spline horizontally by one third.</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_005.png"><img alt="../_images/sphx_glr_01_02_spline_bases_005.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_005.png" style="width: 100%;" />
+<a class="reference internal image-reference" href="../_images/sphx_glr_02_spline_bases_005.png"><img alt="../_images/sphx_glr_02_spline_bases_005.png" class="align-center" src="../_images/sphx_glr_02_spline_bases_005.png" style="width: 100%;" />
 </a>
 <p>Moreover, let us shrink it by 60%.</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_006.png"><img alt="../_images/sphx_glr_01_02_spline_bases_006.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_006.png" style="width: 100%;" />
+<a class="reference internal image-reference" href="../_images/sphx_glr_02_spline_bases_006.png"><img alt="../_images/sphx_glr_02_spline_bases_006.png" class="align-center" src="../_images/sphx_glr_02_spline_bases_006.png" style="width: 100%;" />
 </a>
 <p>Finally, let us multiply it by one fourth. This multiplicative step is called a <em>weighting</em> of the B-spline.</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_007.png"><img alt="../_images/sphx_glr_01_02_spline_bases_007.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_007.png" style="width: 100%;" />
+<a class="reference internal image-reference" href="../_images/sphx_glr_02_spline_bases_007.png"><img alt="../_images/sphx_glr_02_spline_bases_007.png" class="align-center" src="../_images/sphx_glr_02_spline_bases_007.png" style="width: 100%;" />
 </a>
 <p>Likewise, we could play with any other combination of (shift, shrink, weight) to obtain a zoo of other functions, including some with negative weight. In the
 present case, all of them would be said to be cubic B-splines, up to their individual (shift, shrink, weight). Here are some.</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_008.png"><img alt="../_images/sphx_glr_01_02_spline_bases_008.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_008.png" style="width: 100%;" />
+<a class="reference internal image-reference" href="../_images/sphx_glr_02_spline_bases_008.png"><img alt="../_images/sphx_glr_02_spline_bases_008.png" class="align-center" src="../_images/sphx_glr_02_spline_bases_008.png" style="width: 100%;" />
 </a>
 <p>B-splines have many relevant properties. Among them, the (technical) fact that they have an optimal <em>order of approximation</em> explains why these functions are so
 good at representing discrete data. In nearly every case of relevance, their most important (practical) property is that their <em>support</em> is finite.</p>
@@ -505,7 +505,7 @@ good at representing discrete data. In nearly every case of relevance, their mos
 <section id="spline-definition">
 <h3>Spline Definition<a class="headerlink" href="#spline-definition" title="Link to this heading">#</a></h3>
 <p>Now, we are going to do something bold. Let us sum together the functions of the previous figure.</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_009.png"><img alt="../_images/sphx_glr_01_02_spline_bases_009.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_009.png" style="width: 100%;" />
+<a class="reference internal image-reference" href="../_images/sphx_glr_02_spline_bases_009.png"><img alt="../_images/sphx_glr_02_spline_bases_009.png" class="align-center" src="../_images/sphx_glr_02_spline_bases_009.png" style="width: 100%;" />
 </a>
 <p>We were able to create some combined function that seems to be kind of arbitrary. This combined function somehow retains the characteristics of B-splines, but
 it is no more a B-spline (the letter B stands for Basis); instead it is called a <em>spline</em> (without the B).</p>
@@ -530,15 +530,15 @@ integer-valued shifts (the spline is then said to be a <em>regular</em> spline).
 ever going to consider splines made of a mix of degrees. Yet, we want to maintain our free choice of the weights of the B-splines; this will give us
 sufficient freedom to build splines that can be shaped any way we want.</p>
 <p>Here is some uniform spline (thick curve), along with its additive constituents (arbitrarily weighted and integer-shifted B-splines of same degree, thin curves).</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_010.png"><img alt="../_images/sphx_glr_01_02_spline_bases_010.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_010.png" style="width: 100%;" />
+<a class="reference internal image-reference" href="../_images/sphx_glr_02_spline_bases_010.png"><img alt="../_images/sphx_glr_02_spline_bases_010.png" class="align-center" src="../_images/sphx_glr_02_spline_bases_010.png" style="width: 100%;" />
 </a>
 <p>We now mark with dots the samples at the integers of this particular spline.</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_011.png"><img alt="../_images/sphx_glr_01_02_spline_bases_011.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_011.png" style="width: 100%;" />
+<a class="reference internal image-reference" href="../_images/sphx_glr_02_spline_bases_011.png"><img alt="../_images/sphx_glr_02_spline_bases_011.png" class="align-center" src="../_images/sphx_glr_02_spline_bases_011.png" style="width: 100%;" />
 </a>
 <p>These samples make for a discrete list of values (<em>i.e.</em>, the data samples). Since we want to interpolate these data, a natural question that arises is as
 follows: is there a way to reverse the process and to first impose a list of arbitrary sample values, then only to determine which B-spline weights are
 appropriate to build the uniform spline that happens to go through these samples? Here is the succession of operations we have in mind.</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_01_02_spline_bases_012.png"><img alt="../_images/sphx_glr_01_02_spline_bases_012.png" class="align-center" src="../_images/sphx_glr_01_02_spline_bases_012.png" style="width: 100%;" />
+<a class="reference internal image-reference" href="../_images/sphx_glr_02_spline_bases_012.png"><img alt="../_images/sphx_glr_02_spline_bases_012.png" class="align-center" src="../_images/sphx_glr_02_spline_bases_012.png" style="width: 100%;" />
 </a>
 <p>The answer is yes, we can go from discrete samples to continuously defined curve, but one needs to do it right. For instance, the weighting process is
 not trivial; the center panel of the figure above illustrates the fact that the value of a weight is usually not equal to the value of a sample—for a
@@ -547,7 +547,7 @@ clear case, do inspect abscissa at 2.</p>
 <section id="d-interpolation-example">
 <h3>1D Interpolation Example<a class="headerlink" href="#d-interpolation-example" title="Link to this heading">#</a></h3>
 <p>The example
-<a class="reference internal" href="../auto_examples/02_resampling_using_1d_samples/02_01_interpolate_1d_samples.html#sphx-glr-auto-examples-02-resampling-using-1d-samples-02-01-interpolate-1d-samples-py"><span class="std std-ref">Interpolate 1D Samples</span></a>
+<a class="reference internal" href="../auto_examples/01_spline_interpolation/04_interpolate_1d_samples.html#sphx-glr-auto-examples-01-spline-interpolation-04-interpolate-1d-samples-py"><span class="std std-ref">Interpolate 1D Samples</span></a>
 illustrates how a 1D sequence of samples <span class="math notranslate nohighlight">\(f[k]\)</span> is interpolated by a
 cubic B-spline, and how this spline can be written as a sum of shifted and
 weighted basis functions.</p>
@@ -565,18 +565,18 @@ recursive IIR filter. This prefilter enforces the interpolation constraints whil
 preserving the smoothness and locality properties of the cubic B-spline basis.</p>
 <p>Below we reproduce three of the figures from that example.</p>
 <p>The first figure shows the discrete samples <span class="math notranslate nohighlight">\(f[k]\)</span> alone:</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_02_01_interpolate_1d_samples_001.png"><img alt="../_images/sphx_glr_02_01_interpolate_1d_samples_001.png" class="align-center" src="../_images/sphx_glr_02_01_interpolate_1d_samples_001.png" style="width: 100%;" />
+<a class="reference internal image-reference" href="../_images/sphx_glr_04_interpolate_1d_samples_001.png"><img alt="../_images/sphx_glr_04_interpolate_1d_samples_001.png" class="align-center" src="../_images/sphx_glr_04_interpolate_1d_samples_001.png" style="width: 100%;" />
 </a>
 <p>The second figure displays the shifted cubic B-splines <span class="math notranslate nohighlight">\(\beta^{3}(x-k)\)</span>
 weighted by the corresponding coefficients <span class="math notranslate nohighlight">\(c[k]\)</span>. Each thin curve is one term
 <span class="math notranslate nohighlight">\(c[k]\beta^{3}(x-k)\)</span> in the spline expansion:</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_02_01_interpolate_1d_samples_002.png"><img alt="../_images/sphx_glr_02_01_interpolate_1d_samples_002.png" class="align-center" src="../_images/sphx_glr_02_01_interpolate_1d_samples_002.png" style="width: 100%;" />
+<a class="reference internal image-reference" href="../_images/sphx_glr_04_interpolate_1d_samples_002.png"><img alt="../_images/sphx_glr_04_interpolate_1d_samples_002.png" class="align-center" src="../_images/sphx_glr_04_interpolate_1d_samples_002.png" style="width: 100%;" />
 </a>
 <p>The third figure shows the resulting interpolating spline <span class="math notranslate nohighlight">\(f(x)\)</span> (smooth curve)
 overlaid with the original samples <span class="math notranslate nohighlight">\(f[k]\)</span> (stems). One can see that the spline
 passes exactly through all sample points, while providing a smooth, continuously
 defined representation in between:</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_02_01_interpolate_1d_samples_003.png"><img alt="../_images/sphx_glr_02_01_interpolate_1d_samples_003.png" class="align-center" src="../_images/sphx_glr_02_01_interpolate_1d_samples_003.png" style="width: 100%;" />
+<a class="reference internal image-reference" href="../_images/sphx_glr_04_interpolate_1d_samples_003.png"><img alt="../_images/sphx_glr_04_interpolate_1d_samples_003.png" class="align-center" src="../_images/sphx_glr_04_interpolate_1d_samples_003.png" style="width: 100%;" />
 </a>
 </section>
 </section>
@@ -609,11 +609,8 @@ behaves outside the sampled domain.</p>
 <section id="tensorspline-and-resize-apis">
 <h2>TensorSpline and Resize APIs<a class="headerlink" href="#tensorspline-and-resize-apis" title="Link to this heading">#</a></h2>
 <p>The mathematical model above is implemented in SplineOps by two complementary
-APIs:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="../api/01_spline_interpolation.html#splineops.spline_interpolation.tensor_spline.TensorSpline" title="splineops.spline_interpolation.tensor_spline.TensorSpline"><code class="xref py py-class docutils literal notranslate"><span class="pre">splineops.spline_interpolation.tensor_spline.TensorSpline</span></code></a></p></li>
-<li><p><a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">splineops.resize.resize()</span></code></a> and <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize_degrees" title="splineops.resize.resize_degrees"><code class="xref py py-func docutils literal notranslate"><span class="pre">splineops.resize.resize_degrees()</span></code></a></p></li>
-</ul>
+modules: <a class="reference internal" href="../api/01_spline_interpolation.html#api-spline-interpolation"><span class="std std-ref">spline interpolation</span></a> (using <a class="reference internal" href="../api/01_spline_interpolation.html#splineops.spline_interpolation.tensor_spline.TensorSpline" title="splineops.spline_interpolation.tensor_spline.TensorSpline"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorSpline</span></code></a>) and
+<a class="reference internal" href="../api/02_resize.html#api-resize"><span class="std std-ref">resize</span></a> (using <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> and <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize_degrees" title="splineops.resize.resize_degrees"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize_degrees()</span></code></a>).</p>
 <p>They share the same spline formulation but target slightly different use cases.</p>
 <section id="comparison">
 <h3>Comparison<a class="headerlink" href="#comparison" title="Link to this heading">#</a></h3>
@@ -625,8 +622,8 @@ APIs:</p>
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Feature</p></th>
-<th class="head"><p><code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code></p></th>
-<th class="head"><p><code class="docutils literal notranslate"><span class="pre">resize</span></code> / <code class="docutils literal notranslate"><span class="pre">resize_degrees</span></code></p></th>
+<th class="head"><p><a class="reference internal" href="../api/01_spline_interpolation.html#splineops.spline_interpolation.tensor_spline.TensorSpline" title="splineops.spline_interpolation.tensor_spline.TensorSpline"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorSpline</span></code></a></p></th>
+<th class="head"><p><a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> / <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize_degrees" title="splineops.resize.resize_degrees"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize_degrees()</span></code></a></p></th>
 </tr>
 </thead>
 <tbody>
@@ -659,18 +656,18 @@ APIs:</p>
 </div>
 </section>
 <section id="equivalence-for-standard-interpolation">
-<h3>Equivalence for standard interpolation<a class="headerlink" href="#equivalence-for-standard-interpolation" title="Link to this heading">#</a></h3>
+<h3>Equivalence for Standard Interpolation<a class="headerlink" href="#equivalence-for-standard-interpolation" title="Link to this heading">#</a></h3>
 <p>In the special case of a uniform grid, B-spline degrees 0–3 and mirror
-boundaries, standard interpolation via <code class="xref py py-class docutils literal notranslate"><span class="pre">TensorSpline</span></code> matches the
-corresponding <code class="docutils literal notranslate"><span class="pre">resize</span></code> presets exactly:</p>
+boundaries, standard interpolation via <a class="reference internal" href="../api/01_spline_interpolation.html#splineops.spline_interpolation.tensor_spline.TensorSpline" title="splineops.spline_interpolation.tensor_spline.TensorSpline"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorSpline</span></code></a> matches the
+corresponding <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> presets exactly:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 60.0%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">resize</span></code> method</p></th>
-<th class="head"><p>Equivalent <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> configuration</p></th>
+<tr class="row-odd"><th class="head"><p><a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> method</p></th>
+<th class="head"><p>Equivalent <a class="reference internal" href="../api/01_spline_interpolation.html#splineops.spline_interpolation.tensor_spline.TensorSpline" title="splineops.spline_interpolation.tensor_spline.TensorSpline"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorSpline</span></code></a> configuration</p></th>
 </tr>
 </thead>
 <tbody>
@@ -697,13 +694,13 @@ corresponding <code class="docutils literal notranslate"><span class="pre">resiz
 <ul class="simple">
 <li><p>the spline model is the same,</p></li>
 <li><p>the interpolation values agree up to numerical precision,</p></li>
-<li><p>but <code class="docutils literal notranslate"><span class="pre">resize</span></code> is usually much faster thanks to its C++ core and optimized
+<li><p>but <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> is usually much faster thanks to its C++ core and optimized
 memory access patterns.</p></li>
 </ul>
 </section>
-<section id="code-use">
-<h3>Code Use<a class="headerlink" href="#code-use" title="Link to this heading">#</a></h3>
-<p>Using <code class="xref py py-class docutils literal notranslate"><span class="pre">TensorSpline</span></code> directly:</p>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h3>
+<p>Using <a class="reference internal" href="../api/01_spline_interpolation.html#splineops.spline_interpolation.tensor_spline.TensorSpline" title="splineops.spline_interpolation.tensor_spline.TensorSpline"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorSpline</span></code></a> directly:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">splineops.spline_interpolation.tensor_spline</span><span class="w"> </span><span class="kn">import</span> <span class="n">TensorSpline</span>
 
@@ -726,7 +723,7 @@ memory access patterns.</p></li>
 <span class="n">data_upsampled</span> <span class="o">=</span> <span class="n">ts</span><span class="p">(</span><span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><span class="n">x_fine</span><span class="p">,</span> <span class="n">y_fine</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Using <code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code> for the same operation:</p>
+<p>Using <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> for the same operation:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">splineops.resize</span><span class="w"> </span><span class="kn">import</span> <span class="n">resize</span>
 
@@ -746,12 +743,12 @@ memory access patterns.</p></li>
 <section id="interpolation-examples">
 <h2>Interpolation Examples<a class="headerlink" href="#interpolation-examples" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../auto_examples/01_quick-start/01_01_tensorspline_class.html#sphx-glr-auto-examples-01-quick-start-01-01-tensorspline-class-py"><span class="std std-ref">Class TensorSpline</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/01_quick-start/01_02_spline_bases.html#sphx-glr-auto-examples-01-quick-start-01-02-spline-bases-py"><span class="std std-ref">Spline Bases</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/01_quick-start/01_03_extension_modes.html#sphx-glr-auto-examples-01-quick-start-01-03-extension-modes-py"><span class="std std-ref">Extension Modes</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/02_resampling_using_1d_samples/02_01_interpolate_1d_samples.html#sphx-glr-auto-examples-02-resampling-using-1d-samples-02-01-interpolate-1d-samples-py"><span class="std std-ref">Interpolate 1D Samples</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/02_resampling_using_1d_samples/02_02_resample_a_1d_spline.html#sphx-glr-auto-examples-02-resampling-using-1d-samples-02-02-resample-a-1d-spline-py"><span class="std std-ref">Resample a 1D Spline</span></a></p></li>
-<li><p><a class="reference internal" href="../auto_examples/02_resampling_using_1d_samples/02_03_compare_different_splines.html#sphx-glr-auto-examples-02-resampling-using-1d-samples-02-03-compare-different-splines-py"><span class="std std-ref">Compare Different Splines</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/01_spline_interpolation/01_tensorspline_class.html#sphx-glr-auto-examples-01-spline-interpolation-01-tensorspline-class-py"><span class="std std-ref">Class TensorSpline</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/01_spline_interpolation/02_spline_bases.html#sphx-glr-auto-examples-01-spline-interpolation-02-spline-bases-py"><span class="std std-ref">Spline Bases</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/01_spline_interpolation/03_extension_modes.html#sphx-glr-auto-examples-01-spline-interpolation-03-extension-modes-py"><span class="std std-ref">Extension Modes</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/01_spline_interpolation/04_interpolate_1d_samples.html#sphx-glr-auto-examples-01-spline-interpolation-04-interpolate-1d-samples-py"><span class="std std-ref">Interpolate 1D Samples</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/01_spline_interpolation/05_resample_a_1d_spline.html#sphx-glr-auto-examples-01-spline-interpolation-05-resample-a-1d-spline-py"><span class="std std-ref">Resample a 1D Spline</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/01_spline_interpolation/06_compare_different_splines.html#sphx-glr-auto-examples-01-spline-interpolation-06-compare-different-splines-py"><span class="std std-ref">Compare Different Splines</span></a></p></li>
 </ul>
 </section>
 <section id="references">
@@ -861,8 +858,8 @@ Proceedings of the IEEE, vol. 88, no. 4, pp. 569-587, April 2000.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-multiple-dimensions">In Multiple Dimensions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorspline-and-resize-apis">TensorSpline and Resize APIs</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equivalence-for-standard-interpolation">Equivalence for standard interpolation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-use">Code Use</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equivalence-for-standard-interpolation">Equivalence for Standard Interpolation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-examples">Interpolation Examples</a></li>

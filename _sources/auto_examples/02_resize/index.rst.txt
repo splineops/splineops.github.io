@@ -1,0 +1,156 @@
+
+
+.. _sphx_glr_auto_examples_02_resize:
+
+.. splineops/examples/02_resize/GALLERY_HEADER.rst
+
+Resize Examples
+===============
+
+Examples using the Resize module on multidimensional samples, specially 1D and 2D.
+We also show the equivalence with the Spline Interpolation module methods where relevant.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Starting from a 1D signal f[k] on a unit grid, we perform a 1D resize directly on the samples and compare:">
+
+.. only:: html
+
+  .. image:: /auto_examples/02_resize/images/thumb/sphx_glr_01_resize_module_1d_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/02_resize/01_resize_module_1d`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Resize Module 1D</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Shrink and re-expand a 2-D RGB image with splineops, then discuss aliasing.">
+
+.. only:: html
+
+  .. image:: /auto_examples/02_resize/images/thumb/sphx_glr_02_resize_module_2d_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/02_resize/02_resize_module_2d`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Resize Module 2D</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 2D images with standard interpolation. Compare them to SciPy zoom. We compute SNR and MSE on a face ROI (not the whole frame) to focus on detail and avoid boundary artifacts.">
+
+.. only:: html
+
+  .. image:: /auto_examples/02_resize/images/thumb/sphx_glr_03_standard_interpolation_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/02_resize/03_standard_interpolation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Standard Interpolation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 2D images with an antialiased down-sampling step and compare the result to standard interpolation.">
+
+.. only:: html
+
+  .. image:: /auto_examples/02_resize/images/thumb/sphx_glr_04_antialiasing_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/02_resize/04_antialiasing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Antialiasing</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="We construct an A/B corner mix image where, in each 2×2 tile, the top-left pixel comes from image A and the other three come from B. We then:">
+
+.. only:: html
+
+  .. image:: /auto_examples/02_resize/images/thumb/sphx_glr_05_how_bad_aliasing_can_be_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/02_resize/05_how_bad_aliasing_can_be`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">How Bad Aliasing Can Be</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example benchmarks several 2D downsampling methods over a set of test images. For each image we:">
+
+.. only:: html
+
+  .. image:: /auto_examples/02_resize/images/thumb/sphx_glr_06_benchmarking_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/02_resize/06_benchmarking`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Benchmarking</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example performs a 1D sweep of zoom factors and evaluates how different 2D interpolation / downsampling methods behave in terms of">
+
+.. only:: html
+
+  .. image:: /auto_examples/02_resize/images/thumb/sphx_glr_07_benchmarking_plot_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/02_resize/07_benchmarking_plot`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Benchmarking Plot</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/02_resize/01_resize_module_1d
+   /auto_examples/02_resize/02_resize_module_2d
+   /auto_examples/02_resize/03_standard_interpolation
+   /auto_examples/02_resize/04_antialiasing
+   /auto_examples/02_resize/05_how_bad_aliasing_can_be
+   /auto_examples/02_resize/06_benchmarking
+   /auto_examples/02_resize/07_benchmarking_plot
+
