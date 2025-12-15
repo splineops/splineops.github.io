@@ -414,7 +414,7 @@ low-pass-then-sample strategy, preserving the true average content.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.870 seconds)
+   **Total running time of the script:** (0 minutes 3.130 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_05_how_bad_aliasing_can_be.py:

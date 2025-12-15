@@ -29,7 +29,7 @@
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/css/custom.css?v=7e28914a" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -46,7 +46,7 @@
 <link href="../../_static/logo.ico" rel="icon"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="../../search.html" rel="search" title="Search"/>
-<link href="../05_smoothing_splines/index.html" rel="next" title="Smoothing Splines Examples"/>
+<link href="02_lambda_sweep_animation.html" rel="next" title="Lambda Sweep Animation"/>
 <link href="index.html" rel="prev" title="Adaptive Regression Splines Examples"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="en" name="docsearch:language"/>
@@ -228,6 +228,7 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Adaptive Regression Splines Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Adaptive Regression Splines Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_lambda_sweep_animation.html">Lambda Sweep Animation</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05_smoothing_splines/index.html">Smoothing Splines Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -406,7 +407,7 @@ Each plot title reports the number of knots <span class="math notranslate nohigh
     <a class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-method" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="matplotlib.axes.Axes.plot"><span class="n">ax</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">x</span></a><span class="p">,</span> <span class="n">y_d</span><span class="p">,</span> <span class="s1">'x'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Denoised'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
     <a class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-method" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="matplotlib.axes.Axes.plot"><span class="n">ax</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span><span class="n">t_grid</span><span class="p">,</span> <span class="n">linear_spline</span><span class="p">(</span><span class="n">t_grid</span><span class="p">,</span> <span class="n">knots</span><span class="p">,</span> <span class="n">amplitudes</span><span class="p">,</span> <span class="n">polynomial</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Sparsest'</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">knots</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <a class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-method" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="matplotlib.axes.Axes.plot"><span class="n">ax</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span><span class="n">knots</span><span class="p">,</span> <span class="n">linear_spline</span><span class="p">(</span><span class="n">knots</span><span class="p">,</span> <span class="n">knots</span><span class="p">,</span> <span class="n">amplitudes</span><span class="p">,</span> <span class="n">polynomial</span><span class="p">),</span> <span class="s1">'o'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Knots'</span><span class="p">)</span>
+        <a class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-method" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="matplotlib.axes.Axes.plot"><span class="n">ax</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span><span class="n">knots</span><span class="p">,</span> <span class="n">linear_spline</span><span class="p">(</span><span class="n">knots</span><span class="p">,</span> <span class="n">knots</span><span class="p">,</span> <span class="n">amplitudes</span><span class="p">,</span> <span class="n">polynomial</span><span class="p">),</span> <span class="s1">'o'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"C3"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Knots'</span><span class="p">)</span>
     <a class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-method" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_title.html#matplotlib.axes.Axes.set_title" title="matplotlib.axes.Axes.set_title"><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span></a><span class="p">(</span><span class="sa">f</span><span class="s2">"λ = </span><span class="si">{</span><span class="n">lamb</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">   |   K = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">knots</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <a class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-method" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.legend.html#matplotlib.axes.Axes.legend" title="matplotlib.axes.Axes.legend"><span class="n">ax</span><span class="o">.</span><span class="n">legend</span></a><span class="p">()</span>
     <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
@@ -442,7 +443,7 @@ Each plot title reports the number of knots <span class="math notranslate nohigh
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">_run_lambda</span><span class="p">(</span><span class="mf">2e-1</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="λ = 0.2   |   K = 1" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_adaptive_regression_splines_module_006.png" srcset="../../_images/sphx_glr_01_adaptive_regression_splines_module_006.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.667 seconds)</p>
+<img alt="λ = 0.2   |   K = 1" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_adaptive_regression_splines_module_006.png" srcset="../../_images/sphx_glr_01_adaptive_regression_splines_module_006.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.676 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>
@@ -457,10 +458,10 @@ Each plot title reports the number of knots <span class="math notranslate nohigh
 <p class="prev-next-title">Adaptive Regression Splines Examples</p>
 </div>
 </a>
-<a class="right-next" href="../05_smoothing_splines/index.html" title="next page">
+<a class="right-next" href="02_lambda_sweep_animation.html" title="next page">
 <div class="prev-next-info">
 <p class="prev-next-subtitle">next</p>
-<p class="prev-next-title">Smoothing Splines Examples</p>
+<p class="prev-next-title">Lambda Sweep Animation</p>
 </div>
 <i class="fa-solid fa-angle-right"></i>
 </a>

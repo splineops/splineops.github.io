@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7e28914a" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=f56efcf3" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -479,7 +479,7 @@ spline coefficients.</p>
   \Bigr\}.\]</div>
 <p>We call this space <span class="math notranslate nohighlight">\(V_1\)</span> because it corresponds to a unit sampling
 step along the integer grid <span class="math notranslate nohighlight">\(\{0, 1, 2, \dots\}\)</span>.</p>
-<p>Now fix a scale factor <span class="math notranslate nohighlight">\(T &gt; 0\)</span> and consider the scaled grid</p>
+<p>Now fix a scale factor, a non-negative real number <span class="math notranslate nohighlight">\(T &gt; 0\)</span>, and consider the scaled grid</p>
 <div class="math notranslate nohighlight">
 \[\Gamma_T = \{ T k \mid k \in \mathbb{Z} \}.\]</div>
 <p>We can picture the two grids schematically as</p>
@@ -529,8 +529,8 @@ implement the standard interpolation scheme described in
 <a class="reference internal image-reference" href="../_images/sphx_glr_05_resample_a_1d_spline_002.png"><img alt="../_images/sphx_glr_05_resample_a_1d_spline_002.png" class="align-center" src="../_images/sphx_glr_05_resample_a_1d_spline_002.png" style="width: 100%;" />
 </a>
 </section>
-<section id="resizing">
-<h2>Resizing<a class="headerlink" href="#resizing" title="Link to this heading">#</a></h2>
+<section id="resizing-by-resampling">
+<h2>Resizing by Resampling<a class="headerlink" href="#resizing-by-resampling" title="Link to this heading">#</a></h2>
 <p>Suppose that the original signal <span class="math notranslate nohighlight">\(f\)</span> belongs to <span class="math notranslate nohighlight">\(V_1\)</span>. For a given
 scale factor <span class="math notranslate nohighlight">\(T\)</span>, we can form new samples on the scaled grid
 <span class="math notranslate nohighlight">\(\Gamma_T\)</span>:</p>
@@ -572,8 +572,8 @@ illustrating how <span class="math notranslate nohighlight">\(V_1 \to V_T\)</spa
 <a class="reference internal image-reference" href="../_images/sphx_glr_02_resize_module_2d_002.png"><img alt="../_images/sphx_glr_02_resize_module_2d_002.png" class="align-center" src="../_images/sphx_glr_02_resize_module_2d_002.png" style="width: 100%;" />
 </a>
 </section>
-<section id="least-squares-projection">
-<h2>Least-Squares Projection<a class="headerlink" href="#least-squares-projection" title="Link to this heading">#</a></h2>
+<section id="optimal-resizing-by-least-squares-projection">
+<h2>Optimal Resizing by Least-Squares Projection<a class="headerlink" href="#optimal-resizing-by-least-squares-projection" title="Link to this heading">#</a></h2>
 <p>So far we have described elements of <span class="math notranslate nohighlight">\(V_T\)</span> by expanding them in terms of
 the shifted basis functions <span class="math notranslate nohighlight">\(\varphi_{k,T}\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -584,7 +584,7 @@ What remains is to explain how these coefficients are obtained from the input
 signal <span class="math notranslate nohighlight">\(f\)</span>.</p>
 <p>In the least-squares setting, this is done using a second family of functions
 <span class="math notranslate nohighlight">\(\{\tilde{\varphi}_{k,T}\}_{k\in\mathbb{Z}}\)</span>, often called the
-analysis functions. They are chosen to be dual to the synthesis functions,
+analysis functions (also called dual-basis functions). They are chosen to be dual to the synthesis functions,
 in the sense of the biorthonormality relation</p>
 <div class="math notranslate nohighlight">
 \[\bigl\langle \varphi_{k,T}, \tilde{\varphi}_{m,T} \bigr\rangle_{L_2(\mathbb{R})}
@@ -619,7 +619,7 @@ approximation is still written as</p>
 <div class="math notranslate nohighlight">
 \[g_T^{\mathrm{obl}}(x)
 = \sum_{k \in \mathbb{Z}} d[k]\,\varphi_{k,T}(x),\]</div>
-<p>but to compute the coefficients <span class="math notranslate nohighlight">\(d[k]\)</span> using a simpler analysis family
+<p>but to compute the coefficients <span class="math notranslate nohighlight">\(d[k]\)</span> using a biorthonormal analysis family
 <span class="math notranslate nohighlight">\(\{\psi_{k,T}\}_{k\in\mathbb{Z}}\)</span> that typically belongs to a lower-degree
 spline space. In this case, the projection error is orthogonal to the analysis
 space spanned by <span class="math notranslate nohighlight">\(\psi_{k,T}\)</span>, rather than to <span class="math notranslate nohighlight">\(V_T\)</span> itself, hence
@@ -1034,8 +1034,8 @@ pp. 679–692, May 1998.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resized-grids">Resized Grids</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resizing">Resizing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-projection">Least-Squares Projection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resizing-by-resampling">Resizing by Resampling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-resizing-by-least-squares-projection">Optimal Resizing by Least-Squares Projection</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oblique-projection">Oblique Projection</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-algorithm">The Algorithm</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>

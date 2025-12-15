@@ -20,6 +20,7 @@ from splineops.affine.affine import rotate
 from splineops.resize.resize import resize
 from urllib.request import urlopen
 from PIL import Image
+# sphinx_gallery_thumbnail_number = 2 # show second figure as thumbnail
 
 # %%
 # Load and Preprocess the Image
@@ -29,8 +30,8 @@ from PIL import Image
 # and then resize it by a factor of (0.5, 0.5). After that,
 # scale its intensity back to [0, 255] before rotation.
 
-# Load the 'kodim17.png' image
-url = 'https://r0k.us/graphics/kodak/kodak/kodim22.png'
+# Load the image
+url = 'https://r0k.us/graphics/kodak/kodak/kodim07.png'
 with urlopen(url, timeout=10) as resp:
     img = Image.open(resp)
 data = np.array(img, dtype=np.float64)
@@ -41,6 +42,14 @@ data_gray = (
     data[:, :, 1] * 0.5870 +
     data[:, :, 2] * 0.1140
 )
+
+# Show the original grayscale image
+plt.figure(figsize=(5, 5))
+plt.imshow(data_gray, cmap="gray", vmin=0, vmax=255)
+plt.title("Original grayscale image")
+plt.axis("off")
+plt.tight_layout()
+plt.show()
 
 # Normalize the grayscale image to [0,1]
 data_normalized = data_gray / 255.0
@@ -68,6 +77,9 @@ radius = min(image_resized.shape) // 2
 # -------------------
 #
 # Create the animation of the image being rotated from 0 to 360 degrees. Explore the effect of the spline degree.
+
+ROTATION_STEP_DEG = 5
+INTERVAL_MS = 250
 
 def rotate_and_mask(image, angle, degree, center, radius):
     rotated = rotate(image, angle=angle, degree=degree, center=center)
@@ -125,7 +137,8 @@ def create_combined_animation(image, center, radius):
     # ------------------------------------------------------------------
     # 3.  Animation driver
     # ------------------------------------------------------------------
-    rotation_step = 10                      # ° per frame
+    rotation_step = ROTATION_STEP_DEG       # ° per frame
+    interval_ms = INTERVAL_MS               # interval in ms
     total_frames = 360 // rotation_step     # one full revolution
 
     def animate(frame):
@@ -143,10 +156,26 @@ def create_combined_animation(image, center, radius):
         fig,
         animate,
         frames=total_frames,
-        interval=250,
+        interval=interval_ms,
         blit=True,
     )
 
 # Create the animation
 ani = create_combined_animation(image_resized, center=custom_center, radius=radius)
-ani_html = ani.to_jshtml()
+
+# %%
+# Export the Animation
+# --------------------
+#
+# Writes into: <sphinx outdir>/_static/animations/
+# Does nothing when the file is run normally by users.
+
+from splineops.utils.sphinx import export_animation_mp4_and_html
+
+export_animation_mp4_and_html(
+    ani,
+    stem="rotation_animation",
+    interval_ms=INTERVAL_MS,
+    dpi=80,
+    force=True,
+)

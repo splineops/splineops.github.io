@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7e28914a" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=f56efcf3" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -452,10 +452,10 @@ It offers several operations such as</p>
 <h2>Image Representation<a class="headerlink" href="#image-representation" title="Link to this heading">#</a></h2>
 <p>A grayscale image is modeled as the continuous function</p>
 <div class="math notranslate nohighlight">
-\[f(x_1, x_2) = \sum_{k_1,k_2} c[k_1,k_2] \cdot \phi(x_1-k_1, x_2-k_2),\]</div>
-<p>where <span class="math notranslate nohighlight">\(\phi(x_1,x_2)\)</span> is defined as the tensor-product cubic B‑spline</p>
+\[f(x_1, x_2) = \sum_{k_1,k_2} c[k_1,k_2] \cdot \varphi(x_1-k_1, x_2-k_2),\]</div>
+<p>where <span class="math notranslate nohighlight">\(\varphi(x_1,x_2)\)</span> is defined as the tensor-product cubic B‑spline</p>
 <div class="math notranslate nohighlight">
-\[\phi(x_1,x_2) = \beta^{3}(x_1) \cdot \beta^{3}(x_2).\]</div>
+\[\varphi(x_1,x_2) = \beta^{3}(x_1) \cdot \beta^{3}(x_2).\]</div>
 <p>This formulation allows one to compute exact derivatives of the image by first determining the spline coefficients <span class="math notranslate nohighlight">\(c[k_1,k_2]\)</span>.</p>
 </section>
 <section id="differentiation-operations">

@@ -48,8 +48,8 @@ All methods are compared on exactly the same round-trip task.
 We compare:
 
 - SciPy ``ndimage.zoom`` (linear / cubic),
-- splineops Standard (linear / cubic),
-- splineops Antialiasing (linear / cubic),
+- SplineOps Standard (linear / cubic),
+- SplineOps Antialiasing (linear / cubic),
 - PyTorch bilinear / bicubic (CPU, with antialiasing),
 - OpenCV ``INTER_LINEAR`` / ``INTER_CUBIC``,
 - Pillow BILINEAR / BICUBIC,
@@ -111,7 +111,7 @@ float64 by changing the ``DTYPE`` constant below.
         _HAS_SKIMAGE = False
         sk_ssim = None  # type: ignore[assignment]
 
-    # splineops
+    # SplineOps
     from splineops.resize import resize as spl_resize
     try:
         from splineops.utils.specs import print_runtime_context
@@ -362,7 +362,7 @@ We will run the full benchmark twice:
         img: np.ndarray, z: float, method: str
     ) -> Tuple[np.ndarray, float]:
         """
-        splineops round-trip using a single preset string:
+        SplineOps round-trip using a single preset string:
 
           - "linear", "cubic"            → Standard interpolation
           - "linear-antialiasing", ...   → Antialiasing (oblique projection)
@@ -627,16 +627,16 @@ Method Construction
 
         METHODS: Dict[str, Tuple[str, str | None]] = {}
 
-        # --- splineops first: Antialiasing, then Standard ---
+        # --- SplineOps first: Antialiasing, then Standard ---
         if ENABLE_SPLINEOPS_ANTIALIASING:
-            METHODS[f"Splineops Antialiasing {degree_label}"] = (
-                "splineops",
+            METHODS[f"SplineOps Antialiasing {degree_label}"] = (
+                "SplineOps",
                 f"{degree}-antialiasing",
             )
 
         if ENABLE_SPLINEOPS_STANDARD:
-            METHODS[f"Splineops Standard {degree_label}"] = (
-                "splineops",
+            METHODS[f"SplineOps Standard {degree_label}"] = (
+                "SplineOps",
                 degree,
             )
 
@@ -697,7 +697,7 @@ Method Construction
             for name, (kind, param) in METHODS.items():
                 if kind == "scipy":
                     runner = lambda z=z, deg=param: scipy_roundtrip(img_gray, z, deg)  # type: ignore[arg-type]
-                elif kind == "splineops":
+                elif kind == "SplineOps":
                     runner = lambda z=z, m=param: spl_roundtrip(img_gray, z, m)        # type: ignore[arg-type]
                 elif kind == "torch":
                     runner = lambda z=z, deg=param: torch_roundtrip(img_gray, z, deg)  # type: ignore[arg-type]
@@ -1323,9 +1323,9 @@ dtype used for the benchmark.
       Python      : 3.12.12 (CPython)
       OS          : Linux 6.11.0-1018-azure (x86_64)
       CPU         : x86_64 | logical cores: 4
-      Process     : pid=2485 | Python threads=1
+      Process     : pid=2454 | Python threads=1
       NumPy/SciPy : 2.2.6/1.16.3
-      Matplotlib  : 3.10.7 | backend: agg
+      Matplotlib  : 3.10.8 | backend: agg
       splineops   : 1.1.1 | native ext present: True
       Extra libs  : Pillow=12.0.0, OpenCV=4.12.0, scikit-image=0.25.2, PyTorch=2.9.1+cu128
       SPLINEOPS_ACCEL=always
@@ -1338,7 +1338,7 @@ dtype used for the benchmark.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (5 minutes 58.840 seconds)
+   **Total running time of the script:** (5 minutes 52.266 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_07_benchmarking_plot.py:

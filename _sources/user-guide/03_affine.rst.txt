@@ -95,8 +95,8 @@ The rotated point is calculated as
    z_\mathrm{c}
    \end{pmatrix}
 
-Interpolation
--------------
+Affine Transformation by Resampling
+-----------------------------------
 
 The rotated coordinates may not coincide with the original data grid, so spline interpolation is employed for the resampling of the rotated data. 
 The approach documented here uses standard interpolation, which leverages tensor-product B-splines for smooth, accurate results across multiple 
@@ -117,6 +117,29 @@ chosen center of rotation.
 .. image:: /auto_examples/03_affine/images/sphx_glr_01_rotate_image_001.png
    :align: center
    :width: 100%
+
+Rotation Animation
+------------------
+
+Here a more comprehensive animation exported from the example :ref:`sphx_glr_auto_examples_03_affine_02_rotation_animation.py`, using
+different values of rotation angles and spline degrees.
+
+.. only:: html
+
+   .. raw:: html
+
+      <iframe
+      src="../_static/animations/rotation_animation.html"
+      style="width: 100%; height: 1100px; border: 0;"
+      loading="lazy"
+      allow="fullscreen"
+      allowfullscreen>
+      </iframe>
+
+.. only:: not html
+
+   The interactive animation is available in the HTML docs:
+   :ref:`sphx_glr_auto_examples_03_affine_02_rotation_animation.py`.
 
 Rotate Examples
 ---------------

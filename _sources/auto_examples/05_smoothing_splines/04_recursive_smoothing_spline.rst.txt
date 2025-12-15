@@ -61,7 +61,7 @@ Recursive Smoothing Spline
     signal = np.sin(x) + 0.1 * np.random.normal(size=x.shape)
 
     # Different values for the smoothing parameter in recursive smoothing spline
-    lam_values = [0.005, 0.05, 0.1]  # You can try smaller or larger values
+    lam_values = [0.1]  # You can try smaller or larger values
 
     # Apply fractional smoothing spline as a baseline for comparison
     lambda_ = 0.1  # Regularization parameter for fractional method
@@ -112,9 +112,7 @@ Recursive Smoothing Spline
 
 
     Mean Squared Error (MSE) between Recursive and Fractional Smoothing Spline:
-    λ=0.005: MSE = 0.000038
-    λ=0.050: MSE = 0.001068
-    λ=0.100: MSE = 0.003671
+    λ=0.100: MSE = 0.000141
 
 
 
@@ -122,7 +120,7 @@ Recursive Smoothing Spline
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.118 seconds)
+   **Total running time of the script:** (0 minutes 0.107 seconds)
 
 
 .. _sphx_glr_download_auto_examples_05_smoothing_splines_04_recursive_smoothing_spline.py:

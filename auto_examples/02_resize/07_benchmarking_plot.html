@@ -29,7 +29,7 @@
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/css/custom.css?v=7e28914a" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -228,6 +228,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04_adaptive_regression_splines/index.html">Adaptive Regression Splines Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04_adaptive_regression_splines/01_adaptive_regression_splines_module.html">Adaptive Regression Splines Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_adaptive_regression_splines/02_lambda_sweep_animation.html">Lambda Sweep Animation</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05_smoothing_splines/index.html">Smoothing Splines Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -310,8 +311,8 @@ look very similar; values closer to 0 mean they differ a lot.</p></li>
 <p>We compare:</p>
 <ul class="simple">
 <li><p>SciPy <code class="docutils literal notranslate"><span class="pre">ndimage.zoom</span></code> (linear / cubic),</p></li>
-<li><p>splineops Standard (linear / cubic),</p></li>
-<li><p>splineops Antialiasing (linear / cubic),</p></li>
+<li><p>SplineOps Standard (linear / cubic),</p></li>
+<li><p>SplineOps Antialiasing (linear / cubic),</p></li>
 <li><p>PyTorch bilinear / bicubic (CPU, with antialiasing),</p></li>
 <li><p>OpenCV <code class="docutils literal notranslate"><span class="pre">INTER_LINEAR</span></code> / <code class="docutils literal notranslate"><span class="pre">INTER_CUBIC</span></code>,</p></li>
 <li><p>Pillow BILINEAR / BICUBIC,</p></li>
@@ -367,7 +368,7 @@ float64 by changing the <code class="docutils literal notranslate"><span class="
     <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_SKIMAGE</span></a> <span class="o">=</span> <span class="kc">False</span>
     <span class="n">sk_ssim</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: ignore[assignment]</span>
 
-<span class="c1"># splineops</span>
+<span class="c1"># SplineOps</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">splineops.resize</span><span class="w"> </span><span class="kn">import</span> <span class="n">resize</span> <span class="k">as</span> <span class="n">spl_resize</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">splineops.utils.specs</span><span class="w"> </span><span class="kn">import</span> <span class="n">print_runtime_context</span>
@@ -566,7 +567,7 @@ the benchmark.</p>
     <span class="n">img</span><span class="p">:</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="nb">str</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-data" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="typing.Tuple"><span class="n">Tuple</span></a><span class="p">[</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    splineops round-trip using a single preset string:</span>
+<span class="sd">    SplineOps round-trip using a single preset string:</span>
 
 <span class="sd">      - "linear", "cubic"            → Standard interpolation</span>
 <span class="sd">      - "linear-antialiasing", ...   → Antialiasing (oblique projection)</span>
@@ -799,16 +800,16 @@ size after a forward/backward round-trip (using simple rounding).</p>
 
     <span class="n">METHODS</span><span class="p">:</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="typing.Dict"><span class="n">Dict</span></a><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-data" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="typing.Tuple"><span class="n">Tuple</span></a><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
 
-    <span class="c1"># --- splineops first: Antialiasing, then Standard ---</span>
+    <span class="c1"># --- SplineOps first: Antialiasing, then Standard ---</span>
     <span class="k">if</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">ENABLE_SPLINEOPS_ANTIALIASING</span></a><span class="p">:</span>
-        <span class="n">METHODS</span><span class="p">[</span><span class="sa">f</span><span class="s2">"Splineops Antialiasing </span><span class="si">{</span><span class="n">degree_label</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s2">"splineops"</span><span class="p">,</span>
+        <span class="n">METHODS</span><span class="p">[</span><span class="sa">f</span><span class="s2">"SplineOps Antialiasing </span><span class="si">{</span><span class="n">degree_label</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">"SplineOps"</span><span class="p">,</span>
             <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">degree</span><span class="si">}</span><span class="s2">-antialiasing"</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="k">if</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">ENABLE_SPLINEOPS_STANDARD</span></a><span class="p">:</span>
-        <span class="n">METHODS</span><span class="p">[</span><span class="sa">f</span><span class="s2">"Splineops Standard </span><span class="si">{</span><span class="n">degree_label</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s2">"splineops"</span><span class="p">,</span>
+        <span class="n">METHODS</span><span class="p">[</span><span class="sa">f</span><span class="s2">"SplineOps Standard </span><span class="si">{</span><span class="n">degree_label</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">"SplineOps"</span><span class="p">,</span>
             <span class="n">degree</span><span class="p">,</span>
         <span class="p">)</span>
 
@@ -869,7 +870,7 @@ size after a forward/backward round-trip (using simple rounding).</p>
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="p">(</span><span class="n">kind</span><span class="p">,</span> <span class="n">param</span><span class="p">)</span> <span class="ow">in</span> <span class="n">METHODS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">"scipy"</span><span class="p">:</span>
                 <span class="n">runner</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="n">param</span><span class="p">:</span> <span class="n">scipy_roundtrip</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">img_gray</span></a><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">deg</span><span class="p">)</span>  <span class="c1"># type: ignore[arg-type]</span>
-            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">"splineops"</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">"SplineOps"</span><span class="p">:</span>
                 <span class="n">runner</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">param</span><span class="p">:</span> <span class="n">spl_roundtrip</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">img_gray</span></a><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>        <span class="c1"># type: ignore[arg-type]</span>
             <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">"torch"</span><span class="p">:</span>
                 <span class="n">runner</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="n">param</span><span class="p">:</span> <span class="n">torch_roundtrip</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">img_gray</span></a><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">deg</span><span class="p">)</span>  <span class="c1"># type: ignore[arg-type]</span>
@@ -1212,9 +1213,9 @@ dtype used for the benchmark.</p>
   Python      : 3.12.12 (CPython)
   OS          : Linux 6.11.0-1018-azure (x86_64)
   CPU         : x86_64 | logical cores: 4
-  Process     : pid=2485 | Python threads=1
+  Process     : pid=2454 | Python threads=1
   NumPy/SciPy : 2.2.6/1.16.3
-  Matplotlib  : 3.10.7 | backend: agg
+  Matplotlib  : 3.10.8 | backend: agg
   splineops   : 1.1.1 | native ext present: True
   Extra libs  : Pillow=12.0.0, OpenCV=4.12.0, scikit-image=0.25.2, PyTorch=2.9.1+cu128
   SPLINEOPS_ACCEL=always
@@ -1222,7 +1223,7 @@ dtype used for the benchmark.</p>
 Benchmark storage dtype: float32
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (5 minutes 58.840 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (5 minutes 52.266 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

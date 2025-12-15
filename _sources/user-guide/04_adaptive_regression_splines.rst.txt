@@ -38,16 +38,14 @@ Problem Formulation
 
    f^\star = \operatorname*{arg\,min}_{f}\;
    \Biggl(
-     \sum_{m=1}^{M} E\bigl(f(x_m),y_m\bigr)
+     \sum_{m=1}^{M} (f(x_m)-y_m)^2
      \;+\; \lambda\,\|\mathrm{D}^2 f\|_{\mathcal{M}}
    \Biggr).
 
 where
 
-* the term :math:`E` is a data-fidelity term (e.g., squared loss
-  :math:`(f(x_m)-y_m)^2`);
 * the regularization parameter :math:`\lambda>0` balances fidelity and sparsity;
-* the operator :math:`\mathrm{D}^2 f` is the second derivative;
+* the operator :math:`\mathrm{D}^2` is the second derivative;
 * the norm :math:`\|\cdot\|_{\mathcal{M}}` is the total variation (TV) norm on measures, promoting sparse
   second derivatives.
 
@@ -125,10 +123,34 @@ its knot locations.
    :align: center
    :width: 100%
 
+Lambda Sweep Animation
+----------------------
+
+Here a more comprehensive animation exported from the example :ref:`sphx_glr_auto_examples_04_adaptive_regression_splines_02_lambda_sweep_animation.py`, 
+trying different values of :math:`\lambda`.
+
+.. only:: html
+
+  .. raw:: html
+
+    <iframe
+      src="../_static/animations/lambda_sweep_animation.html"
+      style="width: 100%; height: 650px; border: 0;"
+      loading="lazy"
+      allow="fullscreen"
+      allowfullscreen>
+    </iframe>
+
+.. only:: not html
+
+   The interactive animation is available in the HTML docs:
+   :ref:`sphx_glr_auto_examples_04_adaptive_regression_splines_02_lambda_sweep_animation.py`.
+
 Example
 -------
 
 * :ref:`sphx_glr_auto_examples_04_adaptive_regression_splines_01_adaptive_regression_splines_module.py`
+* :ref:`sphx_glr_auto_examples_04_adaptive_regression_splines_02_lambda_sweep_animation.py`
 
 References
 ----------

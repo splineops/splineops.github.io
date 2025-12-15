@@ -33,6 +33,23 @@ Examples using the Adaptive regression splines module.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example animates the fidelity–sparsity trade-off of the adaptive regression splines module by sweeping the regularization parameter \lambda.">
+
+.. only:: html
+
+  .. image:: /auto_examples/04_adaptive_regression_splines/images/thumb/sphx_glr_02_lambda_sweep_animation_thumb.gif
+    :alt:
+
+  :doc:`/auto_examples/04_adaptive_regression_splines/02_lambda_sweep_animation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Lambda Sweep Animation</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -44,4 +61,5 @@ Examples using the Adaptive regression splines module.
    :hidden:
 
    /auto_examples/04_adaptive_regression_splines/01_adaptive_regression_splines_module
+   /auto_examples/04_adaptive_regression_splines/02_lambda_sweep_animation
 

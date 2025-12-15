@@ -182,7 +182,7 @@ The original, denoised, and sparsest spline solutions are plotted for comparison
         ax.plot(x, y_d, 'x', label='Denoised', markersize=8)
         ax.plot(t_grid, linear_spline(t_grid, knots, amplitudes, polynomial), label='Sparsest')
         if len(knots) > 0:
-            ax.plot(knots, linear_spline(knots, knots, amplitudes, polynomial), 'o', label='Knots')
+            ax.plot(knots, linear_spline(knots, knots, amplitudes, polynomial), 'o', color="C3", label='Knots')
         ax.set_title(f"λ = {lamb:g}   |   K = {len(knots)}")
         ax.legend()
         plt.show()
@@ -291,12 +291,11 @@ Big lambda
 Biggest lambda
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 163-164
+.. GENERATED FROM PYTHON SOURCE LINES 163-163
 
 .. code-block:: Python
 
     _run_lambda(2e-1)
-
 
 
 .. image-sg:: /auto_examples/04_adaptive_regression_splines/images/sphx_glr_01_adaptive_regression_splines_module_006.png
@@ -311,7 +310,7 @@ Biggest lambda
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.667 seconds)
+   **Total running time of the script:** (0 minutes 0.676 seconds)
 
 
 .. _sphx_glr_download_auto_examples_04_adaptive_regression_splines_01_adaptive_regression_splines_module.py:
