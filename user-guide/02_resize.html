@@ -437,6 +437,14 @@
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>The <a class="reference internal" href="../api/02_resize.html#api-resize"><span class="std std-ref">resize</span></a> module in <a class="reference internal" href="../api/index.html#api-index"><span class="std std-ref">SplineOps</span></a> provides high-performance,
 high-fidelity resizing for N-dimensional arrays.</p>
+<p>This module allows us to obtain classical standard cubic interpolation (see following animation, at left) and
+high-quality antialiasing projection-based (see following animation, at right).</p>
+<iframe
+  src="../_static/animations/resize_module_2d_cubic_vs_aa.html"
+  style="width: 100%; aspect-ratio: 13 / 9; border: 0;"
+  loading="lazy"
+  allowfullscreen>
+</iframe><p>This animation and its details are available in the example <a class="reference internal" href="../auto_examples/02_resize/02_resize_module_2d.html#sphx-glr-auto-examples-02-resize-02-resize-module-2d-py"><span class="std std-ref">Resize Module 2D</span></a>.</p>
 <p>Conceptually, resizing means:</p>
 <ul class="simple">
 <li><p>starting from a spline <span class="math notranslate nohighlight">\(f\)</span> defined on an input grid
@@ -818,88 +826,45 @@ realistic image resizing tasks, in these two examples:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../auto_examples/02_resize/06_benchmarking.html#sphx-glr-auto-examples-02-resize-06-benchmarking-py"><span class="std std-ref">Benchmarking</span></a></p></li>
 <li><p><a class="reference internal" href="../auto_examples/02_resize/07_benchmarking_plot.html#sphx-glr-auto-examples-02-resize-07-benchmarking-plot-py"><span class="std std-ref">Benchmarking Plot</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/02_resize/08_benchmarking_animation.html#sphx-glr-auto-examples-02-resize-08-benchmarking-animation-py"><span class="std std-ref">Benchmarking Animation</span></a></p></li>
 </ul>
 <section id="round-trip-roi-benchmark">
-<h3>Round-trip ROI benchmark<a class="headerlink" href="#round-trip-roi-benchmark" title="Link to this heading">#</a></h3>
-<p>The first example benchmarks several test images by:</p>
+<h3>Round-Trip ROI Benchmark<a class="headerlink" href="#round-trip-roi-benchmark" title="Link to this heading">#</a></h3>
+<p>The first and third benchmark examples evaluate several images by:</p>
 <ol class="arabic simple">
-<li><p>Downsampling each image with an image-specific zoom factor
-<span class="math notranslate nohighlight">\(z &lt; 1\)</span>,</p></li>
-<li><p>Upsampling back to the original size with the same method (round-trip),</p></li>
-<li><p>Evaluating a small region of interest (ROI) using</p>
-<ul class="simple">
-<li><p>round-trip runtime (mean ± standard deviation),</p></li>
-<li><p>SNR and MSE on the ROI,</p></li>
-<li><p>SSIM on the ROI.</p></li>
-</ul>
-</li>
+<li><p>downsampling with an image-specific zoom factor <span class="math notranslate nohighlight">\(z &lt; 1\)</span>,</p></li>
+<li><p>upsampling back to the original size (round-trip),</p></li>
+<li><p>measuring quality on a small region of interest (ROI) and reporting timing.</p></li>
 </ol>
-<p>For each image and method, it also builds ROI montages and normalized error
-maps that make aliasing and blur easy to see by eye.</p>
 <p>The compared methods include:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.zoom.html">scipy.ndimage.zoom</a> (cubic),</p></li>
 <li><p><a class="reference external" href="https://docs.opencv.org/4.x/da/d54/group__imgproc__transform.html">cv2.resize</a> with <code class="docutils literal notranslate"><span class="pre">INTER_CUBIC</span></code>,</p></li>
 <li><p><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">PIL.Image.resize</a> with BICUBIC resampling,</p></li>
 <li><p><a class="reference external" href="https://scikit-image.org/docs/0.25.x/api/skimage.transform.html#skimage.transform.resize">skimage.transform.resize</a> (cubic, with and without <code class="docutils literal notranslate"><span class="pre">anti_aliasing</span></code>),</p></li>
-<li><p><a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.functional.interpolate.html">torch.nn.functional.interpolate</a> in bicubic mode (with and without
-<code class="docutils literal notranslate"><span class="pre">antialias=True</span></code>),</p></li>
-<li><p>our method <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic&quot;</span></code> (plain cubic spline interpolation),</p></li>
-<li><p>our method <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic-antialiasing&quot;</span></code> (projection-based low-pass + resize).</p></li>
+<li><p><a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.functional.interpolate.html">torch.nn.functional.interpolate</a> (bicubic),</p></li>
+<li><p>our method <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic&quot;</span></code> (standard cubic),</p></li>
+<li><p>our method <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic-antialiasing&quot;</span></code> (projection-based antialiasing).</p></li>
 </ul>
-<p>In these examples:</p>
+<p>As a concrete example, we show a side-by-side round-trip comparison against PyTorch bicubic, which is a widely
+used high-quality baseline in modern pipelines. The animation sweeps a range of downsampling factors on an input image.
+The left column shows PyTorch; the right column shows SplineOps <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic-antialiasing&quot;</span></code>.</p>
+<iframe
+  src="../_static/animations/benchmark_animation_kodim07_pytorch_vs_splineops.html"
+  style="width: 100%; aspect-ratio: 13 / 9; border: 0;"
+  loading="lazy"
+  allowfullscreen>
+</iframe><p>Across the image test set, <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic-antialiasing&quot;</span></code> is designed to reduce downsampling artefacts by
+applying a projection-based low-pass step before decimation. In practice this typically shows up as:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic&quot;</span></code> behaves like the “classic” cubic filters
-(SciPy, OpenCV, scikit-image, PyTorch bicubic without antialiasing): visually
-similar sharpness and very similar SNR/MSE/SSIM, often at lower cost than the
-heavier scientific stacks.</p></li>
-<li><p><a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic-antialiasing&quot;</span></code> typically improves SNR and SSIM
-by a few dB and a few hundredths of SSIM over plain cubic in the ROI when
-downsampling aggressively. Because SNR is in decibels, a 3–6 dB lead means
-roughly <span class="math notranslate nohighlight">\(1.4{-}2\times\)</span> smaller RMS error, which is a substantial
-gain for the same zoom factor.</p></li>
+<li><p>fewer Moiré / ripple patterns after downsampling,</p></li>
+<li><p>a recovered image that preserves local structure better after the round-trip,</p></li>
+<li><p>and smaller, less structured errors in the ROI (as seen in the error maps).</p></li>
 </ul>
-<p>The first figure below shows the global image, the ROI used for metrics, and
-the same ROI after a first-pass with antialiasing shrink, all at a zoom
-factor of <span class="math notranslate nohighlight">\(z = 0.15\)</span>:</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_06_benchmarking_010.png"><img alt="../_images/sphx_glr_06_benchmarking_010.png" class="align-center" src="../_images/sphx_glr_06_benchmarking_010.png" style="width: 100%;" />
-</a>
-<p>The next figure compares the color ROI for the main cubic methods
-(Original, <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> Standard and Antialiasing, OpenCV, SciPy,
-scikit-image, PyTorch bicubic). It highlights visual differences such as
-aliasing and ringing in fine detail:</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_06_benchmarking_015.png"><img alt="../_images/sphx_glr_06_benchmarking_015.png" class="align-center" src="../_images/sphx_glr_06_benchmarking_015.png" style="width: 100%;" />
-</a>
-<p>The following figure shows the normalized signed error in the grayscale ROI
-for the same main subset of methods. Zero error is mid-gray; brighter or darker
-regions indicate positive or negative deviations from the original:</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_06_benchmarking_012.png"><img alt="../_images/sphx_glr_06_benchmarking_012.png" class="align-center" src="../_images/sphx_glr_06_benchmarking_012.png" style="width: 100%;" />
-</a>
-<p>The next figure compares the color ROI for the antialiasing-focused subset
-(Original, <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> Standard and Antialiasing, Pillow BICUBIC,
-scikit-image cubic with anti-aliasing, PyTorch bicubic with antialiasing).
-This isolates how different antialiasing strategies affect fine structure:</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_06_benchmarking_016.png"><img alt="../_images/sphx_glr_06_benchmarking_016.png" class="align-center" src="../_images/sphx_glr_06_benchmarking_016.png" style="width: 100%;" />
-</a>
-<p>The companion figure shows the normalized signed error in the grayscale ROI
-for this antialiasing subset, again with mid-gray indicating zero error:</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_06_benchmarking_014.png"><img alt="../_images/sphx_glr_06_benchmarking_014.png" class="align-center" src="../_images/sphx_glr_06_benchmarking_014.png" style="width: 100%;" />
-</a>
-<p>The bar chart below summarizes the round-trip runtime (forward + backward)
-for the cubic methods at <span class="math notranslate nohighlight">\(z = 0.15\)</span> on a 512×768 image. OpenCV and
-PyTorch are fastest, <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> sits comfortably in the middle, and SciPy /
-scikit-image are significantly slower:</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_06_benchmarking_017.png"><img alt="../_images/sphx_glr_06_benchmarking_017.png" class="align-center" src="../_images/sphx_glr_06_benchmarking_017.png" style="width: 100%;" />
-</a>
-<p>Finally, the last figure in this series summarizes SNR and SSIM per method
-for the same configuration, showing that <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> Cubic Antialiasing
-typically attains the highest SNR and SSIM, with the Standard cubic preset
-tightly grouped with the other classic cubic filters:</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_06_benchmarking_018.png"><img alt="../_images/sphx_glr_06_benchmarking_018.png" class="align-center" src="../_images/sphx_glr_06_benchmarking_018.png" style="width: 100%;" />
-</a>
+<p>The accompanying benchmark scripts report the ROI metrics (SNR/MSE/SSIM) and round-trip timing for all methods and images.</p>
 </section>
 <section id="zoom-sweep-benchmark">
-<h3>Zoom-sweep benchmark<a class="headerlink" href="#zoom-sweep-benchmark" title="Link to this heading">#</a></h3>
+<h3>Zoom-Sweep Benchmark<a class="headerlink" href="#zoom-sweep-benchmark" title="Link to this heading">#</a></h3>
 <p>The second example uses a single Kodak image to run a 1D sweep of zoom
 factors <span class="math notranslate nohighlight">\(0 &lt; z &lt; 2\)</span>. For each method and zoom, it:</p>
 <ul class="simple">
@@ -923,9 +888,6 @@ in runtime.</p></li>
 downsampling and remains best for all resampling factors</strong>. In the zoomed version focusing on <span class="math notranslate nohighlight">\(0 &lt; z &lt; 1\)</span>, it
 leads the next-best method by several decibels over a wide range of zoom
 factors, corresponding to a noticeably smaller reconstruction error:</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_07_benchmarking_plot_005.png"><img alt="../_images/sphx_glr_07_benchmarking_plot_005.png" class="align-center" src="../_images/sphx_glr_07_benchmarking_plot_005.png" style="width: 100%;" />
-</a>
-<p>Here is a zoom of the same plot for factors between 0 and 1:</p>
 <a class="reference internal image-reference" href="../_images/sphx_glr_07_benchmarking_plot_004.png"><img alt="../_images/sphx_glr_07_benchmarking_plot_004.png" class="align-center" src="../_images/sphx_glr_07_benchmarking_plot_004.png" style="width: 100%;" />
 </a>
 <p>The next plot shows round-trip SSIM vs zoom for the same configuration:
@@ -933,9 +895,6 @@ all methods converge near SSIM <span class="math notranslate nohighlight">\(\app
 <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic-antialiasing&quot;</span></code> <strong>maintains a clear SSIM advantage for the more
 aggressive downsampling factors, meaning the recovered images preserve local
 structure better</strong>:</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_07_benchmarking_plot_007.png"><img alt="../_images/sphx_glr_07_benchmarking_plot_007.png" class="align-center" src="../_images/sphx_glr_07_benchmarking_plot_007.png" style="width: 100%;" />
-</a>
-<p>Here is a zoom of the SSIM plot for factors between 0 and 1:</p>
 <a class="reference internal image-reference" href="../_images/sphx_glr_07_benchmarking_plot_006.png"><img alt="../_images/sphx_glr_07_benchmarking_plot_006.png" class="align-center" src="../_images/sphx_glr_07_benchmarking_plot_006.png" style="width: 100%;" />
 </a>
 <p>The last plot shows round-trip runtime vs zoom. It confirms that the
@@ -943,9 +902,6 @@ antialiasing presets add only a modest overhead over the Standard ones, while
 still remaining competitive with other high-quality methods for a wide range
 of zoom factors. The zoomed version for <span class="math notranslate nohighlight">\(0 &lt; z &lt; 1\)</span> makes this clear
 in the practically most relevant regime (downsampling):</p>
-<a class="reference internal image-reference" href="../_images/sphx_glr_07_benchmarking_plot_003.png"><img alt="../_images/sphx_glr_07_benchmarking_plot_003.png" class="align-center" src="../_images/sphx_glr_07_benchmarking_plot_003.png" style="width: 100%;" />
-</a>
-<p>Here is a zoom of the timing plot for factors between 0 and 1:</p>
 <a class="reference internal image-reference" href="../_images/sphx_glr_07_benchmarking_plot_002.png"><img alt="../_images/sphx_glr_07_benchmarking_plot_002.png" class="align-center" src="../_images/sphx_glr_07_benchmarking_plot_002.png" style="width: 100%;" />
 </a>
 </section>
@@ -960,6 +916,7 @@ in the practically most relevant regime (downsampling):</p>
 <li><p><a class="reference internal" href="../auto_examples/02_resize/05_how_bad_aliasing_can_be.html#sphx-glr-auto-examples-02-resize-05-how-bad-aliasing-can-be-py"><span class="std std-ref">How Bad Aliasing Can Be</span></a></p></li>
 <li><p><a class="reference internal" href="../auto_examples/02_resize/06_benchmarking.html#sphx-glr-auto-examples-02-resize-06-benchmarking-py"><span class="std std-ref">Benchmarking</span></a></p></li>
 <li><p><a class="reference internal" href="../auto_examples/02_resize/07_benchmarking_plot.html#sphx-glr-auto-examples-02-resize-07-benchmarking-plot-py"><span class="std std-ref">Benchmarking Plot</span></a></p></li>
+<li><p><a class="reference internal" href="../auto_examples/02_resize/08_benchmarking_animation.html#sphx-glr-auto-examples-02-resize-08-benchmarking-animation-py"><span class="std std-ref">Benchmarking Animation</span></a></p></li>
 </ul>
 </section>
 <section id="references">
@@ -1040,8 +997,8 @@ pp. 679–692, May 1998.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-algorithm">The Algorithm</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarking">Benchmarking</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#round-trip-roi-benchmark">Round-trip ROI benchmark</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zoom-sweep-benchmark">Zoom-sweep benchmark</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#round-trip-roi-benchmark">Round-Trip ROI Benchmark</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zoom-sweep-benchmark">Zoom-Sweep Benchmark</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resize-examples">Resize Examples</a></li>

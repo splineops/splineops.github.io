@@ -617,7 +617,7 @@ standard interpolation and antialiased shrink/expand.
     Method                                     SNR (dB)              MSE     Time (s)
     ---------------------------------------------------------------------------------
     Standard Interpolation (cubic)                15.51         6.34e-03       0.0034
-    Antialiasing (cubic shrink, cubic up)         17.47         4.03e-03       0.0059
+    Antialiasing (cubic shrink, cubic up)         17.47         4.03e-03       0.0058
 
 
 
@@ -703,8 +703,8 @@ However, in practice we generally recommend the **Antialiasing** preset:
 
     Method                                     SNR (dB)              MSE     Time (s)
     ---------------------------------------------------------------------------------
-    Antialiasing (cubic shrink, cubic up)         17.47         4.03e-03       0.0059
-    Least-Squares (cubic) shrink+up               17.53         3.98e-03       0.0078
+    Antialiasing (cubic shrink, cubic up)         17.47         4.03e-03       0.0058
+    Least-Squares (cubic) shrink+up               17.53         3.98e-03       0.0079
 
 
 
@@ -712,7 +712,7 @@ However, in practice we generally recommend the **Antialiasing** preset:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.218 seconds)
+   **Total running time of the script:** (0 minutes 2.253 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_04_antialiasing.py:

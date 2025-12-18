@@ -180,7 +180,7 @@ We also show the equivalence with the Spline Interpolation module methods where 
 
 .. only:: html
 
-  .. image:: /auto_examples/02_resize/images/thumb/sphx_glr_02_resize_module_2d_thumb.png
+  .. image:: /auto_examples/02_resize/images/thumb/sphx_glr_02_resize_module_2d_thumb.gif
     :alt:
 
   :doc:`/auto_examples/02_resize/02_resize_module_2d`
@@ -273,6 +273,23 @@ We also show the equivalence with the Spline Interpolation module methods where 
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Benchmarking Plot</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example builds a short animation for a set of images.">
+
+.. only:: html
+
+  .. image:: /auto_examples/02_resize/images/thumb/sphx_glr_08_benchmarking_animation_thumb.gif
+    :alt:
+
+  :doc:`/auto_examples/02_resize/08_benchmarking_animation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Benchmarking Animation</div>
     </div>
 
 

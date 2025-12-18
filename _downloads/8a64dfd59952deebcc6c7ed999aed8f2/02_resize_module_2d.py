@@ -27,7 +27,7 @@ matched low-pass step to suppress these artefacts.
 # Imports and Helpers
 # -------------------
 
-# sphinx_gallery_thumbnail_number = 2
+# sphinx_gallery_thumbnail_number = 4
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import patches
@@ -378,98 +378,27 @@ show_intro_color(
 )
 
 # %%
-# Round-trip animation over Zoom Factors
+# Animation: Cubic vs Cubic-Antialiasing
 # --------------------------------------
 #
-# We animate a downsample → upsample (back to original size) round-trip for
-# several zoom factors z < 1.
-#
-# Top:    original RGB image (fixed)
-# Middle: downsampled image pasted on a white canvas of the original size
-# Bottom: recovered image (round-trip), showing degradation
-#
-# Tip: set METHOD="cubic" to see the effect without the antialiasing preset.
-
-from matplotlib import animation
-
-METHOD = "cubic"   # try "cubic" for standard interpolation
-# Dense near strong downsampling (0.01–0.2), then sparser up to 0.8
-zoom_dense  = np.geomspace(0.05, 0.2, 10)                 # 10 values, dense at the low end
-zoom_sparse = np.array([0.25, 0.30, 0.40, 0.50, 0.65, 0.80, 1.0])
-zoom_values = np.unique(np.concatenate([zoom_dense, zoom_sparse]))
-
-orig = np.clip(data, 0.0, 1.0)  # H×W×3 float image in [0,1]
-H0, W0, _ = orig.shape
-
-# Precompute frames for a smooth/fast animation
-canvases: list[np.ndarray] = []
-recs: list[np.ndarray] = []
-
-for z in zoom_values:
-    # 1) Downsample (first pass)
-    down = resize_rgb(orig, z, method=METHOD)              # H1×W1×3
-    down = np.clip(down, 0.0, 1.0)
-
-    # 2) Paste on white canvas of the original size
-    canvas = np.ones_like(orig)
-    h1, w1, _ = down.shape
-    canvas[:h1, :w1, :] = down
-    canvases.append(canvas)
-
-    # 3) Recover back to original size (second pass)
-    rec_channels = [
-        resize(down[..., c], output_size=(H0, W0), method=METHOD)
-        for c in range(3)
-    ]
-    rec = np.stack(rec_channels, axis=-1)
-    recs.append(np.clip(rec, 0.0, 1.0))
-
-# Figure layout: 3 rows, 1 column
-fig, axes = plt.subplots(3, 1, figsize=(7, 12), constrained_layout=True)
-for ax in axes:
-    ax.axis("off")
-
-axes[0].set_title("Original (fixed)")
-t_down = axes[1].set_title(f"Downsampled (z={zoom_values[0]:.2f}) on white canvas")
-t_rec  = axes[2].set_title(f"Recovered (round-trip) — method={METHOD}, z={zoom_values[0]:.2f}")
-
-im0 = axes[0].imshow(orig)
-im1 = axes[1].imshow(canvases[0])
-im2 = axes[2].imshow(recs[0])
-
-def animate_frame(i: int):
-    im1.set_data(canvases[i])
-    im2.set_data(recs[i])
-    t_down.set_text(f"Downsampled (z={zoom_values[i]:.2f}) on white canvas")
-    t_rec.set_text(f"Recovered (round-trip) — method={METHOD}, z={zoom_values[i]:.2f}")
-    return im1, im2, t_down, t_rec
-
-ani = animation.FuncAnimation(
-    fig,
-    animate_frame,
-    frames=len(zoom_values),
-    interval=900,
-    blit=True,
-)
-
-# %%
-# Side-by-side animation: cubic vs cubic-antialiasing
-# ---------------------------------------------------
-#
-# Left column:  Standard cubic
-# Right column: Cubic-antialiasing
-#
-# Row 1: Original (fixed)
-# Row 2: Downsampled (on white canvas)
-# Row 3: Recovered (round-trip)
+# We compare in the following the two methids side by side.
 
 from matplotlib import animation
 
 METHOD_STD = "cubic"
 METHOD_AA  = "cubic-antialiasing"
 
-# Use the same zoom_values from the previous cell
-# (If you prefer, you can redefine zoom_values here.)
+INTERVAL_MS = 900
+
+# Zoom values
+zoom_low   = np.geomspace(0.01, 0.15, 6,  endpoint=False)   # < 0.15
+zoom_focus = np.geomspace(0.15, 0.50, 22, endpoint=False)   # [0.15, 0.50)
+zoom_mid   = np.geomspace(0.50, 0.80, 6,  endpoint=True)    # [0.50, 0.80]
+zoom_top   = np.array([0.85, 0.90, 0.95, 1.0])
+
+zoom_values = np.concatenate([zoom_low, zoom_focus, zoom_mid, zoom_top])
+zoom_values = np.sort(zoom_values)[::-1]  # 1.0 -> ... -> small
+
 zoom_values_cmp = np.asarray(zoom_values, dtype=float)
 
 orig_f = np.clip(data, 0.0, 1.0)
@@ -511,58 +440,154 @@ def _roundtrip_frames(method: str):
 canv_std, recs_std = _roundtrip_frames(METHOD_STD)
 canv_aa,  recs_aa  = _roundtrip_frames(METHOD_AA)
 
-# Layout: 3 rows × 2 columns
-fig, axes = plt.subplots(3, 2, figsize=(12, 12), constrained_layout=True)
-for ax in axes.ravel():
+# --- Signed normalized error maps (benchmark style) --------------------------
+# We compare rec - orig on a grayscale luminance, normalized into [0, 1]:
+#   0.5 = 0 error, <0.5 negative, >0.5 positive
+# We use a GLOBAL max(|diff|) across all frames + both methods (stable contrast).
+
+def _u8_to_gray01(u8_rgb: np.ndarray) -> np.ndarray:
+    u = u8_rgb.astype(np.float32) / 255.0
+    return (0.2989 * u[..., 0] + 0.5870 * u[..., 1] + 0.1140 * u[..., 2]).astype(np.float32)
+
+orig_gray01 = _u8_to_gray01(orig_u8)
+
+def _diff01(rec_u8: np.ndarray) -> np.ndarray:
+    return _u8_to_gray01(rec_u8) - orig_gray01  # signed
+
+max_abs = 0.0
+for r in (recs_std + recs_aa):
+    max_abs = max(max_abs, float(np.max(np.abs(_diff01(r)))))
+max_abs = max(max_abs, 1e-12)
+
+def _diff_norm(rec_u8: np.ndarray) -> np.ndarray:
+    d = _diff01(rec_u8)
+    n = 0.5 + 0.5 * (d / max_abs)
+    return np.clip(n, 0.0, 1.0).astype(np.float32)
+
+diffs_std = [_diff_norm(r) for r in recs_std]
+diffs_aa  = [_diff_norm(r) for r in recs_aa]
+
+# --- Layout: 3 columns (Original | Std | AA), 3 rows (Down | Rec | Error) ----
+fig = plt.figure(figsize=(13, 9), constrained_layout=True)
+gs = fig.add_gridspec(
+    nrows=3, ncols=3,
+    width_ratios=[1.05, 1.0, 1.0],
+)
+
+# Original ONLY in the top-left cell (same height as other panels)
+ax_orig     = fig.add_subplot(gs[0, 0])
+ax_orig_mid = fig.add_subplot(gs[1, 0])  # blank spacer
+ax_orig_err = fig.add_subplot(gs[2, 0])  # blank spacer
+
+ax_down_std = fig.add_subplot(gs[0, 1])
+ax_down_aa  = fig.add_subplot(gs[0, 2])
+ax_rec_std  = fig.add_subplot(gs[1, 1])
+ax_rec_aa   = fig.add_subplot(gs[1, 2])
+ax_err_std  = fig.add_subplot(gs[2, 1])
+ax_err_aa   = fig.add_subplot(gs[2, 2])
+
+for ax in (ax_orig, ax_orig_mid, ax_orig_err,
+           ax_down_std, ax_down_aa, ax_rec_std, ax_rec_aa, ax_err_std, ax_err_aa):
     ax.axis("off")
 
-# Column headers (Row 1)
-axes[0, 0].set_title("Standard cubic — Original (fixed)")
-axes[0, 1].set_title("Cubic-antialiasing — Original (fixed)")
+TITLE_FS = 13  # tweak to taste
 
-im_orig_l = axes[0, 0].imshow(orig_u8)
-im_orig_r = axes[0, 1].imshow(orig_u8)
+# --- Legend (benchmark-style) in the empty bottom-left cell -----------------
+ax_leg_host = ax_orig_err
+ax_leg_host.axis("off")
 
-# Row 2: downsampled on canvas
-t_down_l = axes[1, 0].set_title(f"Downsampled on canvas (z={zoom_values_cmp[0]:.3f})")
-t_down_r = axes[1, 1].set_title(f"Downsampled on canvas (z={zoom_values_cmp[0]:.3f})")
+# Make a thick vertical bar as an inset axis inside the cell
+leg = ax_leg_host.inset_axes([0.42, 0.05, 0.18, 0.90])  # [x0, y0, w, h] in axes fraction
+leg.axis("off")
 
-im_down_l = axes[1, 0].imshow(canv_std[0])
-im_down_r = axes[1, 1].imshow(canv_aa[0])
+H_leg = 256
+W_leg = 16   # thinner bar
+y = np.linspace(1.0, 0.0, H_leg, dtype=np.float32)
+legend_img = np.repeat(y[:, None], W_leg, axis=1)
 
-# Row 3: recovered
-t_rec_l = axes[2, 0].set_title(f"Recovered (round-trip) — z={zoom_values_cmp[0]:.3f}")
-t_rec_r = axes[2, 1].set_title(f"Recovered (round-trip) — z={zoom_values_cmp[0]:.3f}")
+leg.imshow(legend_img, cmap="gray", vmin=0.0, vmax=1.0, aspect="auto")
 
-im_rec_l = axes[2, 0].imshow(recs_std[0])
-im_rec_r = axes[2, 1].imshow(recs_aa[0])
+# Labels next to the bar (keep them on the host axis so they don't get clipped)
+ax_leg_host.text(0.62, 0.05, "-1", transform=ax_leg_host.transAxes,
+                 fontsize=9, va="bottom", ha="left")
+ax_leg_host.text(0.62, 0.50, "0", transform=ax_leg_host.transAxes,
+                 fontsize=9, va="center", ha="left")
+ax_leg_host.text(0.62, 0.95, "+1", transform=ax_leg_host.transAxes,
+                 fontsize=9, va="top", ha="left")
+ax_leg_host.text(0.5, 1.02, "Diff legend", transform=ax_leg_host.transAxes,
+                 fontsize=TITLE_FS, va="bottom", ha="center")
+
+ax_orig.set_title("Original", fontsize=TITLE_FS)
+im_orig = ax_orig.imshow(orig_u8)
+
+STD_LABEL = "SplineOps Standard cubic"
+AA_LABEL  = "SplineOps Antialiasing cubic"
+
+# Row 1: Downsampled
+t_down_std = ax_down_std.set_title(f"{STD_LABEL} (z={zoom_values_cmp[0]:.3f})", fontsize=TITLE_FS)
+t_down_aa  = ax_down_aa.set_title (f"{AA_LABEL} (z={zoom_values_cmp[0]:.3f})", fontsize=TITLE_FS)
+im_down_std = ax_down_std.imshow(canv_std[0])
+im_down_aa  = ax_down_aa.imshow(canv_aa[0])
+
+# Row 2: Recovered
+t_rec_std  = ax_rec_std.set_title(f"Recovered, {STD_LABEL}", fontsize=TITLE_FS)
+t_rec_aa   = ax_rec_aa.set_title (f"Recovered, {AA_LABEL}", fontsize=TITLE_FS)
+im_rec_std = ax_rec_std.imshow(recs_std[0])
+im_rec_aa  = ax_rec_aa.imshow(recs_aa[0])
+
+# Row 3: Signed error (benchmark-style normalization)
+ax_err_std.set_title("Signed error", fontsize=TITLE_FS)
+ax_err_aa.set_title ("Signed error", fontsize=TITLE_FS)
+im_err_std = ax_err_std.imshow(diffs_std[0], cmap="gray", vmin=0.0, vmax=1.0)
+im_err_aa  = ax_err_aa.imshow (diffs_aa[0],  cmap="gray", vmin=0.0, vmax=1.0)
 
 def animate_frame(i: int):
     z = zoom_values_cmp[i]
 
-    im_down_l.set_data(canv_std[i])
-    im_down_r.set_data(canv_aa[i])
+    im_down_std.set_data(canv_std[i])
+    im_down_aa.set_data(canv_aa[i])
 
-    im_rec_l.set_data(recs_std[i])
-    im_rec_r.set_data(recs_aa[i])
+    im_rec_std.set_data(recs_std[i])
+    im_rec_aa.set_data(recs_aa[i])
 
-    t_down_l.set_text(f"Downsampled on canvas (z={z:.3f})")
-    t_down_r.set_text(f"Downsampled on canvas (z={z:.3f})")
+    im_err_std.set_data(diffs_std[i])
+    im_err_aa.set_data(diffs_aa[i])
 
-    t_rec_l.set_text(f"Recovered (round-trip) — z={z:.3f}")
-    t_rec_r.set_text(f"Recovered (round-trip) — z={z:.3f}")
+    t_down_std.set_text(f"{STD_LABEL} (z={z:.3f})")
+    t_down_aa.set_text (f"{AA_LABEL} (z={z:.3f})")
+
+    t_rec_std.set_text(f"Recovered, {STD_LABEL}")
+    t_rec_aa.set_text (f"Recovered, {AA_LABEL}")
 
     return (
-        im_down_l, im_down_r,
-        im_rec_l, im_rec_r,
-        t_down_l, t_down_r,
-        t_rec_l, t_rec_r,
+        im_down_std, im_down_aa,
+        im_rec_std, im_rec_aa,
+        im_err_std, im_err_aa,
+        t_down_std, t_down_aa,
+        t_rec_std,  t_rec_aa,
     )
 
 ani_cmp = animation.FuncAnimation(
     fig,
     animate_frame,
     frames=len(zoom_values_cmp),
-    interval=900,
+    interval=INTERVAL_MS,   # keep consistent with your export
     blit=True,
+)
+
+# %%
+# Export Animation
+# ----------------
+#
+# Writes into: <generated static dir>/_static/animations/
+# No-op when run normally by users.
+
+from splineops.utils.sphinx import export_animation_mp4_and_html
+
+export_animation_mp4_and_html(
+    ani_cmp,
+    stem="resize_module_2d_cubic_vs_aa",
+    interval_ms=INTERVAL_MS,  # matches FuncAnimation interval
+    dpi=80,
+    force=True,
 )
