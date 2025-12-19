@@ -301,7 +301,7 @@ recovered images for visual comparison.
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_002.png
-   :alt: Original ROI, Recovered (Standard, 1.5 ms), Recovered (Antialiasing, 3.0 ms)
+   :alt: Original ROI, Recovered (Standard, 1.5 ms), Recovered (Antialiasing, 3.1 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_002.png
    :class: sphx-glr-single-img
 
@@ -460,7 +460,7 @@ Antialiasing Pipeline
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_006.png
-   :alt: Recovered Image (antialiased, 3.0 ms)
+   :alt: Recovered Image (antialiased, 3.1 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_006.png
    :class: sphx-glr-single-img
 
@@ -617,7 +617,7 @@ standard interpolation and antialiased shrink/expand.
     Method                                     SNR (dB)              MSE     Time (s)
     ---------------------------------------------------------------------------------
     Standard Interpolation (cubic)                15.51         6.34e-03       0.0034
-    Antialiasing (cubic shrink, cubic up)         17.47         4.03e-03       0.0058
+    Antialiasing (cubic shrink, cubic up)         17.47         4.03e-03       0.0059
 
 
 
@@ -703,8 +703,8 @@ However, in practice we generally recommend the **Antialiasing** preset:
 
     Method                                     SNR (dB)              MSE     Time (s)
     ---------------------------------------------------------------------------------
-    Antialiasing (cubic shrink, cubic up)         17.47         4.03e-03       0.0058
-    Least-Squares (cubic) shrink+up               17.53         3.98e-03       0.0077
+    Antialiasing (cubic shrink, cubic up)         17.47         4.03e-03       0.0059
+    Least-Squares (cubic) shrink+up               17.53         3.98e-03       0.0082
 
 
 
@@ -712,7 +712,7 @@ However, in practice we generally recommend the **Antialiasing** preset:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.062 seconds)
+   **Total running time of the script:** (0 minutes 2.297 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_04_antialiasing.py:

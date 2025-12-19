@@ -162,7 +162,7 @@ Imports
 
 
 .. image-sg:: /auto_examples/05_smoothing_splines/images/sphx_glr_02_2d_image_smoothing_001.png
-   :alt: Original Grayscale Image, Noisy Image (SNR=8.89 dB), Smoothed Image (SNR=15.17 dB)
+   :alt: Original Grayscale Image, Noisy Image (SNR=8.86 dB), Smoothed Image (SNR=15.12 dB)
    :srcset: /auto_examples/05_smoothing_splines/images/sphx_glr_02_2d_image_smoothing_001.png
    :class: sphx-glr-single-img
 
@@ -172,9 +172,9 @@ Imports
  .. code-block:: none
 
     Image:
-    SNR of noisy image: 8.89 dB
-    SNR after smoothing: 15.17 dB
-    SNR improvement: 6.28 dB
+    SNR of noisy image: 8.86 dB
+    SNR after smoothing: 15.12 dB
+    SNR improvement: 6.26 dB
 
 
 
@@ -183,7 +183,7 @@ Imports
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.794 seconds)
+   **Total running time of the script:** (0 minutes 1.954 seconds)
 
 
 .. _sphx_glr_download_auto_examples_05_smoothing_splines_02_2d_image_smoothing.py:
