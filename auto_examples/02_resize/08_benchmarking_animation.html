@@ -35,7 +35,7 @@
 <!-- Pre-loaded scripts that we'll load fully later -->
 <link as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" rel="preload"/>
 <link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" rel="preload"/>
-<script src="../../_static/documentation_options.js?v=6f037312"></script>
+<script src="../../_static/documentation_options.js?v=6efca38a"></script>
 <script src="../../_static/doctools.js?v=9bcbadda"></script>
 <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
 <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -310,6 +310,14 @@ the recovered image and a normalized signed error map (recovered − original).<
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">splineops.resize</span><span class="w"> </span><span class="kn">import</span> <span class="n">resize</span> <span class="k">as</span> <span class="n">sp_resize</span>
 
+<span class="c1"># Optional: runtime context (nice for docs / reproducibility)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">splineops.utils.specs</span><span class="w"> </span><span class="kn">import</span> <span class="n">print_runtime_context</span>
+    <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_SPECS</span></a> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+    <span class="n">print_runtime_context</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: ignore[assignment]</span>
+    <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_SPECS</span></a> <span class="o">=</span> <span class="kc">False</span>
+
 <span class="c1"># Optional SciPy (fallback competitor)</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">zoom</span> <span class="k">as</span> <a class="sphx-glr-backref-module-scipy-ndimage sphx-glr-backref-type-py-function" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.zoom.html#scipy.ndimage.zoom" title="scipy.ndimage.zoom"><span class="n">ndi_zoom</span></a>  <span class="c1"># type: ignore</span>
@@ -395,7 +403,7 @@ the recovered image and a normalized signed error map (recovered − original).<
 </div>
 </section>
 <section id="small-helpers">
-<h2>Small helpers<a class="headerlink" href="#small-helpers" title="Link to this heading">#</a></h2>
+<h2>Small Helpers<a class="headerlink" href="#small-helpers" title="Link to this heading">#</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_load_kodak_rgb01</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Load Kodak image as RGB float32 in [0,1]."""</span>
     <span class="k">with</span> <a class="sphx-glr-backref-module-urllib-request sphx-glr-backref-type-py-function" href="https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen" title="urllib.request.urlopen"><span class="n">urlopen</span></a><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="k">as</span> <span class="n">resp</span><span class="p">:</span>
@@ -527,7 +535,7 @@ the recovered image and a normalized signed error map (recovered − original).<
 </div>
 </section>
 <section id="animation-builder-single-image">
-<h2>Animation builder (single image)<a class="headerlink" href="#animation-builder-single-image" title="Link to this heading">#</a></h2>
+<h2>Animation Builder (Single Image)<a class="headerlink" href="#animation-builder-single-image" title="Link to this heading">#</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_benchmark_animation</span><span class="p">(</span>
     <span class="n">img_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -80733,8 +80741,8 @@ AAAsaWxzdAAAACSpdG9vAAAAHGRhdGEAAAABAAAAAExhdmY2MS4xLjEwMA==
   Your browser does not support the video tag.
 </video></div>
 </section>
-<section id="export-build-only-kodim07-animation">
-<h2>Export (build-only): kodim07 animation<a class="headerlink" href="#export-build-only-kodim07-animation" title="Link to this heading">#</a></h2>
+<section id="export-kodim07-animation">
+<h2>Export: kodim07 Animation<a class="headerlink" href="#export-kodim07-animation" title="Link to this heading">#</a></h2>
 <p>Writes into: &lt;generated static dir&gt;/_static/animations/
 No-op when run normally by users.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops.utils.sphinx</span><span class="w"> </span><span class="kn">import</span> <span class="n">export_animation_mp4_and_html</span>
@@ -222003,7 +222011,40 @@ AAAALGlsc3QAAAAkqXRvbwAAABxkYXRhAAAAAQAAAABMYXZmNjEuMS4xMDA=
 " type="video/mp4"/>
   Your browser does not support the video tag.
 </video></div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (3 minutes 31.466 seconds)</p>
+</section>
+<section id="runtime-context">
+<h2>Runtime Context<a class="headerlink" href="#runtime-context" title="Link to this heading">#</a></h2>
+<p>Print a short summary of the runtime environment and the dtype used
+for the animation computations.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_SPECS</span></a> <span class="ow">and</span> <span class="n">print_runtime_context</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">print_runtime_context</span><span class="p">(</span><span class="n">include_threadpools</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>  <span class="c1"># blank line</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Animation storage dtype: </span><span class="si">{</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="numpy.dtype"><span class="n">np</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float32" title="numpy.float32"><span class="n">DTYPE</span></a><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ANIM_SCALE: </span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">ANIM_SCALE</span></a><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Competitor backend: </span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">COMP_LABEL</span></a><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of frames per animation: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">ZOOM_VALUES</span></a><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Runtime context:
+  Python      : 3.12.12 (CPython)
+  OS          : Linux 6.11.0-1018-azure (x86_64)
+  CPU         : x86_64 | logical cores: 4
+  Process     : pid=2470 | Python threads=1
+  NumPy/SciPy : 2.2.6/1.16.3
+  Matplotlib  : 3.10.8 | backend: agg
+  splineops   : 1.2.0 | native ext present: True
+  Extra libs  : Pillow=12.0.0, OpenCV=4.12.0, scikit-image=0.25.2, PyTorch=2.9.1+cu128
+  SPLINEOPS_ACCEL=always
+  OMP_NUM_THREADS=4
+
+Animation storage dtype: float32
+ANIM_SCALE: 0.5
+Competitor backend: PyTorch bicubic
+Number of frames per animation: 40
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (3 minutes 27.664 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>
@@ -222038,17 +222079,18 @@ AAAALGlsc3QAAAAkqXRvbwAAABxkYXRhAAAAAQAAAABMYXZmNjEuMS4xMDA=
 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#small-helpers">Small helpers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#small-helpers">Small Helpers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backends-round-trip">Backends (round-trip)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#animation-builder-single-image">Animation builder (single image)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#animation-builder-single-image">Animation Builder (Single Image)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-kodim05">Image: kodim05</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-kodim07">Image: kodim07</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export-build-only-kodim07-animation">Export (build-only): kodim07 animation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export-kodim07-animation">Export: kodim07 Animation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-kodim14">Image: kodim14</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-kodim15">Image: kodim15</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-kodim19">Image: kodim19</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-kodim22">Image: kodim22</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-kodim23">Image: kodim23</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runtime-context">Runtime Context</a></li>
 </ul>
 </nav></div>
 <div class="sidebar-secondary-item">
