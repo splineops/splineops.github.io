@@ -392,6 +392,31 @@ float64 by changing the <code class="docutils literal notranslate"><span class="
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">MARKER_SIZE</span></a> <span class="o">=</span> <span class="mi">4</span>
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">LINEWIDTH</span></a> <span class="o">=</span> <span class="mf">1.8</span>
 
+<span class="c1"># --- SplineOps highlight colors (match 06_benchmarking.py) ---</span>
+<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">SPLINEOPS_CURVE_COLORS</span></a> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"SplineOps Standard"</span><span class="p">:</span> <span class="s2">"#C2410C"</span><span class="p">,</span>
+    <span class="s2">"SplineOps Antialiasing"</span><span class="p">:</span> <span class="s2">"#BE185D"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># --- Cool palette for non-SplineOps methods (avoid Matplotlib's orange/red cycle) ---</span>
+<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">OTHER_CURVE_COLORS</span></a> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"SciPy"</span><span class="p">:</span>        <span class="s2">"#2563EB"</span><span class="p">,</span>  <span class="c1"># blue</span>
+    <span class="s2">"PyTorch"</span><span class="p">:</span>      <span class="s2">"#0EA5E9"</span><span class="p">,</span>  <span class="c1"># sky/cyan</span>
+    <span class="s2">"OpenCV"</span><span class="p">:</span>       <span class="s2">"#6366F1"</span><span class="p">,</span>  <span class="c1"># indigo</span>
+    <span class="s2">"Pillow"</span><span class="p">:</span>       <span class="s2">"#14B8A6"</span><span class="p">,</span>  <span class="c1"># teal</span>
+    <span class="s2">"scikit-image"</span><span class="p">:</span> <span class="s2">"#64748B"</span><span class="p">,</span>  <span class="c1"># slate</span>
+<span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_color_for_curve</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""SplineOps -&gt; warm highlight; others -&gt; cool palette; else None."""</span>
+    <span class="k">for</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">SPLINEOPS_CURVE_COLORS</span></a><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">col</span>
+    <span class="k">for</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">OTHER_CURVE_COLORS</span></a><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">col</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
 <span class="c1"># Show markers only on every N-th point (sparser markers).</span>
 <span class="c1"># All methods share the same stride but use different phase offsets</span>
 <span class="c1"># so their markers don't sit on top of each other.</span>
@@ -943,11 +968,12 @@ size after a forward/backward round-trip (using simple rounding).</p>
         <span class="n">t_arr</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.asarray.html#numpy.asarray" title="numpy.asarray"><span class="n">np</span><span class="o">.</span><span class="n">asarray</span></a><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"time"</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span>
         <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot" title="matplotlib.pyplot.plot"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span>
             <span class="n">z_arr</span><span class="p">,</span>
-            <span class="n">t_arr</span><span class="p">,</span>
+            <span class="n">t_arr</span><span class="p">,</span>  <span class="c1"># (or s_plot / q_plot)</span>
             <span class="n">marker</span><span class="o">=</span><span class="n">marker_for</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">),</span>
             <span class="n">markevery</span><span class="o">=</span><span class="n">markevery_for</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">MARK_EVERY_BASE</span></a><span class="p">)),</span>
             <span class="n">markersize</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">MARKER_SIZE</span></a><span class="p">,</span>
-            <span class="n">linewidth</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">LINEWIDTH</span></a><span class="p">,</span>
+            <span class="n">linewidth</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">LINEWIDTH</span></a><span class="p">,</span>                 <span class="c1"># SAME for everyone</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">_color_for_curve</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>         <span class="c1"># warm for SplineOps, cool for others</span>
             <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">any_curve</span> <span class="o">=</span> <span class="kc">True</span>
@@ -995,11 +1021,12 @@ size after a forward/backward round-trip (using simple rounding).</p>
         <span class="n">s_plot</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.where.html#numpy.where" title="numpy.where"><span class="n">np</span><span class="o">.</span><span class="n">where</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span></a><span class="p">(</span><span class="n">s_arr</span><span class="p">),</span> <span class="n">s_arr</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">np</span><span class="o">.</span><span class="n">nan</span></a><span class="p">)</span>
         <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot" title="matplotlib.pyplot.plot"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span>
             <span class="n">z_arr</span><span class="p">,</span>
-            <span class="n">s_plot</span><span class="p">,</span>
+            <span class="n">s_plot</span><span class="p">,</span>  <span class="c1"># (or s_plot / q_plot)</span>
             <span class="n">marker</span><span class="o">=</span><span class="n">marker_for</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">),</span>
             <span class="n">markevery</span><span class="o">=</span><span class="n">markevery_for</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">MARK_EVERY_BASE</span></a><span class="p">)),</span>
             <span class="n">markersize</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">MARKER_SIZE</span></a><span class="p">,</span>
-            <span class="n">linewidth</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">LINEWIDTH</span></a><span class="p">,</span>
+            <span class="n">linewidth</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">LINEWIDTH</span></a><span class="p">,</span>                 <span class="c1"># SAME for everyone</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">_color_for_curve</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>         <span class="c1"># warm for SplineOps, cool for others</span>
             <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">any_curve</span> <span class="o">=</span> <span class="kc">True</span>
@@ -1048,11 +1075,12 @@ size after a forward/backward round-trip (using simple rounding).</p>
         <span class="n">q_plot</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.where.html#numpy.where" title="numpy.where"><span class="n">np</span><span class="o">.</span><span class="n">where</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span></a><span class="p">(</span><span class="n">q_arr</span><span class="p">),</span> <span class="n">q_arr</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">np</span><span class="o">.</span><span class="n">nan</span></a><span class="p">)</span>
         <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot" title="matplotlib.pyplot.plot"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span>
             <span class="n">z_arr</span><span class="p">,</span>
-            <span class="n">q_plot</span><span class="p">,</span>
+            <span class="n">q_plot</span><span class="p">,</span>  <span class="c1"># (or s_plot / q_plot)</span>
             <span class="n">marker</span><span class="o">=</span><span class="n">marker_for</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">),</span>
             <span class="n">markevery</span><span class="o">=</span><span class="n">markevery_for</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">MARK_EVERY_BASE</span></a><span class="p">)),</span>
             <span class="n">markersize</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">MARKER_SIZE</span></a><span class="p">,</span>
-            <span class="n">linewidth</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">LINEWIDTH</span></a><span class="p">,</span>
+            <span class="n">linewidth</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">LINEWIDTH</span></a><span class="p">,</span>                 <span class="c1"># SAME for everyone</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">_color_for_curve</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>         <span class="c1"># warm for SplineOps, cool for others</span>
             <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">any_curve</span> <span class="o">=</span> <span class="kc">True</span>
@@ -1214,7 +1242,7 @@ dtype used for the benchmark.</p>
   Python      : 3.12.12 (CPython)
   OS          : Linux 6.11.0-1018-azure (x86_64)
   CPU         : x86_64 | logical cores: 4
-  Process     : pid=2401 | Python threads=1
+  Process     : pid=2461 | Python threads=1
   NumPy/SciPy : 2.2.6/1.16.3
   Matplotlib  : 3.10.8 | backend: agg
   splineops   : 1.1.1 | native ext present: True
@@ -1224,7 +1252,7 @@ dtype used for the benchmark.</p>
 Benchmark storage dtype: float32
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (5 minutes 44.611 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (5 minutes 42.969 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

@@ -70,6 +70,21 @@ PLOT_LABEL_FONTSIZE = 18
 PLOT_TICK_FONTSIZE = 18
 PLOT_LEGEND_FONTSIZE = 18
 
+# Highlight styles (per method) used everywhere (ROI montages + plots)
+HIGHLIGHT_STYLE = {
+    "SplineOps Standard cubic": {
+        "color": "#C2410C",
+        "lw": 3.0,
+    },
+    "SplineOps Antialiasing cubic": {
+        "color": "#BE185D",
+        "lw": 3.0,
+    },
+}
+
+AA_METHOD_LABEL = "SplineOps Antialiasing cubic"
+AA_COLOR = HIGHLIGHT_STYLE[AA_METHOD_LABEL]["color"]
+
 def fmt_ms(seconds: float) -> str:
     """Format seconds as a short 'X.X ms' string."""
     return f"{seconds * 1000.0:.1f} ms"
@@ -259,20 +274,32 @@ def _nearest_big(roi: np.ndarray, target_h: int = ROI_MAG_TARGET) -> np.ndarray:
     return np.repeat(np.repeat(roi, mag, axis=0), mag, axis=1)
 
 
-def _diff_normalized(orig: np.ndarray, rec: np.ndarray) -> np.ndarray:
+def _diff_normalized(
+    orig: np.ndarray,
+    rec: np.ndarray,
+    *,
+    max_abs: Optional[float] = None,
+) -> np.ndarray:
     """
     Normalize signed difference (rec - orig) into [0,1] for display.
 
     0.5 = no difference, >0.5 positive, <0.5 negative.
+
+    If max_abs is provided, it is used as a shared scale (same range across tiles).
     """
     diff = rec.astype(np.float64, copy=False) - orig.astype(np.float64, copy=False)
-    max_abs = np.max(np.abs(diff))
-    if max_abs <= 0:
+
+    if max_abs is None:
+        max_abs = float(np.max(np.abs(diff)))
+    else:
+        max_abs = float(max_abs)
+
+    if max_abs <= 0.0:
         return 0.5 * np.ones_like(diff, dtype=DTYPE)
+
     norm = 0.5 + 0.5 * diff / max_abs
     norm = np.clip(norm, 0.0, 1.0)
     return norm.astype(DTYPE, copy=False)
-
 
 def _show_initial_original_vs_aa(
     gray: np.ndarray,
@@ -373,9 +400,13 @@ def _show_initial_original_vs_aa(
             facecolor="none",
         )
         ax.add_patch(rect_aa)
+
     ax.set_title(
-        f"Antialiasing ({degree_label}, zoom ×{z:g}, {H1}×{W1} px)",
+        f"{AA_METHOD_LABEL}\n(zoom ×{z:g}, {H1}×{W1} px)",
         fontsize=ROI_TILE_TITLE_FONTSIZE,
+        color=AA_COLOR,
+        fontweight="bold",
+        multialignment="center",
     )
     ax.axis("off")
 
@@ -491,23 +522,111 @@ def show_intro_color(
             facecolor="none",
         )
         ax.add_patch(rect2)
-    ax.set_title(
-        f"{label} ({degree_label}, zoom ×{zoom:g}, {Hs}×{Ws} px)",
-        fontsize=ROI_TILE_TITLE_FONTSIZE,
-    )
+    # Bottom-left: resized image on canvas (change title only here)
+    if label == "Antialiasing":
+        title_kw = dict(
+            fontsize=ROI_TILE_TITLE_FONTSIZE,
+            fontweight="bold",
+            color=AA_COLOR,
+            multialignment="center",
+        )
+        ax.set_title(
+            f"{AA_METHOD_LABEL}\n(zoom ×{zoom:g}, {Hs}×{Ws} px)",
+            **title_kw,
+        )
     ax.axis("off")
 
     ax = axes[1, 1]
     ax.imshow(np.clip(roi_shrunk_big, 0.0, 1.0))
-    ax.set_title(
-        f"{label} ROI ({roi_h_res}×{roi_w_res} px, NN magnified)",
-        fontsize=ROI_TILE_TITLE_FONTSIZE,
-    )
+
+    if label == "Antialiasing":
+        title_kw = dict(fontsize=ROI_TILE_TITLE_FONTSIZE, fontweight="bold")
+        if AA_COLOR is not None:
+            title_kw["color"] = AA_COLOR
+        ax.set_title(
+            f"{label} ROI ({roi_h_res}×{roi_w_res} px, NN magnified)",
+            **title_kw,
+        )
+    else:
+        ax.set_title(
+            f"{label} ROI ({roi_h_res}×{roi_w_res} px, NN magnified)",
+            fontsize=ROI_TILE_TITLE_FONTSIZE,
+        )
+
     ax.axis("off")
 
     fig.tight_layout()
     plt.show()
 
+def _smart_ylim(
+    values: np.ndarray,
+    *,
+    hi_cap: float | None = None,
+    lo_cap: float | None = None,
+    pad_frac: float = 0.06,
+    iqr_k: float = 1.5,
+    q_floor: float = 10.0,   # percentile used when min is an outlier
+    min_span: float | None = None,
+) -> tuple[float, float] | None:
+    """
+    Robust y-limits for plots.
+
+    - If the minimum is a strong outlier (below Q1 - k*IQR), use q_floor percentile as the lower bound.
+    - Otherwise use the true min.
+    - Add a small padding.
+    - Optionally clamp/cap.
+    """
+    v = np.asarray(values, dtype=np.float64)
+    v = v[np.isfinite(v)]
+    if v.size == 0:
+        return None
+
+    vmin = float(v.min())
+    vmax = float(v.max())
+
+    if vmin == vmax:
+        span = float(min_span) if min_span is not None else (1e-3 if vmax <= 1.0 else 1.0)
+        lo, hi = vmin - 0.5 * span, vmax + 0.5 * span
+    else:
+        q1, q3 = np.percentile(v, [25.0, 75.0])
+        iqr = float(q3 - q1)
+
+        lo0 = vmin
+        if iqr > 0.0:
+            low_outlier_thr = float(q1 - iqr_k * iqr)
+            if vmin < low_outlier_thr:
+                lo0 = float(np.percentile(v, q_floor))
+
+        span = vmax - lo0
+        pad = pad_frac * span
+        lo, hi = lo0 - pad, vmax + pad
+
+        if min_span is not None and (hi - lo) < float(min_span):
+            mid = 0.5 * (hi + lo)
+            lo = mid - 0.5 * float(min_span)
+            hi = mid + 0.5 * float(min_span)
+
+    if lo_cap is not None:
+        lo = max(lo, float(lo_cap))
+    if hi_cap is not None:
+        hi = min(hi, float(hi_cap))
+
+    if lo >= hi:
+        hi = lo + (float(min_span) if min_span is not None else 1e-6)
+
+    return lo, hi
+
+def _highlight_tile(ax, *, color: str, lw: float = 3.0) -> None:
+    # Full-axes border, works even with ax.axis("off")
+    rect = patches.Rectangle(
+        (0, 0), 1, 1,
+        transform=ax.transAxes,
+        fill=False,
+        edgecolor=color,
+        linewidth=lw,
+        clip_on=False,
+    )
+    ax.add_patch(rect)
 
 # %%
 # Round-Trip Backends & Time
@@ -881,6 +1000,7 @@ def benchmark_image(
       - roi_tiles (list of (name, tile) for first-pass ROI montages, grayscale)
       - diff_tiles (list of (name, tile) for ROI error montages, grayscale)
       - rows (per-method metrics)
+      - diff_max_abs (shared max abs diff used for all diff tiles)
     """
     H, W = gray.shape
     z = zoom
@@ -906,14 +1026,21 @@ def benchmark_image(
     orig_tile = _nearest_big(roi, ROI_MAG_TARGET)
     roi_tiles.append(("Original", orig_tile))
 
-    # Zero-diff baseline
+    # Zero-diff baseline (stays at mid-gray)
     diff_zero = 0.5 * np.ones_like(roi, dtype=DTYPE)
     diff_zero_big = _nearest_big(diff_zero, ROI_MAG_TARGET)
     diff_tiles.append(("Original (no diff)", diff_zero_big))
 
+    # Collect per-method recovered ROI for a shared error scale (per image)
+    rec_roi_store: List[Tuple[str, np.ndarray]] = []
+    diff_max_abs = 0.0
+
     aa_first_for_plot: Optional[np.ndarray] = None
 
-    header = f"{'Method':<32} {'Time (mean)':>14} {'± SD':>10} {'SNR (dB)':>10} {'MSE':>14} {'SSIM':>8}"
+    header = (
+        f"{'Method':<32} {'Time (mean)':>14} {'± SD':>10} "
+        f"{'SNR (dB)':>10} {'MSE':>14} {'SSIM':>8}"
+    )
     print(header)
     print("-" * len(header))
 
@@ -942,7 +1069,10 @@ def benchmark_image(
         first, rec, t_mean, t_sd, err = _avg_time(rt_fn, repeats=N_TRIALS, warmup=True)
 
         if err is not None or first.size == 0 or rec.size == 0:
-            print(f"{label:<32} {'unavailable':>14} {'':>10} {'—':>10} {'—':>14} {'—':>8}")
+            print(
+                f"{label:<32} {'unavailable':>14} {'':>10} "
+                f"{'—':>10} {'—':>14} {'—':>8}"
+            )
             rows.append(
                 dict(
                     name=label,
@@ -991,6 +1121,7 @@ def benchmark_image(
             )
         )
 
+        # First-pass ROI tile (in the resized domain)
         H1, W1 = first.shape
         roi_h_res = max(1, int(round(roi_h * z)))
         roi_w_res = max(1, int(round(roi_w * z)))
@@ -1010,7 +1141,17 @@ def benchmark_image(
         tile = _nearest_big(first_roi, ROI_MAG_TARGET)
         roi_tiles.append((label, tile))
 
-        diff_roi = _diff_normalized(roi, rec_roi)
+        # Store recovered ROI (copy) for shared-scale diff montage
+        rec_roi_store.append((label, rec_roi.astype(DTYPE, copy=True)))
+
+        # Update shared max(|diff|) across all methods for this ROI
+        d = rec_roi.astype(np.float64, copy=False) - roi.astype(np.float64, copy=False)
+        diff_max_abs = max(diff_max_abs, float(np.max(np.abs(d))))
+
+    # Build diff tiles with ONE shared scale (per image) so all tiles are comparable
+    diff_max_abs = max(diff_max_abs, 1e-12)
+    for label, rec_roi_m in rec_roi_store:
+        diff_roi = _diff_normalized(roi, rec_roi_m, max_abs=diff_max_abs)
         diff_tile = _nearest_big(diff_roi, ROI_MAG_TARGET)
         diff_tiles.append((label, diff_tile))
 
@@ -1024,9 +1165,9 @@ def benchmark_image(
         aa_first=aa_first_for_plot,
         roi_tiles=roi_tiles,
         diff_tiles=diff_tiles,
+        diff_max_abs=diff_max_abs,
         rows=rows,
     )
-
 
 def show_intro_from_bench(bench: Dict[str, object]) -> None:
     """2×2 introductory figure for SplineOps AA (grayscale)."""
@@ -1075,16 +1216,27 @@ def show_roi_montage_main_from_bench(bench: Dict[str, object]) -> None:
     for idx, name in enumerate(names):
         if idx >= rows * cols:
             break
+
         tile = tile_map[name]
         r, c = divmod(idx, cols)
         ax = axes[r, c]
+
         ax.imshow(tile, cmap="gray", interpolation="nearest")
-        ax.set_title(name, fontsize=ROI_TILE_TITLE_FONTSIZE)
+
+        title_kw = dict(fontsize=ROI_TILE_TITLE_FONTSIZE)
+
+        style = HIGHLIGHT_STYLE.get(name)
+        if style is not None:
+            c = style.get("color", "tab:blue")
+            lw = float(style.get("lw", 3.0))
+            title_kw.update(color=c, fontweight="bold")
+            _highlight_tile(ax, color=c, lw=lw)
+
+        ax.set_title(name, **title_kw)
         ax.axis("off")
 
     fig.tight_layout()
     plt.show()
-
 
 def show_roi_montage_aa_from_bench(bench: Dict[str, object]) -> None:
     """
@@ -1108,7 +1260,6 @@ def show_roi_montage_aa_from_bench(bench: Dict[str, object]) -> None:
         if lbl in tile_map:
             names.append(lbl)
 
-    # Dynamically choose rows so we don't end up with a completely empty row
     cols = 3
     n_tiles = len(names)
     rows = max(1, (n_tiles + cols - 1) // cols)
@@ -1122,11 +1273,23 @@ def show_roi_montage_aa_from_bench(bench: Dict[str, object]) -> None:
     for idx, name in enumerate(names):
         if idx >= rows * cols:
             break
+
         tile = tile_map[name]
         r, c = divmod(idx, cols)
         ax = axes[r, c]
+
         ax.imshow(tile, cmap="gray", interpolation="nearest")
-        ax.set_title(name, fontsize=ROI_TILE_TITLE_FONTSIZE)
+
+        title_kw = dict(fontsize=ROI_TILE_TITLE_FONTSIZE)
+
+        style = HIGHLIGHT_STYLE.get(name)
+        if style is not None:
+            c = style.get("color", "tab:blue")
+            lw = float(style.get("lw", 3.0))
+            title_kw.update(color=c, fontweight="bold")
+            _highlight_tile(ax, color=c, lw=lw)
+
+        ax.set_title(name, **title_kw)
         ax.axis("off")
 
     fig.tight_layout()
@@ -1165,19 +1328,29 @@ def show_error_montage_main_from_bench(bench: Dict[str, object]) -> None:
         tile = tile_map[name]
         r, c = divmod(idx, cols)
         ax = axes[r, c]
+
         ax.imshow(tile, cmap="gray", interpolation="nearest", vmin=0.0, vmax=1.0)
-        ax.set_title(name, fontsize=ROI_TILE_TITLE_FONTSIZE)
+
+        title_kw = dict(fontsize=ROI_TILE_TITLE_FONTSIZE)
+
+        style = HIGHLIGHT_STYLE.get(name)
+        if style is not None:
+            c = style.get("color", "tab:blue")
+            lw = float(style.get("lw", 3.0))
+            title_kw.update(color=c, fontweight="bold")
+            _highlight_tile(ax, color=c, lw=lw)
+
+        ax.set_title(name, **title_kw)
         ax.axis("off")
 
-    # Legend
+    # Legend (unchanged)
     ax_leg = axes[-1, -1]
     ax_leg.axis("off")
 
     H_leg = ROI_MAG_TARGET
     W_leg = 32
     y = np.linspace(1.0, 0.0, H_leg, dtype=np.float32)
-    legend_col = y[:, None]
-    legend_img = np.repeat(legend_col, W_leg, axis=1)
+    legend_img = np.repeat(y[:, None], W_leg, axis=1)
 
     ax_leg.imshow(legend_img, cmap="gray", vmin=0.0, vmax=1.0, aspect="auto")
     ax_leg.set_title("Diff legend", fontsize=ROI_TILE_TITLE_FONTSIZE, pad=4)
@@ -1192,7 +1365,6 @@ def show_error_montage_main_from_bench(bench: Dict[str, object]) -> None:
     fig.suptitle("Normalized signed difference in ROI", fontsize=ROI_SUPTITLE_FONTSIZE)
     fig.tight_layout(rect=[0, 0, 1, 0.95])
     plt.show()
-
 
 def show_error_montage_aa_from_bench(bench: Dict[str, object]) -> None:
     """
@@ -1227,18 +1399,29 @@ def show_error_montage_aa_from_bench(bench: Dict[str, object]) -> None:
         tile = tile_map[name]
         r, c = divmod(idx, cols)
         ax = axes[r, c]
+
         ax.imshow(tile, cmap="gray", interpolation="nearest", vmin=0.0, vmax=1.0)
-        ax.set_title(name, fontsize=ROI_TILE_TITLE_FONTSIZE)
+
+        title_kw = dict(fontsize=ROI_TILE_TITLE_FONTSIZE)
+
+        style = HIGHLIGHT_STYLE.get(name)
+        if style is not None:
+            c = style.get("color", "tab:blue")
+            lw = float(style.get("lw", 3.0))
+            title_kw.update(color=c, fontweight="bold")
+            _highlight_tile(ax, color=c, lw=lw)
+
+        ax.set_title(name, **title_kw)
         ax.axis("off")
 
+    # Legend (unchanged)
     ax_leg = axes[-1, -1]
     ax_leg.axis("off")
 
     H_leg = ROI_MAG_TARGET
     W_leg = 32
     y = np.linspace(1.0, 0.0, H_leg, dtype=np.float32)
-    legend_col = y[:, None]
-    legend_img = np.repeat(legend_col, W_leg, axis=1)
+    legend_img = np.repeat(y[:, None], W_leg, axis=1)
 
     ax_leg.imshow(legend_img, cmap="gray", vmin=0.0, vmax=1.0, aspect="auto")
     ax_leg.set_title("Diff legend", fontsize=ROI_TILE_TITLE_FONTSIZE, pad=4)
@@ -1253,7 +1436,6 @@ def show_error_montage_aa_from_bench(bench: Dict[str, object]) -> None:
     fig.suptitle("Normalized signed difference in ROI", fontsize=ROI_SUPTITLE_FONTSIZE)
     fig.tight_layout(rect=[0, 0, 1, 0.95])
     plt.show()
-
 
 def show_timing_plot_from_bench(bench: Dict[str, object]) -> None:
     """Horizontal bar chart of round-trip timing per method."""
@@ -1279,23 +1461,39 @@ def show_timing_plot_from_bench(bench: Dict[str, object]) -> None:
     times = times[order]
     sds   = sds[order]
 
-    plt.figure(figsize=PLOT_FIGSIZE)
+    fig, ax = plt.subplots(figsize=PLOT_FIGSIZE)
     y = np.arange(len(names))
-    plt.barh(y, times, xerr=sds, alpha=0.8)
-    plt.yticks(y, names, fontsize=PLOT_TICK_FONTSIZE)
-    plt.xticks(fontsize=PLOT_TICK_FONTSIZE)
-    plt.xlabel(
+
+    bars = ax.barh(y, times, xerr=sds, alpha=0.8)
+
+    ax.set_yticks(y)
+    ax.set_yticklabels(names, fontsize=PLOT_TICK_FONTSIZE)
+    ax.tick_params(axis="x", labelsize=PLOT_TICK_FONTSIZE)
+
+    ax.set_xlabel(
         f"Round-trip time (s) mean ± sd over {N_TRIALS} runs",
         fontsize=PLOT_LABEL_FONTSIZE,
     )
-    plt.title(
+    ax.set_title(
         f"Timing vs Method (H×W = {H}×{W}, zoom ×{z:g}, degree={degree_label})",
         fontsize=PLOT_TITLE_FONTSIZE,
     )
-    plt.grid(axis="x", alpha=0.3)
-    plt.tight_layout()
-    plt.show()
+    ax.grid(axis="x", alpha=0.3)
 
+    # --- Color the METHOD NAMES (yticks) + outline highlighted bars ---
+    for tick, name, bar in zip(ax.get_yticklabels(), names, bars.patches):
+        style = HIGHLIGHT_STYLE.get(name)
+        if style is not None:
+            c = style.get("color", "tab:blue")
+            lw = float(style.get("lw", 3.0))
+            tick.set_color(c)
+            tick.set_fontweight("bold")
+            # Optional: outline the bar too (nice but not required)
+            bar.set_edgecolor(c)
+            bar.set_linewidth(lw)
+
+    fig.tight_layout()
+    plt.show()
 
 def show_snr_ssim_plot_from_bench(bench: Dict[str, object]) -> None:
     """Combined SNR/SSIM bar chart per method."""
@@ -1345,6 +1543,7 @@ def show_snr_ssim_plot_from_bench(bench: Dict[str, object]) -> None:
     )
     ax1.set_ylabel("SNR (dB)", color=snr_color, fontsize=PLOT_LABEL_FONTSIZE)
     ax1.tick_params(axis="y", labelcolor=snr_color, labelsize=PLOT_TICK_FONTSIZE)
+
     ax1.set_xticks(x)
     ax1.set_xticklabels(
         names,
@@ -1352,6 +1551,7 @@ def show_snr_ssim_plot_from_bench(bench: Dict[str, object]) -> None:
         ha="right",
         fontsize=PLOT_TICK_FONTSIZE,
     )
+
     ax1.grid(axis="y", alpha=0.3)
 
     ax2 = ax1.twinx()
@@ -1366,8 +1566,10 @@ def show_snr_ssim_plot_from_bench(bench: Dict[str, object]) -> None:
     ax2.set_ylabel("SSIM", color=ssim_color, fontsize=PLOT_LABEL_FONTSIZE)
     ax2.tick_params(axis="y", labelcolor=ssim_color, labelsize=PLOT_TICK_FONTSIZE)
 
+    roi_h, roi_w = bench["roi_rect"][2], bench["roi_rect"][3]  # type: ignore[index]
+
     ax1.set_title(
-        f"SNR / SSIM vs Method (H×W = {H}×{W}, zoom ×{z:g}, degree={degree_label})",
+        f"SNR / SSIM vs Method (ROI = {roi_h}×{roi_w} px, zoom ×{z:g}, degree={degree_label})",
         fontsize=PLOT_TITLE_FONTSIZE,
     )
 
@@ -1381,9 +1583,36 @@ def show_snr_ssim_plot_from_bench(bench: Dict[str, object]) -> None:
         fontsize=PLOT_LEGEND_FONTSIZE,
     )
 
+    # --- Highlight xtick labels (SplineOps methods) ---
+    for tick, name in zip(ax1.get_xticklabels(), names):
+        style = HIGHLIGHT_STYLE.get(name)
+        if style is not None:
+            col = style.get("color", "tab:blue")
+            tick.set_color(col)
+            tick.set_fontweight("bold")
+
+    # --- Outline BOTH bars (now safe because ssim_bars exists) ---
+    for i, name in enumerate(names):
+        style = HIGHLIGHT_STYLE.get(name)
+        if style is not None:
+            col = style.get("color", "tab:blue")
+            lw = float(style.get("lw", 3.0))
+            snr_bars.patches[i].set_edgecolor(col)
+            snr_bars.patches[i].set_linewidth(lw)
+            ssim_bars.patches[i].set_edgecolor(col)
+            ssim_bars.patches[i].set_linewidth(lw)
+
+    # --- Smart truncated y-limits (robust) ---
+    snr_lim = _smart_ylim(snrs, pad_frac=0.06, min_span=1.0)  # dB
+    if snr_lim is not None:
+        ax1.set_ylim(*snr_lim)
+
+    ssim_lim = _smart_ylim(ssims, lo_cap=0.0, hi_cap=1.0, pad_frac=0.02, min_span=0.02)
+    if ssim_lim is not None:
+        ax2.set_ylim(*ssim_lim)
+
     fig.tight_layout()
     plt.show()
-
 
 # %%
 # Color ROI Montage Helpers
@@ -1527,12 +1756,9 @@ def show_roi_montage_color_main_from_bench(
     orig_rgb: np.ndarray,
 ) -> None:
     """Color ROI montage for the main subset of methods."""
-
-    roi_rect = bench["roi_rect"]      # (row_top, col_left, h, w)
+    roi_rect = bench["roi_rect"]
     z = float(bench["z"])
     row0, col0, roi_h, roi_w = roi_rect
-    H, W, _ = orig_rgb.shape
-
     roi_orig = orig_rgb[row0:row0 + roi_h, col0:col0 + roi_w, :]
     orig_tile = _nearest_big_color(roi_orig, ROI_MAG_TARGET)
 
@@ -1587,8 +1813,19 @@ def show_roi_montage_color_main_from_bench(
             break
         r, c = divmod(idx, cols)
         ax = axes[r, c]
+
         ax.imshow(np.clip(tile, 0.0, 1.0))
-        ax.set_title(name, fontsize=ROI_TILE_TITLE_FONTSIZE)
+
+        title_kw = dict(fontsize=ROI_TILE_TITLE_FONTSIZE)
+
+        style = HIGHLIGHT_STYLE.get(name)
+        if style is not None:
+            c = style.get("color", "tab:blue")
+            lw = float(style.get("lw", 3.0))
+            title_kw.update(color=c, fontweight="bold")
+            _highlight_tile(ax, color=c, lw=lw)
+
+        ax.set_title(name, **title_kw)
         ax.axis("off")
 
     fig.tight_layout()
@@ -1600,12 +1837,9 @@ def show_roi_montage_color_aa_from_bench(
     orig_rgb: np.ndarray,
 ) -> None:
     """Color ROI montage for AA / smoothing subset."""
-
     roi_rect = bench["roi_rect"]
     z = float(bench["z"])
     row0, col0, roi_h, roi_w = roi_rect
-    H, W, _ = orig_rgb.shape
-
     roi_orig = orig_rgb[row0:row0 + roi_h, col0:col0 + roi_w, :]
     orig_tile = _nearest_big_color(roi_orig, ROI_MAG_TARGET)
 
@@ -1647,7 +1881,6 @@ def show_roi_montage_color_aa_from_bench(
         tile = _nearest_big_color(roi_first, ROI_MAG_TARGET)
         tiles.append((label, tile))
 
-    # Dynamically choose rows for the number of tiles we actually have
     cols = 3
     n_tiles = len(tiles)
     rows = max(1, (n_tiles + cols - 1) // cols)
@@ -1663,13 +1896,23 @@ def show_roi_montage_color_aa_from_bench(
             break
         r, c = divmod(idx, cols)
         ax = axes[r, c]
+
         ax.imshow(np.clip(tile, 0.0, 1.0))
-        ax.set_title(name, fontsize=ROI_TILE_TITLE_FONTSIZE)
+
+        title_kw = dict(fontsize=ROI_TILE_TITLE_FONTSIZE)
+
+        style = HIGHLIGHT_STYLE.get(name)
+        if style is not None:
+            c = style.get("color", "tab:blue")
+            lw = float(style.get("lw", 3.0))
+            title_kw.update(color=c, fontweight="bold")
+            _highlight_tile(ax, color=c, lw=lw)
+
+        ax.set_title(name, **title_kw)
         ax.axis("off")
 
     fig.tight_layout()
     plt.show()
-
 
 # %%
 # Load All Images

@@ -116,6 +116,31 @@ PLOT_LEGEND_FONTSIZE = 12
 MARKER_SIZE = 4
 LINEWIDTH = 1.8
 
+# --- SplineOps highlight colors (match 06_benchmarking.py) ---
+SPLINEOPS_CURVE_COLORS = {
+    "SplineOps Standard": "#C2410C",
+    "SplineOps Antialiasing": "#BE185D",
+}
+
+# --- Cool palette for non-SplineOps methods (avoid Matplotlib's orange/red cycle) ---
+OTHER_CURVE_COLORS = {
+    "SciPy":        "#2563EB",  # blue
+    "PyTorch":      "#0EA5E9",  # sky/cyan
+    "OpenCV":       "#6366F1",  # indigo
+    "Pillow":       "#14B8A6",  # teal
+    "scikit-image": "#64748B",  # slate
+}
+
+def _color_for_curve(name: str) -> str | None:
+    """SplineOps -> warm highlight; others -> cool palette; else None."""
+    for prefix, col in SPLINEOPS_CURVE_COLORS.items():
+        if name.startswith(prefix):
+            return col
+    for prefix, col in OTHER_CURVE_COLORS.items():
+        if name.startswith(prefix):
+            return col
+    return None
+
 # Show markers only on every N-th point (sparser markers).
 # All methods share the same stride but use different phase offsets
 # so their markers don't sit on top of each other.
@@ -669,11 +694,12 @@ def _plot_timing(
         t_arr = np.asarray(data["time"], dtype=np.float64)
         plt.plot(
             z_arr,
-            t_arr,
+            t_arr,  # (or s_plot / q_plot)
             marker=marker_for.get(name, "o"),
             markevery=markevery_for.get(name, (0, MARK_EVERY_BASE)),
             markersize=MARKER_SIZE,
-            linewidth=LINEWIDTH,
+            linewidth=LINEWIDTH,                 # SAME for everyone
+            color=_color_for_curve(name),         # warm for SplineOps, cool for others
             label=name,
         )
         any_curve = True
@@ -721,11 +747,12 @@ def _plot_snr(
         s_plot = np.where(np.isfinite(s_arr), s_arr, np.nan)
         plt.plot(
             z_arr,
-            s_plot,
+            s_plot,  # (or s_plot / q_plot)
             marker=marker_for.get(name, "o"),
             markevery=markevery_for.get(name, (0, MARK_EVERY_BASE)),
             markersize=MARKER_SIZE,
-            linewidth=LINEWIDTH,
+            linewidth=LINEWIDTH,                 # SAME for everyone
+            color=_color_for_curve(name),         # warm for SplineOps, cool for others
             label=name,
         )
         any_curve = True
@@ -774,11 +801,12 @@ def _plot_ssim(
         q_plot = np.where(np.isfinite(q_arr), q_arr, np.nan)
         plt.plot(
             z_arr,
-            q_plot,
+            q_plot,  # (or s_plot / q_plot)
             marker=marker_for.get(name, "o"),
             markevery=markevery_for.get(name, (0, MARK_EVERY_BASE)),
             markersize=MARKER_SIZE,
-            linewidth=LINEWIDTH,
+            linewidth=LINEWIDTH,                 # SAME for everyone
+            color=_color_for_curve(name),         # warm for SplineOps, cool for others
             label=name,
         )
         any_curve = True

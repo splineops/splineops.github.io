@@ -64,9 +64,13 @@ except Exception:
 DTYPE = np.float32
 
 INTERVAL_MS = 900
-TITLE_FS = 13
+TITLE_FS = 12
 
 SPLINEOPS_LABEL = "SplineOps Antialiasing cubic"
+
+# --- Highlight colors ---
+SPLINEOPS_AA_COLOR = "#BE185D"   # Antialiasing
+SPLINEOPS_STD_COLOR = "#C2410C"  # (unused here, but kept consistent)
 
 # Prefer torch if available; otherwise SciPy
 if _HAS_TORCH:
@@ -79,19 +83,28 @@ else:
 ANIM_SCALE = float(os.environ.get("SPLINEOPS_ANIM_SCALE", "0.5"))
 ANIM_SCALE = float(np.clip(ANIM_SCALE, 0.1, 1.0))
 
-# Zoom factors:
-# - fewer very small zooms (0.01–0.15)
-# - dense sweep in the middle interval (0.15–0.50)
-# - lighter sampling afterwards (0.50–0.80)
-# Total frames: 6 + 22 + 6 + 4 = 38
+# Zoom factors (full sweep), but start the animation at z=0.30 and go downwards
+Z_START = 0.30
 
+# Original distribution (includes values up to 1.0)
 zoom_low   = np.geomspace(0.01, 0.15, 6,  endpoint=False)   # < 0.15
 zoom_focus = np.geomspace(0.15, 0.50, 22, endpoint=False)   # [0.15, 0.50)
 zoom_mid   = np.geomspace(0.50, 0.80, 6,  endpoint=True)    # [0.50, 0.80]
 zoom_top   = np.array([0.85, 0.90, 0.95, 1.0])
 
-ZOOM_VALUES = np.concatenate([zoom_low, zoom_focus, zoom_mid, zoom_top])
-ZOOM_VALUES = np.sort(ZOOM_VALUES)[::-1]  # 1.0 -> ... -> small
+ZOOM_VALUES_FULL = np.sort(
+    np.unique(np.concatenate([zoom_low, zoom_focus, zoom_mid, zoom_top, [Z_START]]))
+)[::-1]  # 1.0 -> ... -> small
+
+# Start at Z_START, go down to ~0.01
+start_idx = int(np.where(ZOOM_VALUES_FULL <= Z_START)[0][0])
+tail = ZOOM_VALUES_FULL[start_idx:]          # Z_START -> ... -> small
+
+# Then go from 1.0 down to Z_START to close the loop
+head = ZOOM_VALUES_FULL[: start_idx + 1]     # 1.0 -> ... -> Z_START
+
+# Final sequence: 0.30 -> ... -> 0.01 -> 1.0 -> ... -> 0.30
+ZOOM_VALUES = np.concatenate([tail, head]).astype(float)
 
 KODAK_BASE = "https://r0k.us/graphics/kodak/kodak"
 KODAK_IMAGES = {
@@ -279,8 +292,27 @@ def make_benchmark_animation(
         max_abs = max(max_abs, float(np.max(np.abs(_u8_to_gray01(rec_b) - orig_gray01))))
     max_abs = max(max_abs, 1e-12)
 
-    def diff_norm_u8(rec_u8: np.ndarray) -> np.ndarray:
-        d = _u8_to_gray01(rec_u8) - orig_gray01
+    # Precompute energy for SNR (grayscale)
+    orig_energy = float(np.sum(orig_gray01.astype(np.float64) ** 2))
+
+    def _snr_db(rec_gray01: np.ndarray) -> float:
+        den = float(np.sum((orig_gray01.astype(np.float64) - rec_gray01.astype(np.float64)) ** 2))
+        if den == 0.0:
+            return float("inf")
+        if orig_energy == 0.0:
+            return -float("inf")
+        return 10.0 * float(np.log10(orig_energy / den))
+
+    def _fmt_snr(v: float) -> str:
+        if np.isposinf(v):
+            return "∞"
+        if np.isneginf(v):
+            return "-∞"
+        return f"{v:.2f} dB"
+
+    # Shared (both methods) error normalization using the SAME max_abs
+    def diff_norm_u8_from_gray(rec_gray01: np.ndarray) -> np.ndarray:
+        d = rec_gray01 - orig_gray01
         n = 0.5 + 0.5 * (d / max_abs)
         return (np.clip(n, 0.0, 1.0) * 255.0 + 0.5).astype(np.uint8)
 
@@ -302,6 +334,14 @@ def make_benchmark_animation(
     for ax in (ax_orig, ax_blank, ax_leg_host, ax_down_a, ax_down_b, ax_rec_a, ax_rec_b, ax_err_a, ax_err_b):
         ax.axis("off")
 
+    # Row label for the recovered row (keeps per-panel titles shorter)
+    ax_blank.text(
+        0.5, 0.5, "Recovered image",
+        transform=ax_blank.transAxes,
+        ha="center", va="center",
+        fontsize=title_fs,
+    )
+
     # Legend bar
     ax_leg_host.axis("off")
     leg = ax_leg_host.inset_axes([0.42, 0.05, 0.18, 0.90])
@@ -314,11 +354,11 @@ def make_benchmark_animation(
     ax_leg_host.text(0.62, 0.05, "-1", transform=ax_leg_host.transAxes, fontsize=9, va="bottom", ha="left")
     ax_leg_host.text(0.62, 0.50, "0",  transform=ax_leg_host.transAxes, fontsize=9, va="center", ha="left")
     ax_leg_host.text(0.62, 0.95, "+1", transform=ax_leg_host.transAxes, fontsize=9, va="top", ha="left")
-    ax_leg_host.text(0.50, 1.02, "Diff legend", transform=ax_leg_host.transAxes,
+    ax_leg_host.text(0.50, 1.02, "Signed error", transform=ax_leg_host.transAxes,
                      fontsize=title_fs, va="bottom", ha="center")
 
     # Static original
-    ax_orig.set_title("Original", fontsize=title_fs)
+    ax_orig.set_title("Original image", fontsize=title_fs)
     ax_orig.imshow(orig_u8)
 
     # Create reusable canvases
@@ -335,7 +375,12 @@ def make_benchmark_animation(
     _paste_on_white_canvas(down_so0,  canvas_b)  # right method column
 
     t_down_a = ax_down_a.set_title(f"{comp_label} (z={z0:.3f})", fontsize=title_fs)
-    t_down_b = ax_down_b.set_title(f"{SPLINEOPS_LABEL} (z={z0:.3f})", fontsize=title_fs)
+    t_down_b = ax_down_b.set_title(
+        f"{SPLINEOPS_LABEL} (z={z0:.3f})",
+        fontsize=title_fs,
+        color=SPLINEOPS_AA_COLOR,
+        fontweight="bold",
+    )
 
     ax_rec_a.set_title(f"Recovered, {comp_label}", fontsize=title_fs)
     ax_rec_b.set_title(f"Recovered, {SPLINEOPS_LABEL}", fontsize=title_fs)
@@ -347,8 +392,27 @@ def make_benchmark_animation(
     im_rec_a = ax_rec_a.imshow(rec_cmp0)
     im_rec_b = ax_rec_b.imshow(rec_so0)
 
-    im_err_a = ax_err_a.imshow(diff_norm_u8(rec_cmp0), cmap="gray", vmin=0, vmax=255)
-    im_err_b = ax_err_b.imshow(diff_norm_u8(rec_so0),  cmap="gray", vmin=0, vmax=255)
+    # Compute grayscale once (reuse for SNR + error)
+    rec_cmp_g0 = _u8_to_gray01(rec_cmp0)
+    rec_so_g0  = _u8_to_gray01(rec_so0)
+
+    snr_cmp0 = _snr_db(rec_cmp_g0)
+    snr_so0  = _snr_db(rec_so_g0)
+
+    t_rec_a = ax_rec_a.set_title(
+        f"{comp_label} (SNR={_fmt_snr(snr_cmp0)})",
+        fontsize=title_fs,
+    )
+    t_rec_b = ax_rec_b.set_title(
+        f"{SPLINEOPS_LABEL} (SNR={_fmt_snr(snr_so0)})",
+        fontsize=title_fs,
+        color=SPLINEOPS_AA_COLOR,
+        fontweight="bold",
+    )
+
+    # Error maps: same range for BOTH methods (0..255) and shared normalization
+    im_err_a = ax_err_a.imshow(diff_norm_u8_from_gray(rec_cmp_g0), cmap="gray", vmin=0, vmax=255)
+    im_err_b = ax_err_b.imshow(diff_norm_u8_from_gray(rec_so_g0),  cmap="gray", vmin=0, vmax=255)
 
     def animate(i: int):
         z = float(zoom_values[i])
@@ -356,7 +420,6 @@ def make_benchmark_animation(
         down_so,  rec_so  = rt_splineops_aa(orig01, z)
         down_cmp, rec_cmp = rt_comp(orig01, z)
 
-        # Column order: competitor first (left), splineops second (right)
         _paste_on_white_canvas(down_cmp, canvas_a)
         _paste_on_white_canvas(down_so,  canvas_b)
 
@@ -366,17 +429,26 @@ def make_benchmark_animation(
         im_rec_a.set_data(rec_cmp)
         im_rec_b.set_data(rec_so)
 
-        im_err_a.set_data(diff_norm_u8(rec_cmp))
-        im_err_b.set_data(diff_norm_u8(rec_so))
+        # Grayscale once per method (reuse)
+        rec_cmp_g = _u8_to_gray01(rec_cmp)
+        rec_so_g  = _u8_to_gray01(rec_so)
 
+        im_err_a.set_data(diff_norm_u8_from_gray(rec_cmp_g))
+        im_err_b.set_data(diff_norm_u8_from_gray(rec_so_g))
+
+        # Titles
         t_down_a.set_text(f"{comp_label} (z={z:.3f})")
         t_down_b.set_text(f"{SPLINEOPS_LABEL} (z={z:.3f})")
+
+        t_rec_a.set_text(f"{comp_label} (SNR={_fmt_snr(_snr_db(rec_cmp_g))})")
+        t_rec_b.set_text(f"{SPLINEOPS_LABEL} (SNR={_fmt_snr(_snr_db(rec_so_g))})")
 
         return (
             im_down_a, im_down_b,
             im_rec_a, im_rec_b,
             im_err_a, im_err_b,
             t_down_a, t_down_b,
+            t_rec_a, t_rec_b,
         )
 
     # Avoid Matplotlib caching all frames in memory (important when many animations)

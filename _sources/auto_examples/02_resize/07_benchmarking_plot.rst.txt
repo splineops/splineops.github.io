@@ -59,7 +59,7 @@ We compare:
 By default, the benchmark runs in **float32** for performance. You can switch to
 float64 by changing the ``DTYPE`` constant below.
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-192
+.. GENERATED FROM PYTHON SOURCE LINES 47-217
 
 .. code-block:: Python
 
@@ -133,6 +133,31 @@ float64 by changing the ``DTYPE`` constant below.
 
     MARKER_SIZE = 4
     LINEWIDTH = 1.8
+
+    # --- SplineOps highlight colors (match 06_benchmarking.py) ---
+    SPLINEOPS_CURVE_COLORS = {
+        "SplineOps Standard": "#C2410C",
+        "SplineOps Antialiasing": "#BE185D",
+    }
+
+    # --- Cool palette for non-SplineOps methods (avoid Matplotlib's orange/red cycle) ---
+    OTHER_CURVE_COLORS = {
+        "SciPy":        "#2563EB",  # blue
+        "PyTorch":      "#0EA5E9",  # sky/cyan
+        "OpenCV":       "#6366F1",  # indigo
+        "Pillow":       "#14B8A6",  # teal
+        "scikit-image": "#64748B",  # slate
+    }
+
+    def _color_for_curve(name: str) -> str | None:
+        """SplineOps -> warm highlight; others -> cool palette; else None."""
+        for prefix, col in SPLINEOPS_CURVE_COLORS.items():
+            if name.startswith(prefix):
+                return col
+        for prefix, col in OTHER_CURVE_COLORS.items():
+            if name.startswith(prefix):
+                return col
+        return None
 
     # Show markers only on every N-th point (sparser markers).
     # All methods share the same stride but use different phase offsets
@@ -215,7 +240,7 @@ float64 by changing the ``DTYPE`` constant below.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 194-199
+.. GENERATED FROM PYTHON SOURCE LINES 219-224
 
 Load and Normalize an Image
 ---------------------------
@@ -223,7 +248,7 @@ Load and Normalize an Image
 We use a fixed Kodak test image, convert it to grayscale and normalize it
 to [0, 1]. All methods operate on this normalized grayscale array.
 
-.. GENERATED FROM PYTHON SOURCE LINES 199-228
+.. GENERATED FROM PYTHON SOURCE LINES 224-253
 
 .. code-block:: Python
 
@@ -269,7 +294,7 @@ to [0, 1]. All methods operate on this normalized grayscale array.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 229-234
+.. GENERATED FROM PYTHON SOURCE LINES 254-259
 
 Original Image
 --------------
@@ -277,7 +302,7 @@ Original Image
 For reference, we display the grayscale image that will be used throughout
 the benchmark.
 
-.. GENERATED FROM PYTHON SOURCE LINES 234-242
+.. GENERATED FROM PYTHON SOURCE LINES 259-267
 
 .. code-block:: Python
 
@@ -301,7 +326,7 @@ the benchmark.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 243-253
+.. GENERATED FROM PYTHON SOURCE LINES 268-278
 
 Round-trip Runners
 ------------------
@@ -314,7 +339,7 @@ We will run the full benchmark twice:
 - once for **cubic** interpolation,
 - once for **linear** interpolation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 253-482
+.. GENERATED FROM PYTHON SOURCE LINES 278-507
 
 .. code-block:: Python
 
@@ -554,7 +579,7 @@ We will run the full benchmark twice:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 483-490
+.. GENERATED FROM PYTHON SOURCE LINES 508-515
 
 Zoom Sweep
 ----------
@@ -564,7 +589,7 @@ size after a forward/backward round-trip (using simple rounding).
 
 We exclude zoom factors too close to 1.0 to avoid trivial "identity" spikes.
 
-.. GENERATED FROM PYTHON SOURCE LINES 490-515
+.. GENERATED FROM PYTHON SOURCE LINES 515-540
 
 .. code-block:: Python
 
@@ -606,12 +631,12 @@ We exclude zoom factors too close to 1.0 to avoid trivial "identity" spikes.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 516-518
+.. GENERATED FROM PYTHON SOURCE LINES 541-543
 
 Method Construction
 -------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 518-643
+.. GENERATED FROM PYTHON SOURCE LINES 543-668
 
 .. code-block:: Python
 
@@ -747,12 +772,12 @@ Method Construction
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 644-646
+.. GENERATED FROM PYTHON SOURCE LINES 669-671
 
 Plotting Helpers
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 646-836
+.. GENERATED FROM PYTHON SOURCE LINES 671-864
 
 .. code-block:: Python
 
@@ -782,11 +807,12 @@ Plotting Helpers
             t_arr = np.asarray(data["time"], dtype=np.float64)
             plt.plot(
                 z_arr,
-                t_arr,
+                t_arr,  # (or s_plot / q_plot)
                 marker=marker_for.get(name, "o"),
                 markevery=markevery_for.get(name, (0, MARK_EVERY_BASE)),
                 markersize=MARKER_SIZE,
-                linewidth=LINEWIDTH,
+                linewidth=LINEWIDTH,                 # SAME for everyone
+                color=_color_for_curve(name),         # warm for SplineOps, cool for others
                 label=name,
             )
             any_curve = True
@@ -834,11 +860,12 @@ Plotting Helpers
             s_plot = np.where(np.isfinite(s_arr), s_arr, np.nan)
             plt.plot(
                 z_arr,
-                s_plot,
+                s_plot,  # (or s_plot / q_plot)
                 marker=marker_for.get(name, "o"),
                 markevery=markevery_for.get(name, (0, MARK_EVERY_BASE)),
                 markersize=MARKER_SIZE,
-                linewidth=LINEWIDTH,
+                linewidth=LINEWIDTH,                 # SAME for everyone
+                color=_color_for_curve(name),         # warm for SplineOps, cool for others
                 label=name,
             )
             any_curve = True
@@ -887,11 +914,12 @@ Plotting Helpers
             q_plot = np.where(np.isfinite(q_arr), q_arr, np.nan)
             plt.plot(
                 z_arr,
-                q_plot,
+                q_plot,  # (or s_plot / q_plot)
                 marker=marker_for.get(name, "o"),
                 markevery=markevery_for.get(name, (0, MARK_EVERY_BASE)),
                 markersize=MARKER_SIZE,
-                linewidth=LINEWIDTH,
+                linewidth=LINEWIDTH,                 # SAME for everyone
+                color=_color_for_curve(name),         # warm for SplineOps, cool for others
                 label=name,
             )
             any_curve = True
@@ -953,12 +981,12 @@ Plotting Helpers
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 837-839
+.. GENERATED FROM PYTHON SOURCE LINES 865-867
 
 Benchmark for Cubic Degree
 --------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 839-842
+.. GENERATED FROM PYTHON SOURCE LINES 867-870
 
 .. code-block:: Python
 
@@ -979,12 +1007,12 @@ Benchmark for Cubic Degree
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 843-845
+.. GENERATED FROM PYTHON SOURCE LINES 871-873
 
 Time Comparison (Downsampling Only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 845-849
+.. GENERATED FROM PYTHON SOURCE LINES 873-877
 
 .. code-block:: Python
 
@@ -1004,12 +1032,12 @@ Time Comparison (Downsampling Only)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 850-852
+.. GENERATED FROM PYTHON SOURCE LINES 878-880
 
 Time Comparison (Full)
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 852-855
+.. GENERATED FROM PYTHON SOURCE LINES 880-883
 
 .. code-block:: Python
 
@@ -1028,12 +1056,12 @@ Time Comparison (Full)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 856-858
+.. GENERATED FROM PYTHON SOURCE LINES 884-886
 
 SNR Comparison (Downsampling Only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 858-861
+.. GENERATED FROM PYTHON SOURCE LINES 886-889
 
 .. code-block:: Python
 
@@ -1052,12 +1080,12 @@ SNR Comparison (Downsampling Only)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 862-864
+.. GENERATED FROM PYTHON SOURCE LINES 890-892
 
 SNR Comparison (Full)
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 864-867
+.. GENERATED FROM PYTHON SOURCE LINES 892-895
 
 .. code-block:: Python
 
@@ -1076,12 +1104,12 @@ SNR Comparison (Full)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 868-870
+.. GENERATED FROM PYTHON SOURCE LINES 896-898
 
 SSIM Comparison (Downsampling Only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 870-873
+.. GENERATED FROM PYTHON SOURCE LINES 898-901
 
 .. code-block:: Python
 
@@ -1100,12 +1128,12 @@ SSIM Comparison (Downsampling Only)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 874-876
+.. GENERATED FROM PYTHON SOURCE LINES 902-904
 
 SSIM Comparison (Full)
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 876-879
+.. GENERATED FROM PYTHON SOURCE LINES 904-907
 
 .. code-block:: Python
 
@@ -1124,12 +1152,12 @@ SSIM Comparison (Full)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 880-882
+.. GENERATED FROM PYTHON SOURCE LINES 908-910
 
 Benchmark for Linear Degree
 ---------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 882-885
+.. GENERATED FROM PYTHON SOURCE LINES 910-913
 
 .. code-block:: Python
 
@@ -1150,12 +1178,12 @@ Benchmark for Linear Degree
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 886-888
+.. GENERATED FROM PYTHON SOURCE LINES 914-916
 
 Time Comparison (Downsampling Only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 888-892
+.. GENERATED FROM PYTHON SOURCE LINES 916-920
 
 .. code-block:: Python
 
@@ -1175,12 +1203,12 @@ Time Comparison (Downsampling Only)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 893-895
+.. GENERATED FROM PYTHON SOURCE LINES 921-923
 
 Time Comparison (Full)
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 895-898
+.. GENERATED FROM PYTHON SOURCE LINES 923-926
 
 .. code-block:: Python
 
@@ -1199,12 +1227,12 @@ Time Comparison (Full)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 899-901
+.. GENERATED FROM PYTHON SOURCE LINES 927-929
 
 SNR Comparison (Downsampling Only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 901-904
+.. GENERATED FROM PYTHON SOURCE LINES 929-932
 
 .. code-block:: Python
 
@@ -1223,12 +1251,12 @@ SNR Comparison (Downsampling Only)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 905-907
+.. GENERATED FROM PYTHON SOURCE LINES 933-935
 
 SNR Comparison (Full)
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 907-910
+.. GENERATED FROM PYTHON SOURCE LINES 935-938
 
 .. code-block:: Python
 
@@ -1247,12 +1275,12 @@ SNR Comparison (Full)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 911-913
+.. GENERATED FROM PYTHON SOURCE LINES 939-941
 
 SSIM Comparison (Downsampling Only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 913-916
+.. GENERATED FROM PYTHON SOURCE LINES 941-944
 
 .. code-block:: Python
 
@@ -1271,12 +1299,12 @@ SSIM Comparison (Downsampling Only)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 917-919
+.. GENERATED FROM PYTHON SOURCE LINES 945-947
 
 SSIM Comparison (Full)
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 919-922
+.. GENERATED FROM PYTHON SOURCE LINES 947-950
 
 .. code-block:: Python
 
@@ -1295,7 +1323,7 @@ SSIM Comparison (Full)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 923-928
+.. GENERATED FROM PYTHON SOURCE LINES 951-956
 
 Runtime Context
 ---------------
@@ -1303,7 +1331,7 @@ Runtime Context
 Finally, we print a short summary of the runtime environment and the storage
 dtype used for the benchmark.
 
-.. GENERATED FROM PYTHON SOURCE LINES 928-932
+.. GENERATED FROM PYTHON SOURCE LINES 956-960
 
 .. code-block:: Python
 
@@ -1323,7 +1351,7 @@ dtype used for the benchmark.
       Python      : 3.12.12 (CPython)
       OS          : Linux 6.11.0-1018-azure (x86_64)
       CPU         : x86_64 | logical cores: 4
-      Process     : pid=2401 | Python threads=1
+      Process     : pid=2461 | Python threads=1
       NumPy/SciPy : 2.2.6/1.16.3
       Matplotlib  : 3.10.8 | backend: agg
       splineops   : 1.1.1 | native ext present: True
@@ -1338,7 +1366,7 @@ dtype used for the benchmark.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (5 minutes 44.611 seconds)
+   **Total running time of the script:** (5 minutes 42.969 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_07_benchmarking_plot.py:
