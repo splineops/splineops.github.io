@@ -221984,10 +221984,10 @@ for the animation computations.
       Python      : 3.12.12 (CPython)
       OS          : Linux 6.11.0-1018-azure (x86_64)
       CPU         : x86_64 | logical cores: 4
-      Process     : pid=2470 | Python threads=1
+      Process     : pid=2422 | Python threads=1
       NumPy/SciPy : 2.2.6/1.16.3
       Matplotlib  : 3.10.8 | backend: agg
-      splineops   : 1.2.0 | native ext present: True
+      splineops   : 1.2.1 | native ext present: True
       Extra libs  : Pillow=12.0.0, OpenCV=4.12.0, scikit-image=0.25.2, PyTorch=2.9.1+cu128
       SPLINEOPS_ACCEL=always
       OMP_NUM_THREADS=4
@@ -222003,7 +222003,7 @@ for the animation computations.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (3 minutes 27.664 seconds)
+   **Total running time of the script:** (3 minutes 32.053 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_08_benchmarking_animation.py:
