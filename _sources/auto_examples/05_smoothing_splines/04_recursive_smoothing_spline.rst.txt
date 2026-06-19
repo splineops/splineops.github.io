@@ -112,7 +112,7 @@ Recursive Smoothing Spline
 
 
     Mean Squared Error (MSE) between Recursive and Fractional Smoothing Spline:
-    λ=0.100: MSE = 0.000243
+    λ=0.100: MSE = 0.000162
 
 
 
