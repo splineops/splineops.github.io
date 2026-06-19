@@ -503,7 +503,7 @@ recovered images for visual comparison.</p>
 <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="Original ROI, Recovered (Standard, 0.9 ms), Recovered (Antialiasing, 2.0 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_002.png" srcset="../../_images/sphx_glr_04_antialiasing_002.png"/></section>
+<img alt="Original ROI, Recovered (Standard, 0.9 ms), Recovered (Antialiasing, 2.1 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_002.png" srcset="../../_images/sphx_glr_04_antialiasing_002.png"/></section>
 <section id="original-with-roi">
 <h2>Original with ROI<a class="headerlink" href="#original-with-roi" title="Link to this heading">#</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">_</span></a> <span class="o">=</span> <span class="n">show_roi_zoom</span><span class="p">(</span>
@@ -542,7 +542,7 @@ recovered images for visual comparison.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Resized Image (antialiasing, 1.5 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_004.png" srcset="../../_images/sphx_glr_04_antialiasing_004.png"/></section>
+<img alt="Resized Image (antialiasing, 1.9 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_004.png" srcset="../../_images/sphx_glr_04_antialiasing_004.png"/></section>
 <section id="id3">
 <h3>Standard Interpolation<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">h_res_std</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">w_res_std</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">resized_2d_std</span><span class="o">.</span><span class="n">shape</span></a>
@@ -569,7 +569,7 @@ recovered images for visual comparison.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Resized Image (standard, 1.1 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_005.png" srcset="../../_images/sphx_glr_04_antialiasing_005.png"/></section>
+<img alt="Resized Image (standard, 1.0 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_005.png" srcset="../../_images/sphx_glr_04_antialiasing_005.png"/></section>
 </section>
 <section id="recovered-images">
 <h2>Recovered Images<a class="headerlink" href="#recovered-images" title="Link to this heading">#</a></h2>
@@ -585,7 +585,7 @@ recovered images for visual comparison.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Recovered Image (antialiased, 2.0 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_006.png" srcset="../../_images/sphx_glr_04_antialiasing_006.png"/></section>
+<img alt="Recovered Image (antialiased, 2.1 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_006.png" srcset="../../_images/sphx_glr_04_antialiasing_006.png"/></section>
 <section id="id4">
 <h3>Standard Interpolation<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">_</span></a> <span class="o">=</span> <span class="n">show_roi_zoom</span><span class="p">(</span>
@@ -661,8 +661,8 @@ standard interpolation and antialiased shrink/expand.</p>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Method                                     SNR (dB)              MSE     Time (s)
 ---------------------------------------------------------------------------------
-Standard Interpolation (cubic)                15.51         6.34e-03       0.0020
-Antialiasing (cubic shrink, cubic up)         17.47         4.03e-03       0.0034
+Standard Interpolation (cubic)                15.51         6.34e-03       0.0018
+Antialiasing (cubic shrink, cubic up)         17.47         4.03e-03       0.0040
 </pre></div>
 </div>
 </section>
@@ -731,11 +731,11 @@ However, in practice we generally recommend the <strong>Antialiasing</strong> pr
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Method                                     SNR (dB)              MSE     Time (s)
 ---------------------------------------------------------------------------------
-Antialiasing (cubic shrink, cubic up)         17.47         4.03e-03       0.0034
-Least-Squares (cubic) shrink+up               17.53         3.98e-03       0.0048
+Antialiasing (cubic shrink, cubic up)         17.47         4.03e-03       0.0040
+Least-Squares (cubic) shrink+up               17.53         3.98e-03       0.0054
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.691 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.652 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>
