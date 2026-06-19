@@ -38,7 +38,7 @@ exclude boundary artifacts.
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-48
+.. GENERATED FROM PYTHON SOURCE LINES 25-49
 
 .. code-block:: Python
 
@@ -62,7 +62,8 @@ Imports
         return f"{seconds * 1000.0:.1f} ms"
 
 
-    # Use float32 for storage / IO (resize still computes internally in float64)
+    # Use float32 for storage / IO. Standard cubic may use native float32 scratch;
+    # the 2-D antialiasing projection uses conservative float64 scratch by default.
     DTYPE = np.float32
 
 
@@ -72,12 +73,12 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-52
+.. GENERATED FROM PYTHON SOURCE LINES 51-53
 
 Pipeline Diagram
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-62
+.. GENERATED FROM PYTHON SOURCE LINES 53-63
 
 .. code-block:: Python
 
@@ -103,12 +104,12 @@ Pipeline Diagram
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-65
+.. GENERATED FROM PYTHON SOURCE LINES 64-66
 
 Load and Normalize an Image
 ---------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-112
+.. GENERATED FROM PYTHON SOURCE LINES 66-113
 
 .. code-block:: Python
 
@@ -126,8 +127,8 @@ Load and Normalize an Image
         + input_image_normalized[:, :, 2] * 0.1140  # Blue channel
     )
 
-    # Run the spline backend in float32 for performance
-    # (it still computes internally in float64).
+    # Run the spline backend with float32 storage for performance. The 2-D
+    # antialiasing projection remains conservative internally by default.
     input_image_normalized = input_image_normalized.astype(DTYPE, copy=False)
 
     h_img, w_img = input_image_normalized.shape
@@ -166,12 +167,12 @@ Load and Normalize an Image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-115
+.. GENERATED FROM PYTHON SOURCE LINES 114-116
 
 Standard Interpolation
 ----------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-141
+.. GENERATED FROM PYTHON SOURCE LINES 116-142
 
 .. code-block:: Python
 
@@ -208,12 +209,12 @@ Standard Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 142-144
+.. GENERATED FROM PYTHON SOURCE LINES 143-145
 
 Antialiasing
 ------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 144-169
+.. GENERATED FROM PYTHON SOURCE LINES 145-170
 
 .. code-block:: Python
 
@@ -249,7 +250,7 @@ Antialiasing
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 170-175
+.. GENERATED FROM PYTHON SOURCE LINES 171-176
 
 ROI Comparison
 --------------
@@ -257,7 +258,7 @@ ROI Comparison
 Build a quick ROI triptych (nearest-neighbour magnification) from the
 recovered images for visual comparison.
 
-.. GENERATED FROM PYTHON SOURCE LINES 175-211
+.. GENERATED FROM PYTHON SOURCE LINES 176-212
 
 .. code-block:: Python
 
@@ -301,7 +302,7 @@ recovered images for visual comparison.
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_002.png
-   :alt: Original ROI, Recovered (Standard, 1.4 ms), Recovered (Antialiasing, 3.1 ms)
+   :alt: Original ROI, Recovered (Standard, 0.9 ms), Recovered (Antialiasing, 2.0 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_002.png
    :class: sphx-glr-single-img
 
@@ -309,12 +310,12 @@ recovered images for visual comparison.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 212-214
+.. GENERATED FROM PYTHON SOURCE LINES 213-215
 
 Original with ROI
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 214-221
+.. GENERATED FROM PYTHON SOURCE LINES 215-222
 
 .. code-block:: Python
 
@@ -337,17 +338,17 @@ Original with ROI
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 222-224
+.. GENERATED FROM PYTHON SOURCE LINES 223-225
 
 Resized Images
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 226-228
+.. GENERATED FROM PYTHON SOURCE LINES 227-229
 
 Antialiasing
 ~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 228-252
+.. GENERATED FROM PYTHON SOURCE LINES 229-253
 
 .. code-block:: Python
 
@@ -379,7 +380,7 @@ Antialiasing
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_004.png
-   :alt: Resized Image (antialiasing, 2.7 ms)
+   :alt: Resized Image (antialiasing, 1.5 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_004.png
    :class: sphx-glr-single-img
 
@@ -387,12 +388,12 @@ Antialiasing
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 253-255
+.. GENERATED FROM PYTHON SOURCE LINES 254-256
 
 Standard Interpolation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 255-279
+.. GENERATED FROM PYTHON SOURCE LINES 256-280
 
 .. code-block:: Python
 
@@ -424,7 +425,7 @@ Standard Interpolation
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_005.png
-   :alt: Resized Image (standard, 1.8 ms)
+   :alt: Resized Image (standard, 1.1 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_005.png
    :class: sphx-glr-single-img
 
@@ -432,17 +433,17 @@ Standard Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 280-282
+.. GENERATED FROM PYTHON SOURCE LINES 281-283
 
 Recovered Images
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 284-286
+.. GENERATED FROM PYTHON SOURCE LINES 285-287
 
 Antialiasing Pipeline
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 286-296
+.. GENERATED FROM PYTHON SOURCE LINES 287-297
 
 .. code-block:: Python
 
@@ -460,7 +461,7 @@ Antialiasing Pipeline
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_006.png
-   :alt: Recovered Image (antialiased, 3.1 ms)
+   :alt: Recovered Image (antialiased, 2.0 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_006.png
    :class: sphx-glr-single-img
 
@@ -468,12 +469,12 @@ Antialiasing Pipeline
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 297-299
+.. GENERATED FROM PYTHON SOURCE LINES 298-300
 
 Standard Interpolation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 299-309
+.. GENERATED FROM PYTHON SOURCE LINES 300-310
 
 .. code-block:: Python
 
@@ -491,7 +492,7 @@ Standard Interpolation
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_007.png
-   :alt: Recovered Image (standard interpolation, 1.4 ms)
+   :alt: Recovered Image (standard interpolation, 0.9 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_007.png
    :class: sphx-glr-single-img
 
@@ -499,12 +500,12 @@ Standard Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 310-312
+.. GENERATED FROM PYTHON SOURCE LINES 311-313
 
 Difference Images
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 314-319
+.. GENERATED FROM PYTHON SOURCE LINES 315-320
 
 Antialiasing
 ~~~~~~~~~~~~
@@ -512,7 +513,7 @@ Antialiasing
 Difference with original image on ROI (SNR/MSE numbers are from the
 central-region metrics computed earlier).
 
-.. GENERATED FROM PYTHON SOURCE LINES 319-329
+.. GENERATED FROM PYTHON SOURCE LINES 320-330
 
 .. code-block:: Python
 
@@ -538,14 +539,14 @@ central-region metrics computed earlier).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 330-334
+.. GENERATED FROM PYTHON SOURCE LINES 331-335
 
 Standard Interpolation
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Difference with original image on ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 334-344
+.. GENERATED FROM PYTHON SOURCE LINES 335-345
 
 .. code-block:: Python
 
@@ -571,7 +572,7 @@ Difference with original image on ROI.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 345-355
+.. GENERATED FROM PYTHON SOURCE LINES 346-356
 
 Performance Comparison
 ----------------------
@@ -584,7 +585,7 @@ As a compact summary, we print a table with:
 This lets you see the cost/benefit trade-off between
 standard interpolation and antialiased shrink/expand.
 
-.. GENERATED FROM PYTHON SOURCE LINES 355-373
+.. GENERATED FROM PYTHON SOURCE LINES 356-374
 
 .. code-block:: Python
 
@@ -616,13 +617,13 @@ standard interpolation and antialiased shrink/expand.
 
     Method                                     SNR (dB)              MSE     Time (s)
     ---------------------------------------------------------------------------------
-    Standard Interpolation (cubic)                15.51         6.34e-03       0.0032
-    Antialiasing (cubic shrink, cubic up)         17.47         4.03e-03       0.0059
+    Standard Interpolation (cubic)                15.51         6.34e-03       0.0020
+    Antialiasing (cubic shrink, cubic up)         17.47         4.03e-03       0.0034
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 374-389
+.. GENERATED FROM PYTHON SOURCE LINES 375-390
 
 Least-Squares vs Antialiasing
 -----------------------------
@@ -640,7 +641,7 @@ However, in practice we generally recommend the **Antialiasing** preset:
 - it is faster than full Least-Squares,
 - and the visual quality is usually very close.
 
-.. GENERATED FROM PYTHON SOURCE LINES 389-437
+.. GENERATED FROM PYTHON SOURCE LINES 390-438
 
 .. code-block:: Python
 
@@ -703,8 +704,8 @@ However, in practice we generally recommend the **Antialiasing** preset:
 
     Method                                     SNR (dB)              MSE     Time (s)
     ---------------------------------------------------------------------------------
-    Antialiasing (cubic shrink, cubic up)         17.47         4.03e-03       0.0059
-    Least-Squares (cubic) shrink+up               17.53         3.98e-03       0.0081
+    Antialiasing (cubic shrink, cubic up)         17.47         4.03e-03       0.0034
+    Least-Squares (cubic) shrink+up               17.53         3.98e-03       0.0048
 
 
 
@@ -712,7 +713,7 @@ However, in practice we generally recommend the **Antialiasing** preset:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.969 seconds)
+   **Total running time of the script:** (0 minutes 1.691 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_04_antialiasing.py:

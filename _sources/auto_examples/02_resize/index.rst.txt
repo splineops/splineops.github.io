@@ -10,6 +10,10 @@ Resize Examples
 Examples using the Resize module on multidimensional samples, specially 1D and 2D.
 We also show the equivalence with the Spline Interpolation module methods where relevant.
 
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
 
 .. raw:: html
 

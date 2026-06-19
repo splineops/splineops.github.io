@@ -265,7 +265,7 @@ Show the resized image pasted on a white canvas (for zoom-out), plus the ROI zoo
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_003.png
-   :alt: Resized Image (standard, 2.5 ms)
+   :alt: Resized Image (standard, 1.2 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_003.png
    :class: sphx-glr-single-img
 
@@ -295,7 +295,7 @@ We plot the recovered image (after reversing the zoom) with the same ROI.
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_004.png
-   :alt: Recovered Image (standard, 2.0 ms)
+   :alt: Recovered Image (standard, 1.1 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_004.png
    :class: sphx-glr-single-img
 
@@ -368,7 +368,7 @@ Recovered Image (SciPy)
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_005.png
-   :alt: Recovered Image (SciPy, 25.8 ms)
+   :alt: Recovered Image (SciPy, 26.0 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_005.png
    :class: sphx-glr-single-img
 
@@ -410,7 +410,7 @@ Compare the two recovered images on the face ROI and plot that difference.
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_006.png
-   :alt: Recovered diff (standard vs SciPy) (ROI) SNR: 145.34 dB, MSE: 1.04e-15
+   :alt: Recovered diff (standard vs SciPy) (ROI) SNR: 129.30 dB, MSE: 4.20e-14
    :srcset: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_006.png
    :class: sphx-glr-single-img
 
@@ -532,8 +532,8 @@ As an alternative, we can replicate the same interpolation manually using the
 
  .. code-block:: none
 
-    MSE (TensorSpline vs. resize()) resized:  7.308341e-13
-    MSE (TensorSpline vs. resize()) recovered: 1.133354e-12
+    MSE (TensorSpline vs. resize()) resized:  7.329345e-13
+    MSE (TensorSpline vs. resize()) recovered: 1.138830e-12
 
 
 
@@ -541,7 +541,7 @@ As an alternative, we can replicate the same interpolation manually using the
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.939 seconds)
+   **Total running time of the script:** (0 minutes 1.505 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_03_standard_interpolation.py:

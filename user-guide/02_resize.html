@@ -27,12 +27,12 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
@@ -40,14 +40,15 @@
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=f56efcf3" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../_static/scripts/fontawesome.js?digest=7f76b32a3354e82990f2"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
     <script src="../_static/documentation_options.js?v=ca842793"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -79,7 +80,9 @@
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -197,11 +200,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -216,8 +226,7 @@
           
           
           
-          <a href="https://github.com/splineops/splineops" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only"></span></a>
+          <a href="https://github.com/splineops/splineops" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden"></span></a>
         </li>
         <li class="nav-item">
             
@@ -230,8 +239,7 @@
           
           
           
-          <a href="https://pypi.org/project/splineops/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i>
-            <span class="sr-only"></span></a>
+          <a href="https://pypi.org/project/splineops/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden"></span></a>
         </li>
 </ul></div>
       
@@ -320,11 +328,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -339,8 +354,7 @@
           
           
           
-          <a href="https://github.com/splineops/splineops" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only"></span></a>
+          <a href="https://github.com/splineops/splineops" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden"></span></a>
         </li>
         <li class="nav-item">
             
@@ -353,8 +367,7 @@
           
           
           
-          <a href="https://pypi.org/project/splineops/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i>
-            <span class="sr-only"></span></a>
+          <a href="https://pypi.org/project/splineops/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden"></span></a>
         </li>
 </ul></div>
         
@@ -457,6 +470,30 @@ high-quality antialiasing projection-based (see following animation, at right).<
   loading="lazy"
   allowfullscreen>
 </iframe><p>This animation and its details are available in the example <a class="reference internal" href="../auto_examples/02_resize/02_resize_module_2d.html#sphx-glr-auto-examples-02-resize-02-resize-module-2d-py"><span class="std std-ref">Resize Module 2D</span></a>.</p>
+</section>
+<section id="recommended-downsampling-presets">
+<h2>Recommended Downsampling Presets<a class="headerlink" href="#recommended-downsampling-presets" title="Link to this heading">#</a></h2>
+<p>For production downsampling, prefer the antialiasing presets:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops.resize</span><span class="w"> </span><span class="kn">import</span> <span class="n">resize</span>
+
+<span class="n">y2d</span> <span class="o">=</span> <span class="n">resize</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">zoom_factors</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;cubic-antialiasing&quot;</span><span class="p">)</span>
+<span class="n">y3d</span> <span class="o">=</span> <span class="n">resize</span><span class="p">(</span><span class="n">volume</span><span class="p">,</span> <span class="n">zoom_factors</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;cubic-antialiasing&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">*-antialiasing</span></code> methods are oblique-projection spline resize presets.
+They keep the same synthesis spline degree as the corresponding interpolation
+method, but use a lower-degree analysis space:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">linear-antialiasing</span></code> maps to <code class="docutils literal notranslate"><span class="pre">(interp=1,</span> <span class="pre">analy=0,</span> <span class="pre">synthe=1)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">quadratic-antialiasing</span></code> maps to <code class="docutils literal notranslate"><span class="pre">(interp=2,</span> <span class="pre">analy=1,</span> <span class="pre">synthe=2)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cubic-antialiasing</span></code> maps to <code class="docutils literal notranslate"><span class="pre">(interp=3,</span> <span class="pre">analy=1,</span> <span class="pre">synthe=3)</span></code>.</p></li>
+</ul>
+<p>This is the recommended public method family for antialiasing resize. It is
+faster and more numerically robust than equal-degree least-squares projection
+in the production downsampling cases, while preserving the spline model and
+high-quality N-D behavior. Equal-degree least-squares remains available through
+<code class="docutils literal notranslate"><span class="pre">resize_degrees</span></code> for advanced/reference use, but it is not exposed as a
+routine preset.</p>
 <p>Conceptually, resizing means:</p>
 <ul class="simple">
 <li><p>starting from a spline <span class="math notranslate nohighlight">\(f\)</span> defined on an input grid
@@ -713,9 +750,10 @@ weights (including boundary handling via mirrored extension),</p></li>
 <li><p>constructs a single contiguous <strong>extended buffer</strong> per line that contains
 the mirrored input samples, so the inner loop only sees simple pointer
 arithmetic and dot products,</p></li>
-<li><p>evaluates all spline sums in <strong>double precision</strong>, using small dense
-dot products that can exploit SIMD instructions (AVX2, AVX-512, NEON)
-when available,</p></li>
+<li><p>evaluates spline sums with conservative double-precision scratch by
+default, while automatically using float32 scratch for selected validated
+float32 workloads; the small dense dot products can exploit SIMD
+instructions (AVX2, AVX-512, NEON) when available,</p></li>
 <li><p>and <strong>parallelizes over independent lines</strong> with a lightweight
 multithreading pool whenever the estimated workload is large enough.</p></li>
 </ul>
@@ -730,9 +768,25 @@ apply the same precomputed weights. This backend is mainly intended for
 environments where the C++ extension cannot be built; it is numerically
 equivalent but typically slower.</p></li>
 </ul>
-<p>Both backends perform all spline computations in 64-bit floating point; input
-and output arrays keep their original dtype (or a user-specified dtype), with
-casting only at the boundary of each axis pass.</p>
+<p>The pure-NumPy fallback and the conservative native paths perform spline
+computations in 64-bit floating point. Input and output arrays keep their
+original dtype (or a user-specified dtype), with casting only at the boundary
+of each axis pass. For speed, the native backend automatically keeps selected
+validated <code class="docutils literal notranslate"><span class="pre">float32</span></code> workloads in <code class="docutils literal notranslate"><span class="pre">float32</span></code> scratch space: pure quadratic
+and cubic interpolation in 2-D/3-D, plus the public 3-D downsampling
+antialiasing presets. Other projection/antialiasing configurations remain on
+the conservative 64-bit internal path by default.</p>
+<p>For explicit A/B checks, <code class="docutils literal notranslate"><span class="pre">LSRESIZE_PRECISION=float32</span></code> forces the selected
+native batched axis pass to use <code class="docutils literal notranslate"><span class="pre">float32</span></code> scratch space, while
+<code class="docutils literal notranslate"><span class="pre">LSRESIZE_PRECISION=float64</span></code> restores the strict 64-bit internal path.</p>
+<p>Repeated same-shape workloads can use <a class="reference internal" href="../api/02_resize.html#splineops.resize.ResizePlan" title="splineops.resize.ResizePlan"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResizePlan</span></code></a> to
+resolve the resize geometry once and then apply it to many arrays:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops.resize</span><span class="w"> </span><span class="kn">import</span> <span class="n">ResizePlan</span>
+
+<span class="n">plan</span> <span class="o">=</span> <span class="n">ResizePlan</span><span class="p">((</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span> <span class="n">zoom_factors</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;cubic&quot;</span><span class="p">)</span>
+<span class="n">resized</span> <span class="o">=</span> <span class="n">plan</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Conceptually, <a class="reference internal" href="../api/02_resize.html#api-resize"><span class="std std-ref">resize</span></a> is configured by three spline degrees:</p>
 <ul class="simple">
 <li><p>the <strong>interpolation degree</strong>, which sets the underlying spline model,</p></li>
@@ -834,7 +888,7 @@ to the ideal least-squares projection.</p>
 <section id="benchmarking">
 <h2>Benchmarking<a class="headerlink" href="#benchmarking" title="Link to this heading">#</a></h2>
 <p>We compare our module <a class="reference internal" href="../api/02_resize.html#api-resize"><span class="std std-ref">resize</span></a> against widely used interpolation libraries on
-realistic image resizing tasks, in these two examples:</p>
+realistic image resizing tasks, in these three examples:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../auto_examples/02_resize/06_benchmarking.html#sphx-glr-auto-examples-02-resize-06-benchmarking-py"><span class="std std-ref">Benchmarking</span></a></p></li>
 <li><p><a class="reference internal" href="../auto_examples/02_resize/07_benchmarking_plot.html#sphx-glr-auto-examples-02-resize-07-benchmarking-plot-py"><span class="std std-ref">Benchmarking Plot</span></a></p></li>
@@ -886,20 +940,28 @@ factors <span class="math notranslate nohighlight">\(0 &lt; z &lt; 2\)</span>. F
 cubic variants.</p></li>
 </ul>
 <p>This provides an at-a-glance view of the quality–speed trade-off of each
-backend:</p>
+backend. The timing results should be read in two groups:</p>
 <ul class="simple">
-<li><p>OpenCV and PyTorch tend to be the fastest;</p></li>
-<li><p>SciPy and scikit-image tend to be the slowest;</p></li>
-<li><p><a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> sits in between, with <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic&quot;</span></code> methods matching the quality
-of traditional cubic/linear filters, and <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic-antialiasing&quot;</span></code> methods pushing
-quality (higher SNR/SSIM at small <span class="math notranslate nohighlight">\(z\)</span>) while remaining competitive
-in runtime.</p></li>
+<li><p>SciPy is the closest same-semantics reference for spline interpolation. On
+the native backend, <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> is intended to preserve
+the same spline/projection behavior while avoiding much of the generic
+N-dimensional overhead.</p></li>
+<li><p>OpenCV, scikit-image and PyTorch are useful image-processing reference points,
+but their coordinate conventions, antialiasing filters, boundary handling and
+dtype policies do not always match this implementation. A faster runtime for
+one of these libraries is therefore not necessarily a faster implementation of
+the same operation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method=&quot;cubic&quot;</span></code> matches the quality expected from standard cubic spline
+interpolation, while <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic-antialiasing&quot;</span></code> uses the
+projection-based low-pass step to improve strong downsampling quality, usually
+with only a moderate runtime cost over cubic interpolation.</p></li>
 </ul>
-<p>The first plot below shows round-trip SNR vs zoom for cubic methods:
-<a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic-antialiasing&quot;</span></code> <strong>rises well above the other curves for strong
-downsampling and remains best for all resampling factors</strong>. In the zoomed version focusing on <span class="math notranslate nohighlight">\(0 &lt; z &lt; 1\)</span>, it
-leads the next-best method by several decibels over a wide range of zoom
-factors, corresponding to a noticeably smaller reconstruction error:</p>
+<p>The first plot below shows round-trip SNR vs zoom for cubic methods. In this
+benchmark, <a class="reference internal" href="../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize()</span></code></a> <code class="docutils literal notranslate"><span class="pre">method=&quot;cubic-antialiasing&quot;</span></code>
+rises well above the other curves for strong downsampling. In the zoomed
+version focusing on <span class="math notranslate nohighlight">\(0 &lt; z &lt; 1\)</span>, it leads the next-best method by several
+decibels over a wide range of zoom factors, corresponding to a noticeably
+smaller reconstruction error:</p>
 <a class="reference internal image-reference" href="../_images/sphx_glr_07_benchmarking_plot_004.png"><img alt="../_images/sphx_glr_07_benchmarking_plot_004.png" class="align-center" src="../_images/sphx_glr_07_benchmarking_plot_004.png" style="width: 100%;" />
 </a>
 <p>The next plot shows round-trip SSIM vs zoom for the same configuration:
@@ -1002,6 +1064,7 @@ pp. 679–692, May 1998.</p>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-downsampling-presets">Recommended Downsampling Presets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resized-grids">Resized Grids</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resizing-by-resampling">Resizing by Resampling</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-resizing-by-least-squares-projection">Optimal Resizing by Least-Squares Projection</a></li>
@@ -1040,8 +1103,8 @@ pp. 679–692, May 1998.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1075,7 +1138,7 @@ pp. 679–692, May 1998.</p>
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.17.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.19.0.
 </p></div>
       
     </div>

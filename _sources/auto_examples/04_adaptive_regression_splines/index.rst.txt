@@ -9,6 +9,10 @@ Adaptive Regression Splines Examples
 
 Examples using the Adaptive regression splines module.
 
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
 
 .. raw:: html
 

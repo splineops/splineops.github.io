@@ -39,7 +39,7 @@ This illustrates why anti-aliasing is essential for faithful downsampling.
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-39
+.. GENERATED FROM PYTHON SOURCE LINES 26-40
 
 .. code-block:: Python
 
@@ -53,7 +53,8 @@ Imports
     from splineops.utils.plotting import show_roi_zoom
 
 
-    # Use float32 for storage / IO (resize still computes internally in float64).
+    # Use float32 for storage / IO. Standard cubic may use native float32 scratch;
+    # the 2-D antialiasing projection uses conservative float64 scratch by default.
     DTYPE = np.float32
 
 
@@ -63,14 +64,14 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-45
+.. GENERATED FROM PYTHON SOURCE LINES 42-46
 
 Load and Prepare Base ROI
 -------------------------
 
 Load A and B, convert to grayscale, and define the ROI on the originals.
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-81
+.. GENERATED FROM PYTHON SOURCE LINES 46-82
 
 .. code-block:: Python
 
@@ -117,7 +118,7 @@ Load A and B, convert to grayscale, and define the ROI on the originals.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-87
+.. GENERATED FROM PYTHON SOURCE LINES 83-88
 
 Base Image
 ----------
@@ -125,7 +126,7 @@ Base Image
 Construct the synthetic "corner mix" where A occupies the top-left
 pixel of every 2×2 block, and B fills the other three pixels.
 
-.. GENERATED FROM PYTHON SOURCE LINES 87-97
+.. GENERATED FROM PYTHON SOURCE LINES 88-98
 
 .. code-block:: Python
 
@@ -151,7 +152,7 @@ pixel of every 2×2 block, and B fills the other three pixels.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-105
+.. GENERATED FROM PYTHON SOURCE LINES 99-106
 
 Downsampling (No Antialiasing)
 ------------------------------
@@ -161,7 +162,7 @@ To make the behaviour easier to see, we crop the input so that its
 height and width are odd: this ensures the 0.5× sampling grid lands
 exactly on the top-left pixel of each 2×2 tile.
 
-.. GENERATED FROM PYTHON SOURCE LINES 105-153
+.. GENERATED FROM PYTHON SOURCE LINES 106-154
 
 .. code-block:: Python
 
@@ -225,7 +226,7 @@ exactly on the top-left pixel of each 2×2 tile.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 154-159
+.. GENERATED FROM PYTHON SOURCE LINES 155-160
 
 Downsampling (Antialiasing)
 ---------------------------
@@ -233,7 +234,7 @@ Downsampling (Antialiasing)
 Now we apply downsampling with antialiasing, which performs a projection
 that includes a matched low-pass filter before decimation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 159-170
+.. GENERATED FROM PYTHON SOURCE LINES 160-171
 
 .. code-block:: Python
 
@@ -260,7 +261,7 @@ that includes a matched low-pass filter before decimation.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 171-177
+.. GENERATED FROM PYTHON SOURCE LINES 172-178
 
 ROI Comparison
 --------------
@@ -269,7 +270,7 @@ To make the difference as clear as possible, we extract the same 32×32 ROI
 around the same physical location from both downsampled images and display
 their nearest-neighbour magnifications side by side.
 
-.. GENERATED FROM PYTHON SOURCE LINES 177-220
+.. GENERATED FROM PYTHON SOURCE LINES 178-221
 
 .. code-block:: Python
 
@@ -328,7 +329,7 @@ their nearest-neighbour magnifications side by side.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 221-226
+.. GENERATED FROM PYTHON SOURCE LINES 222-227
 
 Source Images and ROI
 ---------------------
@@ -336,12 +337,12 @@ Source Images and ROI
 To understand the behaviour, it is helpful to inspect the two source images
 separately on the original grid, using the same ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 228-230
+.. GENERATED FROM PYTHON SOURCE LINES 229-231
 
 Image A
 ~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 230-233
+.. GENERATED FROM PYTHON SOURCE LINES 231-234
 
 .. code-block:: Python
 
@@ -360,12 +361,12 @@ Image A
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 234-236
+.. GENERATED FROM PYTHON SOURCE LINES 235-237
 
 Image B
 ~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 236-239
+.. GENERATED FROM PYTHON SOURCE LINES 237-240
 
 .. code-block:: Python
 
@@ -384,7 +385,7 @@ Image B
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 240-264
+.. GENERATED FROM PYTHON SOURCE LINES 241-265
 
 Discussion
 ----------
@@ -414,7 +415,7 @@ low-pass-then-sample strategy, preserving the true average content.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 3.754 seconds)
+   **Total running time of the script:** (0 minutes 1.544 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_05_how_bad_aliasing_can_be.py:

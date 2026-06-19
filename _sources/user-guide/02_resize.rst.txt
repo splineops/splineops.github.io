@@ -27,6 +27,33 @@ high-quality antialiasing projection-based (see following animation, at right).
 
 This animation and its details are available in the example :ref:`sphx_glr_auto_examples_02_resize_02_resize_module_2d.py`.
 
+Recommended Downsampling Presets
+--------------------------------
+
+For production downsampling, prefer the antialiasing presets:
+
+.. code-block:: python
+
+   from splineops.resize import resize
+
+   y2d = resize(image, zoom_factors=(0.5, 0.5), method="cubic-antialiasing")
+   y3d = resize(volume, zoom_factors=(0.5, 0.5, 0.5), method="cubic-antialiasing")
+
+The ``*-antialiasing`` methods are oblique-projection spline resize presets.
+They keep the same synthesis spline degree as the corresponding interpolation
+method, but use a lower-degree analysis space:
+
+- ``linear-antialiasing`` maps to ``(interp=1, analy=0, synthe=1)``.
+- ``quadratic-antialiasing`` maps to ``(interp=2, analy=1, synthe=2)``.
+- ``cubic-antialiasing`` maps to ``(interp=3, analy=1, synthe=3)``.
+
+This is the recommended public method family for antialiasing resize. It is
+faster and more numerically robust than equal-degree least-squares projection
+in the production downsampling cases, while preserving the spline model and
+high-quality N-D behavior. Equal-degree least-squares remains available through
+``resize_degrees`` for advanced/reference use, but it is not exposed as a
+routine preset.
+
 Conceptually, resizing means:
 
 - starting from a spline :math:`f` defined on an input grid
@@ -367,9 +394,10 @@ Internally, :ref:`resize <api-resize>` uses two cooperating backends:
   - constructs a single contiguous **extended buffer** per line that contains
     the mirrored input samples, so the inner loop only sees simple pointer
     arithmetic and dot products,
-  - evaluates all spline sums in **double precision**, using small dense
-    dot products that can exploit SIMD instructions (AVX2, AVX-512, NEON)
-    when available,
+  - evaluates spline sums with conservative double-precision scratch by
+    default, while automatically using float32 scratch for selected validated
+    float32 workloads; the small dense dot products can exploit SIMD
+    instructions (AVX2, AVX-512, NEON) when available,
   - and **parallelizes over independent lines** with a lightweight
     multithreading pool whenever the estimated workload is large enough.
 
@@ -384,9 +412,28 @@ Internally, :ref:`resize <api-resize>` uses two cooperating backends:
   environments where the C++ extension cannot be built; it is numerically
   equivalent but typically slower.
 
-Both backends perform all spline computations in 64-bit floating point; input
-and output arrays keep their original dtype (or a user-specified dtype), with
-casting only at the boundary of each axis pass.
+The pure-NumPy fallback and the conservative native paths perform spline
+computations in 64-bit floating point. Input and output arrays keep their
+original dtype (or a user-specified dtype), with casting only at the boundary
+of each axis pass. For speed, the native backend automatically keeps selected
+validated ``float32`` workloads in ``float32`` scratch space: pure quadratic
+and cubic interpolation in 2-D/3-D, plus the public 3-D downsampling
+antialiasing presets. Other projection/antialiasing configurations remain on
+the conservative 64-bit internal path by default.
+
+For explicit A/B checks, ``LSRESIZE_PRECISION=float32`` forces the selected
+native batched axis pass to use ``float32`` scratch space, while
+``LSRESIZE_PRECISION=float64`` restores the strict 64-bit internal path.
+
+Repeated same-shape workloads can use :class:`~splineops.resize.ResizePlan` to
+resolve the resize geometry once and then apply it to many arrays:
+
+.. code-block:: python
+
+   from splineops.resize import ResizePlan
+
+   plan = ResizePlan((512, 512), zoom_factors=(0.5, 0.5), method="cubic")
+   resized = plan(frame)
 
 Conceptually, :ref:`resize <api-resize>` is configured by three spline degrees:
 
@@ -476,7 +523,7 @@ Benchmarking
 ------------
 
 We compare our module :ref:`resize <api-resize>` against widely used interpolation libraries on
-realistic image resizing tasks, in these two examples:
+realistic image resizing tasks, in these three examples:
 
 - :ref:`sphx_glr_auto_examples_02_resize_06_benchmarking.py`
 - :ref:`sphx_glr_auto_examples_02_resize_07_benchmarking_plot.py`
@@ -537,20 +584,28 @@ factors :math:`0 < z < 2`. For each method and zoom, it:
   cubic variants.
 
 This provides an at-a-glance view of the quality–speed trade-off of each
-backend:
+backend. The timing results should be read in two groups:
 
-- OpenCV and PyTorch tend to be the fastest;
-- SciPy and scikit-image tend to be the slowest;
-- :func:`~splineops.resize.resize` sits in between, with ``method="cubic"`` methods matching the quality
-  of traditional cubic/linear filters, and ``method="cubic-antialiasing"`` methods pushing
-  quality (higher SNR/SSIM at small :math:`z`) while remaining competitive
-  in runtime.
+- SciPy is the closest same-semantics reference for spline interpolation. On
+  the native backend, :func:`~splineops.resize.resize` is intended to preserve
+  the same spline/projection behavior while avoiding much of the generic
+  N-dimensional overhead.
+- OpenCV, scikit-image and PyTorch are useful image-processing reference points,
+  but their coordinate conventions, antialiasing filters, boundary handling and
+  dtype policies do not always match this implementation. A faster runtime for
+  one of these libraries is therefore not necessarily a faster implementation of
+  the same operation.
+- ``method="cubic"`` matches the quality expected from standard cubic spline
+  interpolation, while ``method="cubic-antialiasing"`` uses the
+  projection-based low-pass step to improve strong downsampling quality, usually
+  with only a moderate runtime cost over cubic interpolation.
 
-The first plot below shows round-trip SNR vs zoom for cubic methods:
-:func:`~splineops.resize.resize` ``method="cubic-antialiasing"`` **rises well above the other curves for strong
-downsampling and remains best for all resampling factors**. In the zoomed version focusing on :math:`0 < z < 1`, it
-leads the next-best method by several decibels over a wide range of zoom
-factors, corresponding to a noticeably smaller reconstruction error:
+The first plot below shows round-trip SNR vs zoom for cubic methods. In this
+benchmark, :func:`~splineops.resize.resize` ``method="cubic-antialiasing"``
+rises well above the other curves for strong downsampling. In the zoomed
+version focusing on :math:`0 < z < 1`, it leads the next-best method by several
+decibels over a wide range of zoom factors, corresponding to a noticeably
+smaller reconstruction error:
 
 .. image:: /auto_examples/02_resize/images/sphx_glr_07_benchmarking_plot_004.png
    :align: center

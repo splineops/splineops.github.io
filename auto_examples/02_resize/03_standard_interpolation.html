@@ -20,24 +20,25 @@
     </style>
 </noscript>
 <!-- Loaded before other Sphinx assets -->
-<link href="../../_static/styles/theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet"/>
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet"/>
+<link href="../../_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet"/>
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet"/>
 <link href="../../_static/pygments.css?v=8f2a1f02" rel="stylesheet" type="text/css"/>
 <link href="../../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
-<link href="../../_static/sg_gallery.css?v=d2d258e8" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sg_gallery.css?v=fd6457a4" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-binder.css?v=f4aeca0c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
-<script defer="" src="../../_static/scripts/fontawesome.js?digest=7f76b32a3354e82990f2"></script>
+<script defer="" src="../../_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
-<link as="script" href="../../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2" rel="preload"/>
-<link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2" rel="preload"/>
+<link as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" rel="preload"/>
+<link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" rel="preload"/>
 <script src="../../_static/documentation_options.js?v=ca842793"></script>
 <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
 <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+<script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
 <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
 <script src="../../_static/copybutton.js?v=f281be69"></script>
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
@@ -120,19 +121,24 @@
 </button>
 </div>
 <div class="navbar-item">
-<button aria-label="Color mode" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" data-bs-placement="bottom" data-bs-title="Color mode" data-bs-toggle="tooltip">
-<i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
-<i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
-<i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Color mode">
+<button aria-label="Color mode" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" data-bs-toggle="dropdown">
+<i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+<i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+<i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+</button>
+<ul class="dropdown-menu dropdown-menu-end">
+<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+</ul>
+</div></div>
 <div class="navbar-item"><ul aria-label="Icon Links" class="navbar-icon-links">
 <li class="nav-item">
-<a class="nav-link pst-navbar-icon" data-bs-placement="bottom" data-bs-toggle="tooltip" href="https://github.com/splineops/splineops" rel="noopener" target="_blank" title="GitHub"><i aria-hidden="true" class="fa-brands fa-github fa-lg"></i>
-<span class="sr-only"></span></a>
+<a class="nav-link pst-navbar-icon" data-bs-placement="bottom" data-bs-toggle="tooltip" href="https://github.com/splineops/splineops" rel="noopener" target="_blank" title="GitHub"><i aria-hidden="true" class="fa-brands fa-github fa-lg"></i><span class="visually-hidden"></span></a>
 </li>
 <li class="nav-item">
-<a class="nav-link pst-navbar-icon" data-bs-placement="bottom" data-bs-toggle="tooltip" href="https://pypi.org/project/splineops/" rel="noopener" target="_blank" title="PyPI"><i aria-hidden="true" class="fa-brands fa-python fa-lg"></i>
-<span class="sr-only"></span></a>
+<a class="nav-link pst-navbar-icon" data-bs-placement="bottom" data-bs-toggle="tooltip" href="https://pypi.org/project/splineops/" rel="noopener" target="_blank" title="PyPI"><i aria-hidden="true" class="fa-brands fa-python fa-lg"></i><span class="visually-hidden"></span></a>
 </li>
 </ul></div>
 </div>
@@ -183,19 +189,24 @@
 </div>
 <div class="sidebar-header-items__end">
 <div class="navbar-item">
-<button aria-label="Color mode" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" data-bs-placement="bottom" data-bs-title="Color mode" data-bs-toggle="tooltip">
-<i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
-<i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
-<i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Color mode">
+<button aria-label="Color mode" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" data-bs-toggle="dropdown">
+<i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+<i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+<i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+</button>
+<ul class="dropdown-menu dropdown-menu-end">
+<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+</ul>
+</div></div>
 <div class="navbar-item"><ul aria-label="Icon Links" class="navbar-icon-links">
 <li class="nav-item">
-<a class="nav-link pst-navbar-icon" data-bs-placement="bottom" data-bs-toggle="tooltip" href="https://github.com/splineops/splineops" rel="noopener" target="_blank" title="GitHub"><i aria-hidden="true" class="fa-brands fa-github fa-lg"></i>
-<span class="sr-only"></span></a>
+<a class="nav-link pst-navbar-icon" data-bs-placement="bottom" data-bs-toggle="tooltip" href="https://github.com/splineops/splineops" rel="noopener" target="_blank" title="GitHub"><i aria-hidden="true" class="fa-brands fa-github fa-lg"></i><span class="visually-hidden"></span></a>
 </li>
 <li class="nav-item">
-<a class="nav-link pst-navbar-icon" data-bs-placement="bottom" data-bs-toggle="tooltip" href="https://pypi.org/project/splineops/" rel="noopener" target="_blank" title="PyPI"><i aria-hidden="true" class="fa-brands fa-python fa-lg"></i>
-<span class="sr-only"></span></a>
+<a class="nav-link pst-navbar-icon" data-bs-placement="bottom" data-bs-toggle="tooltip" href="https://pypi.org/project/splineops/" rel="noopener" target="_blank" title="PyPI"><i aria-hidden="true" class="fa-brands fa-python fa-lg"></i><span class="visually-hidden"></span></a>
 </li>
 </ul></div>
 </div>
@@ -460,7 +471,7 @@ the face ROI.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Resized Image (standard, 2.5 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_standard_interpolation_003.png" srcset="../../_images/sphx_glr_03_standard_interpolation_003.png"/></section>
+<img alt="Resized Image (standard, 1.2 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_standard_interpolation_003.png" srcset="../../_images/sphx_glr_03_standard_interpolation_003.png"/></section>
 <section id="recovered-image-standard">
 <h3>Recovered Image (Standard)<a class="headerlink" href="#recovered-image-standard" title="Link to this heading">#</a></h3>
 <p>We plot the recovered image (after reversing the zoom) with the same ROI.</p>
@@ -471,7 +482,7 @@ the face ROI.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Recovered Image (standard, 2.0 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_standard_interpolation_004.png" srcset="../../_images/sphx_glr_03_standard_interpolation_004.png"/></section>
+<img alt="Recovered Image (standard, 1.1 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_standard_interpolation_004.png" srcset="../../_images/sphx_glr_03_standard_interpolation_004.png"/></section>
 </section>
 <section id="scipy-interpolation">
 <h2>SciPy Interpolation<a class="headerlink" href="#scipy-interpolation" title="Link to this heading">#</a></h2>
@@ -512,7 +523,7 @@ SciPy preserves the input dtype, so it will also run in DTYPE here.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Recovered Image (SciPy, 25.8 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_standard_interpolation_005.png" srcset="../../_images/sphx_glr_03_standard_interpolation_005.png"/></section>
+<img alt="Recovered Image (SciPy, 26.0 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_standard_interpolation_005.png" srcset="../../_images/sphx_glr_03_standard_interpolation_005.png"/></section>
 </section>
 <section id="difference-images">
 <h2>Difference Images<a class="headerlink" href="#difference-images" title="Link to this heading">#</a></h2>
@@ -533,7 +544,7 @@ SciPy preserves the input dtype, so it will also run in DTYPE here.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Recovered diff (standard vs SciPy) (ROI) SNR: 145.34 dB, MSE: 1.04e-15" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_standard_interpolation_006.png" srcset="../../_images/sphx_glr_03_standard_interpolation_006.png"/></section>
+<img alt="Recovered diff (standard vs SciPy) (ROI) SNR: 129.30 dB, MSE: 4.20e-14" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_standard_interpolation_006.png" srcset="../../_images/sphx_glr_03_standard_interpolation_006.png"/></section>
 <section id="original-vs-standard">
 <h3>Original vs Standard<a class="headerlink" href="#original-vs-standard" title="Link to this heading">#</a></h3>
 <p>For completeness, show the difference image
@@ -615,11 +626,11 @@ SciPy preserves the input dtype, so it will also run in DTYPE here.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"MSE (TensorSpline vs. resize()) recovered: </span><span class="si">{</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float32" title="numpy.float32"><span class="n">mse_backward</span></a><span class="si">:</span><span class="s2">.6e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>MSE (TensorSpline vs. resize()) resized:  7.308341e-13
-MSE (TensorSpline vs. resize()) recovered: 1.133354e-12
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>MSE (TensorSpline vs. resize()) resized:  7.329345e-13
+MSE (TensorSpline vs. resize()) recovered: 1.138830e-12
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.939 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.505 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>
@@ -681,8 +692,8 @@ MSE (TensorSpline vs. resize()) recovered: 1.133354e-12
 </div>
 </div>
 <!-- Scripts loaded after <body> so the DOM is not blocked -->
-<script defer="" src="../../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2"></script>
-<script defer="" src="../../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2"></script>
+<script defer="" src="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
+<script defer="" src="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
 <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
 <div class="footer-items__start">
@@ -704,7 +715,7 @@ MSE (TensorSpline vs. resize()) recovered: 1.133354e-12
 <div class="footer-item">
 <p class="theme-version">
 <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.17.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.19.0.
 </p></div>
 </div>
 </div>

@@ -13,6 +13,10 @@ https://r0k.us/graphics/kodak/
 We gratefully acknowledge the work of the author and curator of this dataset
 for making these images publicly available.
 
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
 
 .. raw:: html
 
@@ -34,6 +38,10 @@ Spline Interpolation Examples
 Examples showing the basic functionality of the Spline interpolation module.
 We also show the equivalence with Resize module methods where relevant.
 
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
 
 
 .. raw:: html
@@ -157,6 +165,10 @@ Resize Examples
 
 Examples using the Resize module on multidimensional samples, specially 1D and 2D.
 We also show the equivalence with the Spline Interpolation module methods where relevant.
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
 
 
 .. raw:: html
@@ -314,6 +326,10 @@ Affine Examples
 
 Examples using the Affine module for data rotation transformations.
 
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
 
 .. raw:: html
 
@@ -368,6 +384,10 @@ Adaptive Regression Splines Examples
 
 Examples using the Adaptive regression splines module.
 
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
 
 .. raw:: html
 
@@ -421,6 +441,10 @@ Smoothing Splines Examples
 ==========================
 
 Examples using the Smoothing splines module.
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
 
 
 .. raw:: html
@@ -510,6 +534,10 @@ Differentials Examples
 
 Examples using the Differentials module.
 
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
 
 .. raw:: html
 
@@ -546,6 +574,10 @@ Multiscale Examples
 ===================
 
 Examples using the Multiscale module.
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
 
 
 .. raw:: html
