@@ -345,7 +345,7 @@ The resize method with standard interpolation yields the same result.
 
  .. code-block:: none
 
-    MSE between TensorSpline result and resize result = 2.300163e-29
+    MSE between TensorSpline result and resize result = 3.560300e-34
 
 
 
@@ -482,7 +482,7 @@ instead of the cubic one, and plot it together with the samples.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.617 seconds)
+   **Total running time of the script:** (0 minutes 0.581 seconds)
 
 
 .. _sphx_glr_download_auto_examples_01_spline_interpolation_04_interpolate_1d_samples.py:
