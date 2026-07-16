@@ -49,31 +49,34 @@ Imports
 Sinusoid 3D Data
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-101
+.. GENERATED FROM PYTHON SOURCE LINES 23-107
 
 .. code-block:: Python
+
 
 
     def demo_3d_sinusoid():
         # Desired cutoff frequency
         cutoff_freq = 0.1  # Adjusted cutoff frequency
-        gamma = 2.0        # Order of the spline operator
+        gamma = 2.0  # Order of the spline operator
 
         # Compute lambda_ based on cutoff frequency
         lambda_ = (1 / (2 * np.pi * cutoff_freq)) ** (2 * gamma)
 
-        snr_db = 10.0   # Desired SNR in dB
+        snr_db = 10.0  # Desired SNR in dB
 
         # Create a 3D clean volume (sinusoid)
         x = np.linspace(0, 1, 64)
         y = np.linspace(0, 1, 64)
         z = np.linspace(0, 1, 64)
-        X, Y, Z = np.meshgrid(x, y, z, indexing='ij')
+        X, Y, Z = np.meshgrid(x, y, z, indexing="ij")
         clean_volume = np.sin(8 * np.pi * X) + np.sin(8 * np.pi * Y) + np.sin(8 * np.pi * Z)
-        clean_volume = (clean_volume - clean_volume.min()) / (clean_volume.max() - clean_volume.min())  # Normalize to [0, 1]
+        clean_volume = (clean_volume - clean_volume.min()) / (
+            clean_volume.max() - clean_volume.min()
+        )  # Normalize to [0, 1]
 
         # Add noise
-        signal_power = np.mean(clean_volume ** 2)
+        signal_power = np.mean(clean_volume**2)
         sigma = np.sqrt(signal_power / (10 ** (snr_db / 10)))
         noise = np.random.randn(*clean_volume.shape) * sigma
         noisy_volume = clean_volume + noise
@@ -97,22 +100,23 @@ Sinusoid 3D Data
         plt.figure(figsize=(12, 4))
 
         plt.subplot(1, 3, 1)
-        plt.imshow(clean_volume[:, :, slice_index], cmap='gray')
-        plt.title('Clean Volume Slice')
-        plt.axis('off')
+        plt.imshow(clean_volume[:, :, slice_index], cmap="gray")
+        plt.title("Clean Volume Slice")
+        plt.axis("off")
 
         plt.subplot(1, 3, 2)
-        plt.imshow(noisy_volume[:, :, slice_index], cmap='gray')
-        plt.title(f'Noisy Slice (SNR={snr_noisy:.2f} dB)')
-        plt.axis('off')
+        plt.imshow(noisy_volume[:, :, slice_index], cmap="gray")
+        plt.title(f"Noisy Slice (SNR={snr_noisy:.2f} dB)")
+        plt.axis("off")
 
         plt.subplot(1, 3, 3)
-        plt.imshow(smoothed_volume[:, :, slice_index], cmap='gray')
-        plt.title(f'Smoothed Slice (SNR={snr_smoothed:.2f} dB)')
-        plt.axis('off')
+        plt.imshow(smoothed_volume[:, :, slice_index], cmap="gray")
+        plt.title(f"Smoothed Slice (SNR={snr_smoothed:.2f} dB)")
+        plt.axis("off")
 
         plt.tight_layout()
         plt.show()
+
 
     def compute_snr(clean_signal, noisy_signal):
         """
@@ -125,17 +129,19 @@ Sinusoid 3D Data
         Returns:
         float: SNR value in decibels (dB).
         """
-        signal_power = np.mean(clean_signal ** 2)
+        signal_power = np.mean(clean_signal**2)
         noise_power = np.mean((noisy_signal - clean_signal) ** 2)
         snr = 10 * np.log10(signal_power / noise_power)
         return snr
+
 
     # Run the 3D sinusoid demo
     demo_3d_sinusoid()
 
 
+
 .. image-sg:: /auto_examples/05_smoothing_splines/images/sphx_glr_03_3d_volume_smoothing_001.png
-   :alt: Clean Volume Slice, Noisy Slice (SNR=9.98 dB), Smoothed Slice (SNR=24.89 dB)
+   :alt: Clean Volume Slice, Noisy Slice (SNR=10.00 dB), Smoothed Slice (SNR=25.06 dB)
    :srcset: /auto_examples/05_smoothing_splines/images/sphx_glr_03_3d_volume_smoothing_001.png
    :class: sphx-glr-single-img
 
@@ -145,9 +151,9 @@ Sinusoid 3D Data
  .. code-block:: none
 
     3D Sinusoid Volume:
-    SNR of noisy volume: 9.98 dB
-    SNR after smoothing: 24.89 dB
-    SNR improvement: 14.91 dB
+    SNR of noisy volume: 10.00 dB
+    SNR after smoothing: 25.06 dB
+    SNR improvement: 15.06 dB
 
 
 
@@ -156,7 +162,7 @@ Sinusoid 3D Data
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.145 seconds)
+   **Total running time of the script:** (0 minutes 0.139 seconds)
 
 
 .. _sphx_glr_download_auto_examples_05_smoothing_splines_03_3d_volume_smoothing.py:

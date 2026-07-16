@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Resize Module 1D — splineops Documentation</title>
+<title>Resize Module 1D — splineops 2.1.0 documentation</title>
 <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
@@ -35,7 +35,7 @@
 <!-- Pre-loaded scripts that we'll load fully later -->
 <link as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" rel="preload"/>
 <link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" rel="preload"/>
-<script src="../../_static/documentation_options.js?v=51b770b3"></script>
+<script src="../../_static/documentation_options.js?v=20623aea"></script>
 <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
 <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
 <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -96,19 +96,121 @@
   </a>
 </li>
 <li class="nav-item">
-<a class="nav-link nav-internal" href="../../user-guide/index.html">
-    User Guide
-  </a>
-</li>
-<li class="nav-item current active">
-<a class="nav-link nav-internal" href="../index.html">
-    Examples
+<a class="nav-link nav-internal" href="../../quickstart.html">
+    Five-minute quickstart
   </a>
 </li>
 <li class="nav-item">
-<a class="nav-link nav-internal" href="../../api/index.html">
+<a class="nav-link nav-internal" href="../../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/index.html">
+    User guide
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/02_resize.html">
+    Resize
+  </a>
+</li>
+<li class="nav-item dropdown">
+<button aria-controls="pst-nav-more-links" aria-expanded="false" class="btn dropdown-toggle nav-item" data-bs-toggle="dropdown" type="button">
+                    More
+                </button>
+<ul class="dropdown-menu" id="pst-nav-more-links">
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../consolidation-recipes.html">
+    Reusable workflow recipes
+  </a>
+</li>
+<li class="current active">
+<a class="nav-link dropdown-item nav-internal" href="../index.html">
+    Examples
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../performance.html">
+    Performance evidence
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/03_affine.html">
+    Affine
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/06_differentials.html">
+    Differentials
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../progress.html">
+    Progress so far
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../internal-contracts.html">
+    Internal numerical contracts
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../api/index.html">
     API Reference
   </a>
+</li>
+</ul>
 </li>
 </ul>
 </nav></div>
@@ -171,13 +273,108 @@
   </a>
 </li>
 <li class="nav-item">
+<a class="nav-link nav-internal" href="../../quickstart.html">
+    Five-minute quickstart
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+<li class="nav-item">
 <a class="nav-link nav-internal" href="../../user-guide/index.html">
-    User Guide
+    User guide
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/02_resize.html">
+    Resize
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../consolidation-recipes.html">
+    Reusable workflow recipes
   </a>
 </li>
 <li class="nav-item current active">
 <a class="nav-link nav-internal" href="../index.html">
     Examples
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../performance.html">
+    Performance evidence
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/03_affine.html">
+    Affine
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/06_differentials.html">
+    Differentials
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../progress.html">
+    Progress so far
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../internal-contracts.html">
+    Internal numerical contracts
   </a>
 </li>
 <li class="nav-item">
@@ -270,6 +467,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../07_multiscale/02_wavelet_decomposition.html">Wavelet Decomposition</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08_workflows/index.html">End-to-end workflows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08_workflows/01_registration_fanout.html">Persist one frame and evaluate several affine geometries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_workflows/02_volume_features.html">Warp a volume and write selected differential features</a></li>
+</ul>
+</details></li>
 </ul>
 </div>
 </nav></div>
@@ -328,14 +530,16 @@ directly on the samples and compare:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">splineops.resize</span><span class="w"> </span><span class="kn">import</span> <span class="n">resize</span>                 <span class="c1"># core 1-D spline resizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">splineops.resize</span><span class="w"> </span><span class="kn">import</span> <span class="n">resize</span>  <span class="c1"># core 1-D spline resizer</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">splineops.spline_interpolation.tensor_spline</span><span class="w"> </span><span class="kn">import</span> <span class="n">TensorSpline</span>
 
-<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-method" href="https://docs.python.org/3/library/stdtypes.html#dict.update" title="builtins.dict.update"><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span></a><span class="p">({</span>
-    <span class="s2">"font.size"</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
-    <span class="s2">"axes.titlesize"</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
-    <span class="s2">"axes.labelsize"</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-<span class="p">})</span>
+<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-method" href="https://docs.python.org/3/library/stdtypes.html#dict.update" title="builtins.dict.update"><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span></a><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">"font.size"</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+        <span class="s2">"axes.titlesize"</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+        <span class="s2">"axes.labelsize"</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -351,13 +555,38 @@ directly on the samples. We then compare:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) Original 1D samples f[k] (same as in 02_01 / 02_02)</span>
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">number_of_samples</span></a> <span class="o">=</span> <span class="mi">27</span>
 <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">f_support_1d</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange" title="numpy.arange"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">number_of_samples</span></a><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">f_samples_1d</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span>
-    <span class="o">-</span><span class="mf">0.657391</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.641319</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.613081</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.518523</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.453829</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.385138</span><span class="p">,</span>
-    <span class="o">-</span><span class="mf">0.270688</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.179849</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.11805</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0243016</span><span class="p">,</span> <span class="mf">0.0130667</span><span class="p">,</span> <span class="mf">0.0355389</span><span class="p">,</span>
-    <span class="mf">0.0901577</span><span class="p">,</span> <span class="mf">0.219599</span><span class="p">,</span> <span class="mf">0.374669</span><span class="p">,</span> <span class="mf">0.384896</span><span class="p">,</span> <span class="mf">0.301386</span><span class="p">,</span> <span class="mf">0.128646</span><span class="p">,</span>
-    <span class="o">-</span><span class="mf">0.00811776</span><span class="p">,</span> <span class="mf">0.0153119</span><span class="p">,</span> <span class="mf">0.106126</span><span class="p">,</span> <span class="mf">0.21688</span><span class="p">,</span> <span class="mf">0.347629</span><span class="p">,</span> <span class="mf">0.419532</span><span class="p">,</span>
-    <span class="mf">0.50695</span><span class="p">,</span> <span class="mf">0.544767</span><span class="p">,</span> <span class="mf">0.555373</span>
-<span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span>
+<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">f_samples_1d</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="o">-</span><span class="mf">0.657391</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">0.641319</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">0.613081</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">0.518523</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">0.453829</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">0.385138</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">0.270688</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">0.179849</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">0.11805</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">0.0243016</span><span class="p">,</span>
+        <span class="mf">0.0130667</span><span class="p">,</span>
+        <span class="mf">0.0355389</span><span class="p">,</span>
+        <span class="mf">0.0901577</span><span class="p">,</span>
+        <span class="mf">0.219599</span><span class="p">,</span>
+        <span class="mf">0.374669</span><span class="p">,</span>
+        <span class="mf">0.384896</span><span class="p">,</span>
+        <span class="mf">0.301386</span><span class="p">,</span>
+        <span class="mf">0.128646</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">0.00811776</span><span class="p">,</span>
+        <span class="mf">0.0153119</span><span class="p">,</span>
+        <span class="mf">0.106126</span><span class="p">,</span>
+        <span class="mf">0.21688</span><span class="p">,</span>
+        <span class="mf">0.347629</span><span class="p">,</span>
+        <span class="mf">0.419532</span><span class="p">,</span>
+        <span class="mf">0.50695</span><span class="p">,</span>
+        <span class="mf">0.544767</span><span class="p">,</span>
+        <span class="mf">0.555373</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -393,10 +622,12 @@ using cubic B-splines, and sample it densely for visualization.</p>
 <span class="p">)</span>
 
 <span class="c1"># Dense evaluation grid for the fine spline</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">f_coords_1d</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span>
-    <span class="n">q</span> <span class="o">/</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">plot_points_per_unit_1d</span></a>
-    <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">plot_points_per_unit_1d</span></a> <span class="o">*</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">number_of_samples</span></a><span class="p">)</span>
-<span class="p">])</span>
+<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">f_coords_1d</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">q</span> <span class="o">/</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">plot_points_per_unit_1d</span></a>
+        <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">plot_points_per_unit_1d</span></a> <span class="o">*</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">number_of_samples</span></a><span class="p">)</span>
+    <span class="p">]</span>
+<span class="p">)</span>
 <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">f_data_1d</span></a> <span class="o">=</span> <span class="n">f_1d</span><span class="p">(</span><span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">f_coords_1d</span></a><span class="p">,),</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -425,10 +656,10 @@ original discrete signal with two different methods.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2) Choose a coarse length: round(27 // π)</span>
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">val_T</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">np</span><span class="o">.</span><span class="n">pi</span></a>
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">K</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">number_of_samples</span></a>
-<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">g_support_length</span></a> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">K</span></a> <span class="o">//</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">val_T</span></a><span class="p">)</span>   <span class="c1"># e.g., 27 // π ≈ 8</span>
+<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">g_support_length</span></a> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">K</span></a> <span class="o">//</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">val_T</span></a><span class="p">)</span>  <span class="c1"># e.g., 27 // π ≈ 8</span>
 
 <span class="c1"># Express this as a zoom factor for resize</span>
-<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">zoom_1d</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">g_support_length</span></a> <span class="o">/</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">K</span></a>        <span class="c1"># e.g., 8 / 27</span>
+<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">zoom_1d</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">g_support_length</span></a> <span class="o">/</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">K</span></a>  <span class="c1"># e.g., 8 / 27</span>
 
 <span class="c1"># 3) Coarse samples via resize: cubic and cubic-antialiasing</span>
 <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">g_samples_cubic</span></a> <span class="o">=</span> <span class="n">resize</span><span class="p">(</span>
@@ -470,7 +701,7 @@ original discrete signal with two different methods.</p>
 <span class="c1"># Evaluate both coarse splines on the same dense grid as f(x)</span>
 <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">g_coords_dense</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">f_coords_1d</span></a>
 <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">g_cubic_data</span></a> <span class="o">=</span> <span class="n">g_cubic_ts</span><span class="p">(</span><span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">g_coords_dense</span></a><span class="p">,),</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">g_aa_data</span></a>    <span class="o">=</span> <span class="n">g_aa_ts</span><span class="p">(</span><span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">g_coords_dense</span></a><span class="p">,),</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">g_aa_data</span></a> <span class="o">=</span> <span class="n">g_aa_ts</span><span class="p">(</span><span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">g_coords_dense</span></a><span class="p">,),</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># Optional sanity check at the coarse nodes: resize(cubic) vs fine spline sampled at x_l</span>
 <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">f_at_xg</span></a> <span class="o">=</span> <span class="n">f_1d</span><span class="p">(</span><span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">g_support_x</span></a><span class="p">,),</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -574,7 +805,7 @@ preset, which inserts a low-pass step before decimation.</p>
 <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot" title="matplotlib.pyplot.plot"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span>
     <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">g_support_x</span></a><span class="p">,</span>
     <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">g_samples_aa</span></a><span class="p">,</span>
-    <span class="s2">"ro"</span><span class="p">,</span>   <span class="c1"># red circles, hollow</span>
+    <span class="s2">"ro"</span><span class="p">,</span>  <span class="c1"># red circles, hollow</span>
     <span class="n">mfc</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span>
     <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
     <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -673,7 +904,7 @@ original samples for a direct comparison.</p>
 <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="1D resize on f[k]: cubic vs cubic-antialiasing" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_resize_module_1d_005.png" srcset="../../_images/sphx_glr_01_resize_module_1d_005.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.668 seconds)</p>
+<img alt="1D resize on f[k]: cubic vs cubic-antialiasing" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_resize_module_1d_005.png" srcset="../../_images/sphx_glr_01_resize_module_1d_005.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.653 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

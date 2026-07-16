@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Benchmarking — splineops Documentation</title>
+<title>Benchmarking — splineops 2.1.0 documentation</title>
 <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
@@ -35,7 +35,7 @@
 <!-- Pre-loaded scripts that we'll load fully later -->
 <link as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" rel="preload"/>
 <link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" rel="preload"/>
-<script src="../../_static/documentation_options.js?v=51b770b3"></script>
+<script src="../../_static/documentation_options.js?v=20623aea"></script>
 <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
 <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
 <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -95,19 +95,121 @@
   </a>
 </li>
 <li class="nav-item">
-<a class="nav-link nav-internal" href="../../user-guide/index.html">
-    User Guide
-  </a>
-</li>
-<li class="nav-item current active">
-<a class="nav-link nav-internal" href="../index.html">
-    Examples
+<a class="nav-link nav-internal" href="../../quickstart.html">
+    Five-minute quickstart
   </a>
 </li>
 <li class="nav-item">
-<a class="nav-link nav-internal" href="../../api/index.html">
+<a class="nav-link nav-internal" href="../../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/index.html">
+    User guide
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/02_resize.html">
+    Resize
+  </a>
+</li>
+<li class="nav-item dropdown">
+<button aria-controls="pst-nav-more-links" aria-expanded="false" class="btn dropdown-toggle nav-item" data-bs-toggle="dropdown" type="button">
+                    More
+                </button>
+<ul class="dropdown-menu" id="pst-nav-more-links">
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../consolidation-recipes.html">
+    Reusable workflow recipes
+  </a>
+</li>
+<li class="current active">
+<a class="nav-link dropdown-item nav-internal" href="../index.html">
+    Examples
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../performance.html">
+    Performance evidence
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/03_affine.html">
+    Affine
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/06_differentials.html">
+    Differentials
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../progress.html">
+    Progress so far
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../internal-contracts.html">
+    Internal numerical contracts
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../api/index.html">
     API Reference
   </a>
+</li>
+</ul>
 </li>
 </ul>
 </nav></div>
@@ -170,13 +272,108 @@
   </a>
 </li>
 <li class="nav-item">
+<a class="nav-link nav-internal" href="../../quickstart.html">
+    Five-minute quickstart
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+<li class="nav-item">
 <a class="nav-link nav-internal" href="../../user-guide/index.html">
-    User Guide
+    User guide
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/02_resize.html">
+    Resize
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../consolidation-recipes.html">
+    Reusable workflow recipes
   </a>
 </li>
 <li class="nav-item current active">
 <a class="nav-link nav-internal" href="../index.html">
     Examples
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../performance.html">
+    Performance evidence
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/03_affine.html">
+    Affine
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/06_differentials.html">
+    Differentials
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../progress.html">
+    Progress so far
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../internal-contracts.html">
+    Internal numerical contracts
   </a>
 </li>
 <li class="nav-item">
@@ -269,6 +466,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../07_multiscale/02_wavelet_decomposition.html">Wavelet Decomposition</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08_workflows/index.html">End-to-end workflows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08_workflows/01_registration_fanout.html">Persist one frame and evaluate several affine geometries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_workflows/02_volume_features.html">Warp a volume and write selected differential features</a></li>
+</ul>
+</details></li>
 </ul>
 </div>
 </nav></div>
@@ -358,12 +560,12 @@ from the ROI montages.</p></li>
 <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float32" title="numpy.float32"><span class="n">DTYPE</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float32" title="numpy.float32"><span class="n">np</span><span class="o">.</span><span class="n">float32</span></a>
 
 <span class="c1"># ROI / detail-window configuration</span>
-<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ROI_MAG_TARGET</span></a> <span class="o">=</span> <span class="mi">256</span>           <span class="c1"># target height for nearest-neighbour zoom tiles</span>
+<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ROI_MAG_TARGET</span></a> <span class="o">=</span> <span class="mi">256</span>  <span class="c1"># target height for nearest-neighbour zoom tiles</span>
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ROI_TILE_TITLE_FONTSIZE</span></a> <span class="o">=</span> <span class="mi">12</span>
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ROI_SUPTITLE_FONTSIZE</span></a> <span class="o">=</span> <span class="mi">14</span>  <span class="c1"># currently unused, kept for consistency</span>
 
 <span class="c1"># Plot appearance for slide-friendly export</span>
-<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">PLOT_FIGSIZE</span></a> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>      <span class="c1"># same 2:1 ratio as (10, 5), just larger</span>
+<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">PLOT_FIGSIZE</span></a> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>  <span class="c1"># same 2:1 ratio as (10, 5), just larger</span>
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">PLOT_TITLE_FONTSIZE</span></a> <span class="o">=</span> <span class="mi">18</span>
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">PLOT_LABEL_FONTSIZE</span></a> <span class="o">=</span> <span class="mi">18</span>
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">PLOT_TICK_FONTSIZE</span></a> <span class="o">=</span> <span class="mi">18</span>
@@ -384,9 +586,11 @@ from the ROI montages.</p></li>
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">AA_METHOD_LABEL</span></a> <span class="o">=</span> <span class="s2">"SplineOps Antialiasing cubic"</span>
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">AA_COLOR</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">HIGHLIGHT_STYLE</span></a><span class="p">[</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">AA_METHOD_LABEL</span></a><span class="p">][</span><span class="s2">"color"</span><span class="p">]</span>
 
+
 <span class="k">def</span><span class="w"> </span><span class="nf">fmt_ms</span><span class="p">(</span><span class="n">seconds</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Format seconds as a short 'X.X ms' string."""</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">seconds</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000.0</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ms"</span>
+
 
 <span class="c1"># Benchmark configuration</span>
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">N_TRIALS</span></a> <span class="o">=</span> <span class="mi">10</span>
@@ -394,6 +598,7 @@ from the ROI montages.</p></li>
 <span class="c1"># Optional deps</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+
     <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_CV2</span></a> <span class="o">=</span> <span class="kc">True</span>
     <span class="c1"># Undo OpenCV's Qt plugin path override to keep using the system/PyQt plugins</span>
     <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"QT_QPA_PLATFORM_PLUGIN_PATH"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
@@ -402,6 +607,7 @@ from the ROI montages.</p></li>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">zoom</span></a> <span class="k">as</span> <a class="sphx-glr-backref-module-scipy-ndimage sphx-glr-backref-type-py-function" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.zoom.html#scipy.ndimage.zoom" title="scipy.ndimage.zoom"><span class="n">_ndi_zoom</span></a>
+
     <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_SCIPY</span></a> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
     <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_SCIPY</span></a> <span class="o">=</span> <span class="kc">False</span>
@@ -409,6 +615,7 @@ from the ROI montages.</p></li>
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">skimage.transform</span><span class="w"> </span><span class="kn">import</span> <span class="n">resize</span> <span class="k">as</span> <span class="n">_sk_resize</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">skimage.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">structural_similarity</span> <span class="k">as</span> <span class="n">_ssim</span>  <span class="c1"># noqa: F401</span>
+
     <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_SKIMAGE</span></a> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
     <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_SKIMAGE</span></a> <span class="o">=</span> <span class="kc">False</span>
@@ -417,6 +624,7 @@ from the ROI montages.</p></li>
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
+
     <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_TORCH</span></a> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
     <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_TORCH</span></a> <span class="o">=</span> <span class="kc">False</span>
@@ -424,6 +632,7 @@ from the ROI montages.</p></li>
 <span class="c1"># SplineOps</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">splineops.resize</span><span class="w"> </span><span class="kn">import</span> <span class="n">resize</span> <span class="k">as</span> <span class="n">sp_resize</span>
+
     <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_SPLINEOPS</span></a> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_SPLINEOPS</span></a> <span class="o">=</span> <span class="kc">False</span>
@@ -431,6 +640,7 @@ from the ROI montages.</p></li>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">splineops.utils.specs</span><span class="w"> </span><span class="kn">import</span> <span class="n">print_runtime_context</span>
+
     <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_SPECS</span></a> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
     <span class="n">print_runtime_context</span> <span class="o">=</span> <span class="kc">None</span>
@@ -501,11 +711,7 @@ from the ROI montages.</p></li>
 
     <span class="k">if</span> <span class="n">arr</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
         <span class="n">arr01</span> <span class="o">=</span> <span class="n">arr</span> <span class="o">/</span> <span class="mf">255.0</span>
-        <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a> <span class="o">=</span> <span class="p">(</span>
-            <span class="mf">0.2989</span> <span class="o">*</span> <span class="n">arr01</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-            <span class="o">+</span> <span class="mf">0.5870</span> <span class="o">*</span> <span class="n">arr01</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-            <span class="o">+</span> <span class="mf">0.1140</span> <span class="o">*</span> <span class="n">arr01</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-        <span class="p">)</span>
+        <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a> <span class="o">=</span> <span class="mf">0.2989</span> <span class="o">*</span> <span class="n">arr01</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5870</span> <span class="o">*</span> <span class="n">arr01</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.1140</span> <span class="o">*</span> <span class="n">arr01</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">vmax</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="ow">or</span> <span class="mf">1.0</span>
         <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a> <span class="o">=</span> <span class="n">arr</span> <span class="o">/</span> <span class="n">vmax</span>
@@ -597,6 +803,7 @@ from the ROI montages.</p></li>
     <span class="n">norm</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">diff</span> <span class="o">/</span> <span class="n">max_abs</span>
     <span class="n">norm</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">norm</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">norm</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float32" title="numpy.float32"><span class="n">DTYPE</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_show_initial_original_vs_aa</span><span class="p">(</span>
     <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">:</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">,</span>
@@ -744,7 +951,7 @@ from the ROI montages.</p></li>
     <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">original_rgb</span><span class="o">.</span><span class="n">shape</span>
     <span class="n">row0</span><span class="p">,</span> <span class="n">col0</span><span class="p">,</span> <span class="n">roi_h</span><span class="p">,</span> <span class="n">roi_w</span> <span class="o">=</span> <span class="n">roi_rect</span>
 
-    <span class="n">roi_orig</span> <span class="o">=</span> <span class="n">original_rgb</span><span class="p">[</span><span class="n">row0</span><span class="p">:</span><span class="n">row0</span> <span class="o">+</span> <span class="n">roi_h</span><span class="p">,</span> <span class="n">col0</span><span class="p">:</span><span class="n">col0</span> <span class="o">+</span> <span class="n">roi_w</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">roi_orig</span> <span class="o">=</span> <span class="n">original_rgb</span><span class="p">[</span><span class="n">row0</span> <span class="p">:</span> <span class="n">row0</span> <span class="o">+</span> <span class="n">roi_h</span><span class="p">,</span> <span class="n">col0</span> <span class="p">:</span> <span class="n">col0</span> <span class="o">+</span> <span class="n">roi_w</span><span class="p">,</span> <span class="p">:]</span>
     <span class="n">roi_orig_big</span> <span class="o">=</span> <span class="n">_nearest_big_color</span><span class="p">(</span><span class="n">roi_orig</span><span class="p">,</span> <span class="n">target_h</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ROI_MAG_TARGET</span></a><span class="p">)</span>
 
     <span class="n">Hs</span><span class="p">,</span> <span class="n">Ws</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">shrunk_rgb</span><span class="o">.</span><span class="n">shape</span>
@@ -766,9 +973,9 @@ from the ROI montages.</p></li>
         <span class="n">row_top_res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">center_r_res</span> <span class="o">-</span> <span class="n">roi_h_res</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Hs</span> <span class="o">-</span> <span class="n">roi_h_res</span><span class="p">))</span>
         <span class="n">col_left_res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">center_c_res</span> <span class="o">-</span> <span class="n">roi_w_res</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ws</span> <span class="o">-</span> <span class="n">roi_w_res</span><span class="p">))</span>
         <span class="n">roi_shrunk</span> <span class="o">=</span> <span class="n">shrunk_rgb</span><span class="p">[</span>
-            <span class="n">row_top_res</span><span class="p">:</span><span class="n">row_top_res</span> <span class="o">+</span> <span class="n">roi_h_res</span><span class="p">,</span>
-            <span class="n">col_left_res</span><span class="p">:</span><span class="n">col_left_res</span> <span class="o">+</span> <span class="n">roi_w_res</span><span class="p">,</span>
-            <span class="p">:</span>
+            <span class="n">row_top_res</span> <span class="p">:</span> <span class="n">row_top_res</span> <span class="o">+</span> <span class="n">roi_h_res</span><span class="p">,</span>
+            <span class="n">col_left_res</span> <span class="p">:</span> <span class="n">col_left_res</span> <span class="o">+</span> <span class="n">roi_w_res</span><span class="p">,</span>
+            <span class="p">:,</span>
         <span class="p">]</span>
 
     <span class="n">roi_shrunk_big</span> <span class="o">=</span> <span class="n">_nearest_big_color</span><span class="p">(</span><span class="n">roi_shrunk</span><span class="p">,</span> <span class="n">target_h</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ROI_MAG_TARGET</span></a><span class="p">)</span>
@@ -855,6 +1062,7 @@ from the ROI montages.</p></li>
     <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
     <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 
+
 <span class="k">def</span><span class="w"> </span><span class="nf">_smart_ylim</span><span class="p">(</span>
     <span class="n">values</span><span class="p">:</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
@@ -862,7 +1070,7 @@ from the ROI montages.</p></li>
     <span class="n">lo_cap</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">pad_frac</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.06</span><span class="p">,</span>
     <span class="n">iqr_k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">,</span>
-    <span class="n">q_floor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">,</span>   <span class="c1"># percentile used when min is an outlier</span>
+    <span class="n">q_floor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">,</span>  <span class="c1"># percentile used when min is an outlier</span>
     <span class="n">min_span</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
@@ -882,7 +1090,9 @@ from the ROI montages.</p></li>
     <span class="n">vmax</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
 
     <span class="k">if</span> <span class="n">vmin</span> <span class="o">==</span> <span class="n">vmax</span><span class="p">:</span>
-        <span class="n">span</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">min_span</span><span class="p">)</span> <span class="k">if</span> <span class="n">min_span</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">(</span><span class="mf">1e-3</span> <span class="k">if</span> <span class="n">vmax</span> <span class="o">&lt;=</span> <span class="mf">1.0</span> <span class="k">else</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">span</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">min_span</span><span class="p">)</span> <span class="k">if</span> <span class="n">min_span</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">(</span><span class="mf">1e-3</span> <span class="k">if</span> <span class="n">vmax</span> <span class="o">&lt;=</span> <span class="mf">1.0</span> <span class="k">else</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="p">)</span>
         <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">vmin</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">span</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">span</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">q1</span><span class="p">,</span> <span class="n">q3</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.percentile.html#numpy.percentile" title="numpy.percentile"><span class="n">np</span><span class="o">.</span><span class="n">percentile</span></a><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">[</span><span class="mf">25.0</span><span class="p">,</span> <span class="mf">75.0</span><span class="p">])</span>
@@ -913,10 +1123,13 @@ from the ROI montages.</p></li>
 
     <span class="k">return</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span>
 
+
 <span class="k">def</span><span class="w"> </span><span class="nf">_highlight_tile</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">color</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">lw</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">3.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="c1"># Full-axes border, works even with ax.axis("off")</span>
     <span class="n">rect</span> <span class="o">=</span> <a class="sphx-glr-backref-module-matplotlib-patches sphx-glr-backref-type-py-class" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Rectangle.html#matplotlib.patches.Rectangle" title="matplotlib.patches.Rectangle"><span class="n">patches</span><span class="o">.</span><span class="n">Rectangle</span></a><span class="p">(</span>
-        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="mi">1</span><span class="p">,</span>
+        <span class="mi">1</span><span class="p">,</span>
         <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
         <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">edgecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
@@ -937,9 +1150,9 @@ from the ROI montages.</p></li>
         <span class="k">return</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <span class="sa">f</span><span class="s2">"SplineOps unavailable: </span><span class="si">{</span><span class="n">_SPLINEOPS_IMPORT_ERR</span><span class="si">}</span><span class="s2">"</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">first</span> <span class="o">=</span> <span class="n">sp_resize</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <span class="n">zoom_factors</span><span class="o">=</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="n">preset</span><span class="p">)</span>
-        <span class="n">rec</span>   <span class="o">=</span> <span class="n">sp_resize</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">output_size</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">gray</span><span class="o">.</span><span class="n">shape</span></a><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">preset</span><span class="p">)</span>
+        <span class="n">rec</span> <span class="o">=</span> <span class="n">sp_resize</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">output_size</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">gray</span><span class="o">.</span><span class="n">shape</span></a><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">preset</span><span class="p">)</span>
         <span class="n">first</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">rec</span>   <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">rec</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">rec</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">first</span><span class="p">,</span> <span class="n">rec</span><span class="p">,</span> <span class="kc">None</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">return</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
@@ -976,7 +1189,7 @@ from the ROI montages.</p></li>
         <span class="p">)</span>
 
         <span class="n">first</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-        <span class="n">rec</span>   <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">rec</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">rec</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">rec</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">gray</span><span class="o">.</span><span class="n">shape</span></a><span class="p">:</span>
             <span class="n">h</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">rec</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">gray</span><span class="o">.</span><span class="n">shape</span></a><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -994,7 +1207,11 @@ from the ROI montages.</p></li>
             <span class="n">tmp</span><span class="p">[</span><span class="n">g0</span><span class="p">:</span><span class="n">g1</span><span class="p">,</span> <span class="n">g2</span><span class="p">:</span><span class="n">g3</span><span class="p">]</span> <span class="o">=</span> <span class="n">rc</span>
             <span class="n">rec</span> <span class="o">=</span> <span class="n">tmp</span>
 
-        <span class="k">return</span> <span class="n">first</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">rec</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">first</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+            <span class="n">rec</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+            <span class="kc">None</span><span class="p">,</span>
+        <span class="p">)</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">return</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
@@ -1011,10 +1228,10 @@ from the ROI montages.</p></li>
         <span class="n">W1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">W</span> <span class="o">*</span> <span class="n">z</span><span class="p">))</span>
 
         <span class="n">first</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <span class="p">(</span><span class="n">W1</span><span class="p">,</span> <span class="n">H1</span><span class="p">),</span> <span class="n">interpolation</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">cv2</span><span class="o">.</span><span class="n">INTER_CUBIC</span></a><span class="p">)</span>
-        <span class="n">rec</span>   <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span>  <span class="n">H</span><span class="p">),</span>  <span class="n">interpolation</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">cv2</span><span class="o">.</span><span class="n">INTER_CUBIC</span></a><span class="p">)</span>
+        <span class="n">rec</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">H</span><span class="p">),</span> <span class="n">interpolation</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">cv2</span><span class="o">.</span><span class="n">INTER_CUBIC</span></a><span class="p">)</span>
 
         <span class="n">first</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">rec</span>   <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">rec</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">rec</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">first</span><span class="p">,</span> <span class="n">rec</span><span class="p">,</span> <span class="kc">None</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">return</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
@@ -1034,13 +1251,13 @@ from the ROI montages.</p></li>
         <span class="n">im</span> <span class="o">=</span> <span class="n">_Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float32" title="numpy.float32"><span class="n">np</span><span class="o">.</span><span class="n">float32</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"F"</span><span class="p">)</span>
 
         <span class="n">first_im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="n">W1</span><span class="p">,</span> <span class="n">H1</span><span class="p">),</span> <span class="n">resample</span><span class="o">=</span><span class="n">_Image</span><span class="o">.</span><span class="n">Resampling</span><span class="o">.</span><span class="n">BICUBIC</span><span class="p">)</span>
-        <span class="n">rec_im</span>   <span class="o">=</span> <span class="n">first_im</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="n">W</span><span class="p">,</span>  <span class="n">H</span><span class="p">),</span>  <span class="n">resample</span><span class="o">=</span><span class="n">_Image</span><span class="o">.</span><span class="n">Resampling</span><span class="o">.</span><span class="n">BICUBIC</span><span class="p">)</span>
+        <span class="n">rec_im</span> <span class="o">=</span> <span class="n">first_im</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="n">W</span><span class="p">,</span> <span class="n">H</span><span class="p">),</span> <span class="n">resample</span><span class="o">=</span><span class="n">_Image</span><span class="o">.</span><span class="n">Resampling</span><span class="o">.</span><span class="n">BICUBIC</span><span class="p">)</span>
 
         <span class="n">first</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.asarray.html#numpy.asarray" title="numpy.asarray"><span class="n">np</span><span class="o">.</span><span class="n">asarray</span></a><span class="p">(</span><span class="n">first_im</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float32" title="numpy.float32"><span class="n">np</span><span class="o">.</span><span class="n">float32</span></a><span class="p">)</span>
-        <span class="n">rec</span>   <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.asarray.html#numpy.asarray" title="numpy.asarray"><span class="n">np</span><span class="o">.</span><span class="n">asarray</span></a><span class="p">(</span><span class="n">rec_im</span><span class="p">,</span>   <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float32" title="numpy.float32"><span class="n">np</span><span class="o">.</span><span class="n">float32</span></a><span class="p">)</span>
+        <span class="n">rec</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.asarray.html#numpy.asarray" title="numpy.asarray"><span class="n">np</span><span class="o">.</span><span class="n">asarray</span></a><span class="p">(</span><span class="n">rec_im</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float32" title="numpy.float32"><span class="n">np</span><span class="o">.</span><span class="n">float32</span></a><span class="p">)</span>
 
         <span class="n">first</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">rec</span>   <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">rec</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">rec</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">first</span><span class="p">,</span> <span class="n">rec</span><span class="p">,</span> <span class="kc">None</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">return</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
@@ -1075,7 +1292,7 @@ from the ROI montages.</p></li>
         <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span>
 
         <span class="n">first</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">rec</span>   <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">rec</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">rec</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">first</span><span class="p">,</span> <span class="n">rec</span><span class="p">,</span> <span class="kc">None</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">return</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
@@ -1110,7 +1327,7 @@ from the ROI montages.</p></li>
         <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span>
 
         <span class="n">first</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">rec</span>   <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">rec</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">rec</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">first</span><span class="p">,</span> <span class="n">rec</span><span class="p">,</span> <span class="kc">None</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">return</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
@@ -1154,10 +1371,10 @@ from the ROI montages.</p></li>
         <span class="p">)</span>
 
         <span class="n">first</span> <span class="o">=</span> <span class="n">first_t</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
-        <span class="n">rec</span>   <span class="o">=</span> <span class="n">rec_t</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="n">rec</span> <span class="o">=</span> <span class="n">rec_t</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 
         <span class="n">first</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">rec</span>   <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">rec</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">rec</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">first</span><span class="p">,</span> <span class="n">rec</span><span class="p">,</span> <span class="kc">None</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">return</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
@@ -1201,10 +1418,10 @@ from the ROI montages.</p></li>
         <span class="p">)</span>
 
         <span class="n">first</span> <span class="o">=</span> <span class="n">first_t</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
-        <span class="n">rec</span>   <span class="o">=</span> <span class="n">rec_t</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="n">rec</span> <span class="o">=</span> <span class="n">rec_t</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 
         <span class="n">first</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">rec</span>   <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">rec</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">rec</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy-dtypes sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/routines.dtypes.html#numpy.dtypes.Float32DType" title="numpy.dtypes.Float32DType"><span class="n">gray</span><span class="o">.</span><span class="n">dtype</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">first</span><span class="p">,</span> <span class="n">rec</span><span class="p">,</span> <span class="kc">None</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">return</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
@@ -1246,15 +1463,15 @@ from the ROI montages.</p></li>
 
 <span class="c1"># Methods and backend keys</span>
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list"><span class="n">BENCH_METHODS</span></a><span class="p">:</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/typing.html#typing.List" title="typing.List"><span class="n">List</span></a><span class="p">[</span><a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-data" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="typing.Tuple"><span class="n">Tuple</span></a><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s2">"SplineOps Standard cubic"</span><span class="p">,</span>       <span class="s2">"spl_standard"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"SplineOps Antialiasing cubic"</span><span class="p">,</span>   <span class="s2">"spl_aa"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"OpenCV INTER_CUBIC"</span><span class="p">,</span>             <span class="s2">"opencv"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"SciPy cubic"</span><span class="p">,</span>                    <span class="s2">"scipy"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"Pillow BICUBIC"</span><span class="p">,</span>                 <span class="s2">"pillow"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"scikit-image cubic"</span><span class="p">,</span>             <span class="s2">"skimage"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"scikit-image cubic (AA)"</span><span class="p">,</span>        <span class="s2">"skimage_aa"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"PyTorch bicubic (CPU)"</span><span class="p">,</span>          <span class="s2">"torch"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"PyTorch bicubic (AA, CPU)"</span><span class="p">,</span>      <span class="s2">"torch_aa"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"SplineOps Standard cubic"</span><span class="p">,</span> <span class="s2">"spl_standard"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"SplineOps Antialiasing cubic"</span><span class="p">,</span> <span class="s2">"spl_aa"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"OpenCV INTER_CUBIC"</span><span class="p">,</span> <span class="s2">"opencv"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"SciPy cubic"</span><span class="p">,</span> <span class="s2">"scipy"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"Pillow BICUBIC"</span><span class="p">,</span> <span class="s2">"pillow"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"scikit-image cubic"</span><span class="p">,</span> <span class="s2">"skimage"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"scikit-image cubic (AA)"</span><span class="p">,</span> <span class="s2">"skimage_aa"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"PyTorch bicubic (CPU)"</span><span class="p">,</span> <span class="s2">"torch"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"PyTorch bicubic (AA, CPU)"</span><span class="p">,</span> <span class="s2">"torch_aa"</span><span class="p">),</span>
 <span class="p">]</span>
 
 <span class="c1"># Subsets for ROI main vs AA</span>
@@ -1428,7 +1645,9 @@ from the ROI montages.</p></li>
             <span class="n">center_r_res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">center_r</span> <span class="o">*</span> <span class="n">z</span><span class="p">))</span>
             <span class="n">center_c_res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">center_c</span> <span class="o">*</span> <span class="n">z</span><span class="p">))</span>
             <span class="n">row_top_res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">center_r_res</span> <span class="o">-</span> <span class="n">roi_h_res</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">H1</span> <span class="o">-</span> <span class="n">roi_h_res</span><span class="p">))</span>
-            <span class="n">col_left_res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">center_c_res</span> <span class="o">-</span> <span class="n">roi_w_res</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">W1</span> <span class="o">-</span> <span class="n">roi_w_res</span><span class="p">))</span>
+            <span class="n">col_left_res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+                <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">center_c_res</span> <span class="o">-</span> <span class="n">roi_w_res</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">W1</span> <span class="o">-</span> <span class="n">roi_w_res</span><span class="p">)</span>
+            <span class="p">)</span>
             <span class="n">first_roi</span> <span class="o">=</span> <span class="n">first</span><span class="p">[</span>
                 <span class="n">row_top_res</span> <span class="p">:</span> <span class="n">row_top_res</span> <span class="o">+</span> <span class="n">roi_h_res</span><span class="p">,</span>
                 <span class="n">col_left_res</span> <span class="p">:</span> <span class="n">col_left_res</span> <span class="o">+</span> <span class="n">roi_w_res</span><span class="p">,</span>
@@ -1465,16 +1684,17 @@ from the ROI montages.</p></li>
         <span class="n">rows</span><span class="o">=</span><span class="n">rows</span><span class="p">,</span>
     <span class="p">)</span>
 
+
 <span class="k">def</span><span class="w"> </span><span class="nf">show_intro_from_bench</span><span class="p">(</span><span class="n">bench</span><span class="p">:</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="typing.Dict"><span class="n">Dict</span></a><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""2×2 introductory figure for SplineOps AA (grayscale)."""</span>
     <span class="n">aa_first</span> <span class="o">=</span> <span class="n">bench</span><span class="p">[</span><span class="s2">"aa_first"</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">aa_first</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span>
     <span class="n">_show_initial_original_vs_aa</span><span class="p">(</span>
-        <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="o">=</span><span class="n">bench</span><span class="p">[</span><span class="s2">"gray"</span><span class="p">],</span>              <span class="c1"># type: ignore[arg-type]</span>
-        <span class="n">roi_rect</span><span class="o">=</span><span class="n">bench</span><span class="p">[</span><span class="s2">"roi_rect"</span><span class="p">],</span>      <span class="c1"># type: ignore[arg-type]</span>
-        <span class="n">aa_first</span><span class="o">=</span><span class="n">aa_first</span><span class="p">,</span>               <span class="c1"># type: ignore[arg-type]</span>
-        <span class="n">z</span><span class="o">=</span><span class="n">bench</span><span class="p">[</span><span class="s2">"z"</span><span class="p">],</span>                    <span class="c1"># type: ignore[arg-type]</span>
+        <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">gray</span></a><span class="o">=</span><span class="n">bench</span><span class="p">[</span><span class="s2">"gray"</span><span class="p">],</span>  <span class="c1"># type: ignore[arg-type]</span>
+        <span class="n">roi_rect</span><span class="o">=</span><span class="n">bench</span><span class="p">[</span><span class="s2">"roi_rect"</span><span class="p">],</span>  <span class="c1"># type: ignore[arg-type]</span>
+        <span class="n">aa_first</span><span class="o">=</span><span class="n">aa_first</span><span class="p">,</span>  <span class="c1"># type: ignore[arg-type]</span>
+        <span class="n">z</span><span class="o">=</span><span class="n">bench</span><span class="p">[</span><span class="s2">"z"</span><span class="p">],</span>  <span class="c1"># type: ignore[arg-type]</span>
         <span class="n">degree_label</span><span class="o">=</span><span class="n">bench</span><span class="p">[</span><span class="s2">"degree_label"</span><span class="p">],</span>  <span class="c1"># type: ignore[arg-type]</span>
     <span class="p">)</span>
 
@@ -1534,6 +1754,7 @@ from the ROI montages.</p></li>
     <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
     <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 
+
 <span class="k">def</span><span class="w"> </span><span class="nf">show_roi_montage_aa_from_bench</span><span class="p">(</span><span class="n">bench</span><span class="p">:</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="typing.Dict"><span class="n">Dict</span></a><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Grayscale ROI montage (AA subset):</span>
@@ -1590,6 +1811,7 @@ from the ROI montages.</p></li>
 
     <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
     <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+
 
 <span class="k">def</span><span class="w"> </span><span class="nf">show_error_montage_main_from_bench</span><span class="p">(</span><span class="n">bench</span><span class="p">:</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="typing.Dict"><span class="n">Dict</span></a><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
@@ -1651,16 +1873,26 @@ from the ROI montages.</p></li>
     <span class="n">ax_leg</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">legend_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">)</span>
     <span class="n">ax_leg</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Diff legend"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ROI_TILE_TITLE_FONTSIZE</span></a><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 
-    <span class="n">ax_leg</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">"-1"</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
-                <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
-    <span class="n">ax_leg</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="s2">"0 (no diff)"</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
-                <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
-    <span class="n">ax_leg</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="s2">"+1"</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
-                <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"top"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
+    <span class="n">ax_leg</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="mf">1.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">"-1"</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span>
+    <span class="p">)</span>
+    <span class="n">ax_leg</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="mf">1.05</span><span class="p">,</span>
+        <span class="mf">0.50</span><span class="p">,</span>
+        <span class="s2">"0 (no diff)"</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+        <span class="n">va</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">ax_leg</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="mf">1.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="s2">"+1"</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"top"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span>
+    <span class="p">)</span>
 
     <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"Normalized signed difference in ROI"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ROI_SUPTITLE_FONTSIZE</span></a><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
     <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+
 
 <span class="k">def</span><span class="w"> </span><span class="nf">show_error_montage_aa_from_bench</span><span class="p">(</span><span class="n">bench</span><span class="p">:</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="typing.Dict"><span class="n">Dict</span></a><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
@@ -1722,16 +1954,26 @@ from the ROI montages.</p></li>
     <span class="n">ax_leg</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">legend_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">)</span>
     <span class="n">ax_leg</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Diff legend"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ROI_TILE_TITLE_FONTSIZE</span></a><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 
-    <span class="n">ax_leg</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">"-1"</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
-                <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
-    <span class="n">ax_leg</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="s2">"0 (no diff)"</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
-                <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
-    <span class="n">ax_leg</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="s2">"+1"</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
-                <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"top"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
+    <span class="n">ax_leg</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="mf">1.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">"-1"</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span>
+    <span class="p">)</span>
+    <span class="n">ax_leg</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="mf">1.05</span><span class="p">,</span>
+        <span class="mf">0.50</span><span class="p">,</span>
+        <span class="s2">"0 (no diff)"</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+        <span class="n">va</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">ax_leg</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="mf">1.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="s2">"+1"</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"top"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span>
+    <span class="p">)</span>
 
     <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"Normalized signed difference in ROI"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ROI_SUPTITLE_FONTSIZE</span></a><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
     <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+
 
 <span class="k">def</span><span class="w"> </span><span class="nf">show_timing_plot_from_bench</span><span class="p">(</span><span class="n">bench</span><span class="p">:</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="typing.Dict"><span class="n">Dict</span></a><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Horizontal bar chart of round-trip timing per method."""</span>
@@ -1750,12 +1992,12 @@ from the ROI montages.</p></li>
 
     <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">valid</span><span class="p">]</span>
     <span class="n">times</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">valid</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span>
-    <span class="n">sds</span>   <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s2">"sd"</span><span class="p">]</span>   <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">valid</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span>
+    <span class="n">sds</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s2">"sd"</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">valid</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span>
 
     <span class="n">order</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.argsort.html#numpy.argsort" title="numpy.argsort"><span class="n">np</span><span class="o">.</span><span class="n">argsort</span></a><span class="p">(</span><span class="n">times</span><span class="p">)</span>
     <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">order</span><span class="p">]</span>
     <span class="n">times</span> <span class="o">=</span> <span class="n">times</span><span class="p">[</span><span class="n">order</span><span class="p">]</span>
-    <span class="n">sds</span>   <span class="o">=</span> <span class="n">sds</span><span class="p">[</span><span class="n">order</span><span class="p">]</span>
+    <span class="n">sds</span> <span class="o">=</span> <span class="n">sds</span><span class="p">[</span><span class="n">order</span><span class="p">]</span>
 
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="matplotlib.pyplot.subplots"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">PLOT_FIGSIZE</span></a><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange" title="numpy.arange"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
@@ -1791,6 +2033,7 @@ from the ROI montages.</p></li>
     <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
     <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 
+
 <span class="k">def</span><span class="w"> </span><span class="nf">show_snr_ssim_plot_from_bench</span><span class="p">(</span><span class="n">bench</span><span class="p">:</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="typing.Dict"><span class="n">Dict</span></a><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Combined SNR/SSIM bar chart per method."""</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_SKIMAGE</span></a> <span class="ow">and</span> <span class="n">_ssim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
@@ -1806,19 +2049,20 @@ from the ROI montages.</p></li>
     <span class="n">degree_label</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">bench</span><span class="p">[</span><span class="s2">"degree_label"</span><span class="p">])</span>
 
     <span class="n">valid</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span>
+        <span class="n">r</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span>
         <span class="k">if</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span></a><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"snr"</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">np</span><span class="o">.</span><span class="n">nan</span></a><span class="p">))</span> <span class="ow">and</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span></a><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"ssim"</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">np</span><span class="o">.</span><span class="n">nan</span></a><span class="p">))</span>
     <span class="p">]</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">valid</span><span class="p">:</span>
         <span class="k">return</span>
 
     <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">valid</span><span class="p">]</span>
-    <span class="n">snrs</span>  <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s2">"snr"</span><span class="p">]</span>  <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">valid</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span>
+    <span class="n">snrs</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s2">"snr"</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">valid</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span>
     <span class="n">ssims</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s2">"ssim"</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">valid</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span>
 
     <span class="n">order</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.argsort.html#numpy.argsort" title="numpy.argsort"><span class="n">np</span><span class="o">.</span><span class="n">argsort</span></a><span class="p">(</span><span class="o">-</span><span class="n">snrs</span><span class="p">)</span>
     <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">order</span><span class="p">]</span>
-    <span class="n">snrs</span>  <span class="o">=</span> <span class="n">snrs</span><span class="p">[</span><span class="n">order</span><span class="p">]</span>
+    <span class="n">snrs</span> <span class="o">=</span> <span class="n">snrs</span><span class="p">[</span><span class="n">order</span><span class="p">]</span>
     <span class="n">ssims</span> <span class="o">=</span> <span class="n">ssims</span><span class="p">[</span><span class="n">order</span><span class="p">]</span>
 
     <span class="n">x</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange" title="numpy.arange"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
@@ -1826,7 +2070,7 @@ from the ROI montages.</p></li>
 
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="matplotlib.pyplot.subplots"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">PLOT_FIGSIZE</span></a><span class="p">)</span>
 
-    <span class="n">snr_color</span>  <span class="o">=</span> <span class="s2">"tab:blue"</span>
+    <span class="n">snr_color</span> <span class="o">=</span> <span class="s2">"tab:blue"</span>
     <span class="n">ssim_color</span> <span class="o">=</span> <span class="s2">"tab:green"</span>
 
     <span class="n">snr_bars</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
@@ -1870,7 +2114,7 @@ from the ROI montages.</p></li>
     <span class="p">)</span>
 
     <span class="n">handles</span> <span class="o">=</span> <span class="p">[</span><span class="n">snr_bars</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ssim_bars</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-    <span class="n">labels</span>  <span class="o">=</span> <span class="p">[</span><span class="s2">"SNR (dB)"</span><span class="p">,</span> <span class="s2">"SSIM"</span><span class="p">]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"SNR (dB)"</span><span class="p">,</span> <span class="s2">"SSIM"</span><span class="p">]</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span>
         <span class="n">handles</span><span class="p">,</span>
         <span class="n">labels</span><span class="p">,</span>
@@ -1968,6 +2212,7 @@ from the ROI montages.</p></li>
 
         <span class="k">elif</span> <span class="n">backend</span> <span class="o">==</span> <span class="s2">"pillow"</span><span class="p">:</span>
             <span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span> <span class="k">as</span> <span class="n">_Image</span>
+
             <span class="n">arr_uint8</span> <span class="o">=</span> <span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">rgb</span></a><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.uint8" title="numpy.uint8"><span class="n">np</span><span class="o">.</span><span class="n">uint8</span></a><span class="p">)</span>
             <span class="n">im</span> <span class="o">=</span> <span class="n">_Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">arr_uint8</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"RGB"</span><span class="p">)</span>
             <span class="n">first_im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="n">W1</span><span class="p">,</span> <span class="n">H1</span><span class="p">),</span> <span class="n">resample</span><span class="o">=</span><span class="n">_Image</span><span class="o">.</span><span class="n">Resampling</span><span class="o">.</span><span class="n">BICUBIC</span><span class="p">)</span>
@@ -2055,7 +2300,7 @@ from the ROI montages.</p></li>
     <span class="n">roi_rect</span> <span class="o">=</span> <span class="n">bench</span><span class="p">[</span><span class="s2">"roi_rect"</span><span class="p">]</span>
     <span class="n">z</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">bench</span><span class="p">[</span><span class="s2">"z"</span><span class="p">])</span>
     <span class="n">row0</span><span class="p">,</span> <span class="n">col0</span><span class="p">,</span> <span class="n">roi_h</span><span class="p">,</span> <span class="n">roi_w</span> <span class="o">=</span> <span class="n">roi_rect</span>
-    <span class="n">roi_orig</span> <span class="o">=</span> <span class="n">orig_rgb</span><span class="p">[</span><span class="n">row0</span><span class="p">:</span><span class="n">row0</span> <span class="o">+</span> <span class="n">roi_h</span><span class="p">,</span> <span class="n">col0</span><span class="p">:</span><span class="n">col0</span> <span class="o">+</span> <span class="n">roi_w</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">roi_orig</span> <span class="o">=</span> <span class="n">orig_rgb</span><span class="p">[</span><span class="n">row0</span> <span class="p">:</span> <span class="n">row0</span> <span class="o">+</span> <span class="n">roi_h</span><span class="p">,</span> <span class="n">col0</span> <span class="p">:</span> <span class="n">col0</span> <span class="o">+</span> <span class="n">roi_w</span><span class="p">,</span> <span class="p">:]</span>
     <span class="n">orig_tile</span> <span class="o">=</span> <span class="n">_nearest_big_color</span><span class="p">(</span><span class="n">roi_orig</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ROI_MAG_TARGET</span></a><span class="p">)</span>
 
     <span class="n">tiles</span><span class="p">:</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/typing.html#typing.List" title="typing.List"><span class="n">List</span></a><span class="p">[</span><a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-data" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="typing.Tuple"><span class="n">Tuple</span></a><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">]]</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">"Original (color)"</span><span class="p">,</span> <span class="n">orig_tile</span><span class="p">)]</span>
@@ -2064,12 +2309,12 @@ from the ROI montages.</p></li>
     <span class="n">center_c</span> <span class="o">=</span> <span class="n">col0</span> <span class="o">+</span> <span class="n">roi_w</span> <span class="o">/</span> <span class="mf">2.0</span>
 
     <span class="n">subset</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="p">(</span><span class="s2">"SplineOps Standard cubic"</span><span class="p">,</span>     <span class="s2">"spl_standard"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"SplineOps Standard cubic"</span><span class="p">,</span> <span class="s2">"spl_standard"</span><span class="p">),</span>
         <span class="p">(</span><span class="s2">"SplineOps Antialiasing cubic"</span><span class="p">,</span> <span class="s2">"spl_aa"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"OpenCV INTER_CUBIC"</span><span class="p">,</span>           <span class="s2">"opencv"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"SciPy cubic"</span><span class="p">,</span>                  <span class="s2">"scipy"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"scikit-image cubic"</span><span class="p">,</span>           <span class="s2">"skimage"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"PyTorch bicubic (CPU)"</span><span class="p">,</span>        <span class="s2">"torch"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"OpenCV INTER_CUBIC"</span><span class="p">,</span> <span class="s2">"opencv"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"SciPy cubic"</span><span class="p">,</span> <span class="s2">"scipy"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"scikit-image cubic"</span><span class="p">,</span> <span class="s2">"skimage"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"PyTorch bicubic (CPU)"</span><span class="p">,</span> <span class="s2">"torch"</span><span class="p">),</span>
     <span class="p">]</span>
 
     <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">backend</span> <span class="ow">in</span> <span class="n">subset</span><span class="p">:</span>
@@ -2087,11 +2332,13 @@ from the ROI montages.</p></li>
             <span class="n">center_r_res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">center_r</span> <span class="o">*</span> <span class="n">z</span><span class="p">))</span>
             <span class="n">center_c_res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">center_c</span> <span class="o">*</span> <span class="n">z</span><span class="p">))</span>
             <span class="n">row_top_res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">center_r_res</span> <span class="o">-</span> <span class="n">roi_h_res</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">H1</span> <span class="o">-</span> <span class="n">roi_h_res</span><span class="p">))</span>
-            <span class="n">col_left_res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">center_c_res</span> <span class="o">-</span> <span class="n">roi_w_res</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">W1</span> <span class="o">-</span> <span class="n">roi_w_res</span><span class="p">))</span>
+            <span class="n">col_left_res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+                <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">center_c_res</span> <span class="o">-</span> <span class="n">roi_w_res</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">W1</span> <span class="o">-</span> <span class="n">roi_w_res</span><span class="p">)</span>
+            <span class="p">)</span>
             <span class="n">roi_first</span> <span class="o">=</span> <span class="n">first_color</span><span class="p">[</span>
                 <span class="n">row_top_res</span> <span class="p">:</span> <span class="n">row_top_res</span> <span class="o">+</span> <span class="n">roi_h_res</span><span class="p">,</span>
                 <span class="n">col_left_res</span> <span class="p">:</span> <span class="n">col_left_res</span> <span class="o">+</span> <span class="n">roi_w_res</span><span class="p">,</span>
-                <span class="p">:</span>
+                <span class="p">:,</span>
             <span class="p">]</span>
 
         <span class="n">tile</span> <span class="o">=</span> <span class="n">_nearest_big_color</span><span class="p">(</span><span class="n">roi_first</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ROI_MAG_TARGET</span></a><span class="p">)</span>
@@ -2136,7 +2383,7 @@ from the ROI montages.</p></li>
     <span class="n">roi_rect</span> <span class="o">=</span> <span class="n">bench</span><span class="p">[</span><span class="s2">"roi_rect"</span><span class="p">]</span>
     <span class="n">z</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">bench</span><span class="p">[</span><span class="s2">"z"</span><span class="p">])</span>
     <span class="n">row0</span><span class="p">,</span> <span class="n">col0</span><span class="p">,</span> <span class="n">roi_h</span><span class="p">,</span> <span class="n">roi_w</span> <span class="o">=</span> <span class="n">roi_rect</span>
-    <span class="n">roi_orig</span> <span class="o">=</span> <span class="n">orig_rgb</span><span class="p">[</span><span class="n">row0</span><span class="p">:</span><span class="n">row0</span> <span class="o">+</span> <span class="n">roi_h</span><span class="p">,</span> <span class="n">col0</span><span class="p">:</span><span class="n">col0</span> <span class="o">+</span> <span class="n">roi_w</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">roi_orig</span> <span class="o">=</span> <span class="n">orig_rgb</span><span class="p">[</span><span class="n">row0</span> <span class="p">:</span> <span class="n">row0</span> <span class="o">+</span> <span class="n">roi_h</span><span class="p">,</span> <span class="n">col0</span> <span class="p">:</span> <span class="n">col0</span> <span class="o">+</span> <span class="n">roi_w</span><span class="p">,</span> <span class="p">:]</span>
     <span class="n">orig_tile</span> <span class="o">=</span> <span class="n">_nearest_big_color</span><span class="p">(</span><span class="n">roi_orig</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ROI_MAG_TARGET</span></a><span class="p">)</span>
 
     <span class="n">tiles</span><span class="p">:</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/typing.html#typing.List" title="typing.List"><span class="n">List</span></a><span class="p">[</span><a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-data" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="typing.Tuple"><span class="n">Tuple</span></a><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">]]</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">"Original (color)"</span><span class="p">,</span> <span class="n">orig_tile</span><span class="p">)]</span>
@@ -2145,11 +2392,11 @@ from the ROI montages.</p></li>
     <span class="n">center_c</span> <span class="o">=</span> <span class="n">col0</span> <span class="o">+</span> <span class="n">roi_w</span> <span class="o">/</span> <span class="mf">2.0</span>
 
     <span class="n">subset</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="p">(</span><span class="s2">"SplineOps Standard cubic"</span><span class="p">,</span>     <span class="s2">"spl_standard"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"SplineOps Standard cubic"</span><span class="p">,</span> <span class="s2">"spl_standard"</span><span class="p">),</span>
         <span class="p">(</span><span class="s2">"SplineOps Antialiasing cubic"</span><span class="p">,</span> <span class="s2">"spl_aa"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Pillow BICUBIC"</span><span class="p">,</span>               <span class="s2">"pillow"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"scikit-image cubic (AA)"</span><span class="p">,</span>      <span class="s2">"skimage_aa"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"PyTorch bicubic (AA, CPU)"</span><span class="p">,</span>    <span class="s2">"torch_aa"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Pillow BICUBIC"</span><span class="p">,</span> <span class="s2">"pillow"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"scikit-image cubic (AA)"</span><span class="p">,</span> <span class="s2">"skimage_aa"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"PyTorch bicubic (AA, CPU)"</span><span class="p">,</span> <span class="s2">"torch_aa"</span><span class="p">),</span>
     <span class="p">]</span>
 
     <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">backend</span> <span class="ow">in</span> <span class="n">subset</span><span class="p">:</span>
@@ -2167,11 +2414,13 @@ from the ROI montages.</p></li>
             <span class="n">center_r_res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">center_r</span> <span class="o">*</span> <span class="n">z</span><span class="p">))</span>
             <span class="n">center_c_res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">center_c</span> <span class="o">*</span> <span class="n">z</span><span class="p">))</span>
             <span class="n">row_top_res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">center_r_res</span> <span class="o">-</span> <span class="n">roi_h_res</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">H1</span> <span class="o">-</span> <span class="n">roi_h_res</span><span class="p">))</span>
-            <span class="n">col_left_res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">center_c_res</span> <span class="o">-</span> <span class="n">roi_w_res</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">W1</span> <span class="o">-</span> <span class="n">roi_w_res</span><span class="p">))</span>
+            <span class="n">col_left_res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+                <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">center_c_res</span> <span class="o">-</span> <span class="n">roi_w_res</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">W1</span> <span class="o">-</span> <span class="n">roi_w_res</span><span class="p">)</span>
+            <span class="p">)</span>
             <span class="n">roi_first</span> <span class="o">=</span> <span class="n">first_color</span><span class="p">[</span>
                 <span class="n">row_top_res</span> <span class="p">:</span> <span class="n">row_top_res</span> <span class="o">+</span> <span class="n">roi_h_res</span><span class="p">,</span>
                 <span class="n">col_left_res</span> <span class="p">:</span> <span class="n">col_left_res</span> <span class="o">+</span> <span class="n">roi_w_res</span><span class="p">,</span>
-                <span class="p">:</span>
+                <span class="p">:,</span>
             <span class="p">]</span>
 
         <span class="n">tile</span> <span class="o">=</span> <span class="n">_nearest_big_color</span><span class="p">(</span><span class="n">roi_first</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ROI_MAG_TARGET</span></a><span class="p">)</span>
@@ -2223,10 +2472,15 @@ from the ROI montages.</p></li>
 
     <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">rgb</span></a> <span class="o">=</span> <span class="n">_load_kodak_rgb</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">url</span></a><span class="p">)</span>
     <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict"><span class="n">orig_images_rgb</span></a><span class="p">[</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">name</span></a><span class="p">]</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">rgb</span></a>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Loaded </span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">name</span></a><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">url</span></a><span class="si">}</span><span class="s2">  |  gray shape=</span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">gray</span><span class="o">.</span><span class="n">shape</span></a><span class="si">}</span><span class="s2">, rgb shape=</span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">rgb</span><span class="o">.</span><span class="n">shape</span></a><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"Loaded </span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">name</span></a><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">url</span></a><span class="si">}</span><span class="s2">  |  gray shape=</span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">gray</span><span class="o">.</span><span class="n">shape</span></a><span class="si">}</span><span class="s2">, rgb shape=</span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">rgb</span><span class="o">.</span><span class="n">shape</span></a><span class="si">}</span><span class="s2">"</span>
+    <span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Timings averaged over "</span>
-      <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">N_TRIALS</span></a><span class="si">}</span><span class="s2"> runs per method (1 warm-up run not counted).</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">"</span><span class="se">\n</span><span class="s2">Timings averaged over "</span>
+    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">N_TRIALS</span></a><span class="si">}</span><span class="s2"> runs per method (1 warm-up run not counted).</span><span class="se">\n</span><span class="s2">"</span>
+<span class="p">)</span>
+
 
 <span class="c1"># Small helper for color intro using SplineOps antialiasing</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">_color_intro_for_image</span><span class="p">(</span>
@@ -2297,14 +2551,14 @@ Timings averaged over 10 runs per method (1 warm-up run not counted).
 
 Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
 ---------------------------------------------------------------------------------------------
-SplineOps Standard cubic                 1.9 ms     0.0 ms       7.29      1.768e-02   0.3098
-SplineOps Antialiasing cubic             2.8 ms     0.1 ms       9.58      1.045e-02   0.3683
+SplineOps Standard cubic                 1.8 ms     0.0 ms       7.29      1.768e-02   0.3098
+SplineOps Antialiasing cubic             2.5 ms     0.0 ms       9.58      1.045e-02   0.3683
 OpenCV INTER_CUBIC                       0.4 ms     0.0 ms       7.53      1.672e-02   0.3285
-SciPy cubic                             31.9 ms     0.3 ms       7.36      1.740e-02   0.3106
-Pillow BICUBIC                           3.0 ms     0.0 ms       9.35      1.101e-02   0.3368
-scikit-image cubic                      32.4 ms     0.1 ms       7.52      1.678e-02   0.3233
-scikit-image cubic (AA)                 39.1 ms     0.2 ms       9.17      1.147e-02   0.3185
-PyTorch bicubic (CPU)                    2.4 ms     0.0 ms       7.53      1.672e-02   0.3285
+SciPy cubic                             32.4 ms     0.5 ms       7.36      1.740e-02   0.3106
+Pillow BICUBIC                           2.8 ms     0.0 ms       9.35      1.101e-02   0.3368
+scikit-image cubic                      32.7 ms     0.1 ms       7.52      1.678e-02   0.3233
+scikit-image cubic (AA)                 39.9 ms     0.2 ms       9.17      1.147e-02   0.3185
+PyTorch bicubic (CPU)                    2.3 ms     0.0 ms       7.53      1.672e-02   0.3285
 PyTorch bicubic (AA, CPU)                1.3 ms     0.0 ms       9.35      1.101e-02   0.3368
 </pre></div>
 </div>
@@ -2386,14 +2640,14 @@ PyTorch bicubic (AA, CPU)                1.3 ms     0.0 ms       9.35      1.101
 
 Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
 ---------------------------------------------------------------------------------------------
-SplineOps Standard cubic                 1.7 ms     0.1 ms      13.48      9.393e-03   0.4988
-SplineOps Antialiasing cubic             2.7 ms     0.1 ms      15.71      5.618e-03   0.5281
+SplineOps Standard cubic                 1.8 ms     0.0 ms      13.48      9.393e-03   0.4988
+SplineOps Antialiasing cubic             2.5 ms     0.0 ms      15.71      5.618e-03   0.5281
 OpenCV INTER_CUBIC                       0.4 ms     0.0 ms      13.52      9.304e-03   0.5022
-SciPy cubic                             31.9 ms     0.1 ms      13.48      9.393e-03   0.4988
-Pillow BICUBIC                           3.0 ms     0.1 ms      15.51      5.882e-03   0.5091
-scikit-image cubic                      32.7 ms     0.1 ms      13.49      9.372e-03   0.4960
-scikit-image cubic (AA)                 39.3 ms     0.2 ms      15.29      6.191e-03   0.4948
-PyTorch bicubic (CPU)                    2.4 ms     0.0 ms      13.52      9.304e-03   0.5022
+SciPy cubic                             32.1 ms     0.1 ms      13.48      9.393e-03   0.4988
+Pillow BICUBIC                           2.8 ms     0.0 ms      15.51      5.882e-03   0.5091
+scikit-image cubic                      32.8 ms     0.1 ms      13.49      9.372e-03   0.4960
+scikit-image cubic (AA)                 40.0 ms     0.1 ms      15.29      6.191e-03   0.4948
+PyTorch bicubic (CPU)                    2.3 ms     0.0 ms      13.52      9.304e-03   0.5022
 PyTorch bicubic (AA, CPU)                1.3 ms     0.0 ms      15.51      5.882e-03   0.5091
 </pre></div>
 </div>
@@ -2475,15 +2729,15 @@ PyTorch bicubic (AA, CPU)                1.3 ms     0.0 ms      15.51      5.882
 
 Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
 ---------------------------------------------------------------------------------------------
-SplineOps Standard cubic                 1.2 ms     0.1 ms      14.61      6.942e-03   0.6010
-SplineOps Antialiasing cubic             2.6 ms     0.2 ms      16.58      4.416e-03   0.6799
+SplineOps Standard cubic                 1.2 ms     0.0 ms      14.61      6.942e-03   0.6010
+SplineOps Antialiasing cubic             2.3 ms     0.1 ms      16.58      4.416e-03   0.6799
 OpenCV INTER_CUBIC                       0.4 ms     0.0 ms      14.64      6.909e-03   0.6114
-SciPy cubic                             34.0 ms     0.1 ms      14.68      6.844e-03   0.6021
-Pillow BICUBIC                           3.4 ms     0.0 ms      16.31      4.698e-03   0.6390
-scikit-image cubic                      34.5 ms     0.2 ms      14.61      6.954e-03   0.6022
-scikit-image cubic (AA)                 38.9 ms     0.3 ms      16.26      4.757e-03   0.6368
-PyTorch bicubic (CPU)                    2.6 ms     0.1 ms      14.64      6.909e-03   0.6114
-PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      16.31      4.698e-03   0.6390
+SciPy cubic                             33.7 ms     0.0 ms      14.68      6.844e-03   0.6021
+Pillow BICUBIC                           3.2 ms     0.0 ms      16.31      4.698e-03   0.6390
+scikit-image cubic                      34.4 ms     0.1 ms      14.61      6.954e-03   0.6022
+scikit-image cubic (AA)                 38.7 ms     0.1 ms      16.26      4.757e-03   0.6368
+PyTorch bicubic (CPU)                    2.4 ms     0.0 ms      14.64      6.909e-03   0.6114
+PyTorch bicubic (AA, CPU)                1.3 ms     0.0 ms      16.31      4.698e-03   0.6390
 </pre></div>
 </div>
 <section id="id10">
@@ -2564,15 +2818,15 @@ PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      16.31      4.698
 
 Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
 ---------------------------------------------------------------------------------------------
-SplineOps Standard cubic                 1.2 ms     0.1 ms      17.97      2.034e-03   0.7223
-SplineOps Antialiasing cubic             2.6 ms     0.2 ms      19.90      1.307e-03   0.7792
+SplineOps Standard cubic                 1.2 ms     0.0 ms      17.97      2.034e-03   0.7223
+SplineOps Antialiasing cubic             2.3 ms     0.0 ms      19.90      1.307e-03   0.7792
 OpenCV INTER_CUBIC                       0.4 ms     0.0 ms      18.08      1.987e-03   0.7288
-SciPy cubic                             34.1 ms     0.3 ms      17.97      2.034e-03   0.7223
-Pillow BICUBIC                           3.3 ms     0.1 ms      19.36      1.479e-03   0.7627
-scikit-image cubic                      34.6 ms     0.3 ms      17.99      2.025e-03   0.7231
-scikit-image cubic (AA)                 39.2 ms     1.7 ms      19.31      1.494e-03   0.7624
-PyTorch bicubic (CPU)                    2.5 ms     0.0 ms      18.08      1.987e-03   0.7288
-PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      19.36      1.479e-03   0.7627
+SciPy cubic                             34.1 ms     0.1 ms      17.97      2.034e-03   0.7223
+Pillow BICUBIC                           3.2 ms     0.0 ms      19.36      1.479e-03   0.7627
+scikit-image cubic                      34.5 ms     0.1 ms      17.99      2.025e-03   0.7231
+scikit-image cubic (AA)                 39.1 ms     0.2 ms      19.31      1.494e-03   0.7624
+PyTorch bicubic (CPU)                    2.4 ms     0.0 ms      18.08      1.987e-03   0.7288
+PyTorch bicubic (AA, CPU)                1.3 ms     0.0 ms      19.36      1.479e-03   0.7627
 </pre></div>
 </div>
 <section id="id18">
@@ -2653,15 +2907,15 @@ PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      19.36      1.479
 
 Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
 ---------------------------------------------------------------------------------------------
-SplineOps Standard cubic                 1.6 ms     0.1 ms      11.44      2.413e-02   0.4145
+SplineOps Standard cubic                 1.6 ms     0.0 ms      11.44      2.413e-02   0.4145
 SplineOps Antialiasing cubic             3.0 ms     0.1 ms      13.82      1.393e-02   0.4538
-OpenCV INTER_CUBIC                       0.4 ms     0.0 ms      11.52      2.367e-02   0.4287
-SciPy cubic                             34.6 ms     0.1 ms      11.44      2.413e-02   0.4145
-Pillow BICUBIC                           3.1 ms     0.0 ms      13.69      1.438e-02   0.4299
-scikit-image cubic                      35.1 ms     0.2 ms      11.47      2.396e-02   0.4216
-scikit-image cubic (AA)                 42.9 ms     2.1 ms      13.55      1.483e-02   0.4189
-PyTorch bicubic (CPU)                    2.9 ms     0.9 ms      11.52      2.367e-02   0.4287
-PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      13.69      1.438e-02   0.4299
+OpenCV INTER_CUBIC                       0.3 ms     0.0 ms      11.52      2.367e-02   0.4287
+SciPy cubic                             34.8 ms     0.2 ms      11.44      2.413e-02   0.4145
+Pillow BICUBIC                           3.0 ms     0.2 ms      13.69      1.438e-02   0.4299
+scikit-image cubic                      35.4 ms     0.1 ms      11.47      2.396e-02   0.4216
+scikit-image cubic (AA)                 42.4 ms     0.1 ms      13.55      1.483e-02   0.4189
+PyTorch bicubic (CPU)                    2.3 ms     0.0 ms      11.52      2.367e-02   0.4287
+PyTorch bicubic (AA, CPU)                1.3 ms     0.0 ms      13.69      1.438e-02   0.4299
 </pre></div>
 </div>
 <section id="id27">
@@ -2742,15 +2996,15 @@ PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      13.69      1.438
 
 Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
 ---------------------------------------------------------------------------------------------
-SplineOps Standard cubic                 1.5 ms     0.1 ms      12.26      8.970e-03   0.4499
-SplineOps Antialiasing cubic             3.1 ms     0.1 ms      14.70      5.118e-03   0.5097
+SplineOps Standard cubic                 1.4 ms     0.0 ms      12.26      8.970e-03   0.4499
+SplineOps Antialiasing cubic             3.1 ms     0.0 ms      14.70      5.118e-03   0.5097
 OpenCV INTER_CUBIC                       0.4 ms     0.0 ms      12.46      8.567e-03   0.4574
-SciPy cubic                             32.5 ms     0.2 ms      12.26      8.970e-03   0.4499
-Pillow BICUBIC                           3.1 ms     0.0 ms      14.49      5.370e-03   0.4823
-scikit-image cubic                      33.0 ms     0.1 ms      12.40      8.688e-03   0.4482
-scikit-image cubic (AA)                 38.3 ms     0.1 ms      14.40      5.482e-03   0.4728
+SciPy cubic                             32.6 ms     0.3 ms      12.26      8.970e-03   0.4499
+Pillow BICUBIC                           3.0 ms     0.2 ms      14.49      5.370e-03   0.4823
+scikit-image cubic                      33.1 ms     0.2 ms      12.40      8.688e-03   0.4482
+scikit-image cubic (AA)                 38.8 ms     0.1 ms      14.40      5.482e-03   0.4728
 PyTorch bicubic (CPU)                    2.4 ms     0.0 ms      12.46      8.567e-03   0.4574
-PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      14.49      5.370e-03   0.4823
+PyTorch bicubic (AA, CPU)                1.3 ms     0.0 ms      14.49      5.370e-03   0.4823
 </pre></div>
 </div>
 <section id="id36">
@@ -2831,14 +3085,14 @@ PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      14.49      5.370
 
 Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
 ---------------------------------------------------------------------------------------------
-SplineOps Standard cubic                 1.7 ms     0.1 ms      16.45      4.817e-03   0.6700
-SplineOps Antialiasing cubic             2.8 ms     0.1 ms      18.58      2.947e-03   0.7029
+SplineOps Standard cubic                 1.8 ms     0.0 ms      16.45      4.817e-03   0.6700
+SplineOps Antialiasing cubic             2.5 ms     0.0 ms      18.58      2.947e-03   0.7029
 OpenCV INTER_CUBIC                       0.4 ms     0.0 ms      16.39      4.885e-03   0.6758
-SciPy cubic                             32.1 ms     0.1 ms      16.45      4.817e-03   0.6700
-Pillow BICUBIC                           3.0 ms     0.0 ms      18.29      3.155e-03   0.6917
-scikit-image cubic                      32.9 ms     0.2 ms      16.39      4.878e-03   0.6714
-scikit-image cubic (AA)                 39.5 ms     0.2 ms      18.07      3.316e-03   0.6852
-PyTorch bicubic (CPU)                    2.4 ms     0.0 ms      16.39      4.885e-03   0.6758
+SciPy cubic                             32.0 ms     0.1 ms      16.45      4.817e-03   0.6700
+Pillow BICUBIC                           2.8 ms     0.0 ms      18.29      3.155e-03   0.6917
+scikit-image cubic                      32.7 ms     0.1 ms      16.39      4.878e-03   0.6714
+scikit-image cubic (AA)                 39.8 ms     0.2 ms      18.07      3.316e-03   0.6852
+PyTorch bicubic (CPU)                    2.3 ms     0.0 ms      16.39      4.885e-03   0.6758
 PyTorch bicubic (AA, CPU)                1.3 ms     0.0 ms      18.29      3.155e-03   0.6917
 </pre></div>
 </div>
@@ -2908,19 +3162,19 @@ dtype used for the benchmark.</p>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Runtime context:
   Python      : 3.12.13 (CPython)
-  OS          : Linux 6.17.0-1018-azure (x86_64)
+  OS          : Linux 6.17.0-1020-azure (x86_64)
   CPU         : x86_64 | logical cores: 4
-  Process     : pid=2674 | Python threads=1 | OS threads=17
+  Process     : pid=2621 | Python threads=1 | OS threads=17
   NumPy/SciPy : 2.5.1/1.18.0
   Matplotlib  : 3.11.0 | backend: agg
-  splineops   : 2.0.0 | native ext present: True
+  splineops   : 2.1.0 | native ext present: True
   Extra libs  : Pillow=12.3.0, OpenCV=5.0.0, scikit-image=0.26.0, PyTorch=2.13.0+cu130
   SPLINEOPS_ACCEL=always
   OMP_NUM_THREADS=4
 Benchmark storage dtype: float32
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 35.080 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 34.756 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

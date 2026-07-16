@@ -65,8 +65,8 @@ Recursive Smoothing Spline
 
     # Apply fractional smoothing spline as a baseline for comparison
     lambda_ = 0.1  # Regularization parameter for fractional method
-    m = 1          # No upsampling
-    gamma = 0.6    # Spline order parameter
+    m = 1  # No upsampling
+    gamma = 0.6  # Spline order parameter
     _, smoothed_fractional = smoothing_spline(signal, lambda_, m, gamma)
 
     # Compute MSE values for different recursive smoothing spline parameters
@@ -80,11 +80,11 @@ Recursive Smoothing Spline
     # Apply and plot recursive smoothing spline for each lambda value
     for lam_recursive in lam_values:
         smoothed_recursive = recursive_smoothing_spline(signal, lamb=lam_recursive)
-    
+
         # Compute MSE
         mse = np.mean((smoothed_recursive - smoothed_fractional) ** 2)
         mse_values.append(mse)
-    
+
         plt.plot(x, smoothed_recursive, label=f"Recursive Smoothing (λ={lam_recursive})")
 
     # Print MSE values
@@ -112,7 +112,7 @@ Recursive Smoothing Spline
 
 
     Mean Squared Error (MSE) between Recursive and Fractional Smoothing Spline:
-    λ=0.100: MSE = 0.000169
+    λ=0.100: MSE = 0.000205
 
 
 
@@ -120,7 +120,7 @@ Recursive Smoothing Spline
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.119 seconds)
+   **Total running time of the script:** (0 minutes 0.116 seconds)
 
 
 .. _sphx_glr_download_auto_examples_05_smoothing_splines_04_recursive_smoothing_spline.py:

@@ -41,7 +41,7 @@ We build up the visualization step-by-step:
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-41
+.. GENERATED FROM PYTHON SOURCE LINES 28-43
 
 .. code-block:: Python
 
@@ -49,14 +49,16 @@ Imports
     import numpy as np
     import matplotlib.pyplot as plt
 
-    from splineops.resize import resize                 # core 1-D spline resizer
+    from splineops.resize import resize  # core 1-D spline resizer
     from splineops.spline_interpolation.tensor_spline import TensorSpline
 
-    plt.rcParams.update({
-        "font.size": 14,
-        "axes.titlesize": 18,
-        "axes.labelsize": 16,
-    })
+    plt.rcParams.update(
+        {
+            "font.size": 14,
+            "axes.titlesize": 18,
+            "axes.labelsize": 16,
+        }
+    )
 
 
 
@@ -65,7 +67,7 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-52
+.. GENERATED FROM PYTHON SOURCE LINES 45-54
 
 1D Resize-Based Coarsening
 --------------------------
@@ -77,7 +79,7 @@ directly on the samples. We then compare:
 - a coarse spline built from `resize(..., method="cubic-antialiasing")`,
 - the interpolating spline f(x) of the original samples for reference.
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-64
+.. GENERATED FROM PYTHON SOURCE LINES 54-91
 
 .. code-block:: Python
 
@@ -85,13 +87,38 @@ directly on the samples. We then compare:
     # 1) Original 1D samples f[k] (same as in 02_01 / 02_02)
     number_of_samples = 27
     f_support_1d = np.arange(number_of_samples, dtype=np.float64)
-    f_samples_1d = np.array([
-        -0.657391, -0.641319, -0.613081, -0.518523, -0.453829, -0.385138,
-        -0.270688, -0.179849, -0.11805, -0.0243016, 0.0130667, 0.0355389,
-        0.0901577, 0.219599, 0.374669, 0.384896, 0.301386, 0.128646,
-        -0.00811776, 0.0153119, 0.106126, 0.21688, 0.347629, 0.419532,
-        0.50695, 0.544767, 0.555373
-    ], dtype=np.float64)
+    f_samples_1d = np.array(
+        [
+            -0.657391,
+            -0.641319,
+            -0.613081,
+            -0.518523,
+            -0.453829,
+            -0.385138,
+            -0.270688,
+            -0.179849,
+            -0.11805,
+            -0.0243016,
+            0.0130667,
+            0.0355389,
+            0.0901577,
+            0.219599,
+            0.374669,
+            0.384896,
+            0.301386,
+            0.128646,
+            -0.00811776,
+            0.0153119,
+            0.106126,
+            0.21688,
+            0.347629,
+            0.419532,
+            0.50695,
+            0.544767,
+            0.555373,
+        ],
+        dtype=np.float64,
+    )
 
 
 
@@ -100,14 +127,14 @@ directly on the samples. We then compare:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-69
+.. GENERATED FROM PYTHON SOURCE LINES 92-96
 
 Original Samples
 ----------------
 
 We start by visualizing only the discrete samples :math:`f[k]` on the unit grid.
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-80
+.. GENERATED FROM PYTHON SOURCE LINES 96-107
 
 .. code-block:: Python
 
@@ -134,7 +161,7 @@ We start by visualizing only the discrete samples :math:`f[k]` on the unit grid.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 81-86
+.. GENERATED FROM PYTHON SOURCE LINES 108-113
 
 Fine Spline f(x)
 ----------------
@@ -142,7 +169,7 @@ Fine Spline f(x)
 Next, we build the fine interpolating spline :math:`f(x)` on the unit grid
 using cubic B-splines, and sample it densely for visualization.
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-123
+.. GENERATED FROM PYTHON SOURCE LINES 113-152
 
 .. code-block:: Python
 
@@ -160,10 +187,12 @@ using cubic B-splines, and sample it densely for visualization.
     )
 
     # Dense evaluation grid for the fine spline
-    f_coords_1d = np.array([
-        q / plot_points_per_unit_1d
-        for q in range(plot_points_per_unit_1d * number_of_samples)
-    ])
+    f_coords_1d = np.array(
+        [
+            q / plot_points_per_unit_1d
+            for q in range(plot_points_per_unit_1d * number_of_samples)
+        ]
+    )
     f_data_1d = f_1d(coordinates=(f_coords_1d,), grid=False)
 
     plt.figure(figsize=(10, 4))
@@ -195,7 +224,7 @@ using cubic B-splines, and sample it densely for visualization.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 124-129
+.. GENERATED FROM PYTHON SOURCE LINES 153-158
 
 Coarse Grid and Resize
 ----------------------
@@ -203,7 +232,7 @@ Coarse Grid and Resize
 We now choose a coarser grid and obtain coarse samples by resizing the
 original discrete signal with two different methods.
 
-.. GENERATED FROM PYTHON SOURCE LINES 129-185
+.. GENERATED FROM PYTHON SOURCE LINES 158-214
 
 .. code-block:: Python
 
@@ -211,10 +240,10 @@ original discrete signal with two different methods.
     # 2) Choose a coarse length: round(27 // π)
     val_T = np.pi
     K = number_of_samples
-    g_support_length = round(K // val_T)   # e.g., 27 // π ≈ 8
+    g_support_length = round(K // val_T)  # e.g., 27 // π ≈ 8
 
     # Express this as a zoom factor for resize
-    zoom_1d = g_support_length / K        # e.g., 8 / 27
+    zoom_1d = g_support_length / K  # e.g., 8 / 27
 
     # 3) Coarse samples via resize: cubic and cubic-antialiasing
     g_samples_cubic = resize(
@@ -256,7 +285,7 @@ original discrete signal with two different methods.
     # Evaluate both coarse splines on the same dense grid as f(x)
     g_coords_dense = f_coords_1d
     g_cubic_data = g_cubic_ts(coordinates=(g_coords_dense,), grid=False)
-    g_aa_data    = g_aa_ts(coordinates=(g_coords_dense,), grid=False)
+    g_aa_data = g_aa_ts(coordinates=(g_coords_dense,), grid=False)
 
     # Optional sanity check at the coarse nodes: resize(cubic) vs fine spline sampled at x_l
     f_at_xg = f_1d(coordinates=(g_support_x,), grid=False)
@@ -276,7 +305,7 @@ original discrete signal with two different methods.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 186-191
+.. GENERATED FROM PYTHON SOURCE LINES 215-220
 
 Coarse Cubic Spline
 -------------------
@@ -284,7 +313,7 @@ Coarse Cubic Spline
 We now show the coarse spline built from the ``"cubic"`` resize together
 with the original samples and fine spline.
 
-.. GENERATED FROM PYTHON SOURCE LINES 191-243
+.. GENERATED FROM PYTHON SOURCE LINES 220-272
 
 .. code-block:: Python
 
@@ -352,7 +381,7 @@ with the original samples and fine spline.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 244-249
+.. GENERATED FROM PYTHON SOURCE LINES 273-278
 
 Coarse Cubic Antialiasing Spline
 --------------------------------
@@ -360,7 +389,7 @@ Coarse Cubic Antialiasing Spline
 Similarly, we show the coarse spline obtained with the antialiasing
 preset, which inserts a low-pass step before decimation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 249-300
+.. GENERATED FROM PYTHON SOURCE LINES 278-329
 
 .. code-block:: Python
 
@@ -396,7 +425,7 @@ preset, which inserts a low-pass step before decimation.
     plt.plot(
         g_support_x,
         g_samples_aa,
-        "ro",   # red circles, hollow
+        "ro",  # red circles, hollow
         mfc="none",
         markersize=8,
         markeredgewidth=2,
@@ -427,7 +456,7 @@ preset, which inserts a low-pass step before decimation.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 301-306
+.. GENERATED FROM PYTHON SOURCE LINES 330-335
 
 All Splines Together
 --------------------
@@ -435,7 +464,7 @@ All Splines Together
 Finally, we overlay both coarse splines on top of the fine spline and
 original samples for a direct comparison.
 
-.. GENERATED FROM PYTHON SOURCE LINES 306-378
+.. GENERATED FROM PYTHON SOURCE LINES 335-408
 
 .. code-block:: Python
 
@@ -514,6 +543,7 @@ original samples for a direct comparison.
     plt.show()
 
 
+
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_01_resize_module_1d_005.png
    :alt: 1D resize on f[k]: cubic vs cubic-antialiasing
    :srcset: /auto_examples/02_resize/images/sphx_glr_01_resize_module_1d_005.png
@@ -526,7 +556,7 @@ original samples for a direct comparison.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.668 seconds)
+   **Total running time of the script:** (0 minutes 0.653 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_01_resize_module_1d.py:

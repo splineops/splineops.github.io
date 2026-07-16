@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>2D Image Smoothing — splineops Documentation</title>
+<title>2D Image Smoothing — splineops 2.1.0 documentation</title>
 <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
@@ -35,7 +35,7 @@
 <!-- Pre-loaded scripts that we'll load fully later -->
 <link as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" rel="preload"/>
 <link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" rel="preload"/>
-<script src="../../_static/documentation_options.js?v=51b770b3"></script>
+<script src="../../_static/documentation_options.js?v=20623aea"></script>
 <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
 <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
 <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -95,19 +95,121 @@
   </a>
 </li>
 <li class="nav-item">
-<a class="nav-link nav-internal" href="../../user-guide/index.html">
-    User Guide
-  </a>
-</li>
-<li class="nav-item current active">
-<a class="nav-link nav-internal" href="../index.html">
-    Examples
+<a class="nav-link nav-internal" href="../../quickstart.html">
+    Five-minute quickstart
   </a>
 </li>
 <li class="nav-item">
-<a class="nav-link nav-internal" href="../../api/index.html">
+<a class="nav-link nav-internal" href="../../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/index.html">
+    User guide
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/02_resize.html">
+    Resize
+  </a>
+</li>
+<li class="nav-item dropdown">
+<button aria-controls="pst-nav-more-links" aria-expanded="false" class="btn dropdown-toggle nav-item" data-bs-toggle="dropdown" type="button">
+                    More
+                </button>
+<ul class="dropdown-menu" id="pst-nav-more-links">
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../consolidation-recipes.html">
+    Reusable workflow recipes
+  </a>
+</li>
+<li class="current active">
+<a class="nav-link dropdown-item nav-internal" href="../index.html">
+    Examples
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../performance.html">
+    Performance evidence
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/03_affine.html">
+    Affine
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/06_differentials.html">
+    Differentials
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../progress.html">
+    Progress so far
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../internal-contracts.html">
+    Internal numerical contracts
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../api/index.html">
     API Reference
   </a>
+</li>
+</ul>
 </li>
 </ul>
 </nav></div>
@@ -170,13 +272,108 @@
   </a>
 </li>
 <li class="nav-item">
+<a class="nav-link nav-internal" href="../../quickstart.html">
+    Five-minute quickstart
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+<li class="nav-item">
 <a class="nav-link nav-internal" href="../../user-guide/index.html">
-    User Guide
+    User guide
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/02_resize.html">
+    Resize
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../consolidation-recipes.html">
+    Reusable workflow recipes
   </a>
 </li>
 <li class="nav-item current active">
 <a class="nav-link nav-internal" href="../index.html">
     Examples
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../performance.html">
+    Performance evidence
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/03_affine.html">
+    Affine
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/06_differentials.html">
+    Differentials
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../progress.html">
+    Progress so far
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../internal-contracts.html">
+    Internal numerical contracts
   </a>
 </li>
 <li class="nav-item">
@@ -269,6 +466,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../07_multiscale/02_wavelet_decomposition.html">Wavelet Decomposition</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08_workflows/index.html">End-to-end workflows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08_workflows/01_registration_fanout.html">Persist one frame and evaluate several affine geometries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_workflows/02_volume_features.html">Warp a volume and write selected differential features</a></li>
+</ul>
+</details></li>
 </ul>
 </div>
 </nav></div>
@@ -322,25 +524,27 @@ with strong visible noise.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-urllib-request sphx-glr-backref-type-py-function" href="https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen" title="urllib.request.urlopen"><span class="n">urlopen</span></a>
 <span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
 
+
 <span class="k">def</span><span class="w"> </span><span class="nf">create_image</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Loads a real image and converts it to grayscale.</span>
 <span class="sd">    """</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s1">'https://r0k.us/graphics/kodak/kodak/kodim06.png'</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://r0k.us/graphics/kodak/kodak/kodim06.png"</span>
     <span class="k">with</span> <a class="sphx-glr-backref-module-urllib-request sphx-glr-backref-type-py-function" href="https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen" title="urllib.request.urlopen"><span class="n">urlopen</span></a><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="k">as</span> <span class="n">resp</span><span class="p">:</span>
         <span class="c1"># Force grayscale (L = luminance)</span>
-        <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">'L'</span><span class="p">)</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">"L"</span><span class="p">)</span>
 
     <span class="n">data</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span>
     <span class="n">data</span> <span class="o">/=</span> <span class="mf">255.0</span>  <span class="c1"># Normalize to [0, 1] grayscale</span>
 
     <span class="k">return</span> <span class="n">data</span>
 
+
 <span class="k">def</span><span class="w"> </span><span class="nf">add_noise</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">snr_db</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Adds Gaussian noise to the image based on the desired SNR in dB.</span>
 <span class="sd">    """</span>
-    <span class="n">signal_power</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean" title="numpy.mean"><span class="n">np</span><span class="o">.</span><span class="n">mean</span></a><span class="p">(</span><span class="n">img</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">signal_power</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean" title="numpy.mean"><span class="n">np</span><span class="o">.</span><span class="n">mean</span></a><span class="p">(</span><span class="n">img</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">sigma</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span></a><span class="p">(</span><span class="n">signal_power</span> <span class="o">/</span> <span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="n">snr_db</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)))</span>
     <span class="n">noise</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.randn.html#numpy.random.randn" title="numpy.random.randn"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span></a><span class="p">(</span><span class="o">*</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma</span>
     <span class="n">noisy_img</span> <span class="o">=</span> <span class="n">img</span> <span class="o">+</span> <span class="n">noise</span>
@@ -349,6 +553,7 @@ with strong visible noise.</p>
     <span class="n">noisy_img</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">noisy_img</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">noisy_img</span>
+
 
 <span class="k">def</span><span class="w"> </span><span class="nf">compute_snr</span><span class="p">(</span><span class="n">clean_signal</span><span class="p">,</span> <span class="n">noisy_signal</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
@@ -361,15 +566,16 @@ with strong visible noise.</p>
 <span class="sd">    Returns:</span>
 <span class="sd">    float: SNR value in decibels (dB).</span>
 <span class="sd">    """</span>
-    <span class="n">signal_power</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean" title="numpy.mean"><span class="n">np</span><span class="o">.</span><span class="n">mean</span></a><span class="p">(</span><span class="n">clean_signal</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">signal_power</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean" title="numpy.mean"><span class="n">np</span><span class="o">.</span><span class="n">mean</span></a><span class="p">(</span><span class="n">clean_signal</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">noise_power</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean" title="numpy.mean"><span class="n">np</span><span class="o">.</span><span class="n">mean</span></a><span class="p">((</span><span class="n">noisy_signal</span> <span class="o">-</span> <span class="n">clean_signal</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">snr</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">log10</span></a><span class="p">(</span><span class="n">signal_power</span> <span class="o">/</span> <span class="n">noise_power</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">snr</span>
 
+
 <span class="k">def</span><span class="w"> </span><span class="nf">demo_image</span><span class="p">():</span>
     <span class="c1"># Parameters</span>
-    <span class="n">lambda_</span> <span class="o">=</span> <span class="mf">0.1</span>   <span class="c1"># Regularization parameter</span>
-    <span class="n">gamma</span> <span class="o">=</span> <span class="mf">2.0</span>     <span class="c1"># Order of the spline operator</span>
+    <span class="n">lambda_</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># Regularization parameter</span>
+    <span class="n">gamma</span> <span class="o">=</span> <span class="mf">2.0</span>  <span class="c1"># Order of the spline operator</span>
 
     <span class="c1"># Noise</span>
     <span class="n">snr_db</span> <span class="o">=</span> <span class="mf">8.0</span>
@@ -401,36 +607,37 @@ with strong visible noise.</p>
 
     <span class="c1"># Original grayscale image</span>
     <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow" title="matplotlib.pyplot.imshow"><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span></a><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s1">'Original Grayscale Image'</span><span class="p">)</span>
-    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axis.html#matplotlib.pyplot.axis" title="matplotlib.pyplot.axis"><span class="n">plt</span><span class="o">.</span><span class="n">axis</span></a><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow" title="matplotlib.pyplot.imshow"><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span></a><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s2">"Original Grayscale Image"</span><span class="p">)</span>
+    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axis.html#matplotlib.pyplot.axis" title="matplotlib.pyplot.axis"><span class="n">plt</span><span class="o">.</span><span class="n">axis</span></a><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
 
     <span class="c1"># Noisy image</span>
     <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow" title="matplotlib.pyplot.imshow"><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span></a><span class="p">(</span><span class="n">noisy_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="sa">f</span><span class="s1">'Noisy Image (SNR=</span><span class="si">{</span><span class="n">snr_noisy</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> dB)'</span><span class="p">)</span>
-    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axis.html#matplotlib.pyplot.axis" title="matplotlib.pyplot.axis"><span class="n">plt</span><span class="o">.</span><span class="n">axis</span></a><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow" title="matplotlib.pyplot.imshow"><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span></a><span class="p">(</span><span class="n">noisy_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="sa">f</span><span class="s2">"Noisy Image (SNR=</span><span class="si">{</span><span class="n">snr_noisy</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> dB)"</span><span class="p">)</span>
+    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axis.html#matplotlib.pyplot.axis" title="matplotlib.pyplot.axis"><span class="n">plt</span><span class="o">.</span><span class="n">axis</span></a><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
 
     <span class="c1"># Smoothed grayscale image</span>
     <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow" title="matplotlib.pyplot.imshow"><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span></a><span class="p">(</span><span class="n">smoothed_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="sa">f</span><span class="s1">'Smoothed Image (SNR=</span><span class="si">{</span><span class="n">snr_smooth</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> dB)'</span><span class="p">)</span>
-    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axis.html#matplotlib.pyplot.axis" title="matplotlib.pyplot.axis"><span class="n">plt</span><span class="o">.</span><span class="n">axis</span></a><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow" title="matplotlib.pyplot.imshow"><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span></a><span class="p">(</span><span class="n">smoothed_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="sa">f</span><span class="s2">"Smoothed Image (SNR=</span><span class="si">{</span><span class="n">snr_smooth</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> dB)"</span><span class="p">)</span>
+    <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axis.html#matplotlib.pyplot.axis" title="matplotlib.pyplot.axis"><span class="n">plt</span><span class="o">.</span><span class="n">axis</span></a><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
 
     <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="matplotlib.pyplot.tight_layout"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">()</span>
     <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+
 
 <span class="c1"># Run the image demo</span>
 <span class="n">demo_image</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="Original Grayscale Image, Noisy Image (SNR=8.88 dB), Smoothed Image (SNR=15.13 dB)" class="sphx-glr-single-img" src="../../_images/sphx_glr_02_2d_image_smoothing_001.png" srcset="../../_images/sphx_glr_02_2d_image_smoothing_001.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Image:
-SNR of noisy image: 8.88 dB
+<img alt="Original Grayscale Image, Noisy Image (SNR=8.87 dB), Smoothed Image (SNR=15.13 dB)" class="sphx-glr-single-img" src="../../_images/sphx_glr_02_2d_image_smoothing_001.png" srcset="../../_images/sphx_glr_02_2d_image_smoothing_001.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Image:
+SNR of noisy image: 8.87 dB
 SNR after smoothing: 15.13 dB
 SNR improvement: 6.26 dB
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.388 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.399 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

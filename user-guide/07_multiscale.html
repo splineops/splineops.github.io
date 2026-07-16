@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Multiscale &#8212; splineops Documentation</title>
+    <title>Multiscale &#8212; splineops 2.1.0 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../_static/documentation_options.js?v=20623aea"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -58,7 +58,7 @@
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Examples" href="../auto_examples/index.html" />
+    <link rel="next" title="Method and source provenance" href="../provenance.html" />
     <link rel="prev" title="Differentials" href="06_differentials.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -159,26 +159,169 @@
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="index.html">
-    User Guide
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Five-minute quickstart
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../auto_examples/index.html">
+  <a class="nav-link nav-internal" href="../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="02_resize.html">
+    Resize
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../consolidation-recipes.html">
+    Reusable workflow recipes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../auto_examples/index.html">
     Examples
   </a>
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../api/index.html">
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="03_affine.html">
+    Affine
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="06_differentials.html">
+    Differentials
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Multiscale
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../internal-contracts.html">
+    Internal numerical contracts
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../api/index.html">
     API Reference
   </a>
 </li>
 
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -296,9 +439,44 @@
 </li>
 
 
-<li class="nav-item current active">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Five-minute quickstart
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="index.html">
-    User Guide
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="02_resize.html">
+    Resize
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../consolidation-recipes.html">
+    Reusable workflow recipes
   </a>
 </li>
 
@@ -306,6 +484,104 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../auto_examples/index.html">
     Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="03_affine.html">
+    Affine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="06_differentials.html">
+    Differentials
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Multiscale
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../internal-contracts.html">
+    Internal numerical contracts
   </a>
 </li>
 
@@ -388,17 +664,7 @@
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_spline_interpolation.html">Spline Interpolation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_affine.html">Affine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_adaptive_regression_splines.html">Adaptive Regression Splines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_smoothing_splines.html">Smoothing Splines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_differentials.html">Differentials</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Multiscale</a></li>
-</ul>
-</div>
+  <div class="bd-toc-item navbar-nav"></div>
 </nav></div>
     </div>
   
@@ -437,9 +703,6 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">User Guide</a></li>
-    
     <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Multiscale</span></li>
   </ul>
 </nav>
@@ -502,7 +765,9 @@ resampling and for computing exact spatial derivatives, which further stabilizes
 <section id="wavelet-decomposition">
 <h2>Wavelet Decomposition<a class="headerlink" href="#wavelet-decomposition" title="Link to this heading">#</a></h2>
 <p>We construct a spline-based multiscale basis (wavelets) by capturing the detail lost at each reduction step.
-The wavelet (detail) coefficients together with the final coarse approximation allow perfect reconstruction (synthesis).</p>
+For the explicitly supported shape and scale combinations, the wavelet
+(detail) coefficients together with the final coarse approximation allow
+perfect reconstruction (synthesis).</p>
 <p>The next figure, from
 <a class="reference internal" href="../auto_examples/07_multiscale/02_wavelet_decomposition.html#sphx-glr-auto-examples-07-multiscale-02-wavelet-decomposition-py"><span class="std std-ref">Wavelet Decomposition</span></a>,
 shows a three-level 2D Haar decomposition: the coarse approximation in the
@@ -522,10 +787,47 @@ to perfectly reconstruct the original data (synthesis).</p>
 <section id="implementation-details">
 <h2>Implementation Details<a class="headerlink" href="#implementation-details" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Reduce and expand features perform the core downsampling and upsampling based on spline filters.</p></li>
-<li><p>Wavelet transforms such as Haar wavelets or spline wavelets (analysis and synthesis) are implemented by the combination of pyramid steps with detail sub-bands.</p></li>
-<li><p>Various spline degrees (e.g., degree 3) are supported. They allow one to control how the data are dispatched in the approximation channel and the sub-bands.</p></li>
+<li><p>Reduce and expand perform the core downsampling and upsampling with spline
+filters.  Whole-array axis operations replace row-by-row and column-by-column
+Python dispatch.</p></li>
+<li><p>Haar split/merge operations write into preallocated scale regions.  Small
+independent planes are transformed in vectorized cache-sized groups; large
+planes are dispatched directly so a batch does not pay for full-array
+transpose copies.  Spline wavelets retain short, explicit loops over filter
+taps.</p></li>
+<li><p>Various spline degrees (e.g., degree 3) control how data are dispatched
+between the approximation channel and sub-bands.</p></li>
 </ul>
+</section>
+<section id="supported-shapes-and-boundaries">
+<h2>Supported shapes and boundaries<a class="headerlink" href="#supported-shapes-and-boundaries" title="Link to this heading">#</a></h2>
+<p>The pyramid functions accept finite, non-empty real 1-D signals and 2-D arrays
+and use their documented mirror mappings.  Floating inputs preserve their
+precision; integer inputs promote to float64, and booleans are rejected.
+Reducing an odd length returns
+<code class="docutils literal notranslate"><span class="pre">floor(n</span> <span class="pre">/</span> <span class="pre">2)</span></code> samples; expanding that result therefore does not recover the
+dropped extent.  A singleton is preserved exactly.</p>
+<p>The multiscale Haar and spline-wavelet classes currently support non-empty 2D
+arrays whose two dimensions are divisible by <code class="docutils literal notranslate"><span class="pre">2**scales</span></code>.  Unsupported odd
+or too-small scale regions are rejected instead of silently losing samples.
+Perfect reconstruction is tested for even square and rectangular arrays for
+Haar and the cubic spline-wavelet implementation.  The order-1 spline filter
+reconstructs the audited float64 cases within <code class="docutils literal notranslate"><span class="pre">2e-7</span></code>.  The inherited order-5
+filter coefficients contain only roughly five to six significant digits and
+produce errors up to about <code class="docutils literal notranslate"><span class="pre">2e-3</span></code> in the current randomized rectangular
+audit.  Order 5 is therefore an approximate research implementation, not a
+perfect-reconstruction transform.  The test suite records that limitation so
+it cannot silently become a stronger claim.  The upstream DeconvolutionLab2
+source contains the same table; because no authoritative higher-precision taps
+were found, SplineOps retains those values and exposes
+<code class="docutils literal notranslate"><span class="pre">exact_reconstruction=False</span></code> with a <code class="docutils literal notranslate"><span class="pre">&quot;bounded-approximation&quot;</span></code> contract.</p>
+<p>These APIs never infer batch or channel dimensions.  <code class="docutils literal notranslate"><span class="pre">reduce_2d</span></code>,
+<code class="docutils literal notranslate"><span class="pre">expand_2d</span></code>, and multi-scale wavelet <code class="docutils literal notranslate"><span class="pre">analysis</span></code>/<code class="docutils literal notranslate"><span class="pre">synthesis</span></code> accept
+explicit <code class="docutils literal notranslate"><span class="pre">spatial_axes</span></code> and transform every remaining slice independently.
+Execution adapts to the selected plane working set, while the divisibility and
+reconstruction contracts apply only to selected axes.
+See <a class="reference internal" href="../performance.html"><span class="doc">Performance evidence</span></a> for the reproducible row/column-oracle comparison and
+<a class="reference internal" href="../consolidation-recipes.html"><span class="doc">Reusable workflow recipes</span></a> for a batched example.</p>
 </section>
 <section id="multiscale-examples">
 <h2>Multiscale Examples<a class="headerlink" href="#multiscale-examples" title="Link to this heading">#</a></h2>
@@ -595,11 +897,11 @@ January 1998.</p>
       </div>
     </a>
     <a class="right-next"
-       href="../auto_examples/index.html"
+       href="../provenance.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Examples</p>
+        <p class="prev-next-title">Method and source provenance</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -630,6 +932,7 @@ January 1998.</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wavelet-decomposition">Wavelet Decomposition</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-details">Implementation Details</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-shapes-and-boundaries">Supported shapes and boundaries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiscale-examples">Multiscale Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>

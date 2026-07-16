@@ -626,6 +626,65 @@ Examples using the Multiscale module.
 
     </div>
 
+End-to-end workflows
+====================
+
+These examples combine independent SplineOps modules in realistic pipelines.
+They demonstrate explicit reuse and buffer contracts without merging the
+modules or hiding their mathematical boundaries.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="An affine coefficient field depends on the sampled frame, spline degree, boundary mode, precision, and input grid.  It does not depend on the output geometry, so registration or augmentation pipelines can prepare it once and evaluate several compatible transforms concurrently.">
+
+.. only:: html
+
+  .. image:: /auto_examples/08_workflows/images/thumb/sphx_glr_01_registration_fanout_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/08_workflows/01_registration_fanout`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Persist one frame and evaluate several affine geometries</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This pipeline applies one 3-D affine transform and then requests only gradient and Laplacian outputs.  Exact structured buffers make allocation ownership explicit while Affine and Differentials remain independent modules.">
+
+.. only:: html
+
+  .. image:: /auto_examples/08_workflows/images/thumb/sphx_glr_02_volume_features_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/08_workflows/02_volume_features`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Warp a volume and write selected differential features</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
 
 .. toctree::
    :hidden:
@@ -639,6 +698,7 @@ Examples using the Multiscale module.
    /auto_examples/05_smoothing_splines/index.rst
    /auto_examples/06_differentials/index.rst
    /auto_examples/07_multiscale/index.rst
+   /auto_examples/08_workflows/index.rst
 
 
 .. only:: html

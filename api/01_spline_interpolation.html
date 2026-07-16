@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Spline Interpolation &#8212; splineops Documentation</title>
+    <title>Spline Interpolation &#8212; splineops 2.1.0 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../_static/documentation_options.js?v=20623aea"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -159,25 +159,168 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../user-guide/index.html">
-    User Guide
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Five-minute quickstart
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../auto_examples/index.html">
+  <a class="nav-link nav-internal" href="../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/02_resize.html">
+    Resize
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../consolidation-recipes.html">
+    Reusable workflow recipes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../auto_examples/index.html">
     Examples
   </a>
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="index.html">
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/03_affine.html">
+    Affine
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/06_differentials.html">
+    Differentials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../internal-contracts.html">
+    Internal numerical contracts
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="index.html">
     API Reference
   </a>
 </li>
 
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -296,8 +439,43 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Five-minute quickstart
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../user-guide/index.html">
-    User Guide
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/02_resize.html">
+    Resize
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../consolidation-recipes.html">
+    Reusable workflow recipes
   </a>
 </li>
 
@@ -305,6 +483,104 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../auto_examples/index.html">
     Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/03_affine.html">
+    Affine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/06_differentials.html">
+    Differentials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../internal-contracts.html">
+    Internal numerical contracts
   </a>
 </li>
 
@@ -460,6 +736,16 @@
 <p>The <a class="reference internal" href="#splineops.spline_interpolation.tensor_spline.TensorSpline" title="splineops.spline_interpolation.tensor_spline.TensorSpline"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorSpline</span></code></a> class is the core spline-based interpolator.
 Users can construct a spline model for their N-dimensional data (with custom boundary extension modes, spline degrees, etc.)
 and then evaluate the model at arbitrary coordinates.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> is also available as the stable convenience import
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">splineops</span> <span class="pre">import</span> <span class="pre">TensorSpline</span></code>.  Construction grids must be uniform;
+“arbitrary coordinates” describes evaluation locations, not nonuniform input
+sampling.</p>
+<p>Construction templates can refit compatible sample arrays with <code class="docutils literal notranslate"><span class="pre">with_data</span></code>
+or consume explicit cardinal coefficients with <code class="docutils literal notranslate"><span class="pre">with_coefficients</span></code>.  Query
+plans retain only fixed-coordinate geometry and can therefore evaluate either
+kind of compatible spline without merging <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> into another
+module.  Keys cubic convolution and cubic O-MOMS also have independent
+published-formula references in the stability-soak suite.</p>
 <dl class="py class" id="module-splineops.spline_interpolation.tensor_spline">
 <dt class="sig sig-object py" id="splineops.spline_interpolation.tensor_spline.TensorSpline">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">splineops.spline_interpolation.tensor_spline.</span></span><span class="sig-name descname"><span class="pre">TensorSpline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NDArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NDArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.14)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><span class="pre">NDArray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bases</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SplineBasis</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.14)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><span class="pre">SplineBasis</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ExtensionMode</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.14)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><span class="pre">ExtensionMode</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.spline_interpolation.tensor_spline.TensorSpline" title="Link to this definition">#</a></dt>
@@ -503,7 +789,7 @@ each axis.</p>
 </ol>
 <p>Here’s an example to illustrate 1-dimensional interpolation using the TensorSpline class.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops.interpolate.tensor_spline</span><span class="w"> </span><span class="kn">import</span> <span class="n">TensorSpline</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops</span><span class="w"> </span><span class="kn">import</span> <span class="n">TensorSpline</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bases</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span>  <span class="c1"># Linear interpolation</span>
@@ -569,15 +855,60 @@ each axis.</p>
 </div>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="splineops.spline_interpolation.tensor_spline.TensorSpline.coordinates">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">coordinates</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.14)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><span class="pre">NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.coordinates" title="Link to this definition">#</a></dt>
+<dd><p>Copies of the uniform construction coordinates for every axis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.spline_interpolation.tensor_spline.TensorSpline.coefficients_from_data">
+<span class="sig-name descname"><span class="pre">coefficients_from_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NDArray</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NDArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">NDArray</span></span></span><a class="headerlink" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.coefficients_from_data" title="Link to this definition">#</a></dt>
+<dd><p>Prefilter new samples on this spline’s construction geometry.</p>
+<p>This is the explicit boundary between samples and cardinal spline
+coefficients.  It is useful when one coefficient field will be
+evaluated by several geometry plans.  Changing samples still require
+prefiltering; this method avoids repeating construction-grid and basis
+validation, not the mathematically required filter itself.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>ndarray</em>) – Floating or complex-floating samples with the template shape,
+dtype, and array backend.</p></li>
+<li><p><strong>out</strong> (<em>ndarray</em><em>, </em><em>optional</em>) – Exact-shape, exact-dtype destination for the coefficients.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.spline_interpolation.tensor_spline.TensorSpline.with_data">
+<span class="sig-name descname"><span class="pre">with_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NDArray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splineops.spline_interpolation.tensor_spline.TensorSpline" title="splineops.spline_interpolation.tensor_spline.TensorSpline"><span class="pre">TensorSpline</span></a></span></span><a class="headerlink" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.with_data" title="Link to this definition">#</a></dt>
+<dd><p>Return a compatible spline fitted to new samples.</p>
+<p>The construction coordinates, bases, and modes are shared as immutable
+geometry.  The returned spline owns newly computed coefficients and
+the template remains unchanged.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.spline_interpolation.tensor_spline.TensorSpline.with_coefficients">
+<span class="sig-name descname"><span class="pre">with_coefficients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coefficients</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NDArray</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splineops.spline_interpolation.tensor_spline.TensorSpline" title="splineops.spline_interpolation.tensor_spline.TensorSpline"><span class="pre">TensorSpline</span></a></span></span><a class="headerlink" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.with_coefficients" title="Link to this definition">#</a></dt>
+<dd><p>Return a compatible spline from precomputed cardinal coefficients.</p>
+<p><code class="docutils literal notranslate"><span class="pre">copy=True</span></code> is the safe default.  With <code class="docutils literal notranslate"><span class="pre">copy=False</span></code> the caller must
+not mutate the coefficient array while the returned spline or any
+geometry plan is evaluating it.  This method intentionally performs no
+interpolation prefilter.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="splineops.spline_interpolation.tensor_spline.TensorSpline.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NDArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.14)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><span class="pre">NDArray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">NDArray</span></span></span><a class="headerlink" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.__call__" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NDArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.14)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><span class="pre">NDArray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NDArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">NDArray</span></span></span><a class="headerlink" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.__call__" title="Link to this definition">#</a></dt>
 <dd><p>Call self as a function.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="splineops.spline_interpolation.tensor_spline.TensorSpline.eval">
-<span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NDArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.14)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><span class="pre">NDArray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">NDArray</span></span></span><a class="headerlink" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.eval" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NDArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.14)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><span class="pre">NDArray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NDArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">NDArray</span></span></span><a class="headerlink" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.eval" title="Link to this definition">#</a></dt>
 <dd><p>Evaluate the tensor spline at the given coordinates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -609,8 +940,111 @@ If False, treats the input coordinates as a list of points at which to evaluate 
 </div>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.spline_interpolation.tensor_spline.TensorSpline.query_plan">
+<span class="sig-name descname"><span class="pre">query_plan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NDArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.14)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><span class="pre">NDArray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_retained_bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">268435456</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.query_plan" title="Link to this definition">#</a></dt>
+<dd><p>Precompute support geometry for repeated fixed-coordinate queries.</p>
+<p>Query plans are experimental geometry objects compatible with any
+spline created through <a class="reference internal" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.with_data" title="splineops.spline_interpolation.tensor_spline.TensorSpline.with_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">with_data()</span></code></a> or <a class="reference internal" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.with_coefficients" title="splineops.spline_interpolation.tensor_spline.TensorSpline.with_coefficients"><code class="xref py py-meth docutils literal notranslate"><span class="pre">with_coefficients()</span></code></a>.
+They trade explicit, capped retained memory for faster repeated
+evaluation.  Ordinary calls remain the right choice for coordinates
+that are evaluated only once.</p>
 </dd></dl>
 
+</dd></dl>
+
+<section id="module-splineops.spline_interpolation.query_plan">
+<span id="experimental-query-plans"></span><h2>Experimental query plans<a class="headerlink" href="#module-splineops.spline_interpolation.query_plan" title="Link to this heading">#</a></h2>
+<p>Reusable fixed-coordinate geometry plans for <code class="xref py py-class docutils literal notranslate"><span class="pre">TensorSpline</span></code>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">splineops.spline_interpolation.query_plan.</span></span><span class="sig-name descname"><span class="pre">TensorSplineGeometryPlan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splineops.spline_interpolation.tensor_spline.TensorSpline" title="splineops.spline_interpolation.tensor_spline.TensorSpline"><span class="pre">TensorSpline</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinates</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_retained_bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A memory-capped support/weight plan for compatible tensor splines.</p>
+<p>Construct plans through <code class="xref py py-meth docutils literal notranslate"><span class="pre">TensorSpline.query_plan()</span></code>.  A plan is useful
+when the same coordinates are evaluated against changing sample values,
+such as successive image or volume frames.  Plan construction is extra
+work and retained memory, so one-shot calls should use the spline directly.</p>
+<p>The spline used at construction remains the default for backward
+compatibility.  Pass another compatible spline to <a class="reference internal" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.apply" title="splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.apply"><code class="xref py py-meth docutils literal notranslate"><span class="pre">apply()</span></code></a> to obtain
+the useful geometry-reuse behavior.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.retained_bytes">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">retained_bytes</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.retained_bytes" title="Link to this definition">#</a></dt>
+<dd><p>Bytes retained by support indexes and weights.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.output_shape">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">output_shape</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.output_shape" title="Link to this definition">#</a></dt>
+<dd><p>Shape returned by <a class="reference internal" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.apply" title="splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.apply"><code class="xref py py-meth docutils literal notranslate"><span class="pre">apply()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.grid">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">grid</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><a class="headerlink" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.grid" title="Link to this definition">#</a></dt>
+<dd><p>Whether the retained coordinates describe a tensor grid.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.attached">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">attached</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><a class="headerlink" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.attached" title="Link to this definition">#</a></dt>
+<dd><p>Whether a construction spline remains available as the default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.incompatibility_reason">
+<span class="sig-name descname"><span class="pre">incompatibility_reason</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splineops.spline_interpolation.tensor_spline.TensorSpline" title="splineops.spline_interpolation.tensor_spline.TensorSpline"><span class="pre">TensorSpline</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.incompatibility_reason" title="Link to this definition">#</a></dt>
+<dd><p>Explain why <code class="docutils literal notranslate"><span class="pre">spline</span></code> cannot use this geometry, or return <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.is_compatible">
+<span class="sig-name descname"><span class="pre">is_compatible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splineops.spline_interpolation.tensor_spline.TensorSpline" title="splineops.spline_interpolation.tensor_spline.TensorSpline"><span class="pre">TensorSpline</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.is_compatible" title="Link to this definition">#</a></dt>
+<dd><p>Return whether <code class="docutils literal notranslate"><span class="pre">spline</span></code> can be evaluated by this geometry plan.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splineops.spline_interpolation.tensor_spline.TensorSpline" title="splineops.spline_interpolation.tensor_spline.TensorSpline"><span class="pre">TensorSpline</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.__call__" title="Link to this definition">#</a></dt>
+<dd><p>Call self as a function.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.detach">
+<span class="sig-name descname"><span class="pre">detach</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan" title="splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan"><span class="pre">TensorSplineGeometryPlan</span></a></span></span><a class="headerlink" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.detach" title="Link to this definition">#</a></dt>
+<dd><p>Drop the construction spline while retaining reusable geometry.</p>
+<p>Detached plans must receive an explicit compatible spline in
+<a class="reference internal" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.apply" title="splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.apply"><code class="xref py py-meth docutils literal notranslate"><span class="pre">apply()</span></code></a>.  This is useful for higher-level reusable operators that
+should not retain the samples used to define their geometry.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splineops.spline_interpolation.tensor_spline.TensorSpline" title="splineops.spline_interpolation.tensor_spline.TensorSpline"><span class="pre">TensorSpline</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.apply" title="Link to this definition">#</a></dt>
+<dd><p>Evaluate a compatible spline using the precomputed geometry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spline</strong> (<a class="reference internal" href="#splineops.spline_interpolation.tensor_spline.TensorSpline" title="splineops.spline_interpolation.tensor_spline.TensorSpline"><em>TensorSpline</em></a><em>, </em><em>optional</em>) – Spline with the same construction grid, bases, modes, backend and
+real precision as the spline used to construct this plan.  If
+omitted, the construction spline is evaluated for compatibility
+with the original experimental API.</p></li>
+<li><p><strong>out</strong> (<em>ndarray</em><em>, </em><em>optional</em>) – Exact-shape, exact-dtype output buffer on the same array backend.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="splineops.spline_interpolation.query_plan.TensorSplineQueryPlan">
+<span class="sig-prename descclassname"><span class="pre">splineops.spline_interpolation.query_plan.</span></span><span class="sig-name descname"><span class="pre">TensorSplineQueryPlan</span></span><a class="headerlink" href="#splineops.spline_interpolation.query_plan.TensorSplineQueryPlan" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan" title="splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorSplineGeometryPlan</span></code></a></p>
+</dd></dl>
+
+</section>
 </section>
 
 
@@ -662,8 +1096,29 @@ If False, treats the input coordinates as a list of points at which to evaluate 
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.tensor_spline.TensorSpline"><code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.__init__"><code class="docutils literal notranslate"><span class="pre">TensorSpline.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.coordinates"><code class="docutils literal notranslate"><span class="pre">TensorSpline.coordinates</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.coefficients_from_data"><code class="docutils literal notranslate"><span class="pre">TensorSpline.coefficients_from_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.with_data"><code class="docutils literal notranslate"><span class="pre">TensorSpline.with_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.with_coefficients"><code class="docutils literal notranslate"><span class="pre">TensorSpline.with_coefficients()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.__call__"><code class="docutils literal notranslate"><span class="pre">TensorSpline.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.eval"><code class="docutils literal notranslate"><span class="pre">TensorSpline.eval()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.query_plan"><code class="docutils literal notranslate"><span class="pre">TensorSpline.query_plan()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-splineops.spline_interpolation.query_plan">Experimental query plans</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan"><code class="docutils literal notranslate"><span class="pre">TensorSplineGeometryPlan</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.retained_bytes"><code class="docutils literal notranslate"><span class="pre">TensorSplineGeometryPlan.retained_bytes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.output_shape"><code class="docutils literal notranslate"><span class="pre">TensorSplineGeometryPlan.output_shape</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.grid"><code class="docutils literal notranslate"><span class="pre">TensorSplineGeometryPlan.grid</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.attached"><code class="docutils literal notranslate"><span class="pre">TensorSplineGeometryPlan.attached</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.incompatibility_reason"><code class="docutils literal notranslate"><span class="pre">TensorSplineGeometryPlan.incompatibility_reason()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.is_compatible"><code class="docutils literal notranslate"><span class="pre">TensorSplineGeometryPlan.is_compatible()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.__call__"><code class="docutils literal notranslate"><span class="pre">TensorSplineGeometryPlan.__call__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.detach"><code class="docutils literal notranslate"><span class="pre">TensorSplineGeometryPlan.detach()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.apply"><code class="docutils literal notranslate"><span class="pre">TensorSplineGeometryPlan.apply()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.query_plan.TensorSplineQueryPlan"><code class="docutils literal notranslate"><span class="pre">TensorSplineQueryPlan</span></code></a></li>
 </ul>
 </li>
 </ul>

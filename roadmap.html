@@ -1,0 +1,1882 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Development roadmap &#8212; splineops 2.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=f56efcf3" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="_static/documentation_options.js?v=20623aea"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'roadmap';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="_static/logo.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Progress so far" href="progress.html" />
+    <link rel="prev" title="Method and source provenance" href="provenance.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">SplineOps</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation/index.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Five-minute quickstart
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user-guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user-guide/02_resize.html">
+    Resize
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="user-guide/01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="consolidation-recipes.html">
+    Reusable workflow recipes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="user-guide/03_affine.html">
+    Affine
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="user-guide/04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="user-guide/05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="user-guide/06_differentials.html">
+    Differentials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="user-guide/07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="internal-contracts.html">
+    Internal numerical contracts
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api/index.html">
+    API Reference
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/splineops/splineops" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden"></span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/splineops/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden"></span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation/index.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Five-minute quickstart
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user-guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user-guide/02_resize.html">
+    Resize
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user-guide/01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="consolidation-recipes.html">
+    Reusable workflow recipes
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user-guide/03_affine.html">
+    Affine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user-guide/04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user-guide/05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user-guide/06_differentials.html">
+    Differentials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user-guide/07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="internal-contracts.html">
+    Internal numerical contracts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/splineops/splineops" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden"></span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/splineops/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden"></span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Development roadmap</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="development-roadmap">
+<h1>Development roadmap<a class="headerlink" href="#development-roadmap" title="Link to this heading">#</a></h1>
+<section id="execution-status-2026-07-16">
+<h2>Execution status (2026-07-16)<a class="headerlink" href="#execution-status-2026-07-16" title="Link to this heading">#</a></h2>
+<p>Seven repository-wide implementation passes are complete.  The first established
+positioning, provenance, numerical contracts, bounded <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code>
+evaluation, conservative internal sharing, reproducible benchmarks, and the
+packaging and quality workflows.  The second added reusable geometry plans,
+separable tensor-grid contraction, a general affine API with batch/channel
+axes, 3-D and multi-output differentials, cached smoothing and denoising plans,
+vectorized multiscale axis passes, and a measured native resize scheduler
+policy.  The third added explicit coefficient reuse across compatible geometry,
+batch/channel axes for smoothing, planned differentials, pyramids, and
+wavelets, controlled denoising paths, plan inspection, constrained numerical
+references, end-to-end workflow benchmarks, stored regression thresholds, and
+a manual cross-platform resize benchmark matrix.  These capabilities remain in
+their independent public modules; this work did not fold <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> or
+the research tools into resize.</p>
+<p>The fourth pass removed higher-level per-slice dispatch from affine and
+differential plans, added cache-bounded batch groups for wavelet transforms,
+and introduced immutable compatibility tags for reusable affine coefficients.
+Complete-workflow benchmarks now measure those explicit-axis paths directly
+and enforce machine-relative regression floors.  The macOS FFT test uses a
+tight numerical tolerance, and CI annotations preserve the actual pytest
+failure section when a matrix job fails.</p>
+<p>The fifth pass profiles and directly contracts NumPy point supports, adapts
+wavelet batching to plane working-set size, adds selective and buffered
+differential outputs, and hardens affine coefficient persistence and concurrent
+reuse.  A batch-size/spatial-size memory sweep now accompanies the complete
+workflow benchmark, and the development benchmark runs smoke evidence for
+relevant publication-branch changes or a manually selected profile as a
+Linux/macOS/Windows matrix.  These additions strengthen evidence without
+merging the independent public modules.</p>
+<p>The sixth pass adds two realistic stability-soak pipelines, prevalidates every
+differential destination before numerical work, and makes affine coefficient
+persistence atomic, endian-portable, schema-compatible, and process-tested.
+Independent published-formula references now cover Keys, cubic O-MOMS, and the
+fractional smoothing transfer function.  The inherited order-5 wavelet table
+was verified against its DeconvolutionLab2 source and remains explicitly
+approximate rather than receiving invented taps.  Instrumented affine phases
+justify a narrower 3-D NumPy contraction change, while the public modules stay
+separate.</p>
+<p>The seventh pass turns the soak from two benchmark examples into a repeatable
+restart/corruption harness with smoke, standard, and extended profiles and a
+separate cross-platform workflow.  Randomized contracts now cover affine and
+differential axes/buffers, changing <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> geometry, and reversible
+wavelet shapes.  Historical affine schemas have immutable byte fixtures;
+smoothing and sparse regression gain broader independent references.  The CuPy
+contract is narrowed to experimental <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> interoperability with an
+explicit host-transfer caveat, and Affine/Differentials receive individual
+graduation audits without premature promotion.</p>
+<p>The first cross-platform API-soak run subsequently passed on Linux, macOS, and
+Windows for commit <code class="docutils literal notranslate"><span class="pre">df94733</span></code> alongside the nine-job Python/OS test matrix and
+quality workflow.  This closes the workflow-construction gate, but not the
+time-based compatibility gate: one successful matrix is a starting point for
+the soak period rather than proof that experimental APIs can already be frozen.
+See <a class="reference internal" href="progress.html"><span class="doc">Progress so far</span></a> for the consolidated snapshot.</p>
+<p>The detailed work packages below remain the long-term graduation criteria,
+not a claim that every experimental module is now stable.  In particular,
+implementation completeness and API stability are different promises.</p>
+<p>One evidence gate intentionally remains open: GPU-backed CuPy CI.  The
+Linux/macOS/Windows development smoke matrix passed for commit <code class="docutils literal notranslate"><span class="pre">32b9d8c</span></code> and
+the <a class="reference external" href="https://github.com/splineops/splineops/actions/runs/29429054363">standard matrix 29429054363</a> passed and was
+reviewed during the sixth pass.  Standard results
+confirmed numerical portability but not universal explicit-axis speedups, so
+the policy and performance claims were narrowed instead of tuning thresholds to
+one machine.  The manual resize and development matrices provide deeper
+evidence when requested.
+The maintainer
+cleared the current distribution’s provenance on
+2026-07-15.  Higher-order research modules remain experimental where a
+published numerical reference or exact reconstruction property is incomplete;
+the order-5 spline wavelet is one explicit example.  These limits are recorded in
+<a class="reference internal" href="project-status.html"><span class="doc">Project status and evidence</span></a> and <a class="reference internal" href="provenance.html"><span class="doc">Method and source provenance</span></a>.</p>
+<p>This stabilization work informed the 2.1 release, but it does not promote the
+experimental modules.  The next decision point is evidence over time rather
+than another broad implementation wave: let real downstream use exercise
+coefficient persistence, output selection, and explicit-axis APIs without
+contract changes.  Promote modules only when their individual graduation
+audits close.</p>
+</section>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
+<p>SplineOps will become a trustworthy collection of independent spline-based
+tools for data sampled on regular Cartesian grids.  Its strongest current
+component is projection-based N-D resizing.  The next development cycles will
+make <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> equally dependable, establish consistent numerical
+contracts across the package, and then improve the other modules without
+erasing their separate identities.</p>
+<p>The intended product position is deliberately narrow:</p>
+<blockquote>
+<div><p>Precise N-D spline interpolation and resampling, with specialized tools for
+geometric transforms, differentials, smoothing, regression, and multiscale
+analysis.</p>
+</div></blockquote>
+<p>This is an execution roadmap rather than a list of aspirations.  Work packages
+are ordered by dependency, have explicit completion gates, and identify
+conditions under which work must stop or change direction.</p>
+</section>
+<section id="module-boundaries">
+<h2>Module boundaries<a class="headerlink" href="#module-boundaries" title="Link to this heading">#</a></h2>
+<section id="public-modules-remain-independent">
+<h3>Public modules remain independent<a class="headerlink" href="#public-modules-remain-independent" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> is not a wrapper around resize, and resize is not implemented
+by constructing a <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code>.  Each public module keeps a purpose-specific
+API and may keep a specialized implementation when its workload or mathematics
+requires one.</p>
+<p>The intended public structure is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>splineops
+|-- TensorSpline             continuous tensor-product spline model
+|-- resize / ResizePlan      regular-grid scaling and projection
+|-- affine                   geometric coordinate transforms
+|-- differentials           spline-derived image derivatives
+|-- smoothing_splines       regularized signal and image smoothing
+|-- adaptive_regression     sparse piecewise-linear regression
+`-- multiscale              pyramids and wavelet transforms
+</pre></div>
+</div>
+<p>Internal sharing is allowed only below those APIs:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>internal numerical components
+|-- basis definitions and derivative evaluations
+|-- coefficient prefilters
+|-- boundary and index mapping
+|-- dtype and precision policy
+|-- array-backend dispatch
+`-- bounded-memory evaluation utilities
+</pre></div>
+</div>
+<p>Sharing is justified only when two modules have the same mathematical
+contract.  Similar-looking code with different coordinate, projection, or
+boundary semantics must remain separate and be documented as such.</p>
+</section>
+<section id="stability-levels">
+<h3>Stability levels<a class="headerlink" href="#stability-levels" title="Link to this heading">#</a></h3>
+<p>The package will communicate module maturity explicitly:</p>
+<ul class="simple">
+<li><p><strong>Stable:</strong> resize and <code class="docutils literal notranslate"><span class="pre">ResizePlan</span></code> after the 2.0 contract.</p></li>
+<li><p><strong>Stabilizing:</strong> <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> and its basis and extension-mode APIs.</p></li>
+<li><p><strong>Experimental:</strong> affine, differentials, smoothing splines, adaptive
+regression splines, pyramids, and wavelets until their graduation gates are
+met.</p></li>
+</ul>
+<p>An experimental label does not imply removal.  It means that correctness,
+edge-case behavior, public imports, or performance contracts are not complete.</p>
+</section>
+</section>
+<section id="guiding-principles">
+<h2>Guiding principles<a class="headerlink" href="#guiding-principles" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Preserve independent, comprehensible public modules.</p></li>
+<li><p>Prefer explicit mathematical contracts over historical compatibility.</p></li>
+<li><p>Test invariants such as sample reproduction, constant preservation, and
+perfect reconstruction rather than relying only on saved output arrays.</p></li>
+<li><p>Maintain a readable NumPy reference path for numerical work that also has an
+accelerated implementation.</p></li>
+<li><p>Optimize complete workloads, including construction, coefficient creation,
+allocation, memory movement, and repeated evaluation.</p></li>
+<li><p>Require numerical equivalence or a documented accuracy policy for every
+accelerated path.</p></li>
+<li><p>Treat a backend as supported only when dispatch, tests, packaging, and
+continuous integration all cover it.</p></li>
+<li><p>Do not use native-versus-Python-fallback speedup as evidence of competitive
+advantage.  Compare against external libraries with equivalent semantics
+whenever possible.</p></li>
+<li><p>Do not port more legacy code until provenance, licensing, purpose, and a
+maintenance owner are known.</p></li>
+</ul>
+</section>
+<section id="execution-protocol">
+<h2>Execution protocol<a class="headerlink" href="#execution-protocol" title="Link to this heading">#</a></h2>
+<p>The following procedure applies to every work package and is intended to make
+the roadmap safe to execute incrementally.</p>
+<ol class="arabic simple">
+<li><p>Record the current behavior with focused tests and, for performance work,
+a saved benchmark artifact.</p></li>
+<li><p>State the mathematical and API contract before changing an implementation.</p></li>
+<li><p>Make the smallest coherent change that advances one work package.</p></li>
+<li><p>Run focused tests while developing and the full suite before completing the
+package.</p></li>
+<li><p>Compare accelerated results with the reference implementation across
+shapes, dtypes, boundaries, and degenerate cases.</p></li>
+<li><p>Update user documentation, API documentation, examples, and changelog when
+observable behavior changes.</p></li>
+<li><p>Save benchmark data as machine-readable CSV or JSON and generate summaries
+from those artifacts.</p></li>
+<li><p>Remove unsuccessful experiments rather than leaving inactive code paths or
+environment switches behind.</p></li>
+<li><p>Mark a work package complete only when every listed completion gate passes.</p></li>
+</ol>
+<p>Work must pause for review when a proposed change:</p>
+<ul class="simple">
+<li><p>changes a stable public API or the resize sampling grid;</p></li>
+<li><p>changes default numerical results beyond documented tolerances;</p></li>
+<li><p>introduces a new required dependency or binary backend;</p></li>
+<li><p>cannot be explained from a cited method and maintained reference path;</p></li>
+<li><p>depends on legacy source whose redistribution or derivation rights are not
+clear; or</p></li>
+<li><p>improves a microbenchmark while making representative end-to-end workloads
+slower or substantially more memory-hungry.</p></li>
+</ul>
+</section>
+<section id="milestone-0-establish-the-trustworthy-baseline">
+<h2>Milestone 0: establish the trustworthy baseline<a class="headerlink" href="#milestone-0-establish-the-trustworthy-baseline" title="Link to this heading">#</a></h2>
+<p>This milestone creates the evidence and project boundaries needed for all
+later work.  It does not redesign numerical algorithms.</p>
+<section id="wp0-1-product-and-capability-statement">
+<h3>WP0.1: product and capability statement<a class="headerlink" href="#wp0-1-product-and-capability-statement" title="Link to this heading">#</a></h3>
+<section id="tasks">
+<h4>Tasks<a class="headerlink" href="#tasks" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Rewrite the README and documentation landing page around precise N-D spline
+interpolation and resampling.</p></li>
+<li><p>Replace unqualified claims such as “ground-breaking”, “optimized”, and GPU
+support with specific, tested capabilities.</p></li>
+<li><p>Publish a module-status table with stable, stabilizing, and experimental
+labels.</p></li>
+<li><p>Document where SplineOps differs semantically from SciPy, OpenCV,
+scikit-image, and PyTorch.</p></li>
+<li><p>Provide one minimal example for <code class="docutils literal notranslate"><span class="pre">resize</span></code> and one for <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> on
+the landing page.</p></li>
+</ul>
+</section>
+<section id="completion-gates">
+<h4>Completion gates<a class="headerlink" href="#completion-gates" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>A new user can identify the primary use cases and non-goals from the README.</p></li>
+<li><p>Every performance claim links to a reproducible benchmark definition.</p></li>
+<li><p>GPU wording is limited to the operations and modes tested in CI.</p></li>
+</ul>
+</section>
+</section>
+<section id="wp0-2-provenance-and-licensing-inventory">
+<h3>WP0.2: provenance and licensing inventory<a class="headerlink" href="#wp0-2-provenance-and-licensing-inventory" title="Link to this heading">#</a></h3>
+<section id="id1">
+<h4>Tasks<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Inventory each implementation derived from <code class="docutils literal notranslate"><span class="pre">legacy_code</span></code>.</p></li>
+<li><p>Record original author, source, publication, original license notice, porting
+history, and current maintainer.</p></li>
+<li><p>Reconcile repository-level licensing with embedded research-only, GPL, or
+other notices before distributing derived implementations.</p></li>
+<li><p>Add acknowledgements and citations at module level where appropriate.</p></li>
+<li><p>Remove or quarantine code whose provenance cannot be resolved.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h4>Completion gates<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Every shipped legacy-derived module has a provenance record.</p></li>
+<li><p>The distribution contains no known contradictory licensing statements.</p></li>
+<li><p>New legacy ports have an explicit review checklist.</p></li>
+</ul>
+</section>
+</section>
+<section id="wp0-3-reproducible-baseline">
+<h3>WP0.3: reproducible baseline<a class="headerlink" href="#wp0-3-reproducible-baseline" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h4>Tasks<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Record supported Python, NumPy, SciPy, compiler, and operating-system
+versions.</p></li>
+<li><p>Establish deterministic random seeds and eliminate order-dependent tests.</p></li>
+<li><p>Capture full test, build, documentation, and resize benchmark baselines.</p></li>
+<li><p>Add peak-memory measurement to the benchmark infrastructure.</p></li>
+<li><p>Separate exact or near-equivalent cross-library rows from contextual image
+resize comparisons.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h4>Completion gates<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>One documented command reproduces each baseline suite.</p></li>
+<li><p>Benchmark artifacts include environment metadata, runtime, peak memory,
+output shape, dtype, and numerical differences.</p></li>
+<li><p>No timing threshold is used as a flaky unit-test assertion.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="milestone-1-stabilize-tensorspline-without-absorbing-it">
+<h2>Milestone 1: stabilize TensorSpline without absorbing it<a class="headerlink" href="#milestone-1-stabilize-tensorspline-without-absorbing-it" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> remains a standalone continuous-model class.  This milestone
+defines what it accepts, what it computes, and how it behaves at boundaries.</p>
+<section id="wp1-1-public-api-and-coordinate-contract">
+<h3>WP1.1: public API and coordinate contract<a class="headerlink" href="#wp1-1-public-api-and-coordinate-contract" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h4>Tasks<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Provide a stable top-level import for <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> while preserving the
+module import path.</p></li>
+<li><p>Decide whether construction coordinates are required; if retained, validate
+that they form a uniform grid within a documented tolerance.</p></li>
+<li><p>Explicitly reject nonuniform grids until a true nonuniform algorithm exists.</p></li>
+<li><p>Define scalar, point-list, meshgrid, tensor-product-grid, and batched query
+shapes.</p></li>
+<li><p>Define whether query coordinates must be sorted for each evaluation mode.</p></li>
+<li><p>Correct obsolete import paths in docstrings and API documentation.</p></li>
+<li><p>Document object immutability and whether source data or coefficients are
+copied or retained.</p></li>
+</ul>
+</section>
+<section id="id6">
+<h4>Completion gates<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Accepted coordinate forms and output shapes are documented with examples.</p></li>
+<li><p>Invalid coordinate forms fail with stable, actionable exceptions.</p></li>
+<li><p>Public imports are covered by tests and documentation builds.</p></li>
+</ul>
+</section>
+</section>
+<section id="wp1-2-basis-and-boundary-correctness">
+<h3>WP1.2: basis and boundary correctness<a class="headerlink" href="#wp1-2-basis-and-boundary-correctness" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h4>Tasks<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Add cardinal sample-reproduction tests for every advertised basis and mode.</p></li>
+<li><p>Cover zero, mirror, and periodic extension across multiple extension
+periods.</p></li>
+<li><p>Test signals shorter than basis support and periodic signals around which a
+basis wraps more than once.</p></li>
+<li><p>Cover singleton dimensions and clearly reject empty dimensions.</p></li>
+<li><p>Test real and complex coefficient paths where complex values are supported.</p></li>
+<li><p>Define tolerances by dtype, basis family, and operation instead of using one
+package-wide tolerance.</p></li>
+<li><p>Add analytical tests for constants, ramps, polynomials, impulses, and
+periodic trigonometric signals.</p></li>
+</ul>
+</section>
+<section id="id8">
+<h4>Completion gates<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Every advertised basis/mode pair either reproduces samples within its
+documented tolerance or is removed from the advertised set.</p></li>
+<li><p>Short and singleton cases work or fail through documented validation.</p></li>
+<li><p>Periodic evaluation agrees across equivalent coordinate periods.</p></li>
+</ul>
+</section>
+</section>
+<section id="wp1-3-dtype-and-backend-contract">
+<h3>WP1.3: dtype and backend contract<a class="headerlink" href="#wp1-3-dtype-and-backend-contract" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h4>Tasks<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Define accepted input, coordinate, coefficient, accumulator, and output
+dtypes.</p></li>
+<li><p>Replace backend detection based on type-name strings with explicit dispatch.</p></li>
+<li><p>Prevent accidental host-device transfers in CuPy paths.</p></li>
+<li><p>Define which combinations of complex data and real coordinates are
+supported.</p></li>
+<li><p>Test NumPy first; retain CuPy support only for paths covered by dedicated CI.</p></li>
+</ul>
+</section>
+<section id="id10">
+<h4>Completion gates<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Dtype behavior is predictable and tested for integer, float32, float64,
+complex64, and complex128 inputs as applicable.</p></li>
+<li><p>Unsupported array types fail explicitly rather than being misdetected.</p></li>
+<li><p>GPU support claims match CI coverage exactly.</p></li>
+</ul>
+</section>
+</section>
+<section id="wp1-4-correctness-defects-and-maintenance-cleanup">
+<h3>WP1.4: correctness defects and maintenance cleanup<a class="headerlink" href="#wp1-4-correctness-defects-and-maintenance-cleanup" title="Link to this heading">#</a></h3>
+<section id="id11">
+<h4>Tasks<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Remove duplicate and shadowed function definitions.</p></li>
+<li><p>Replace console output in library functions with returned values, logging,
+warnings, or exceptions as appropriate.</p></li>
+<li><p>Remove silent parameter clamping.</p></li>
+<li><p>Fix mutation of caller-owned arrays unless mutation is explicitly part of an
+API.</p></li>
+<li><p>Add formatting, linting, static typing, and coverage reporting to CI in
+non-flaky configurations.</p></li>
+</ul>
+</section>
+<section id="id12">
+<h4>Completion gates<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Static checks pass on the supported Python versions.</p></li>
+<li><p>Public functions do not print or silently rewrite parameters.</p></li>
+<li><p>Known defects identified in the initial audit have regression tests.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="milestone-2-define-reusable-internal-numerical-components">
+<h2>Milestone 2: define reusable internal numerical components<a class="headerlink" href="#milestone-2-define-reusable-internal-numerical-components" title="Link to this heading">#</a></h2>
+<p>This milestone reduces duplicated fragile machinery while preserving public
+module independence.  Extraction proceeds one component at a time; it is not a
+whole-package rewrite.</p>
+<section id="wp2-1-contract-inventory-before-extraction">
+<h3>WP2.1: contract inventory before extraction<a class="headerlink" href="#wp2-1-contract-inventory-before-extraction" title="Link to this heading">#</a></h3>
+<section id="id13">
+<h4>Tasks<a class="headerlink" href="#id13" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Compare basis definitions used by <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code>, resize, affine, and
+differentials.</p></li>
+<li><p>Compare coordinate origins, endpoint rules, boundary rules, coefficient
+normalization, and derivative conventions.</p></li>
+<li><p>Identify components with genuinely identical contracts.</p></li>
+<li><p>Record deliberate differences that must not be unified.</p></li>
+<li><p>Design internal protocols that do not expose backend implementation details
+in public APIs.</p></li>
+</ul>
+</section>
+<section id="id14">
+<h4>Completion gates<a class="headerlink" href="#id14" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>A written compatibility matrix exists for every proposed shared component.</p></li>
+<li><p>No extraction begins where coordinate or boundary semantics remain
+ambiguous.</p></li>
+</ul>
+</section>
+</section>
+<section id="wp2-2-basis-and-boundary-primitives">
+<h3>WP2.2: basis and boundary primitives<a class="headerlink" href="#wp2-2-basis-and-boundary-primitives" title="Link to this heading">#</a></h3>
+<section id="id15">
+<h4>Tasks<a class="headerlink" href="#id15" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Centralize basis metadata such as support, poles, parity, and derivative
+evaluation where definitions are mathematically identical.</p></li>
+<li><p>Provide tested boundary-index mapping primitives for zero, mirror, and
+periodic behavior.</p></li>
+<li><p>Keep resize-specific anti-mirror or projection boundary behavior local when
+it does not match interpolation.</p></li>
+<li><p>Remove duplicated implementations only after old and new paths pass the same
+invariant suite.</p></li>
+</ul>
+</section>
+<section id="id16">
+<h4>Completion gates<a class="headerlink" href="#id16" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Consumer modules retain their existing public APIs.</p></li>
+<li><p>Shared primitives have focused unit tests independent of any consumer.</p></li>
+<li><p>Numerical comparisons show no unexplained changes.</p></li>
+</ul>
+</section>
+</section>
+<section id="wp2-3-coefficient-prefilter-interface">
+<h3>WP2.3: coefficient-prefilter interface<a class="headerlink" href="#wp2-3-coefficient-prefilter-interface" title="Link to this heading">#</a></h3>
+<section id="id17">
+<h4>Tasks<a class="headerlink" href="#id17" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Define an internal coefficient-construction interface with explicit basis,
+boundary, axis, dtype, and backend arguments.</p></li>
+<li><p>Retain specialized resize projection filters separately from cardinal
+interpolation prefilters.</p></li>
+<li><p>Support separable axis processing without unnecessary full-array copies.</p></li>
+<li><p>Establish a reference NumPy implementation before adding or reusing native
+kernels.</p></li>
+</ul>
+</section>
+<section id="id18">
+<h4>Completion gates<a class="headerlink" href="#id18" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> uses the interface without changing its public behavior.</p></li>
+<li><p>Resize uses shared code only where parity and performance both justify it.</p></li>
+<li><p>Reference/native comparisons cover short, long, contiguous, and strided
+axes.</p></li>
+</ul>
+</section>
+</section>
+<section id="wp2-4-bounded-memory-evaluation-utilities">
+<h3>WP2.4: bounded-memory evaluation utilities<a class="headerlink" href="#wp2-4-bounded-memory-evaluation-utilities" title="Link to this heading">#</a></h3>
+<section id="id19">
+<h4>Tasks<a class="headerlink" href="#id19" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Introduce internal iterators or plans that evaluate coordinates in bounded
+tiles.</p></li>
+<li><p>Make tile size configurable internally and choose a conservative default.</p></li>
+<li><p>Avoid materializing broadcast tensor-product weights for complete large
+outputs.</p></li>
+<li><p>Preserve deterministic accumulation order where precision requires it.</p></li>
+<li><p>Support caller-provided output arrays when safe.</p></li>
+</ul>
+</section>
+<section id="id20">
+<h4>Completion gates<a class="headerlink" href="#id20" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Peak temporary memory is bounded by tile size rather than full query size.</p></li>
+<li><p>Tiled and untiled reference results agree within documented tolerances.</p></li>
+<li><p>Small workloads do not regress materially because of tiling overhead.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="milestone-3-make-tensorspline-efficient-as-tensorspline">
+<h2>Milestone 3: make TensorSpline efficient as TensorSpline<a class="headerlink" href="#milestone-3-make-tensorspline-efficient-as-tensorspline" title="Link to this heading">#</a></h2>
+<p>Optimization here is specific to continuous spline construction and arbitrary
+coordinate evaluation.  It does not route through the resize API.</p>
+<section id="wp3-1-benchmark-construction-and-evaluation-separately">
+<h3>WP3.1: benchmark construction and evaluation separately<a class="headerlink" href="#wp3-1-benchmark-construction-and-evaluation-separately" title="Link to this heading">#</a></h3>
+<p>Benchmark dimensions include:</p>
+<ul class="simple">
+<li><p>one-dimensional signals, two-dimensional images, and three-dimensional
+volumes;</p></li>
+<li><p>linear, cubic B-spline, higher-degree B-spline, and O-MOMS representatives;</p></li>
+<li><p>zero, mirror, and periodic modes;</p></li>
+<li><p>one-shot construction/evaluation and repeated evaluations;</p></li>
+<li><p>tensor-product grids, point lists, meshgrids, and batched coordinates; and</p></li>
+<li><p>runtime, peak memory, coefficient memory, and numerical error.</p></li>
+</ul>
+<section id="id21">
+<h4>Completion gates<a class="headerlink" href="#id21" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Reports distinguish coefficient construction from evaluation.</p></li>
+<li><p>Repeated-evaluation benchmarks do not reconstruct invariant coefficients.</p></li>
+<li><p>Comparisons with SciPy are restricted to semantically comparable cases.</p></li>
+</ul>
+</section>
+</section>
+<section id="wp3-2-tiled-evaluation">
+<h3>WP3.2: tiled evaluation<a class="headerlink" href="#wp3-2-tiled-evaluation" title="Link to this heading">#</a></h3>
+<section id="id22">
+<h4>Tasks<a class="headerlink" href="#id22" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Apply the bounded-memory utilities to point-list and grid evaluation.</p></li>
+<li><p>Avoid stacking all broadcast weights when separable contractions or tiled
+gathers are possible.</p></li>
+<li><p>Choose different internal strategies for tensor-product and arbitrary-point
+queries when benchmarks justify them.</p></li>
+<li><p>Add output-buffer support without weakening normal allocation semantics.</p></li>
+</ul>
+</section>
+<section id="id23">
+<h4>Completion gates<a class="headerlink" href="#id23" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Representative 3-D queries complete within a documented memory envelope.</p></li>
+<li><p>Runtime and peak memory improve on large workloads without changing results.</p></li>
+<li><p>Small query overhead remains acceptable.</p></li>
+</ul>
+</section>
+</section>
+<section id="wp3-3-reusable-evaluation-plans">
+<h3>WP3.3: reusable evaluation plans<a class="headerlink" href="#wp3-3-reusable-evaluation-plans" title="Link to this heading">#</a></h3>
+<section id="id24">
+<h4>Tasks<a class="headerlink" href="#id24" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Separate reusable coordinate geometry from data-dependent coefficients.</p></li>
+<li><p>Cache support indexes and weights for repeated fixed-coordinate evaluation.</p></li>
+<li><p>Bound all process-level caches by entry count and retained bytes, or keep
+reuse explicit through a plan object.</p></li>
+<li><p>Define thread-safety, immutability, and fork behavior before exposing a plan
+publicly.</p></li>
+</ul>
+</section>
+<section id="id25">
+<h4>Completion gates<a class="headerlink" href="#id25" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Repeated workloads avoid invariant setup work.</p></li>
+<li><p>Cache and workspace memory are bounded and tested.</p></li>
+<li><p>Plan and ordinary evaluation return equivalent results.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="milestone-4-improve-independent-consumer-modules">
+<h2>Milestone 4: improve independent consumer modules<a class="headerlink" href="#milestone-4-improve-independent-consumer-modules" title="Link to this heading">#</a></h2>
+<p>These modules consume tested internal primitives where appropriate, but remain
+separate public tools.</p>
+<section id="wp4-1-affine-transforms">
+<h3>WP4.1: affine transforms<a class="headerlink" href="#wp4-1-affine-transforms" title="Link to this heading">#</a></h3>
+<section id="id26">
+<h4>Tasks<a class="headerlink" href="#id26" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Define geometry, center, axis, output shape, coordinate direction, boundary,
+and dtype contracts for rotation.</p></li>
+<li><p>Replace full-volume meshgrid construction with tiled coordinate generation.</p></li>
+<li><p>Preserve <code class="docutils literal notranslate"><span class="pre">rotate</span></code> as a simple public API.</p></li>
+<li><p>Add a general affine-matrix API only after rotation is stable.</p></li>
+<li><p>Compare against analytical functions and semantically configured SciPy
+transforms.</p></li>
+</ul>
+</section>
+<section id="id27">
+<h4>Completion gates<a class="headerlink" href="#id27" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Affine transforms do not allocate complete stacked coordinate volumes.</p></li>
+<li><p>Integer input and output dtype behavior is explicit.</p></li>
+<li><p>Two-dimensional and three-dimensional analytical accuracy tests pass.</p></li>
+</ul>
+</section>
+</section>
+<section id="wp4-2-differentials">
+<h3>WP4.2: differentials<a class="headerlink" href="#wp4-2-differentials" title="Link to this heading">#</a></h3>
+<section id="id28">
+<h4>Tasks<a class="headerlink" href="#id28" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Define whether outputs are raw physical derivatives or visualization-ready
+normalized images; stable numerical APIs must return raw derivatives.</p></li>
+<li><p>Preserve input arrays and return results rather than mutating object state.</p></li>
+<li><p>Express gradients, Hessians, Laplacians, and derivative bases through tested
+coefficient and basis primitives where contracts match.</p></li>
+<li><p>Remove Python row and column loops after a reference implementation is
+established.</p></li>
+<li><p>Add pixel-spacing parameters before claiming physical derivative units.</p></li>
+</ul>
+</section>
+<section id="id29">
+<h4>Completion gates<a class="headerlink" href="#id29" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Polynomial and trigonometric analytical derivative tests pass.</p></li>
+<li><p>No numerical operation performs implicit visualization normalization.</p></li>
+<li><p>Runtime and memory benchmarks cover 2-D images and 3-D volumes if supported.</p></li>
+</ul>
+</section>
+</section>
+<section id="wp4-3-resize-maintenance-and-targeted-profiling">
+<h3>WP4.3: resize maintenance and targeted profiling<a class="headerlink" href="#wp4-3-resize-maintenance-and-targeted-profiling" title="Link to this heading">#</a></h3>
+<p>Resize remains specialized.  The v2 direct cross-Gram projection pipeline must
+be profiled afresh; June 2026 finite-difference projection profiles are
+historical for the replaced paths.</p>
+<section id="id30">
+<h4>Tasks<a class="headerlink" href="#id30" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Re-run native phase profiles and cross-library benchmarks on the current v2
+implementation.</p></li>
+<li><p>Add hardware-counter evidence where the execution environment permits it.</p></li>
+<li><p>Validate a narrow serial-execution gate for small 3-D workloads.</p></li>
+<li><p>Consider cubic gather or layout changes only when profiles identify a
+specific end-to-end bottleneck.</p></li>
+<li><p>Track runtime and peak memory regressions without imposing noisy CI timing
+failures.</p></li>
+</ul>
+</section>
+<section id="id31">
+<h4>Completion gates<a class="headerlink" href="#id31" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Current reports no longer mix superseded and current projection algorithms.</p></li>
+<li><p>Scheduler changes win across the stated workload class on more than one
+hardware configuration.</p></li>
+<li><p>Generic 2-D image-resize speed is not used as the primary product claim.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="milestone-5-assess-the-remaining-research-modules">
+<h2>Milestone 5: assess the remaining research modules<a class="headerlink" href="#milestone-5-assess-the-remaining-research-modules" title="Link to this heading">#</a></h2>
+<p>Each module graduates independently.  Sharing a repository does not require a
+shared release maturity level.</p>
+<section id="wp5-1-smoothing-splines">
+<h3>WP5.1: smoothing splines<a class="headerlink" href="#wp5-1-smoothing-splines" title="Link to this heading">#</a></h3>
+<section id="id32">
+<h4>Tasks<a class="headerlink" href="#id32" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Remove duplicate definitions and distinguish exact spline methods from
+Butterworth-like approximations.</p></li>
+<li><p>Validate parameter domains, empty and singleton signals, and constant
+preservation.</p></li>
+<li><p>Compare recursive and FFT formulations where the mathematics predicts
+equivalence.</p></li>
+<li><p>Document boundary assumptions and output sampling grids.</p></li>
+</ul>
+</section>
+<section id="graduation-gate">
+<h4>Graduation gate<a class="headerlink" href="#graduation-gate" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Every advertised method is tied to a documented formulation and analytical
+or independent numerical reference.</p></li>
+</ul>
+</section>
+</section>
+<section id="wp5-2-adaptive-regression-splines">
+<h3>WP5.2: adaptive regression splines<a class="headerlink" href="#wp5-2-adaptive-regression-splines" title="Link to this heading">#</a></h3>
+<section id="id33">
+<h4>Tasks<a class="headerlink" href="#id33" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Fix amplitude sparsification and caller-array mutation.</p></li>
+<li><p>Validate sorted, unique sample coordinates and degenerate inputs.</p></li>
+<li><p>Test knot recovery on synthetic piecewise-linear signals.</p></li>
+<li><p>Benchmark against an appropriate reference only after correctness is
+established.</p></li>
+</ul>
+</section>
+<section id="id34">
+<h4>Graduation gate<a class="headerlink" href="#id34" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Recovered functions satisfy interpolation or optimization invariants across
+deterministic synthetic cases.</p></li>
+</ul>
+</section>
+</section>
+<section id="wp5-3-pyramids-and-wavelets">
+<h3>WP5.3: pyramids and wavelets<a class="headerlink" href="#wp5-3-pyramids-and-wavelets" title="Link to this heading">#</a></h3>
+<section id="id35">
+<h4>Tasks<a class="headerlink" href="#id35" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Define supported shapes, scales, filters, normalization, and boundary rules.</p></li>
+<li><p>Add randomized perfect-reconstruction tests across even, odd, singleton,
+rectangular, and small dimensions.</p></li>
+<li><p>Audit higher-order spline-wavelet reconstruction accuracy.</p></li>
+<li><p>Reject unsupported shapes clearly until reversible behavior exists.</p></li>
+<li><p>Optimize row and column processing only after reconstruction contracts pass.</p></li>
+</ul>
+</section>
+<section id="id36">
+<h4>Graduation gate<a class="headerlink" href="#id36" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Perfect reconstruction holds within dtype-specific tolerance for every
+advertised filter, scale, and shape class.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="milestone-6-backend-packaging-and-release-maturity">
+<h2>Milestone 6: backend, packaging, and release maturity<a class="headerlink" href="#milestone-6-backend-packaging-and-release-maturity" title="Link to this heading">#</a></h2>
+<section id="wp6-1-continuous-integration">
+<h3>WP6.1: continuous integration<a class="headerlink" href="#wp6-1-continuous-integration" title="Link to this heading">#</a></h3>
+<section id="id37">
+<h4>Tasks<a class="headerlink" href="#id37" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Test every supported Python version, including Python 3.13 when dependencies
+and wheels permit it.</p></li>
+<li><p>Run unit tests, native-required tests, formatting, static typing,
+documentation, package builds, and clean-wheel smoke tests.</p></li>
+<li><p>Add coverage reporting to reveal untested modules without treating a single
+percentage as proof of correctness.</p></li>
+<li><p>Add CuPy CI only when a reliable GPU runner and supported dependency matrix
+exist.</p></li>
+</ul>
+</section>
+<section id="id38">
+<h4>Completion gates<a class="headerlink" href="#id38" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Supported platforms install wheels that include and exercise the native
+extension.</p></li>
+<li><p>Documentation examples use valid public imports.</p></li>
+<li><p>The advertised backend matrix is generated from tested configurations.</p></li>
+</ul>
+</section>
+</section>
+<section id="wp6-2-benchmark-publication">
+<h3>WP6.2: benchmark publication<a class="headerlink" href="#wp6-2-benchmark-publication" title="Link to this heading">#</a></h3>
+<section id="id39">
+<h4>Tasks<a class="headerlink" href="#id39" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Generate Markdown reports from versioned benchmark schemas.</p></li>
+<li><p>Publish exact-semantics comparisons separately from contextual comparisons.</p></li>
+<li><p>Include hardware, threads, library versions, coordinates, boundaries,
+antialiasing semantics, runtime, peak memory, and numerical differences.</p></li>
+<li><p>Preserve historical reports but label superseded algorithms and results.</p></li>
+</ul>
+</section>
+<section id="id40">
+<h4>Completion gates<a class="headerlink" href="#id40" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Every headline performance statement can be regenerated from an artifact.</p></li>
+<li><p>Benchmark reports state both wins and losses.</p></li>
+<li><p>Historical reports cannot be mistaken for the current implementation.</p></li>
+</ul>
+</section>
+</section>
+<section id="wp6-3-stable-module-graduation">
+<h3>WP6.3: stable-module graduation<a class="headerlink" href="#wp6-3-stable-module-graduation" title="Link to this heading">#</a></h3>
+<p>A module is marked stable only when it has:</p>
+<ul class="simple">
+<li><p>a clear purpose distinct from neighboring modules;</p></li>
+<li><p>a documented mathematical, shape, dtype, and boundary contract;</p></li>
+<li><p>stable public imports and examples;</p></li>
+<li><p>invariant and edge-case tests;</p></li>
+<li><p>a reference or independently validated implementation;</p></li>
+<li><p>runtime and memory benchmarks appropriate to its workload; and</p></li>
+<li><p>an identified maintenance and provenance record.</p></li>
+</ul>
+<p>Modules that do not meet these gates remain experimental.  Modules without a
+clear purpose or maintainable contract may move to a separate research archive
+rather than delaying stable modules.</p>
+</section>
+</section>
+<section id="release-sequence">
+<h2>Release sequence<a class="headerlink" href="#release-sequence" title="Link to this heading">#</a></h2>
+<section id="x-trustworthy-surface">
+<h3>2.0.x: trustworthy surface<a class="headerlink" href="#x-trustworthy-surface" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Complete Milestone 0.</p></li>
+<li><p>Stabilize <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> contracts and public imports from Milestone 1.</p></li>
+<li><p>Fix clear correctness and documentation defects.</p></li>
+<li><p>Narrow unsupported GPU and performance claims.</p></li>
+<li><p>Avoid intentional resize output changes.</p></li>
+</ul>
+</section>
+<section id="dependable-tensorspline">
+<h3>2.1: dependable TensorSpline<a class="headerlink" href="#dependable-tensorspline" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> correctness, dtype, and backend gates.</p></li>
+<li><p>Introduce only the internal primitives proven compatible in Milestone 2.</p></li>
+<li><p>Deliver bounded-memory <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> evaluation and end-to-end benchmarks.</p></li>
+<li><p>Preserve <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> as its own public class and conceptual model.</p></li>
+</ul>
+</section>
+<section id="geometric-and-differential-tools">
+<h3>2.2: geometric and differential tools<a class="headerlink" href="#geometric-and-differential-tools" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Deliver tiled affine evaluation.</p></li>
+<li><p>Rebuild differentials around raw numerical outputs and analytical tests.</p></li>
+<li><p>Re-profile current resize and accept only evidence-backed targeted changes.</p></li>
+</ul>
+</section>
+<section id="research-module-graduation">
+<h3>2.3: research-module graduation<a class="headerlink" href="#research-module-graduation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Graduate smoothing, adaptive regression, and multiscale modules
+independently as their contracts pass.</p></li>
+<li><p>Keep incomplete modules explicitly experimental.</p></li>
+</ul>
+</section>
+<section id="coherent-stable-api">
+<h3>3.0: coherent stable API<a class="headerlink" href="#coherent-stable-api" title="Link to this heading">#</a></h3>
+<p>Version 3.0 is warranted only if stable-module graduation requires deliberate
+public API cleanup.  It is not a deadline for declaring every module stable.
+The main API should contain only operations whose contracts the project is
+prepared to maintain.</p>
+</section>
+</section>
+<section id="dependency-order">
+<h2>Dependency order<a class="headerlink" href="#dependency-order" title="Link to this heading">#</a></h2>
+<p>The default execution order is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>product/provenance/baselines
+            |
+            v
+   TensorSpline contracts
+            |
+            v
+compatible internal primitives
+       /           \
+      v             v
+tiled TensorSpline  backend policy
+      |             |
+      +------.------+
+             v
+    affine and differentials
+             |
+             v
+independent research-module gates
+             |
+             v
+    stable-module graduation
+</pre></div>
+</div>
+<p>Resize profiling can proceed alongside <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> work once the baseline
+schema exists, but speculative resize kernel changes do not take priority over
+correctness and bounded-memory evaluation.</p>
+</section>
+<section id="autonomous-work-queue">
+<h2>Autonomous work queue<a class="headerlink" href="#autonomous-work-queue" title="Link to this heading">#</a></h2>
+<p>Unless a completion gate or pause condition requires a decision, implementation
+should take the first unfinished item in this queue:</p>
+<ol class="arabic simple">
+<li><p>Publish the capability and module-status table.</p></li>
+<li><p>Create the legacy provenance inventory.</p></li>
+<li><p>Capture deterministic test, build, documentation, runtime, and memory
+baselines.</p></li>
+<li><p>Fix obsolete imports, duplicate definitions, console output, silent
+clamping, and unintended mutation with regression tests.</p></li>
+<li><p>Specify and test the <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> coordinate and output-shape contract.</p></li>
+<li><p>Complete basis/mode reproduction and degenerate-input tests.</p></li>
+<li><p>Define dtype and explicit backend dispatch.</p></li>
+<li><p>Produce the internal contract compatibility matrix.</p></li>
+<li><p>Extract boundary and basis primitives that pass the compatibility gate.</p></li>
+<li><p>Introduce the coefficient-prefilter interface for cardinal interpolation.</p></li>
+<li><p>Benchmark <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> construction and evaluation separately.</p></li>
+<li><p>Implement bounded-memory tiled <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> evaluation.</p></li>
+<li><p>Evaluate explicit reusable coordinate plans.</p></li>
+<li><p>Tile affine coordinate generation and stabilize affine dtype behavior.</p></li>
+<li><p>Rework differentials to return raw, non-mutating numerical results.</p></li>
+<li><p>Re-profile current v2 resize and test the narrow 3-D scheduling hypothesis.</p></li>
+<li><p>Audit and graduate smoothing splines.</p></li>
+<li><p>Audit and graduate adaptive regression splines.</p></li>
+<li><p>Establish multiscale perfect-reconstruction contracts.</p></li>
+<li><p>Complete packaging, backend, and benchmark-publication gates.</p></li>
+<li><p>Review which modules qualify for a coherent stable API.</p></li>
+</ol>
+</section>
+<section id="measures-of-success">
+<h2>Measures of success<a class="headerlink" href="#measures-of-success" title="Link to this heading">#</a></h2>
+<p>The roadmap succeeds when:</p>
+<ul class="simple">
+<li><p>users understand why they would choose SplineOps and where they should not;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> remains an independent, dependable continuous spline model;</p></li>
+<li><p>resize remains a specialized projection resampler with honest performance
+claims;</p></li>
+<li><p>large interpolation and affine workloads have bounded temporary memory;</p></li>
+<li><p>accelerated and reference paths agree under explicit numerical policies;</p></li>
+<li><p>experimental modules cannot be mistaken for stable ones;</p></li>
+<li><p>every shipped legacy-derived implementation has clear provenance; and</p></li>
+<li><p>performance reports expose memory, accuracy, semantic differences, wins,
+and losses rather than a single favorable speedup number.</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="provenance.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Method and source provenance</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="progress.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Progress so far</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-status-2026-07-16">Execution status (2026-07-16)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-boundaries">Module boundaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-modules-remain-independent">Public modules remain independent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-levels">Stability levels</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guiding-principles">Guiding principles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-protocol">Execution protocol</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#milestone-0-establish-the-trustworthy-baseline">Milestone 0: establish the trustworthy baseline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp0-1-product-and-capability-statement">WP0.1: product and capability statement</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#completion-gates">Completion gates</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp0-2-provenance-and-licensing-inventory">WP0.2: provenance and licensing inventory</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Completion gates</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp0-3-reproducible-baseline">WP0.3: reproducible baseline</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Completion gates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#milestone-1-stabilize-tensorspline-without-absorbing-it">Milestone 1: stabilize TensorSpline without absorbing it</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp1-1-public-api-and-coordinate-contract">WP1.1: public API and coordinate contract</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Completion gates</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp1-2-basis-and-boundary-correctness">WP1.2: basis and boundary correctness</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Completion gates</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp1-3-dtype-and-backend-contract">WP1.3: dtype and backend contract</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Completion gates</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp1-4-correctness-defects-and-maintenance-cleanup">WP1.4: correctness defects and maintenance cleanup</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Completion gates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#milestone-2-define-reusable-internal-numerical-components">Milestone 2: define reusable internal numerical components</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp2-1-contract-inventory-before-extraction">WP2.1: contract inventory before extraction</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Completion gates</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp2-2-basis-and-boundary-primitives">WP2.2: basis and boundary primitives</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Completion gates</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp2-3-coefficient-prefilter-interface">WP2.3: coefficient-prefilter interface</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Completion gates</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp2-4-bounded-memory-evaluation-utilities">WP2.4: bounded-memory evaluation utilities</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Completion gates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#milestone-3-make-tensorspline-efficient-as-tensorspline">Milestone 3: make TensorSpline efficient as TensorSpline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp3-1-benchmark-construction-and-evaluation-separately">WP3.1: benchmark construction and evaluation separately</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Completion gates</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp3-2-tiled-evaluation">WP3.2: tiled evaluation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Completion gates</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp3-3-reusable-evaluation-plans">WP3.3: reusable evaluation plans</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">Completion gates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#milestone-4-improve-independent-consumer-modules">Milestone 4: improve independent consumer modules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp4-1-affine-transforms">WP4.1: affine transforms</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">Completion gates</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp4-2-differentials">WP4.2: differentials</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">Completion gates</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp4-3-resize-maintenance-and-targeted-profiling">WP4.3: resize maintenance and targeted profiling</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">Completion gates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#milestone-5-assess-the-remaining-research-modules">Milestone 5: assess the remaining research modules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp5-1-smoothing-splines">WP5.1: smoothing splines</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#graduation-gate">Graduation gate</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp5-2-adaptive-regression-splines">WP5.2: adaptive regression splines</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">Graduation gate</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp5-3-pyramids-and-wavelets">WP5.3: pyramids and wavelets</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">Graduation gate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#milestone-6-backend-packaging-and-release-maturity">Milestone 6: backend, packaging, and release maturity</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp6-1-continuous-integration">WP6.1: continuous integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">Completion gates</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp6-2-benchmark-publication">WP6.2: benchmark publication</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id39">Tasks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id40">Completion gates</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wp6-3-stable-module-graduation">WP6.3: stable-module graduation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-sequence">Release sequence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#x-trustworthy-surface">2.0.x: trustworthy surface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependable-tensorspline">2.1: dependable TensorSpline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-and-differential-tools">2.2: geometric and differential tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-module-graduation">2.3: research-module graduation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coherent-stable-api">3.0: coherent stable API</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependency-order">Dependency order</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autonomous-work-queue">Autonomous work queue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-success">Measures of success</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/roadmap.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, SplineOps authors.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

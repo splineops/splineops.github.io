@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Smoothing Splines &#8212; splineops Documentation</title>
+    <title>Smoothing Splines &#8212; splineops 2.1.0 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../_static/documentation_options.js?v=20623aea"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -159,26 +159,169 @@
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="index.html">
-    User Guide
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Five-minute quickstart
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../auto_examples/index.html">
+  <a class="nav-link nav-internal" href="../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="02_resize.html">
+    Resize
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../consolidation-recipes.html">
+    Reusable workflow recipes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../auto_examples/index.html">
     Examples
   </a>
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../api/index.html">
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="03_affine.html">
+    Affine
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="06_differentials.html">
+    Differentials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../internal-contracts.html">
+    Internal numerical contracts
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../api/index.html">
     API Reference
   </a>
 </li>
 
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -296,9 +439,44 @@
 </li>
 
 
-<li class="nav-item current active">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Five-minute quickstart
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="index.html">
-    User Guide
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="02_resize.html">
+    Resize
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../consolidation-recipes.html">
+    Reusable workflow recipes
   </a>
 </li>
 
@@ -306,6 +484,104 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../auto_examples/index.html">
     Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="03_affine.html">
+    Affine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="06_differentials.html">
+    Differentials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../internal-contracts.html">
+    Internal numerical contracts
   </a>
 </li>
 
@@ -388,17 +664,7 @@
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_spline_interpolation.html">Spline Interpolation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_affine.html">Affine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_adaptive_regression_splines.html">Adaptive Regression Splines</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Smoothing Splines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_differentials.html">Differentials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_multiscale.html">Multiscale</a></li>
-</ul>
-</div>
+  <div class="bd-toc-item navbar-nav"></div>
 </nav></div>
     </div>
   
@@ -437,9 +703,6 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">User Guide</a></li>
-    
     <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Smoothing Splines</span></li>
   </ul>
 </nav>
@@ -467,12 +730,13 @@ be tuned continuously, making them effective for signals and images that
 exhibit repeating, self-similar patterns.</p>
 <p>You will find:</p>
 <ul class="simple">
-<li><p>Exact 1D routine:
-Works on a 1D array and returns the mathematically exact
-fractional-spline result.</p></li>
-<li><p>Isotropic N-D routine:
-Extends the idea to 2D pictures or 3D volumes through one FFT;
-internally it uses a Butterworth low-pass filter.</p></li>
+<li><p>Fractional 1D routine:
+Implements the periodized fractional-spline frequency response on a real,
+uniformly sampled signal.</p></li>
+<li><p>Isotropic N-D approximation:
+Applies a radial Butterworth-like frequency response to periodic real data.
+It is useful, but is not the same discrete operator as the exact 1D
+fractional-spline construction.</p></li>
 <li><p>Fast linear shortcut:
 A lightweight forward/backward IIR filter that implements the
 first-order (piecewise-linear) smoothing spline in linear time—handy
@@ -554,6 +818,28 @@ Y(\boldsymbol\omega).\]</div>
 <p>Because the filter is applied element-wise in the frequency domain, the
 computation still needs just one forward FFT and one inverse FFT,
 whatever the data dimension.</p>
+<p>For repeated arrays of the same shape and parameters,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">splineops.smoothing_splines.SmoothingSplinePlan</span></code> constructs the radial
+response once and stores only the non-redundant real-FFT half spectrum:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">splineops.smoothing_splines</span><span class="w"> </span><span class="kn">import</span> <span class="n">SmoothingSplinePlan</span>
+
+<span class="n">plan</span> <span class="o">=</span> <span class="n">SmoothingSplinePlan</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">lamb</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">plan</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+<span class="n">next_output</span> <span class="o">=</span> <span class="n">plan</span><span class="p">(</span><span class="n">next_image</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">retained_bytes</span></code> reports the response storage and <code class="docutils literal notranslate"><span class="pre">configuration</span></code> describes
+its fixed shape and parameters.  The plan accepts finite real arrays whose
+selected <code class="docutils literal notranslate"><span class="pre">axes</span></code> match the construction shape.  Without <code class="docutils literal notranslate"><span class="pre">axes</span></code>, every input
+dimension remains spatial for backward compatibility.  With explicit axes,
+remaining batch/channel slices are transformed independently by one batched
+real FFT:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plan</span> <span class="o">=</span> <span class="n">SmoothingSplinePlan</span><span class="p">(</span><span class="n">batch</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:],</span> <span class="n">lamb</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">smooth</span> <span class="o">=</span> <span class="n">plan</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
 </section>
 <section id="fast-recursive-linear-smoother">
 <h2>Fast Recursive Linear Smoother<a class="headerlink" href="#fast-recursive-linear-smoother" title="Link to this heading">#</a></h2>
@@ -584,11 +870,25 @@ s[k]=c[k]+z_1\,s[k+1].\]</div>
 \[s[k]\leftarrow (1-z_1)^2\,s[k].\]</div>
 </li>
 </ol>
-<p>The two passes yield the same zero-phase result as applying <span class="math notranslate nohighlight">\(H(\omega)\)</span>
-in the Fourier domain, but at a cost that is strictly linear in the number
-of samples and with constant memory. A detailed derivation (including
-boundary handling for finite-length signals) appears in <a class="footnote-reference brackets" href="#id10" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, Sections II-B
-and II-D.</p>
+<p>The two passes realize this response with a steady-state end treatment at a
+cost linear in the number of samples.  It is not identical to circular FFT
+filtering on finite signals because their boundary assumptions differ.  A
+detailed derivation appears in <a class="footnote-reference brackets" href="#id10" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, Sections II-B and II-D.</p>
+</section>
+<section id="current-contract">
+<h2>Current contract<a class="headerlink" href="#current-contract" title="Link to this heading">#</a></h2>
+<p>The public smoothing functions accept finite, real-valued arrays.  The 1D
+fractional and N-D FFT methods assume periodic extension; the N-D path and its
+plan use <code class="docutils literal notranslate"><span class="pre">rfftn</span></code>/<code class="docutils literal notranslate"><span class="pre">irfftn</span></code> because the public contract is real-valued.  The
+recursive method uses steady-state causal and anticausal initialization.  These
+routines remain experimental because the three formulations intentionally
+implement different operators.  Current independent checks cover identity at
+zero regularization, the analytical response of periodic N-D cosine modes, a
+dense linear-system reference for the recursive boundary equations, and
+constant preservation.  A fixed multitone fixture now evaluates the published
+fractional transfer function through an explicit dense DFT, independently of
+the implementation’s SciPy FFT.  These checks support the stated contracts but
+do not make the three methods interchangeable.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <em>cubic</em> smoothing spline case requires a higher-order recursion
@@ -701,6 +1001,7 @@ Processing, vol. 41, no. 2, pp. 834–848, Feb. 1993.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-idea-in-one-dimension">Core Idea in One Dimension</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-idea-in-higher-dimensions">Core Idea in Higher Dimensions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-recursive-linear-smoother">Fast Recursive Linear Smoother</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-contract">Current contract</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-parameters">Choosing the Parameters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smoothing-splines-examples">Smoothing Splines Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>

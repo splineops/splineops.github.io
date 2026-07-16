@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Multiscale &#8212; splineops Documentation</title>
+    <title>Multiscale &#8212; splineops 2.1.0 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../_static/documentation_options.js?v=20623aea"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -158,25 +158,168 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../user-guide/index.html">
-    User Guide
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Five-minute quickstart
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../auto_examples/index.html">
+  <a class="nav-link nav-internal" href="../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/02_resize.html">
+    Resize
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../consolidation-recipes.html">
+    Reusable workflow recipes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../auto_examples/index.html">
     Examples
   </a>
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="index.html">
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/03_affine.html">
+    Affine
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/06_differentials.html">
+    Differentials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../internal-contracts.html">
+    Internal numerical contracts
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="index.html">
     API Reference
   </a>
 </li>
 
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -295,8 +438,43 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Five-minute quickstart
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../user-guide/index.html">
-    User Guide
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/02_resize.html">
+    Resize
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../consolidation-recipes.html">
+    Reusable workflow recipes
   </a>
 </li>
 
@@ -304,6 +482,104 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../auto_examples/index.html">
     Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/03_affine.html">
+    Affine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/06_differentials.html">
+    Differentials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../internal-contracts.html">
+    Internal numerical contracts
   </a>
 </li>
 
@@ -459,7 +735,23 @@
 <p>This module provides functionality for <strong>pyramid decomposition</strong> (downsampling/up-sampling) and <strong>wavelet transforms</strong> (analysis and synthesis) based on spline models.</p>
 <section id="pyramid-module">
 <h2>Pyramid Module<a class="headerlink" href="#pyramid-module" title="Link to this heading">#</a></h2>
-<p>The <a class="reference internal" href="#module-splineops.multiscale.pyramid" title="splineops.multiscale.pyramid"><code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale.pyramid</span></code></a> module implements 1D and 2D REDUCE/EXPAND operations with mirror boundary handling. These form the foundation for many wavelet constructions.</p>
+<p>The <a class="reference internal" href="#module-splineops.multiscale.pyramid" title="splineops.multiscale.pyramid"><code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale.pyramid</span></code></a> module implements 1-D and 2-D
+REDUCE/EXPAND operations with mirror boundary handling.  Two-dimensional axis
+passes operate on whole selected axes rather than dispatching a Python call for
+each row or column.  Explicit <code class="docutils literal notranslate"><span class="pre">spatial_axes</span></code> preserve and independently
+process any remaining batch or channel dimensions.  These operations form the
+foundation for many wavelet constructions.</p>
+<p>Reduction uses <code class="docutils literal notranslate"><span class="pre">floor(n</span> <span class="pre">/</span> <span class="pre">2)</span></code> for odd lengths, so pyramid reduce/expand is
+not a reversible shape operation in that case.  Wavelet analysis is stricter:
+both dimensions must be divisible by <code class="docutils literal notranslate"><span class="pre">2**scales</span></code>.</p>
+<p>Perfect reconstruction is established for Haar and the cubic spline filter on
+the tested even rectangular shapes.  Order 1 has small truncation error and
+order 5 is approximate because its inherited taps have limited precision; see
+the multiscale user guide for the measured bounds.</p>
+<p>Inputs must be finite, real, and non-empty.  Floating inputs preserve their
+precision; integer inputs promote to float64.  Scalar images need no axis
+argument.  Higher-rank arrays require two explicit spatial axes; dimensions are
+never inferred as batch or channel merely from rank.</p>
 <p>Key functionalities:</p>
 <ul class="simple">
 <li><p><strong>get_pyramid_filter</strong>
@@ -467,7 +759,7 @@ Retrieve filter coefficients (g for REDUCE, h for EXPAND) plus a “centered” 
 <li><p><strong>reduce_1d</strong>, <strong>expand_1d</strong>
 Down/upsample a 1D signal using the specified filters and mirror reflection.</p></li>
 <li><p><strong>reduce_2d</strong>, <strong>expand_2d</strong>
-Down/upsample a 2D image row-by-row and column-by-column.</p></li>
+Down/upsample two selected image axes with vectorized separable passes.</p></li>
 </ul>
 </section>
 <section id="example-pyramid-usage">
@@ -621,18 +913,21 @@ If n &lt; 2, everything maps to 0.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="splineops.multiscale.pyramid.reduce_2d">
-<span class="sig-prename descclassname"><span class="pre">splineops.multiscale.pyramid.</span></span><span class="sig-name descname"><span class="pre">reduce_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.pyramid.reduce_2d" title="Link to this definition">#</a></dt>
-<dd><p>Reduce a 2D image by factor of 2 in each dimension.</p>
+<span class="sig-prename descclassname"><span class="pre">splineops.multiscale.pyramid.</span></span><span class="sig-name descname"><span class="pre">reduce_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.pyramid.reduce_2d" title="Link to this definition">#</a></dt>
+<dd><p>Reduce two selected image axes by a factor of two.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>image</strong> (<em>np.ndarray</em>) – Input 2D array (ny, nx).</p></li>
+<li><p><strong>image</strong> (<em>np.ndarray</em>) – Input scalar image or array containing batch/channel dimensions.</p></li>
 <li><p><strong>g</strong> (<em>np.ndarray</em>) – 1D reduce filter.</p></li>
 <li><p><strong>centered</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – True if using centered reduce logic.</p></li>
+<li><p><strong>spatial_axes</strong> (<em>sequence</em><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>optional</em>) – Exactly two dimensions to reduce.  Required for higher-rank arrays;
+every other dimension is preserved.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Reduced image of shape (ny//2, nx//2) if ny,nx &gt;= 2, else smaller.</p>
+<dd class="field-even"><p>Array with selected lengths reduced to <code class="docutils literal notranslate"><span class="pre">floor(length</span> <span class="pre">/</span> <span class="pre">2)</span></code> when the
+length is at least two.  Singleton selected dimensions stay singleton.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>np.ndarray</p>
@@ -642,18 +937,21 @@ If n &lt; 2, everything maps to 0.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="splineops.multiscale.pyramid.expand_2d">
-<span class="sig-prename descclassname"><span class="pre">splineops.multiscale.pyramid.</span></span><span class="sig-name descname"><span class="pre">expand_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.pyramid.expand_2d" title="Link to this definition">#</a></dt>
-<dd><p>Expand a 2D image by factor of 2 in each dimension.</p>
+<span class="sig-prename descclassname"><span class="pre">splineops.multiscale.pyramid.</span></span><span class="sig-name descname"><span class="pre">expand_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.pyramid.expand_2d" title="Link to this definition">#</a></dt>
+<dd><p>Expand two selected image axes by a factor of two.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>image</strong> (<em>np.ndarray</em>) – Input 2D array (coarse scale).</p></li>
+<li><p><strong>image</strong> (<em>np.ndarray</em>) – Input scalar image or array containing batch/channel dimensions.</p></li>
 <li><p><strong>h</strong> (<em>np.ndarray</em>) – 1D expand filter.</p></li>
 <li><p><strong>centered</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – True if using centered expand logic.</p></li>
+<li><p><strong>spatial_axes</strong> (<em>sequence</em><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>optional</em>) – Exactly two dimensions to expand.  Required for higher-rank arrays;
+every other dimension is preserved.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Expanded image, roughly 2*ny by 2*nx.</p>
+<dd class="field-even"><p>Array with selected lengths doubled when they exceed one.  Singleton
+selected dimensions stay singleton.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>np.ndarray</p>
@@ -664,7 +962,13 @@ If n &lt; 2, everything maps to 0.</p>
 </section>
 <section id="wavelet-modules">
 <h2>Wavelet Modules<a class="headerlink" href="#wavelet-modules" title="Link to this heading">#</a></h2>
-<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale.wavelets</span></code> subpackage provides various wavelet transforms (Haar, spline-based) using row-column (or column-row) passes. Classes typically define:</p>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">splineops.multiscale.wavelets</span></code> subpackage provides Haar and
+spline-based wavelet transforms using whole-axis separable passes.  Their
+multi-scale methods also accept two explicit <code class="docutils literal notranslate"><span class="pre">spatial_axes</span></code> for batched
+arrays.  Small planes use cache-sized vectorized groups; large planes avoid
+whole-array transpose copies through direct independent dispatch.  Classes
+also expose their reconstruction classification; the limited-precision order-5
+table is explicitly a bounded approximation.  Classes typically define:</p>
 <ul class="simple">
 <li><p><strong>analysis</strong> (multi-scale forward transform)</p></li>
 <li><p><strong>synthesis</strong> (multi-scale inverse transform)</p></li>
@@ -713,12 +1017,16 @@ If n &lt; 2, everything maps to 0.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.analysis">
-<span class="sig-name descname"><span class="pre">analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.analysis" title="Link to this definition">#</a></dt>
-<dd><p>Multi-scale wavelet analysis in 2D (or 3D).
+<span class="sig-name descname"><span class="pre">analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.analysis" title="Link to this definition">#</a></dt>
+<dd><p>Multi-scale wavelet analysis on two selected dimensions.
 Repeatedly calls analysis1() from fine to coarse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>inp</strong> (<em>np.ndarray</em>) – Input array with shape (ny, nx) or (nz, ny, nx).</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inp</strong> (<em>np.ndarray</em>) – Scalar image or array containing batch/channel dimensions.</p></li>
+<li><p><strong>spatial_axes</strong> (<em>sequence</em><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>optional</em>) – Exactly two wavelet dimensions.  Required for higher-rank arrays;
+every remaining slice is transformed independently.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Full wavelet decomposition (in-place layout).</p>
@@ -771,12 +1079,16 @@ Repeatedly calls analysis1() from fine to coarse.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.synthesis">
-<span class="sig-name descname"><span class="pre">synthesis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.synthesis" title="Link to this definition">#</a></dt>
-<dd><p>Multi-scale wavelet synthesis in 2D (or 3D).
+<span class="sig-name descname"><span class="pre">synthesis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.synthesis" title="Link to this definition">#</a></dt>
+<dd><p>Multi-scale wavelet synthesis on two selected dimensions.
 Repeatedly calls synthesis1() from coarsest to finest.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>inp</strong> (<em>np.ndarray</em>) – Wavelet decomposition array (same shape as original).</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inp</strong> (<em>np.ndarray</em>) – Wavelet decomposition array (same shape as original).</p></li>
+<li><p><strong>spatial_axes</strong> (<em>sequence</em><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>optional</em>) – Exactly two wavelet dimensions.  Required for higher-rank arrays;
+every remaining slice is reconstructed independently.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Reconstructed array (same shape as input).</p>
@@ -944,7 +1256,7 @@ Repeatedly calls synthesis1() from coarsest to finest.</p>
 <dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.Spline5Wavelets">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">splineops.multiscale.wavelets.spline_wavelets.</span></span><span class="sig-name descname"><span class="pre">Spline5Wavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.Spline5Wavelets" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets" title="splineops.multiscale.wavelets.spline_wavelets.SplineWavelets"><code class="xref py py-class docutils literal notranslate"><span class="pre">SplineWavelets</span></code></a></p>
-<p>Spline Wavelets of order=5.</p>
+<p>Approximate order-5 spline wavelets using limited-precision source taps.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.Spline5Wavelets.get_documentation">
 <span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.Spline5Wavelets.get_documentation" title="Link to this definition">#</a></dt>
@@ -1003,6 +1315,12 @@ Uses row-&gt;column passes with mirror boundary to compute detail.</p>
 </dl>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.exact_reconstruction">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">exact_reconstruction</span></span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.exact_reconstruction" title="Link to this definition">#</a></dt>
+<dd><p>Whether the bundled tap precision supports a perfect-reconstruction claim.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.get_documentation">
 <span class="sig-name descname"><span class="pre">get_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.get_documentation" title="Link to this definition">#</a></dt>
@@ -1013,6 +1331,12 @@ Uses row-&gt;column passes with mirror boundary to compute detail.</p>
 <dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.get_name">
 <span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.get_name" title="Link to this definition">#</a></dt>
 <dd><p>Return ‘Spline{order}’.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.reconstruction_contract">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">reconstruction_contract</span></span><a class="headerlink" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.reconstruction_contract" title="Link to this definition">#</a></dt>
+<dd><p>Published reconstruction classification for the selected filter.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1217,8 +1541,10 @@ Uses row-&gt;column passes with mirror boundary to compute detail.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets"><code class="docutils literal notranslate"><span class="pre">SplineWavelets</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.filter"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.filter</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.analysis1"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.analysis1()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.exact_reconstruction"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.exact_reconstruction</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.get_documentation"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.get_documentation()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.get_name"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.get_name()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.reconstruction_contract"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.reconstruction_contract</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.multiscale.wavelets.spline_wavelets.SplineWavelets.synthesis1"><code class="docutils literal notranslate"><span class="pre">SplineWavelets.synthesis1()</span></code></a></li>
 </ul>
 </li>

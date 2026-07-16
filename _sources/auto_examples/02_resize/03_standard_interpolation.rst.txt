@@ -77,10 +77,10 @@ showing they produce (nearly) the same result, and where tiny differences are.
 
 
     _ = draw_standard_vs_scipy_pipeline(
-        show_separator=True,          # keep dashed divider
-        show_plus=False,              # no far-right '+'
-        include_upsample_labels=True, # show '↑ 4' inside the boxes
-        width=12.0                    # figure width in inches (height auto)
+        show_separator=True,  # keep dashed divider
+        show_plus=False,  # no far-right '+'
+        include_upsample_labels=True,  # show '↑ 4' inside the boxes
+        width=12.0,  # figure width in inches (height auto)
     )
 
 
@@ -103,12 +103,12 @@ Load and Normalize an Image
 Here, we load an example image from an online repository and convert to
 grayscale in [0, 1].
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-111
+.. GENERATED FROM PYTHON SOURCE LINES 60-109
 
 .. code-block:: Python
 
 
-    url = 'https://r0k.us/graphics/kodak/kodak/kodim14.png'
+    url = "https://r0k.us/graphics/kodak/kodak/kodim14.png"
     with urlopen(url, timeout=10) as resp:
         img = Image.open(resp)
 
@@ -120,15 +120,15 @@ grayscale in [0, 1].
 
     # Convert to grayscale via simple weighting
     input_image_normalized = (
-        input_image_normalized[:, :, 0] * 0.2989 +  # Red channel
-        input_image_normalized[:, :, 1] * 0.5870 +  # Green channel
-        input_image_normalized[:, :, 2] * 0.1140    # Blue channel
+        input_image_normalized[:, :, 0] * 0.2989  # Red channel
+        + input_image_normalized[:, :, 1] * 0.5870  # Green channel
+        + input_image_normalized[:, :, 2] * 0.1140  # Blue channel
     )
 
     # Run the interpolation backends in DTYPE (e.g. float32 for speed).
     input_image_normalized = input_image_normalized.astype(DTYPE, copy=False)
 
-    zoom = np.pi / 6            # ≈ 0.5235987756
+    zoom = np.pi / 6  # ≈ 0.5235987756
     zoom_factors_2d = (zoom, zoom)
     border_fraction = 0.3  # still available as a fallback (unused when roi=... is set)
 
@@ -148,14 +148,12 @@ grayscale in [0, 1].
     roi_kwargs = dict(
         roi_height_frac=ROI_SIZE_PX / h_img,  # keeps height at 64 px (square ROI)
         grayscale=True,
-        roi_xy=(row_top, col_left),           # top-left of the ROI
+        roi_xy=(row_top, col_left),  # top-left of the ROI
     )
 
     # Original (shifted ROI)
     _ = show_roi_zoom(
-        input_image_normalized,
-        ax_titles=("Original Image", None),
-        **roi_kwargs
+        input_image_normalized, ax_titles=("Original Image", None), **roi_kwargs
     )
 
 
@@ -170,7 +168,7 @@ grayscale in [0, 1].
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 112-117
+.. GENERATED FROM PYTHON SOURCE LINES 110-115
 
 Standard Interpolation
 ----------------------
@@ -178,7 +176,7 @@ Standard Interpolation
 We use our standard interpolation method (cubic). SNR/MSE are computed on
 the face ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 117-145
+.. GENERATED FROM PYTHON SOURCE LINES 115-143
 
 .. code-block:: Python
 
@@ -217,14 +215,14 @@ the face ROI.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 146-150
+.. GENERATED FROM PYTHON SOURCE LINES 144-148
 
 Resized Image
 ~~~~~~~~~~~~~
 
 Show the resized image pasted on a white canvas (for zoom-out), plus the ROI zoom.
 
-.. GENERATED FROM PYTHON SOURCE LINES 150-183
+.. GENERATED FROM PYTHON SOURCE LINES 148-184
 
 .. code-block:: Python
 
@@ -246,11 +244,14 @@ Show the resized image pasted on a white canvas (for zoom-out), plus the ROI zoo
     col_left_res = int(np.clip(center_c_res - roi_w_res // 2, 0, w_res - roi_w_res))
 
     # --- Build original-size white canvas and paste the small resized image at top-left (0,0) ---
-    canvas = np.ones((h_img, w_img), dtype=resized_2d_interp.dtype)  # white background in [0,1]
+    canvas = np.ones(
+        (h_img, w_img), dtype=resized_2d_interp.dtype
+    )  # white background in [0,1]
     canvas[:h_res, :w_res] = resized_2d_interp
 
     roi_kwargs_on_canvas = dict(
-        roi_height_frac=roi_h_res / h_img,   # keeps the inset square at roi_h_res pixels high
+        roi_height_frac=roi_h_res
+        / h_img,  # keeps the inset square at roi_h_res pixels high
         grayscale=True,
         roi_xy=(row_top_res, col_left_res),  # same coords since pasted at (0,0)
     )
@@ -258,14 +259,14 @@ Show the resized image pasted on a white canvas (for zoom-out), plus the ROI zoo
     _ = show_roi_zoom(
         canvas,
         ax_titles=(f"Resized Image (standard, {fmt_ms(time_2d_interp_fwd)})", None),
-        **roi_kwargs_on_canvas
+        **roi_kwargs_on_canvas,
     )
 
 
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_003.png
-   :alt: Resized Image (standard, 1.2 ms)
+   :alt: Resized Image (standard, 1.0 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_003.png
    :class: sphx-glr-single-img
 
@@ -273,14 +274,14 @@ Show the resized image pasted on a white canvas (for zoom-out), plus the ROI zoo
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 184-188
+.. GENERATED FROM PYTHON SOURCE LINES 185-189
 
 Recovered Image (Standard)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We plot the recovered image (after reversing the zoom) with the same ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 188-195
+.. GENERATED FROM PYTHON SOURCE LINES 189-196
 
 .. code-block:: Python
 
@@ -288,14 +289,14 @@ We plot the recovered image (after reversing the zoom) with the same ROI.
     _ = show_roi_zoom(
         recovered_2d_interp,
         ax_titles=(f"Recovered Image (standard, {fmt_ms(time_2d_interp_back)})", None),
-        **roi_kwargs
+        **roi_kwargs,
     )
 
 
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_004.png
-   :alt: Recovered Image (standard, 0.9 ms)
+   :alt: Recovered Image (standard, 0.8 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_004.png
    :class: sphx-glr-single-img
 
@@ -303,7 +304,7 @@ We plot the recovered image (after reversing the zoom) with the same ROI.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 196-201
+.. GENERATED FROM PYTHON SOURCE LINES 197-202
 
 SciPy Interpolation
 -------------------
@@ -311,7 +312,7 @@ SciPy Interpolation
 For comparison, we also use SciPy's zoom method. Metrics are computed on the ROI.
 SciPy preserves the input dtype, so it will also run in DTYPE here.
 
-.. GENERATED FROM PYTHON SOURCE LINES 201-227
+.. GENERATED FROM PYTHON SOURCE LINES 202-228
 
 .. code-block:: Python
 
@@ -348,12 +349,12 @@ SciPy preserves the input dtype, so it will also run in DTYPE here.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 228-230
+.. GENERATED FROM PYTHON SOURCE LINES 229-231
 
 Recovered Image (SciPy)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 230-237
+.. GENERATED FROM PYTHON SOURCE LINES 231-238
 
 .. code-block:: Python
 
@@ -361,14 +362,14 @@ Recovered Image (SciPy)
     _ = show_roi_zoom(
         recovered_2d_scipy,
         ax_titles=(f"Recovered Image (SciPy, {fmt_ms(time_2d_scipy_back)})", None),
-        **roi_kwargs
+        **roi_kwargs,
     )
 
 
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_005.png
-   :alt: Recovered Image (SciPy, 25.8 ms)
+   :alt: Recovered Image (SciPy, 25.5 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_005.png
    :class: sphx-glr-single-img
 
@@ -376,19 +377,19 @@ Recovered Image (SciPy)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 238-240
+.. GENERATED FROM PYTHON SOURCE LINES 239-241
 
 Difference Images
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 242-246
+.. GENERATED FROM PYTHON SOURCE LINES 243-247
 
 Standard vs SciPy
 ~~~~~~~~~~~~~~~~~
 
 Compare the two recovered images on the face ROI and plot that difference.
 
-.. GENERATED FROM PYTHON SOURCE LINES 246-260
+.. GENERATED FROM PYTHON SOURCE LINES 247-261
 
 .. code-block:: Python
 
@@ -418,7 +419,7 @@ Compare the two recovered images on the face ROI and plot that difference.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 261-266
+.. GENERATED FROM PYTHON SOURCE LINES 262-267
 
 Original vs Standard
 ~~~~~~~~~~~~~~~~~~~~
@@ -426,7 +427,7 @@ Original vs Standard
 For completeness, show the difference image
 (original - recovered with standard interpolation) on the ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 266-276
+.. GENERATED FROM PYTHON SOURCE LINES 267-277
 
 .. code-block:: Python
 
@@ -452,75 +453,76 @@ For completeness, show the difference image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 277-282
+.. GENERATED FROM PYTHON SOURCE LINES 278-284
 
 Alternative using TensorSpline
 ------------------------------
 
-As an alternative, we can replicate the same interpolation manually using the 
-``TensorSpline`` class, which underpins the `resize()` function behind the scenes.
+As an alternative, we can replicate the same interpolation manually using the
+independent ``TensorSpline`` class.  It can reproduce this interpolation
+configuration, but resize keeps its own specialized implementation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 282-342
+.. GENERATED FROM PYTHON SOURCE LINES 284-344
 
 .. code-block:: Python
 
 
     from splineops.spline_interpolation.tensor_spline import TensorSpline
 
-    # 1) Build uniform coordinate arrays that match the shape of 'input_image_normalized'
-    height, width = input_image_normalized.shape
+    # 1) Build a float64 spline model and matching uniform coordinate arrays.
+    # TensorSpline requires construction coordinates and data to share precision.
+    spline_data = input_image_normalized.astype(np.float64, copy=False)
+    height, width = spline_data.shape
 
-    # Use the same dtype as the image for coordinates, so everything lives in DTYPE.
-    x_coords = np.linspace(0, height - 1, height, dtype=input_image_normalized.dtype)
-    y_coords = np.linspace(0, width - 1, width, dtype=input_image_normalized.dtype)
+    # Float64 also keeps an intended uniform grid uniform after spacing checks.
+    x_coords = np.linspace(0, height - 1, height, dtype=np.float64)
+    y_coords = np.linspace(0, width - 1, width, dtype=np.float64)
     coordinates_2d = (x_coords, y_coords)
 
     # 2) For "cubic interpolation", pick "bspline3".
     #    For boundary handling, we can pick "mirror", "zero", etc.
     ts = TensorSpline(
-        data=input_image_normalized,
+        data=spline_data,
         coordinates=coordinates_2d,
         bases="bspline3",  # cubic B-splines
-        modes="mirror"     # handles boundaries with mirroring
+        modes="mirror",  # handles boundaries with mirroring
     )
 
-    # 3) Define new coordinate grids for the "zoomed" shape. 
+    # 3) Define new coordinate grids for the "zoomed" shape.
     zoomed_height = int(height * zoom_factors_2d[0])
-    zoomed_width  = int(width  * zoom_factors_2d[1])
+    zoomed_width = int(width * zoom_factors_2d[1])
 
-    x_coords_zoomed = np.linspace(
-        0, height - 1, zoomed_height, dtype=input_image_normalized.dtype
-    )
-    y_coords_zoomed = np.linspace(
-        0, width  - 1, zoomed_width,  dtype=input_image_normalized.dtype
-    )
+    x_coords_zoomed = np.linspace(0, height - 1, zoomed_height, dtype=np.float64)
+    y_coords_zoomed = np.linspace(0, width - 1, zoomed_width, dtype=np.float64)
     coords_zoomed_2d = (x_coords_zoomed, y_coords_zoomed)
 
     # Evaluate (forward pass): zoom in or out
     resized_direct_ts = ts(coordinates=coords_zoomed_2d)
 
-    # 4) Define coordinate grids for returning to the original shape
-    x_coords_orig = np.linspace(
-        0, height - 1, height, dtype=input_image_normalized.dtype
+    # 4) Construct the resized spline on exact integer sample indices, then map the
+    # original output length onto that index domain. This is the same endpoint
+    # geometry without using a rounded linspace as a construction grid.
+    coords_zoomed_indices = (
+        np.arange(zoomed_height, dtype=np.float64),
+        np.arange(zoomed_width, dtype=np.float64),
     )
-    y_coords_orig = np.linspace(
-        0, width  - 1, width,  dtype=input_image_normalized.dtype
-    )
+    x_coords_orig = np.linspace(0, zoomed_height - 1, height, dtype=np.float64)
+    y_coords_orig = np.linspace(0, zoomed_width - 1, width, dtype=np.float64)
     coords_orig_2d = (x_coords_orig, y_coords_orig)
 
     # Evaluate (backward pass): from zoomed shape back to original
     ts_zoomed = TensorSpline(
         data=resized_direct_ts,
-        coordinates=coords_zoomed_2d,
+        coordinates=coords_zoomed_indices,
         bases="bspline3",
-        modes="mirror"
+        modes="mirror",
     )
     recovered_direct_ts = ts_zoomed(coordinates=coords_orig_2d)
 
-    # Now, resized_direct_ts / recovered_direct_ts should be very similar 
+    # Now, resized_direct_ts / recovered_direct_ts should be very similar
     # to 'resized_2d_interp' / 'recovered_2d_interp' from the high-level "resize()" approach.
     # Let's compute MSE to confirm:
-    mse_forward  = np.mean((resized_direct_ts  - resized_2d_interp ) ** 2)
+    mse_forward = np.mean((resized_direct_ts - resized_2d_interp) ** 2)
     mse_backward = np.mean((recovered_direct_ts - recovered_2d_interp) ** 2)
     print(f"MSE (TensorSpline vs. resize()) resized:  {mse_forward:.6e}")
     print(f"MSE (TensorSpline vs. resize()) recovered: {mse_backward:.6e}")
@@ -532,8 +534,8 @@ As an alternative, we can replicate the same interpolation manually using the
 
  .. code-block:: none
 
-    MSE (TensorSpline vs. resize()) resized:  7.329345e-13
-    MSE (TensorSpline vs. resize()) recovered: 1.138830e-12
+    MSE (TensorSpline vs. resize()) resized:  6.058144e-15
+    MSE (TensorSpline vs. resize()) recovered: 2.140313e-14
 
 
 
@@ -541,7 +543,7 @@ As an alternative, we can replicate the same interpolation manually using the
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.345 seconds)
+   **Total running time of the script:** (0 minutes 1.384 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_03_standard_interpolation.py:

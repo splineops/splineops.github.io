@@ -29,7 +29,7 @@ pyramid decomposition (reduce & expand) in 1D and 2D.
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 16-31
+.. GENERATED FROM PYTHON SOURCE LINES 16-33
 
 .. code-block:: Python
 
@@ -44,8 +44,10 @@ Imports
     # Pyramid decomposition utilities
     from splineops.multiscale.pyramid import (
         get_pyramid_filter,
-        reduce_1d, expand_1d,
-        reduce_2d, expand_2d
+        reduce_1d,
+        expand_1d,
+        reduce_2d,
+        expand_2d,
     )
 
 
@@ -55,20 +57,19 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-36
+.. GENERATED FROM PYTHON SOURCE LINES 34-38
 
 1D Pyramid Decomposition
 ------------------------
 
 Here is a 1D examples that involves data of length 10. We do a pyramid reduce-then-expand.
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-72
+.. GENERATED FROM PYTHON SOURCE LINES 38-73
 
 .. code-block:: Python
 
 
-    x = np.array([0.0, 1.0, 2.0, 3.0, 2.0, 1.0, 0.0, -2.0, -4.0, -6.0], 
-                 dtype=np.float64)
+    x = np.array([0.0, 1.0, 2.0, 3.0, 2.0, 1.0, 0.0, -2.0, -4.0, -6.0], dtype=np.float64)
 
     filter_name = "Centered Spline"
     order = 3
@@ -86,16 +87,16 @@ Here is a 1D examples that involves data of length 10. We do a pyramid reduce-th
     print("Error     :", error)
 
     fig, axs = plt.subplots(nrows=3, ncols=1, figsize=(8, 6))
-    axs[0].plot(x, 'o-', label='Input')
+    axs[0].plot(x, "o-", label="Input")
     axs[0].set_title("1D Input Signal")
     axs[0].legend()
 
-    axs[1].plot(reduced, 'o--', color='r', label='Reduced')
+    axs[1].plot(reduced, "o--", color="r", label="Reduced")
     axs[1].set_title("Reduced (Half-Size)")
     axs[1].legend()
 
-    axs[2].plot(expanded, 'o--', color='g', label='Expanded')
-    axs[2].plot(x, 'o-', color='k', alpha=0.3, label='Original')
+    axs[2].plot(expanded, "o--", color="g", label="Expanded")
+    axs[2].plot(x, "o-", color="k", alpha=0.3, label="Original")
     axs[2].set_title(f"Expanded vs Original (Error max={np.abs(error).max():.3g})")
     axs[2].legend()
 
@@ -127,20 +128,20 @@ Here is a 1D examples that involves data of length 10. We do a pyramid reduce-th
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-78
+.. GENERATED FROM PYTHON SOURCE LINES 74-79
 
 Load and Normalize a 2D Image
 -----------------------------
 
-Here, we load an example image from an online repository. 
+Here, we load an example image from an online repository.
 We convert it to grayscale in [0,1].
 
-.. GENERATED FROM PYTHON SOURCE LINES 78-111
+.. GENERATED FROM PYTHON SOURCE LINES 79-112
 
 .. code-block:: Python
 
 
-    url = 'https://r0k.us/graphics/kodak/kodak/kodim07.png'
+    url = "https://r0k.us/graphics/kodak/kodak/kodim07.png"
     with urlopen(url, timeout=10) as resp:
         img = Image.open(resp)
 
@@ -152,9 +153,9 @@ We convert it to grayscale in [0,1].
 
     # Convert to grayscale using standard weights
     image_gray = (
-        image_color[:, :, 0] * 0.2989 +
-        image_color[:, :, 1] * 0.5870 +
-        image_color[:, :, 2] * 0.1140
+        image_color[:, :, 0] * 0.2989
+        + image_color[:, :, 1] * 0.5870
+        + image_color[:, :, 2] * 0.1140
     )
 
     ny, nx = image_gray.shape
@@ -166,9 +167,9 @@ We convert it to grayscale in [0,1].
 
     # Plot the original grayscale image
     plt.figure(figsize=figsize)
-    plt.imshow(image_gray, cmap='gray', interpolation='nearest', vmin=0, vmax=1)
+    plt.imshow(image_gray, cmap="gray", interpolation="nearest", vmin=0, vmax=1)
     plt.title("Original Grayscale Image", fontsize=14)
-    plt.axis('off')
+    plt.axis("off")
     plt.tight_layout()
     plt.show()
 
@@ -190,14 +191,14 @@ We convert it to grayscale in [0,1].
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 112-116
+.. GENERATED FROM PYTHON SOURCE LINES 113-117
 
 2D Pyramid Decomposition
 ------------------------
 
 Reduce and expand the input image using spline pyramid decomposition.
 
-.. GENERATED FROM PYTHON SOURCE LINES 116-149
+.. GENERATED FROM PYTHON SOURCE LINES 117-150
 
 .. code-block:: Python
 
@@ -246,19 +247,20 @@ Reduce and expand the input image using spline pyramid decomposition.
     Filter: 'Spline' (order=3), is_centered=False
     Reduced shape: (256, 384)
     Expanded shape: (512, 768)
-    Max error: 0.5062710854288006
+    Max error: 0.5062710854288005
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 150-152
+.. GENERATED FROM PYTHON SOURCE LINES 151-153
 
 Inverted-Pyramid Helpers
 ------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 152-187
+.. GENERATED FROM PYTHON SOURCE LINES 153-199
 
 .. code-block:: Python
+
 
 
     def embed_center(small: np.ndarray, big_shape, fill=1.0) -> np.ndarray:
@@ -268,25 +270,34 @@ Inverted-Pyramid Helpers
         canvas = np.full((H, W), fill, dtype=small.dtype)
         y0 = (H - h) // 2
         x0 = (W - w) // 2
-        canvas[y0:y0+h, x0:x0+w] = small
+        canvas[y0 : y0 + h, x0 : x0 + w] = small
         return canvas
 
-    def show_inverted_pyramid(levels, depth: int, fill=1.0, width=6, row_height=3,
-                              title: str | None = None, title_fs: int = 14):
+
+    def show_inverted_pyramid(
+        levels,
+        depth: int,
+        fill=1.0,
+        width=6,
+        row_height=3,
+        title: str | None = None,
+        title_fs: int = 14,
+    ):
         """
         Show original (top) + first `depth` reduced levels stacked vertically,
         with reduced images centered on a full-size canvas. No per-row titles.
         If `title` is given, add a figure-level title.
         """
         H, W = levels[0].shape
-        fig, axes = plt.subplots(nrows=depth + 1, ncols=1,
-                                 figsize=(width, row_height * (depth + 1)))
+        fig, axes = plt.subplots(
+            nrows=depth + 1, ncols=1, figsize=(width, row_height * (depth + 1))
+        )
         if depth == 0:
             axes = [axes]
         for i, ax in enumerate(axes):
             img = levels[0] if i == 0 else embed_center(levels[i], (H, W), fill=fill)
-            ax.imshow(img, cmap='gray', vmin=0, vmax=1, interpolation='nearest')
-            ax.axis('off')
+            ax.imshow(img, cmap="gray", vmin=0, vmax=1, interpolation="nearest")
+            ax.axis("off")
 
         if title:
             fig.suptitle(title, fontsize=title_fs)
@@ -302,19 +313,20 @@ Inverted-Pyramid Helpers
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 188-190
+
+.. GENERATED FROM PYTHON SOURCE LINES 200-202
 
 1-Level Decomposition
 ---------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 190-196
+.. GENERATED FROM PYTHON SOURCE LINES 202-208
 
 .. code-block:: Python
 
 
-    show_inverted_pyramid(levels, depth=1, fill=1.0,
-                          width=base_width,
-                          title="1-Level Decomposition")
+    show_inverted_pyramid(
+        levels, depth=1, fill=1.0, width=base_width, title="1-Level Decomposition"
+    )
     plt.show()
 
 
@@ -329,19 +341,19 @@ Inverted-Pyramid Helpers
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 197-199
+.. GENERATED FROM PYTHON SOURCE LINES 209-211
 
 2-Level Decomposition
 ---------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 199-205
+.. GENERATED FROM PYTHON SOURCE LINES 211-217
 
 .. code-block:: Python
 
 
-    show_inverted_pyramid(levels, depth=2, fill=1.0,
-                          width=base_width,
-                          title="2-Level Decomposition")
+    show_inverted_pyramid(
+        levels, depth=2, fill=1.0, width=base_width, title="2-Level Decomposition"
+    )
     plt.show()
 
 
@@ -356,20 +368,21 @@ Inverted-Pyramid Helpers
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 206-208
+.. GENERATED FROM PYTHON SOURCE LINES 218-220
 
 3-Level Decomposition
 ---------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 208-212
+.. GENERATED FROM PYTHON SOURCE LINES 220-225
 
 .. code-block:: Python
 
 
-    show_inverted_pyramid(levels, depth=3, fill=1.0,
-                          width=base_width,
-                          title="3-Level Decomposition")
+    show_inverted_pyramid(
+        levels, depth=3, fill=1.0, width=base_width, title="3-Level Decomposition"
+    )
     plt.show()
+
 
 
 .. image-sg:: /auto_examples/07_multiscale/images/sphx_glr_01_pyramid_decomposition_005.png
@@ -384,7 +397,7 @@ Inverted-Pyramid Helpers
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 12.071 seconds)
+   **Total running time of the script:** (0 minutes 1.169 seconds)
 
 
 .. _sphx_glr_download_auto_examples_07_multiscale_01_pyramid_decomposition.py:

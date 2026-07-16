@@ -31,7 +31,7 @@ Imports and Utilities
 Visualize how the extension modes allow one to control the values that a signal is assumed to take outside of its original domain.
 Generate a signal that is mostly linear but includes a "bump."
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-53
+.. GENERATED FROM PYTHON SOURCE LINES 18-56
 
 .. code-block:: Python
 
@@ -42,6 +42,7 @@ Generate a signal that is mostly linear but includes a "bump."
 
     x_values = np.linspace(0, 6, 101)
 
+
     def create_signal_with_bump(x_values, bump_location=3, bump_width=0.5, bump_height=5):
         linear_part = x_values
         bump = np.where(
@@ -51,6 +52,7 @@ Generate a signal that is mostly linear but includes a "bump."
             0,
         )
         return linear_part + bump
+
 
     def plot_extension_modes_for_bump_function(mode_name, x_values, title):
         plt.figure(figsize=(12, 6))
@@ -77,12 +79,13 @@ Generate a signal that is mostly linear but includes a "bump."
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-56
+
+.. GENERATED FROM PYTHON SOURCE LINES 57-59
 
 Finite-Support Coefficients
 ---------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-63
+.. GENERATED FROM PYTHON SOURCE LINES 59-66
 
 .. code-block:: Python
 
@@ -105,12 +108,12 @@ Finite-Support Coefficients
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-66
+.. GENERATED FROM PYTHON SOURCE LINES 67-69
 
 Narrow Mirroring
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-73
+.. GENERATED FROM PYTHON SOURCE LINES 69-76
 
 .. code-block:: Python
 
@@ -133,12 +136,12 @@ Narrow Mirroring
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-76
+.. GENERATED FROM PYTHON SOURCE LINES 77-79
 
 Periodic Padding
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-81
+.. GENERATED FROM PYTHON SOURCE LINES 79-85
 
 .. code-block:: Python
 
@@ -148,6 +151,7 @@ Periodic Padding
         x_values=x_values,
         title="Extension Mode: Periodic Padding",
     )
+
 
 
 .. image-sg:: /auto_examples/01_spline_interpolation/images/sphx_glr_03_extension_modes_003.png
@@ -162,7 +166,7 @@ Periodic Padding
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.310 seconds)
+   **Total running time of the script:** (0 minutes 0.292 seconds)
 
 
 .. _sphx_glr_download_auto_examples_01_spline_interpolation_03_extension_modes.py:

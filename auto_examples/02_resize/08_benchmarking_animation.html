@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Benchmarking Animation — splineops Documentation</title>
+<title>Benchmarking Animation — splineops 2.1.0 documentation</title>
 <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
@@ -35,7 +35,7 @@
 <!-- Pre-loaded scripts that we'll load fully later -->
 <link as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" rel="preload"/>
 <link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" rel="preload"/>
-<script src="../../_static/documentation_options.js?v=51b770b3"></script>
+<script src="../../_static/documentation_options.js?v=20623aea"></script>
 <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
 <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
 <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -95,19 +95,121 @@
   </a>
 </li>
 <li class="nav-item">
-<a class="nav-link nav-internal" href="../../user-guide/index.html">
-    User Guide
-  </a>
-</li>
-<li class="nav-item current active">
-<a class="nav-link nav-internal" href="../index.html">
-    Examples
+<a class="nav-link nav-internal" href="../../quickstart.html">
+    Five-minute quickstart
   </a>
 </li>
 <li class="nav-item">
-<a class="nav-link nav-internal" href="../../api/index.html">
+<a class="nav-link nav-internal" href="../../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/index.html">
+    User guide
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/02_resize.html">
+    Resize
+  </a>
+</li>
+<li class="nav-item dropdown">
+<button aria-controls="pst-nav-more-links" aria-expanded="false" class="btn dropdown-toggle nav-item" data-bs-toggle="dropdown" type="button">
+                    More
+                </button>
+<ul class="dropdown-menu" id="pst-nav-more-links">
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../consolidation-recipes.html">
+    Reusable workflow recipes
+  </a>
+</li>
+<li class="current active">
+<a class="nav-link dropdown-item nav-internal" href="../index.html">
+    Examples
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../performance.html">
+    Performance evidence
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/03_affine.html">
+    Affine
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/06_differentials.html">
+    Differentials
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../user-guide/07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../progress.html">
+    Progress so far
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../internal-contracts.html">
+    Internal numerical contracts
+  </a>
+</li>
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../../api/index.html">
     API Reference
   </a>
+</li>
+</ul>
 </li>
 </ul>
 </nav></div>
@@ -170,13 +272,108 @@
   </a>
 </li>
 <li class="nav-item">
+<a class="nav-link nav-internal" href="../../quickstart.html">
+    Five-minute quickstart
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+<li class="nav-item">
 <a class="nav-link nav-internal" href="../../user-guide/index.html">
-    User Guide
+    User guide
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/02_resize.html">
+    Resize
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../consolidation-recipes.html">
+    Reusable workflow recipes
   </a>
 </li>
 <li class="nav-item current active">
 <a class="nav-link nav-internal" href="../index.html">
     Examples
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../performance.html">
+    Performance evidence
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/03_affine.html">
+    Affine
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/06_differentials.html">
+    Differentials
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../user-guide/07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../progress.html">
+    Progress so far
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../internal-contracts.html">
+    Internal numerical contracts
   </a>
 </li>
 <li class="nav-item">
@@ -269,6 +466,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../07_multiscale/02_wavelet_decomposition.html">Wavelet Decomposition</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08_workflows/index.html">End-to-end workflows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08_workflows/01_registration_fanout.html">Persist one frame and evaluate several affine geometries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_workflows/02_volume_features.html">Warp a volume and write selected differential features</a></li>
+</ul>
+</details></li>
 </ul>
 </div>
 </nav></div>
@@ -335,6 +537,7 @@ the recovered image and a normalized signed error map (recovered − original).<
 <span class="c1"># Optional: runtime context (nice for docs / reproducibility)</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">splineops.utils.specs</span><span class="w"> </span><span class="kn">import</span> <span class="n">print_runtime_context</span>
+
     <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_SPECS</span></a> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
     <span class="n">print_runtime_context</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: ignore[assignment]</span>
@@ -343,6 +546,7 @@ the recovered image and a normalized signed error map (recovered − original).<
 <span class="c1"># Optional SciPy (fallback competitor)</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">zoom</span> <span class="k">as</span> <a class="sphx-glr-backref-module-scipy-ndimage sphx-glr-backref-type-py-function" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.zoom.html#scipy.ndimage.zoom" title="scipy.ndimage.zoom"><span class="n">ndi_zoom</span></a>  <span class="c1"># type: ignore</span>
+
     <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_SCIPY</span></a> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
     <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_SCIPY</span></a> <span class="o">=</span> <span class="kc">False</span>
@@ -352,11 +556,12 @@ the recovered image and a normalized signed error map (recovered − original).<
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>  <span class="c1"># type: ignore</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>  <span class="c1"># type: ignore</span>
+
     <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_TORCH</span></a> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
     <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_TORCH</span></a> <span class="o">=</span> <span class="kc">False</span>
     <span class="n">torch</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: ignore[assignment]</span>
-    <span class="n">F</span> <span class="o">=</span> <span class="kc">None</span>      <span class="c1"># type: ignore[assignment]</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: ignore[assignment]</span>
 </pre></div>
 </div>
 </section>
@@ -370,7 +575,7 @@ the recovered image and a normalized signed error map (recovered − original).<
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">SPLINEOPS_LABEL</span></a> <span class="o">=</span> <span class="s2">"SplineOps Antialiasing cubic"</span>
 
 <span class="c1"># --- Highlight colors ---</span>
-<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">SPLINEOPS_AA_COLOR</span></a> <span class="o">=</span> <span class="s2">"#BE185D"</span>   <span class="c1"># Antialiasing</span>
+<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">SPLINEOPS_AA_COLOR</span></a> <span class="o">=</span> <span class="s2">"#BE185D"</span>  <span class="c1"># Antialiasing</span>
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">SPLINEOPS_STD_COLOR</span></a> <span class="o">=</span> <span class="s2">"#C2410C"</span>  <span class="c1"># (unused here, but kept consistent)</span>
 
 <span class="c1"># Prefer torch if available; otherwise SciPy</span>
@@ -388,21 +593,23 @@ the recovered image and a normalized signed error map (recovered − original).<
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">Z_START</span></a> <span class="o">=</span> <span class="mf">0.30</span>
 
 <span class="c1"># Original distribution (includes values up to 1.0)</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">zoom_low</span></a>   <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.geomspace.html#numpy.geomspace" title="numpy.geomspace"><span class="n">np</span><span class="o">.</span><span class="n">geomspace</span></a><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>  <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   <span class="c1"># &lt; 0.15</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">zoom_focus</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.geomspace.html#numpy.geomspace" title="numpy.geomspace"><span class="n">np</span><span class="o">.</span><span class="n">geomspace</span></a><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   <span class="c1"># [0.15, 0.50)</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">zoom_mid</span></a>   <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.geomspace.html#numpy.geomspace" title="numpy.geomspace"><span class="n">np</span><span class="o">.</span><span class="n">geomspace</span></a><span class="p">(</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>  <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>    <span class="c1"># [0.50, 0.80]</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">zoom_top</span></a>   <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.90</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">zoom_low</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.geomspace.html#numpy.geomspace" title="numpy.geomspace"><span class="n">np</span><span class="o">.</span><span class="n">geomspace</span></a><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># &lt; 0.15</span>
+<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">zoom_focus</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.geomspace.html#numpy.geomspace" title="numpy.geomspace"><span class="n">np</span><span class="o">.</span><span class="n">geomspace</span></a><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># [0.15, 0.50)</span>
+<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">zoom_mid</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.geomspace.html#numpy.geomspace" title="numpy.geomspace"><span class="n">np</span><span class="o">.</span><span class="n">geomspace</span></a><span class="p">(</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># [0.50, 0.80]</span>
+<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">zoom_top</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.90</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
 
 <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">ZOOM_VALUES_FULL</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.sort.html#numpy.sort" title="numpy.sort"><span class="n">np</span><span class="o">.</span><span class="n">sort</span></a><span class="p">(</span>
     <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.unique.html#numpy.unique" title="numpy.unique"><span class="n">np</span><span class="o">.</span><span class="n">unique</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.concatenate.html#numpy.concatenate" title="numpy.concatenate"><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span></a><span class="p">([</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">zoom_low</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">zoom_focus</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">zoom_mid</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">zoom_top</span></a><span class="p">,</span> <span class="p">[</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">Z_START</span></a><span class="p">]]))</span>
-<span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># 1.0 -&gt; ... -&gt; small</span>
+<span class="p">)[</span>
+    <span class="p">::</span><span class="o">-</span><span class="mi">1</span>
+<span class="p">]</span>  <span class="c1"># 1.0 -&gt; ... -&gt; small</span>
 
 <span class="c1"># Start at Z_START, go down to ~0.01</span>
 <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">start_idx</span></a> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.where.html#numpy.where" title="numpy.where"><span class="n">np</span><span class="o">.</span><span class="n">where</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">ZOOM_VALUES_FULL</span></a> <span class="o">&lt;=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">Z_START</span></a><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">tail</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">ZOOM_VALUES_FULL</span></a><span class="p">[</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">start_idx</span></a><span class="p">:]</span>          <span class="c1"># Z_START -&gt; ... -&gt; small</span>
+<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">tail</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">ZOOM_VALUES_FULL</span></a><span class="p">[</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">start_idx</span></a><span class="p">:]</span>  <span class="c1"># Z_START -&gt; ... -&gt; small</span>
 
 <span class="c1"># Then go from 1.0 down to Z_START to close the loop</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">head</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">ZOOM_VALUES_FULL</span></a><span class="p">[:</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">start_idx</span></a> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>     <span class="c1"># 1.0 -&gt; ... -&gt; Z_START</span>
+<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">head</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">ZOOM_VALUES_FULL</span></a><span class="p">[:</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">start_idx</span></a> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># 1.0 -&gt; ... -&gt; Z_START</span>
 
 <span class="c1"># Final sequence: 0.30 -&gt; ... -&gt; 0.01 -&gt; 1.0 -&gt; ... -&gt; 0.30</span>
 <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">ZOOM_VALUES</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.concatenate.html#numpy.concatenate" title="numpy.concatenate"><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span></a><span class="p">([</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">tail</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">head</span></a><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
@@ -440,7 +647,9 @@ the recovered image and a normalized signed error map (recovered − original).<
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_u8_to_gray01</span><span class="p">(</span><span class="n">u8_rgb</span><span class="p">:</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">)</span> <span class="o">-&gt;</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">:</span>
     <span class="n">u</span> <span class="o">=</span> <span class="n">u8_rgb</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float32" title="numpy.float32"><span class="n">np</span><span class="o">.</span><span class="n">float32</span></a><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span>
-    <span class="k">return</span> <span class="p">(</span><span class="mf">0.2989</span> <span class="o">*</span> <span class="n">u</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5870</span> <span class="o">*</span> <span class="n">u</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.1140</span> <span class="o">*</span> <span class="n">u</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float32" title="numpy.float32"><span class="n">np</span><span class="o">.</span><span class="n">float32</span></a><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">0.2989</span> <span class="o">*</span> <span class="n">u</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5870</span> <span class="o">*</span> <span class="n">u</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.1140</span> <span class="o">*</span> <span class="n">u</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
+        <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float32" title="numpy.float32"><span class="n">np</span><span class="o">.</span><span class="n">float32</span></a>
+    <span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_paste_on_white_canvas</span><span class="p">(</span><span class="n">down_u8</span><span class="p">:</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">,</span> <span class="n">canvas_u8</span><span class="p">:</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -452,7 +661,9 @@ the recovered image and a normalized signed error map (recovered − original).<
 <span class="k">def</span><span class="w"> </span><span class="nf">_resize_rgb_splineops</span><span class="p">(</span><span class="n">img01</span><span class="p">:</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Channel-wise splineops resize for RGB."""</span>
     <span class="n">zoom_hw</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
-    <span class="n">chs</span> <span class="o">=</span> <span class="p">[</span><span class="n">sp_resize</span><span class="p">(</span><span class="n">img01</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">c</span><span class="p">],</span> <span class="n">zoom_factors</span><span class="o">=</span><span class="n">zoom_hw</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+    <span class="n">chs</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">sp_resize</span><span class="p">(</span><span class="n">img01</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">c</span><span class="p">],</span> <span class="n">zoom_factors</span><span class="o">=</span><span class="n">zoom_hw</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="p">]</span>
     <span class="n">out</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.stack.html#numpy.stack" title="numpy.stack"><span class="n">np</span><span class="o">.</span><span class="n">stack</span></a><span class="p">(</span><span class="n">chs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float32" title="numpy.float32"><span class="n">DTYPE</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
@@ -466,7 +677,7 @@ the recovered image and a normalized signed error map (recovered − original).<
     <span class="c1"># crop</span>
     <span class="n">r0</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">H</span> <span class="o">-</span> <span class="n">Ht</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">c0</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">W</span> <span class="o">-</span> <span class="n">Wt</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">a2</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">r0</span><span class="p">:</span><span class="n">r0</span> <span class="o">+</span> <span class="nb">min</span><span class="p">(</span><span class="n">Ht</span><span class="p">,</span> <span class="n">H</span><span class="p">),</span> <span class="n">c0</span><span class="p">:</span><span class="n">c0</span> <span class="o">+</span> <span class="nb">min</span><span class="p">(</span><span class="n">Wt</span><span class="p">,</span> <span class="n">W</span><span class="p">),</span> <span class="o">...</span><span class="p">]</span>
+    <span class="n">a2</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">r0</span> <span class="p">:</span> <span class="n">r0</span> <span class="o">+</span> <span class="nb">min</span><span class="p">(</span><span class="n">Ht</span><span class="p">,</span> <span class="n">H</span><span class="p">),</span> <span class="n">c0</span> <span class="p">:</span> <span class="n">c0</span> <span class="o">+</span> <span class="nb">min</span><span class="p">(</span><span class="n">Wt</span><span class="p">,</span> <span class="n">W</span><span class="p">),</span> <span class="o">...</span><span class="p">]</span>
     <span class="c1"># pad if needed</span>
     <span class="n">H2</span><span class="p">,</span> <span class="n">W2</span> <span class="o">=</span> <span class="n">a2</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">H2</span><span class="p">,</span> <span class="n">W2</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">Ht</span><span class="p">,</span> <span class="n">Wt</span><span class="p">):</span>
@@ -487,7 +698,10 @@ the recovered image and a normalized signed error map (recovered − original).<
     <span class="n">down01</span> <span class="o">=</span> <span class="n">_resize_rgb_splineops</span><span class="p">(</span><span class="n">orig01</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"cubic-antialiasing"</span><span class="p">)</span>
     <span class="n">down_u8</span> <span class="o">=</span> <span class="n">_to_u8</span><span class="p">(</span><span class="n">down01</span><span class="p">)</span>
 
-    <span class="n">rec_ch</span> <span class="o">=</span> <span class="p">[</span><span class="n">sp_resize</span><span class="p">(</span><span class="n">down01</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">c</span><span class="p">],</span> <span class="n">output_size</span><span class="o">=</span><span class="p">(</span><span class="n">H0</span><span class="p">,</span> <span class="n">W0</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s2">"cubic-antialiasing"</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+    <span class="n">rec_ch</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">sp_resize</span><span class="p">(</span><span class="n">down01</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">c</span><span class="p">],</span> <span class="n">output_size</span><span class="o">=</span><span class="p">(</span><span class="n">H0</span><span class="p">,</span> <span class="n">W0</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s2">"cubic-antialiasing"</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="p">]</span>
     <span class="n">rec01</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.stack.html#numpy.stack" title="numpy.stack"><span class="n">np</span><span class="o">.</span><span class="n">stack</span></a><span class="p">(</span><span class="n">rec_ch</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">rec_u8</span> <span class="o">=</span> <span class="n">_to_u8</span><span class="p">(</span><span class="n">rec01</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">down_u8</span><span class="p">,</span> <span class="n">rec_u8</span>
@@ -501,18 +715,26 @@ the recovered image and a normalized signed error map (recovered − original).<
     <span class="n">H1</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">H0</span> <span class="o">*</span> <span class="n">z</span><span class="p">)))</span>
     <span class="n">W1</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">W0</span> <span class="o">*</span> <span class="n">z</span><span class="p">)))</span>
 
-    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">orig01</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float32" title="numpy.float32"><span class="n">np</span><span class="o">.</span><span class="n">float32</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">orig01</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float32" title="numpy.float32"><span class="n">np</span><span class="o">.</span><span class="n">float32</span></a><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">)</span>
 
     <span class="c1"># antialias=False explicitly; if not supported by the torch version, fallback without it</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">y</span>  <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>  <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">H1</span><span class="p">,</span> <span class="n">W1</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bicubic"</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">antialias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">y2</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">y</span><span class="p">,</span>  <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">H0</span><span class="p">,</span> <span class="n">W0</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bicubic"</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">antialias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">H1</span><span class="p">,</span> <span class="n">W1</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bicubic"</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">antialias</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+        <span class="n">y2</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span>
+            <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">H0</span><span class="p">,</span> <span class="n">W0</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bicubic"</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">antialias</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
     <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-        <span class="n">y</span>  <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>  <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">H1</span><span class="p">,</span> <span class="n">W1</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bicubic"</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">y2</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">y</span><span class="p">,</span>  <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">H0</span><span class="p">,</span> <span class="n">W0</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bicubic"</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">H1</span><span class="p">,</span> <span class="n">W1</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bicubic"</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">y2</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">H0</span><span class="p">,</span> <span class="n">W0</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bicubic"</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="n">down01</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
-    <span class="n">rec01</span>  <span class="o">=</span> <span class="n">y2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="n">rec01</span> <span class="o">=</span> <span class="n">y2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 
     <span class="k">return</span> <span class="n">_to_u8</span><span class="p">(</span><span class="n">down01</span><span class="p">),</span> <span class="n">_to_u8</span><span class="p">(</span><span class="n">rec01</span><span class="p">)</span>
 
@@ -528,7 +750,14 @@ the recovered image and a normalized signed error map (recovered − original).<
     <span class="c1"># SciPy works channel-wise</span>
     <span class="n">downs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-        <span class="n">ch</span> <span class="o">=</span> <a class="sphx-glr-backref-module-scipy-ndimage sphx-glr-backref-type-py-function" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.zoom.html#scipy.ndimage.zoom" title="scipy.ndimage.zoom"><span class="n">ndi_zoom</span></a><span class="p">(</span><span class="n">orig01</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">c</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">prefilter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"reflect"</span><span class="p">,</span> <span class="n">grid_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">ch</span> <span class="o">=</span> <a class="sphx-glr-backref-module-scipy-ndimage sphx-glr-backref-type-py-function" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.zoom.html#scipy.ndimage.zoom" title="scipy.ndimage.zoom"><span class="n">ndi_zoom</span></a><span class="p">(</span>
+            <span class="n">orig01</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">c</span><span class="p">],</span>
+            <span class="n">zoom</span><span class="o">=</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span>
+            <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+            <span class="n">prefilter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">mode</span><span class="o">=</span><span class="s2">"reflect"</span><span class="p">,</span>
+            <span class="n">grid_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="n">downs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
     <span class="n">down01</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.stack.html#numpy.stack" title="numpy.stack"><span class="n">np</span><span class="o">.</span><span class="n">stack</span></a><span class="p">(</span><span class="n">downs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">down01</span> <span class="o">=</span> <span class="n">_match_shape_center</span><span class="p">(</span><span class="n">down01</span><span class="p">,</span> <span class="p">(</span><span class="n">H1</span><span class="p">,</span> <span class="n">W1</span><span class="p">))</span>
@@ -539,7 +768,14 @@ the recovered image and a normalized signed error map (recovered − original).<
 
     <span class="n">recs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-        <span class="n">ch</span> <span class="o">=</span> <a class="sphx-glr-backref-module-scipy-ndimage sphx-glr-backref-type-py-function" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.zoom.html#scipy.ndimage.zoom" title="scipy.ndimage.zoom"><span class="n">ndi_zoom</span></a><span class="p">(</span><span class="n">down01</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">c</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="n">zoom_bwd</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">prefilter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"reflect"</span><span class="p">,</span> <span class="n">grid_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">ch</span> <span class="o">=</span> <a class="sphx-glr-backref-module-scipy-ndimage sphx-glr-backref-type-py-function" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.zoom.html#scipy.ndimage.zoom" title="scipy.ndimage.zoom"><span class="n">ndi_zoom</span></a><span class="p">(</span>
+            <span class="n">down01</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">c</span><span class="p">],</span>
+            <span class="n">zoom</span><span class="o">=</span><span class="n">zoom_bwd</span><span class="p">,</span>
+            <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+            <span class="n">prefilter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">mode</span><span class="o">=</span><span class="s2">"reflect"</span><span class="p">,</span>
+            <span class="n">grid_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="n">recs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
     <span class="n">rec01</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.stack.html#numpy.stack" title="numpy.stack"><span class="n">np</span><span class="o">.</span><span class="n">stack</span></a><span class="p">(</span><span class="n">recs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">rec01</span> <span class="o">=</span> <span class="n">_match_shape_center</span><span class="p">(</span><span class="n">rec01</span><span class="p">,</span> <span class="p">(</span><span class="n">H0</span><span class="p">,</span> <span class="n">W0</span><span class="p">))</span>
@@ -547,12 +783,16 @@ the recovered image and a normalized signed error map (recovered − original).<
     <span class="k">return</span> <span class="n">_to_u8</span><span class="p">(</span><span class="n">down01</span><span class="p">),</span> <span class="n">_to_u8</span><span class="p">(</span><span class="n">rec01</span><span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">get_competitor_rt</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-data" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="typing.Callable"><span class="n">Callable</span></a><span class="p">[[</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">[</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">]]]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_competitor_rt</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">(</span>
+    <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-data" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="typing.Callable"><span class="n">Callable</span></a><span class="p">[[</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">[</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">]]]</span>
+<span class="p">):</span>
     <span class="k">if</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_TORCH</span></a><span class="p">:</span>
         <span class="k">return</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">COMP_LABEL</span></a><span class="p">,</span> <span class="n">rt_torch_bicubic</span>
     <span class="k">if</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool"><span class="n">_HAS_SCIPY</span></a><span class="p">:</span>
         <span class="k">return</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">COMP_LABEL</span></a><span class="p">,</span> <span class="n">rt_scipy_cubic</span>
-    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"Neither PyTorch nor SciPy is available for the competitor backend."</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+        <span class="s2">"Neither PyTorch nor SciPy is available for the competitor backend."</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -586,15 +826,23 @@ the recovered image and a normalized signed error map (recovered − original).<
     <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">zoom_values</span><span class="p">:</span>
         <span class="n">_</span><span class="p">,</span> <span class="n">rec_a</span> <span class="o">=</span> <span class="n">rt_splineops_aa</span><span class="p">(</span><span class="n">orig01</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
         <span class="n">_</span><span class="p">,</span> <span class="n">rec_b</span> <span class="o">=</span> <span class="n">rt_comp</span><span class="p">(</span><span class="n">orig01</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
-        <span class="n">max_abs</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_abs</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.max.html#numpy.max" title="numpy.max"><span class="n">np</span><span class="o">.</span><span class="n">max</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">abs</span></a><span class="p">(</span><span class="n">_u8_to_gray01</span><span class="p">(</span><span class="n">rec_a</span><span class="p">)</span> <span class="o">-</span> <span class="n">orig_gray01</span><span class="p">))))</span>
-        <span class="n">max_abs</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_abs</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.max.html#numpy.max" title="numpy.max"><span class="n">np</span><span class="o">.</span><span class="n">max</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">abs</span></a><span class="p">(</span><span class="n">_u8_to_gray01</span><span class="p">(</span><span class="n">rec_b</span><span class="p">)</span> <span class="o">-</span> <span class="n">orig_gray01</span><span class="p">))))</span>
+        <span class="n">max_abs</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
+            <span class="n">max_abs</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.max.html#numpy.max" title="numpy.max"><span class="n">np</span><span class="o">.</span><span class="n">max</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">abs</span></a><span class="p">(</span><span class="n">_u8_to_gray01</span><span class="p">(</span><span class="n">rec_a</span><span class="p">)</span> <span class="o">-</span> <span class="n">orig_gray01</span><span class="p">)))</span>
+        <span class="p">)</span>
+        <span class="n">max_abs</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
+            <span class="n">max_abs</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.max.html#numpy.max" title="numpy.max"><span class="n">np</span><span class="o">.</span><span class="n">max</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">abs</span></a><span class="p">(</span><span class="n">_u8_to_gray01</span><span class="p">(</span><span class="n">rec_b</span><span class="p">)</span> <span class="o">-</span> <span class="n">orig_gray01</span><span class="p">)))</span>
+        <span class="p">)</span>
     <span class="n">max_abs</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_abs</span><span class="p">,</span> <span class="mf">1e-12</span><span class="p">)</span>
 
     <span class="c1"># Precompute energy for SNR (grayscale)</span>
     <span class="n">orig_energy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum" title="numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span><span class="n">orig_gray01</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_snr_db</span><span class="p">(</span><span class="n">rec_gray01</span><span class="p">:</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-        <span class="n">den</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum" title="numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">((</span><span class="n">orig_gray01</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span> <span class="o">-</span> <span class="n">rec_gray01</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="n">den</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span>
+            <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum" title="numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span>
+                <span class="p">(</span><span class="n">orig_gray01</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span> <span class="o">-</span> <span class="n">rec_gray01</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
         <span class="k">if</span> <span class="n">den</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">orig_energy</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
@@ -618,25 +866,38 @@ the recovered image and a normalized signed error map (recovered − original).<
     <span class="n">fig</span> <span class="o">=</span> <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">gs</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">width_ratios</span><span class="o">=</span><span class="p">[</span><span class="mf">1.05</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
 
-    <span class="n">ax_orig</span>     <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-    <span class="n">ax_blank</span>    <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">ax_orig</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">ax_blank</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
     <span class="n">ax_leg_host</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 
     <span class="n">ax_down_a</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
     <span class="n">ax_down_b</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-    <span class="n">ax_rec_a</span>  <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="n">ax_rec_b</span>  <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-    <span class="n">ax_err_a</span>  <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="n">ax_err_b</span>  <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+    <span class="n">ax_rec_a</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax_rec_b</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+    <span class="n">ax_err_a</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax_err_b</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
-    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ax_orig</span><span class="p">,</span> <span class="n">ax_blank</span><span class="p">,</span> <span class="n">ax_leg_host</span><span class="p">,</span> <span class="n">ax_down_a</span><span class="p">,</span> <span class="n">ax_down_b</span><span class="p">,</span> <span class="n">ax_rec_a</span><span class="p">,</span> <span class="n">ax_rec_b</span><span class="p">,</span> <span class="n">ax_err_a</span><span class="p">,</span> <span class="n">ax_err_b</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">(</span>
+        <span class="n">ax_orig</span><span class="p">,</span>
+        <span class="n">ax_blank</span><span class="p">,</span>
+        <span class="n">ax_leg_host</span><span class="p">,</span>
+        <span class="n">ax_down_a</span><span class="p">,</span>
+        <span class="n">ax_down_b</span><span class="p">,</span>
+        <span class="n">ax_rec_a</span><span class="p">,</span>
+        <span class="n">ax_rec_b</span><span class="p">,</span>
+        <span class="n">ax_err_a</span><span class="p">,</span>
+        <span class="n">ax_err_b</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
 
     <span class="c1"># Row label for the recovered row (keeps per-panel titles shorter)</span>
     <span class="n">ax_blank</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
-        <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">"Recovered image"</span><span class="p">,</span>
+        <span class="mf">0.5</span><span class="p">,</span>
+        <span class="mf">0.5</span><span class="p">,</span>
+        <span class="s2">"Recovered image"</span><span class="p">,</span>
         <span class="n">transform</span><span class="o">=</span><span class="n">ax_blank</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
-        <span class="n">ha</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
+        <span class="n">va</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
         <span class="n">fontsize</span><span class="o">=</span><span class="n">title_fs</span><span class="p">,</span>
     <span class="p">)</span>
 
@@ -649,11 +910,42 @@ the recovered image and a normalized signed error map (recovered − original).<
     <span class="n">legend_img</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.repeat.html#numpy.repeat" title="numpy.repeat"><span class="n">np</span><span class="o">.</span><span class="n">repeat</span></a><span class="p">(</span><span class="n">y</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">W_leg</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">leg</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">legend_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">)</span>
 
-    <span class="n">ax_leg_host</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.62</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">"-1"</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg_host</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
-    <span class="n">ax_leg_host</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.62</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="s2">"0"</span><span class="p">,</span>  <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg_host</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
-    <span class="n">ax_leg_host</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.62</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="s2">"+1"</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg_host</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"top"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
-    <span class="n">ax_leg_host</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">1.02</span><span class="p">,</span> <span class="s2">"Signed error"</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg_host</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
-                     <span class="n">fontsize</span><span class="o">=</span><span class="n">title_fs</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"center"</span><span class="p">)</span>
+    <span class="n">ax_leg_host</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="mf">0.62</span><span class="p">,</span>
+        <span class="mf">0.05</span><span class="p">,</span>
+        <span class="s2">"-1"</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg_host</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+        <span class="n">va</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">,</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">ax_leg_host</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="mf">0.62</span><span class="p">,</span>
+        <span class="mf">0.50</span><span class="p">,</span>
+        <span class="s2">"0"</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg_host</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+        <span class="n">va</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">ax_leg_host</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="mf">0.62</span><span class="p">,</span>
+        <span class="mf">0.95</span><span class="p">,</span>
+        <span class="s2">"+1"</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg_host</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+        <span class="n">va</span><span class="o">=</span><span class="s2">"top"</span><span class="p">,</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s2">"left"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">ax_leg_host</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="mf">0.50</span><span class="p">,</span>
+        <span class="mf">1.02</span><span class="p">,</span>
+        <span class="s2">"Signed error"</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ax_leg_host</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="n">title_fs</span><span class="p">,</span>
+        <span class="n">va</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">,</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="c1"># Static original</span>
     <span class="n">ax_orig</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Original image"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">title_fs</span><span class="p">)</span>
@@ -665,12 +957,12 @@ the recovered image and a normalized signed error map (recovered − original).<
 
     <span class="c1"># First frame (i=0)</span>
     <span class="n">z0</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">zoom_values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">down_so0</span><span class="p">,</span>   <span class="n">rec_so0</span>   <span class="o">=</span> <span class="n">rt_splineops_aa</span><span class="p">(</span><span class="n">orig01</span><span class="p">,</span> <span class="n">z0</span><span class="p">)</span>
-    <span class="n">down_cmp0</span><span class="p">,</span>  <span class="n">rec_cmp0</span>  <span class="o">=</span> <span class="n">rt_comp</span><span class="p">(</span><span class="n">orig01</span><span class="p">,</span> <span class="n">z0</span><span class="p">)</span>
+    <span class="n">down_so0</span><span class="p">,</span> <span class="n">rec_so0</span> <span class="o">=</span> <span class="n">rt_splineops_aa</span><span class="p">(</span><span class="n">orig01</span><span class="p">,</span> <span class="n">z0</span><span class="p">)</span>
+    <span class="n">down_cmp0</span><span class="p">,</span> <span class="n">rec_cmp0</span> <span class="o">=</span> <span class="n">rt_comp</span><span class="p">(</span><span class="n">orig01</span><span class="p">,</span> <span class="n">z0</span><span class="p">)</span>
 
     <span class="c1"># Column order: competitor first (left), splineops second (right)</span>
     <span class="n">_paste_on_white_canvas</span><span class="p">(</span><span class="n">down_cmp0</span><span class="p">,</span> <span class="n">canvas_a</span><span class="p">)</span>  <span class="c1"># left method column</span>
-    <span class="n">_paste_on_white_canvas</span><span class="p">(</span><span class="n">down_so0</span><span class="p">,</span>  <span class="n">canvas_b</span><span class="p">)</span>  <span class="c1"># right method column</span>
+    <span class="n">_paste_on_white_canvas</span><span class="p">(</span><span class="n">down_so0</span><span class="p">,</span> <span class="n">canvas_b</span><span class="p">)</span>  <span class="c1"># right method column</span>
 
     <span class="n">t_down_a</span> <span class="o">=</span> <span class="n">ax_down_a</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">comp_label</span><span class="si">}</span><span class="s2"> (z=</span><span class="si">{</span><span class="n">z0</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">title_fs</span><span class="p">)</span>
     <span class="n">t_down_b</span> <span class="o">=</span> <span class="n">ax_down_b</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
@@ -692,10 +984,10 @@ the recovered image and a normalized signed error map (recovered − original).<
 
     <span class="c1"># Compute grayscale once (reuse for SNR + error)</span>
     <span class="n">rec_cmp_g0</span> <span class="o">=</span> <span class="n">_u8_to_gray01</span><span class="p">(</span><span class="n">rec_cmp0</span><span class="p">)</span>
-    <span class="n">rec_so_g0</span>  <span class="o">=</span> <span class="n">_u8_to_gray01</span><span class="p">(</span><span class="n">rec_so0</span><span class="p">)</span>
+    <span class="n">rec_so_g0</span> <span class="o">=</span> <span class="n">_u8_to_gray01</span><span class="p">(</span><span class="n">rec_so0</span><span class="p">)</span>
 
     <span class="n">snr_cmp0</span> <span class="o">=</span> <span class="n">_snr_db</span><span class="p">(</span><span class="n">rec_cmp_g0</span><span class="p">)</span>
-    <span class="n">snr_so0</span>  <span class="o">=</span> <span class="n">_snr_db</span><span class="p">(</span><span class="n">rec_so_g0</span><span class="p">)</span>
+    <span class="n">snr_so0</span> <span class="o">=</span> <span class="n">_snr_db</span><span class="p">(</span><span class="n">rec_so_g0</span><span class="p">)</span>
 
     <span class="n">t_rec_a</span> <span class="o">=</span> <span class="n">ax_rec_a</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
         <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">comp_label</span><span class="si">}</span><span class="s2"> (SNR=</span><span class="si">{</span><span class="n">_fmt_snr</span><span class="p">(</span><span class="n">snr_cmp0</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span><span class="p">,</span>
@@ -709,17 +1001,21 @@ the recovered image and a normalized signed error map (recovered − original).<
     <span class="p">)</span>
 
     <span class="c1"># Error maps: same range for BOTH methods (0..255) and shared normalization</span>
-    <span class="n">im_err_a</span> <span class="o">=</span> <span class="n">ax_err_a</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">diff_norm_u8_from_gray</span><span class="p">(</span><span class="n">rec_cmp_g0</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
-    <span class="n">im_err_b</span> <span class="o">=</span> <span class="n">ax_err_b</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">diff_norm_u8_from_gray</span><span class="p">(</span><span class="n">rec_so_g0</span><span class="p">),</span>  <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+    <span class="n">im_err_a</span> <span class="o">=</span> <span class="n">ax_err_a</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+        <span class="n">diff_norm_u8_from_gray</span><span class="p">(</span><span class="n">rec_cmp_g0</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">255</span>
+    <span class="p">)</span>
+    <span class="n">im_err_b</span> <span class="o">=</span> <span class="n">ax_err_b</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+        <span class="n">diff_norm_u8_from_gray</span><span class="p">(</span><span class="n">rec_so_g0</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">255</span>
+    <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="n">z</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">zoom_values</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 
-        <span class="n">down_so</span><span class="p">,</span>  <span class="n">rec_so</span>  <span class="o">=</span> <span class="n">rt_splineops_aa</span><span class="p">(</span><span class="n">orig01</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+        <span class="n">down_so</span><span class="p">,</span> <span class="n">rec_so</span> <span class="o">=</span> <span class="n">rt_splineops_aa</span><span class="p">(</span><span class="n">orig01</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
         <span class="n">down_cmp</span><span class="p">,</span> <span class="n">rec_cmp</span> <span class="o">=</span> <span class="n">rt_comp</span><span class="p">(</span><span class="n">orig01</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 
         <span class="n">_paste_on_white_canvas</span><span class="p">(</span><span class="n">down_cmp</span><span class="p">,</span> <span class="n">canvas_a</span><span class="p">)</span>
-        <span class="n">_paste_on_white_canvas</span><span class="p">(</span><span class="n">down_so</span><span class="p">,</span>  <span class="n">canvas_b</span><span class="p">)</span>
+        <span class="n">_paste_on_white_canvas</span><span class="p">(</span><span class="n">down_so</span><span class="p">,</span> <span class="n">canvas_b</span><span class="p">)</span>
 
         <span class="n">im_down_a</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">canvas_a</span><span class="p">)</span>
         <span class="n">im_down_b</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">canvas_b</span><span class="p">)</span>
@@ -729,7 +1025,7 @@ the recovered image and a normalized signed error map (recovered − original).<
 
         <span class="c1"># Grayscale once per method (reuse)</span>
         <span class="n">rec_cmp_g</span> <span class="o">=</span> <span class="n">_u8_to_gray01</span><span class="p">(</span><span class="n">rec_cmp</span><span class="p">)</span>
-        <span class="n">rec_so_g</span>  <span class="o">=</span> <span class="n">_u8_to_gray01</span><span class="p">(</span><span class="n">rec_so</span><span class="p">)</span>
+        <span class="n">rec_so_g</span> <span class="o">=</span> <span class="n">_u8_to_gray01</span><span class="p">(</span><span class="n">rec_so</span><span class="p">)</span>
 
         <span class="n">im_err_a</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">diff_norm_u8_from_gray</span><span class="p">(</span><span class="n">rec_cmp_g</span><span class="p">))</span>
         <span class="n">im_err_b</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">diff_norm_u8_from_gray</span><span class="p">(</span><span class="n">rec_so_g</span><span class="p">))</span>
@@ -742,11 +1038,16 @@ the recovered image and a normalized signed error map (recovered − original).<
         <span class="n">t_rec_b</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">SPLINEOPS_LABEL</span></a><span class="si">}</span><span class="s2"> (SNR=</span><span class="si">{</span><span class="n">_fmt_snr</span><span class="p">(</span><span class="n">_snr_db</span><span class="p">(</span><span class="n">rec_so_g</span><span class="p">))</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="p">(</span>
-            <span class="n">im_down_a</span><span class="p">,</span> <span class="n">im_down_b</span><span class="p">,</span>
-            <span class="n">im_rec_a</span><span class="p">,</span> <span class="n">im_rec_b</span><span class="p">,</span>
-            <span class="n">im_err_a</span><span class="p">,</span> <span class="n">im_err_b</span><span class="p">,</span>
-            <span class="n">t_down_a</span><span class="p">,</span> <span class="n">t_down_b</span><span class="p">,</span>
-            <span class="n">t_rec_a</span><span class="p">,</span> <span class="n">t_rec_b</span><span class="p">,</span>
+            <span class="n">im_down_a</span><span class="p">,</span>
+            <span class="n">im_down_b</span><span class="p">,</span>
+            <span class="n">im_rec_a</span><span class="p">,</span>
+            <span class="n">im_rec_b</span><span class="p">,</span>
+            <span class="n">im_err_a</span><span class="p">,</span>
+            <span class="n">im_err_b</span><span class="p">,</span>
+            <span class="n">t_down_a</span><span class="p">,</span>
+            <span class="n">t_down_b</span><span class="p">,</span>
+            <span class="n">t_rec_a</span><span class="p">,</span>
+            <span class="n">t_rec_b</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="c1"># Avoid Matplotlib caching all frames in memory (important when many animations)</span>
@@ -221586,12 +221887,12 @@ for the animation computations.</p>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Runtime context:
   Python      : 3.12.13 (CPython)
-  OS          : Linux 6.17.0-1018-azure (x86_64)
+  OS          : Linux 6.17.0-1020-azure (x86_64)
   CPU         : x86_64 | logical cores: 4
-  Process     : pid=2674 | Python threads=1 | OS threads=17
+  Process     : pid=2621 | Python threads=1 | OS threads=17
   NumPy/SciPy : 2.5.1/1.18.0
   Matplotlib  : 3.11.0 | backend: agg
-  splineops   : 2.0.0 | native ext present: True
+  splineops   : 2.1.0 | native ext present: True
   Extra libs  : Pillow=12.3.0, OpenCV=5.0.0, scikit-image=0.26.0, PyTorch=2.13.0+cu130
   SPLINEOPS_ACCEL=always
   OMP_NUM_THREADS=4
@@ -221602,7 +221903,7 @@ Competitor backend: PyTorch bicubic
 Number of frames per animation: 40
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (4 minutes 11.270 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (4 minutes 2.737 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

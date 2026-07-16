@@ -1,120 +1,130 @@
-.. splineops/docs/index.rst
+SplineOps
+=========
 
-SplineOps: Spline Operations
-============================
+**Projection-based antialiased resizing for N-D scientific arrays.**
 
-**SplineOps** is an open-source software library written in Python. It provides ground-breaking signal-processing tools based on splines. 
-Adapted and built on the algorithms developed through the years by the `Biomedical Imaging Group at EPFL <https://bigwww.epfl.ch/>`_ (Lausanne, Switzerland), 
-SplineOps is in active development and supports modern computational demands.
+SplineOps is designed for precise, repeatable downsampling of regular-grid
+2-D images and 3-D volumes.  It combines explicit coordinate semantics, a
+readable Python reference implementation, a native CPU backend, and reusable
+plans for fixed-geometry workloads.
 
-.. figure:: _static/waveletbird_full.jpeg
-   :alt: Main Feature of SplineOps
-   :align: center
-   :scale: 40%
+Start here
+----------
 
-   A medley of spline functions and their derivatives
+.. code-block:: python
 
-Key Features and Capabilities
-=============================
+   import numpy as np
+   from splineops import resize
 
-- **Optimized Performance**: Leveraging of CPU and GPU architectures to handle large-scale signal datasets effectively.
+   volume = np.random.default_rng(0).random((64, 192, 192), dtype=np.float32)
+   coarse = resize(
+       volume,
+       output_size=(32, 96, 96),
+       method="cubic-antialiasing",
+   )
 
-- **Precision and Flexibility**: High-degree spline interpolation across multiple dimensions.
+The antialiasing methods project the input spline onto a coarser spline space
+instead of treating downsampling as interpolation alone.  Continue with the
+:doc:`quickstart`, then use the :doc:`volume-downsampling` tutorial for a
+batched 3-D workflow.
 
-- **Scalability and Extensibility**: Incorporation of new functionalities tailored to specific applications.
+Choose SplineOps when
+---------------------
 
-.. figure:: _static/feature_01.jpg
-   :alt: Key Feature Illustration
-   :align: center
-   :scale: 60%
+* continuous-valued 2-D or 3-D NumPy data must be downsampled;
+* coordinate, boundary, and output-shape semantics must be explicit;
+* aliasing matters; or
+* many arrays share one resize geometry.
 
-   B-Splines
+Choose another tool when differentiable GPU execution or automatic
+physical-space image metadata is required.  For ordinary display-image scaling,
+OpenCV or Pillow may be simpler.  Categorical labels normally require
+nearest-neighbour rather than spline-projection semantics.
 
-Modules at a Glance
-===================
+Release status
+--------------
 
-.. grid:: 3
-   :gutter: 2
+.. list-table:: SplineOps 2.1 public maturity
+   :header-rows: 1
+   :widths: 24 16 60
 
-   .. grid-item-card:: Spline Interpolation
-      :link: user-guide/01_spline_interpolation
-      :link-type: doc
-      :img-top: /auto_examples/01_spline_interpolation/images/sphx_glr_04_interpolate_1d_samples_003.png
-      :img-alt: Cubic B-spline basis
-      :shadow: md
-      :class-card: sd-rounded-2 sd-border
+   * - Module
+     - Status
+     - Public position
+   * - Resize and ``ResizePlan``
+     - Stable
+     - Native N-D interpolation and projection antialiasing with a Python
+       reference path.
+   * - ``TensorSpline``
+     - Stabilizing
+     - Continuous tensor-product models evaluated at arbitrary coordinates.
+   * - Other spline modules
+     - Experimental
+     - Available for research while their contracts and independent reference
+       coverage mature.
 
-      Continuous spline models from discrete data, in any dimension.
+SplineOps does not claim to be the fastest generic 2-D resizer.  Its strongest
+position is explicit spline semantics, N-D projection antialiasing,
+native/reference parity, and reusable fixed-geometry execution.  See
+:doc:`performance` for measured wins, losses, and limitations.
 
-   .. grid-item-card:: Resize
-      :link: user-guide/02_resize
-      :link-type: doc
-      :img-top: /auto_examples/02_resize/images/sphx_glr_06_benchmarking_055.png
-      :img-alt: 1D spline resampling
-      :shadow: md
-      :class-card: sd-rounded-2 sd-border
+Research lineage
+----------------
 
-      Projection-based resampler for highest-quality spline resizing and antialiasing.
-
-   .. grid-item-card:: Affine
-      :link: user-guide/03_affine
-      :link-type: doc
-      :img-top: /auto_examples/03_affine/images/sphx_glr_01_rotate_image_001.png
-      :img-alt: Rotated image example
-      :shadow: md
-      :class-card: sd-rounded-2 sd-border
-
-      Geometric transformations on images and volumes.
-
-   .. grid-item-card:: Adaptive Regression Splines
-      :link: user-guide/04_adaptive_regression_splines
-      :link-type: doc
-      :img-top: /auto_examples/04_adaptive_regression_splines/images/sphx_glr_01_adaptive_regression_splines_module_004.png
-      :img-alt: Piecewise-linear regression
-      :shadow: md
-      :class-card: sd-rounded-2 sd-border
-
-      Sparsest 1D piecewise-linear fits: data in, knots out.
-
-   .. grid-item-card:: Smoothing Splines
-      :link: user-guide/05_smoothing_splines
-      :link-type: doc
-      :img-top: /auto_examples/05_smoothing_splines/images/sphx_glr_01_1d_fractional_brownian_motion_001.png
-      :img-alt: Smoothing spline on a 1D process
-      :shadow: md
-      :class-card: sd-rounded-2 sd-border
-
-      Fractional spline filters for principled, tunable smoothing of signals and images.
-
-   .. grid-item-card:: Differentials
-      :link: user-guide/06_differentials
-      :link-type: doc
-      :img-top: /auto_examples/06_differentials/images/sphx_glr_01_differentials_module_002.png
-      :img-alt: Gradient/Laplacian visualisation
-      :shadow: md
-      :class-card: sd-rounded-2 sd-border
-
-      Precise gradients, Laplacians and Hessian features from a spline representation.
-
-   .. grid-item-card:: Multiscale
-      :link: user-guide/07_multiscale
-      :link-type: doc
-      :img-top: /auto_examples/07_multiscale/images/sphx_glr_02_wavelet_decomposition_001.png
-      :img-alt: Multiscale / wavelet decomposition
-      :shadow: md
-      :class-card: sd-rounded-2 sd-border
-
-      Spline pyramids and wavelets for multiscale analysis and processing.
-
-Contents
-========
+SplineOps modernizes spline methods developed across the `Biomedical Imaging
+Group at EPFL <https://bigwww.epfl.ch/>`_ and its collaborators.  Method
+citations, implementation history, and source provenance are recorded in
+:doc:`provenance`.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
-   :titlesonly:
+   :caption: Getting started
 
    installation/index
+   quickstart
+   volume-downsampling
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Core guides
+
    user-guide/index
+   user-guide/02_resize
+   user-guide/01_spline_interpolation
+   consolidation-recipes
    auto_examples/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Evidence
+
+   performance
+   project-status
+   backend-support
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Research modules
+
+   user-guide/03_affine
+   user-guide/04_adaptive_regression_splines
+   user-guide/05_smoothing_splines
+   user-guide/06_differentials
+   user-guide/07_multiscale
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Project
+
+   provenance
+   roadmap
+   progress
+   stability-soak
+   graduation-audits
+   internal-contracts
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Reference
+
    api/index

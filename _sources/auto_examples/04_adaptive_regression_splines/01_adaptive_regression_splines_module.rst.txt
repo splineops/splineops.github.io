@@ -29,7 +29,7 @@ What we do
 1. Visualize the raw data \((x,y)\).
 2. Denoise the samples by solving a TV-regularized least-squares problem on the
    second derivative:
-   
+
    .. math::
       \min_f \sum_i (f(x_i) - y_i)^2 \;+\; \lambda\,\|\mathrm{D}^2 f\|_{\mathcal{M}}.
 
@@ -50,7 +50,7 @@ Notes
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-44
+.. GENERATED FROM PYTHON SOURCE LINES 37-47
 
 .. code-block:: Python
 
@@ -59,7 +59,10 @@ Imports
     from matplotlib import pyplot as plt
 
     from splineops.adaptive_regression_splines.denoising import denoise_y
-    from splineops.adaptive_regression_splines.sparsification import sparsest_interpolant, linear_spline
+    from splineops.adaptive_regression_splines.sparsification import (
+        sparsest_interpolant,
+        linear_spline,
+    )
 
 
 
@@ -68,76 +71,78 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-50
+.. GENERATED FROM PYTHON SOURCE LINES 49-53
 
 Data Preparation
 ----------------
 
 Create a dataset as (x,y) coordinates.
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-116
+.. GENERATED FROM PYTHON SOURCE LINES 53-121
 
 .. code-block:: Python
 
 
     # Directly embedded data
-    data = np.array([
-        [0.0107766212868331, 0.260227935166001],
-        [0.0310564395737153, 0.124128829346261],
-        [0.0568406178471921, -0.0319625924377939],
-        [0.0624834663023982, -0.305487158118621],
-        [0.0855836735802228, 0.0198584921896104],
-        [0.111715185429166, 0.132374842819488],
-        [0.139391914966393, 0.0346881909310438],
-        [0.151220604385114, 0.225044726396834],
-        [0.160372945787459, -0.0839333693634482],
-        [0.196012653453612, 0.100524891786437],
-        [0.20465948547682, 0.286553206119747],
-        [0.236142103912376, -0.0969023194982265],
-        [0.247757212881283, 0.344416030734225],
-        [0.277270837091189, 0.322338105021903],
-        [0.294942432854744, 0.628493233708394],
-        [0.311124804679808, 0.238685146788896],
-        [0.322729104513214, 0.0314182350548619],
-        [0.341198353790244, 0.554001442697049],
-        [0.362426869114815, 0.658491185386012],
-        [0.380891037570895, 0.622866466731061],
-        [0.402149882582122, 0.832680133314763],
-        [0.424514186772157, 0.282871329344068],
-        [0.454259779607654, 0.418961645149398],
-        [0.471194339641083, 0.765569673816136],
-        [0.480251119603182, 0.936269519087734],
-        [0.50143948559379, 1.21690697362292],
-        [0.539345526600005, 0.856785149480669],
-        [0.551362009238399, 0.918563536364133],
-        [0.56406586469322, 1.04369945227154],
-        [0.585046514891406, 0.891659244596406],
-        [0.614876517081502, 1.01020862285029],
-        [0.623908589622186, 1.05646068606692],
-        [0.651627178545465, 1.13455056187785],
-        [0.679400399781766, 1.56682321923577],
-        [0.696936576029801, 1.47238622944877],
-        [0.704796955182952, 1.20492985044235],
-        [0.729875394285375, 1.45329058102288],
-        [0.752399114367628, 1.26394538858847],
-        [0.776579617991004, 1.4052754431186],
-        [0.783135827892922, 1.2534612824523],
-        [0.800371524043548, 1.58782975330571],
-        [0.821400442874384, 1.3740621261335],
-        [0.849726902218741, 2.27247168443063],
-        [0.872126589233067, 1.98304748773148],
-        [0.89137702874173, 1.59274379691406],
-        [0.906347248186443, 1.82991582958117],
-        [0.939772323088249, 1.9344157693364],
-        [0.951594904384916, 1.71570985938051],
-        [0.967602823452471, 2.32573940626424],
-        [0.991018964382358, 2.11540602201059]
-    ])
+    data = np.array(
+        [
+            [0.0107766212868331, 0.260227935166001],
+            [0.0310564395737153, 0.124128829346261],
+            [0.0568406178471921, -0.0319625924377939],
+            [0.0624834663023982, -0.305487158118621],
+            [0.0855836735802228, 0.0198584921896104],
+            [0.111715185429166, 0.132374842819488],
+            [0.139391914966393, 0.0346881909310438],
+            [0.151220604385114, 0.225044726396834],
+            [0.160372945787459, -0.0839333693634482],
+            [0.196012653453612, 0.100524891786437],
+            [0.20465948547682, 0.286553206119747],
+            [0.236142103912376, -0.0969023194982265],
+            [0.247757212881283, 0.344416030734225],
+            [0.277270837091189, 0.322338105021903],
+            [0.294942432854744, 0.628493233708394],
+            [0.311124804679808, 0.238685146788896],
+            [0.322729104513214, 0.0314182350548619],
+            [0.341198353790244, 0.554001442697049],
+            [0.362426869114815, 0.658491185386012],
+            [0.380891037570895, 0.622866466731061],
+            [0.402149882582122, 0.832680133314763],
+            [0.424514186772157, 0.282871329344068],
+            [0.454259779607654, 0.418961645149398],
+            [0.471194339641083, 0.765569673816136],
+            [0.480251119603182, 0.936269519087734],
+            [0.50143948559379, 1.21690697362292],
+            [0.539345526600005, 0.856785149480669],
+            [0.551362009238399, 0.918563536364133],
+            [0.56406586469322, 1.04369945227154],
+            [0.585046514891406, 0.891659244596406],
+            [0.614876517081502, 1.01020862285029],
+            [0.623908589622186, 1.05646068606692],
+            [0.651627178545465, 1.13455056187785],
+            [0.679400399781766, 1.56682321923577],
+            [0.696936576029801, 1.47238622944877],
+            [0.704796955182952, 1.20492985044235],
+            [0.729875394285375, 1.45329058102288],
+            [0.752399114367628, 1.26394538858847],
+            [0.776579617991004, 1.4052754431186],
+            [0.783135827892922, 1.2534612824523],
+            [0.800371524043548, 1.58782975330571],
+            [0.821400442874384, 1.3740621261335],
+            [0.849726902218741, 2.27247168443063],
+            [0.872126589233067, 1.98304748773148],
+            [0.89137702874173, 1.59274379691406],
+            [0.906347248186443, 1.82991582958117],
+            [0.939772323088249, 1.9344157693364],
+            [0.951594904384916, 1.71570985938051],
+            [0.967602823452471, 2.32573940626424],
+            [0.991018964382358, 2.11540602201059],
+        ]
+    )
 
     x, y = data[:, 0], data[:, 1]
 
     fig, ax = plt.subplots()
-    ax.plot(x, y, 'x', label='Original data', markersize=10)
+    ax.plot(x, y, "x", label="Original data", markersize=10)
     ax.set_title("Original data")
     ax.set_xlabel("x")
     ax.set_ylabel("y")
@@ -157,16 +162,17 @@ Create a dataset as (x,y) coordinates.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 117-121
+.. GENERATED FROM PYTHON SOURCE LINES 122-126
 
 Helpers
 -------
 
 The original, denoised, and sparsest spline solutions are plotted for comparison.
 
-.. GENERATED FROM PYTHON SOURCE LINES 121-140
+.. GENERATED FROM PYTHON SOURCE LINES 126-155
 
 .. code-block:: Python
+
 
 
     # Helper for lambda sweeps (one-time cell)
@@ -178,11 +184,19 @@ The original, denoised, and sparsest spline solutions are plotted for comparison
         t_grid = np.concatenate(([x[0] - margin], knots, [x[-1] + margin]))
 
         fig, ax = plt.subplots()
-        ax.plot(x, y, 'x', label='Original', markersize=8)
-        ax.plot(x, y_d, 'x', label='Denoised', markersize=8)
-        ax.plot(t_grid, linear_spline(t_grid, knots, amplitudes, polynomial), label='Sparsest')
+        ax.plot(x, y, "x", label="Original", markersize=8)
+        ax.plot(x, y_d, "x", label="Denoised", markersize=8)
+        ax.plot(
+            t_grid, linear_spline(t_grid, knots, amplitudes, polynomial), label="Sparsest"
+        )
         if len(knots) > 0:
-            ax.plot(knots, linear_spline(knots, knots, amplitudes, polynomial), 'o', color="C3", label='Knots')
+            ax.plot(
+                knots,
+                linear_spline(knots, knots, amplitudes, polynomial),
+                "o",
+                color="C3",
+                label="Knots",
+            )
         ax.set_title(f"λ = {lamb:g}   |   K = {len(knots)}")
         ax.legend()
         plt.show()
@@ -194,12 +208,13 @@ The original, denoised, and sparsest spline solutions are plotted for comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 141-143
+
+.. GENERATED FROM PYTHON SOURCE LINES 156-158
 
 Smallest Lambda
 ---------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 143-145
+.. GENERATED FROM PYTHON SOURCE LINES 158-160
 
 .. code-block:: Python
 
@@ -217,12 +232,12 @@ Smallest Lambda
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 146-148
+.. GENERATED FROM PYTHON SOURCE LINES 161-163
 
 Small Lambda
 ------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 148-150
+.. GENERATED FROM PYTHON SOURCE LINES 163-165
 
 .. code-block:: Python
 
@@ -240,12 +255,12 @@ Small Lambda
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 151-153
+.. GENERATED FROM PYTHON SOURCE LINES 166-168
 
 Medium Lambda
 -------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 153-155
+.. GENERATED FROM PYTHON SOURCE LINES 168-170
 
 .. code-block:: Python
 
@@ -263,12 +278,12 @@ Medium Lambda
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 156-158
+.. GENERATED FROM PYTHON SOURCE LINES 171-173
 
 Big Lambda
 ----------
 
-.. GENERATED FROM PYTHON SOURCE LINES 158-160
+.. GENERATED FROM PYTHON SOURCE LINES 173-175
 
 .. code-block:: Python
 
@@ -286,16 +301,17 @@ Big Lambda
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 161-163
+.. GENERATED FROM PYTHON SOURCE LINES 176-178
 
 Biggest Lambda
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 163-163
+.. GENERATED FROM PYTHON SOURCE LINES 178-179
 
 .. code-block:: Python
 
     _run_lambda(2e-1)
+
 
 
 .. image-sg:: /auto_examples/04_adaptive_regression_splines/images/sphx_glr_01_adaptive_regression_splines_module_006.png
@@ -310,7 +326,7 @@ Biggest Lambda
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.685 seconds)
+   **Total running time of the script:** (0 minutes 0.517 seconds)
 
 
 .. _sphx_glr_download_auto_examples_04_adaptive_regression_splines_01_adaptive_regression_splines_module.py:

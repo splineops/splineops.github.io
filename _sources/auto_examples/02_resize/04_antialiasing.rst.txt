@@ -134,9 +134,9 @@ Load and Normalize an Image
     h_img, w_img = input_image_normalized.shape
 
     # Shared parameters
-    zoom = np.e / 9          # ≈ 0.3020313142732272
+    zoom = np.e / 9  # ≈ 0.3020313142732272
     zoom_factors_2d = (zoom, zoom)
-    border_fraction = 0.3    # central crop for SNR/MSE
+    border_fraction = 0.3  # central crop for SNR/MSE
     ROI_SIZE_PX = 64
 
     # Face-centered 64×64 ROI (for visual comparisons)
@@ -150,7 +150,7 @@ Load and Normalize an Image
     roi_kwargs = dict(
         roi_height_frac=ROI_SIZE_PX / h_img,  # keeps height at 64 px (square ROI)
         grayscale=True,
-        roi_xy=(row_top, col_left),           # top-left of the ROI
+        roi_xy=(row_top, col_left),  # top-left of the ROI
     )
 
     # Mapping for resized-space ROI (used by both resized displays)
@@ -191,9 +191,9 @@ Standard Interpolation
     )
     t2 = time.perf_counter()
 
-    time_2d_std_fwd = t1 - t0         # forward resize (down/up)
-    time_2d_std_back = t2 - t1        # backward resize (return to original size)
-    time_2d_std = t2 - t0             # total pipeline time
+    time_2d_std_fwd = t1 - t0  # forward resize (down/up)
+    time_2d_std_back = t2 - t1  # backward resize (return to original size)
+    time_2d_std = t2 - t0  # total pipeline time
 
     # SNR/MSE on central region (no ROI cropping here)
     snr_2d_std, mse_2d_std = compute_snr_and_mse_region(
@@ -258,9 +258,10 @@ ROI Comparison
 Build a quick ROI triptych (nearest-neighbour magnification) from the
 recovered images for visual comparison.
 
-.. GENERATED FROM PYTHON SOURCE LINES 176-212
+.. GENERATED FROM PYTHON SOURCE LINES 176-220
 
 .. code-block:: Python
+
 
 
     def _nearest_big(roi: np.ndarray, target_h: int) -> np.ndarray:
@@ -268,14 +269,21 @@ recovered images for visual comparison.
         mag = max(1, int(round(target_h / h)))
         return np.repeat(np.repeat(roi, mag, axis=0), mag, axis=1)
 
-    roi_orig = input_image_normalized[row_top:row_top+ROI_SIZE_PX, col_left:col_left+ROI_SIZE_PX]
-    roi_std  = recovered_2d_std[row_top:row_top+ROI_SIZE_PX, col_left:col_left+ROI_SIZE_PX]
-    roi_aa   = recovered_2d_aa[row_top:row_top+ROI_SIZE_PX, col_left:col_left+ROI_SIZE_PX]
+
+    roi_orig = input_image_normalized[
+        row_top : row_top + ROI_SIZE_PX, col_left : col_left + ROI_SIZE_PX
+    ]
+    roi_std = recovered_2d_std[
+        row_top : row_top + ROI_SIZE_PX, col_left : col_left + ROI_SIZE_PX
+    ]
+    roi_aa = recovered_2d_aa[
+        row_top : row_top + ROI_SIZE_PX, col_left : col_left + ROI_SIZE_PX
+    ]
 
     DISPLAY_H = 256
     roi_big_orig = _nearest_big(roi_orig, DISPLAY_H)
-    roi_big_std  = _nearest_big(roi_std,  DISPLAY_H)
-    roi_big_aa   = _nearest_big(roi_aa,   DISPLAY_H)
+    roi_big_std = _nearest_big(roi_std, DISPLAY_H)
+    roi_big_aa = _nearest_big(roi_aa, DISPLAY_H)
 
     fig, axes = plt.subplots(1, 3, figsize=(12.5, 4.6))
 
@@ -302,7 +310,7 @@ recovered images for visual comparison.
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_002.png
-   :alt: Original ROI, Recovered (Standard, 0.8 ms), Recovered (Antialiasing, 2.4 ms)
+   :alt: Original ROI, Recovered (Standard, 0.6 ms), Recovered (Antialiasing, 1.7 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_002.png
    :class: sphx-glr-single-img
 
@@ -310,20 +318,18 @@ recovered images for visual comparison.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 213-215
+.. GENERATED FROM PYTHON SOURCE LINES 221-223
 
 Original with ROI
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 215-222
+.. GENERATED FROM PYTHON SOURCE LINES 223-228
 
 .. code-block:: Python
 
 
     _ = show_roi_zoom(
-        input_image_normalized,
-        ax_titles=("Original Image", None),
-        **roi_kwargs
+        input_image_normalized, ax_titles=("Original Image", None), **roi_kwargs
     )
 
 
@@ -338,17 +344,17 @@ Original with ROI
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 223-225
+.. GENERATED FROM PYTHON SOURCE LINES 229-231
 
 Resized Images
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 227-229
+.. GENERATED FROM PYTHON SOURCE LINES 233-235
 
 Antialiasing
 ~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 229-253
+.. GENERATED FROM PYTHON SOURCE LINES 235-261
 
 .. code-block:: Python
 
@@ -358,7 +364,9 @@ Antialiasing
     row_top_res_aa = int(np.clip(center_r_res - roi_h_res // 2, 0, h_res_aa - roi_h_res))
     col_left_res_aa = int(np.clip(center_c_res - roi_w_res // 2, 0, w_res_aa - roi_w_res))
 
-    canvas_aa = np.ones((h_img, w_img), dtype=resized_2d_aa.dtype)  # white background in [0,1]
+    canvas_aa = np.ones(
+        (h_img, w_img), dtype=resized_2d_aa.dtype
+    )  # white background in [0,1]
     canvas_aa[:h_res_aa, :w_res_aa] = resized_2d_aa
 
     roi_kwargs_on_canvas_aa = dict(
@@ -373,14 +381,14 @@ Antialiasing
             f"Resized Image (antialiasing, {fmt_ms(time_2d_aa_fwd)})",
             None,
         ),
-        **roi_kwargs_on_canvas_aa
+        **roi_kwargs_on_canvas_aa,
     )
 
 
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_004.png
-   :alt: Resized Image (antialiasing, 1.7 ms)
+   :alt: Resized Image (antialiasing, 1.4 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_004.png
    :class: sphx-glr-single-img
 
@@ -388,12 +396,12 @@ Antialiasing
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 254-256
+.. GENERATED FROM PYTHON SOURCE LINES 262-264
 
 Standard Interpolation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 256-280
+.. GENERATED FROM PYTHON SOURCE LINES 264-288
 
 .. code-block:: Python
 
@@ -418,7 +426,7 @@ Standard Interpolation
             f"Resized Image (standard, {fmt_ms(time_2d_std_fwd)})",
             None,
         ),
-        **roi_kwargs_on_canvas_std
+        **roi_kwargs_on_canvas_std,
     )
 
 
@@ -433,17 +441,17 @@ Standard Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 281-283
+.. GENERATED FROM PYTHON SOURCE LINES 289-291
 
 Recovered Images
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 285-287
+.. GENERATED FROM PYTHON SOURCE LINES 293-295
 
 Antialiasing Pipeline
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 287-297
+.. GENERATED FROM PYTHON SOURCE LINES 295-305
 
 .. code-block:: Python
 
@@ -454,14 +462,14 @@ Antialiasing Pipeline
             f"Recovered Image (antialiased, {fmt_ms(time_2d_aa_back)})",
             None,
         ),
-        **roi_kwargs
+        **roi_kwargs,
     )
 
 
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_006.png
-   :alt: Recovered Image (antialiased, 2.4 ms)
+   :alt: Recovered Image (antialiased, 1.7 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_006.png
    :class: sphx-glr-single-img
 
@@ -469,12 +477,12 @@ Antialiasing Pipeline
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 298-300
+.. GENERATED FROM PYTHON SOURCE LINES 306-308
 
 Standard Interpolation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 300-310
+.. GENERATED FROM PYTHON SOURCE LINES 308-318
 
 .. code-block:: Python
 
@@ -485,14 +493,14 @@ Standard Interpolation
             f"Recovered Image (standard interpolation, {fmt_ms(time_2d_std_back)})",
             None,
         ),
-        **roi_kwargs
+        **roi_kwargs,
     )
 
 
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_007.png
-   :alt: Recovered Image (standard interpolation, 0.8 ms)
+   :alt: Recovered Image (standard interpolation, 0.6 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_007.png
    :class: sphx-glr-single-img
 
@@ -500,12 +508,12 @@ Standard Interpolation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 311-313
+.. GENERATED FROM PYTHON SOURCE LINES 319-321
 
 Difference Images
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 315-320
+.. GENERATED FROM PYTHON SOURCE LINES 323-328
 
 Antialiasing
 ~~~~~~~~~~~~
@@ -513,7 +521,7 @@ Antialiasing
 Difference with original image on ROI (SNR/MSE numbers are from the
 central-region metrics computed earlier).
 
-.. GENERATED FROM PYTHON SOURCE LINES 320-330
+.. GENERATED FROM PYTHON SOURCE LINES 328-338
 
 .. code-block:: Python
 
@@ -539,14 +547,14 @@ central-region metrics computed earlier).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 331-335
+.. GENERATED FROM PYTHON SOURCE LINES 339-343
 
 Standard Interpolation
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Difference with original image on ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 335-345
+.. GENERATED FROM PYTHON SOURCE LINES 343-353
 
 .. code-block:: Python
 
@@ -572,7 +580,7 @@ Difference with original image on ROI.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 346-356
+.. GENERATED FROM PYTHON SOURCE LINES 354-364
 
 Performance Comparison
 ----------------------
@@ -585,14 +593,14 @@ As a compact summary, we print a table with:
 This lets you see the cost/benefit trade-off between
 standard interpolation and antialiased shrink/expand.
 
-.. GENERATED FROM PYTHON SOURCE LINES 356-374
+.. GENERATED FROM PYTHON SOURCE LINES 364-377
 
 .. code-block:: Python
 
 
     methods = [
-        ("Standard Interpolation (cubic)",          snr_2d_std, mse_2d_std, time_2d_std),
-        ("Antialiasing (cubic shrink, cubic up)",   snr_2d_aa,  mse_2d_aa,  time_2d_aa),
+        ("Standard Interpolation (cubic)", snr_2d_std, mse_2d_std, time_2d_std),
+        ("Antialiasing (cubic shrink, cubic up)", snr_2d_aa, mse_2d_aa, time_2d_aa),
     ]
 
     header_line = f"{'Method':<40} {'SNR (dB)':>10} {'MSE':>16} {'Time (s)':>12}"
@@ -600,12 +608,7 @@ standard interpolation and antialiased shrink/expand.
     print("-" * len(header_line))
 
     for name, snr_val, mse_val, t in methods:
-        print(
-            f"{name:<40} "
-            f"{snr_val:>10.2f} "
-            f"{mse_val:>16.2e} "
-            f"{t:>12.4f}"
-        )
+        print(f"{name:<40} " f"{snr_val:>10.2f} " f"{mse_val:>16.2e} " f"{t:>12.4f}")
 
 
 
@@ -617,13 +620,13 @@ standard interpolation and antialiased shrink/expand.
 
     Method                                     SNR (dB)              MSE     Time (s)
     ---------------------------------------------------------------------------------
-    Standard Interpolation (cubic)                15.51         6.34e-03       0.0016
-    Antialiasing (cubic shrink, cubic up)         17.48         4.03e-03       0.0041
+    Standard Interpolation (cubic)                15.51         6.34e-03       0.0014
+    Antialiasing (cubic shrink, cubic up)         17.48         4.03e-03       0.0030
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 375-390
+.. GENERATED FROM PYTHON SOURCE LINES 378-393
 
 Least-Squares vs Antialiasing
 -----------------------------
@@ -641,7 +644,7 @@ However, in practice we generally recommend the **Antialiasing** preset:
 - it is faster than full Least-Squares,
 - and the visual quality is usually very close.
 
-.. GENERATED FROM PYTHON SOURCE LINES 390-436
+.. GENERATED FROM PYTHON SOURCE LINES 393-434
 
 .. code-block:: Python
 
@@ -676,7 +679,7 @@ However, in practice we generally recommend the **Antialiasing** preset:
 
     methods_ls_vs_aa = [
         ("Antialiasing (cubic shrink, cubic up)", snr_2d_aa, mse_2d_aa, time_2d_aa),
-        ("Least-Squares (cubic) shrink+up",       snr_2d_ls, mse_2d_ls, time_2d_ls),
+        ("Least-Squares (cubic) shrink+up", snr_2d_ls, mse_2d_ls, time_2d_ls),
     ]
 
     header_line_ls = f"{'Method':<40} {'SNR (dB)':>10} {'MSE':>16} {'Time (s)':>12}"
@@ -685,12 +688,7 @@ However, in practice we generally recommend the **Antialiasing** preset:
     print("-" * len(header_line_ls))
 
     for name, snr_val, mse_val, t in methods_ls_vs_aa:
-        print(
-            f"{name:<40} "
-            f"{snr_val:>10.2f} "
-            f"{mse_val:>16.2e} "
-            f"{t:>12.4f}"
-        )
+        print(f"{name:<40} " f"{snr_val:>10.2f} " f"{mse_val:>16.2e} " f"{t:>12.4f}")
 
 
 
@@ -702,8 +700,8 @@ However, in practice we generally recommend the **Antialiasing** preset:
 
     Method                                     SNR (dB)              MSE     Time (s)
     ---------------------------------------------------------------------------------
-    Antialiasing (cubic shrink, cubic up)         17.48         4.03e-03       0.0041
-    Least-Squares (cubic) shrink+up               17.53         3.98e-03       0.0058
+    Antialiasing (cubic shrink, cubic up)         17.48         4.03e-03       0.0030
+    Least-Squares (cubic) shrink+up               17.53         3.98e-03       0.0045
 
 
 
@@ -711,7 +709,7 @@ However, in practice we generally recommend the **Antialiasing** preset:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.522 seconds)
+   **Total running time of the script:** (0 minutes 1.508 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_04_antialiasing.py:

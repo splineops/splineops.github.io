@@ -82,14 +82,16 @@ TensorSpline Setup
 
 Configure bases and modes for TensorSpline.
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-48
+.. GENERATED FROM PYTHON SOURCE LINES 43-50
 
 .. code-block:: Python
 
 
     bases = "bspline3"
     modes = "mirror"
-    tensor_spline = TensorSpline(data=data, coordinates=coordinates, bases=bases, modes=modes)
+    tensor_spline = TensorSpline(
+        data=data, coordinates=coordinates, bases=bases, modes=modes
+    )
 
 
 
@@ -98,14 +100,14 @@ Configure bases and modes for TensorSpline.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-53
+.. GENERATED FROM PYTHON SOURCE LINES 51-55
 
 Evaluation Coordinates
 ----------------------
 
 Define evaluation coordinates to extend and oversample the original grid.
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-63
+.. GENERATED FROM PYTHON SOURCE LINES 55-65
 
 .. code-block:: Python
 
@@ -126,14 +128,14 @@ Define evaluation coordinates to extend and oversample the original grid.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-68
+.. GENERATED FROM PYTHON SOURCE LINES 66-70
 
 Interpolation and Visualization
 -------------------------------
 
 Perform interpolation and visualize the original and interpolated data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-87
+.. GENERATED FROM PYTHON SOURCE LINES 70-89
 
 .. code-block:: Python
 
@@ -168,38 +170,42 @@ Perform interpolation and visualize the original and interpolated data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-94
+.. GENERATED FROM PYTHON SOURCE LINES 90-97
 
-GPU Support
------------
+Experimental CuPy probe
+-----------------------
 
-We leverage the GPU for TensorSpline if CuPy is installed **and**
-the device supports SM >= 7.0 (required by the demo kernels).
-Otherwise, we skip this section gracefully.
+This example probes the current ``TensorSpline`` CuPy interoperability when
+CuPy and a CUDA device are available.  It is not a supported-backend or
+device-residency claim: some boundary paths can transfer through CPU code,
+and the full basis/mode matrix is not covered by dedicated GPU CI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 94-135
+.. GENERATED FROM PYTHON SOURCE LINES 97-143
 
 .. code-block:: Python
 
 
-    def _has_supported_cuda() -> bool:
+
+    def _has_cuda_device() -> bool:
         try:
             import cupy as cp
+
             if cp.cuda.runtime.getDeviceCount() <= 0:
                 return False
-            major, minor = cp.cuda.Device().compute_capability
-            return major >= 7
+            return True
         except Exception:
             return False
 
+
     try:
         import cupy as cp
+
         HAS_CUPY = True
     except ImportError:
         HAS_CUPY = False
 
-    if not HAS_CUPY or not _has_supported_cuda():
-        print("CuPy GPU demo skipped (no GPU or compute capability < 7.0).")
+    if not HAS_CUPY or not _has_cuda_device():
+        print("Experimental CuPy probe skipped (no CUDA device).")
     else:
         try:
             # Convert existing data/coordinates to CuPy
@@ -207,7 +213,9 @@ Otherwise, we skip this section gracefully.
             coords_cp = tuple(cp.asarray(c) for c in coordinates)
 
             # Create CuPy-based spline
-            ts_cp = TensorSpline(data=data_cp, coordinates=coords_cp, bases=bases, modes=modes)
+            ts_cp = TensorSpline(
+                data=data_cp, coordinates=coords_cp, bases=bases, modes=modes
+            )
 
             # Convert evaluation coordinates to CuPy
             eval_coords_cp = tuple(cp.asarray(c) for c in eval_coords)
@@ -221,7 +229,7 @@ Otherwise, we skip this section gracefully.
             print(f"Max abs diff (CPU vs GPU): {np.max(np.abs(diff)):.3e}")
             print(f"MSE (CPU vs GPU): {np.mean(diff**2):.3e}")
         except Exception as e:
-            print(f"CuPy GPU demo skipped due to runtime compile error: {e}")
+            print(f"Experimental CuPy probe skipped after a runtime error: {e}")
 
 
 
@@ -230,7 +238,7 @@ Otherwise, we skip this section gracefully.
 
  .. code-block:: none
 
-    CuPy GPU demo skipped (no GPU or compute capability < 7.0).
+    Experimental CuPy probe skipped (no CUDA device).
 
 
 
@@ -238,7 +246,7 @@ Otherwise, we skip this section gracefully.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.234 seconds)
+   **Total running time of the script:** (0 minutes 0.217 seconds)
 
 
 .. _sphx_glr_download_auto_examples_01_spline_interpolation_01_tensorspline_class.py:

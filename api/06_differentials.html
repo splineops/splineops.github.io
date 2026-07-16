@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Differentials &#8212; splineops Documentation</title>
+    <title>Differentials &#8212; splineops 2.1.0 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../_static/documentation_options.js?v=20623aea"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -159,25 +159,168 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../user-guide/index.html">
-    User Guide
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Five-minute quickstart
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../auto_examples/index.html">
+  <a class="nav-link nav-internal" href="../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/02_resize.html">
+    Resize
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../consolidation-recipes.html">
+    Reusable workflow recipes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../auto_examples/index.html">
     Examples
   </a>
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="index.html">
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/03_affine.html">
+    Affine
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/06_differentials.html">
+    Differentials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user-guide/07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../internal-contracts.html">
+    Internal numerical contracts
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="index.html">
     API Reference
   </a>
 </li>
 
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -296,8 +439,43 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Five-minute quickstart
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../user-guide/index.html">
-    User Guide
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/02_resize.html">
+    Resize
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../consolidation-recipes.html">
+    Reusable workflow recipes
   </a>
 </li>
 
@@ -305,6 +483,104 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../auto_examples/index.html">
     Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/03_affine.html">
+    Affine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/06_differentials.html">
+    Differentials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../internal-contracts.html">
+    Internal numerical contracts
   </a>
 </li>
 
@@ -457,18 +733,87 @@
                   
   <section id="differentials">
 <span id="api-differentials"></span><h1>Differentials<a class="headerlink" href="#differentials" title="Link to this heading">#</a></h1>
-<p>The <a class="reference internal" href="#module-splineops.differentials.differentials" title="splineops.differentials.differentials"><code class="xref py py-class docutils literal notranslate"><span class="pre">differentials</span></code></a> class implements a suite of functions to compute image differentials using cubic B-spline interpolation, including:</p>
+<p>The preferred public name is <code class="xref py py-class docutils literal notranslate"><span class="pre">splineops.differentials.Differentials</span></code>;
+the historical lowercase <code class="docutils literal notranslate"><span class="pre">differentials</span></code> name remains available.  Scalar
+2-D images and 3-D volumes are supported.  The class computes differentials
+using cubic B-spline interpolation, including:</p>
 <ul class="simple">
 <li><p><strong>Gradient Magnitude</strong> - the rate of intensity change.</p></li>
-<li><p><strong>Gradient Direction</strong> - the orientation of maximum change.</p></li>
+<li><p><strong>Gradient Direction</strong> - the 2-D orientation of maximum change.</p></li>
 <li><p><strong>Laplacian</strong> - the sum of second-order derivatives.</p></li>
 <li><p><strong>Largest Hessian Eigenvalue</strong> - the maximal curvature.</p></li>
 <li><p><strong>Smallest Hessian Eigenvalue</strong> - the minimal curvature.</p></li>
-<li><p><strong>Hessian Orientation</strong> - the principal direction of curvature.</p></li>
+<li><p><strong>Hessian Orientation</strong> - the 2-D principal direction of curvature.</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">run()</span></code> returns a raw result and preserves the source array.  Visualization
+normalization is opt-in through <code class="docutils literal notranslate"><span class="pre">normalize=True</span></code> and is rejected for angular
+outputs.  Physical <code class="docutils literal notranslate"><span class="pre">spacing</span></code> contains one value per axis.
+<code class="docutils literal notranslate"><span class="pre">gradient_components()</span></code> returns derivatives in increasing axis order;
+<code class="docutils literal notranslate"><span class="pre">hessian_components()</span></code> uses packed upper-triangular order <code class="docutils literal notranslate"><span class="pre">(00,</span> <span class="pre">01,</span> <span class="pre">11)</span></code>
+in 2-D and <code class="docutils literal notranslate"><span class="pre">(00,</span> <span class="pre">01,</span> <span class="pre">02,</span> <span class="pre">11,</span> <span class="pre">12,</span> <span class="pre">22)</span></code> in 3-D.</p>
+<p>For changing arrays with fixed shape and spacing,
+<a class="reference internal" href="#splineops.differentials.differentials.DifferentialPlan" title="splineops.differentials.differentials.DifferentialPlan"><code class="xref py py-class docutils literal notranslate"><span class="pre">DifferentialPlan</span></code></a> computes
+gradient, Hessian, and Laplacian outputs through one per-call cached workspace.
+It accepts explicit <code class="docutils literal notranslate"><span class="pre">spatial_axes</span></code> for batch and channel arrays, independent
+<code class="docutils literal notranslate"><span class="pre">gradient</span></code>/<code class="docutils literal notranslate"><span class="pre">hessian</span></code>/<code class="docutils literal notranslate"><span class="pre">laplacian</span></code> selection, and exact structured
+<code class="docutils literal notranslate"><span class="pre">DifferentialResult</span></code> output buffers.  Laplacian-only execution computes only
+diagonal second derivatives.  Output buffers are prevalidated for shape, dtype,
+writability, and non-overlap before numerical work begins.  The legacy
+<code class="docutils literal notranslate"><span class="pre">Differentials</span></code> object
+intentionally remains scalar.</p>
 <dl class="py class" id="module-splineops.differentials.differentials">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">splineops.differentials.differentials.</span></span><span class="sig-name descname"><span class="pre">differentials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.DifferentialResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">splineops.differentials.differentials.</span></span><span class="sig-name descname"><span class="pre">DifferentialResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gradient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hessian</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">laplacian</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.DifferentialResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Multi-output result returned by <a class="reference internal" href="#splineops.differentials.differentials.DifferentialPlan" title="splineops.differentials.differentials.DifferentialPlan"><code class="xref py py-class docutils literal notranslate"><span class="pre">DifferentialPlan</span></code></a>.</p>
+<p>Hessian entries use packed upper-triangular order: <code class="docutils literal notranslate"><span class="pre">(00,</span> <span class="pre">01,</span> <span class="pre">11)</span></code> in
+2-D and <code class="docutils literal notranslate"><span class="pre">(00,</span> <span class="pre">01,</span> <span class="pre">02,</span> <span class="pre">11,</span> <span class="pre">12,</span> <span class="pre">22)</span></code> in 3-D.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.differentials.differentials.DifferentialResult.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gradient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hessian</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">laplacian</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#splineops.differentials.differentials.DifferentialResult.__init__" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="splineops.differentials.differentials.DifferentialPlan">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">splineops.differentials.differentials.</span></span><span class="sig-name descname"><span class="pre">DifferentialPlan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.DifferentialPlan" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Reusable shape/spacing contract for 2-D and 3-D spline derivatives.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.differentials.differentials.DifferentialPlan.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.DifferentialPlan.__init__" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="splineops.differentials.differentials.DifferentialPlan.retained_bytes">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">retained_bytes</span></span><a class="headerlink" href="#splineops.differentials.differentials.DifferentialPlan.retained_bytes" title="Link to this definition">#</a></dt>
+<dd><p>Persistent numerical-array storage retained by the plan.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="splineops.differentials.differentials.DifferentialPlan.configuration">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">configuration</span></span><a class="headerlink" href="#splineops.differentials.differentials.DifferentialPlan.configuration" title="Link to this definition">#</a></dt>
+<dd><p>Copy of the fixed spatial derivative contract.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.differentials.differentials.DifferentialPlan.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">gradient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hessian</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">laplacian</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.DifferentialPlan.apply" title="Link to this definition">#</a></dt>
+<dd><p>Compute requested derivative families through one cached workspace.</p>
+<p><code class="docutils literal notranslate"><span class="pre">spatial_axes</span></code> selects the two or three dimensions represented by
+the plan.  Unselected batch or channel slices are mathematically
+independent but execute together, and each returned component has the
+full input shape.  <code class="docutils literal notranslate"><span class="pre">laplacian=None</span></code> follows <code class="docutils literal notranslate"><span class="pre">hessian</span></code> for backward
+compatibility.  <code class="docutils literal notranslate"><span class="pre">out</span></code> must mirror the selected result families with
+exact-shape, exact-dtype arrays.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">splineops.differentials.differentials.</span></span><span class="sig-name descname"><span class="pre">Differentials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Class for computing image differentials using cubic B-spline interpolation.</p>
 <p>This class provides methods to compute first- and second-order derivatives
@@ -477,8 +822,8 @@ using cubic B-spline interpolation. Supported operations include gradient
 magnitude, gradient direction, Laplacian, largest and smallest Hessian
 eigenvalues, and Hessian orientation.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.GRADIENT_DIRECTION">
-<span class="sig-name descname"><span class="pre">GRADIENT_DIRECTION</span></span><a class="headerlink" href="#splineops.differentials.differentials.differentials.GRADIENT_DIRECTION" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.GRADIENT_DIRECTION">
+<span class="sig-name descname"><span class="pre">GRADIENT_DIRECTION</span></span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.GRADIENT_DIRECTION" title="Link to this definition">#</a></dt>
 <dd><p>The gradient direction operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -488,8 +833,8 @@ eigenvalues, and Hessian orientation.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.GRADIENT_MAGNITUDE">
-<span class="sig-name descname"><span class="pre">GRADIENT_MAGNITUDE</span></span><a class="headerlink" href="#splineops.differentials.differentials.differentials.GRADIENT_MAGNITUDE" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.GRADIENT_MAGNITUDE">
+<span class="sig-name descname"><span class="pre">GRADIENT_MAGNITUDE</span></span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.GRADIENT_MAGNITUDE" title="Link to this definition">#</a></dt>
 <dd><p>The gradient magnitude operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -499,8 +844,8 @@ eigenvalues, and Hessian orientation.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.HESSIAN_ORIENTATION">
-<span class="sig-name descname"><span class="pre">HESSIAN_ORIENTATION</span></span><a class="headerlink" href="#splineops.differentials.differentials.differentials.HESSIAN_ORIENTATION" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.HESSIAN_ORIENTATION">
+<span class="sig-name descname"><span class="pre">HESSIAN_ORIENTATION</span></span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.HESSIAN_ORIENTATION" title="Link to this definition">#</a></dt>
 <dd><p>The Hessian orientation operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -510,8 +855,8 @@ eigenvalues, and Hessian orientation.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.LAPLACIAN">
-<span class="sig-name descname"><span class="pre">LAPLACIAN</span></span><a class="headerlink" href="#splineops.differentials.differentials.differentials.LAPLACIAN" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.LAPLACIAN">
+<span class="sig-name descname"><span class="pre">LAPLACIAN</span></span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.LAPLACIAN" title="Link to this definition">#</a></dt>
 <dd><p>The Laplacian operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -521,8 +866,8 @@ eigenvalues, and Hessian orientation.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.LARGEST_HESSIAN">
-<span class="sig-name descname"><span class="pre">LARGEST_HESSIAN</span></span><a class="headerlink" href="#splineops.differentials.differentials.differentials.LARGEST_HESSIAN" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.LARGEST_HESSIAN">
+<span class="sig-name descname"><span class="pre">LARGEST_HESSIAN</span></span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.LARGEST_HESSIAN" title="Link to this definition">#</a></dt>
 <dd><p>The largest Hessian eigenvalue operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -532,8 +877,8 @@ eigenvalues, and Hessian orientation.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.SMALLEST_HESSIAN">
-<span class="sig-name descname"><span class="pre">SMALLEST_HESSIAN</span></span><a class="headerlink" href="#splineops.differentials.differentials.differentials.SMALLEST_HESSIAN" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.SMALLEST_HESSIAN">
+<span class="sig-name descname"><span class="pre">SMALLEST_HESSIAN</span></span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.SMALLEST_HESSIAN" title="Link to this definition">#</a></dt>
 <dd><p>The smallest Hessian eigenvalue operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -543,8 +888,8 @@ eigenvalues, and Hessian orientation.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.FLT_EPSILON">
-<span class="sig-name descname"><span class="pre">FLT_EPSILON</span></span><a class="headerlink" href="#splineops.differentials.differentials.differentials.FLT_EPSILON" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.FLT_EPSILON">
+<span class="sig-name descname"><span class="pre">FLT_EPSILON</span></span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.FLT_EPSILON" title="Link to this definition">#</a></dt>
 <dd><p>Constant for single precision floats.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -554,30 +899,87 @@ eigenvalues, and Hessian orientation.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.__init__" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.__init__" title="Link to this definition">#</a></dt>
 <dd><p>Initialize a new differentials instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>image</strong> (<em>ndarray</em>) – Input grayscale image as a 2D numpy array.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>ndarray</em>) – Input scalar image or volume as a 2D or 3D NumPy array.</p></li>
+<li><p><strong>spacing</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a><em>, </em><em>optional</em>) – Positive physical sample spacing for every axis.  The default is
+unit spacing.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.run" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.run" title="Link to this definition">#</a></dt>
 <dd><p>Execute the selected differential operation on the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>operation</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>optional</em>) – Operation to perform. If None, the default operation (Laplacian) is used.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>operation</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>optional</em>) – Operation to perform. If None, the default operation (Laplacian) is used.</p></li>
+<li><p><strong>normalize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, scale non-angular results to the interval [0, 1].  The
+default is false so the numerical API returns raw derivatives.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A newly computed differential image.  The source stored in
+<code class="docutils literal notranslate"><span class="pre">image</span></code> is not replaced, so repeated calls are independent.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.get_cross_hessian">
-<span class="sig-name descname"><span class="pre">get_cross_hessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.get_cross_hessian" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.horizontal_gradient">
+<span class="sig-name descname"><span class="pre">horizontal_gradient</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.horizontal_gradient" title="Link to this definition">#</a></dt>
+<dd><p>Return the derivative along increasing column coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.vertical_gradient">
+<span class="sig-name descname"><span class="pre">vertical_gradient</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.vertical_gradient" title="Link to this definition">#</a></dt>
+<dd><p>Return the derivative along increasing row coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.gradient_components">
+<span class="sig-name descname"><span class="pre">gradient_components</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.gradient_components" title="Link to this definition">#</a></dt>
+<dd><p>Return first derivatives in increasing axis order.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.horizontal_hessian">
+<span class="sig-name descname"><span class="pre">horizontal_hessian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.horizontal_hessian" title="Link to this definition">#</a></dt>
+<dd><p>Return the second derivative along column coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.vertical_hessian">
+<span class="sig-name descname"><span class="pre">vertical_hessian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.vertical_hessian" title="Link to this definition">#</a></dt>
+<dd><p>Return the second derivative along row coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.cross_hessian">
+<span class="sig-name descname"><span class="pre">cross_hessian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.cross_hessian" title="Link to this definition">#</a></dt>
+<dd><p>Return the mixed row-column second derivative.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.hessian_components">
+<span class="sig-name descname"><span class="pre">hessian_components</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.hessian_components" title="Link to this definition">#</a></dt>
+<dd><p>Return packed upper-triangular Hessian components.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.get_cross_hessian">
+<span class="sig-name descname"><span class="pre">get_cross_hessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.get_cross_hessian" title="Link to this definition">#</a></dt>
 <dd><p>Compute the cross (mixed) Hessian term of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -596,8 +998,8 @@ eigenvalues, and Hessian orientation.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.get_horizontal_gradient">
-<span class="sig-name descname"><span class="pre">get_horizontal_gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.get_horizontal_gradient" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.get_horizontal_gradient">
+<span class="sig-name descname"><span class="pre">get_horizontal_gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.get_horizontal_gradient" title="Link to this definition">#</a></dt>
 <dd><p>Compute the horizontal gradient of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -616,8 +1018,8 @@ eigenvalues, and Hessian orientation.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.get_horizontal_hessian">
-<span class="sig-name descname"><span class="pre">get_horizontal_hessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.get_horizontal_hessian" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.get_horizontal_hessian">
+<span class="sig-name descname"><span class="pre">get_horizontal_hessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.get_horizontal_hessian" title="Link to this definition">#</a></dt>
 <dd><p>Compute the horizontal second derivative (Hessian) of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -636,8 +1038,8 @@ eigenvalues, and Hessian orientation.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.get_vertical_gradient">
-<span class="sig-name descname"><span class="pre">get_vertical_gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.get_vertical_gradient" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.get_vertical_gradient">
+<span class="sig-name descname"><span class="pre">get_vertical_gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.get_vertical_gradient" title="Link to this definition">#</a></dt>
 <dd><p>Compute the vertical gradient of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -656,8 +1058,8 @@ eigenvalues, and Hessian orientation.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.get_vertical_hessian">
-<span class="sig-name descname"><span class="pre">get_vertical_hessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.get_vertical_hessian" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.get_vertical_hessian">
+<span class="sig-name descname"><span class="pre">get_vertical_hessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.get_vertical_hessian" title="Link to this definition">#</a></dt>
 <dd><p>Compute the vertical second derivative (Hessian) of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -676,8 +1078,8 @@ eigenvalues, and Hessian orientation.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.anti_symmetric_fir_mirror_on_bounds">
-<span class="sig-name descname"><span class="pre">anti_symmetric_fir_mirror_on_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.anti_symmetric_fir_mirror_on_bounds" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.anti_symmetric_fir_mirror_on_bounds">
+<span class="sig-name descname"><span class="pre">anti_symmetric_fir_mirror_on_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.anti_symmetric_fir_mirror_on_bounds" title="Link to this definition">#</a></dt>
 <dd><p>Apply an anti-symmetric FIR filter with mirror boundary extension.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -696,8 +1098,8 @@ eigenvalues, and Hessian orientation.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.symmetric_fir_mirror_on_bounds">
-<span class="sig-name descname"><span class="pre">symmetric_fir_mirror_on_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.symmetric_fir_mirror_on_bounds" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.symmetric_fir_mirror_on_bounds">
+<span class="sig-name descname"><span class="pre">symmetric_fir_mirror_on_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.symmetric_fir_mirror_on_bounds" title="Link to this definition">#</a></dt>
 <dd><p>Apply a symmetric FIR filter with mirror boundary extension.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -716,8 +1118,8 @@ eigenvalues, and Hessian orientation.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.get_gradient">
-<span class="sig-name descname"><span class="pre">get_gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.get_gradient" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.get_gradient">
+<span class="sig-name descname"><span class="pre">get_gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.get_gradient" title="Link to this definition">#</a></dt>
 <dd><p>Compute the first derivative (gradient) of a 1D signal using an anti-symmetric filter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -733,8 +1135,8 @@ eigenvalues, and Hessian orientation.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.get_hessian">
-<span class="sig-name descname"><span class="pre">get_hessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.get_hessian" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.get_hessian">
+<span class="sig-name descname"><span class="pre">get_hessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.get_hessian" title="Link to this definition">#</a></dt>
 <dd><p>Compute the second derivative (Hessian) of a 1D signal using a symmetric filter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -750,8 +1152,8 @@ eigenvalues, and Hessian orientation.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.get_spline_interpolation_coefficients">
-<span class="sig-name descname"><span class="pre">get_spline_interpolation_coefficients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.get_spline_interpolation_coefficients" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.get_spline_interpolation_coefficients">
+<span class="sig-name descname"><span class="pre">get_spline_interpolation_coefficients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.get_spline_interpolation_coefficients" title="Link to this definition">#</a></dt>
 <dd><p>Compute the cubic B-spline interpolation coefficients for a 1D signal.</p>
 <p>This method adjusts the input signal <cite>c</cite> in place using a recursive scheme
 based on a cubic B-spline and a specified tolerance.</p>
@@ -766,8 +1168,8 @@ based on a cubic B-spline and a specified tolerance.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.get_initial_causal_coefficient_mirror_on_bounds">
-<span class="sig-name descname"><span class="pre">get_initial_causal_coefficient_mirror_on_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.get_initial_causal_coefficient_mirror_on_bounds" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.get_initial_causal_coefficient_mirror_on_bounds">
+<span class="sig-name descname"><span class="pre">get_initial_causal_coefficient_mirror_on_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.get_initial_causal_coefficient_mirror_on_bounds" title="Link to this definition">#</a></dt>
 <dd><p>Compute the initial causal coefficient for spline interpolation with mirror boundary conditions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -787,8 +1189,8 @@ based on a cubic B-spline and a specified tolerance.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.get_initial_anti_causal_coefficient_mirror_on_bounds">
-<span class="sig-name descname"><span class="pre">get_initial_anti_causal_coefficient_mirror_on_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.get_initial_anti_causal_coefficient_mirror_on_bounds" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.get_initial_anti_causal_coefficient_mirror_on_bounds">
+<span class="sig-name descname"><span class="pre">get_initial_anti_causal_coefficient_mirror_on_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.get_initial_anti_causal_coefficient_mirror_on_bounds" title="Link to this definition">#</a></dt>
 <dd><p>Compute the initial anti-causal coefficient for spline interpolation with mirror boundary conditions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -808,8 +1210,8 @@ based on a cubic B-spline and a specified tolerance.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.gradient_magnitude">
-<span class="sig-name descname"><span class="pre">gradient_magnitude</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.gradient_magnitude" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.gradient_magnitude">
+<span class="sig-name descname"><span class="pre">gradient_magnitude</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.gradient_magnitude" title="Link to this definition">#</a></dt>
 <dd><p>Compute the gradient magnitude of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -822,8 +1224,8 @@ based on a cubic B-spline and a specified tolerance.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.gradient_direction">
-<span class="sig-name descname"><span class="pre">gradient_direction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.gradient_direction" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.gradient_direction">
+<span class="sig-name descname"><span class="pre">gradient_direction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.gradient_direction" title="Link to this definition">#</a></dt>
 <dd><p>Compute the gradient direction of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -836,8 +1238,8 @@ based on a cubic B-spline and a specified tolerance.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.laplacian">
-<span class="sig-name descname"><span class="pre">laplacian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.laplacian" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.laplacian">
+<span class="sig-name descname"><span class="pre">laplacian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.laplacian" title="Link to this definition">#</a></dt>
 <dd><p>Compute the Laplacian of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -850,8 +1252,8 @@ based on a cubic B-spline and a specified tolerance.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.largest_hessian">
-<span class="sig-name descname"><span class="pre">largest_hessian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.largest_hessian" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.largest_hessian">
+<span class="sig-name descname"><span class="pre">largest_hessian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.largest_hessian" title="Link to this definition">#</a></dt>
 <dd><p>Compute the largest eigenvalue of the Hessian matrix of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -864,8 +1266,8 @@ based on a cubic B-spline and a specified tolerance.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.smallest_hessian">
-<span class="sig-name descname"><span class="pre">smallest_hessian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.smallest_hessian" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.smallest_hessian">
+<span class="sig-name descname"><span class="pre">smallest_hessian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.smallest_hessian" title="Link to this definition">#</a></dt>
 <dd><p>Compute the smallest eigenvalue of the Hessian matrix of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -878,8 +1280,8 @@ based on a cubic B-spline and a specified tolerance.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials.hessian_orientation">
-<span class="sig-name descname"><span class="pre">hessian_orientation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.differentials.hessian_orientation" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="splineops.differentials.differentials.Differentials.hessian_orientation">
+<span class="sig-name descname"><span class="pre">hessian_orientation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#splineops.differentials.differentials.Differentials.hessian_orientation" title="Link to this definition">#</a></dt>
 <dd><p>Compute the orientation of the Hessian of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -891,6 +1293,12 @@ based on a cubic B-spline and a specified tolerance.</p>
 </dl>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="splineops.differentials.differentials.differentials">
+<span class="sig-prename descclassname"><span class="pre">splineops.differentials.differentials.</span></span><span class="sig-name descname"><span class="pre">differentials</span></span><a class="headerlink" href="#splineops.differentials.differentials.differentials" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="#splineops.differentials.differentials.Differentials" title="splineops.differentials.differentials.Differentials"><code class="xref py py-class docutils literal notranslate"><span class="pre">Differentials</span></code></a></p>
 </dd></dl>
 
 </section>
@@ -942,36 +1350,55 @@ based on a cubic B-spline and a specified tolerance.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials"><code class="docutils literal notranslate"><span class="pre">differentials</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.GRADIENT_DIRECTION"><code class="docutils literal notranslate"><span class="pre">differentials.GRADIENT_DIRECTION</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.GRADIENT_MAGNITUDE"><code class="docutils literal notranslate"><span class="pre">differentials.GRADIENT_MAGNITUDE</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.HESSIAN_ORIENTATION"><code class="docutils literal notranslate"><span class="pre">differentials.HESSIAN_ORIENTATION</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.LAPLACIAN"><code class="docutils literal notranslate"><span class="pre">differentials.LAPLACIAN</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.LARGEST_HESSIAN"><code class="docutils literal notranslate"><span class="pre">differentials.LARGEST_HESSIAN</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.SMALLEST_HESSIAN"><code class="docutils literal notranslate"><span class="pre">differentials.SMALLEST_HESSIAN</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.FLT_EPSILON"><code class="docutils literal notranslate"><span class="pre">differentials.FLT_EPSILON</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.__init__"><code class="docutils literal notranslate"><span class="pre">differentials.__init__()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.run"><code class="docutils literal notranslate"><span class="pre">differentials.run()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.get_cross_hessian"><code class="docutils literal notranslate"><span class="pre">differentials.get_cross_hessian()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.get_horizontal_gradient"><code class="docutils literal notranslate"><span class="pre">differentials.get_horizontal_gradient()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.get_horizontal_hessian"><code class="docutils literal notranslate"><span class="pre">differentials.get_horizontal_hessian()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.get_vertical_gradient"><code class="docutils literal notranslate"><span class="pre">differentials.get_vertical_gradient()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.get_vertical_hessian"><code class="docutils literal notranslate"><span class="pre">differentials.get_vertical_hessian()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.anti_symmetric_fir_mirror_on_bounds"><code class="docutils literal notranslate"><span class="pre">differentials.anti_symmetric_fir_mirror_on_bounds()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.symmetric_fir_mirror_on_bounds"><code class="docutils literal notranslate"><span class="pre">differentials.symmetric_fir_mirror_on_bounds()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.get_gradient"><code class="docutils literal notranslate"><span class="pre">differentials.get_gradient()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.get_hessian"><code class="docutils literal notranslate"><span class="pre">differentials.get_hessian()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.get_spline_interpolation_coefficients"><code class="docutils literal notranslate"><span class="pre">differentials.get_spline_interpolation_coefficients()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.get_initial_causal_coefficient_mirror_on_bounds"><code class="docutils literal notranslate"><span class="pre">differentials.get_initial_causal_coefficient_mirror_on_bounds()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.get_initial_anti_causal_coefficient_mirror_on_bounds"><code class="docutils literal notranslate"><span class="pre">differentials.get_initial_anti_causal_coefficient_mirror_on_bounds()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.gradient_magnitude"><code class="docutils literal notranslate"><span class="pre">differentials.gradient_magnitude()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.gradient_direction"><code class="docutils literal notranslate"><span class="pre">differentials.gradient_direction()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.laplacian"><code class="docutils literal notranslate"><span class="pre">differentials.laplacian()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.largest_hessian"><code class="docutils literal notranslate"><span class="pre">differentials.largest_hessian()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.smallest_hessian"><code class="docutils literal notranslate"><span class="pre">differentials.smallest_hessian()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials.hessian_orientation"><code class="docutils literal notranslate"><span class="pre">differentials.hessian_orientation()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.DifferentialResult"><code class="docutils literal notranslate"><span class="pre">DifferentialResult</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.DifferentialResult.__init__"><code class="docutils literal notranslate"><span class="pre">DifferentialResult.__init__()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.DifferentialPlan"><code class="docutils literal notranslate"><span class="pre">DifferentialPlan</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.DifferentialPlan.__init__"><code class="docutils literal notranslate"><span class="pre">DifferentialPlan.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.DifferentialPlan.retained_bytes"><code class="docutils literal notranslate"><span class="pre">DifferentialPlan.retained_bytes</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.DifferentialPlan.configuration"><code class="docutils literal notranslate"><span class="pre">DifferentialPlan.configuration</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.DifferentialPlan.apply"><code class="docutils literal notranslate"><span class="pre">DifferentialPlan.apply()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials"><code class="docutils literal notranslate"><span class="pre">Differentials</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.GRADIENT_DIRECTION"><code class="docutils literal notranslate"><span class="pre">Differentials.GRADIENT_DIRECTION</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.GRADIENT_MAGNITUDE"><code class="docutils literal notranslate"><span class="pre">Differentials.GRADIENT_MAGNITUDE</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.HESSIAN_ORIENTATION"><code class="docutils literal notranslate"><span class="pre">Differentials.HESSIAN_ORIENTATION</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.LAPLACIAN"><code class="docutils literal notranslate"><span class="pre">Differentials.LAPLACIAN</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.LARGEST_HESSIAN"><code class="docutils literal notranslate"><span class="pre">Differentials.LARGEST_HESSIAN</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.SMALLEST_HESSIAN"><code class="docutils literal notranslate"><span class="pre">Differentials.SMALLEST_HESSIAN</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.FLT_EPSILON"><code class="docutils literal notranslate"><span class="pre">Differentials.FLT_EPSILON</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.__init__"><code class="docutils literal notranslate"><span class="pre">Differentials.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.run"><code class="docutils literal notranslate"><span class="pre">Differentials.run()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.horizontal_gradient"><code class="docutils literal notranslate"><span class="pre">Differentials.horizontal_gradient()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.vertical_gradient"><code class="docutils literal notranslate"><span class="pre">Differentials.vertical_gradient()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.gradient_components"><code class="docutils literal notranslate"><span class="pre">Differentials.gradient_components()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.horizontal_hessian"><code class="docutils literal notranslate"><span class="pre">Differentials.horizontal_hessian()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.vertical_hessian"><code class="docutils literal notranslate"><span class="pre">Differentials.vertical_hessian()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.cross_hessian"><code class="docutils literal notranslate"><span class="pre">Differentials.cross_hessian()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.hessian_components"><code class="docutils literal notranslate"><span class="pre">Differentials.hessian_components()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.get_cross_hessian"><code class="docutils literal notranslate"><span class="pre">Differentials.get_cross_hessian()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.get_horizontal_gradient"><code class="docutils literal notranslate"><span class="pre">Differentials.get_horizontal_gradient()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.get_horizontal_hessian"><code class="docutils literal notranslate"><span class="pre">Differentials.get_horizontal_hessian()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.get_vertical_gradient"><code class="docutils literal notranslate"><span class="pre">Differentials.get_vertical_gradient()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.get_vertical_hessian"><code class="docutils literal notranslate"><span class="pre">Differentials.get_vertical_hessian()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.anti_symmetric_fir_mirror_on_bounds"><code class="docutils literal notranslate"><span class="pre">Differentials.anti_symmetric_fir_mirror_on_bounds()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.symmetric_fir_mirror_on_bounds"><code class="docutils literal notranslate"><span class="pre">Differentials.symmetric_fir_mirror_on_bounds()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.get_gradient"><code class="docutils literal notranslate"><span class="pre">Differentials.get_gradient()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.get_hessian"><code class="docutils literal notranslate"><span class="pre">Differentials.get_hessian()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.get_spline_interpolation_coefficients"><code class="docutils literal notranslate"><span class="pre">Differentials.get_spline_interpolation_coefficients()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.get_initial_causal_coefficient_mirror_on_bounds"><code class="docutils literal notranslate"><span class="pre">Differentials.get_initial_causal_coefficient_mirror_on_bounds()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.get_initial_anti_causal_coefficient_mirror_on_bounds"><code class="docutils literal notranslate"><span class="pre">Differentials.get_initial_anti_causal_coefficient_mirror_on_bounds()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.gradient_magnitude"><code class="docutils literal notranslate"><span class="pre">Differentials.gradient_magnitude()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.gradient_direction"><code class="docutils literal notranslate"><span class="pre">Differentials.gradient_direction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.laplacian"><code class="docutils literal notranslate"><span class="pre">Differentials.laplacian()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.largest_hessian"><code class="docutils literal notranslate"><span class="pre">Differentials.largest_hessian()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.smallest_hessian"><code class="docutils literal notranslate"><span class="pre">Differentials.smallest_hessian()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.Differentials.hessian_orientation"><code class="docutils literal notranslate"><span class="pre">Differentials.hessian_orientation()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.differentials.differentials.differentials"><code class="docutils literal notranslate"><span class="pre">differentials</span></code></a></li>
 </ul>
   </nav></div>
 

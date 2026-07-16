@@ -20,6 +20,12 @@ It offers several operations such as
 - Smallest Hessian Eigenvalue: the minimal curvature; and
 - Hessian Orientation: the principal orientation of the curvature.
 
+The numerical behavior is deliberately separate from visualization:
+``Differentials.run`` returns raw values, does not replace the source image,
+and performs no console output.  ``normalize=True`` is an explicit convenience
+for non-angular display maps.  ``spacing`` gives one physical sample distance
+per array axis; all values default to one.
+
 Image Representation
 --------------------
 
@@ -62,7 +68,8 @@ Based on the spline representation, the module computes several differential ope
 
   .. math::
 
-      \theta(x,y) = \arctan\!\Bigl(\tfrac{f_2}{f_1}\Bigr).
+      \theta(x,y) = \operatorname{atan2}\!\bigl(f_\mathrm{row},
+      f_\mathrm{column}\bigr).
 
 - Laplacian:  
   A second-order operator that highlights regions of rapid intensity change as
@@ -103,6 +110,77 @@ Implementation Details
 The *Differentials* class implements these operations as follows: the input image is provided by its samples. We assume it to be a cubic B-spline and first determine 
 its interpolation coefficients. The differential-based computations that we perform are then perfectly consistent with this continuously defined function.
 We finally build the output image by sampling the ideal, continuously defined intermediate result.
+
+The preferred public class is ``Differentials``; the historical lowercase
+``differentials`` alias remains available.  Direct component methods avoid
+reconstructing quantities from composite maps:
+
+.. code-block:: python
+
+   from splineops.differentials import Differentials
+
+   operator = Differentials(image, spacing=(0.7, 1.3))
+   vertical, horizontal = operator.gradient_components()
+   vertical2, cross, horizontal2 = operator.hessian_components()
+
+``vertical`` follows increasing row coordinates and ``horizontal`` follows
+increasing column coordinates.  Mirror-boundary derivatives are zero at the
+outermost sample for the antisymmetric first-derivative filter.  Polynomial
+and trigonometric fields are used as analytical tests away from that boundary.
+
+Volumes and multi-output plans
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The same component interface accepts one scalar 3-D volume.  Components are
+returned in increasing axis order, while Hessians use packed
+upper-triangular order ``(00, 01, 02, 11, 12, 22)``.  Gradient magnitude,
+Laplacian, and minimum/maximum Hessian eigenvalue maps generalize to 3-D;
+gradient direction and Hessian orientation remain explicitly 2-D quantities.
+
+Use :class:`splineops.differentials.DifferentialPlan` when several derivative
+families are needed together, or when changing volumes share one shape and
+spacing:
+
+.. code-block:: python
+
+   from splineops.differentials import DifferentialPlan
+
+   plan = DifferentialPlan(volume.shape, spacing=(0.7, 0.7, 1.5))
+   result = plan.apply(volume, gradient=True, hessian=True)
+   gx, gy, gz = result.gradient
+   hxx, hxy, hxz, hyy, hyz, hzz = result.hessian
+   laplacian = result.laplacian
+
+Output families can be selected independently.  ``laplacian=None`` preserves
+the original behavior and follows ``hessian``; request it explicitly to avoid
+building gradients, packed mixed Hessians, or their output arrays:
+
+.. code-block:: python
+
+   laplacian = plan.apply(
+       volume,
+       gradient=False,
+       hessian=False,
+       laplacian=True,
+   ).laplacian
+
+For repeated allocation-sensitive calls, pass a
+:class:`splineops.differentials.DifferentialResult` containing exact-shape and
+exact-dtype destination arrays through ``out=``.  Fields corresponding to
+unrequested families must be ``None``; the returned object is the supplied
+buffer container.  All destinations are checked before computation begins.
+Writable strided arrays are accepted, while read-only arrays, overlap with the
+source, and overlap between output components are rejected.  This prevents
+partial writes and preserves the promise that differentiation does not mutate
+its input.
+
+One batched per-call workspace is used, so shared coefficient and derivative
+intermediates are not recomputed for the requested outputs.
+``DifferentialPlan`` also accepts explicit ``spatial_axes`` for batch and
+channel arrays; components retain the full input shape and follow the selected
+axis order.  The legacy ``Differentials`` object continues to model one scalar
+image or volume, keeping its historical component helpers uncomplicated.
+See :doc:`../stability-soak` for a batched 3-D affine-to-feature pipeline.
 
 The following figure, taken from
 :ref:`sphx_glr_auto_examples_06_differentials_01_differentials_module.py`,

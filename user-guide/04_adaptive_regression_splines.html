@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Adaptive Regression Splines &#8212; splineops Documentation</title>
+    <title>Adaptive Regression Splines &#8212; splineops 2.1.0 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../_static/documentation_options.js?v=20623aea"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -159,26 +159,169 @@
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="index.html">
-    User Guide
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Five-minute quickstart
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../auto_examples/index.html">
+  <a class="nav-link nav-internal" href="../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="02_resize.html">
+    Resize
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../consolidation-recipes.html">
+    Reusable workflow recipes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../auto_examples/index.html">
     Examples
   </a>
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../api/index.html">
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="03_affine.html">
+    Affine
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="06_differentials.html">
+    Differentials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../internal-contracts.html">
+    Internal numerical contracts
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../api/index.html">
     API Reference
   </a>
 </li>
 
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -296,9 +439,44 @@
 </li>
 
 
-<li class="nav-item current active">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Five-minute quickstart
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="index.html">
-    User Guide
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="02_resize.html">
+    Resize
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../consolidation-recipes.html">
+    Reusable workflow recipes
   </a>
 </li>
 
@@ -306,6 +484,104 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../auto_examples/index.html">
     Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="03_affine.html">
+    Affine
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="06_differentials.html">
+    Differentials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../internal-contracts.html">
+    Internal numerical contracts
   </a>
 </li>
 
@@ -388,17 +664,7 @@
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_spline_interpolation.html">Spline Interpolation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_affine.html">Affine</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Adaptive Regression Splines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_smoothing_splines.html">Smoothing Splines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_differentials.html">Differentials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_multiscale.html">Multiscale</a></li>
-</ul>
-</div>
+  <div class="bd-toc-item navbar-nav"></div>
 </nav></div>
     </div>
   
@@ -437,9 +703,6 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">User Guide</a></li>
-    
     <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Adaptive Regression Splines</span></li>
   </ul>
 </nav>
@@ -469,8 +732,8 @@ use few knots, giving very compact models.</p>
 <section id="key-features">
 <h3>Key Features<a class="headerlink" href="#key-features" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Guarantees piecewise-linear solutions with few knots.</p></li>
-<li><p>Provides a fast two-step algorithm that returns the sparsest solution found.</p></li>
+<li><p>Produces piecewise-linear solutions with few knots.</p></li>
+<li><p>Provides a two-step denoising and sparsification implementation.</p></li>
 <li><p>Works for both interpolation (exact fit) and regression (noisy data).</p></li>
 </ul>
 <p>These properties are valuable in machine learning (where sparsity improves
@@ -517,9 +780,10 @@ operator <span class="math notranslate nohighlight">\(\mathrm{D}^2\)</span>.</p>
 </section>
 <section id="uniqueness-and-sparsity">
 <h3>Uniqueness and Sparsity<a class="headerlink" href="#uniqueness-and-sparsity" title="Link to this heading">#</a></h3>
-<p>The g-BLASSO may admit multiple solutions, but the algorithm implemented here
-leverages the theoretical analysis of <a class="footnote-reference brackets" href="#id3" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> to always return the sparsest
-one (minimum K).</p>
+<p>The g-BLASSO may admit multiple solutions.  The method in <a class="footnote-reference brackets" href="#id3" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> characterizes a
+sparsest solution; this implementation follows that construction and is kept
+experimental while its numerical behavior is validated beyond the current
+deterministic synthetic cases.</p>
 </section>
 </section>
 <section id="algorithm">
@@ -537,8 +801,8 @@ spline with the fewest knots.</p></li>
 <section id="advantages-and-applications">
 <h2>Advantages and Applications<a class="headerlink" href="#advantages-and-applications" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Few-knot guarantee: the returned spline is the sparsest among all
-feasible solutions.</p></li>
+<li><p>Compact representation: redundant numerical knots are pruned while the
+reconstructed piecewise-linear function is checked at the samples.</p></li>
 <li><p>Exact interpolation: with <span class="math notranslate nohighlight">\(\lambda=0\)</span>, the method finds the least
 angular spline through every point.</p></li>
 <li><p>Segmented regression: ideal for interpretable fits in finance,
@@ -556,6 +820,54 @@ parameter count.</p></li>
 </ul>
 <p>Practical tip: run the solver on a grid of <span class="math notranslate nohighlight">\(\lambda\)</span> values and
 <em>plot sparsity vs. data-fidelity</em> (e.g., root-MSE) to pick a balanced point.</p>
+<p>For such a sweep, <code class="xref py py-class docutils literal notranslate"><span class="pre">splineops.adaptive_regression_splines.DenoisingPlan</span></code>
+factorizes the fixed <code class="docutils literal notranslate"><span class="pre">x</span></code>/<code class="docutils literal notranslate"><span class="pre">rho</span></code> system once.  Observations and regularization
+strength may change between solves:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops.adaptive_regression_splines</span><span class="w"> </span><span class="kn">import</span> <span class="n">DenoisingPlan</span>
+
+<span class="n">plan</span> <span class="o">=</span> <span class="n">DenoisingPlan</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+<span class="n">solutions</span> <span class="o">=</span> <span class="p">[</span><span class="n">plan</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">lamb</span><span class="o">=</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">lambda_values</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This removes repeated sparse factorization but does not make the iterative ADMM
+work disappear.  <code class="docutils literal notranslate"><span class="pre">x</span></code> must stay strictly increasing and <code class="docutils literal notranslate"><span class="pre">rho</span></code> is fixed by
+the plan; construct another plan when either changes.  Zero regularization and
+the linear-regression limit still use their direct branches.</p>
+<p>For an ordered sweep on one signal, <code class="docutils literal notranslate"><span class="pre">solve_path</span></code> uses controlled warm starts:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">solutions</span><span class="p">,</span> <span class="n">diagnostics</span> <span class="o">=</span> <span class="n">plan</span><span class="o">.</span><span class="n">solve_path</span><span class="p">(</span>
+    <span class="n">y</span><span class="p">,</span>
+    <span class="n">lambda_values</span><span class="p">,</span>
+    <span class="n">return_diagnostics</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Iteration state is local to that call.  Repeated calls therefore remain
+deterministic and the plan stays safe from hidden cross-call state.  Nearby
+penalties often require fewer iterations, but this is not a guaranteed speedup;
+the diagnostics expose the actual result.  <code class="docutils literal notranslate"><span class="pre">retained_array_bytes</span></code> is a lower
+bound covering known NumPy/SciPy sparse arrays, excluding opaque solver-factor
+storage.</p>
+</section>
+<section id="convergence-diagnostics">
+<h2>Convergence diagnostics<a class="headerlink" href="#convergence-diagnostics" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">denoise_y</span></code> keeps its historical array return by default.  Set
+<code class="docutils literal notranslate"><span class="pre">return_diagnostics=True</span></code> to receive a <code class="docutils literal notranslate"><span class="pre">DenoisingDiagnostics</span></code> record with
+the iteration count, convergence flag, and final primal and dual residuals:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops.adaptive_regression_splines</span><span class="w"> </span><span class="kn">import</span> <span class="n">denoise_y</span>
+
+<span class="n">denoised</span><span class="p">,</span> <span class="n">diagnostics</span> <span class="o">=</span> <span class="n">denoise_y</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">,</span>
+    <span class="n">lamb</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
+    <span class="n">rho</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
+    <span class="n">return_diagnostics</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The record makes an exhausted iteration budget visible instead of implying
+convergence.  Zero regularization and the linear-regression limit are solved
+without ADMM and report zero iterations.  <code class="docutils literal notranslate"><span class="pre">rho</span></code> affects convergence speed;
+for difficult cases it should be tuned together with <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
 <p>The figure below, taken from
 <a class="reference internal" href="../auto_examples/04_adaptive_regression_splines/01_adaptive_regression_splines_module.html#sphx-glr-auto-examples-04-adaptive-regression-splines-01-adaptive-regression-splines-module-py"><span class="std std-ref">Adaptive Regression Splines Module</span></a>,
 shows noisy 1D data (crosses), the TV-denoised samples, and the sparsest
@@ -657,6 +969,7 @@ paper no. 114044, 30 p., May 1, 2022.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">Algorithm</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-and-applications">Advantages and Applications</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regularisation-parameter">Regularisation Parameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-diagnostics">Convergence diagnostics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-sweep-animation">Lambda Sweep Animation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>

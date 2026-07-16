@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Differentials &#8212; splineops Documentation</title>
+    <title>Differentials &#8212; splineops 2.1.0 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../_static/documentation_options.js?v=20623aea"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -159,26 +159,169 @@
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="index.html">
-    User Guide
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Five-minute quickstart
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../auto_examples/index.html">
+  <a class="nav-link nav-internal" href="../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="02_resize.html">
+    Resize
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../consolidation-recipes.html">
+    Reusable workflow recipes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../auto_examples/index.html">
     Examples
   </a>
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../api/index.html">
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="03_affine.html">
+    Affine
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Differentials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../internal-contracts.html">
+    Internal numerical contracts
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../api/index.html">
     API Reference
   </a>
 </li>
 
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -296,9 +439,44 @@
 </li>
 
 
-<li class="nav-item current active">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Five-minute quickstart
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="index.html">
-    User Guide
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="02_resize.html">
+    Resize
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../consolidation-recipes.html">
+    Reusable workflow recipes
   </a>
 </li>
 
@@ -306,6 +484,104 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../auto_examples/index.html">
     Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="03_affine.html">
+    Affine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Differentials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../internal-contracts.html">
+    Internal numerical contracts
   </a>
 </li>
 
@@ -388,17 +664,7 @@
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_spline_interpolation.html">Spline Interpolation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_affine.html">Affine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_adaptive_regression_splines.html">Adaptive Regression Splines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_smoothing_splines.html">Smoothing Splines</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Differentials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_multiscale.html">Multiscale</a></li>
-</ul>
-</div>
+  <div class="bd-toc-item navbar-nav"></div>
 </nav></div>
     </div>
   
@@ -437,9 +703,6 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">User Guide</a></li>
-    
     <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Differentials</span></li>
   </ul>
 </nav>
@@ -473,6 +736,11 @@ It offers several operations such as</p>
 <li><p>Smallest Hessian Eigenvalue: the minimal curvature; and</p></li>
 <li><p>Hessian Orientation: the principal orientation of the curvature.</p></li>
 </ul>
+<p>The numerical behavior is deliberately separate from visualization:
+<code class="docutils literal notranslate"><span class="pre">Differentials.run</span></code> returns raw values, does not replace the source image,
+and performs no console output.  <code class="docutils literal notranslate"><span class="pre">normalize=True</span></code> is an explicit convenience
+for non-angular display maps.  <code class="docutils literal notranslate"><span class="pre">spacing</span></code> gives one physical sample distance
+per array axis; all values default to one.</p>
 </section>
 <section id="image-representation">
 <h2>Image Representation<a class="headerlink" href="#image-representation" title="Link to this heading">#</a></h2>
@@ -502,7 +770,8 @@ Computed as the Euclidean norm of the first derivatives</p>
 <li><p>Gradient Direction:
 The direction of the gradient is given by</p>
 <div class="math notranslate nohighlight">
-\[\theta(x,y) = \arctan\!\Bigl(\tfrac{f_2}{f_1}\Bigr).\]</div>
+\[\theta(x,y) = \operatorname{atan2}\!\bigl(f_\mathrm{row},
+f_\mathrm{column}\bigr).\]</div>
 </li>
 <li><p>Laplacian:
 A second-order operator that highlights regions of rapid intensity change as</p>
@@ -535,6 +804,66 @@ This operation returns the orientation that corresponds to the maximal second de
 <p>The <em>Differentials</em> class implements these operations as follows: the input image is provided by its samples. We assume it to be a cubic B-spline and first determine
 its interpolation coefficients. The differential-based computations that we perform are then perfectly consistent with this continuously defined function.
 We finally build the output image by sampling the ideal, continuously defined intermediate result.</p>
+<p>The preferred public class is <code class="docutils literal notranslate"><span class="pre">Differentials</span></code>; the historical lowercase
+<code class="docutils literal notranslate"><span class="pre">differentials</span></code> alias remains available.  Direct component methods avoid
+reconstructing quantities from composite maps:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops.differentials</span><span class="w"> </span><span class="kn">import</span> <span class="n">Differentials</span>
+
+<span class="n">operator</span> <span class="o">=</span> <span class="n">Differentials</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">))</span>
+<span class="n">vertical</span><span class="p">,</span> <span class="n">horizontal</span> <span class="o">=</span> <span class="n">operator</span><span class="o">.</span><span class="n">gradient_components</span><span class="p">()</span>
+<span class="n">vertical2</span><span class="p">,</span> <span class="n">cross</span><span class="p">,</span> <span class="n">horizontal2</span> <span class="o">=</span> <span class="n">operator</span><span class="o">.</span><span class="n">hessian_components</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">vertical</span></code> follows increasing row coordinates and <code class="docutils literal notranslate"><span class="pre">horizontal</span></code> follows
+increasing column coordinates.  Mirror-boundary derivatives are zero at the
+outermost sample for the antisymmetric first-derivative filter.  Polynomial
+and trigonometric fields are used as analytical tests away from that boundary.</p>
+<section id="volumes-and-multi-output-plans">
+<h3>Volumes and multi-output plans<a class="headerlink" href="#volumes-and-multi-output-plans" title="Link to this heading">#</a></h3>
+<p>The same component interface accepts one scalar 3-D volume.  Components are
+returned in increasing axis order, while Hessians use packed
+upper-triangular order <code class="docutils literal notranslate"><span class="pre">(00,</span> <span class="pre">01,</span> <span class="pre">02,</span> <span class="pre">11,</span> <span class="pre">12,</span> <span class="pre">22)</span></code>.  Gradient magnitude,
+Laplacian, and minimum/maximum Hessian eigenvalue maps generalize to 3-D;
+gradient direction and Hessian orientation remain explicitly 2-D quantities.</p>
+<p>Use <code class="xref py py-class docutils literal notranslate"><span class="pre">splineops.differentials.DifferentialPlan</span></code> when several derivative
+families are needed together, or when changing volumes share one shape and
+spacing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops.differentials</span><span class="w"> </span><span class="kn">import</span> <span class="n">DifferentialPlan</span>
+
+<span class="n">plan</span> <span class="o">=</span> <span class="n">DifferentialPlan</span><span class="p">(</span><span class="n">volume</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">))</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">plan</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">volume</span><span class="p">,</span> <span class="n">gradient</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hessian</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">gx</span><span class="p">,</span> <span class="n">gy</span><span class="p">,</span> <span class="n">gz</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">gradient</span>
+<span class="n">hxx</span><span class="p">,</span> <span class="n">hxy</span><span class="p">,</span> <span class="n">hxz</span><span class="p">,</span> <span class="n">hyy</span><span class="p">,</span> <span class="n">hyz</span><span class="p">,</span> <span class="n">hzz</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">hessian</span>
+<span class="n">laplacian</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">laplacian</span>
+</pre></div>
+</div>
+<p>Output families can be selected independently.  <code class="docutils literal notranslate"><span class="pre">laplacian=None</span></code> preserves
+the original behavior and follows <code class="docutils literal notranslate"><span class="pre">hessian</span></code>; request it explicitly to avoid
+building gradients, packed mixed Hessians, or their output arrays:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">laplacian</span> <span class="o">=</span> <span class="n">plan</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="n">volume</span><span class="p">,</span>
+    <span class="n">gradient</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">hessian</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">laplacian</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">laplacian</span>
+</pre></div>
+</div>
+<p>For repeated allocation-sensitive calls, pass a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">splineops.differentials.DifferentialResult</span></code> containing exact-shape and
+exact-dtype destination arrays through <code class="docutils literal notranslate"><span class="pre">out=</span></code>.  Fields corresponding to
+unrequested families must be <code class="docutils literal notranslate"><span class="pre">None</span></code>; the returned object is the supplied
+buffer container.  All destinations are checked before computation begins.
+Writable strided arrays are accepted, while read-only arrays, overlap with the
+source, and overlap between output components are rejected.  This prevents
+partial writes and preserves the promise that differentiation does not mutate
+its input.</p>
+<p>One batched per-call workspace is used, so shared coefficient and derivative
+intermediates are not recomputed for the requested outputs.
+<code class="docutils literal notranslate"><span class="pre">DifferentialPlan</span></code> also accepts explicit <code class="docutils literal notranslate"><span class="pre">spatial_axes</span></code> for batch and
+channel arrays; components retain the full input shape and follow the selected
+axis order.  The legacy <code class="docutils literal notranslate"><span class="pre">Differentials</span></code> object continues to model one scalar
+image or volume, keeping its historical component helpers uncomplicated.
+See <a class="reference internal" href="../stability-soak.html"><span class="doc">Stability-soak workflows</span></a> for a batched 3-D affine-to-feature pipeline.</p>
 <p>The following figure, taken from
 <a class="reference internal" href="../auto_examples/06_differentials/01_differentials_module.html#sphx-glr-auto-examples-06-differentials-01-differentials-module-py"><span class="std std-ref">Differentials Module</span></a>,
 shows some of these differential maps (gradient magnitude, gradient direction,
@@ -547,6 +876,7 @@ Laplacian and Hessian-based quantities).</p>
 </a>
 <a class="reference internal image-reference" href="../_images/sphx_glr_01_differentials_module_005.png"><img alt="../_images/sphx_glr_01_differentials_module_005.png" class="align-center" src="../_images/sphx_glr_01_differentials_module_005.png" style="width: 100%;" />
 </a>
+</section>
 </section>
 <section id="differentiate-examples">
 <h2>Differentiate Examples<a class="headerlink" href="#differentiate-examples" title="Link to this heading">#</a></h2>
@@ -622,7 +952,10 @@ SIAM Review, vol. 42, no. 1, pp. 43-67, March 2000.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-representation">Image Representation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentiation-operations">Differentiation Operations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-details">Implementation Details</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-details">Implementation Details</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volumes-and-multi-output-plans">Volumes and multi-output plans</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentiate-examples">Differentiate Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>

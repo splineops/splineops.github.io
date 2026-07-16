@@ -71,7 +71,7 @@ Load and Prepare Base ROI
 
 Load A and B, convert to grayscale, and define the ROI on the originals.
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-82
+.. GENERATED FROM PYTHON SOURCE LINES 46-84
 
 .. code-block:: Python
 
@@ -79,15 +79,17 @@ Load A and B, convert to grayscale, and define the ROI on the originals.
     URL_A = "https://r0k.us/graphics/kodak/kodak/kodim14.png"
     URL_B = "https://r0k.us/graphics/kodak/kodak/kodim08.png"
 
-    ROI_SIZE_PX = 64               # original ROI side (pixels)
+    ROI_SIZE_PX = 64  # original ROI side (pixels)
     FACE_ROW, FACE_COL = 250, 445  # ROI center (approx) in ORIGINAL coordinates
 
-    ZOOM = (0.5, 0.5)              # 0.5× downsampling demo
+    ZOOM = (0.5, 0.5)  # 0.5× downsampling demo
+
 
     def to_gray01(img_rgb_uint8: np.ndarray) -> np.ndarray:
         g = img_rgb_uint8.astype(np.float64) / 255.0
         gray = 0.2989 * g[..., 0] + 0.5870 * g[..., 1] + 0.1140 * g[..., 2]
         return gray.astype(DTYPE)
+
 
     with urlopen(URL_A, timeout=10) as resp:
         A = to_gray01(np.array(Image.open(resp)))
@@ -108,7 +110,7 @@ Load A and B, convert to grayscale, and define the ROI on the originals.
     roi_kwargs_orig = dict(
         roi_height_frac=ROI_SIZE_PX / h_img,  # keeps height at 64 px (square ROI)
         grayscale=True,
-        roi_xy=(row_top, col_left),           # top-left of the ROI
+        roi_xy=(row_top, col_left),  # top-left of the ROI
     )
 
 
@@ -118,7 +120,7 @@ Load A and B, convert to grayscale, and define the ROI on the originals.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-88
+.. GENERATED FROM PYTHON SOURCE LINES 85-90
 
 Base Image
 ----------
@@ -126,7 +128,7 @@ Base Image
 Construct the synthetic "corner mix" where A occupies the top-left
 pixel of every 2×2 block, and B fills the other three pixels.
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-98
+.. GENERATED FROM PYTHON SOURCE LINES 90-100
 
 .. code-block:: Python
 
@@ -152,7 +154,7 @@ pixel of every 2×2 block, and B fills the other three pixels.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-106
+.. GENERATED FROM PYTHON SOURCE LINES 101-108
 
 Downsampling (No Antialiasing)
 ------------------------------
@@ -162,7 +164,7 @@ To make the behaviour easier to see, we crop the input so that its
 height and width are odd: this ensures the 0.5× sampling grid lands
 exactly on the top-left pixel of each 2×2 tile.
 
-.. GENERATED FROM PYTHON SOURCE LINES 106-154
+.. GENERATED FROM PYTHON SOURCE LINES 108-158
 
 .. code-block:: Python
 
@@ -181,6 +183,7 @@ exactly on the top-left pixel of each 2×2 tile.
         zoom_factors=ZOOM,
         method="cubic",  # standard (no explicit anti-aliasing)
     )
+
 
     def show_resized_on_original_canvas_same_relpos(resized: np.ndarray, title: str):
         h_res, w_res = resized.shape
@@ -203,12 +206,13 @@ exactly on the top-left pixel of each 2×2 tile.
 
         # Use ORIGINAL canvas height so 32 px is respected visually (no forced shrinking)
         roi_kwargs_canvas = dict(
-            roi_height_frac=(ROI_SIZE_PX // 2) / h_img,   # 32 / original height
+            roi_height_frac=(ROI_SIZE_PX // 2) / h_img,  # 32 / original height
             grayscale=True,
-            roi_xy=(row_top_res, col_left_res),           # ROI within the pasted resized patch
+            roi_xy=(row_top_res, col_left_res),  # ROI within the pasted resized patch
         )
 
         return show_roi_zoom(canvas, ax_titles=(title, None), **roi_kwargs_canvas)
+
 
     _ = show_resized_on_original_canvas_same_relpos(
         res_std, "Downsampled 0.5× (standard cubic, no AA)"
@@ -226,7 +230,7 @@ exactly on the top-left pixel of each 2×2 tile.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 155-160
+.. GENERATED FROM PYTHON SOURCE LINES 159-164
 
 Downsampling (Antialiasing)
 ---------------------------
@@ -234,7 +238,7 @@ Downsampling (Antialiasing)
 Now we apply downsampling with antialiasing, which performs a projection
 that includes a matched low-pass filter before decimation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 160-171
+.. GENERATED FROM PYTHON SOURCE LINES 164-175
 
 .. code-block:: Python
 
@@ -261,7 +265,7 @@ that includes a matched low-pass filter before decimation.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 172-178
+.. GENERATED FROM PYTHON SOURCE LINES 176-182
 
 ROI Comparison
 --------------
@@ -270,7 +274,7 @@ To make the difference as clear as possible, we extract the same 32×32 ROI
 around the same physical location from both downsampled images and display
 their nearest-neighbour magnifications side by side.
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-221
+.. GENERATED FROM PYTHON SOURCE LINES 182-229
 
 .. code-block:: Python
 
@@ -283,8 +287,9 @@ their nearest-neighbour magnifications side by side.
     center_c_std = int(round(rel_center_c * w_std))
     row_top_std = int(np.clip(center_r_std - roi_side_res // 2, 0, h_std - roi_side_res))
     col_left_std = int(np.clip(center_c_std - roi_side_res // 2, 0, w_std - roi_side_res))
-    roi_std = res_std[row_top_std : row_top_std + roi_side_res,
-                      col_left_std : col_left_std + roi_side_res]
+    roi_std = res_std[
+        row_top_std : row_top_std + roi_side_res, col_left_std : col_left_std + roi_side_res
+    ]
 
     # ROI in antialiased result (same physical location)
     h_aa, w_aa = res_aa.shape
@@ -292,16 +297,19 @@ their nearest-neighbour magnifications side by side.
     center_c_aa = int(round(rel_center_c * w_aa))
     row_top_aa = int(np.clip(center_r_aa - roi_side_res // 2, 0, h_aa - roi_side_res))
     col_left_aa = int(np.clip(center_c_aa - roi_side_res // 2, 0, w_aa - roi_side_res))
-    roi_aa = res_aa[row_top_aa : row_top_aa + roi_side_res,
-                    col_left_aa : col_left_aa + roi_side_res]
+    roi_aa = res_aa[
+        row_top_aa : row_top_aa + roi_side_res, col_left_aa : col_left_aa + roi_side_res
+    ]
+
 
     def _nearest_big(roi: np.ndarray, target_h: int = 256) -> np.ndarray:
         h, w = roi.shape
         mag = max(1, int(round(target_h / h)))
         return np.repeat(np.repeat(roi, mag, axis=0), mag, axis=1)
 
+
     roi_big_std = _nearest_big(roi_std, 256)
-    roi_big_aa  = _nearest_big(roi_aa, 256)
+    roi_big_aa = _nearest_big(roi_aa, 256)
 
     fig, axes = plt.subplots(1, 2, figsize=(10, 4))
     for ax, im, title in zip(
@@ -329,7 +337,7 @@ their nearest-neighbour magnifications side by side.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 222-227
+.. GENERATED FROM PYTHON SOURCE LINES 230-235
 
 Source Images and ROI
 ---------------------
@@ -337,12 +345,12 @@ Source Images and ROI
 To understand the behaviour, it is helpful to inspect the two source images
 separately on the original grid, using the same ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 229-231
+.. GENERATED FROM PYTHON SOURCE LINES 237-239
 
 Image A
 ~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 231-234
+.. GENERATED FROM PYTHON SOURCE LINES 239-242
 
 .. code-block:: Python
 
@@ -361,12 +369,12 @@ Image A
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 235-237
+.. GENERATED FROM PYTHON SOURCE LINES 243-245
 
 Image B
 ~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 237-240
+.. GENERATED FROM PYTHON SOURCE LINES 245-248
 
 .. code-block:: Python
 
@@ -385,7 +393,7 @@ Image B
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 241-265
+.. GENERATED FROM PYTHON SOURCE LINES 249-273
 
 Discussion
 ----------
@@ -415,7 +423,7 @@ low-pass-then-sample strategy, preserving the true average content.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.201 seconds)
+   **Total running time of the script:** (0 minutes 1.220 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_05_how_bad_aliasing_can_be.py:

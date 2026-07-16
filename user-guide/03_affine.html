@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Affine &#8212; splineops Documentation</title>
+    <title>Affine &#8212; splineops 2.1.0 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../_static/documentation_options.js?v=20623aea"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -59,7 +59,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Adaptive Regression Splines" href="04_adaptive_regression_splines.html" />
-    <link rel="prev" title="Resize" href="02_resize.html" />
+    <link rel="prev" title="Backend support contract" href="../backend-support.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -159,26 +159,169 @@
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="index.html">
-    User Guide
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Five-minute quickstart
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../auto_examples/index.html">
+  <a class="nav-link nav-internal" href="../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="02_resize.html">
+    Resize
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../consolidation-recipes.html">
+    Reusable workflow recipes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../auto_examples/index.html">
     Examples
   </a>
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../api/index.html">
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Affine
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="06_differentials.html">
+    Differentials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../internal-contracts.html">
+    Internal numerical contracts
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../api/index.html">
     API Reference
   </a>
 </li>
 
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -296,9 +439,44 @@
 </li>
 
 
-<li class="nav-item current active">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Five-minute quickstart
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../volume-downsampling.html">
+    Volume downsampling
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="index.html">
-    User Guide
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="02_resize.html">
+    Resize
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="01_spline_interpolation.html">
+    Spline Interpolation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../consolidation-recipes.html">
+    Reusable workflow recipes
   </a>
 </li>
 
@@ -306,6 +484,104 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../auto_examples/index.html">
     Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../performance.html">
+    Performance evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project-status.html">
+    Project status and evidence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../backend-support.html">
+    Backend support contract
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Affine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="04_adaptive_regression_splines.html">
+    Adaptive Regression Splines
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="05_smoothing_splines.html">
+    Smoothing Splines
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="06_differentials.html">
+    Differentials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="07_multiscale.html">
+    Multiscale
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../provenance.html">
+    Method and source provenance
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../roadmap.html">
+    Development roadmap
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../progress.html">
+    Progress so far
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../stability-soak.html">
+    Stability-soak workflows
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../graduation-audits.html">
+    Affine and Differentials graduation audits
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../internal-contracts.html">
+    Internal numerical contracts
   </a>
 </li>
 
@@ -388,17 +664,7 @@
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_spline_interpolation.html">Spline Interpolation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Affine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_adaptive_regression_splines.html">Adaptive Regression Splines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_smoothing_splines.html">Smoothing Splines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_differentials.html">Differentials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_multiscale.html">Multiscale</a></li>
-</ul>
-</div>
+  <div class="bd-toc-item navbar-nav"></div>
 </nav></div>
     </div>
   
@@ -437,9 +703,6 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">User Guide</a></li>
-    
     <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Affine</span></li>
   </ul>
 </nav>
@@ -462,10 +725,11 @@
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>The <a class="reference internal" href="../api/03_affine.html#api-affine"><span class="std std-ref">affine</span></a> module in <a class="reference internal" href="../api/index.html#api-index"><span class="std std-ref">SplineOps</span></a> provides
-affine geometric transforms for 2D or 3D data arrays using spline
-interpolation. At the moment it exposes a single helper,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">rotate()</span></code>, which rotates data around a specified axis
-and center. Such operations are widely used in image processing, computer
+affine geometric transforms for 2-D or 3-D spatial data using spline
+interpolation.  <code class="xref py py-func docutils literal notranslate"><span class="pre">splineops.affine.affine_transform()</span></code> accepts a general
+pull-back matrix and offset, <code class="xref py py-func docutils literal notranslate"><span class="pre">splineops.affine.rotate()</span></code> constructs rotation
+geometry, and <code class="xref py py-class docutils literal notranslate"><span class="pre">splineops.affine.AffinePlan</span></code> reuses fixed geometry across
+frames.  Such operations are widely used in image processing, computer
 graphics, and scientific computing <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 </section>
 <section id="d-rotation">
@@ -542,10 +806,114 @@ The approach documented here uses standard interpolation, which leverages tensor
 dimensions while minimizing artifacts like aliasing. The process asks one to first recenter the coordinates so that the rotation center coincides
 with the origin, then to apply the appropriate 2D or 3D rotation matrix to the recentered coordinates, followed by a translation of the rotated recentered coordinates
 back to their original reference frame, to compensate for the recentering step, and finally to use spline interpolation to determine the data values at these new positions.</p>
+<p><code class="docutils literal notranslate"><span class="pre">affine_transform</span></code> follows the pull-back convention
+<span class="math notranslate nohighlight">\(x_\mathrm{input}=A x_\mathrm{output}+b\)</span>.  <code class="docutils literal notranslate"><span class="pre">rotate</span></code> builds that geometry
+about the array center by default, or about an explicit center in array-axis
+coordinates.  Rotation keeps the spatial input shape; a general affine
+transform may request another spatial output shape.  The default boundary mode
+is <code class="docutils literal notranslate"><span class="pre">&quot;zero&quot;</span></code>; pass <code class="docutils literal notranslate"><span class="pre">mode=&quot;mirror&quot;</span></code> for whole-sample mirror extension.
+Degrees 0 through 7 are supported.  Degrees 0 through 5 in two and three
+dimensions are tested against equivalently configured
+<code class="docutils literal notranslate"><span class="pre">scipy.ndimage.affine_transform</span></code> (SciPy’s maximum spline order is 5).
+One-shot coordinates are generated in bounded tiles rather than as a complete
+stacked volume.</p>
+</section>
+<section id="general-and-repeated-transforms">
+<h2>General and repeated transforms<a class="headerlink" href="#general-and-repeated-transforms" title="Link to this heading">#</a></h2>
+<p>Use the function for one transform and a plan when geometry is reused:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">splineops.affine</span><span class="w"> </span><span class="kn">import</span> <span class="n">AffinePlan</span><span class="p">,</span> <span class="n">affine_transform</span>
+
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]])</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+<span class="n">first</span> <span class="o">=</span> <span class="n">affine_transform</span><span class="p">(</span>
+    <span class="n">image</span><span class="p">,</span>
+    <span class="n">matrix</span><span class="p">,</span>
+    <span class="n">offset</span><span class="p">,</span>
+    <span class="n">degree</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;mirror&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">plan</span> <span class="o">=</span> <span class="n">AffinePlan</span><span class="p">(</span>
+    <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
+    <span class="n">matrix</span><span class="p">,</span>
+    <span class="n">offset</span><span class="p">,</span>
+    <span class="n">degree</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;mirror&quot;</span><span class="p">,</span>
+    <span class="n">max_retained_bytes</span><span class="o">=</span><span class="mi">256</span> <span class="o">*</span> <span class="mi">1024</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">plan</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">next_image</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The ordinary plan call retains support indexes and weights but still performs
+the spline coefficient prefilter required by each new frame.  If one frame is
+sent through several compatible affine geometries, call
+<code class="docutils literal notranslate"><span class="pre">prepare_coefficients</span></code> once and pass its result to each plan’s
+<code class="docutils literal notranslate"><span class="pre">apply_coefficients</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">field</span> <span class="o">=</span> <span class="n">plan</span><span class="o">.</span><span class="n">prepare_coefficients</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="n">first</span> <span class="o">=</span> <span class="n">plan</span><span class="o">.</span><span class="n">apply_coefficients</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+<span class="n">second</span> <span class="o">=</span> <span class="n">another_compatible_plan</span><span class="o">.</span><span class="n">apply_coefficients</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>An <code class="xref py py-class docutils literal notranslate"><span class="pre">splineops.affine.AffineCoefficientField</span></code> is immutable and records
+the input shape, spatial axes, degree, boundary mode, and precision.  Applying
+it through an incompatible plan fails explicitly.  Matrix and output shape are
+not part of the coefficient contract, which is exactly what permits reuse
+across affine geometries.  <code class="docutils literal notranslate"><span class="pre">prefilter</span></code> continues to return a raw array and
+supports <code class="docutils literal notranslate"><span class="pre">out=</span></code> for lower-level workflows, but raw arrays cannot carry a
+provenance check.  Tagged fields can be persisted without object pickles and
+validated on load:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">field</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;frame-coefficients.npz&quot;</span><span class="p">)</span>
+<span class="n">restored</span> <span class="o">=</span> <span class="n">another_compatible_plan</span><span class="o">.</span><span class="n">load_coefficients</span><span class="p">(</span>
+    <span class="s2">&quot;frame-coefficients.npz&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The schema-2 archive stores portable little-endian numeric values and JSON
+metadata.  Saving flushes a same-directory temporary file and then atomically
+replaces the destination, so an interrupted write cannot partially update an
+existing field.  Loading checks its schema, input shape, spatial axes, degree,
+canonical boundary implementation, and precision against the receiving plan;
+schema-1 archives remain readable.  Immutable fields and plans may be reused
+concurrently by threads or loaded independently by spawned processes; each
+application allocates or writes only its own output.
+See
+<a class="reference internal" href="../consolidation-recipes.html"><span class="doc">Reusable workflow recipes</span></a> and <a class="reference internal" href="../stability-soak.html"><span class="doc">Stability-soak workflows</span></a> for complete
+examples.  Set
+<code class="docutils literal notranslate"><span class="pre">cache_geometry=False</span></code> for bounded-memory streaming with no retained query
+geometry.  Plan construction raises <code class="docutils literal notranslate"><span class="pre">MemoryError</span></code> rather than exceeding
+<code class="docutils literal notranslate"><span class="pre">max_retained_bytes</span></code> for geometry storage.</p>
+<p><code class="docutils literal notranslate"><span class="pre">retained_bytes</span></code> includes both cached geometry and the reusable spline
+template; <code class="docutils literal notranslate"><span class="pre">geometry_retained_bytes</span></code> and <code class="docutils literal notranslate"><span class="pre">template_retained_bytes</span></code> report
+the components.  <code class="docutils literal notranslate"><span class="pre">configuration</span></code> returns a copy of the fixed numerical
+contract.</p>
+</section>
+<section id="batch-and-channel-axes">
+<h2>Batch and channel axes<a class="headerlink" href="#batch-and-channel-axes" title="Link to this heading">#</a></h2>
+<p>For an array with non-spatial dimensions, select exactly two or three
+<code class="docutils literal notranslate"><span class="pre">spatial_axes</span></code>.  Every remaining slice is transformed independently in the
+mathematical sense, while coefficient filtering and support evaluation operate
+on the batch together with memory-bounded query tiles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># NCHW data: rotate the height and width axes of every batch/channel plane.</span>
+<span class="n">rotated</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="n">spatial_axes</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;mirror&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> itself remains a scalar continuous N-D model; affine owns this
+batch/channel orchestration so the module boundaries stay clear.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The geometry of the transform (center, axis, angle) is identical across methods; what changes is the spline used for resampling.
 Different spline degrees trade sharpness for smoothness (e.g., degree 0/nearest → blocky but fast; degree 1/linear → slight blur; degree 3/cubic → smoother, higher-quality edges).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This module favors a clear spline contract and integration with
+<code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code>.  It is currently substantially slower than SciPy’s
+specialized affine kernels on the matched benchmark, even though cached
+geometry materially improves repeated SplineOps execution; see
+<a class="reference internal" href="../performance.html"><span class="doc">Performance evidence</span></a>.  SplineOps does not present affine transforms as a
+universal speed advantage.</p>
 </div>
 <p>The following figure from
 <a class="reference internal" href="../auto_examples/03_affine/01_rotate_image.html#sphx-glr-auto-examples-03-affine-01-rotate-image-py"><span class="std std-ref">Rotate Image</span></a>
@@ -597,12 +965,12 @@ vol. 16, no. 6, pp. 22-38, November 1999.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="02_resize.html"
+       href="../backend-support.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Resize</p>
+        <p class="prev-next-title">Backend support contract</p>
       </div>
     </a>
     <a class="right-next"
@@ -637,6 +1005,8 @@ vol. 16, no. 6, pp. 22-38, November 1999.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-rotation">2D Rotation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3D Rotation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#affine-transformation-by-resampling">Affine Transformation by Resampling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-and-repeated-transforms">General and repeated transforms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-and-channel-axes">Batch and channel axes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation-animation">Rotation Animation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotate-examples">Rotate Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
