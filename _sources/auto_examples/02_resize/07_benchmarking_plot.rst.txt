@@ -1361,10 +1361,10 @@ dtype used for the benchmark.
       Python      : 3.12.13 (CPython)
       OS          : Linux 6.17.0-1020-azure (x86_64)
       CPU         : x86_64 | logical cores: 4
-      Process     : pid=2347 | Python threads=1 | OS threads=17
+      Process     : pid=2650 | Python threads=1 | OS threads=17
       NumPy/SciPy : 2.5.1/1.18.0
       Matplotlib  : 3.11.0 | backend: agg
-      splineops   : 2.1.0 | native ext present: True
+      splineops   : 2.2.0 | native ext present: True
       Extra libs  : Pillow=12.3.0, OpenCV=5.0.0, scikit-image=0.26.0, PyTorch=2.13.0+cu130
       SPLINEOPS_ACCEL=always
       OMP_NUM_THREADS=4
@@ -1376,7 +1376,7 @@ dtype used for the benchmark.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (4 minutes 17.286 seconds)
+   **Total running time of the script:** (5 minutes 36.036 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_07_benchmarking_plot.py:

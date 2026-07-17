@@ -266,7 +266,7 @@ Show the resized image pasted on a white canvas (for zoom-out), plus the ROI zoo
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_003.png
-   :alt: Resized Image (standard, 0.8 ms)
+   :alt: Resized Image (standard, 1.4 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_003.png
    :class: sphx-glr-single-img
 
@@ -296,7 +296,7 @@ We plot the recovered image (after reversing the zoom) with the same ROI.
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_004.png
-   :alt: Recovered Image (standard, 0.8 ms)
+   :alt: Recovered Image (standard, 1.2 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_004.png
    :class: sphx-glr-single-img
 
@@ -369,7 +369,7 @@ Recovered Image (SciPy)
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_005.png
-   :alt: Recovered Image (SciPy, 18.7 ms)
+   :alt: Recovered Image (SciPy, 26.2 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_005.png
    :class: sphx-glr-single-img
 
@@ -543,7 +543,7 @@ configuration, but resize keeps its own specialized implementation.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.035 seconds)
+   **Total running time of the script:** (0 minutes 1.475 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_03_standard_interpolation.py:

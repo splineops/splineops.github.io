@@ -99,7 +99,7 @@ evaluate several compatible transforms concurrently.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.018 seconds)
+   **Total running time of the script:** (0 minutes 0.022 seconds)
 
 
 .. _sphx_glr_download_auto_examples_08_workflows_01_registration_fanout.py:
