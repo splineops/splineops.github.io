@@ -3928,8 +3928,8 @@ Create the animation of the image being rotated from 0 to 360 degrees. Explore t
      1+YhWljxudVwuPSgdia4LuVxAviL92Bp9SfuHGcyywwulPxYlxLgH5sc12RaPat6A2dxcz3KQtHM
      eHQBhWXdE1z46R2+OZpptG02NaMCIJh6nq1o3pAf1PrfpnHRocGze8Oq/Pwe9VskUFf4ruNtnQNf
      pQaEUqPMp20d4K3ayibM+gTMNDi7M9AWLKUFD++Yyxra+jIAzMrME4RYLo5/5ZBBx3HSuqwvaNsH
-     dtaLsWentMEAsDQDnWH3+qnmO1jBSBqFkLQxsDy03FGSVRbH6vqp0UBe1r/DwuB2m5NMXJOKi1f3
-     tvGqF1W/W017KbW51IPYo7HX1vSceGTRQIFwyPp8xyBj+DZRYmeFstW5dlJdHqgyt1q35RjHsbs3
+     dtaLsWentMEAsDQDnWH3+qnmO1jBSBqFkLQxsDy03FGSVRbH6vqp0UBe1r/DwuB2m5NMXJOMS1f3
+     tvGqF1y/W017KbW51IPYo7HX1vSceGTRQIFwyPp8xyBj+DZRYmeFstW5dlJdHqgyt1q35RjHsbs3
      HYjJlYZK0xgja3fm4cy/MlUwooaFE2IOjaE6946G5tQxSbPq9OgEeHzdvnANIiGUDE1memYe+o5k
      rspt/DmEr3TvZ9GL/uso310r6DU9Nr24AmKvKnwCvepxAj6Cjz65ZJa5qGr/1/tJ84BMp1YNKIkv
      J/8aTEy79+/gDO8U/zgETxJ+ai56miWATlh7yV+kaNER7Uw9eIn4+Equ0+QpPafZ04bIaQFjSbY2
@@ -31500,7 +31500,7 @@ Does nothing when the file is run normally by users.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 23.457 seconds)
+   **Total running time of the script:** (0 minutes 29.836 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_affine_02_rotation_animation.py:
