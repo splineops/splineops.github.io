@@ -545,6 +545,35 @@ objective is documented with the implemented <code class="docutils literal notra
 existing lambda semantics do not change. Corrected numerical edge cases are
 listed in the changelog.</p>
 </section>
+<section id="follow-up-repository-review">
+<h2>Follow-up repository review<a class="headerlink" href="#follow-up-repository-review" title="Link to this heading">#</a></h2>
+<p>A second pass covered the Python modules, native buffer and concurrency
+contracts, fallback dispatch, package contents, examples, and release and
+documentation workflows. It found additional numerical-range gaps despite
+the existing suite passing. <code class="docutils literal notranslate"><span class="pre">tests/test_audit_edge_cases.py</span></code> records the
+new regressions:</p>
+<ul class="simple">
+<li><p>Distant TensorSpline queries follow their named boundary mode without
+overflowing integer stencil conversion. Exact integer arithmetic checks
+queries whose physical-to-sample conversion exceeds float64’s range.
+Large affine translations also agree across the SciPy and NumPy backends,
+including reuse of prepared coefficients.</p></li>
+<li><p>Independent decimal arithmetic checks radial smoothing responses when
+intermediate powers or products overflow or underflow.</p></li>
+<li><p>Upsampled time axes contain exactly one coordinate per output sample,
+including factors for which a floating-point step adds an extra endpoint.</p></li>
+<li><p>Image SNR remains unchanged when both signals are rescaled. MSE can still
+underflow to zero or overflow to infinity when its true value is outside
+float64’s range; this no longer corrupts SNR.</p></li>
+<li><p>Integer configuration rejects booleans before conversion, consistently
+across supported NumPy versions.</p></li>
+<li><p>Numerical utility imports do not initialize the plotting stack; a fresh
+interpreter checks this separation with warnings treated as errors.</p></li>
+</ul>
+<p>The documentation deployment now treats Sphinx warnings as failures. These
+checks complement the independent algorithm references; they do not imply
+that every finite floating-point input or every optional backend is supported.</p>
+</section>
 <section id="limits-of-the-decision">
 <h2>Limits of the decision<a class="headerlink" href="#limits-of-the-decision" title="Link to this heading">#</a></h2>
 <p>CPU API stability is independent of experimental CuPy support. The three
@@ -605,6 +634,7 @@ Future extensions need their own contract and independent numerical checks.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-changed-in-this-review">What changed in this review</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-numerical-references">Independent numerical references</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibility-evidence">Compatibility evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#follow-up-repository-review">Follow-up repository review</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limits-of-the-decision">Limits of the decision</a></li>
 </ul>
   </nav></div>
