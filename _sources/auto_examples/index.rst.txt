@@ -1,7 +1,7 @@
 :orphan:
 
-Examples
-========
+All examples
+============
 
 Explore the example gallery to see how to use the SplineOps library.
 
@@ -12,6 +12,7 @@ https://r0k.us/graphics/kodak/
 
 We gratefully acknowledge the work of the author and curator of this dataset
 for making these images publicly available.
+
 
 .. raw:: html
 
@@ -33,7 +34,7 @@ for making these images publicly available.
 .. splineops/examples/01_spline_interpolation/GALLERY_HEADER.rst
 
 Spline Interpolation Examples
-=============================
+-----------------------------
 
 Build continuous models from sampled data. Explore spline bases and boundary modes,
 then compare interpolation and resampling choices.
@@ -161,7 +162,7 @@ then compare interpolation and resampling choices.
 .. splineops/examples/02_resize/GALLERY_HEADER.rst
 
 Resize Examples
-===============
+---------------
 
 Resize signals and images with standard interpolation or projection antialiasing.
 Inspect fine detail, compare numerical quality, and measure runtime across zoom
@@ -324,7 +325,7 @@ factors.
 .. splineops/examples/03_affine/GALLERY_HEADER.rst
 
 Affine Examples
-===============
+---------------
 
 Rotate images with spline interpolation. Start with a single transform, then use the
 animation to explore a full rotation and different spline degrees.
@@ -384,7 +385,7 @@ animation to explore a full rotation and different spline degrees.
 .. splineops/examples/04_adaptive_regression_splines/GALLERY_HEADER.rst
 
 Adaptive Regression Splines Examples
-====================================
+------------------------------------
 
 Fit sparse piecewise-linear models to noisy observations. Compare fixed
 regularization strengths or watch the fit and knot count change in an animation.
@@ -444,7 +445,7 @@ regularization strengths or watch the fit and knot count change in an animation.
 .. splineops/examples/05_smoothing_splines/GALLERY_HEADER.rst
 
 Smoothing Splines Examples
-==========================
+--------------------------
 
 Reduce noise in signals, images, and volumes. Compare fractional, periodic N-D, and
 recursive smoothers while keeping their different operators and boundaries explicit.
@@ -538,7 +539,7 @@ recursive smoothers while keeping their different operators and boundaries expli
 .. splineops/examples/06_differentials/GALLERY_HEADER.rst
 
 Differentials Examples
-======================
+----------------------
 
 Turn image intensities into gradients, curvature, and orientation maps. Compare the
 meaning and appearance of each spline-based differential feature.
@@ -581,7 +582,7 @@ meaning and appearance of each spline-based differential feature.
 .. splineops/examples/07_multiscale/GALLERY_HEADER.rst
 
 Multiscale Examples
-===================
+-------------------
 
 Explore coarse-to-fine image representations. Build spline pyramids, inspect wavelet
 detail bands, and compare reconstruction across several levels.
@@ -639,7 +640,7 @@ detail bands, and compare reconstruction across several levels.
     </div>
 
 End-to-end workflows
-====================
+--------------------
 
 Combine reusable operators in complete pipelines. Share saved coefficients across
 rotations or write selected volume features into explicit output buffers.

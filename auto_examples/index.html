@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Examples — splineops 2.3.0 documentation</title>
+<title>All examples — splineops 2.3.0 documentation</title>
 <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
@@ -28,7 +28,7 @@
 <link href="../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../_static/css/custom.css?v=28575662" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/custom.css?v=8eb7562b" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script defer="" src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -240,7 +240,60 @@
 <nav aria-label="Section Navigation" class="bd-docs-nav bd-links">
 <p aria-level="1" class="bd-links__title" role="heading">Section Navigation</p>
 <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Examples</a></li>
+<li class="toctree-l1 current active has-children"><a aria-current="page" class="current reference internal" href="#">All examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="01_spline_interpolation/index.html">Spline Interpolation Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="01_spline_interpolation/01_tensorspline_class.html">Class TensorSpline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01_spline_interpolation/02_spline_bases.html">Spline Bases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01_spline_interpolation/03_extension_modes.html">Extension Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01_spline_interpolation/04_interpolate_1d_samples.html">Interpolate 1D Samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01_spline_interpolation/05_resample_a_1d_spline.html">Resample a 1D Spline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01_spline_interpolation/06_compare_different_splines.html">Compare Different Splines</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="02_resize/index.html">Resize Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="02_resize/01_resize_module_1d.html">Resize Module 1D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_resize/02_resize_module_2d.html">Resize Module 2D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_resize/03_standard_interpolation.html">Standard Interpolation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_resize/04_antialiasing.html">Antialiasing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_resize/05_how_bad_aliasing_can_be.html">How Bad Aliasing Can Be</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_resize/06_benchmarking.html">Benchmarking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_resize/07_benchmarking_plot.html">Benchmarking Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_resize/08_benchmarking_animation.html">Benchmarking Animation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="03_affine/index.html">Affine Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="03_affine/01_rotate_image.html">Rotate Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_affine/02_rotation_animation.html">Rotation Animation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="04_adaptive_regression_splines/index.html">Adaptive Regression Splines Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="04_adaptive_regression_splines/01_adaptive_regression_splines_module.html">Adaptive Regression Splines Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_adaptive_regression_splines/02_lambda_sweep_animation.html">Lambda Sweep Animation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="05_smoothing_splines/index.html">Smoothing Splines Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="05_smoothing_splines/01_1d_fractional_brownian_motion.html">1D Fractional Brownian Motion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_smoothing_splines/02_2d_image_smoothing.html">2D Image Smoothing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_smoothing_splines/03_3d_volume_smoothing.html">3D Volume Smoothing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_smoothing_splines/04_recursive_smoothing_spline.html">Recursive Smoothing Spline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="06_differentials/index.html">Differentials Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="06_differentials/01_differentials_module.html">Differentials Module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="07_multiscale/index.html">Multiscale Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="07_multiscale/01_pyramid_decomposition.html">Pyramid Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="07_multiscale/02_wavelet_decomposition.html">Wavelet Decomposition</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="08_workflows/index.html">End-to-end workflows</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="08_workflows/01_registration_fanout.html">Persist one frame and evaluate several affine geometries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="08_workflows/02_volume_features.html">Warp a volume and write selected differential features</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
 </ul>
 </div>
 </nav></div>
@@ -266,7 +319,7 @@
 </a>
 </li>
 <li class="breadcrumb-item"><a class="nav-link" href="../examples.html">Examples</a></li>
-<li aria-current="page" class="breadcrumb-item active"><span class="ellipsis">Examples</span></li>
+<li aria-current="page" class="breadcrumb-item active"><span class="ellipsis">All examples</span></li>
 </ul>
 </nav>
 </div>
@@ -275,17 +328,16 @@
 </div>
 <div id="searchbox"></div>
 <article class="bd-article">
-<section id="examples">
-<h1>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h1>
+<section id="all-examples">
+<h1>All examples<a class="headerlink" href="#all-examples" title="Link to this heading">#</a></h1>
 <p>Explore the example gallery to see how to use the SplineOps library.</p>
 <p>All real-world images used in these examples come from the Kodak image
 dataset, available at:</p>
 <p><a class="reference external" href="https://r0k.us/graphics/kodak/">https://r0k.us/graphics/kodak/</a></p>
 <p>We gratefully acknowledge the work of the author and curator of this dataset
 for making these images publicly available.</p>
-<div class="sphx-glr-tag-list" id="sg-tag-list"></div><div class="sphx-glr-thumbnails"></div></section>
-<section id="spline-interpolation-examples">
-<h1>Spline Interpolation Examples<a class="headerlink" href="#spline-interpolation-examples" title="Link to this heading">#</a></h1>
+<div class="sphx-glr-tag-list" id="sg-tag-list"></div><div class="sphx-glr-thumbnails"></div><section id="spline-interpolation-examples">
+<h2>Spline Interpolation Examples<a class="headerlink" href="#spline-interpolation-examples" title="Link to this heading">#</a></h2>
 <p>Build continuous models from sampled data. Explore spline bases and boundary modes,
 then compare interpolation and resampling choices.</p>
 <div class="sphx-glr-tag-list" id="sg-tag-list"></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer"><img alt="" src="../_images/sphx_glr_01_tensorspline_class_thumb.png"/>
@@ -308,7 +360,7 @@ then compare interpolation and resampling choices.</p>
 <div class="sphx-glr-thumbnail-title">Compare Different Splines</div>
 <p class="sphx-glr-thumbnail-description">Compare spline reconstruction methods by expanding coarse samples and measuring error against the original model.</p></div></div></section>
 <section id="resize-examples">
-<h1>Resize Examples<a class="headerlink" href="#resize-examples" title="Link to this heading">#</a></h1>
+<h2>Resize Examples<a class="headerlink" href="#resize-examples" title="Link to this heading">#</a></h2>
 <p>Resize signals and images with standard interpolation or projection antialiasing.
 Inspect fine detail, compare numerical quality, and measure runtime across zoom
 factors.</p>
@@ -338,7 +390,7 @@ factors.</p>
 <div class="sphx-glr-thumbnail-title">Benchmarking Animation</div>
 <p class="sphx-glr-thumbnail-description">Animate image detail and reconstruction errors as the zoom factor changes across several test images.</p></div></div></section>
 <section id="affine-examples">
-<h1>Affine Examples<a class="headerlink" href="#affine-examples" title="Link to this heading">#</a></h1>
+<h2>Affine Examples<a class="headerlink" href="#affine-examples" title="Link to this heading">#</a></h2>
 <p>Rotate images with spline interpolation. Start with a single transform, then use the
 animation to explore a full rotation and different spline degrees.</p>
 <div class="sphx-glr-tag-list" id="sg-tag-list"></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer"><img alt="" src="../_images/sphx_glr_01_rotate_image_thumb.png"/>
@@ -349,7 +401,7 @@ animation to explore a full rotation and different spline degrees.</p>
 <div class="sphx-glr-thumbnail-title">Rotation Animation</div>
 <p class="sphx-glr-thumbnail-description">Animate a full image rotation and explore how spline degree affects interpolation.</p></div></div></section>
 <section id="adaptive-regression-splines-examples">
-<h1>Adaptive Regression Splines Examples<a class="headerlink" href="#adaptive-regression-splines-examples" title="Link to this heading">#</a></h1>
+<h2>Adaptive Regression Splines Examples<a class="headerlink" href="#adaptive-regression-splines-examples" title="Link to this heading">#</a></h2>
 <p>Fit sparse piecewise-linear models to noisy observations. Compare fixed
 regularization strengths or watch the fit and knot count change in an animation.</p>
 <div class="sphx-glr-tag-list" id="sg-tag-list"></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer"><img alt="" src="../_images/sphx_glr_01_adaptive_regression_splines_module_thumb.png"/>
@@ -360,7 +412,7 @@ regularization strengths or watch the fit and knot count change in an animation.
 <div class="sphx-glr-thumbnail-title">Lambda Sweep Animation</div>
 <p class="sphx-glr-thumbnail-description">Animate the trade-off between data fidelity and knot sparsity while increasing regularization.</p></div></div></section>
 <section id="smoothing-splines-examples">
-<h1>Smoothing Splines Examples<a class="headerlink" href="#smoothing-splines-examples" title="Link to this heading">#</a></h1>
+<h2>Smoothing Splines Examples<a class="headerlink" href="#smoothing-splines-examples" title="Link to this heading">#</a></h2>
 <p>Reduce noise in signals, images, and volumes. Compare fractional, periodic N-D, and
 recursive smoothers while keeping their different operators and boundaries explicit.</p>
 <div class="sphx-glr-tag-list" id="sg-tag-list"></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer"><img alt="" src="../_images/sphx_glr_01_1d_fractional_brownian_motion_thumb.png"/>
@@ -377,7 +429,7 @@ recursive smoothers while keeping their different operators and boundaries expli
 <div class="sphx-glr-thumbnail-title">Recursive Smoothing Spline</div>
 <p class="sphx-glr-thumbnail-description">Compare regularization strengths in a recursive first-order smoother for noisy 1-D data.</p></div></div></section>
 <section id="differentials-examples">
-<h1>Differentials Examples<a class="headerlink" href="#differentials-examples" title="Link to this heading">#</a></h1>
+<h2>Differentials Examples<a class="headerlink" href="#differentials-examples" title="Link to this heading">#</a></h2>
 <p>Turn image intensities into gradients, curvature, and orientation maps. Compare the
 meaning and appearance of each spline-based differential feature.</p>
 <div class="sphx-glr-tag-list" id="sg-tag-list"></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer"><img alt="" src="../_images/sphx_glr_01_differentials_module_thumb.png"/>
@@ -385,7 +437,7 @@ meaning and appearance of each spline-based differential feature.</p>
 <div class="sphx-glr-thumbnail-title">Differentials Module</div>
 <p class="sphx-glr-thumbnail-description">Visualize image gradients, the Laplacian, and Hessian features using spline-based derivatives.</p></div></div></section>
 <section id="multiscale-examples">
-<h1>Multiscale Examples<a class="headerlink" href="#multiscale-examples" title="Link to this heading">#</a></h1>
+<h2>Multiscale Examples<a class="headerlink" href="#multiscale-examples" title="Link to this heading">#</a></h2>
 <p>Explore coarse-to-fine image representations. Build spline pyramids, inspect wavelet
 detail bands, and compare reconstruction across several levels.</p>
 <div class="sphx-glr-tag-list" id="sg-tag-list"></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer"><img alt="" src="../_images/sphx_glr_01_pyramid_decomposition_thumb.png"/>
@@ -396,7 +448,7 @@ detail bands, and compare reconstruction across several levels.</p>
 <div class="sphx-glr-thumbnail-title">Wavelet Decomposition</div>
 <p class="sphx-glr-thumbnail-description">Inspect Haar detail bands at several scales and reconstruct the original image.</p></div></div></section>
 <section id="end-to-end-workflows">
-<h1>End-to-end workflows<a class="headerlink" href="#end-to-end-workflows" title="Link to this heading">#</a></h1>
+<h2>End-to-end workflows<a class="headerlink" href="#end-to-end-workflows" title="Link to this heading">#</a></h2>
 <p>Combine reusable operators in complete pipelines. Share saved coefficients across
 rotations or write selected volume features into explicit output buffers.</p>
 <div class="sphx-glr-tag-list" id="sg-tag-list"></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer"><img alt="" src="../_images/sphx_glr_01_registration_fanout_thumb.png"/>
@@ -416,6 +468,7 @@ rotations or write selected volume features into explicit output buffers.</p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
 </section>
 </article>
 <footer class="prev-next-footer d-print-none">
