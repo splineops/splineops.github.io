@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Benchmarking — splineops 2.3.0 documentation</title>
+<title>Benchmarking</title>
 <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
@@ -2386,15 +2386,15 @@ runtime, and quality scores.</p>
 
 Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
 ---------------------------------------------------------------------------------------------
-SplineOps Standard cubic                 1.8 ms     0.0 ms       7.29      1.768e-02   0.3098
-SplineOps Antialiasing cubic             2.6 ms     0.0 ms       9.58      1.045e-02   0.3683
-OpenCV INTER_CUBIC                       0.4 ms     0.0 ms       7.53      1.672e-02   0.3285
-SciPy cubic                             32.4 ms     0.2 ms       7.36      1.740e-02   0.3106
-Pillow BICUBIC                           2.8 ms     0.0 ms       9.35      1.101e-02   0.3368
-scikit-image cubic                      33.0 ms     0.1 ms       7.52      1.678e-02   0.3233
-scikit-image cubic (AA)                 40.0 ms     0.2 ms       9.17      1.147e-02   0.3185
-PyTorch bicubic (CPU)                    2.3 ms     0.0 ms       7.53      1.672e-02   0.3285
-PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms       9.35      1.101e-02   0.3368
+SplineOps Standard cubic                 1.0 ms     0.0 ms       7.29      1.768e-02   0.3098
+SplineOps Antialiasing cubic             1.5 ms     0.0 ms       9.58      1.045e-02   0.3683
+OpenCV INTER_CUBIC                       0.2 ms     0.0 ms       7.53      1.672e-02   0.3285
+SciPy cubic                             20.6 ms     2.3 ms       7.36      1.740e-02   0.3106
+Pillow BICUBIC                           1.5 ms     0.0 ms       9.35      1.101e-02   0.3368
+scikit-image cubic                      19.6 ms     0.1 ms       7.52      1.678e-02   0.3233
+scikit-image cubic (AA)                 24.8 ms     0.3 ms       9.17      1.147e-02   0.3185
+PyTorch bicubic (CPU)                    1.3 ms     0.0 ms       7.53      1.672e-02   0.3285
+PyTorch bicubic (AA, CPU)                0.7 ms     0.0 ms       9.35      1.101e-02   0.3368
 </pre></div>
 </div>
 <section id="original-and-resized">
@@ -2483,15 +2483,15 @@ runtime, and quality scores.</p>
 
 Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
 ---------------------------------------------------------------------------------------------
-SplineOps Standard cubic                 1.8 ms     0.0 ms      13.48      9.393e-03   0.4988
-SplineOps Antialiasing cubic             2.6 ms     0.1 ms      15.71      5.618e-03   0.5281
-OpenCV INTER_CUBIC                       0.4 ms     0.0 ms      13.52      9.304e-03   0.5022
-SciPy cubic                             32.1 ms     0.2 ms      13.48      9.393e-03   0.4988
-Pillow BICUBIC                           2.8 ms     0.0 ms      15.51      5.882e-03   0.5091
-scikit-image cubic                      33.0 ms     0.5 ms      13.49      9.372e-03   0.4960
-scikit-image cubic (AA)                 40.0 ms     0.2 ms      15.29      6.191e-03   0.4948
-PyTorch bicubic (CPU)                    2.3 ms     0.0 ms      13.52      9.304e-03   0.5022
-PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      15.51      5.882e-03   0.5091
+SplineOps Standard cubic                 1.0 ms     0.0 ms      13.48      9.393e-03   0.4988
+SplineOps Antialiasing cubic             1.5 ms     0.0 ms      15.71      5.618e-03   0.5281
+OpenCV INTER_CUBIC                       0.2 ms     0.0 ms      13.52      9.304e-03   0.5022
+SciPy cubic                             18.8 ms     0.1 ms      13.48      9.393e-03   0.4988
+Pillow BICUBIC                           1.5 ms     0.0 ms      15.51      5.882e-03   0.5091
+scikit-image cubic                      21.7 ms     4.8 ms      13.49      9.372e-03   0.4960
+scikit-image cubic (AA)                 24.4 ms     0.4 ms      15.29      6.191e-03   0.4948
+PyTorch bicubic (CPU)                    1.3 ms     0.0 ms      13.52      9.304e-03   0.5022
+PyTorch bicubic (AA, CPU)                0.7 ms     0.0 ms      15.51      5.882e-03   0.5091
 </pre></div>
 </div>
 <section id="id1">
@@ -2580,15 +2580,15 @@ runtime, and quality scores.</p>
 
 Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
 ---------------------------------------------------------------------------------------------
-SplineOps Standard cubic                 1.2 ms     0.2 ms      14.61      6.942e-03   0.6010
-SplineOps Antialiasing cubic             2.4 ms     0.2 ms      16.58      4.416e-03   0.6799
-OpenCV INTER_CUBIC                       0.4 ms     0.0 ms      14.64      6.909e-03   0.6114
-SciPy cubic                             34.1 ms     0.4 ms      14.68      6.844e-03   0.6021
-Pillow BICUBIC                           3.2 ms     0.0 ms      16.31      4.698e-03   0.6390
-scikit-image cubic                      34.5 ms     0.1 ms      14.61      6.954e-03   0.6022
-scikit-image cubic (AA)                 39.0 ms     0.2 ms      16.26      4.757e-03   0.6368
-PyTorch bicubic (CPU)                    2.4 ms     0.0 ms      14.64      6.909e-03   0.6114
-PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      16.31      4.698e-03   0.6390
+SplineOps Standard cubic                 0.7 ms     0.0 ms      14.61      6.942e-03   0.6010
+SplineOps Antialiasing cubic             1.3 ms     0.0 ms      16.58      4.416e-03   0.6799
+OpenCV INTER_CUBIC                       0.2 ms     0.0 ms      14.64      6.909e-03   0.6114
+SciPy cubic                             20.6 ms     2.0 ms      14.68      6.844e-03   0.6021
+Pillow BICUBIC                           1.7 ms     0.1 ms      16.31      4.698e-03   0.6390
+scikit-image cubic                      21.0 ms     1.5 ms      14.61      6.954e-03   0.6022
+scikit-image cubic (AA)                 24.0 ms     0.4 ms      16.26      4.757e-03   0.6368
+PyTorch bicubic (CPU)                    1.4 ms     0.0 ms      14.64      6.909e-03   0.6114
+PyTorch bicubic (AA, CPU)                0.8 ms     0.0 ms      16.31      4.698e-03   0.6390
 </pre></div>
 </div>
 <section id="id10">
@@ -2677,15 +2677,15 @@ runtime, and quality scores.</p>
 
 Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
 ---------------------------------------------------------------------------------------------
-SplineOps Standard cubic                 1.1 ms     0.0 ms      17.97      2.034e-03   0.7223
-SplineOps Antialiasing cubic             2.3 ms     0.1 ms      19.90      1.307e-03   0.7792
-OpenCV INTER_CUBIC                       0.4 ms     0.0 ms      18.08      1.987e-03   0.7288
-SciPy cubic                             34.1 ms     0.7 ms      17.97      2.034e-03   0.7223
-Pillow BICUBIC                           3.3 ms     0.2 ms      19.36      1.479e-03   0.7627
-scikit-image cubic                      34.6 ms     0.3 ms      17.99      2.025e-03   0.7231
-scikit-image cubic (AA)                 38.8 ms     0.2 ms      19.31      1.494e-03   0.7624
-PyTorch bicubic (CPU)                    2.8 ms     0.9 ms      18.08      1.987e-03   0.7288
-PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      19.36      1.479e-03   0.7627
+SplineOps Standard cubic                 0.7 ms     0.1 ms      17.97      2.034e-03   0.7223
+SplineOps Antialiasing cubic             1.3 ms     0.0 ms      19.90      1.307e-03   0.7792
+OpenCV INTER_CUBIC                       0.2 ms     0.0 ms      18.08      1.987e-03   0.7288
+SciPy cubic                             20.9 ms     1.9 ms      17.97      2.034e-03   0.7223
+Pillow BICUBIC                           1.6 ms     0.0 ms      19.36      1.479e-03   0.7627
+scikit-image cubic                      20.5 ms     0.8 ms      17.99      2.025e-03   0.7231
+scikit-image cubic (AA)                 24.3 ms     0.8 ms      19.31      1.494e-03   0.7624
+PyTorch bicubic (CPU)                    1.4 ms     0.0 ms      18.08      1.987e-03   0.7288
+PyTorch bicubic (AA, CPU)                1.0 ms     0.3 ms      19.36      1.479e-03   0.7627
 </pre></div>
 </div>
 <section id="id18">
@@ -2774,15 +2774,15 @@ runtime, and quality scores.</p>
 
 Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
 ---------------------------------------------------------------------------------------------
-SplineOps Standard cubic                 1.7 ms     0.2 ms      11.44      2.413e-02   0.4145
-SplineOps Antialiasing cubic             3.1 ms     0.2 ms      13.82      1.393e-02   0.4538
-OpenCV INTER_CUBIC                       0.3 ms     0.0 ms      11.52      2.367e-02   0.4287
-SciPy cubic                             36.0 ms     0.5 ms      11.44      2.413e-02   0.4145
-Pillow BICUBIC                           2.9 ms     0.0 ms      13.69      1.438e-02   0.4299
-scikit-image cubic                      36.5 ms     0.3 ms      11.47      2.396e-02   0.4216
-scikit-image cubic (AA)                 43.3 ms     0.3 ms      13.55      1.483e-02   0.4189
-PyTorch bicubic (CPU)                    2.4 ms     0.0 ms      11.52      2.367e-02   0.4287
-PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      13.69      1.438e-02   0.4299
+SplineOps Standard cubic                 1.0 ms     0.0 ms      11.44      2.413e-02   0.4145
+SplineOps Antialiasing cubic             1.9 ms     0.3 ms      13.82      1.393e-02   0.4538
+OpenCV INTER_CUBIC                       0.2 ms     0.0 ms      11.52      2.367e-02   0.4287
+SciPy cubic                             20.8 ms     0.6 ms      11.44      2.413e-02   0.4145
+Pillow BICUBIC                           1.5 ms     0.0 ms      13.69      1.438e-02   0.4299
+scikit-image cubic                      21.6 ms     1.0 ms      11.47      2.396e-02   0.4216
+scikit-image cubic (AA)                 27.0 ms     0.8 ms      13.55      1.483e-02   0.4189
+PyTorch bicubic (CPU)                    1.3 ms     0.0 ms      11.52      2.367e-02   0.4287
+PyTorch bicubic (AA, CPU)                0.7 ms     0.0 ms      13.69      1.438e-02   0.4299
 </pre></div>
 </div>
 <section id="id27">
@@ -2871,15 +2871,15 @@ runtime, and quality scores.</p>
 
 Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
 ---------------------------------------------------------------------------------------------
-SplineOps Standard cubic                 1.5 ms     0.1 ms      12.26      8.970e-03   0.4499
-SplineOps Antialiasing cubic             3.2 ms     0.0 ms      14.70      5.118e-03   0.5097
-OpenCV INTER_CUBIC                       0.4 ms     0.0 ms      12.46      8.567e-03   0.4574
-SciPy cubic                             32.8 ms     0.5 ms      12.26      8.970e-03   0.4499
-Pillow BICUBIC                           3.0 ms     0.2 ms      14.49      5.370e-03   0.4823
-scikit-image cubic                      33.2 ms     0.2 ms      12.40      8.688e-03   0.4482
-scikit-image cubic (AA)                 39.8 ms     2.5 ms      14.40      5.482e-03   0.4728
-PyTorch bicubic (CPU)                    2.4 ms     0.0 ms      12.46      8.567e-03   0.4574
-PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      14.49      5.370e-03   0.4823
+SplineOps Standard cubic                 0.9 ms     0.2 ms      12.26      8.970e-03   0.4499
+SplineOps Antialiasing cubic             1.9 ms     0.0 ms      14.70      5.118e-03   0.5097
+OpenCV INTER_CUBIC                       0.2 ms     0.0 ms      12.46      8.567e-03   0.4574
+SciPy cubic                             19.6 ms     0.5 ms      12.26      8.970e-03   0.4499
+Pillow BICUBIC                           1.5 ms     0.1 ms      14.49      5.370e-03   0.4823
+scikit-image cubic                      22.2 ms     4.0 ms      12.40      8.688e-03   0.4482
+scikit-image cubic (AA)                 24.7 ms     1.0 ms      14.40      5.482e-03   0.4728
+PyTorch bicubic (CPU)                    1.4 ms     0.0 ms      12.46      8.567e-03   0.4574
+PyTorch bicubic (AA, CPU)                0.8 ms     0.0 ms      14.49      5.370e-03   0.4823
 </pre></div>
 </div>
 <section id="id36">
@@ -2968,15 +2968,15 @@ runtime, and quality scores.</p>
 
 Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
 ---------------------------------------------------------------------------------------------
-SplineOps Standard cubic                 1.8 ms     0.0 ms      16.45      4.817e-03   0.6700
-SplineOps Antialiasing cubic             2.5 ms     0.0 ms      18.58      2.947e-03   0.7029
-OpenCV INTER_CUBIC                       0.4 ms     0.0 ms      16.39      4.885e-03   0.6758
-SciPy cubic                             32.1 ms     0.1 ms      16.45      4.817e-03   0.6700
-Pillow BICUBIC                           2.9 ms     0.0 ms      18.29      3.155e-03   0.6917
-scikit-image cubic                      33.0 ms     0.1 ms      16.39      4.878e-03   0.6714
-scikit-image cubic (AA)                 40.1 ms     0.1 ms      18.07      3.316e-03   0.6852
-PyTorch bicubic (CPU)                    2.3 ms     0.0 ms      16.39      4.885e-03   0.6758
-PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      18.29      3.155e-03   0.6917
+SplineOps Standard cubic                 1.0 ms     0.0 ms      16.45      4.817e-03   0.6700
+SplineOps Antialiasing cubic             1.7 ms     0.4 ms      18.58      2.947e-03   0.7029
+OpenCV INTER_CUBIC                       0.2 ms     0.0 ms      16.39      4.885e-03   0.6758
+SciPy cubic                             18.8 ms     0.1 ms      16.45      4.817e-03   0.6700
+Pillow BICUBIC                           1.5 ms     0.0 ms      18.29      3.155e-03   0.6917
+scikit-image cubic                      19.6 ms     0.2 ms      16.39      4.878e-03   0.6714
+scikit-image cubic (AA)                 27.2 ms     4.6 ms      18.07      3.316e-03   0.6852
+PyTorch bicubic (CPU)                    1.3 ms     0.0 ms      16.39      4.885e-03   0.6758
+PyTorch bicubic (AA, CPU)                0.7 ms     0.0 ms      18.29      3.155e-03   0.6917
 </pre></div>
 </div>
 <section id="id45">
@@ -3053,7 +3053,7 @@ dtype used for the benchmark.</p>
   Python      : 3.12.15 (CPython)
   OS          : Linux 7.0.0-1017-azure (x86_64)
   CPU         : x86_64 | logical cores: 4
-  Process     : pid=2647 | Python threads=1 | OS threads=17
+  Process     : pid=2431 | Python threads=1 | OS threads=17
   NumPy/SciPy : 2.5.4/1.18.1
   Matplotlib  : 3.11.2 | backend: agg
   splineops   : 2.3.0 | native ext present: True
@@ -3063,7 +3063,7 @@ dtype used for the benchmark.</p>
 Benchmark storage dtype: float32
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 36.762 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 21.808 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

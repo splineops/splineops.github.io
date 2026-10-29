@@ -323,7 +323,7 @@ recovered images for visual comparison.
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_002.png
-   :alt: Original ROI, Recovered (Standard, 0.6 ms), Recovered (Antialiasing, 1.7 ms)
+   :alt: Original ROI, Recovered (Standard, 0.4 ms), Recovered (Antialiasing, 1.1 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_002.png
    :class: sphx-glr-single-img
 
@@ -408,7 +408,7 @@ detail.
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_004.png
-   :alt: Resized Image (antialiasing, 1.4 ms)
+   :alt: Resized Image (antialiasing, 0.9 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_004.png
    :class: sphx-glr-single-img
 
@@ -455,7 +455,7 @@ Inspect the cubic-interpolation result without an antialiasing prefilter.
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_005.png
-   :alt: Resized Image (standard, 0.8 ms)
+   :alt: Resized Image (standard, 0.5 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_005.png
    :class: sphx-glr-single-img
 
@@ -496,7 +496,7 @@ Inspect the recovered image after projection-based shrinking and enlargement.
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_006.png
-   :alt: Recovered Image (antialiased, 1.7 ms)
+   :alt: Recovered Image (antialiased, 1.1 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_006.png
    :class: sphx-glr-single-img
 
@@ -529,7 +529,7 @@ Inspect the cubic-interpolation result without an antialiasing prefilter.
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_007.png
-   :alt: Recovered Image (standard interpolation, 0.6 ms)
+   :alt: Recovered Image (standard interpolation, 0.4 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_04_antialiasing_007.png
    :class: sphx-glr-single-img
 
@@ -652,8 +652,8 @@ standard interpolation and antialiased shrink/expand.
 
     Method                                     SNR (dB)              MSE     Time (s)
     ---------------------------------------------------------------------------------
-    Standard Interpolation (cubic)                15.51         6.34e-03       0.0013
-    Cubic antialiasing (shrink + up)              17.48         4.03e-03       0.0032
+    Standard Interpolation (cubic)                15.51         6.34e-03       0.0010
+    Cubic antialiasing (shrink + up)              17.48         4.03e-03       0.0020
 
 
 
@@ -724,8 +724,8 @@ trade-off depends on image content, shape, and zoom factor.
 
     Method                                     SNR (dB)              MSE     Time (s)
     ---------------------------------------------------------------------------------
-    Cubic antialiasing (shrink + up)              17.48         4.03e-03       0.0032
-    Least-Squares (cubic) shrink+up               17.53         3.98e-03       0.0046
+    Cubic antialiasing (shrink + up)              17.48         4.03e-03       0.0020
+    Least-Squares (cubic) shrink+up               17.53         3.98e-03       0.0029
 
 
 
@@ -733,7 +733,7 @@ trade-off depends on image content, shape, and zoom factor.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.488 seconds)
+   **Total running time of the script:** (0 minutes 0.808 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_04_antialiasing.py:
