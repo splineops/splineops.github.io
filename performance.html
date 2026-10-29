@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -8,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Performance evidence &#8212; splineops 2.2.0 documentation</title>
+    <title>Performance evidence &#8212; splineops 2.3.0rc1 documentation</title>
   
   
   
@@ -27,12 +26,12 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=c83e6b79" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
@@ -40,12 +39,12 @@
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=f56efcf3" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <script defer src="_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="_static/documentation_options.js?v=b21de401"></script>
+    <script src="_static/documentation_options.js?v=88228112"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/sg-tags.js?v=d80f6fa4"></script>
@@ -60,6 +59,7 @@
     <link rel="next" title="Project status and evidence" href="project-status.html" />
     <link rel="prev" title="3-D microscopy downsampling study" href="cells3d-study.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
   
@@ -109,7 +109,7 @@
   
     <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -203,7 +203,7 @@
         <div class="navbar-item navbar-persistent--container">
           
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
  <i class="fa-solid fa-magnifying-glass"></i>
  <span class="search-button__default-text">Search</span>
  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -214,15 +214,15 @@
         <div class="navbar-item">
 
 <div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
     <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
     <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
     <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
   </button>
   <ul class="dropdown-menu dropdown-menu-end">
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
   </ul>
 </div></div>
       
@@ -263,7 +263,7 @@
   
     <div class="navbar-persistent--mobile">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
  <i class="fa-solid fa-magnifying-glass"></i>
  <span class="search-button__default-text">Search</span>
  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -272,7 +272,7 @@
   
 
   
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
     </button>
   
@@ -356,15 +356,15 @@
           <div class="navbar-item">
 
 <div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
     <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
     <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
     <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
   </button>
   <ul class="dropdown-menu dropdown-menu-end">
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
   </ul>
 </div></div>
         
@@ -403,7 +403,7 @@
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
   <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
     <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
   </svg>
@@ -422,7 +422,7 @@
 <li class="toctree-l1"><a class="reference internal" href="wavefield3d-study.html">Controlled 3-D spectral-coarsening validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bbbc050-study.html">BBBC050 segmentation validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cells3d-study.html">3-D microscopy downsampling study</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Performance evidence</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Performance evidence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project-status.html">Project status and evidence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="backend-support.html">Backend support contract</a></li>
 </ul>
@@ -538,14 +538,134 @@ universal best-quality claim is made.</p></td>
 independent ground truth is available.  All dated values below are development
 snapshots rather than portable guarantees.</p>
 </section>
+<section id="october-2026-ls-and-affine-acceleration">
+<h2>October 2026 LS and affine acceleration<a class="headerlink" href="#october-2026-ls-and-affine-acceleration" title="Link to this heading">#</a></h2>
+<p>On Windows 11 with an Intel Core Ultra 9 275HX, Python 3.12.14, NumPy 2.5.4,
+and SciPy 1.18.1, the native cubic least-squares dispatcher and compiled affine
+evaluator produced the following results. These compare implementations of
+the same SplineOps operators; they do not establish superior application
+quality against different resampling algorithms.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id2">
+<caption><span class="caption-text">Matched-operator speedups, 28 October 2026</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Workload</p></th>
+<th class="head"><p>Speedup</p></th>
+<th class="head"><p>Numerical comparison</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>3-D cubic LS, one thread, five non-tiny geometries</p></td>
+<td><p>4.06x–5.44x</p></td>
+<td><p>Identical outputs in all 24 timed LS comparisons.</p></td>
+</tr>
+<tr class="row-odd"><td><p>3-D cubic LS, automatic threads, three larger geometries</p></td>
+<td><p>1.58x–1.86x</p></td>
+<td><p>Same projection formulas and conservative precision policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>2-D/3-D cubic affine, one-shot, both dtypes and all named modes</p></td>
+<td><p>2.76x–9.71x</p></td>
+<td><p>Maximum absolute difference below 1.7e-6 (float32) and 6.8e-13
+(float64), against the independent NumPy evaluator.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Same affine workloads, reused plan</p></td>
+<td><p>0.96x–2.47x</p></td>
+<td><p>Identical coefficient preparation; evaluation differs by rounding.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>LS measurements use 11 repeats, three warmups, and randomized execution order
+with warmed plans. Disabling batching supplies the scalar kernel used by the
+parent revision’s automatic 3-D cubic LS path. Dispatch overhead differs:
+the unchanged tiny-volume scalar control measured 0.82x–0.89x, so no tiny-case
+benefit is claimed. With automatic threading, the smaller anisotropic volume
+was approximately flat and upsampling improved 1.10x–1.17x.</p>
+<p>Affine measurements use nine repeats and two warmups, with randomized method
+order and allocation tracing disabled during timing. Reference plans cache
+support geometry; SciPy plans need no support cache or zero-valued spline
+template. The float32 2-D zero-boundary repeated case was about 4% slower,
+and evaluation of already prepared coefficients about 5% slower. Explicit
+<code class="docutils literal notranslate"><span class="pre">backend=&quot;numpy&quot;</span></code> remains available. A supplementary degree-1/degree-5,
+three-channel sweep also passed parity checks; its largest float32 difference
+was 1.6e-5 for degree 5. No cross-platform speed guarantee is implied.</p>
+<p>Subsequent GitHub-hosted standard runs used five repeats on Linux, macOS
+arm64, and Windows. Non-tiny LS cases improved 2.52x–7.86x with one thread
+and 1.31x–5.52x with automatic threading. One-shot cubic affine improved
+1.07x–7.71x, while reused plans ranged from 0.61x–1.55x. In the slowest
+relative repeated case, Linux float32 2-D zero-boundary evaluation took
+26.15 ms with SciPy versus 15.93 ms with cached NumPy. <code class="docutils literal notranslate"><span class="pre">auto</span></code> selects a
+compatible backend, not the fastest backend measured on each machine;
+benchmark both explicit backends when geometry is reused. Hosted maximum
+absolute differences were below 4.0e-15 for LS, 1.5e-6 for float32 cubic
+affine, and 7.5e-13 for float64 cubic affine.</p>
+<p>The larger development suite exposed an existing macOS batched Haar timing
+failure: both the candidate and an unchanged-main control measured about
+0.73x against the 0.75x floor, with exact numerical agreement. The threshold
+is unchanged. The implementation report records this remaining performance
+issue separately from the successful release tests and numerical wheel checks.</p>
+<p>Raw samples and the implementation report are under
+<code class="docutils literal notranslate"><span class="pre">benchmarks/resize/2026-10-28-ls-batching/</span></code>,
+<code class="docutils literal notranslate"><span class="pre">benchmarks/affine/2026-10-28-backends/</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">benchmarks/performance/2026-10-28/report.rst</span></code>. Reproduce with:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/benchmark_resize_ls_batching.py<span class="w"> </span>--repeats<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output-json<span class="w"> </span>ls.json
+python<span class="w"> </span>scripts/benchmark_affine_backends.py<span class="w"> </span>--profile<span class="w"> </span>standard<span class="w"> </span>--repeats<span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output-json<span class="w"> </span>affine.json
+python<span class="w"> </span>scripts/benchmark_affine_backends.py<span class="w"> </span>--profile<span class="w"> </span>smoke<span class="w"> </span>--repeats<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--degrees<span class="w"> </span><span class="m">1</span>,5<span class="w"> </span>--batch-size<span class="w"> </span><span class="m">3</span><span class="w"> </span>--output-json<span class="w"> </span>affine-additional.json
+</pre></div>
+</div>
+<p>Set <code class="docutils literal notranslate"><span class="pre">OPENBLAS_NUM_THREADS</span></code>, <code class="docutils literal notranslate"><span class="pre">OMP_NUM_THREADS</span></code>, and <code class="docutils literal notranslate"><span class="pre">MKL_NUM_THREADS</span></code> to
+<code class="docutils literal notranslate"><span class="pre">1</span></code> before starting Python to match these runs. The LS script separately
+sets its native thread count to one and then automatic selection.</p>
+</section>
+<section id="combined-workflow-timing">
+<h2>Combined workflow timing<a class="headerlink" href="#combined-workflow-timing" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">scripts/benchmark_workflows.py</span></code> compares complete repeated-geometry and
+explicit-axis workflows. Short workloads previously used one warmup and three
+individual timings per method, with all reference timings before all optimized
+timings. Hosted macOS runs exposed large changes in those short timing ratios
+without code changes.</p>
+<p>The benchmark now uses three warmups and ten paired samples by default. It
+calibrates a common iteration count until three calibration batches of each
+method reach a 50 ms target. The minimum calibration duration is used so an
+isolated scheduling pause cannot prematurely end calibration. Both methods
+perform the same number of calls per sample. Their order alternates AB/BA,
+with a seeded choice of the first method and equal first-position counts for
+an even number of samples. Timing uses a separate random generator so the
+numerical inputs remain unchanged.</p>
+<p>JSON records retain every calibration batch, timed batch, per-call sample,
+execution order, and paired speedup. JSON and CSV include the interquartile
+range divided by the median as a measure of variability. The 50 ms value is
+a calibration target; actual batch durations are retained because machine
+speed and scheduling may change later. Timed calls include disposal of
+intermediate outputs, while replacement of each batch’s last retained output
+occurs outside its timer. Allocation tracing is disabled.</p>
+<p>The existing performance gates still use the ratio of median per-call times.
+Numerical checks, workloads, and threshold values are unchanged. No samples
+are removed and variability does not turn a failed threshold into a pass.
+Large variability warrants investigation; a successful rerun alone is not
+evidence that a timing problem was fixed. Earlier recorded workflow timings
+retain their original measurement protocol.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/benchmark_workflows.py<span class="w"> </span>--profile<span class="w"> </span>standard<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--repeats<span class="w"> </span><span class="m">10</span><span class="w"> </span>--warmups<span class="w"> </span><span class="m">3</span><span class="w"> </span>--min-sample-seconds<span class="w"> </span><span class="m">0</span>.05<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output-json<span class="w"> </span>workflows.json<span class="w"> </span>--output-csv<span class="w"> </span>workflows.csv
+</pre></div>
+</div>
+</section>
 <section id="tensorspline-baseline">
 <h2>TensorSpline baseline<a class="headerlink" href="#tensorspline-baseline" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">scripts/benchmark_tensorspline.py</span></code> separates coefficient construction from
 evaluation and records both runtime and <code class="docutils literal notranslate"><span class="pre">tracemalloc</span></code> peak allocations.  On
 2026-07-15, the standard float64 profile produced the following medians on
 Linux 6.17, Python 3.12.3, and NumPy 2.5.1:</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id2">
-<caption><span class="caption-text">Standard TensorSpline profile</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id3">
+<caption><span class="caption-text">Standard TensorSpline profile</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 34.1%" />
 <col style="width: 22.0%" />
@@ -596,8 +716,8 @@ coordinate-product support arrays.</p>
 <p>An explicit point-count sweep excludes the already-allocated input coordinates
 from tracing and subtracts the required output buffer.  On the same machine,
 the standard cubic 2-D sweep measured:</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id3">
-<caption><span class="caption-text">TensorSpline point-query memory scaling</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id4">
+<caption><span class="caption-text">TensorSpline point-query memory scaling</span><a class="headerlink" href="#id4" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -649,14 +769,14 @@ python<span class="w"> </span>scripts/benchmark_tensorspline_query_plan.py<span 
 </div>
 </section>
 </section>
-<section id="affine-comparison">
-<h2>Affine comparison<a class="headerlink" href="#affine-comparison" title="Link to this heading">#</a></h2>
+<section id="historical-affine-comparison-july-2026">
+<h2>Historical affine comparison (July 2026)<a class="headerlink" href="#historical-affine-comparison-july-2026" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">scripts/benchmark_affine.py</span></code> compares exactly matched pull-back geometry,
 whole-sample mirror boundaries, prefiltering, output shape, and spline degree
 against <code class="docutils literal notranslate"><span class="pre">scipy.ndimage.affine_transform</span></code>.  The standard 2026-07-15 run found
 maximum differences near <code class="docutils literal notranslate"><span class="pre">1e-13</span></code>, but SciPy was materially faster:</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id4">
-<caption><span class="caption-text">Equivalent affine rotation profile</span><a class="headerlink" href="#id4" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id5">
+<caption><span class="caption-text">Equivalent affine rotation profile</span><a class="headerlink" href="#id5" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 24.0%" />
 <col style="width: 19.0%" />
@@ -700,23 +820,25 @@ maximum differences near <code class="docutils literal notranslate"><span class=
 </tbody>
 </table>
 </div>
-<p>Affine’s current achievements are exact spline semantics and bounded
+<p>At that time, affine’s achievements were exact spline semantics and bounded
 coordinate memory.  Direct NumPy support contraction materially improves the
 cached plan, especially in 3-D, but it still does not beat SciPy’s specialized
 kernels on these cases.  Maximum absolute differences were between <code class="docutils literal notranslate"><span class="pre">7e-14</span></code>
 and <code class="docutils literal notranslate"><span class="pre">6e-13</span></code>.  CuPy deliberately retains the previously tested contraction
 until dedicated GPU evidence is available.</p>
-<p>Reproduce the profile with:</p>
+<p>These historical timings predate the compiled affine backend and were measured
+with allocation tracing enabled. Current timing measurements exclude tracing
+and must not be compared directly with this table. Run the current profile with:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/benchmark_affine.py<span class="w"> </span>--profile<span class="w"> </span>standard<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--output-json<span class="w"> </span>affine.json<span class="w"> </span>--output-csv<span class="w"> </span>affine.csv
 </pre></div>
 </div>
 </section>
-<section id="affine-phase-profile">
-<h2>Affine phase profile<a class="headerlink" href="#affine-phase-profile" title="Link to this heading">#</a></h2>
+<section id="historical-affine-phase-profile-july-2026">
+<h2>Historical affine phase profile (July 2026)<a class="headerlink" href="#historical-affine-phase-profile-july-2026" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">scripts/profile_affine_phases.py</span></code> instruments prefilter and coefficient
 evaluation inside complete cached-plan calls and reports construction
-separately.  On the current standard run, evaluation accounted for 63%–91% of
+separately.  On the July standard run, evaluation accounted for 63%–91% of
 the measured in-call phase time across 2-D/3-D linear/cubic rows.  Cached-plan
 construction ranged from 57 ms to 326 ms and is therefore justified only by
 reuse.  The profile motivated sequential support-axis contraction for NumPy
@@ -754,8 +876,8 @@ while allowing observations and regularization strength to change.</p>
 <p><code class="docutils literal notranslate"><span class="pre">scripts/benchmark_workflows.py</span></code> measures complete operations, including
 prefiltering and axis orchestration.  After the batch-execution pass, the
 standard five-repeat medians on the same development machine were:</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id5">
-<caption><span class="caption-text">Consolidated workflow profile</span><a class="headerlink" href="#id5" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id6">
+<caption><span class="caption-text">Consolidated workflow profile</span><a class="headerlink" href="#id6" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 43.8%" />
 <col style="width: 18.8%" />
@@ -958,12 +1080,14 @@ hardware, thread settings, and semantic mismatches.</p>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evidence-summary">Evidence summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#october-2026-ls-and-affine-acceleration">October 2026 LS and affine acceleration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combined-workflow-timing">Combined workflow timing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorspline-baseline">TensorSpline baseline</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repeated-coordinates">Repeated coordinates</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#affine-comparison">Affine comparison</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#affine-phase-profile">Affine phase profile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-affine-comparison-july-2026">Historical affine comparison (July 2026)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-affine-phase-profile-july-2026">Historical affine phase profile (July 2026)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentials-vectorization">Differentials vectorization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reusable-research-module-plans">Reusable research-module plans</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-batch-memory-scaling">Explicit batch memory scaling</a></li>
@@ -996,8 +1120,8 @@ hardware, thread settings, and semantic mismatches.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1017,8 +1141,7 @@ hardware, thread settings, and semantic mismatches.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
-    <br/>
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
   </p>
 </div>
       
@@ -1031,7 +1154,7 @@ hardware, thread settings, and semantic mismatches.</p>
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
 </p></div>
       
     </div>

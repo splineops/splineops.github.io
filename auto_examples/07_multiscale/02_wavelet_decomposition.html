@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 
 <html data-content_root="../../" lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Wavelet Decomposition — splineops 2.2.0 documentation</title>
+<title>Wavelet Decomposition — splineops 2.3.0rc1 documentation</title>
 <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
@@ -20,22 +19,22 @@
     </style>
 </noscript>
 <!-- Loaded before other Sphinx assets -->
-<link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet"/>
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet"/>
+<link href="../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet"/>
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet"/>
 <link href="../../_static/pygments.css?v=8f2a1f02" rel="stylesheet" type="text/css"/>
 <link href="../../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
-<link href="../../_static/sg_gallery.css?v=fd6457a4" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sg_gallery.css?v=c83e6b79" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-binder.css?v=f4aeca0c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
-<script defer="" src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+<script defer="" src="../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
-<link as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" rel="preload"/>
-<link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" rel="preload"/>
-<script src="../../_static/documentation_options.js?v=b21de401"></script>
+<link as="script" href="../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" rel="preload"/>
+<link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" rel="preload"/>
+<script src="../../_static/documentation_options.js?v=88228112"></script>
 <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
 <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
 <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -50,6 +49,7 @@
 <link href="../08_workflows/index.html" rel="next" title="End-to-end workflows"/>
 <link href="01_pyramid_decomposition.html" rel="prev" title="Pyramid Decomposition"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/>
 <meta content="en" name="docsearch:language"/>
 <meta content="" name="docsearch:version"/>
 <script src="../../_static/searchtools.js"></script>
@@ -73,7 +73,7 @@
 </div>
 <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none" id="pst-header">
 <div class="bd-header__inner bd-page-width">
-<button aria-label="Site navigation" class="pst-navbar-icon sidebar-toggle primary-toggle">
+<button aria-label="Site navigation" class="pst-navbar-icon sidebar-toggle primary-toggle" type="button">
 <span class="fa-solid fa-bars"></span>
 </button>
 <div class="col-lg-3 navbar-header-items__start">
@@ -124,7 +124,7 @@
 </div>
 <div class="navbar-header-items__end">
 <div class="navbar-item navbar-persistent--container">
-<button aria-label="Search" class="btn search-button-field search-button__button pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Search">
+<button aria-label="Search" class="btn search-button-field search-button__button pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Search" type="button">
 <i class="fa-solid fa-magnifying-glass"></i>
 <span class="search-button__default-text">Search</span>
 <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -132,15 +132,15 @@
 </div>
 <div class="navbar-item">
 <div class="theme-switch-container dropdown pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Color mode">
-<button aria-label="Color mode" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" data-bs-toggle="dropdown">
+<button aria-label="Color mode" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" data-bs-toggle="dropdown" type="button">
 <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
 <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
 <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
 </button>
 <ul class="dropdown-menu dropdown-menu-end">
-<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto" type="button"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light" type="button"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark" type="button"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
 </ul>
 </div></div>
 <div class="navbar-item"><ul aria-label="Icon Links" class="navbar-icon-links">
@@ -154,13 +154,13 @@
 </div>
 </div>
 <div class="navbar-persistent--mobile">
-<button aria-label="Search" class="btn search-button-field search-button__button pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Search">
+<button aria-label="Search" class="btn search-button-field search-button__button pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Search" type="button">
 <i class="fa-solid fa-magnifying-glass"></i>
 <span class="search-button__default-text">Search</span>
 <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
 </div>
-<button aria-label="On this page" class="pst-navbar-icon sidebar-toggle secondary-toggle">
+<button aria-label="On this page" class="pst-navbar-icon sidebar-toggle secondary-toggle" type="button">
 <span class="fa-solid fa-outdent"></span>
 </button>
 </div>
@@ -210,15 +210,15 @@
 <div class="sidebar-header-items__end">
 <div class="navbar-item">
 <div class="theme-switch-container dropdown pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Color mode">
-<button aria-label="Color mode" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" data-bs-toggle="dropdown">
+<button aria-label="Color mode" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" data-bs-toggle="dropdown" type="button">
 <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
 <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
 <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
 </button>
 <ul class="dropdown-menu dropdown-menu-end">
-<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto" type="button"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light" type="button"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+<li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark" type="button"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
 </ul>
 </div></div>
 <div class="navbar-item"><ul aria-label="Icon Links" class="navbar-icon-links">
@@ -232,7 +232,7 @@
 </div>
 </div>
 <div class="sidebar-primary-items__start sidebar-primary__section">
-<div class="sidebar-primary-item pst-sidebar-collapse"><button aria-controls="pst-primary-sidebar" aria-expanded="true" id="pst-collapse-sidebar-button">
+<div class="sidebar-primary-item pst-sidebar-collapse"><button aria-controls="pst-primary-sidebar" aria-expanded="true" id="pst-collapse-sidebar-button" type="button">
 <svg aria-hidden="true" class="pst-icon" focusable="false" role="img" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
 <path d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z" fill="currentColor"></path>
 </svg>
@@ -287,120 +287,118 @@
 Haar wavelet decomposition (analysis &amp; synthesis) in 2D.</p>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-
-<span class="c1"># For downloading and handling the image</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-urllib-request sphx-glr-backref-type-py-function" href="https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen" title="urllib.request.urlopen"><span class="n">urlopen</span></a>
-<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-
-<span class="c1"># Wavelet classes for 2D</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">splineops.multiscale.wavelets.haar</span><span class="w"> </span><span class="kn">import</span> <span class="n">HaarWavelets</span>
-</pre></div>
-</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="w">
+</span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="nn">.</span><span class="nn">pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span><span class="w">
+</span><span class="w">
+</span><span class="c1"># For downloading and handling the image</span><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">urllib</span><span class="nn">.</span><span class="nn">request</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-urllib-request sphx-glr-backref-type-py-function reference external" href="https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen" title="urllib.request.urlopen"><span class="n">urlopen</span></a><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="w">
+</span><span class="w">
+</span><span class="c1"># Wavelet classes for 2D</span><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops</span><span class="nn">.</span><span class="nn">multiscale</span><span class="nn">.</span><span class="nn">wavelets</span><span class="nn">.</span><span class="nn">haar</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">HaarWavelets</span></a><span class="w">
+</span></pre></div></div>
 </section>
 <section id="load-and-normalize-a-2d-image">
 <h2>Load and Normalize a 2D Image<a class="headerlink" href="#load-and-normalize-a-2d-image" title="Link to this heading">#</a></h2>
 <p>Here, we load an example image from an online repository.
 We convert it to grayscale in [0,1].</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">url</span></a> <span class="o">=</span> <span class="s2">"https://r0k.us/graphics/kodak/kodak/kodim07.png"</span>
-<span class="k">with</span> <a class="sphx-glr-backref-module-urllib-request sphx-glr-backref-type-py-function" href="https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen" title="urllib.request.urlopen"><span class="n">urlopen</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str"><span class="n">url</span></a><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="k">as</span> <a class="sphx-glr-backref-module-http-client sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/http.client.html#http.client.HTTPResponse" title="http.client.HTTPResponse"><span class="n">resp</span></a><span class="p">:</span>
-    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><a class="sphx-glr-backref-module-http-client sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/http.client.html#http.client.HTTPResponse" title="http.client.HTTPResponse"><span class="n">resp</span></a><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">url</span></a> <span class="o">=</span> <span class="s2">"</span><span class="s2">https://r0k.us/graphics/kodak/kodak/kodim07.png</span><span class="s2">"</span><span class="w">
+</span><span class="k">with</span> <a class="sphx-glr-backref-module-urllib-request sphx-glr-backref-type-py-function reference external" href="https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen" title="urllib.request.urlopen"><span class="n">urlopen</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">url</span></a><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="k">as</span> <a class="sphx-glr-backref-module-http-client sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/http.client.html#http.client.HTTPResponse" title="http.client.HTTPResponse"><span class="n">resp</span></a><span class="p">:</span><span class="w">
+</span>    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><a class="sphx-glr-backref-module-http-client sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/http.client.html#http.client.HTTPResponse" title="http.client.HTTPResponse"><span class="n">resp</span></a><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="c1"># Convert to numpy float64</span><span class="w">
+</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_color</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="c1"># Normalize to [0,1]</span><span class="w">
+</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_color</span></a> <span class="o">/</span><span class="o">=</span> <span class="mf">255.0</span><span class="w">
+</span><span class="w">
+</span><span class="c1"># Convert to grayscale using standard weights</span><span class="w">
+</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a> <span class="o">=</span> <span class="p">(</span><span class="w">
+</span>    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_color</span></a><span class="p">[</span><span class="p">:</span><span class="p">,</span> <span class="p">:</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.2989</span><span class="w">
+</span>    <span class="o">+</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_color</span></a><span class="p">[</span><span class="p">:</span><span class="p">,</span> <span class="p">:</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.5870</span><span class="w">
+</span>    <span class="o">+</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_color</span></a><span class="p">[</span><span class="p">:</span><span class="p">,</span> <span class="p">:</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.1140</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">ny</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">nx</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="tuple"><span class="n">image_gray</span><span class="o">.</span><span class="n">shape</span></a><span class="w">
+</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="s2">Downloaded image shape = </span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">ny</span></a><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">nx</span></a><span class="si">}</span><span class="s2">"</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="c1"># Choose a base width in inches and match the figure height to the image aspect</span><span class="w">
+</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">base_width</span></a> <span class="o">=</span> <span class="mf">8.0</span><span class="w">
+</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="tuple"><span class="n">figsize</span></a> <span class="o">=</span> <span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">base_width</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">base_width</span></a> <span class="o">*</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">ny</span></a> <span class="o">/</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">nx</span></a><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w">
+</span><span class="k">def</span><span class="w"> </span><span class="nf">imshow_matched_LL</span><span class="p">(</span><span class="w">
+</span>    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs</span></a><span class="p">,</span><span class="w">
+</span>    <span class="n">levels</span><span class="p">,</span><span class="w">
+</span>    <span class="n">orig_image</span><span class="p">,</span>  <span class="c1"># full-resolution grayscale image</span><span class="w">
+</span>    <span class="n">detail_pct</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span>  <span class="c1"># percentile for LH/HL/HH stretch</span><span class="w">
+</span>    <span class="n">ll_low</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w">
+</span>    <span class="n">ll_high</span><span class="o">=</span><span class="mi">98</span><span class="p">,</span>  <span class="c1"># LL stretch percentiles</span><span class="w">
+</span>    <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="w">
+</span>    <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="w">
+</span>    <span class="n">cmap</span><span class="o">=</span><span class="s2">"</span><span class="s2">gray</span><span class="s2">"</span><span class="p">,</span><span class="w">
+</span><span class="p">)</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="sd">"""
+    Visualise a wavelet pyramid so that
 
-<span class="c1"># Convert to numpy float64</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_color</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span>
+       • the smallest LL block has roughly the same contrast and overall
+         brightness as the original image; and
+       • every detail coefficient is stretched, then mapped to 0.5 ± 0.5 so
+         zero is mid-gray.
 
-<span class="c1"># Normalize to [0,1]</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_color</span></a> <span class="o">/=</span> <span class="mf">255.0</span>
-
-<span class="c1"># Convert to grayscale using standard weights</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a> <span class="o">=</span> <span class="p">(</span>
-    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_color</span></a><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.2989</span>
-    <span class="o">+</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_color</span></a><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.5870</span>
-    <span class="o">+</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_color</span></a><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.1140</span>
-<span class="p">)</span>
-
-<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ny</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">nx</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">image_gray</span><span class="o">.</span><span class="n">shape</span></a>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Downloaded image shape = </span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ny</span></a><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">nx</span></a><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="c1"># Choose a base width in inches and match the figure height to the image aspect</span>
-<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">base_width</span></a> <span class="o">=</span> <span class="mf">8.0</span>
-<a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">figsize</span></a> <span class="o">=</span> <span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">base_width</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#float" title="builtins.float"><span class="n">base_width</span></a> <span class="o">*</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ny</span></a> <span class="o">/</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">nx</span></a><span class="p">)</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">imshow_matched_LL</span><span class="p">(</span>
-    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs</span></a><span class="p">,</span>
-    <span class="n">levels</span><span class="p">,</span>
-    <span class="n">orig_image</span><span class="p">,</span>  <span class="c1"># full-resolution grayscale image</span>
-    <span class="n">detail_pct</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span>  <span class="c1"># percentile for LH/HL/HH stretch</span>
-    <span class="n">ll_low</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">ll_high</span><span class="o">=</span><span class="mi">98</span><span class="p">,</span>  <span class="c1"># LL stretch percentiles</span>
-    <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span>
-<span class="p">):</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Visualise a wavelet pyramid so that</span>
-
-<span class="sd">       • the smallest LL block has roughly the same contrast and overall</span>
-<span class="sd">         brightness as the original image; and</span>
-<span class="sd">       • every detail coefficient is stretched, then mapped to 0.5 ± 0.5 so</span>
-<span class="sd">         zero is mid-gray.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    coeffs : 2-D np.ndarray</span>
-<span class="sd">        Wavelet-coefficient array in quadrant-pyramid layout.</span>
-<span class="sd">    levels : int</span>
-<span class="sd">        Decomposition depth (to locate the LL block).</span>
-<span class="sd">    orig_image : 2-D np.ndarray</span>
-<span class="sd">        Original full-resolution grayscale image in [0, 1].</span>
-<span class="sd">    detail_pct : float</span>
-<span class="sd">        |coeff| percentile that maps to ±1 in the detail bands.</span>
-<span class="sd">    ll_low, ll_high : float</span>
-<span class="sd">        Percentiles (0–100) used for LL contrast stretch.</span>
-<span class="sd">    """</span>
-    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">ax</span> <span class="o">=</span> <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.gca.html#matplotlib.pyplot.gca" title="matplotlib.pyplot.gca"><span class="n">plt</span><span class="o">.</span><span class="n">gca</span></a><span class="p">()</span>
-
-    <span class="n">vis</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.empty_like.html#numpy.empty_like" title="numpy.empty_like"><span class="n">np</span><span class="o">.</span><span class="n">empty_like</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs</span></a><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span>
-    <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ny</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">nx</span></a> <span class="o">=</span> <span class="n">vis</span><span class="o">.</span><span class="n">shape</span>
-    <span class="n">ny_ll</span> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ny</span></a> <span class="o">//</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">levels</span><span class="p">)</span>
-    <span class="n">nx_ll</span> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">nx</span></a> <span class="o">//</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">levels</span><span class="p">)</span>
-
-    <span class="c1"># ─────────────────── 1.  LL block ───────────────────</span>
-    <span class="n">ll</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs</span></a><span class="p">[:</span><span class="n">ny_ll</span><span class="p">,</span> <span class="p">:</span><span class="n">nx_ll</span><span class="p">]</span>
-    <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.percentile.html#numpy.percentile" title="numpy.percentile"><span class="n">np</span><span class="o">.</span><span class="n">percentile</span></a><span class="p">(</span><span class="n">ll</span><span class="p">,</span> <span class="p">[</span><span class="n">ll_low</span><span class="p">,</span> <span class="n">ll_high</span><span class="p">])</span>
-    <span class="n">hi</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">hi</span><span class="p">,</span> <span class="n">lo</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">)</span>  <span class="c1"># avoid zero division</span>
-    <span class="n">ll_lin</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">((</span><span class="n">ll</span> <span class="o">-</span> <span class="n">lo</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">hi</span> <span class="o">-</span> <span class="n">lo</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-    <span class="c1"># ▸ match mean brightness to original image</span>
-    <span class="n">mean_orig</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean" title="numpy.mean"><span class="n">np</span><span class="o">.</span><span class="n">mean</span></a><span class="p">(</span><span class="n">orig_image</span><span class="p">))</span>
-    <span class="n">mean_ll</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean" title="numpy.mean"><span class="n">np</span><span class="o">.</span><span class="n">mean</span></a><span class="p">(</span><span class="n">ll_lin</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">mean_ll</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">:</span>  <span class="c1"># degenerate (all black): avoid log(0)</span>
-        <span class="n">gamma</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">gamma</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">log</span></a><span class="p">(</span><span class="n">mean_orig</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">)</span> <span class="o">/</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">log</span></a><span class="p">(</span><span class="n">mean_ll</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">)</span>
-    <span class="n">ll_matched</span> <span class="o">=</span> <span class="n">ll_lin</span><span class="o">**</span><span class="n">gamma</span>
-    <span class="n">vis</span><span class="p">[:</span><span class="n">ny_ll</span><span class="p">,</span> <span class="p">:</span><span class="n">nx_ll</span><span class="p">]</span> <span class="o">=</span> <span class="n">ll_matched</span>
-
-    <span class="c1"># ─────────────────── 2.  Detail bands ───────────────</span>
-    <span class="n">detail_mask</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.ones_like.html#numpy.ones_like" title="numpy.ones_like"><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs</span></a><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
-    <span class="n">detail_mask</span><span class="p">[:</span><span class="n">ny_ll</span><span class="p">,</span> <span class="p">:</span><span class="n">nx_ll</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">if</span> <span class="n">detail_mask</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-        <span class="n">dvals</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs</span></a><span class="p">[</span><span class="n">detail_mask</span><span class="p">]</span>
-        <span class="n">d_scale</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.percentile.html#numpy.percentile" title="numpy.percentile"><span class="n">np</span><span class="o">.</span><span class="n">percentile</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">abs</span></a><span class="p">(</span><span class="n">dvals</span><span class="p">),</span> <span class="n">detail_pct</span><span class="p">)</span>
-        <span class="n">d_scale</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">d_scale</span><span class="p">,</span> <span class="mf">1e-12</span><span class="p">)</span>
-        <span class="n">d_norm</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">dvals</span> <span class="o">/</span> <span class="n">d_scale</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">0.5</span>  <span class="c1"># [-1,1]→[0,1]</span>
-        <span class="n">vis</span><span class="p">[</span><span class="n">detail_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">d_norm</span>
-
-    <span class="c1"># ─────────────────── 3.  Display ────────────────────</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">vis</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">"nearest"</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">title</span><span class="p">:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-</pre></div>
-</div>
+    Parameters
+    ----------
+    coeffs : 2-D np.ndarray
+        Wavelet-coefficient array in quadrant-pyramid layout.
+    levels : int
+        Decomposition depth (to locate the LL block).
+    orig_image : 2-D np.ndarray
+        Original full-resolution grayscale image in [0, 1].
+    detail_pct : float
+        |coeff| percentile that maps to ±1 in the detail bands.
+    ll_low, ll_high : float
+        Percentiles (0–100) used for LL contrast stretch.
+    """</span><span class="w">
+</span>    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span><span class="w">
+</span>        <span class="n">ax</span> <span class="o">=</span> <a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.gca.html#matplotlib.pyplot.gca" title="matplotlib.pyplot.gca"><span class="n">plt</span><span class="o">.</span><span class="n">gca</span></a><span class="p">(</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span>    <span class="n">vis</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.empty_like.html#numpy.empty_like" title="numpy.empty_like"><span class="n">np</span><span class="o">.</span><span class="n">empty_like</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs</span></a><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">np</span><span class="o">.</span><span class="n">float64</span></a><span class="p">)</span><span class="w">
+</span>    <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">ny</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">nx</span></a> <span class="o">=</span> <span class="n">vis</span><span class="o">.</span><span class="n">shape</span><span class="w">
+</span>    <span class="n">ny_ll</span> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">ny</span></a> <span class="o">/</span><span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="o">*</span><span class="n">levels</span><span class="p">)</span><span class="w">
+</span>    <span class="n">nx_ll</span> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">nx</span></a> <span class="o">/</span><span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="o">*</span><span class="n">levels</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span>    <span class="c1"># ─────────────────── 1.  LL block ───────────────────</span><span class="w">
+</span>    <span class="n">ll</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs</span></a><span class="p">[</span><span class="p">:</span><span class="n">ny_ll</span><span class="p">,</span> <span class="p">:</span><span class="n">nx_ll</span><span class="p">]</span><span class="w">
+</span>    <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.percentile.html#numpy.percentile" title="numpy.percentile"><span class="n">np</span><span class="o">.</span><span class="n">percentile</span></a><span class="p">(</span><span class="n">ll</span><span class="p">,</span> <span class="p">[</span><span class="n">ll_low</span><span class="p">,</span> <span class="n">ll_high</span><span class="p">]</span><span class="p">)</span><span class="w">
+</span>    <span class="n">hi</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">hi</span><span class="p">,</span> <span class="n">lo</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">)</span>  <span class="c1"># avoid zero division</span><span class="w">
+</span>    <span class="n">ll_lin</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="p">(</span><span class="n">ll</span> <span class="o">-</span> <span class="n">lo</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">hi</span> <span class="o">-</span> <span class="n">lo</span><span class="p">)</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span>    <span class="c1"># ▸ match mean brightness to original image</span><span class="w">
+</span>    <span class="n">mean_orig</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean" title="numpy.mean"><span class="n">np</span><span class="o">.</span><span class="n">mean</span></a><span class="p">(</span><span class="n">orig_image</span><span class="p">)</span><span class="p">)</span><span class="w">
+</span>    <span class="n">mean_ll</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean" title="numpy.mean"><span class="n">np</span><span class="o">.</span><span class="n">mean</span></a><span class="p">(</span><span class="n">ll_lin</span><span class="p">)</span><span class="p">)</span><span class="w">
+</span>    <span class="k">if</span> <span class="n">mean_ll</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">:</span>  <span class="c1"># degenerate (all black): avoid log(0)</span><span class="w">
+</span>        <span class="n">gamma</span> <span class="o">=</span> <span class="mf">1.0</span><span class="w">
+</span>    <span class="k">else</span><span class="p">:</span><span class="w">
+</span>        <span class="n">gamma</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">log</span></a><span class="p">(</span><span class="n">mean_orig</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">)</span> <span class="o">/</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">log</span></a><span class="p">(</span><span class="n">mean_ll</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">)</span><span class="w">
+</span>    <span class="n">ll_matched</span> <span class="o">=</span> <span class="n">ll_lin</span><span class="o">*</span><span class="o">*</span><span class="n">gamma</span><span class="w">
+</span>    <span class="n">vis</span><span class="p">[</span><span class="p">:</span><span class="n">ny_ll</span><span class="p">,</span> <span class="p">:</span><span class="n">nx_ll</span><span class="p">]</span> <span class="o">=</span> <span class="n">ll_matched</span><span class="w">
+</span><span class="w">
+</span>    <span class="c1"># ─────────────────── 2.  Detail bands ───────────────</span><span class="w">
+</span>    <span class="n">detail_mask</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ones_like.html#numpy.ones_like" title="numpy.ones_like"><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs</span></a><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span><span class="w">
+</span>    <span class="n">detail_mask</span><span class="p">[</span><span class="p">:</span><span class="n">ny_ll</span><span class="p">,</span> <span class="p">:</span><span class="n">nx_ll</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="w">
+</span>    <span class="k">if</span> <span class="n">detail_mask</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="p">)</span><span class="p">:</span><span class="w">
+</span>        <span class="n">dvals</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs</span></a><span class="p">[</span><span class="n">detail_mask</span><span class="p">]</span><span class="w">
+</span>        <span class="n">d_scale</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.percentile.html#numpy.percentile" title="numpy.percentile"><span class="n">np</span><span class="o">.</span><span class="n">percentile</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">abs</span></a><span class="p">(</span><span class="n">dvals</span><span class="p">)</span><span class="p">,</span> <span class="n">detail_pct</span><span class="p">)</span><span class="w">
+</span>        <span class="n">d_scale</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">d_scale</span><span class="p">,</span> <span class="mf">1e-12</span><span class="p">)</span><span class="w">
+</span>        <span class="n">d_norm</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><span class="n">dvals</span> <span class="o">/</span> <span class="n">d_scale</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">0.5</span>  <span class="c1"># [-1,1]→[0,1]</span><span class="w">
+</span>        <span class="n">vis</span><span class="p">[</span><span class="n">detail_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">d_norm</span><span class="w">
+</span><span class="w">
+</span>    <span class="c1"># ─────────────────── 3.  Display ────────────────────</span><span class="w">
+</span>    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">vis</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">"</span><span class="s2">nearest</span><span class="s2">"</span><span class="p">)</span><span class="w">
+</span>    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"</span><span class="s2">off</span><span class="s2">"</span><span class="p">)</span><span class="w">
+</span>    <span class="k">if</span> <span class="n">title</span><span class="p">:</span><span class="w">
+</span>        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span><span class="w">
+</span></pre></div></div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloaded image shape = 512 x 768
 </pre></div>
 </div>
@@ -409,117 +407,113 @@ We convert it to grayscale in [0,1].</p>
 <h2>2D Wavelet Decomposition<a class="headerlink" href="#d-wavelet-decomposition" title="Link to this heading">#</a></h2>
 <p>We demonstrate wavelet decomposition (analysis) and reconstruction (synthesis)
 using 2D Haar wavelets on a grayscale image.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">haar2d</span> <span class="o">=</span> <span class="n">HaarWavelets</span><span class="p">(</span><span class="n">scales</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs</span></a> <span class="o">=</span> <span class="n">haar2d</span><span class="o">.</span><span class="n">analysis</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="p">)</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recon_haar</span></a> <span class="o">=</span> <span class="n">haar2d</span><span class="o">.</span><span class="n">synthesis</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs</span></a><span class="p">)</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">err_haar</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recon_haar</span></a> <span class="o">-</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">max_err_haar</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">abs</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">err_haar</span></a><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">haar2d</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">HaarWavelets</span></a><span class="p">(</span><span class="n">scales</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-multiscale-wavelets-abstract_wavelets sphx-glr-backref-type-py-method reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.analysis" title="splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.analysis"><span class="n">haar2d</span><span class="o">.</span><span class="n">analysis</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recon_haar</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-multiscale-wavelets-abstract_wavelets sphx-glr-backref-type-py-method reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.synthesis" title="splineops.multiscale.wavelets.abstract_wavelets.AbstractWavelets.synthesis"><span class="n">haar2d</span><span class="o">.</span><span class="n">synthesis</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs</span></a><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">err_haar</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recon_haar</span></a> <span class="o">-</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="w">
+</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">max_err_haar</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">abs</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">err_haar</span></a><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="s2">[Wavelets 2D Haar Test]</span><span class="s2">"</span><span class="p">)</span><span class="w">
+</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="s2">Max error after 3-scale decomposition: </span><span class="si">{</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">max_err_haar</span></a><span class="si">}</span><span class="s2">"</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w">
+</span><span class="c1"># Helper function for visualization</span><span class="w">
+</span><span class="k">def</span><span class="w"> </span><span class="nf">pyramid_with_quadrant_embedding_levels</span><span class="p">(</span><span class="n">wavelet</span><span class="p">,</span> <span class="n">inp</span><span class="p">,</span> <span class="n">num_levels</span><span class="p">)</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="sd">"""
+    Perform multi-scale wavelet analysis in-place so that at each level the
+    new coarse approximation is stored in the quadrant corresponding to the
+    previous level's coarse region.
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"[Wavelets 2D Haar Test]"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Max error after 3-scale decomposition: </span><span class="si">{</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">max_err_haar</span></a><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    Parameters
+    ----------
+    wavelet : AbstractWavelets instance
+        A wavelet instance (e.g., HaarWavelets) with the desired number of scales.
+    inp : np.ndarray
+        Input 2D array (e.g., grayscale image).
+    num_levels : int
+        The number of decomposition levels to perform.
 
-
-<span class="c1"># Helper function for visualization</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">pyramid_with_quadrant_embedding_levels</span><span class="p">(</span><span class="n">wavelet</span><span class="p">,</span> <span class="n">inp</span><span class="p">,</span> <span class="n">num_levels</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Perform multi-scale wavelet analysis in-place so that at each level the</span>
-<span class="sd">    new coarse approximation is stored in the quadrant corresponding to the</span>
-<span class="sd">    previous level's coarse region.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    wavelet : AbstractWavelets instance</span>
-<span class="sd">        A wavelet instance (e.g., HaarWavelets) with the desired number of scales.</span>
-<span class="sd">    inp : np.ndarray</span>
-<span class="sd">        Input 2D array (e.g., grayscale image).</span>
-<span class="sd">    num_levels : int</span>
-<span class="sd">        The number of decomposition levels to perform.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    coeffs : np.ndarray</span>
-<span class="sd">        Final coefficient array (same size as inp) with the pyramid layout.</span>
-<span class="sd">    """</span>
-    <span class="n">out</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function" href="https://numpy.org/doc/stable/reference/generated/numpy.copy.html#numpy.copy" title="numpy.copy"><span class="n">np</span><span class="o">.</span><span class="n">copy</span></a><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
-    <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ny</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">nx</span></a> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
-
-    <span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_levels</span><span class="p">):</span>
-        <span class="c1"># Process the current top-left subarray</span>
-        <span class="n">sub</span> <span class="o">=</span> <span class="n">out</span><span class="p">[:</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ny</span></a><span class="p">,</span> <span class="p">:</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">nx</span></a><span class="p">]</span>
-        <span class="n">sub_out</span> <span class="o">=</span> <span class="n">wavelet</span><span class="o">.</span><span class="n">analysis1</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span>
-        <span class="n">out</span><span class="p">[:</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ny</span></a><span class="p">,</span> <span class="p">:</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">nx</span></a><span class="p">]</span> <span class="o">=</span> <span class="n">sub_out</span>
-
-        <span class="c1"># Update region size for next level (halve each dimension)</span>
-        <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">nx</span></a> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">nx</span></a> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
-        <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ny</span></a> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/functions.html#int" title="builtins.int"><span class="n">ny</span></a> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">out</span>
-</pre></div>
-</div>
+    Returns
+    -------
+    coeffs : np.ndarray
+        Final coefficient array (same size as inp) with the pyramid layout.
+    """</span><span class="w">
+</span>    <span class="n">out</span> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.copy.html#numpy.copy" title="numpy.copy"><span class="n">np</span><span class="o">.</span><span class="n">copy</span></a><span class="p">(</span><span class="n">inp</span><span class="p">)</span><span class="w">
+</span>    <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">ny</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">nx</span></a> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="w">
+</span><span class="w">
+</span>    <span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_levels</span><span class="p">)</span><span class="p">:</span><span class="w">
+</span>        <span class="c1"># Process the current top-left subarray</span><span class="w">
+</span>        <span class="n">sub</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="p">:</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">ny</span></a><span class="p">,</span> <span class="p">:</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">nx</span></a><span class="p">]</span><span class="w">
+</span>        <span class="n">sub_out</span> <span class="o">=</span> <span class="n">wavelet</span><span class="o">.</span><span class="n">analysis1</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span><span class="w">
+</span>        <span class="n">out</span><span class="p">[</span><span class="p">:</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">ny</span></a><span class="p">,</span> <span class="p">:</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">nx</span></a><span class="p">]</span> <span class="o">=</span> <span class="n">sub_out</span><span class="w">
+</span><span class="w">
+</span>        <span class="c1"># Update region size for next level (halve each dimension)</span><span class="w">
+</span>        <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">nx</span></a> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">nx</span></a> <span class="o">/</span><span class="o">/</span> <span class="mi">2</span><span class="p">)</span><span class="w">
+</span>        <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">ny</span></a> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">ny</span></a> <span class="o">/</span><span class="o">/</span> <span class="mi">2</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span>    <span class="k">return</span> <span class="n">out</span><span class="w">
+</span></pre></div></div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[Wavelets 2D Haar Test]
 Max error after 3-scale decomposition: 1.3322676295501878e-15
 </pre></div>
 </div>
 <section id="level-decomposition">
 <h3>1-Level Decomposition<a class="headerlink" href="#level-decomposition" title="Link to this heading">#</a></h3>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">wavelet1</span> <span class="o">=</span> <span class="n">HaarWavelets</span><span class="p">(</span><span class="n">scales</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs1</span></a> <span class="o">=</span> <span class="n">pyramid_with_quadrant_embedding_levels</span><span class="p">(</span><span class="n">wavelet1</span><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-<a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">figsize</span></a><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">figsize</span></a><span class="p">)</span>
-<span class="n">imshow_matched_LL</span><span class="p">(</span>
-    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs1</span></a><span class="p">,</span>
-    <span class="n">levels</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">orig_image</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="p">,</span>
-    <span class="n">detail_pct</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span>
-    <span class="n">ll_low</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-    <span class="n">ll_high</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">"Haar 1-Level Decomposition"</span><span class="p">,</span>
-<span class="p">)</span>
-<a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="matplotlib.pyplot.tight_layout"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">()</span>
-<a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
-</pre></div>
-</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">wavelet1</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">HaarWavelets</span></a><span class="p">(</span><span class="n">scales</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs1</span></a> <span class="o">=</span> <span class="n">pyramid_with_quadrant_embedding_levels</span><span class="p">(</span><a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">wavelet1</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="tuple"><span class="n">figsize</span></a><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="tuple"><span class="n">figsize</span></a><span class="p">)</span><span class="w">
+</span><span class="n">imshow_matched_LL</span><span class="p">(</span><span class="w">
+</span>    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs1</span></a><span class="p">,</span><span class="w">
+</span>    <span class="n">levels</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span>    <span class="n">orig_image</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="p">,</span><span class="w">
+</span>    <span class="n">detail_pct</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span><span class="w">
+</span>    <span class="n">ll_low</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="w">
+</span>    <span class="n">ll_high</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span><span class="w">
+</span>    <span class="n">title</span><span class="o">=</span><span class="s2">"</span><span class="s2">Haar 1-Level Decomposition</span><span class="s2">"</span><span class="p">,</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="matplotlib.pyplot.tight_layout"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">(</span><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">(</span><span class="p">)</span><span class="w">
+</span></pre></div></div>
 <img alt="Haar 1-Level Decomposition" class="sphx-glr-single-img" src="../../_images/sphx_glr_02_wavelet_decomposition_001.png" srcset="../../_images/sphx_glr_02_wavelet_decomposition_001.png"/></section>
 <section id="id1">
 <h3>2-Level Decomposition<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">wavelet2</span> <span class="o">=</span> <span class="n">HaarWavelets</span><span class="p">(</span><span class="n">scales</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs2</span></a> <span class="o">=</span> <span class="n">pyramid_with_quadrant_embedding_levels</span><span class="p">(</span><span class="n">wavelet2</span><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-
-<a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">figsize</span></a><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">figsize</span></a><span class="p">)</span>
-<span class="n">imshow_matched_LL</span><span class="p">(</span>
-    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs2</span></a><span class="p">,</span>
-    <span class="n">levels</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">orig_image</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="p">,</span>
-    <span class="n">detail_pct</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span>
-    <span class="n">ll_low</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-    <span class="n">ll_high</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">"Haar 2-Level Decomposition"</span><span class="p">,</span>
-<span class="p">)</span>
-<a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="matplotlib.pyplot.tight_layout"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">()</span>
-<a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
-</pre></div>
-</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">wavelet2</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">HaarWavelets</span></a><span class="p">(</span><span class="n">scales</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs2</span></a> <span class="o">=</span> <span class="n">pyramid_with_quadrant_embedding_levels</span><span class="p">(</span><a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">wavelet2</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="tuple"><span class="n">figsize</span></a><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="tuple"><span class="n">figsize</span></a><span class="p">)</span><span class="w">
+</span><span class="n">imshow_matched_LL</span><span class="p">(</span><span class="w">
+</span>    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs2</span></a><span class="p">,</span><span class="w">
+</span>    <span class="n">levels</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w">
+</span>    <span class="n">orig_image</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="p">,</span><span class="w">
+</span>    <span class="n">detail_pct</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span><span class="w">
+</span>    <span class="n">ll_low</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="w">
+</span>    <span class="n">ll_high</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span><span class="w">
+</span>    <span class="n">title</span><span class="o">=</span><span class="s2">"</span><span class="s2">Haar 2-Level Decomposition</span><span class="s2">"</span><span class="p">,</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="matplotlib.pyplot.tight_layout"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">(</span><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">(</span><span class="p">)</span><span class="w">
+</span></pre></div></div>
 <img alt="Haar 2-Level Decomposition" class="sphx-glr-single-img" src="../../_images/sphx_glr_02_wavelet_decomposition_002.png" srcset="../../_images/sphx_glr_02_wavelet_decomposition_002.png"/></section>
 <section id="id2">
 <h3>3-Level Decomposition<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">wavelet3</span> <span class="o">=</span> <span class="n">HaarWavelets</span><span class="p">(</span><span class="n">scales</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs3</span></a> <span class="o">=</span> <span class="n">pyramid_with_quadrant_embedding_levels</span><span class="p">(</span><span class="n">wavelet3</span><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-
-<a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">figsize</span></a><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple"><span class="n">figsize</span></a><span class="p">)</span>
-<span class="n">imshow_matched_LL</span><span class="p">(</span>
-    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs3</span></a><span class="p">,</span>
-    <span class="n">levels</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-    <span class="n">orig_image</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="p">,</span>
-    <span class="n">detail_pct</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span>
-    <span class="n">ll_low</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-    <span class="n">ll_high</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">"Haar 3-Level Decomposition"</span><span class="p">,</span>
-<span class="p">)</span>
-<a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="matplotlib.pyplot.tight_layout"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">()</span>
-<a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
-</pre></div>
-</div>
-<img alt="Haar 3-Level Decomposition" class="sphx-glr-single-img" src="../../_images/sphx_glr_02_wavelet_decomposition_003.png" srcset="../../_images/sphx_glr_02_wavelet_decomposition_003.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.782 seconds)</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">wavelet3</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">HaarWavelets</span></a><span class="p">(</span><span class="n">scales</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs3</span></a> <span class="o">=</span> <span class="n">pyramid_with_quadrant_embedding_levels</span><span class="p">(</span><a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">wavelet3</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="tuple"><span class="n">figsize</span></a><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="tuple"><span class="n">figsize</span></a><span class="p">)</span><span class="w">
+</span><span class="n">imshow_matched_LL</span><span class="p">(</span><span class="w">
+</span>    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs3</span></a><span class="p">,</span><span class="w">
+</span>    <span class="n">levels</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="w">
+</span>    <span class="n">orig_image</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="p">,</span><span class="w">
+</span>    <span class="n">detail_pct</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span><span class="w">
+</span>    <span class="n">ll_low</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="w">
+</span>    <span class="n">ll_high</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span><span class="w">
+</span>    <span class="n">title</span><span class="o">=</span><span class="s2">"</span><span class="s2">Haar 3-Level Decomposition</span><span class="s2">"</span><span class="p">,</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="matplotlib.pyplot.tight_layout"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">(</span><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">(</span><span class="p">)</span><span class="w">
+</span></pre></div></div>
+<img alt="Haar 3-Level Decomposition" class="sphx-glr-single-img" src="../../_images/sphx_glr_02_wavelet_decomposition_003.png" srcset="../../_images/sphx_glr_02_wavelet_decomposition_003.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.770 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>
@@ -572,8 +566,8 @@ Max error after 3-scale decomposition: 1.3322676295501878e-15
 </div>
 </div>
 <!-- Scripts loaded after <body> so the DOM is not blocked -->
-<script defer="" src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
-<script defer="" src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+<script defer="" src="../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer="" src="../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
 <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
 <div class="footer-items__start">
@@ -586,16 +580,15 @@ Max error after 3-scale decomposition: 1.3322676295501878e-15
 </div>
 <div class="footer-item">
 <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
-    <br/>
-</p>
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
 </div>
 </div>
 <div class="footer-items__end">
 <div class="footer-item">
 <p class="theme-version">
 <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
 </p></div>
 </div>
 </div>
