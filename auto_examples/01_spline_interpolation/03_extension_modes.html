@@ -28,7 +28,7 @@
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css?v=28575662" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script defer="" src="../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,7 +43,7 @@
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/01_spline_interpolation/03_extension_modes';</script>
 <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-<link href="../../_static/logo.ico" rel="icon"/>
+<link href="../../_static/favicon.svg" rel="icon"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="04_interpolate_1d_samples.html" rel="next" title="Interpolate 1D Samples"/>
@@ -79,8 +79,8 @@
 <div class="col-lg-3 navbar-header-items__start">
 <div class="navbar-item">
 <a class="navbar-brand logo" href="../../index.html">
-<img alt="" class="logo__image only-light" src="../../_static/logo.png"/>
-<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.png"/>
+<img alt="" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
 <p class="title logo__title">SplineOps</p>
 </a></div>
 </div>
@@ -106,12 +106,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -191,12 +191,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -283,7 +283,8 @@
 
 <section class="sphx-glr-example-title" id="extension-modes">
 <span id="sphx-glr-auto-examples-01-spline-interpolation-03-extension-modes-py"></span><h1>Extension Modes<a class="headerlink" href="#extension-modes" title="Link to this heading">#</a></h1>
-<p>Plotting different extension modes of signals.</p>
+<p>Compare zero, mirror, and periodic coefficient boundaries when evaluating a signal
+beyond its sampled interval.</p>
 <section id="imports-and-utilities">
 <h2>Imports and Utilities<a class="headerlink" href="#imports-and-utilities" title="Link to this heading">#</a></h2>
 <p>Visualize how the extension modes allow one to control the values that a signal is assumed to take outside of its original domain.
@@ -327,6 +328,8 @@ Generate a signal that is mostly linear but includes a “bump.”</p>
 </section>
 <section id="finite-support-coefficients">
 <h2>Finite-Support Coefficients<a class="headerlink" href="#finite-support-coefficients" title="Link to this heading">#</a></h2>
+<p>Set coefficients outside the sampled interval to zero and inspect the resulting
+boundary behavior.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">plot_extension_modes_for_bump_function</span><span class="p">(</span><span class="w">
 </span>    <span class="n">mode_name</span><span class="o">=</span><span class="s2">"</span><span class="s2">zero</span><span class="s2">"</span><span class="p">,</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">x_values</span></a><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">x_values</span></a><span class="p">,</span><span class="w">
@@ -336,6 +339,8 @@ Generate a signal that is mostly linear but includes a “bump.”</p>
 <img alt="Extension Mode: Finite Support Coefficients" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_extension_modes_001.png" srcset="../../_images/sphx_glr_03_extension_modes_001.png"/></section>
 <section id="narrow-mirroring">
 <h2>Narrow Mirroring<a class="headerlink" href="#narrow-mirroring" title="Link to this heading">#</a></h2>
+<p>Reflect coefficients at the endpoint samples to extend the signal without
+introducing an abrupt cutoff.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">plot_extension_modes_for_bump_function</span><span class="p">(</span><span class="w">
 </span>    <span class="n">mode_name</span><span class="o">=</span><span class="s2">"</span><span class="s2">mirror</span><span class="s2">"</span><span class="p">,</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">x_values</span></a><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">x_values</span></a><span class="p">,</span><span class="w">
@@ -345,13 +350,14 @@ Generate a signal that is mostly linear but includes a “bump.”</p>
 <img alt="Extension Mode: Narrow Mirroring" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_extension_modes_002.png" srcset="../../_images/sphx_glr_03_extension_modes_002.png"/></section>
 <section id="periodic-padding">
 <h2>Periodic Padding<a class="headerlink" href="#periodic-padding" title="Link to this heading">#</a></h2>
+<p>Wrap coefficients around the interval to model a repeating signal.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">plot_extension_modes_for_bump_function</span><span class="p">(</span><span class="w">
 </span>    <span class="n">mode_name</span><span class="o">=</span><span class="s2">"</span><span class="s2">periodic</span><span class="s2">"</span><span class="p">,</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">x_values</span></a><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">x_values</span></a><span class="p">,</span><span class="w">
 </span>    <span class="n">title</span><span class="o">=</span><span class="s2">"</span><span class="s2">Extension Mode: Periodic Padding</span><span class="s2">"</span><span class="p">,</span><span class="w">
 </span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img alt="Extension Mode: Periodic Padding" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_extension_modes_003.png" srcset="../../_images/sphx_glr_03_extension_modes_003.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.255 seconds)</p>
+<img alt="Extension Mode: Periodic Padding" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_extension_modes_003.png" srcset="../../_images/sphx_glr_03_extension_modes_003.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.304 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

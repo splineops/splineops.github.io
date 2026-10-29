@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=f56efcf3" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=28575662" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
@@ -53,10 +53,10 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user-guide/index';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="icon" href="../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Resize" href="02_resize.html" />
+    <link rel="next" title="Spline Interpolation" href="01_spline_interpolation.html" />
     <link rel="prev" title="Modules" href="../modules.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
@@ -133,8 +133,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt=""/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt=""/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
   
   
     <p class="title logo__title">SplineOps</p>
@@ -174,14 +174,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -325,14 +325,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -417,8 +417,8 @@
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">User guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_spline_interpolation.html">Spline Interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_affine.html">Affine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_adaptive_regression_splines.html">Adaptive Regression Splines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_smoothing_splines.html">Smoothing Splines</a></li>
@@ -489,7 +489,7 @@
 <h1>User guide<a class="headerlink" href="#user-guide" title="Link to this heading">#</a></h1>
 <section id="start-with-resize">
 <h2>Start with resize<a class="headerlink" href="#start-with-resize" title="Link to this heading">#</a></h2>
-<p>The stable product surface is regular-grid N-D resizing with explicit
+<p>Regular-grid N-D resizing provides explicit
 coordinates and projection antialiasing.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
@@ -516,7 +516,7 @@ Five-minute quickstart</div>
 </section>
 <section id="continuous-models">
 <h2>Continuous models<a class="headerlink" href="#continuous-models" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> is a separate, stabilizing abstraction for evaluating a
+<p><code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code> is a stable NumPy/CPU abstraction for evaluating a
 continuous tensor-product spline at arbitrary coordinates.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
@@ -533,10 +533,10 @@ extension modes.</p>
 </div>
 </div>
 </section>
-<section id="research-modules">
-<h2>Research modules<a class="headerlink" href="#research-modules" title="Link to this heading">#</a></h2>
-<p>The following modules are experimental.  Their APIs and validation contracts
-may still change.</p>
+<section id="more-spline-tools">
+<h2>More spline tools<a class="headerlink" href="#more-spline-tools" title="Link to this heading">#</a></h2>
+<p>These stable CPU modules keep their own numerical operators and support
+contracts. See <a class="reference internal" href="../project-status.html"><span class="doc">API stability and support</span></a> for the complete support matrix.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-3 sd-row-cols-xs-3 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -609,11 +609,11 @@ Multiscale</div>
       </div>
     </a>
     <a class="right-next"
-       href="02_resize.html"
+       href="01_spline_interpolation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Resize</p>
+        <p class="prev-next-title">Spline Interpolation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -638,7 +638,7 @@ Multiscale</div>
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-with-resize">Start with resize</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-models">Continuous models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-modules">Research modules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-spline-tools">More spline tools</a></li>
 </ul>
   </nav></div>
 

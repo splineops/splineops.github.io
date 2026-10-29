@@ -28,7 +28,7 @@
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css?v=28575662" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script defer="" src="../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,7 +43,7 @@
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/07_multiscale/01_pyramid_decomposition';</script>
 <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-<link href="../../_static/logo.ico" rel="icon"/>
+<link href="../../_static/favicon.svg" rel="icon"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="02_wavelet_decomposition.html" rel="next" title="Wavelet Decomposition"/>
@@ -79,8 +79,8 @@
 <div class="col-lg-3 navbar-header-items__start">
 <div class="navbar-item">
 <a class="navbar-brand logo" href="../../index.html">
-<img alt="" class="logo__image only-light" src="../../_static/logo.png"/>
-<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.png"/>
+<img alt="" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
 <p class="title logo__title">SplineOps</p>
 </a></div>
 </div>
@@ -106,12 +106,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -191,12 +191,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -283,10 +283,11 @@
 
 <section class="sphx-glr-example-title" id="pyramid-decomposition">
 <span id="sphx-glr-auto-examples-07-multiscale-01-pyramid-decomposition-py"></span><h1>Pyramid Decomposition<a class="headerlink" href="#pyramid-decomposition" title="Link to this heading">#</a></h1>
-<p>This example demonstrates how to use the
-pyramid decomposition (reduce &amp; expand) in 1D and 2D.</p>
+<p>Reduce and expand 1-D signals and images, then compare several levels of a spline
+pyramid.</p>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>Import the multiscale transforms together with array and plotting utilities.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="w">
 </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="nn">.</span><span class="nn">pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span><span class="w">
 </span><span class="w">
@@ -437,6 +438,8 @@ Max error: 0.5062710854288005
 </section>
 <section id="inverted-pyramid-helpers">
 <h2>Inverted-Pyramid Helpers<a class="headerlink" href="#inverted-pyramid-helpers" title="Link to this heading">#</a></h2>
+<p>Arrange the progressively reduced images so their resolution changes are easy to
+compare.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="k">def</span><span class="w"> </span><span class="nf">embed_center</span><span class="p">(</span><span class="n">small</span><span class="p">:</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">,</span> <span class="n">big_shape</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">-</span><span class="o">&gt;</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span></a><span class="p">:</span><span class="w">
 </span><span class="w">    </span><span class="sd">"""Return a 'big_shape' canvas with 'small' centered on it."""</span><span class="w">
 </span>    <span class="n">H</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="n">big_shape</span><span class="w">
@@ -483,6 +486,8 @@ Max error: 0.5062710854288005
 </section>
 <section id="level-decomposition">
 <h2>1-Level Decomposition<a class="headerlink" href="#level-decomposition" title="Link to this heading">#</a></h2>
+<p>Apply one reduction level and compare the image resolutions in the resulting
+pyramid.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">show_inverted_pyramid</span><span class="p">(</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="list"><span class="n">levels</span></a><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">base_width</span></a><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"</span><span class="s2">1-Level Decomposition</span><span class="s2">"</span><span class="w">
 </span><span class="p">)</span><span class="w">
@@ -491,6 +496,8 @@ Max error: 0.5062710854288005
 <img alt="1-Level Decomposition" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_pyramid_decomposition_003.png" srcset="../../_images/sphx_glr_01_pyramid_decomposition_003.png"/></section>
 <section id="id2">
 <h2>2-Level Decomposition<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>Apply 2 reduction levels and compare the image resolutions in the resulting
+pyramid.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">show_inverted_pyramid</span><span class="p">(</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="list"><span class="n">levels</span></a><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">base_width</span></a><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"</span><span class="s2">2-Level Decomposition</span><span class="s2">"</span><span class="w">
 </span><span class="p">)</span><span class="w">
@@ -499,12 +506,14 @@ Max error: 0.5062710854288005
 <img alt="2-Level Decomposition" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_pyramid_decomposition_004.png" srcset="../../_images/sphx_glr_01_pyramid_decomposition_004.png"/></section>
 <section id="id3">
 <h2>3-Level Decomposition<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>Apply 3 reduction levels and compare the image resolutions in the resulting
+pyramid.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">show_inverted_pyramid</span><span class="p">(</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="list"><span class="n">levels</span></a><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">base_width</span></a><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"</span><span class="s2">3-Level Decomposition</span><span class="s2">"</span><span class="w">
 </span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">(</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img alt="3-Level Decomposition" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_pyramid_decomposition_005.png" srcset="../../_images/sphx_glr_01_pyramid_decomposition_005.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.983 seconds)</p>
+<img alt="3-Level Decomposition" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_pyramid_decomposition_005.png" srcset="../../_images/sphx_glr_01_pyramid_decomposition_005.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.989 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

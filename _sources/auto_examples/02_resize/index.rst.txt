@@ -7,8 +7,10 @@
 Resize Examples
 ===============
 
-Examples using the Resize module on multidimensional samples, specially 1D and 2D.
-We also show the equivalence with the Spline Interpolation module methods where relevant.
+Resize signals and images with standard interpolation or projection antialiasing.
+Inspect fine detail, compare numerical quality, and measure runtime across zoom
+factors.
+
 
 .. raw:: html
 
@@ -23,7 +25,7 @@ We also show the equivalence with the Spline Interpolation module methods where 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Starting from a 1D signal f[k] on a unit grid, we perform a 1D resize directly on the samples and compare:">
+    <div class="sphx-glr-thumbcontainer" tooltip="Compare standard cubic resizing and projection antialiasing on a 1-D signal.">
 
 .. only:: html
 
@@ -40,7 +42,7 @@ We also show the equivalence with the Spline Interpolation module methods where 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Shrink and re-expand a 2-D RGB image with splineops, then discuss aliasing.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Resize an RGB image and use detail views and an animation to inspect aliasing.">
 
 .. only:: html
 
@@ -57,7 +59,7 @@ We also show the equivalence with the Spline Interpolation module methods where 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 2D images with standard interpolation. Compare them to SciPy zoom. We compute SNR and MSE on a face ROI (not the whole frame) to focus on detail and avoid boundary artifacts.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Compare SplineOps cubic interpolation with SciPy using matched image roundtrips and detail regions.">
 
 .. only:: html
 
@@ -74,7 +76,7 @@ We also show the equivalence with the Spline Interpolation module methods where 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 2D images with an antialiased down-sampling step and compare the result to standard interpolation.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Compare image detail and reconstruction error after shrinking with and without projection antialiasing.">
 
 .. only:: html
 
@@ -91,7 +93,7 @@ We also show the equivalence with the Spline Interpolation module methods where 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We construct an A/B corner mix image where, in each 2×2 tile, the top-left pixel comes from image A and the other three come from B. We then:">
+    <div class="sphx-glr-thumbcontainer" tooltip="Use a deliberately mixed image to reveal how unfiltered downsampling can select misleading visual content.">
 
 .. only:: html
 
@@ -108,7 +110,7 @@ We also show the equivalence with the Spline Interpolation module methods where 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example benchmarks several 2D downsampling methods over a set of test images. For each image we:">
+    <div class="sphx-glr-thumbcontainer" tooltip="Compare resize methods across several Kodak images using detail views, reconstruction quality, and runtime.">
 
 .. only:: html
 
@@ -125,7 +127,7 @@ We also show the equivalence with the Spline Interpolation module methods where 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example performs a 1D sweep of zoom factors and evaluates how different 2D interpolation / downsampling methods behave in terms of">
+    <div class="sphx-glr-thumbcontainer" tooltip="Sweep zoom factors and compare the speed and reconstruction quality of linear and cubic resize methods.">
 
 .. only:: html
 
@@ -142,7 +144,7 @@ We also show the equivalence with the Spline Interpolation module methods where 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example builds a short animation for a set of images.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Animate image detail and reconstruction errors as the zoom factor changes across several test images.">
 
 .. only:: html
 

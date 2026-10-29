@@ -28,7 +28,7 @@
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css?v=28575662" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script defer="" src="../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,7 +43,7 @@
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/03_affine/01_rotate_image';</script>
 <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-<link href="../../_static/logo.ico" rel="icon"/>
+<link href="../../_static/favicon.svg" rel="icon"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="02_rotation_animation.html" rel="next" title="Rotation Animation"/>
@@ -79,8 +79,8 @@
 <div class="col-lg-3 navbar-header-items__start">
 <div class="navbar-item">
 <a class="navbar-brand logo" href="../../index.html">
-<img alt="" class="logo__image only-light" src="../../_static/logo.png"/>
-<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.png"/>
+<img alt="" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
 <p class="title logo__title">SplineOps</p>
 </a></div>
 </div>
@@ -106,12 +106,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -191,12 +191,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -283,12 +283,12 @@
 
 <section class="sphx-glr-example-title" id="rotate-image">
 <span id="sphx-glr-auto-examples-03-affine-01-rotate-image-py"></span><h1>Rotate Image<a class="headerlink" href="#rotate-image" title="Link to this heading">#</a></h1>
-<p>We use the rotate module to rotate a 2D image.</p>
+<p>Rotate a grayscale image around its center using spline interpolation.</p>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>Import image-loading, plotting, and affine-rotation tools.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="w">
 </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="nn">.</span><span class="nn">pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span><span class="w">
-</span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">animation</span><span class="w">
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops</span><span class="nn">.</span><span class="nn">affine</span><span class="nn">.</span><span class="nn">affine</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-splineops-affine sphx-glr-backref-type-py-function reference internal" href="../../api/03_affine.html#splineops.affine.affine.rotate" title="splineops.affine.rotate"><span class="n">rotate</span></a><span class="w">
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops</span><span class="nn">.</span><a class="sphx-glr-backref-module-splineops sphx-glr-backref-type-py-function reference internal" href="../../api/02_resize.html#splineops.resize.resize" title="splineops.resize"><span class="nn">resize</span></a><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-splineops sphx-glr-backref-type-py-function reference internal" href="../../api/02_resize.html#splineops.resize.resize" title="splineops.resize"><span class="n">resize</span></a><span class="w">
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">urllib</span><span class="nn">.</span><span class="nn">request</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-urllib-request sphx-glr-backref-type-py-function reference external" href="https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen" title="urllib.request.urlopen"><span class="n">urlopen</span></a><span class="w">
@@ -356,7 +356,7 @@ scale its intensity back to [0, 255] before rotation.</p>
 </span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="matplotlib.pyplot.tight_layout"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">(</span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">(</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img alt="Original Resized Image, Rotated Image (45°)" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_rotate_image_001.png" srcset="../../_images/sphx_glr_01_rotate_image_001.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.327 seconds)</p>
+<img alt="Original Resized Image, Rotated Image (45°)" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_rotate_image_001.png" srcset="../../_images/sphx_glr_01_rotate_image_001.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.243 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

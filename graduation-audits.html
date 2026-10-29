@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Affine and Differentials graduation audits &#8212; splineops 2.3.0 documentation</title>
+    <title>2.3 numerical API review &#8212; splineops 2.3.0 documentation</title>
   
   
   
@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=f56efcf3" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=28575662" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
@@ -53,11 +53,11 @@
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'graduation-audits';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <link rel="icon" href="_static/logo.ico"/>
+    <link rel="icon" href="_static/favicon.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Internal numerical contracts" href="internal-contracts.html" />
-    <link rel="prev" title="Stability-soak workflows" href="stability-soak.html" />
+    <link rel="prev" title="Release validation" href="releasing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
@@ -133,8 +133,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt=""/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
   
   
     <p class="title logo__title">SplineOps</p>
@@ -174,14 +174,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -325,14 +325,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -416,13 +416,15 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="project-status.html">API stability and support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backend-support.html">Backend support contract</a></li>
 <li class="toctree-l1"><a class="reference internal" href="provenance.html">Method and source provenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasing.html">Release validation</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">2.3 numerical API review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal-contracts.html">Internal numerical contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stability-soak.html">Stability-soak workflows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roadmap.html">Development roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="progress.html">Progress so far</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stability-soak.html">Stability-soak workflows</a></li>
-<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Affine and Differentials graduation audits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internal-contracts.html">Internal numerical contracts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="releasing.html">Release validation</a></li>
 </ul>
 </div>
 </nav></div>
@@ -464,9 +466,9 @@
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="project.html" class="nav-link">Project</a></li>
+    <li class="breadcrumb-item"><a href="project.html" class="nav-link">About</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Affine and Differentials graduation audits</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">2.3 numerical API review</span></li>
   </ul>
 </nav>
 </div>
@@ -483,152 +485,73 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="affine-and-differentials-graduation-audits">
-<h1>Affine and Differentials graduation audits<a class="headerlink" href="#affine-and-differentials-graduation-audits" title="Link to this heading">#</a></h1>
-<p>These audits record evidence as of 2026-07-16.  They are deliberately stricter
-than an implementation checklist: a module can be capable and well tested
-without yet carrying a stable compatibility promise.  Neither module is
-promoted by this review.</p>
-<section id="affine-audit">
-<h2>Affine audit<a class="headerlink" href="#affine-audit" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table" id="id1">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">AffinePlan</span></code> graduation gates</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
-<colgroup>
-<col style="width: 24.0%" />
-<col style="width: 14.0%" />
-<col style="width: 42.0%" />
-<col style="width: 20.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Gate</p></th>
-<th class="head"><p>State</p></th>
-<th class="head"><p>Evidence</p></th>
-<th class="head"><p>Remaining work</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Geometry and numerical contract</p></td>
-<td><p>Pass</p></td>
-<td><p>2-D/3-D pull-back matrices, output geometry, degrees 0–7, mirror/zero
-modes, analytical cases, and SciPy parity for matched degrees 0–5.</p></td>
-<td><p>Keep higher-degree claims SplineOps-specific.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Axes, dtype, mutation, and buffers</p></td>
-<td><p>Pass</p></td>
-<td><p>Explicit batch/channel axes, float32/float64 execution, source
-preservation, exact and strided output buffers, and randomized scalar
-dispatch parity.</p></td>
-<td><p>None for the documented surface.</p></td>
-</tr>
-<tr class="row-even"><td><p>Bounded resources</p></td>
-<td><p>Pass</p></td>
-<td><p>Cached plans enforce <code class="docutils literal notranslate"><span class="pre">max_retained_bytes</span></code>; one-shot tiled execution
-and retained-byte inspection are tested and benchmarked.</p></td>
-<td><p>Continue platform monitoring.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Coefficient reuse and persistence</p></td>
-<td><p>Pass</p></td>
-<td><p>Immutable compatibility fields, atomic schema-2 archives, permanent
-schema-1/schema-2 byte fixtures, checked migration, corruption rejection,
-and endian/metadata validation.</p></td>
-<td><p>Preserve every historical fixture when a future schema is added.</p></td>
-</tr>
-<tr class="row-even"><td><p>Concurrency and restart behavior</p></td>
-<td><p>Evidence collecting</p></td>
-<td><p>Thread reuse and spawned-process loads pass unit tests and the repeated
-public-API soak; the cross-platform soak workflow publishes JSON.</p></td>
-<td><p>Accumulate real workflow runs without contract changes.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Performance claims</p></td>
-<td><p>Pass, narrowly scoped</p></td>
-<td><p>Complete-workflow gains exist for coefficient sharing, but matched
-one-shot SciPy affine execution remains faster.  Profile evidence, not
-a universal speed claim, governs implementation changes.</p></td>
-<td><p>Re-profile before any further optimization.</p></td>
-</tr>
-<tr class="row-even"><td><p>Compatibility duration and migration</p></td>
-<td><p>Open</p></td>
-<td><p>The public contract and failure modes are documented.</p></td>
-<td><p>Complete an API-soak period and prepare migration guidance if names or
-buffer rules change.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Decision: <code class="docutils literal notranslate"><span class="pre">AffinePlan</span></code> is technically strong but remains <strong>experimental</strong>.
-The open gate is compatibility evidence over time, not a missing attempt to
-win every one-shot timing comparison.</p>
+  <section id="numerical-api-review">
+<h1>2.3 numerical API review<a class="headerlink" href="#numerical-api-review" title="Link to this heading">#</a></h1>
+<p>Review date: 2026-10-29. This review promotes the documented NumPy/CPU APIs in
+<a class="reference internal" href="project-status.html"><span class="doc">API stability and support</span></a>. It supersedes July’s open graduation checklist;
+<a class="reference internal" href="progress.html"><span class="doc">Progress so far</span></a> retains that historical snapshot.</p>
+<section id="what-changed-in-this-review">
+<h2>What changed in this review<a class="headerlink" href="#what-changed-in-this-review" title="Link to this heading">#</a></h2>
+<p>The review covered construction and query validation, coefficient filtering,
+reference and accelerated dispatch, shape/dtype/boundary behavior, persistent
+plans, buffers, reconstruction, convergence, and the existing release gates.</p>
+<p>New regressions exposed and corrected these issues:</p>
+<ul class="simple">
+<li><p>TensorSpline’s absolute grid tolerance could accept nonuniform construction
+coordinates expressed in very small physical units.</p></li>
+<li><p>Symmetric degree-4 O-MOMS reported the wrong polynomial degree.</p></li>
+<li><p>Adaptive regression’s normal equations lost accuracy for large coordinate
+offsets; integer sample arithmetic could overflow before conversion.</p></li>
+<li><p>Sparse interpolation could wrap unsigned sample differences, and its
+evaluator could overflow integer products.</p></li>
+<li><p>Fractional autocorrelation did not reduce distant frequencies into one
+period before truncating its alias sum.</p></li>
+<li><p>Recursive smoothing could overflow or lose normalization at large finite
+regularization parameters, or lose small tails across large sample ranges.</p></li>
+<li><p>Affine validation treated empty batches differently across evaluators,
+could discard imaginary geometry, and did not report a plain NPY file as
+an invalid coefficient archive.</p></li>
+<li><p>Changing cached plan settings could leave the original factorization,
+frequency response, or interpolation geometry active.</p></li>
+</ul>
 </section>
-<section id="differentials-audit">
-<h2>Differentials audit<a class="headerlink" href="#differentials-audit" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table" id="id2">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">DifferentialPlan</span></code> graduation gates</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
-<colgroup>
-<col style="width: 24.0%" />
-<col style="width: 14.0%" />
-<col style="width: 42.0%" />
-<col style="width: 20.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Gate</p></th>
-<th class="head"><p>State</p></th>
-<th class="head"><p>Evidence</p></th>
-<th class="head"><p>Remaining work</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Derivative convention</p></td>
-<td><p>Pass for current scope</p></td>
-<td><p>Increasing-coordinate gradients, packed upper-triangular Hessians,
-Laplacians, physical spacing, analytical polynomial/trigonometric
-invariants, and whole-sample mirror boundary fixtures.</p></td>
-<td><p>Do not imply boundaries other than the documented cubic mirror model.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Axes, dtype, mutation, and buffers</p></td>
-<td><p>Pass</p></td>
-<td><p>2-D/3-D explicit spatial axes, integer promotion, float32/float64
-preservation, selective families, prevalidated exact/strided structured
-buffers, non-aliasing, and randomized scalar dispatch parity.</p></td>
-<td><p>None for the planned API’s documented surface.</p></td>
-</tr>
-<tr class="row-even"><td><p>Resource behavior</p></td>
-<td><p>Pass</p></td>
-<td><p>One lazy workspace shares coefficient and derivative intermediates;
-Laplacian-only calls skip mixed Hessians and the plan retains no arrays.</p></td>
-<td><p>Continue batch-size monitoring.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Concurrency and repeated buffers</p></td>
-<td><p>Evidence collecting</p></td>
-<td><p>The repeated volume-feature soak preserves source data and destination
-identities with exact scalar parity.</p></td>
-<td><p>Accumulate cross-platform soak artifacts without contract changes.</p></td>
-</tr>
-<tr class="row-even"><td><p>Legacy relationship</p></td>
-<td><p>Open</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">DifferentialPlan</span></code> provides the general planned numerical API while
-<code class="docutils literal notranslate"><span class="pre">Differentials</span></code> preserves scalar convenience and 2-D angular maps.</p></td>
-<td><p>Publish migration guidance before changing or deprecating either name.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Compatibility duration</p></td>
-<td><p>Open</p></td>
-<td><p>Errors and output selection are explicit and covered.</p></td>
-<td><p>Complete the API-soak period; keep angular behavior outside a general
-N-D claim unless it receives its own contract.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Decision: <code class="docutils literal notranslate"><span class="pre">DifferentialPlan</span></code> also remains <strong>experimental</strong>.  It is ready for
-serious evaluation, but stabilizing it today would turn a short, internally
-reviewed history into a compatibility promise prematurely.</p>
+<section id="independent-numerical-references">
+<h2>Independent numerical references<a class="headerlink" href="#independent-numerical-references" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">tests/test_tensorspline_independent_reference.py</span></code> builds basis functions
+from SciPy B-splines and finite differences of lower-degree splines. It forms
+dense cardinal systems with explicit boundary extension, independently of
+SplineOps’ support indexing and recursive/FFT/banded coefficient filters.
+It covers B-spline degrees 0–9, O-MOMS degrees 0–5, symmetric discontinuity
+conventions, all three boundaries, lengths 1/2/9, and mixed 3-D complex models.
+The derivative construction follows Blu, Thevenaz and Unser’s
+<a class="reference external" href="https://bigwww.epfl.ch/publications/blu0101.pdf">MOMS formulation</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">tests/test_stability_numerics.py</span></code> adds an independent box-constrained dual
+optimizer for denoising, clamped cubic piecewise-polynomial derivatives for
+Differentials, and a direct block-transform and energy check for Haar. These
+complement the existing dense smoothing references, projection quadrature,
+affine SciPy comparisons, property tests, archive fixtures, and workflow soaks.</p>
 </section>
-<section id="next-review-trigger">
-<h2>Next review trigger<a class="headerlink" href="#next-review-trigger" title="Link to this heading">#</a></h2>
-<p>Review these tables after a meaningful period of unchanged downstream use and
-cross-platform soak artifacts—not merely after another green unit-test run.
-Promotion can then happen module by module.  <code class="docutils literal notranslate"><span class="pre">TensorSpline</span></code>, affine,
-differentials, resize, and the research modules remain independent APIs
-throughout that process.</p>
+<section id="compatibility-evidence">
+<h2>Compatibility evidence<a class="headerlink" href="#compatibility-evidence" title="Link to this heading">#</a></h2>
+<p>The affine persistence and differential buffer APIs have passed repeated
+registration and volume-feature workflows since July, including cross-platform
+standard soaks and benchmark runs. The 2.3 release preparation added minimum
+dependency checks and installed-wheel numerical checks. The current workflows
+rerun this evidence for the proposed release revision; a historical green run
+does not replace checks on the final commit.</p>
+<p>The review keeps existing imports and archive schemas. Plan settings now reject
+reassignment: construct a new plan to change a fixed operator. The regression
+objective is documented with the implemented <code class="docutils literal notranslate"><span class="pre">0.5</span></code> squared-error factor;
+existing lambda semantics do not change. Corrected numerical edge cases are
+listed in the changelog.</p>
+</section>
+<section id="limits-of-the-decision">
+<h2>Limits of the decision<a class="headerlink" href="#limits-of-the-decision" title="Link to this heading">#</a></h2>
+<p>CPU API stability is independent of experimental CuPy support. The three
+smoothing formulations remain distinct, differential angular maps remain
+2-D, and order-5 wavelets keep approximate source taps. Stability does not add
+new boundaries, unsupported shapes, GPU guarantees, or universal speed claims.
+Future extensions need their own contract and independent numerical checks.</p>
 </section>
 </section>
 
@@ -643,12 +566,12 @@ throughout that process.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="stability-soak.html"
+       href="releasing.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Stability-soak workflows</p>
+        <p class="prev-next-title">Release validation</p>
       </div>
     </a>
     <a class="right-next"
@@ -679,9 +602,10 @@ throughout that process.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#affine-audit">Affine audit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentials-audit">Differentials audit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-review-trigger">Next review trigger</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-changed-in-this-review">What changed in this review</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-numerical-references">Independent numerical references</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibility-evidence">Compatibility evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limits-of-the-decision">Limits of the decision</a></li>
 </ul>
   </nav></div>
 

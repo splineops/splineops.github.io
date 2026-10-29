@@ -21,14 +21,17 @@
 3D Volume Smoothing
 ===================
 
-We use the smooth module to smooth N-dimensional data.
+Smooth a noisy synthetic 3-D volume and compare central slices against its known
+clean signal.
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-15
+.. GENERATED FROM PYTHON SOURCE LINES 14-18
 
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-20
+Import the smoothing functions and tools for generating or displaying the data.
+
+.. GENERATED FROM PYTHON SOURCE LINES 18-23
 
 .. code-block:: Python
 
@@ -44,12 +47,15 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 21-23
+.. GENERATED FROM PYTHON SOURCE LINES 24-29
 
 Sinusoid 3D Data
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-107
+Smooth a noisy synthetic sinusoidal volume and compare matching central slices
+against its known clean signal.
+
+.. GENERATED FROM PYTHON SOURCE LINES 29-113
 
 .. code-block:: Python
 
@@ -141,7 +147,7 @@ Sinusoid 3D Data
 
 
 .. image-sg:: /auto_examples/05_smoothing_splines/images/sphx_glr_03_3d_volume_smoothing_001.png
-   :alt: Clean Volume Slice, Noisy Slice (SNR=10.00 dB), Smoothed Slice (SNR=24.88 dB)
+   :alt: Clean Volume Slice, Noisy Slice (SNR=10.01 dB), Smoothed Slice (SNR=24.90 dB)
    :srcset: /auto_examples/05_smoothing_splines/images/sphx_glr_03_3d_volume_smoothing_001.png
    :class: sphx-glr-single-img
 
@@ -151,9 +157,9 @@ Sinusoid 3D Data
  .. code-block:: none
 
     3D Sinusoid Volume:
-    SNR of noisy volume: 10.00 dB
-    SNR after smoothing: 24.88 dB
-    SNR improvement: 14.89 dB
+    SNR of noisy volume: 10.01 dB
+    SNR after smoothing: 24.90 dB
+    SNR improvement: 14.90 dB
 
 
 
@@ -162,7 +168,7 @@ Sinusoid 3D Data
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.127 seconds)
+   **Total running time of the script:** (0 minutes 0.144 seconds)
 
 
 .. _sphx_glr_download_auto_examples_05_smoothing_splines_03_3d_volume_smoothing.py:

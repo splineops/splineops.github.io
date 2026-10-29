@@ -21,8 +21,10 @@
 Benchmarking Plot
 =================
 
-This example performs a 1D sweep of zoom factors and evaluates how different
-2D interpolation / downsampling methods behave in terms of
+Sweep zoom factors and compare the speed and reconstruction quality of linear and
+cubic resize methods.
+
+The plots report:
 
 * **round-trip runtime** (downsample then upsample back to the original size),
 * **round-trip SNR** between the original and the recovered image,
@@ -59,7 +61,7 @@ We compare:
 By default, the benchmark runs in **float32** for performance. You can switch to
 float64 by changing the ``DTYPE`` constant below.
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-227
+.. GENERATED FROM PYTHON SOURCE LINES 49-234
 
 .. code-block:: Python
 
@@ -188,6 +190,11 @@ float64 by changing the ``DTYPE`` constant below.
     # ------------------------
     # Small helpers
     # ------------------------
+    #
+    # Define compact utilities for formatting measurements and handling the shared image
+    # geometry.
+
+
     def fmt_ms(seconds: float) -> str:
         """Format seconds as a short 'X.X ms' or 'X.XXX s' string."""
         return f"{seconds * 1000.0:.1f} ms" if seconds < 1.0 else f"{seconds:.3f} s"
@@ -250,7 +257,7 @@ float64 by changing the ``DTYPE`` constant below.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 229-234
+.. GENERATED FROM PYTHON SOURCE LINES 236-241
 
 Load and Normalize an Image
 ---------------------------
@@ -258,7 +265,7 @@ Load and Normalize an Image
 We use a fixed Kodak test image, convert it to grayscale and normalize it
 to [0, 1]. All methods operate on this normalized grayscale array.
 
-.. GENERATED FROM PYTHON SOURCE LINES 234-259
+.. GENERATED FROM PYTHON SOURCE LINES 241-266
 
 .. code-block:: Python
 
@@ -300,7 +307,7 @@ to [0, 1]. All methods operate on this normalized grayscale array.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 260-265
+.. GENERATED FROM PYTHON SOURCE LINES 267-272
 
 Original Image
 --------------
@@ -308,7 +315,7 @@ Original Image
 For reference, we display the grayscale image that will be used throughout
 the benchmark.
 
-.. GENERATED FROM PYTHON SOURCE LINES 265-273
+.. GENERATED FROM PYTHON SOURCE LINES 272-280
 
 .. code-block:: Python
 
@@ -332,7 +339,7 @@ the benchmark.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 274-284
+.. GENERATED FROM PYTHON SOURCE LINES 281-291
 
 Round-trip Runners
 ------------------
@@ -345,7 +352,7 @@ We will run the full benchmark twice:
 - once for **cubic** interpolation,
 - once for **linear** interpolation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 284-506
+.. GENERATED FROM PYTHON SOURCE LINES 291-513
 
 .. code-block:: Python
 
@@ -578,7 +585,7 @@ We will run the full benchmark twice:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 507-514
+.. GENERATED FROM PYTHON SOURCE LINES 514-521
 
 Zoom Sweep
 ----------
@@ -588,7 +595,7 @@ size after a forward/backward round-trip (using simple rounding).
 
 We exclude zoom factors too close to 1.0 to avoid trivial "identity" spikes.
 
-.. GENERATED FROM PYTHON SOURCE LINES 514-540
+.. GENERATED FROM PYTHON SOURCE LINES 521-547
 
 .. code-block:: Python
 
@@ -631,12 +638,15 @@ We exclude zoom factors too close to 1.0 to avoid trivial "identity" spikes.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 541-543
+.. GENERATED FROM PYTHON SOURCE LINES 548-553
 
 Method Construction
 -------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 543-675
+Group the available implementations by interpolation degree and antialiasing
+choice.
+
+.. GENERATED FROM PYTHON SOURCE LINES 553-685
 
 .. code-block:: Python
 
@@ -779,12 +789,15 @@ Method Construction
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 676-678
+.. GENERATED FROM PYTHON SOURCE LINES 686-691
 
 Plotting Helpers
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 678-874
+Create consistent timing and quality plots from the measurements collected across
+zoom factors.
+
+.. GENERATED FROM PYTHON SOURCE LINES 691-887
 
 .. code-block:: Python
 
@@ -991,12 +1004,15 @@ Plotting Helpers
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 875-877
+.. GENERATED FROM PYTHON SOURCE LINES 888-893
 
 Benchmark for Cubic Degree
 --------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 877-880
+Run the zoom sweep with cubic methods before comparing their runtime and
+reconstruction quality.
+
+.. GENERATED FROM PYTHON SOURCE LINES 893-896
 
 .. code-block:: Python
 
@@ -1017,12 +1033,15 @@ Benchmark for Cubic Degree
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 881-883
+.. GENERATED FROM PYTHON SOURCE LINES 897-902
 
 Time Comparison (Downsampling Only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 883-887
+Compare roundtrip runtimes for zoom factors below one, where the first resize
+shrinks the image.
+
+.. GENERATED FROM PYTHON SOURCE LINES 902-906
 
 .. code-block:: Python
 
@@ -1042,12 +1061,15 @@ Time Comparison (Downsampling Only)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 888-890
+.. GENERATED FROM PYTHON SOURCE LINES 907-912
 
 Time Comparison (Full)
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 890-893
+Compare roundtrip runtimes across the full zoom range, including shrinking and
+enlargement.
+
+.. GENERATED FROM PYTHON SOURCE LINES 912-915
 
 .. code-block:: Python
 
@@ -1066,12 +1088,15 @@ Time Comparison (Full)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 894-896
+.. GENERATED FROM PYTHON SOURCE LINES 916-921
 
 SNR Comparison (Downsampling Only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 896-899
+Compare reconstruction SNR for zoom factors below one, where aliasing is a
+particular concern.
+
+.. GENERATED FROM PYTHON SOURCE LINES 921-924
 
 .. code-block:: Python
 
@@ -1090,12 +1115,15 @@ SNR Comparison (Downsampling Only)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 900-902
+.. GENERATED FROM PYTHON SOURCE LINES 925-930
 
 SNR Comparison (Full)
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 902-905
+Compare reconstruction SNR across the full zoom range; higher values mean less
+error relative to the reference.
+
+.. GENERATED FROM PYTHON SOURCE LINES 930-933
 
 .. code-block:: Python
 
@@ -1114,12 +1142,14 @@ SNR Comparison (Full)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 906-908
+.. GENERATED FROM PYTHON SOURCE LINES 934-938
 
 SSIM Comparison (Downsampling Only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 908-911
+Compare structural similarity after shrink-and-reconstruct roundtrips.
+
+.. GENERATED FROM PYTHON SOURCE LINES 938-941
 
 .. code-block:: Python
 
@@ -1138,12 +1168,15 @@ SSIM Comparison (Downsampling Only)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 912-914
+.. GENERATED FROM PYTHON SOURCE LINES 942-947
 
 SSIM Comparison (Full)
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 914-917
+Compare structural similarity across all tested zoom factors; values closer to one
+indicate greater similarity.
+
+.. GENERATED FROM PYTHON SOURCE LINES 947-950
 
 .. code-block:: Python
 
@@ -1162,12 +1195,15 @@ SSIM Comparison (Full)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 918-920
+.. GENERATED FROM PYTHON SOURCE LINES 951-956
 
 Benchmark for Linear Degree
 ---------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 920-923
+Repeat the zoom sweep with linear methods to show the effect of interpolation
+degree.
+
+.. GENERATED FROM PYTHON SOURCE LINES 956-959
 
 .. code-block:: Python
 
@@ -1188,12 +1224,15 @@ Benchmark for Linear Degree
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 924-926
+.. GENERATED FROM PYTHON SOURCE LINES 960-965
 
 Time Comparison (Downsampling Only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 926-930
+Compare roundtrip runtimes for zoom factors below one, where the first resize
+shrinks the image.
+
+.. GENERATED FROM PYTHON SOURCE LINES 965-969
 
 .. code-block:: Python
 
@@ -1213,12 +1252,15 @@ Time Comparison (Downsampling Only)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 931-933
+.. GENERATED FROM PYTHON SOURCE LINES 970-975
 
 Time Comparison (Full)
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 933-936
+Compare roundtrip runtimes across the full zoom range, including shrinking and
+enlargement.
+
+.. GENERATED FROM PYTHON SOURCE LINES 975-978
 
 .. code-block:: Python
 
@@ -1237,12 +1279,15 @@ Time Comparison (Full)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 937-939
+.. GENERATED FROM PYTHON SOURCE LINES 979-984
 
 SNR Comparison (Downsampling Only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 939-942
+Compare reconstruction SNR for zoom factors below one, where aliasing is a
+particular concern.
+
+.. GENERATED FROM PYTHON SOURCE LINES 984-987
 
 .. code-block:: Python
 
@@ -1261,12 +1306,15 @@ SNR Comparison (Downsampling Only)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 943-945
+.. GENERATED FROM PYTHON SOURCE LINES 988-993
 
 SNR Comparison (Full)
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 945-948
+Compare reconstruction SNR across the full zoom range; higher values mean less
+error relative to the reference.
+
+.. GENERATED FROM PYTHON SOURCE LINES 993-996
 
 .. code-block:: Python
 
@@ -1285,12 +1333,14 @@ SNR Comparison (Full)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 949-951
+.. GENERATED FROM PYTHON SOURCE LINES 997-1001
 
 SSIM Comparison (Downsampling Only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 951-954
+Compare structural similarity after shrink-and-reconstruct roundtrips.
+
+.. GENERATED FROM PYTHON SOURCE LINES 1001-1004
 
 .. code-block:: Python
 
@@ -1309,12 +1359,15 @@ SSIM Comparison (Downsampling Only)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 955-957
+.. GENERATED FROM PYTHON SOURCE LINES 1005-1010
 
 SSIM Comparison (Full)
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 957-960
+Compare structural similarity across all tested zoom factors; values closer to one
+indicate greater similarity.
+
+.. GENERATED FROM PYTHON SOURCE LINES 1010-1013
 
 .. code-block:: Python
 
@@ -1333,7 +1386,7 @@ SSIM Comparison (Full)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 961-966
+.. GENERATED FROM PYTHON SOURCE LINES 1014-1019
 
 Runtime Context
 ---------------
@@ -1341,7 +1394,7 @@ Runtime Context
 Finally, we print a short summary of the runtime environment and the storage
 dtype used for the benchmark.
 
-.. GENERATED FROM PYTHON SOURCE LINES 966-970
+.. GENERATED FROM PYTHON SOURCE LINES 1019-1023
 
 .. code-block:: Python
 
@@ -1361,7 +1414,7 @@ dtype used for the benchmark.
       Python      : 3.12.15 (CPython)
       OS          : Linux 7.0.0-1017-azure (x86_64)
       CPU         : x86_64 | logical cores: 4
-      Process     : pid=2500 | Python threads=1 | OS threads=17
+      Process     : pid=2646 | Python threads=1 | OS threads=17
       NumPy/SciPy : 2.5.4/1.18.1
       Matplotlib  : 3.11.2 | backend: agg
       splineops   : 2.3.0 | native ext present: True
@@ -1376,7 +1429,7 @@ dtype used for the benchmark.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (5 minutes 30.124 seconds)
+   **Total running time of the script:** (5 minutes 34.421 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_07_benchmarking_plot.py:

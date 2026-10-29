@@ -7,7 +7,9 @@
 Smoothing Splines Examples
 ==========================
 
-Examples using the Smoothing splines module.
+Reduce noise in signals, images, and volumes. Compare fractional, periodic N-D, and
+recursive smoothers while keeping their different operators and boundaries explicit.
+
 
 .. raw:: html
 
@@ -22,7 +24,7 @@ Examples using the Smoothing splines module.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We use the smooth module to smooth a 1D fractional Brownian motion signal.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Generate a noisy fractional Brownian signal and recover its trend with a fractional smoothing spline.">
 
 .. only:: html
 
@@ -39,7 +41,7 @@ Examples using the Smoothing splines module.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We use the smooth module to smooth a 2D grayscale image, with strong visible noise.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Denoise a grayscale image with periodic smoothing and compare image detail and signal-to-noise ratio.">
 
 .. only:: html
 
@@ -56,7 +58,7 @@ Examples using the Smoothing splines module.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We use the smooth module to smooth N-dimensional data.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Smooth a noisy synthetic 3-D volume and compare central slices against its known clean signal.">
 
 .. only:: html
 
@@ -73,7 +75,7 @@ Examples using the Smoothing splines module.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We plot a recursive smoothing spline with different parameters.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Compare regularization strengths in a recursive first-order smoother for noisy 1-D data.">
 
 .. only:: html
 

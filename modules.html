@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=f56efcf3" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=28575662" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
@@ -53,7 +53,7 @@
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modules';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <link rel="icon" href="_static/logo.ico"/>
+    <link rel="icon" href="_static/favicon.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="User guide" href="user-guide/index.html" />
@@ -133,8 +133,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt=""/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
   
   
     <p class="title logo__title">SplineOps</p>
@@ -174,14 +174,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -272,10 +272,6 @@
   
 
   
-    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
 </div>
 
     </header>
@@ -325,14 +321,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -417,8 +413,8 @@
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="user-guide/index.html">User guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user-guide/02_resize.html">Resize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user-guide/01_spline_interpolation.html">Spline Interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-guide/02_resize.html">Resize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user-guide/03_affine.html">Affine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user-guide/04_adaptive_regression_splines.html">Adaptive Regression Splines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user-guide/05_smoothing_splines.html">Smoothing Splines</a></li>
@@ -484,55 +480,38 @@
                   
   <section id="modules">
 <h1>Modules<a class="headerlink" href="#modules" title="Link to this heading">#</a></h1>
-<p>SplineOps keeps its spline tools as independent public modules.  Their
-maturity labels describe API and validation stability, not the importance of
-the underlying methods.</p>
-<section id="stable">
-<h2>Stable<a class="headerlink" href="#stable" title="Link to this heading">#</a></h2>
+<p>Choose a tool for your task. All seven modules have stable NumPy/CPU APIs in
+SplineOps 2.3, with explicit numerical contracts. See <a class="reference internal" href="project-status.html"><span class="doc">API stability and support</span></a>
+for supported precision, dimensions, and boundaries.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Resize and ResizePlan</div>
-<p class="sd-card-text">Native N-D interpolation and projection antialiasing, with explicit
-grids, axes, boundaries, output buffers, and a Python reference path.</p>
-</div>
-<a class="sd-stretched-link sd-hide-link-text reference internal" href="user-guide/02_resize.html"><span class="doc">Resize</span></a></div>
-</div>
-</div>
-</div>
-</section>
-<section id="stabilizing">
-<h2>Stabilizing<a class="headerlink" href="#stabilizing" title="Link to this heading">#</a></h2>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-3 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 TensorSpline</div>
-<p class="sd-card-text">Continuous tensor-product spline models evaluated at arbitrary
-coordinates.</p>
+<p class="sd-card-text">Build a continuous model from uniform samples and evaluate it at
+arbitrary points or grids. Reuse geometry across changing data.</p>
 </div>
 <a class="sd-stretched-link sd-hide-link-text reference internal" href="user-guide/01_spline_interpolation.html"><span class="doc">Spline Interpolation</span></a></div>
 </div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Resize</div>
+<p class="sd-card-text">Resize N-D arrays with interpolation or projection antialiasing.
+Reuse fixed geometry with ResizePlan.</p>
 </div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="user-guide/02_resize.html"><span class="doc">Resize</span></a></div>
 </div>
-</section>
-<section id="research-modules">
-<h2>Research modules<a class="headerlink" href="#research-modules" title="Link to this heading">#</a></h2>
-<p>These modules are experimental.  Their APIs or validation contracts may
-change while their individual graduation audits remain open.</p>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-3 sd-row-cols-xs-3 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Affine</div>
-<p class="sd-card-text">Spline-evaluated 2-D and 3-D geometric transforms.</p>
+<p class="sd-card-text">Rotate, shear, scale, and translate 2-D images or 3-D volumes.
+Share spline coefficients across transforms.</p>
 </div>
 <a class="sd-stretched-link sd-hide-link-text reference internal" href="user-guide/03_affine.html"><span class="doc">Affine</span></a></div>
 </div>
@@ -541,7 +520,8 @@ Affine</div>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Differentials</div>
-<p class="sd-card-text">Gradients, Hessians, Laplacians, and derived features.</p>
+<p class="sd-card-text">Compute cubic-spline gradients, Hessians, Laplacians, and derived
+features with explicit physical spacing.</p>
 </div>
 <a class="sd-stretched-link sd-hide-link-text reference internal" href="user-guide/06_differentials.html"><span class="doc">Differentials</span></a></div>
 </div>
@@ -550,7 +530,8 @@ Differentials</div>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Smoothing splines</div>
-<p class="sd-card-text">Fractional and regularized smoothing methods.</p>
+<p class="sd-card-text">Smooth real signals and arrays with fractional, radial FFT, or
+recursive methods. Choose the formulation and boundaries explicitly.</p>
 </div>
 <a class="sd-stretched-link sd-hide-link-text reference internal" href="user-guide/05_smoothing_splines.html"><span class="doc">Smoothing Splines</span></a></div>
 </div>
@@ -559,7 +540,8 @@ Smoothing splines</div>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Adaptive regression</div>
-<p class="sd-card-text">Sparse one-dimensional piecewise-linear models.</p>
+<p class="sd-card-text">Fit sparse piecewise-linear models to 1-D observations and inspect
+convergence along a regularization path.</p>
 </div>
 <a class="sd-stretched-link sd-hide-link-text reference internal" href="user-guide/04_adaptive_regression_splines.html"><span class="doc">Adaptive Regression Splines</span></a></div>
 </div>
@@ -568,24 +550,17 @@ Adaptive regression</div>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Multiscale</div>
-<p class="sd-card-text">Spline pyramids and wavelet transforms.</p>
+<p class="sd-card-text">Build spline pyramids and decompose images with Haar or spline
+wavelets. Order-5 wavelets use documented approximate taps.</p>
 </div>
 <a class="sd-stretched-link sd-hide-link-text reference internal" href="user-guide/07_multiscale.html"><span class="doc">Multiscale</span></a></div>
 </div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Module maturity</div>
-<p class="sd-card-text">Exact support boundaries, evidence, and remaining graduation work.</p>
-</div>
-<a class="sd-stretched-link sd-hide-link-text reference internal" href="project-status.html"><span class="doc">Project status and evidence</span></a></div>
 </div>
 </div>
-</div>
+<p>See the <a class="reference internal" href="examples.html"><span class="doc">Examples</span></a> for runnable illustrations and
+<a class="reference internal" href="consolidation-recipes.html"><span class="doc">Reusable workflow recipes</span></a> for workflows combining several modules.</p>
 <div class="toctree-wrapper compound">
 </div>
-</section>
 </section>
 
 
@@ -622,35 +597,6 @@ Module maturity</div>
             </div>
             
             
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stable">Stable</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilizing">Stabilizing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-modules">Research modules</a></li>
-</ul>
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
-
-  <div class="tocsection sourcelink">
-    <a href="_sources/modules.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
-
-</div></div>
               
             
           </div>

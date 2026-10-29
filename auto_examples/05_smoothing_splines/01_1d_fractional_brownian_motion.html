@@ -28,7 +28,7 @@
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css?v=28575662" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script defer="" src="../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,7 +43,7 @@
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/05_smoothing_splines/01_1d_fractional_brownian_motion';</script>
 <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-<link href="../../_static/logo.ico" rel="icon"/>
+<link href="../../_static/favicon.svg" rel="icon"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="02_2d_image_smoothing.html" rel="next" title="2D Image Smoothing"/>
@@ -79,8 +79,8 @@
 <div class="col-lg-3 navbar-header-items__start">
 <div class="navbar-item">
 <a class="navbar-brand logo" href="../../index.html">
-<img alt="" class="logo__image only-light" src="../../_static/logo.png"/>
-<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.png"/>
+<img alt="" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
 <p class="title logo__title">SplineOps</p>
 </a></div>
 </div>
@@ -106,12 +106,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -191,12 +191,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -283,9 +283,11 @@
 
 <section class="sphx-glr-example-title" id="d-fractional-brownian-motion">
 <span id="sphx-glr-auto-examples-05-smoothing-splines-01-1d-fractional-brownian-motion-py"></span><h1>1D Fractional Brownian Motion<a class="headerlink" href="#d-fractional-brownian-motion" title="Link to this heading">#</a></h1>
-<p>We use the smooth module to smooth a 1D fractional Brownian motion signal.</p>
+<p>Generate a noisy fractional Brownian signal and recover its trend with a fractional
+smoothing spline.</p>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>Import the smoothing functions and tools for generating or displaying the data.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="kn">import</span><span class="w"> </span><span class="nn">math</span><span class="w">
 </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="w">
 </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="nn">.</span><span class="nn">pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span><span class="w">
@@ -377,11 +379,11 @@ The sequence is then denoised and oversampled by a factor m using the optimal fr
 </span></pre></div></div>
 <img alt="Estimation of fBm (H = 0.7, ε_H^2 = 1, σ_N^2 = 8.8707)" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_1d_fractional_brownian_motion_001.png" srcset="../../_images/sphx_glr_01_1d_fractional_brownian_motion_001.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Number of measurements is 256, oversampling factor is 4.
 mSNR (SNR at the mid-point) of the measured sequence      is 20.00 dB.
-mSNR improvement of the denoised sequence                 is 7.54 dB.
-mSNR improvement of the denoised and oversampled sequence is 7.44 dB.
+mSNR improvement of the denoised sequence                 is 7.89 dB.
+mSNR improvement of the denoised and oversampled sequence is 7.91 dB.
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.129 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.177 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

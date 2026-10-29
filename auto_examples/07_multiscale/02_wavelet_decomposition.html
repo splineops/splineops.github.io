@@ -28,7 +28,7 @@
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css?v=28575662" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script defer="" src="../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,7 +43,7 @@
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/07_multiscale/02_wavelet_decomposition';</script>
 <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-<link href="../../_static/logo.ico" rel="icon"/>
+<link href="../../_static/favicon.svg" rel="icon"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="../08_workflows/index.html" rel="next" title="End-to-end workflows"/>
@@ -79,8 +79,8 @@
 <div class="col-lg-3 navbar-header-items__start">
 <div class="navbar-item">
 <a class="navbar-brand logo" href="../../index.html">
-<img alt="" class="logo__image only-light" src="../../_static/logo.png"/>
-<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.png"/>
+<img alt="" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
 <p class="title logo__title">SplineOps</p>
 </a></div>
 </div>
@@ -106,12 +106,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -191,12 +191,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -283,10 +283,10 @@
 
 <section class="sphx-glr-example-title" id="wavelet-decomposition">
 <span id="sphx-glr-auto-examples-07-multiscale-02-wavelet-decomposition-py"></span><h1>Wavelet Decomposition<a class="headerlink" href="#wavelet-decomposition" title="Link to this heading">#</a></h1>
-<p>This example demonstrates how to use the
-Haar wavelet decomposition (analysis &amp; synthesis) in 2D.</p>
+<p>Inspect Haar detail bands at several scales and reconstruct the original image.</p>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>Import the multiscale transforms together with array and plotting utilities.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="w">
 </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="nn">.</span><span class="nn">pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span><span class="w">
 </span><span class="w">
@@ -459,6 +459,8 @@ Max error after 3-scale decomposition: 1.3322676295501878e-15
 </div>
 <section id="level-decomposition">
 <h3>1-Level Decomposition<a class="headerlink" href="#level-decomposition" title="Link to this heading">#</a></h3>
+<p>Apply one wavelet level, inspect the detail bands, and compare the reconstructed
+image with the original.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">wavelet1</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">HaarWavelets</span></a><span class="p">(</span><span class="n">scales</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs1</span></a> <span class="o">=</span> <span class="n">pyramid_with_quadrant_embedding_levels</span><span class="p">(</span><a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">wavelet1</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="w">
 </span><span class="w">
@@ -478,6 +480,8 @@ Max error after 3-scale decomposition: 1.3322676295501878e-15
 <img alt="Haar 1-Level Decomposition" class="sphx-glr-single-img" src="../../_images/sphx_glr_02_wavelet_decomposition_001.png" srcset="../../_images/sphx_glr_02_wavelet_decomposition_001.png"/></section>
 <section id="id1">
 <h3>2-Level Decomposition<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Apply 2 wavelet levels, inspect the detail bands, and compare the reconstructed
+image with the original.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">wavelet2</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">HaarWavelets</span></a><span class="p">(</span><span class="n">scales</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs2</span></a> <span class="o">=</span> <span class="n">pyramid_with_quadrant_embedding_levels</span><span class="p">(</span><a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">wavelet2</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="w">
 </span><span class="w">
@@ -497,6 +501,8 @@ Max error after 3-scale decomposition: 1.3322676295501878e-15
 <img alt="Haar 2-Level Decomposition" class="sphx-glr-single-img" src="../../_images/sphx_glr_02_wavelet_decomposition_002.png" srcset="../../_images/sphx_glr_02_wavelet_decomposition_002.png"/></section>
 <section id="id2">
 <h3>3-Level Decomposition<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Apply 3 wavelet levels, inspect the detail bands, and compare the reconstructed
+image with the original.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">wavelet3</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">HaarWavelets</span></a><span class="p">(</span><span class="n">scales</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">coeffs3</span></a> <span class="o">=</span> <span class="n">pyramid_with_quadrant_embedding_levels</span><span class="p">(</span><a class="sphx-glr-backref-module-splineops-multiscale-wavelets-haar sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/07_multiscale.html#splineops.multiscale.wavelets.haar.HaarWavelets" title="splineops.multiscale.wavelets.haar.HaarWavelets"><span class="n">wavelet3</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="w">
 </span><span class="w">
@@ -513,7 +519,7 @@ Max error after 3-scale decomposition: 1.3322676295501878e-15
 </span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="matplotlib.pyplot.tight_layout"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">(</span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">(</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img alt="Haar 3-Level Decomposition" class="sphx-glr-single-img" src="../../_images/sphx_glr_02_wavelet_decomposition_003.png" srcset="../../_images/sphx_glr_02_wavelet_decomposition_003.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.258 seconds)</p>
+<img alt="Haar 3-Level Decomposition" class="sphx-glr-single-img" src="../../_images/sphx_glr_02_wavelet_decomposition_003.png" srcset="../../_images/sphx_glr_02_wavelet_decomposition_003.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.628 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

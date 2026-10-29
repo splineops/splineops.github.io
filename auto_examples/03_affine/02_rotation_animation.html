@@ -28,7 +28,7 @@
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css?v=28575662" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script defer="" src="../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,7 +43,7 @@
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/03_affine/02_rotation_animation';</script>
 <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-<link href="../../_static/logo.ico" rel="icon"/>
+<link href="../../_static/favicon.svg" rel="icon"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="../04_adaptive_regression_splines/index.html" rel="next" title="Adaptive Regression Splines Examples"/>
@@ -79,8 +79,8 @@
 <div class="col-lg-3 navbar-header-items__start">
 <div class="navbar-item">
 <a class="navbar-brand logo" href="../../index.html">
-<img alt="" class="logo__image only-light" src="../../_static/logo.png"/>
-<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.png"/>
+<img alt="" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
 <p class="title logo__title">SplineOps</p>
 </a></div>
 </div>
@@ -106,12 +106,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -191,12 +191,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -283,9 +283,10 @@
 
 <section class="sphx-glr-example-title" id="rotation-animation">
 <span id="sphx-glr-auto-examples-03-affine-02-rotation-animation-py"></span><h1>Rotation Animation<a class="headerlink" href="#rotation-animation" title="Link to this heading">#</a></h1>
-<p>We use the rotate module to rotate a 2D image.</p>
+<p>Animate a full image rotation and explore how spline degree affects interpolation.</p>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>Import image-loading, plotting, and affine-rotation tools.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="w">
 </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="nn">.</span><span class="nn">pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span><span class="w">
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">animation</span><span class="w">
@@ -4137,8 +4138,8 @@ Ucw8X3XG2XPY2KawgEBNZ+NoOLhWUBOSy1fKAzPhuu46h8ansA0e+9Oy3hl8kMYtUBQwdR5J4H3B
 1+YhWljxudVwuPSgdia4LuVxAviL92Bp9SfuHGcyywwulPxYlxLgH5sc12RaPat6A2dxcz3KQtHM
 eHQBhWXdE1z46R2+OZpptG02NaMCIJh6nq1o3pAf1PrfpnHRocGze8Oq/Pwe9VskUFf4ruNtnQNf
 pQaEUqPMp20d4K3ayibM+gTMNDi7M9AWLKUFD++Yyxra+jIAzMrME4RYLo5/5ZBBx3HSuqwvaNsH
-dtaLsWentMEAsDQDnWH3+qnmO1jBSBqFkLQxsDy03FGSVRbH6vqp0UBe1r/DwuB2m5NMXJOKi1f3
-tvGqF1W/W017KbW51IPYo7HX1vSceGTRQIFwyPp8xyBj+DZRYmeFstW5dlJdHqgyt1q35RjHsbs3
+dtaLsWentMEAsDQDnWH3+qnmO1jBSBqFkLQxsDy03FGSVRbH6vqp0UBe1r/DwuB2m5NMXJOMS1f3
+tvGqF1y/W017KbW51IPYo7HX1vSceGTRQIFwyPp8xyBj+DZRYmeFstW5dlJdHqgyt1q35RjHsbs3
 HYjJlYZK0xgja3fm4cy/MlUwooaFE2IOjaE6946G5tQxSbPq9OgEeHzdvnANIiGUDE1memYe+o5k
 rspt/DmEr3TvZ9GL/uso310r6DU9Nr24AmKvKnwCvepxAj6Cjz65ZJa5qGr/1/tJ84BMp1YNKIkv
 J/8aTEy79+/gDO8U/zgETxJ+ai56miWATlh7yV+kaNER7Uw9eIn4+Equ0+QpPafZ04bIaQFjSbY2
@@ -31684,7 +31685,7 @@ Does nothing when the file is run normally by users.</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>(PosixPath('/home/runner/work/splineops/splineops/docs/_build/_generated_static/animations/rotation_animation.mp4'), PosixPath('/home/runner/work/splineops/splineops/docs/_build/_generated_static/animations/rotation_animation.html'))
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 29.630 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 33.213 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

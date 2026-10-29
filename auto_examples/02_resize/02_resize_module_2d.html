@@ -28,7 +28,7 @@
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css?v=28575662" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script defer="" src="../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,7 +43,7 @@
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/02_resize/02_resize_module_2d';</script>
 <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-<link href="../../_static/logo.ico" rel="icon"/>
+<link href="../../_static/favicon.svg" rel="icon"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="03_standard_interpolation.html" rel="next" title="Standard Interpolation"/>
@@ -79,8 +79,8 @@
 <div class="col-lg-3 navbar-header-items__start">
 <div class="navbar-item">
 <a class="navbar-brand logo" href="../../index.html">
-<img alt="" class="logo__image only-light" src="../../_static/logo.png"/>
-<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.png"/>
+<img alt="" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
 <p class="title logo__title">SplineOps</p>
 </a></div>
 </div>
@@ -106,12 +106,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -191,12 +191,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -283,7 +283,7 @@
 
 <section class="sphx-glr-example-title" id="resize-module-2d">
 <span id="sphx-glr-auto-examples-02-resize-02-resize-module-2d-py"></span><h1>Resize Module 2D<a class="headerlink" href="#resize-module-2d" title="Link to this heading">#</a></h1>
-<p>Shrink and re-expand a 2-D RGB image with splineops, then discuss aliasing.</p>
+<p>Resize an RGB image and use detail views and an animation to inspect aliasing.</p>
 <p>We start with a minimal example that calls <a class="reference internal" href="../../api/02_resize.html#splineops.resize.resize" title="splineops.resize.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">splineops.resize.resize()</span></code></a>
 directly on a single channel of the image, then move on to an RGB example
 with ROIs:</p>
@@ -299,13 +299,14 @@ show up as Moiré or ripple patterns. The antialiasing preset adds a
 matched low-pass step to suppress these artefacts.</p>
 <section id="imports-and-helpers">
 <h2>Imports and Helpers<a class="headerlink" href="#imports-and-helpers" title="Link to this heading">#</a></h2>
+<p>Load the resize and plotting tools, then define shared helpers for image
+comparisons and animations.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="w">
 </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="nn">.</span><span class="nn">pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span><span class="w">
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">patches</span><span class="w">
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">urllib</span><span class="nn">.</span><span class="nn">request</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-urllib-request sphx-glr-backref-type-py-function reference external" href="https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen" title="urllib.request.urlopen"><span class="n">urlopen</span></a><span class="w">
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="w">
 </span><span class="w">
-</span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="nn">.</span><span class="nn">ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">zoom</span> <span class="k">as</span> <span class="n">ndi_zoom</span>  <span class="c1"># kept for reference, not used in 2D plots</span><span class="w">
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops</span><span class="nn">.</span><a class="sphx-glr-backref-module-splineops sphx-glr-backref-type-py-function reference internal" href="../../api/02_resize.html#splineops.resize.resize" title="splineops.resize"><span class="nn">resize</span></a><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-splineops sphx-glr-backref-type-py-function reference internal" href="../../api/02_resize.html#splineops.resize.resize" title="splineops.resize"><span class="n">resize</span></a>  <span class="c1"># core N-D spline resizer</span><span class="w">
 </span><span class="w">
 </span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-method reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict.update" title="dict.update"><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span></a><span class="p">(</span><span class="w">
@@ -16333,7 +16334,7 @@ No-op when run normally by users.</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>(PosixPath('/home/runner/work/splineops/splineops/docs/_build/_generated_static/animations/resize_module_2d_cubic_vs_aa.mp4'), PosixPath('/home/runner/work/splineops/splineops/docs/_build/_generated_static/animations/resize_module_2d_cubic_vs_aa.html'))
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 50.308 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 51.293 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

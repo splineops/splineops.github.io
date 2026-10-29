@@ -21,14 +21,16 @@
 Class TensorSpline
 ==================
 
-Showcase TensorSpline class basic functionality.
+Build a continuous spline from 2-D samples and evaluate it on a finer grid.
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-15
+.. GENERATED FROM PYTHON SOURCE LINES 13-17
 
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-20
+Import the array, plotting, and spline tools used in the steps below.
+
+.. GENERATED FROM PYTHON SOURCE LINES 17-22
 
 .. code-block:: Python
 
@@ -44,14 +46,14 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 21-25
+.. GENERATED FROM PYTHON SOURCE LINES 23-27
 
 Data Preparation
 ----------------
 
 General configuration and sample data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-38
+.. GENERATED FROM PYTHON SOURCE LINES 27-40
 
 .. code-block:: Python
 
@@ -75,14 +77,14 @@ General configuration and sample data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-43
+.. GENERATED FROM PYTHON SOURCE LINES 41-45
 
 TensorSpline Setup
 ------------------
 
 Configure bases and modes for TensorSpline.
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-50
+.. GENERATED FROM PYTHON SOURCE LINES 45-52
 
 .. code-block:: Python
 
@@ -100,14 +102,14 @@ Configure bases and modes for TensorSpline.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-55
+.. GENERATED FROM PYTHON SOURCE LINES 53-57
 
 Evaluation Coordinates
 ----------------------
 
 Define evaluation coordinates to extend and oversample the original grid.
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-65
+.. GENERATED FROM PYTHON SOURCE LINES 57-67
 
 .. code-block:: Python
 
@@ -128,14 +130,14 @@ Define evaluation coordinates to extend and oversample the original grid.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-70
+.. GENERATED FROM PYTHON SOURCE LINES 68-72
 
 Interpolation and Visualization
 -------------------------------
 
 Perform interpolation and visualize the original and interpolated data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-89
+.. GENERATED FROM PYTHON SOURCE LINES 72-91
 
 .. code-block:: Python
 
@@ -170,7 +172,7 @@ Perform interpolation and visualize the original and interpolated data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 90-97
+.. GENERATED FROM PYTHON SOURCE LINES 92-99
 
 Experimental CuPy probe
 -----------------------
@@ -180,7 +182,7 @@ CuPy and a CUDA device are available.  It is not a supported-backend or
 device-residency claim: some boundary paths can transfer through CPU code,
 and the full basis/mode matrix is not covered by dedicated GPU CI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-143
+.. GENERATED FROM PYTHON SOURCE LINES 99-145
 
 .. code-block:: Python
 
@@ -246,7 +248,7 @@ and the full basis/mode matrix is not covered by dedicated GPU CI.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.193 seconds)
+   **Total running time of the script:** (0 minutes 0.219 seconds)
 
 
 .. _sphx_glr_download_auto_examples_01_spline_interpolation_01_tensorspline_class.py:

@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Project &#8212; splineops 2.3.0 documentation</title>
+    <title>About &#8212; splineops 2.3.0 documentation</title>
   
   
   
@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=f56efcf3" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=28575662" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
@@ -53,11 +53,11 @@
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'project';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <link rel="icon" href="_static/logo.ico"/>
+    <link rel="icon" href="_static/favicon.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Method and source provenance" href="provenance.html" />
-    <link rel="prev" title="Backend support contract" href="backend-support.html" />
+    <link rel="next" title="API stability and support" href="project-status.html" />
+    <link rel="prev" title="Claims and evidence" href="claims.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
@@ -133,8 +133,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt=""/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
   
   
     <p class="title logo__title">SplineOps</p>
@@ -174,14 +174,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="#" aria-current="page">
-    Project
+    About
   </a>
 </li>
 
@@ -272,10 +272,6 @@
   
 
   
-    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
 </div>
 
     </header>
@@ -325,14 +321,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="#" aria-current="page">
-    Project
+    About
   </a>
 </li>
 
@@ -416,13 +412,15 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="project-status.html">API stability and support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backend-support.html">Backend support contract</a></li>
 <li class="toctree-l1"><a class="reference internal" href="provenance.html">Method and source provenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasing.html">Release validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graduation-audits.html">2.3 numerical API review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal-contracts.html">Internal numerical contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stability-soak.html">Stability-soak workflows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roadmap.html">Development roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="progress.html">Progress so far</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stability-soak.html">Stability-soak workflows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="graduation-audits.html">Affine and Differentials graduation audits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internal-contracts.html">Internal numerical contracts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="releasing.html">Release validation</a></li>
 </ul>
 </div>
 </nav></div>
@@ -463,7 +461,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Project</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">About</span></li>
   </ul>
 </nav>
 </div>
@@ -480,18 +478,30 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="project">
-<h1>Project<a class="headerlink" href="#project" title="Link to this heading">#</a></h1>
-<p>SplineOps records method lineage, provenance, maturity decisions, compatibility
-work, and remaining graduation gates alongside the user-facing package.</p>
+  <section id="about">
+<h1>About<a class="headerlink" href="#about" title="Link to this heading">#</a></h1>
+<p>SplineOps brings spline methods from EPFL’s Biomedical Imaging Group and its
+collaborators into a Python library for scientific arrays. The project is
+distributed under the BSD 3-Clause license.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-3 sd-row-cols-xs-3 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-3 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
-Provenance</div>
-<p class="sd-card-text">Research lineage, implementation sources, and authorship records.</p>
+API stability and support</div>
+<p class="sd-card-text">Supported modules, precision and boundary contracts, and compatibility
+commitments for the 2.x series.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="project-status.html"><span class="doc">API stability and support</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Research and attribution</div>
+<p class="sd-card-text">Original methods, authors, implementation sources, and references
+for citing the work behind SplineOps.</p>
 </div>
 <a class="sd-stretched-link sd-hide-link-text reference internal" href="provenance.html"><span class="doc">Method and source provenance</span></a></div>
 </div>
@@ -499,24 +509,42 @@ Provenance</div>
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
-Roadmap</div>
-<p class="sd-card-text">Ordered work packages and explicit completion gates.</p>
+Release notes</div>
+<p class="sd-card-text">New features, numerical corrections, compatibility notes, and
+changes between versions.</p>
 </div>
-<a class="sd-stretched-link sd-hide-link-text reference internal" href="roadmap.html"><span class="doc">Development roadmap</span></a></div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Progress</div>
-<p class="sd-card-text">Consolidated stabilization and evidence status.</p>
-</div>
-<a class="sd-stretched-link sd-hide-link-text reference internal" href="progress.html"><span class="doc">Progress so far</span></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference external" href="https://github.com/splineops/splineops/blob/main/CHANGELOG.md"><span>https://github.com/splineops/splineops/blob/main/CHANGELOG.md</span></a></div>
 </div>
 </div>
 </div>
+<section id="get-help-or-contribute">
+<h2>Get help or contribute<a class="headerlink" href="#get-help-or-contribute" title="Link to this heading">#</a></h2>
+<p>Report a problem or propose an improvement in the
+<a class="reference external" href="https://github.com/splineops/splineops/issues">GitHub issue tracker</a>. For a
+numerical issue, include a small reproducible array, the call you made, the
+expected result, and your Python, NumPy, SciPy, and SplineOps versions.</p>
+<p>To work on the library, clone the
+<a class="reference external" href="https://github.com/splineops/splineops">repository</a> and install its
+development dependencies:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">".[dev,docs-core]"</span>
+python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q
+python<span class="w"> </span>-m<span class="w"> </span>tox<span class="w"> </span>-e<span class="w"> </span>format-check,type
+</pre></div>
+</div>
+<p>Numerical changes should include a regression against an independent formula,
+reference implementation, or invariant. See <a class="reference internal" href="internal-contracts.html"><span class="doc">Internal numerical contracts</span></a> before
+sharing numerical machinery across modules, and <a class="reference internal" href="releasing.html"><span class="doc">Release validation</span></a> for the
+full documentation and distribution checks.</p>
+</section>
+<section id="maintainer-records">
+<h2>Maintainer records<a class="headerlink" href="#maintainer-records" title="Link to this heading">#</a></h2>
+<p>The <a class="reference internal" href="graduation-audits.html"><span class="doc">2.3 numerical API review</span></a> explains the current stability decision.
+<a class="reference internal" href="stability-soak.html"><span class="doc">Stability-soak workflows</span></a> records repeated public-API workflows. July’s
+<a class="reference internal" href="roadmap.html"><span class="doc">Development roadmap</span></a> and <a class="reference internal" href="progress.html"><span class="doc">Progress so far</span></a> remain available as historical engineering
+records; the current support contract is <a class="reference internal" href="project-status.html"><span class="doc">API stability and support</span></a>.</p>
 <div class="toctree-wrapper compound">
 </div>
+</section>
 </section>
 
 
@@ -530,20 +558,20 @@ Progress</div>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="backend-support.html"
+       href="claims.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Backend support contract</p>
+        <p class="prev-next-title">Claims and evidence</p>
       </div>
     </a>
     <a class="right-next"
-       href="provenance.html"
+       href="project-status.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Method and source provenance</p>
+        <p class="prev-next-title">API stability and support</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -553,21 +581,6 @@ Progress</div>
             </div>
             
             
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-
-  <div class="tocsection sourcelink">
-    <a href="_sources/project.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
-
-</div></div>
               
             
           </div>

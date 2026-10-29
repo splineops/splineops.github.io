@@ -7,7 +7,9 @@
 Differentials Examples
 ======================
 
-Examples using the Differentials module.
+Turn image intensities into gradients, curvature, and orientation maps. Compare the
+meaning and appearance of each spline-based differential feature.
+
 
 .. raw:: html
 
@@ -22,7 +24,7 @@ Examples using the Differentials module.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we demonstrate how to use the differentiate module to compute different differential operations on an image.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Visualize image gradients, the Laplacian, and Hessian features using spline-based derivatives.">
 
 .. only:: html
 

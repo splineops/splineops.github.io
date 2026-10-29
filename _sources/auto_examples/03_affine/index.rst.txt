@@ -7,7 +7,9 @@
 Affine Examples
 ===============
 
-Examples using the Affine module for data rotation transformations.
+Rotate images with spline interpolation. Start with a single transform, then use the
+animation to explore a full rotation and different spline degrees.
+
 
 .. raw:: html
 
@@ -22,7 +24,7 @@ Examples using the Affine module for data rotation transformations.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We use the rotate module to rotate a 2D image.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Rotate a grayscale image around its center using spline interpolation.">
 
 .. only:: html
 
@@ -39,7 +41,7 @@ Examples using the Affine module for data rotation transformations.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We use the rotate module to rotate a 2D image.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Animate a full image rotation and explore how spline degree affects interpolation.">
 
 .. only:: html
 

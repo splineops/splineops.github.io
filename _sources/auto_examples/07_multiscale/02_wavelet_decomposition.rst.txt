@@ -21,15 +21,16 @@
 Wavelet Decomposition
 =====================
 
-This example demonstrates how to use the
-Haar wavelet decomposition (analysis & synthesis) in 2D.
+Inspect Haar detail bands at several scales and reconstruct the original image.
 
-.. GENERATED FROM PYTHON SOURCE LINES 14-16
+.. GENERATED FROM PYTHON SOURCE LINES 13-17
 
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 16-27
+Import the multiscale transforms together with array and plotting utilities.
+
+.. GENERATED FROM PYTHON SOURCE LINES 17-28
 
 .. code-block:: Python
 
@@ -51,7 +52,7 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-33
+.. GENERATED FROM PYTHON SOURCE LINES 29-34
 
 Load and Normalize a 2D Image
 -----------------------------
@@ -59,7 +60,7 @@ Load and Normalize a 2D Image
 Here, we load an example image from an online repository.
 We convert it to grayscale in [0,1].
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-132
+.. GENERATED FROM PYTHON SOURCE LINES 34-133
 
 .. code-block:: Python
 
@@ -175,7 +176,7 @@ We convert it to grayscale in [0,1].
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 133-138
+.. GENERATED FROM PYTHON SOURCE LINES 134-139
 
 2D Wavelet Decomposition
 ------------------------
@@ -183,7 +184,7 @@ We convert it to grayscale in [0,1].
 We demonstrate wavelet decomposition (analysis) and reconstruction (synthesis)
 using 2D Haar wavelets on a grayscale image.
 
-.. GENERATED FROM PYTHON SOURCE LINES 138-186
+.. GENERATED FROM PYTHON SOURCE LINES 139-187
 
 .. code-block:: Python
 
@@ -249,12 +250,15 @@ using 2D Haar wavelets on a grayscale image.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 187-189
+.. GENERATED FROM PYTHON SOURCE LINES 188-193
 
 1-Level Decomposition
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 189-206
+Apply one wavelet level, inspect the detail bands, and compare the reconstructed
+image with the original.
+
+.. GENERATED FROM PYTHON SOURCE LINES 193-210
 
 .. code-block:: Python
 
@@ -287,12 +291,15 @@ using 2D Haar wavelets on a grayscale image.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 207-209
+.. GENERATED FROM PYTHON SOURCE LINES 211-216
 
 2-Level Decomposition
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 209-226
+Apply 2 wavelet levels, inspect the detail bands, and compare the reconstructed
+image with the original.
+
+.. GENERATED FROM PYTHON SOURCE LINES 216-233
 
 .. code-block:: Python
 
@@ -325,12 +332,15 @@ using 2D Haar wavelets on a grayscale image.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 227-229
+.. GENERATED FROM PYTHON SOURCE LINES 234-239
 
 3-Level Decomposition
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 229-245
+Apply 3 wavelet levels, inspect the detail bands, and compare the reconstructed
+image with the original.
+
+.. GENERATED FROM PYTHON SOURCE LINES 239-255
 
 .. code-block:: Python
 
@@ -365,7 +375,7 @@ using 2D Haar wavelets on a grayscale image.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.258 seconds)
+   **Total running time of the script:** (0 minutes 0.628 seconds)
 
 
 .. _sphx_glr_download_auto_examples_07_multiscale_02_wavelet_decomposition.py:

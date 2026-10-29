@@ -21,7 +21,7 @@
 Resize Module 2D
 ================
 
-Shrink and re-expand a 2-D RGB image with splineops, then discuss aliasing.
+Resize an RGB image and use detail views and an animation to inspect aliasing.
 
 We start with a minimal example that calls :func:`splineops.resize.resize`
 directly on a single channel of the image, then move on to an RGB example
@@ -37,12 +37,15 @@ low-pass filtering: fine details fold back into lower frequencies and
 show up as Moiré or ripple patterns. The antialiasing preset adds a
 matched low-pass step to suppress these artefacts.
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-29
+.. GENERATED FROM PYTHON SOURCE LINES 27-32
 
 Imports and Helpers
 -------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-298
+Load the resize and plotting tools, then define shared helpers for image
+comparisons and animations.
+
+.. GENERATED FROM PYTHON SOURCE LINES 32-300
 
 .. code-block:: Python
 
@@ -53,7 +56,6 @@ Imports and Helpers
     from urllib.request import urlopen
     from PIL import Image
 
-    from scipy.ndimage import zoom as ndi_zoom  # kept for reference, not used in 2D plots
     from splineops.resize import resize  # core N-D spline resizer
 
     plt.rcParams.update(
@@ -322,7 +324,7 @@ Imports and Helpers
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 300-305
+.. GENERATED FROM PYTHON SOURCE LINES 302-307
 
 Load and Normalize an Image
 ---------------------------
@@ -330,7 +332,7 @@ Load and Normalize an Image
 We now move to a real 2D example using a Kodak color image. The data is
 stored as float32 in [0, 1] for splineops.
 
-.. GENERATED FROM PYTHON SOURCE LINES 305-315
+.. GENERATED FROM PYTHON SOURCE LINES 307-317
 
 .. code-block:: Python
 
@@ -357,7 +359,7 @@ stored as float32 in [0, 1] for splineops.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 316-323
+.. GENERATED FROM PYTHON SOURCE LINES 318-325
 
 Simple 2D Resize Call
 ---------------------
@@ -367,7 +369,7 @@ Before using helpers and ROIs, we start with a minimal example that calls
 This highlights the basic API: you provide an array, per-axis zoom factors,
 and a method string.
 
-.. GENERATED FROM PYTHON SOURCE LINES 323-371
+.. GENERATED FROM PYTHON SOURCE LINES 325-373
 
 .. code-block:: Python
 
@@ -431,7 +433,7 @@ and a method string.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 372-381
+.. GENERATED FROM PYTHON SOURCE LINES 374-383
 
 ROI and RGB Shrink With Antialiasing
 ------------------------------------
@@ -443,7 +445,7 @@ We now follow the same spirit as the benchmarking intro:
 3. Compare the first-pass shrink for standard cubic interpolation
    and antialiasing on the full RGB image.
 
-.. GENERATED FROM PYTHON SOURCE LINES 381-406
+.. GENERATED FROM PYTHON SOURCE LINES 383-408
 
 .. code-block:: Python
 
@@ -479,7 +481,7 @@ We now follow the same spirit as the benchmarking intro:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 407-414
+.. GENERATED FROM PYTHON SOURCE LINES 409-416
 
 Standard Cubic Shrink
 ---------------------
@@ -489,7 +491,7 @@ does not apply an explicit low-pass before decimation. High-frequency
 content from the original folds back (aliases) into lower frequencies,
 which can be spotted as spurious ripples or Moiré patterns in the ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 414-424
+.. GENERATED FROM PYTHON SOURCE LINES 416-426
 
 .. code-block:: Python
 
@@ -515,7 +517,7 @@ which can be spotted as spurious ripples or Moiré patterns in the ROI.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 425-431
+.. GENERATED FROM PYTHON SOURCE LINES 427-433
 
 Cubic-Antialiasing Shrink
 -------------------------
@@ -524,7 +526,7 @@ The "cubic-antialiasing" preset inserts a projection-based low-pass
 filter before shrinking. The zoomed ROI shows that most of the Moiré
 pattern is removed, while larger-scale edges and contrast are preserved.
 
-.. GENERATED FROM PYTHON SOURCE LINES 431-441
+.. GENERATED FROM PYTHON SOURCE LINES 433-443
 
 .. code-block:: Python
 
@@ -550,7 +552,7 @@ pattern is removed, while larger-scale edges and contrast are preserved.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 442-451
+.. GENERATED FROM PYTHON SOURCE LINES 444-453
 
 Animation: Cubic vs Cubic-Antialiasing
 --------------------------------------
@@ -562,7 +564,7 @@ Row 1: Original (fixed) + Downsampled (on white canvas)
 Row 2: Recovered (round-trip)
 Row 3: Signed error (rec−orig), normalized with a shared scale
 
-.. GENERATED FROM PYTHON SOURCE LINES 451-739
+.. GENERATED FROM PYTHON SOURCE LINES 453-741
 
 .. code-block:: Python
 
@@ -16183,7 +16185,7 @@ Row 3: Signed error (rec−orig), normalized with a shared scale
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 740-745
+.. GENERATED FROM PYTHON SOURCE LINES 742-747
 
 Export Animation
 ----------------
@@ -16191,7 +16193,7 @@ Export Animation
 Writes into: <generated static dir>/_static/animations/
 No-op when run normally by users.
 
-.. GENERATED FROM PYTHON SOURCE LINES 745-755
+.. GENERATED FROM PYTHON SOURCE LINES 747-757
 
 .. code-block:: Python
 
@@ -16221,7 +16223,7 @@ No-op when run normally by users.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 50.308 seconds)
+   **Total running time of the script:** (0 minutes 51.293 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_02_resize_module_2d.py:

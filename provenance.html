@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=f56efcf3" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=28575662" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
@@ -53,11 +53,11 @@
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'provenance';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <link rel="icon" href="_static/logo.ico"/>
+    <link rel="icon" href="_static/favicon.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Development roadmap" href="roadmap.html" />
-    <link rel="prev" title="Project" href="project.html" />
+    <link rel="next" title="Release validation" href="releasing.html" />
+    <link rel="prev" title="Backend support contract" href="backend-support.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
@@ -133,8 +133,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt=""/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
   
   
     <p class="title logo__title">SplineOps</p>
@@ -174,14 +174,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -325,14 +325,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -416,13 +416,15 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="project-status.html">API stability and support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backend-support.html">Backend support contract</a></li>
 <li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Method and source provenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasing.html">Release validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graduation-audits.html">2.3 numerical API review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal-contracts.html">Internal numerical contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stability-soak.html">Stability-soak workflows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roadmap.html">Development roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="progress.html">Progress so far</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stability-soak.html">Stability-soak workflows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="graduation-audits.html">Affine and Differentials graduation audits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internal-contracts.html">Internal numerical contracts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="releasing.html">Release validation</a></li>
 </ul>
 </div>
 </nav></div>
@@ -464,7 +466,7 @@
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="project.html" class="nav-link">Project</a></li>
+    <li class="breadcrumb-item"><a href="project.html" class="nav-link">About</a></li>
     
     <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Method and source provenance</span></li>
   </ul>
@@ -623,7 +625,7 @@ policy requires it.</p></li>
 </ul>
 <p>These are documentation-quality improvements, not licensing blockers.  Module
 maturity remains governed by numerical contracts, validation, maintenance, and
-performance evidence described in <a class="reference internal" href="project-status.html"><span class="doc">Project status and evidence</span></a>.</p>
+performance evidence described in <a class="reference internal" href="project-status.html"><span class="doc">API stability and support</span></a>.</p>
 </section>
 </section>
 
@@ -638,20 +640,20 @@ performance evidence described in <a class="reference internal" href="project-st
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="project.html"
+       href="backend-support.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Project</p>
+        <p class="prev-next-title">Backend support contract</p>
       </div>
     </a>
     <a class="right-next"
-       href="roadmap.html"
+       href="releasing.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Development roadmap</p>
+        <p class="prev-next-title">Release validation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

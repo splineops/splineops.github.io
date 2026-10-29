@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=f56efcf3" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=28575662" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
@@ -53,10 +53,10 @@
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'progress';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <link rel="icon" href="_static/logo.ico"/>
+    <link rel="icon" href="_static/favicon.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Stability-soak workflows" href="stability-soak.html" />
+    <link rel="next" title="API Reference" href="api/index.html" />
     <link rel="prev" title="Development roadmap" href="roadmap.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
@@ -133,8 +133,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt=""/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
   
   
     <p class="title logo__title">SplineOps</p>
@@ -174,14 +174,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -325,14 +325,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -416,13 +416,15 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="project-status.html">API stability and support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backend-support.html">Backend support contract</a></li>
 <li class="toctree-l1"><a class="reference internal" href="provenance.html">Method and source provenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasing.html">Release validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graduation-audits.html">2.3 numerical API review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal-contracts.html">Internal numerical contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stability-soak.html">Stability-soak workflows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roadmap.html">Development roadmap</a></li>
 <li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Progress so far</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stability-soak.html">Stability-soak workflows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="graduation-audits.html">Affine and Differentials graduation audits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internal-contracts.html">Internal numerical contracts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="releasing.html">Release validation</a></li>
 </ul>
 </div>
 </nav></div>
@@ -464,7 +466,7 @@
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="project.html" class="nav-link">Project</a></li>
+    <li class="breadcrumb-item"><a href="project.html" class="nav-link">About</a></li>
     
     <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Progress so far</span></li>
   </ul>
@@ -485,12 +487,17 @@
                   
   <section id="progress-so-far">
 <h1>Progress so far<a class="headerlink" href="#progress-so-far" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Historical July 2026 record. For the 2.3 support contract, see
+<a class="reference internal" href="project-status.html"><span class="doc">API stability and support</span></a>; for the current review, see <a class="reference internal" href="graduation-audits.html"><span class="doc">2.3 numerical API review</span></a>.</p>
+</div>
 <p>Snapshot: 2026-07-16, commit <code class="docutils literal notranslate"><span class="pre">df94733</span></code> on <code class="docutils literal notranslate"><span class="pre">feature/publication</span></code>.</p>
 <p>SplineOps completed seven repository-wide improvement passes before the 2.1
 release preparation.  The work kept independent public modules separate while
 strengthening numerical and resource contracts, reproducible performance
 evidence, and maturity gates.  This page is the dated engineering record; the
-<a class="reference internal" href="project-status.html"><span class="doc">Project status and evidence</span></a>, <a class="reference internal" href="performance.html"><span class="doc">Performance evidence</span></a>, <a class="reference internal" href="stability-soak.html"><span class="doc">Stability-soak workflows</span></a>, and
+<a class="reference internal" href="project-status.html"><span class="doc">API stability and support</span></a>, <a class="reference internal" href="performance.html"><span class="doc">Performance evidence</span></a>, <a class="reference internal" href="stability-soak.html"><span class="doc">Stability-soak workflows</span></a>, and
 <a class="reference internal" href="roadmap.html"><span class="doc">Development roadmap</span></a> pages retain the detailed evidence.</p>
 <section id="current-outcome">
 <h2>Current outcome<a class="headerlink" href="#current-outcome" title="Link to this heading">#</a></h2>
@@ -655,7 +662,7 @@ configuration is advertised as supported, and a zero-boundary coefficient
 path may transfer through a CPU solve; see <a class="reference internal" href="backend-support.html"><span class="doc">Backend support contract</span></a>.</p></li>
 <li><p>Affine and Differentials were audited but not promoted.  Their remaining gate
 is compatibility evidence over time, not another burst of implementation;
-see <a class="reference internal" href="graduation-audits.html"><span class="doc">Affine and Differentials graduation audits</span></a>.</p></li>
+see <a class="reference internal" href="graduation-audits.html"><span class="doc">2.3 numerical API review</span></a>.</p></li>
 <li><p>The evidence passes did not promote Affine, Differentials, or any other
 experimental module.  The 2.1 release keeps those maturity labels.</p></li>
 </ul>
@@ -716,11 +723,11 @@ they are not imposed on every development push.</p>
       </div>
     </a>
     <a class="right-next"
-       href="stability-soak.html"
+       href="api/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Stability-soak workflows</p>
+        <p class="prev-next-title">API Reference</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

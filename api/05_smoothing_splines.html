@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=f56efcf3" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=28575662" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
@@ -53,7 +53,7 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/05_smoothing_splines';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="icon" href="../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Differentials" href="06_differentials.html" />
@@ -133,8 +133,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt=""/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt=""/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
   
   
     <p class="title logo__title">SplineOps</p>
@@ -174,14 +174,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -325,14 +325,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -525,10 +525,31 @@ dimension.  When <code class="docutils literal notranslate"><span class="pre">da
 </dd></dl>
 
 <dl class="py property">
+<dt class="sig sig-object py" id="splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan.frequency_response">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">frequency_response</span></span><a class="headerlink" href="#splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan.frequency_response" title="Link to this definition">#</a></dt>
+<dd><p>Read-only view of the fixed filter response.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan.gamma">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">gamma</span></span><a class="headerlink" href="#splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan.gamma" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan.lamb">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">lamb</span></span><a class="headerlink" href="#splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan.lamb" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
 <dt class="sig sig-object py" id="splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan.retained_bytes">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">retained_bytes</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><span class="pre">int</span></a></span><a class="headerlink" href="#splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan.retained_bytes" title="Link to this definition">#</a></dt>
 <dd><p>Number of bytes retained for repeated execution.</p>
 </dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan.shape">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan.shape" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -708,7 +729,11 @@ dimensions are present; every unselected slice is independent.</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan"><code class="docutils literal notranslate"><span class="pre">SmoothingSplinePlan</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan.apply"><code class="docutils literal notranslate"><span class="pre">SmoothingSplinePlan.apply()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan.configuration"><code class="docutils literal notranslate"><span class="pre">SmoothingSplinePlan.configuration</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan.frequency_response"><code class="docutils literal notranslate"><span class="pre">SmoothingSplinePlan.frequency_response</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan.gamma"><code class="docutils literal notranslate"><span class="pre">SmoothingSplinePlan.gamma</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan.lamb"><code class="docutils literal notranslate"><span class="pre">SmoothingSplinePlan.lamb</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan.retained_bytes"><code class="docutils literal notranslate"><span class="pre">SmoothingSplinePlan.retained_bytes</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.smoothing_splines.smoothing_spline.SmoothingSplinePlan.shape"><code class="docutils literal notranslate"><span class="pre">SmoothingSplinePlan.shape</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.smoothing_splines.smoothing_spline.periodize"><code class="docutils literal notranslate"><span class="pre">periodize()</span></code></a></li>

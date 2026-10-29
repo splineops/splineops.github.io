@@ -21,15 +21,17 @@
 Pyramid Decomposition
 =====================
 
-This example demonstrates how to use the
-pyramid decomposition (reduce & expand) in 1D and 2D.
+Reduce and expand 1-D signals and images, then compare several levels of a spline
+pyramid.
 
-.. GENERATED FROM PYTHON SOURCE LINES 14-16
+.. GENERATED FROM PYTHON SOURCE LINES 14-18
 
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 16-33
+Import the multiscale transforms together with array and plotting utilities.
+
+.. GENERATED FROM PYTHON SOURCE LINES 18-35
 
 .. code-block:: Python
 
@@ -57,14 +59,14 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-38
+.. GENERATED FROM PYTHON SOURCE LINES 36-40
 
 1D Pyramid Decomposition
 ------------------------
 
 Here is a 1D examples that involves data of length 10. We do a pyramid reduce-then-expand.
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-73
+.. GENERATED FROM PYTHON SOURCE LINES 40-75
 
 .. code-block:: Python
 
@@ -128,7 +130,7 @@ Here is a 1D examples that involves data of length 10. We do a pyramid reduce-th
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-79
+.. GENERATED FROM PYTHON SOURCE LINES 76-81
 
 Load and Normalize a 2D Image
 -----------------------------
@@ -136,7 +138,7 @@ Load and Normalize a 2D Image
 Here, we load an example image from an online repository.
 We convert it to grayscale in [0,1].
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-112
+.. GENERATED FROM PYTHON SOURCE LINES 81-114
 
 .. code-block:: Python
 
@@ -191,14 +193,14 @@ We convert it to grayscale in [0,1].
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-117
+.. GENERATED FROM PYTHON SOURCE LINES 115-119
 
 2D Pyramid Decomposition
 ------------------------
 
 Reduce and expand the input image using spline pyramid decomposition.
 
-.. GENERATED FROM PYTHON SOURCE LINES 117-150
+.. GENERATED FROM PYTHON SOURCE LINES 119-152
 
 .. code-block:: Python
 
@@ -252,12 +254,15 @@ Reduce and expand the input image using spline pyramid decomposition.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 151-153
+.. GENERATED FROM PYTHON SOURCE LINES 153-158
 
 Inverted-Pyramid Helpers
 ------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 153-199
+Arrange the progressively reduced images so their resolution changes are easy to
+compare.
+
+.. GENERATED FROM PYTHON SOURCE LINES 158-204
 
 .. code-block:: Python
 
@@ -314,12 +319,15 @@ Inverted-Pyramid Helpers
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 200-202
+.. GENERATED FROM PYTHON SOURCE LINES 205-210
 
 1-Level Decomposition
 ---------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 202-208
+Apply one reduction level and compare the image resolutions in the resulting
+pyramid.
+
+.. GENERATED FROM PYTHON SOURCE LINES 210-216
 
 .. code-block:: Python
 
@@ -341,12 +349,15 @@ Inverted-Pyramid Helpers
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 209-211
+.. GENERATED FROM PYTHON SOURCE LINES 217-222
 
 2-Level Decomposition
 ---------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 211-217
+Apply 2 reduction levels and compare the image resolutions in the resulting
+pyramid.
+
+.. GENERATED FROM PYTHON SOURCE LINES 222-228
 
 .. code-block:: Python
 
@@ -368,12 +379,15 @@ Inverted-Pyramid Helpers
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 218-220
+.. GENERATED FROM PYTHON SOURCE LINES 229-234
 
 3-Level Decomposition
 ---------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 220-225
+Apply 3 reduction levels and compare the image resolutions in the resulting
+pyramid.
+
+.. GENERATED FROM PYTHON SOURCE LINES 234-239
 
 .. code-block:: Python
 
@@ -397,7 +411,7 @@ Inverted-Pyramid Helpers
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.983 seconds)
+   **Total running time of the script:** (0 minutes 0.989 seconds)
 
 
 .. _sphx_glr_download_auto_examples_07_multiscale_01_pyramid_decomposition.py:

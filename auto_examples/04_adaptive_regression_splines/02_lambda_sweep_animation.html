@@ -28,7 +28,7 @@
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css?v=28575662" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script defer="" src="../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -44,7 +44,7 @@
 <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/04_adaptive_regression_splines/02_lambda_sweep_animation';</script>
 <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-<link href="../../_static/logo.ico" rel="icon"/>
+<link href="../../_static/favicon.svg" rel="icon"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="../05_smoothing_splines/index.html" rel="next" title="Smoothing Splines Examples"/>
@@ -80,8 +80,8 @@
 <div class="col-lg-3 navbar-header-items__start">
 <div class="navbar-item">
 <a class="navbar-brand logo" href="../../index.html">
-<img alt="" class="logo__image only-light" src="../../_static/logo.png"/>
-<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.png"/>
+<img alt="" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
 <p class="title logo__title">SplineOps</p>
 </a></div>
 </div>
@@ -107,12 +107,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -192,12 +192,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -284,8 +284,8 @@
 
 <section class="sphx-glr-example-title" id="lambda-sweep-animation">
 <span id="sphx-glr-auto-examples-04-adaptive-regression-splines-02-lambda-sweep-animation-py"></span><h1>Lambda Sweep Animation<a class="headerlink" href="#lambda-sweep-animation" title="Link to this heading">#</a></h1>
-<p>This example animates the fidelity–sparsity trade-off of the adaptive regression
-splines module by sweeping the regularization parameter <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
+<p>Animate the trade-off between data fidelity and knot sparsity while increasing
+regularization.</p>
 <dl class="simple">
 <dt>Each frame shows:</dt><dd><ul class="simple">
 <li><p>Original samples (fixed).</p></li>
@@ -297,10 +297,9 @@ splines module by sweeping the regularization parameter <span class="math notran
 </dl>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="w">
-</span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span><span class="w">
-</span><span class="w">
-</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="w">
+<p>Import the regression solver and helpers for fitting and visualizing sparse
+splines.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="w">
 </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="nn">.</span><span class="nn">pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span><span class="w">
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">animation</span><span class="w">
 </span><span class="w">
@@ -383,6 +382,8 @@ splines module by sweeping the regularization parameter <span class="math notran
 <img alt="Original data" class="sphx-glr-single-img" src="../../_images/sphx_glr_02_lambda_sweep_animation_001.png" srcset="../../_images/sphx_glr_02_lambda_sweep_animation_001.png"/></section>
 <section id="animation-helper">
 <h2>Animation Helper<a class="headerlink" href="#animation-helper" title="Link to this heading">#</a></h2>
+<p>Update the fitted spline and knot markers together as the regularization parameter
+changes.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="k">def</span><span class="w"> </span><span class="nf">_solve_for_lambda</span><span class="p">(</span><span class="n">lamb</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span><span class="p">:</span><span class="w">
 </span><span class="w">    </span><span class="sd">"""
     Precompute all quantities needed to render one frame.
@@ -2275,6 +2276,8 @@ MTAw
 </section>
 <section id="export-the-animation">
 <h2>Export the Animation<a class="headerlink" href="#export-the-animation" title="Link to this heading">#</a></h2>
+<p>Save the animation for the documentation build; normal interactive runs keep the
+preview without exporting it.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="kn">from</span><span class="w"> </span><span class="nn">splineops</span><span class="nn">.</span><span class="nn">utils</span><span class="nn">.</span><span class="nn">sphinx</span><span class="w"> </span><span class="kn">import</span> <span class="n">export_animation_mp4_and_html</span><span class="w">
 </span><span class="w">
 </span><span class="n">export_animation_mp4_and_html</span><span class="p">(</span><span class="w">
@@ -2288,7 +2291,7 @@ MTAw
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>(PosixPath('/home/runner/work/splineops/splineops/docs/_build/_generated_static/animations/lambda_sweep_animation.mp4'), PosixPath('/home/runner/work/splineops/splineops/docs/_build/_generated_static/animations/lambda_sweep_animation.html'))
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.688 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 3.482 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

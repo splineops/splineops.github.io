@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=f56efcf3" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=28575662" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
@@ -53,11 +53,11 @@
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'backend-support';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <link rel="icon" href="_static/logo.ico"/>
+    <link rel="icon" href="_static/favicon.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Project" href="project.html" />
-    <link rel="prev" title="Project status and evidence" href="project-status.html" />
+    <link rel="next" title="Method and source provenance" href="provenance.html" />
+    <link rel="prev" title="API stability and support" href="project-status.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
@@ -133,8 +133,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt=""/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
   
   
     <p class="title logo__title">SplineOps</p>
@@ -172,16 +172,16 @@
 </li>
 
 
-<li class="nav-item current active">
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
-<li class="nav-item ">
+<li class="nav-item current active">
   <a class="nav-link nav-internal" href="project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -323,16 +323,16 @@
 </li>
 
 
-<li class="nav-item current active">
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
-<li class="nav-item ">
+<li class="nav-item current active">
   <a class="nav-link nav-internal" href="project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -416,15 +416,15 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="claims.html">Claims and evidence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="selma3d-demo.html">Interactive SELMA3D comparison</a></li>
-<li class="toctree-l1"><a class="reference internal" href="selma3d-vessels-study.html">3-D microvessel quality-at-speed validation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wavefield3d-study.html">Controlled 3-D spectral-coarsening validation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bbbc050-study.html">BBBC050 segmentation validation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cells3d-study.html">3-D microscopy downsampling study</a></li>
-<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance evidence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project-status.html">Project status and evidence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-status.html">API stability and support</a></li>
 <li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Backend support contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="provenance.html">Method and source provenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasing.html">Release validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graduation-audits.html">2.3 numerical API review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal-contracts.html">Internal numerical contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stability-soak.html">Stability-soak workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Development roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="progress.html">Progress so far</a></li>
 </ul>
 </div>
 </nav></div>
@@ -466,7 +466,7 @@
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="evidence.html" class="nav-link">Evidence</a></li>
+    <li class="breadcrumb-item"><a href="project.html" class="nav-link">About</a></li>
     
     <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Backend support contract</span></li>
   </ul>
@@ -534,7 +534,7 @@ reliable GPU runner exercises it in CI.  Other modules require NumPy.</p></td>
 </section>
 <section id="affine-cpu-evaluation">
 <h2>Affine CPU evaluation<a class="headerlink" href="#affine-cpu-evaluation" title="Link to this heading">#</a></h2>
-<p>The experimental affine module accepts NumPy arrays with an explicit
+<p>The stable affine module accepts NumPy arrays with an explicit
 <code class="docutils literal notranslate"><span class="pre">backend</span></code> selector. <code class="docutils literal notranslate"><span class="pre">auto</span></code> uses SciPy evaluation for named zero, mirror,
 and periodic modes at degrees 1–5 in float32/float64. The maintained NumPy
 evaluator covers the remaining configurations and is available explicitly as
@@ -589,15 +589,15 @@ general GPU performance claims.  This decision does not affect
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Project status and evidence</p>
+        <p class="prev-next-title">API stability and support</p>
       </div>
     </a>
     <a class="right-next"
-       href="project.html"
+       href="provenance.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Project</p>
+        <p class="prev-next-title">Method and source provenance</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

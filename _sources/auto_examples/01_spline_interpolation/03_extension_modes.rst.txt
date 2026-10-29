@@ -21,9 +21,10 @@
 Extension Modes
 ===============
 
-Plotting different extension modes of signals.
+Compare zero, mirror, and periodic coefficient boundaries when evaluating a signal
+beyond its sampled interval.
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-18
+.. GENERATED FROM PYTHON SOURCE LINES 14-19
 
 Imports and Utilities
 ---------------------
@@ -31,7 +32,7 @@ Imports and Utilities
 Visualize how the extension modes allow one to control the values that a signal is assumed to take outside of its original domain.
 Generate a signal that is mostly linear but includes a "bump."
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-56
+.. GENERATED FROM PYTHON SOURCE LINES 19-57
 
 .. code-block:: Python
 
@@ -80,12 +81,15 @@ Generate a signal that is mostly linear but includes a "bump."
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-59
+.. GENERATED FROM PYTHON SOURCE LINES 58-63
 
 Finite-Support Coefficients
 ---------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-66
+Set coefficients outside the sampled interval to zero and inspect the resulting
+boundary behavior.
+
+.. GENERATED FROM PYTHON SOURCE LINES 63-70
 
 .. code-block:: Python
 
@@ -108,12 +112,15 @@ Finite-Support Coefficients
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-69
+.. GENERATED FROM PYTHON SOURCE LINES 71-76
 
 Narrow Mirroring
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-76
+Reflect coefficients at the endpoint samples to extend the signal without
+introducing an abrupt cutoff.
+
+.. GENERATED FROM PYTHON SOURCE LINES 76-83
 
 .. code-block:: Python
 
@@ -136,12 +143,14 @@ Narrow Mirroring
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-79
+.. GENERATED FROM PYTHON SOURCE LINES 84-88
 
 Periodic Padding
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-85
+Wrap coefficients around the interval to model a repeating signal.
+
+.. GENERATED FROM PYTHON SOURCE LINES 88-94
 
 .. code-block:: Python
 
@@ -166,7 +175,7 @@ Periodic Padding
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.255 seconds)
+   **Total running time of the script:** (0 minutes 0.304 seconds)
 
 
 .. _sphx_glr_download_auto_examples_01_spline_interpolation_03_extension_modes.py:

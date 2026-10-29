@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=f56efcf3" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=28575662" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
@@ -54,7 +54,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user-guide/04_adaptive_regression_splines';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="icon" href="../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Smoothing Splines" href="05_smoothing_splines.html" />
@@ -134,8 +134,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt=""/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt=""/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
   
   
     <p class="title logo__title">SplineOps</p>
@@ -175,14 +175,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -326,14 +326,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -418,8 +418,8 @@
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="index.html">User guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_spline_interpolation.html">Spline Interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_resize.html">Resize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_affine.html">Affine</a></li>
 <li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Adaptive Regression Splines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_smoothing_splines.html">Smoothing Splines</a></li>
@@ -505,7 +505,7 @@ use few knots, giving very compact models.</p>
 <p>These properties are valuable in machine learning (where sparsity improves
 generalisation) and in signal processing (where interpretability matters).
 In 1D, the method is closely related to rectified linear unit (ReLU) neural networks, which also
-create piecewise-linar functions, but here we obtain the sparsest possible representation
+create piecewise-linear functions, but here we obtain the sparsest possible representation
 directly.</p>
 </section>
 </section>
@@ -516,7 +516,7 @@ directly.</p>
 <div class="math notranslate nohighlight" id="equation-eq-gblasso">
 <span class="eqno">(1)<a class="headerlink" href="#equation-eq-gblasso" title="Link to this equation">#</a></span>\[f^\star = \operatorname*{arg\,min}_{f}\;
 \Biggl(
-  \sum_{m=1}^{M} (f(x_m)-y_m)^2
+  \frac{1}{2}\sum_{m=1}^{M} (f(x_m)-y_m)^2
   \;+\; \lambda\,\|\mathrm{D}^2 f\|_{\mathcal{M}}
 \Biggr).\]</div>
 <p>where</p>
@@ -547,9 +547,9 @@ operator <span class="math notranslate nohighlight">\(\mathrm{D}^2\)</span>.</p>
 <section id="uniqueness-and-sparsity">
 <h3>Uniqueness and Sparsity<a class="headerlink" href="#uniqueness-and-sparsity" title="Link to this heading">#</a></h3>
 <p>The g-BLASSO may admit multiple solutions.  The method in <a class="footnote-reference brackets" href="#id3" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> characterizes a
-sparsest solution; this implementation follows that construction and is kept
-experimental while its numerical behavior is validated beyond the current
-deterministic synthetic cases.</p>
+sparsest solution. The stable CPU implementation is checked against sparse
+hinge models and independent primal and dual convex optimizers. The finite
+ADMM iteration budget still needs a convergence check for each fitted signal.</p>
 </section>
 </section>
 <section id="algorithm">
@@ -557,10 +557,11 @@ deterministic synthetic cases.</p>
 <p>The solver uses two stages*:</p>
 <ol class="arabic simple">
 <li><p>Data fitting: solve a discrete <span class="math notranslate nohighlight">\(L^1\)</span>-regularised problem to obtain
-<span class="math notranslate nohighlight">\(y_\lambda\)</span> (each ADMM iteration costs <span class="math notranslate nohighlight">\(\mathcal{O}(M)\)</span> and the
-residual decreases like <span class="math notranslate nohighlight">\(\mathcal{O}(1/n)\)</span>).</p></li>
-<li><p>Sparsification: in exactly <span class="math notranslate nohighlight">\(\mathcal{O}(M)\)</span> time, extract the
-spline with the fewest knots.</p></li>
+<span class="math notranslate nohighlight">\(y_\lambda\)</span>. A fixed banded system is factorized once; each ADMM
+iteration uses sparse matrix products and a solve.</p></li>
+<li><p>Sparsification: combine compatible slope changes into a sparse
+piecewise-linear representation. <code class="docutils literal notranslate"><span class="pre">sparsity_tol</span></code> controls numerical
+pruning; nonzero tolerance can change the reconstructed samples slightly.</p></li>
 </ol>
 <p>*Stage 2 is linear-time; stage 1 is linear per iteration.</p>
 </section>
@@ -569,12 +570,11 @@ spline with the fewest knots.</p></li>
 <ul class="simple">
 <li><p>Compact representation: redundant numerical knots are pruned while the
 reconstructed piecewise-linear function is checked at the samples.</p></li>
-<li><p>Exact interpolation: with <span class="math notranslate nohighlight">\(\lambda=0\)</span>, the method finds the least
-angular spline through every point.</p></li>
-<li><p>Segmented regression: ideal for interpretable fits in finance,
-epidemiology, etc.</p></li>
-<li><p>ReLU connection: in 1-D this outperforms naïve ReLU networks in terms of
-parameter count.</p></li>
+<li><p>Interpolation: <span class="math notranslate nohighlight">\(\lambda=0\)</span> preserves the observations before optional
+sparsification; use zero pruning tolerance when numerical knots must stay.</p></li>
+<li><p>Segmented regression: slope changes give an interpretable fit.</p></li>
+<li><p>ReLU connection: the hinge representation is a one-dimensional ReLU model
+with explicitly fitted knot locations and amplitudes.</p></li>
 </ul>
 </section>
 <section id="regularisation-parameter">
@@ -634,6 +634,21 @@ the iteration count, convergence flag, and final primal and dual residuals:</p>
 convergence.  Zero regularization and the linear-regression limit are solved
 without ADMM and report zero iterations.  <code class="docutils literal notranslate"><span class="pre">rho</span></code> affects convergence speed;
 for difficult cases it should be tuned together with <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
+<p>Treat <code class="docutils literal notranslate"><span class="pre">diagnostics.converged=False</span></code> as an unfinished optimization. Increase
+<code class="docutils literal notranslate"><span class="pre">max_iter</span></code> or adjust <code class="docutils literal notranslate"><span class="pre">rho</span></code> and solve again before accepting the fit.
+Changing <code class="docutils literal notranslate"><span class="pre">rho</span></code> changes convergence, not the target objective; construct a
+new plan when changing it. A practical check is that two converged solves
+with different positive <code class="docutils literal notranslate"><span class="pre">rho</span></code> values agree within the requested tolerance.</p>
+<p>Coordinate units matter for regularization. Translating <code class="docutils literal notranslate"><span class="pre">x</span></code> does not change
+the fit. Scaling <code class="docutils literal notranslate"><span class="pre">x</span></code> by a positive factor <code class="docutils literal notranslate"><span class="pre">s</span></code> requires scaling <code class="docutils literal notranslate"><span class="pre">lambda</span></code>
+by <code class="docutils literal notranslate"><span class="pre">s</span></code> to preserve the same fit; scaling <code class="docutils literal notranslate"><span class="pre">rho</span></code> by <code class="docutils literal notranslate"><span class="pre">s**2</span></code> also preserves
+the ADMM linear system. Scaling observations by <code class="docutils literal notranslate"><span class="pre">a</span></code> requires scaling
+<code class="docutils literal notranslate"><span class="pre">lambda</span></code> by <code class="docutils literal notranslate"><span class="pre">abs(a)</span></code>. Center and scale very large or tightly spaced
+coordinates before fitting, and choose lambda using residuals or held-out
+observations rather than copying an example’s value.</p>
+<p>Inputs must be finite and real. Solver and sparse-interpolant calculations
+use float64, including for integer observations. The zero-regularization
+<code class="docutils literal notranslate"><span class="pre">denoise_y</span></code>/<code class="docutils literal notranslate"><span class="pre">solve</span></code> shortcut preserves the input dtype and returns a copy.</p>
 <p>The figure below, taken from
 <a class="reference internal" href="../auto_examples/04_adaptive_regression_splines/01_adaptive_regression_splines_module.html#sphx-glr-auto-examples-04-adaptive-regression-splines-01-adaptive-regression-splines-module-py"><span class="std std-ref">Adaptive Regression Splines Module</span></a>,
 shows noisy 1D data (crosses), the TV-denoised samples, and the sparsest

@@ -7,7 +7,9 @@
 Multiscale Examples
 ===================
 
-Examples using the Multiscale module.
+Explore coarse-to-fine image representations. Build spline pyramids, inspect wavelet
+detail bands, and compare reconstruction across several levels.
+
 
 .. raw:: html
 
@@ -22,7 +24,7 @@ Examples using the Multiscale module.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to use the pyramid decomposition (reduce &amp; expand) in 1D and 2D.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Reduce and expand 1-D signals and images, then compare several levels of a spline pyramid.">
 
 .. only:: html
 
@@ -39,7 +41,7 @@ Examples using the Multiscale module.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to use the Haar wavelet decomposition (analysis &amp; synthesis) in 2D.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Inspect Haar detail bands at several scales and reconstruct the original image.">
 
 .. only:: html
 

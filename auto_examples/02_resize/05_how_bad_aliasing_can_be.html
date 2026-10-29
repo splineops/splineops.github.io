@@ -28,7 +28,7 @@
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css?v=28575662" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script defer="" src="../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,7 +43,7 @@
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/02_resize/05_how_bad_aliasing_can_be';</script>
 <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-<link href="../../_static/logo.ico" rel="icon"/>
+<link href="../../_static/favicon.svg" rel="icon"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="06_benchmarking.html" rel="next" title="Benchmarking"/>
@@ -79,8 +79,8 @@
 <div class="col-lg-3 navbar-header-items__start">
 <div class="navbar-item">
 <a class="navbar-brand logo" href="../../index.html">
-<img alt="" class="logo__image only-light" src="../../_static/logo.png"/>
-<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.png"/>
+<img alt="" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
 <p class="title logo__title">SplineOps</p>
 </a></div>
 </div>
@@ -106,12 +106,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -191,12 +191,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -283,9 +283,8 @@
 
 <section class="sphx-glr-example-title" id="how-bad-aliasing-can-be">
 <span id="sphx-glr-auto-examples-02-resize-05-how-bad-aliasing-can-be-py"></span><h1>How Bad Aliasing Can Be<a class="headerlink" href="#how-bad-aliasing-can-be" title="Link to this heading">#</a></h1>
-<p>We construct an A/B corner mix image where, in each 2×2 tile, the
-top-left pixel comes from image A and the other three come from B.
-We then:</p>
+<p>Use a deliberately mixed image to reveal how unfiltered downsampling can select
+misleading visual content.</p>
 <ol class="arabic simple">
 <li><p>Look at the A/B mix at full resolution.</p></li>
 <li><p>Downsample by 0.5 with standard cubic interpolation (no explicit
@@ -297,6 +296,7 @@ proper low-pass filtering preserves the expected 25%/75% mixture in the ROI.</p>
 <p>This illustrates why anti-aliasing is essential for faithful downsampling.</p>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>Import the resize, array, and plotting tools used in the comparison.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="w">
 </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="nn">.</span><span class="nn">pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span><span class="w">
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">urllib</span><span class="nn">.</span><span class="nn">request</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-urllib-request sphx-glr-backref-type-py-function reference external" href="https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen" title="urllib.request.urlopen"><span class="n">urlopen</span></a><span class="w">
@@ -495,11 +495,14 @@ their nearest-neighbour magnifications side by side.</p>
 separately on the original grid, using the same ROI.</p>
 <section id="image-a">
 <h3>Image A<a class="headerlink" href="#image-a" title="Link to this heading">#</a></h3>
+<p>Show the source that contributes one pixel to each 2-by-2 tile in the synthetic
+mixture.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="tuple"><span class="n">_</span></a> <span class="o">=</span> <span class="n">show_roi_zoom</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">A</span></a><span class="p">,</span> <span class="n">ax_titles</span><span class="o">=</span><span class="p">(</span><span class="s2">"</span><span class="s2">Image A (with ROI)</span><span class="s2">"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="p">,</span> <span class="o">*</span><span class="o">*</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">roi_kwargs_orig</span></a><span class="p">)</span><span class="w">
 </span></pre></div></div>
 <img alt="Image A (with ROI)" class="sphx-glr-single-img" src="../../_images/sphx_glr_05_how_bad_aliasing_can_be_005.png" srcset="../../_images/sphx_glr_05_how_bad_aliasing_can_be_005.png"/></section>
 <section id="image-b">
 <h3>Image B<a class="headerlink" href="#image-b" title="Link to this heading">#</a></h3>
+<p>Show the source that contributes the other three pixels to each 2-by-2 tile.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="tuple"><span class="n">_</span></a> <span class="o">=</span> <span class="n">show_roi_zoom</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">B</span></a><span class="p">,</span> <span class="n">ax_titles</span><span class="o">=</span><span class="p">(</span><span class="s2">"</span><span class="s2">Image B (with ROI)</span><span class="s2">"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="p">,</span> <span class="o">*</span><span class="o">*</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">roi_kwargs_orig</span></a><span class="p">)</span><span class="w">
 </span></pre></div></div>
 <img alt="Image B (with ROI)" class="sphx-glr-single-img" src="../../_images/sphx_glr_05_how_bad_aliasing_can_be_006.png" srcset="../../_images/sphx_glr_05_how_bad_aliasing_can_be_006.png"/></section>
@@ -526,7 +529,7 @@ it doesn’t fold (alias) into the downsample.</p></li>
 <p>In short: interpolation without AA does sample-and-aliasing (here it locks
 onto A due to phase). Antialiased cubic implements the textbook
 low-pass-then-sample strategy, preserving the true average content.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.120 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.092 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

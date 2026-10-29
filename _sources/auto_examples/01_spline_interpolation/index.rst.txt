@@ -7,8 +7,8 @@
 Spline Interpolation Examples
 =============================
 
-Examples showing the basic functionality of the Spline interpolation module.
-We also show the equivalence with Resize module methods where relevant.
+Build continuous models from sampled data. Explore spline bases and boundary modes,
+then compare interpolation and resampling choices.
 
 
 .. raw:: html
@@ -24,7 +24,7 @@ We also show the equivalence with Resize module methods where relevant.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Showcase TensorSpline class basic functionality.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Build a continuous spline from 2-D samples and evaluate it on a finer grid.">
 
 .. only:: html
 
@@ -41,7 +41,7 @@ We also show the equivalence with Resize module methods where relevant.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Plotting the spline bases of the library and several transformations and operations.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Explore B-spline, O-MOMS, and Keys bases, then combine shifted and weighted copies into continuous models.">
 
 .. only:: html
 
@@ -58,7 +58,7 @@ We also show the equivalence with Resize module methods where relevant.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Plotting different extension modes of signals.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Compare zero, mirror, and periodic coefficient boundaries when evaluating a signal beyond its sampled interval.">
 
 .. only:: html
 
@@ -75,7 +75,7 @@ We also show the equivalence with Resize module methods where relevant.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Interpolate 1D samples with standard interpolation.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Reconstruct a 1-D signal with cubic and linear splines, and compare TensorSpline with Resize.">
 
 .. only:: html
 
@@ -92,7 +92,7 @@ We also show the equivalence with Resize module methods where relevant.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Resample a 1D spline with different sampling rate.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Move a continuous spline to a coarser sampling grid and inspect how its representation changes.">
 
 .. only:: html
 
@@ -109,7 +109,7 @@ We also show the equivalence with Resize module methods where relevant.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Obtain a spline through different methods and compare the results.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Compare spline reconstruction methods by expanding coarse samples and measuring error against the original model.">
 
 .. only:: html
 

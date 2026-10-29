@@ -28,7 +28,7 @@
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css?v=28575662" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script defer="" src="../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,7 +43,7 @@
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/02_resize/04_antialiasing';</script>
 <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-<link href="../../_static/logo.ico" rel="icon"/>
+<link href="../../_static/favicon.svg" rel="icon"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="05_how_bad_aliasing_can_be.html" rel="next" title="How Bad Aliasing Can Be"/>
@@ -79,8 +79,8 @@
 <div class="col-lg-3 navbar-header-items__start">
 <div class="navbar-item">
 <a class="navbar-brand logo" href="../../index.html">
-<img alt="" class="logo__image only-light" src="../../_static/logo.png"/>
-<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.png"/>
+<img alt="" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
 <p class="title logo__title">SplineOps</p>
 </a></div>
 </div>
@@ -106,12 +106,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -191,12 +191,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -283,18 +283,19 @@
 
 <section class="sphx-glr-example-title" id="antialiasing">
 <span id="sphx-glr-auto-examples-02-resize-04-antialiasing-py"></span><h1>Antialiasing<a class="headerlink" href="#antialiasing" title="Link to this heading">#</a></h1>
-<p>Interpolate 2D images with an <strong>antialiased</strong> down-sampling step and compare
-the result to standard interpolation.</p>
+<p>Compare image detail and reconstruction error after shrinking with and without
+projection antialiasing.</p>
 <p>We shrink the image with either:</p>
 <ul class="simple">
 <li><p>plain cubic interpolation (no explicit low-pass),</p></li>
 <li><p>cubic antialiasing (oblique projection low-pass) via <code class="docutils literal notranslate"><span class="pre">"cubic-antialiasing"</span></code>,</p></li>
 </ul>
-<p>then up-sample both back to the original size using standard cubic
-interpolation. SNR and MSE are computed only on a central region to
+<p>then up-sample both back to the original size using each pipeline’s same
+resize preset. SNR and MSE are computed only on a central region to
 exclude boundary artifacts.</p>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>Import the resize, array, and plotting tools used in the comparison.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="w">
 </span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span><span class="w">
 </span><span class="w">
@@ -302,7 +303,6 @@ exclude boundary artifacts.</p>
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="w">
 </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="nn">.</span><span class="nn">pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span><span class="w">
 </span><span class="w">
-</span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="nn">.</span><span class="nn">ndimage</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">zoom</span></a> <span class="k">as</span> <span class="n">_scipy_zoom</span>  <span class="c1"># only if you want extra comparisons</span><span class="w">
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops</span><span class="nn">.</span><a class="sphx-glr-backref-module-splineops sphx-glr-backref-type-py-function reference internal" href="../../api/02_resize.html#splineops.resize.resize" title="splineops.resize"><span class="nn">resize</span></a><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-splineops sphx-glr-backref-type-py-function reference internal" href="../../api/02_resize.html#splineops.resize.resize" title="splineops.resize"><span class="n">resize</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-splineops sphx-glr-backref-type-py-function reference internal" href="../../api/02_resize.html#splineops.resize.resize_degrees" title="splineops.resize_degrees"><span class="n">resize_degrees</span></a><span class="w">
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops</span><span class="nn">.</span><span class="nn">utils</span><span class="nn">.</span><span class="nn">metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">compute_snr_and_mse_region</span><span class="w">
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">splineops</span><span class="nn">.</span><span class="nn">utils</span><span class="nn">.</span><span class="nn">plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_difference_image</span><span class="p">,</span> <span class="n">show_roi_zoom</span><span class="w">
@@ -321,6 +321,8 @@ exclude boundary artifacts.</p>
 </section>
 <section id="pipeline-diagram">
 <h2>Pipeline Diagram<a class="headerlink" href="#pipeline-diagram" title="Link to this heading">#</a></h2>
+<p>Compare the two shrink-and-reconstruct pipelines before examining their images and
+errors.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="tuple"><span class="n">_</span></a> <span class="o">=</span> <span class="n">draw_two_method_comparisons</span><span class="p">(</span><span class="w">
 </span>    <span class="s2">"</span><span class="s2">Standard Interpolation</span><span class="s2">"</span><span class="p">,</span><span class="w">
 </span>    <span class="s2">"</span><span class="s2">Antialiasing</span><span class="s2">"</span><span class="p">,</span><span class="w">
@@ -333,6 +335,8 @@ exclude boundary artifacts.</p>
 <img alt="04 antialiasing" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_001.png" srcset="../../_images/sphx_glr_04_antialiasing_001.png"/></section>
 <section id="load-and-normalize-an-image">
 <h2>Load and Normalize an Image<a class="headerlink" href="#load-and-normalize-an-image" title="Link to this heading">#</a></h2>
+<p>Load a Kodak image, convert it to grayscale, and select a shared region of
+interest for visual comparisons.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">url</span></a> <span class="o">=</span> <span class="s2">"</span><span class="s2">https://r0k.us/graphics/kodak/kodak/kodim14.png</span><span class="s2">"</span><span class="w">
 </span><span class="k">with</span> <a class="sphx-glr-backref-module-urllib-request sphx-glr-backref-type-py-function reference external" href="https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen" title="urllib.request.urlopen"><span class="n">urlopen</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">url</span></a><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="k">as</span> <a class="sphx-glr-backref-module-http-client sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/http.client.html#http.client.HTTPResponse" title="http.client.HTTPResponse"><span class="n">resp</span></a><span class="p">:</span><span class="w">
 </span>    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><a class="sphx-glr-backref-module-http-client sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/http.client.html#http.client.HTTPResponse" title="http.client.HTTPResponse"><span class="n">resp</span></a><span class="p">)</span><span class="w">
@@ -382,6 +386,8 @@ exclude boundary artifacts.</p>
 </section>
 <section id="standard-interpolation">
 <h2>Standard Interpolation<a class="headerlink" href="#standard-interpolation" title="Link to this heading">#</a></h2>
+<p>Shrink with standard cubic interpolation, enlarge back to the original size, and
+measure error on a central crop.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">t0</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function reference external" href="https://docs.python.org/3/library/time.html#time.perf_counter" title="time.perf_counter"><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span></a><span class="p">(</span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">resized_2d_std</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops sphx-glr-backref-type-py-function reference internal" href="../../api/02_resize.html#splineops.resize.resize" title="splineops.resize"><span class="n">resize</span></a><span class="p">(</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">input_image_normalized</span></a><span class="p">,</span><span class="w">
@@ -410,6 +416,8 @@ exclude boundary artifacts.</p>
 </section>
 <section id="id1">
 <h2>Antialiasing<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Use the antialiasing preset for both resize passes, keeping the output dimensions
+and metric region unchanged.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">t0</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function reference external" href="https://docs.python.org/3/library/time.html#time.perf_counter" title="time.perf_counter"><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span></a><span class="p">(</span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">resized_2d_aa</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops sphx-glr-backref-type-py-function reference internal" href="../../api/02_resize.html#splineops.resize.resize" title="splineops.resize"><span class="n">resize</span></a><span class="p">(</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">input_image_normalized</span></a><span class="p">,</span><span class="w">
@@ -481,9 +489,10 @@ recovered images for visual comparison.</p>
 </span><a class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-method reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.tight_layout.html#matplotlib.figure.Figure.tight_layout" title="matplotlib.figure.Figure.tight_layout"><span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">(</span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">(</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img alt="Original ROI, Recovered (Standard, 0.7 ms), Recovered (Antialiasing, 1.9 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_002.png" srcset="../../_images/sphx_glr_04_antialiasing_002.png"/></section>
+<img alt="Original ROI, Recovered (Standard, 0.8 ms), Recovered (Antialiasing, 2.1 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_002.png" srcset="../../_images/sphx_glr_04_antialiasing_002.png"/></section>
 <section id="original-with-roi">
 <h2>Original with ROI<a class="headerlink" href="#original-with-roi" title="Link to this heading">#</a></h2>
+<p>Locate the selected region of interest in the full-resolution reference image.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="tuple"><span class="n">_</span></a> <span class="o">=</span> <span class="n">show_roi_zoom</span><span class="p">(</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">input_image_normalized</span></a><span class="p">,</span> <span class="n">ax_titles</span><span class="o">=</span><span class="p">(</span><span class="s2">"</span><span class="s2">Original Image</span><span class="s2">"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="p">,</span> <span class="o">*</span><span class="o">*</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">roi_kwargs</span></a><span class="w">
 </span><span class="p">)</span><span class="w">
@@ -491,8 +500,11 @@ recovered images for visual comparison.</p>
 <img alt="Original Image" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_003.png" srcset="../../_images/sphx_glr_04_antialiasing_003.png"/></section>
 <section id="resized-images">
 <h2>Resized Images<a class="headerlink" href="#resized-images" title="Link to this heading">#</a></h2>
+<p>Compare the smaller images produced by the two downsampling methods.</p>
 <section id="id2">
 <h3>Antialiasing<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Inspect the projection-based antialiasing result and compare the retained image
+detail.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">h_res_aa</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">w_res_aa</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="tuple"><span class="n">resized_2d_aa</span><span class="o">.</span><span class="n">shape</span></a><span class="w">
 </span><span class="w">
 </span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">row_top_res_aa</span></a> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">center_r_res</span></a> <span class="o">-</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">roi_h_res</span></a> <span class="o">/</span><span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">h_res_aa</span></a> <span class="o">-</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">roi_h_res</span></a><span class="p">)</span><span class="p">)</span><span class="w">
@@ -518,9 +530,10 @@ recovered images for visual comparison.</p>
 </span>    <span class="o">*</span><span class="o">*</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">roi_kwargs_on_canvas_aa</span></a><span class="p">,</span><span class="w">
 </span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img alt="Resized Image (antialiasing, 1.8 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_004.png" srcset="../../_images/sphx_glr_04_antialiasing_004.png"/></section>
+<img alt="Resized Image (antialiasing, 1.5 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_004.png" srcset="../../_images/sphx_glr_04_antialiasing_004.png"/></section>
 <section id="id3">
 <h3>Standard Interpolation<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Inspect the cubic-interpolation result without an antialiasing prefilter.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">h_res_std</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">w_res_std</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="tuple"><span class="n">resized_2d_std</span><span class="o">.</span><span class="n">shape</span></a><span class="w">
 </span><span class="w">
 </span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">row_top_res_std</span></a> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><span class="n">np</span><span class="o">.</span><span class="n">clip</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">center_r_res</span></a> <span class="o">-</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">roi_h_res</span></a> <span class="o">/</span><span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">h_res_std</span></a> <span class="o">-</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">roi_h_res</span></a><span class="p">)</span><span class="p">)</span><span class="w">
@@ -548,8 +561,11 @@ recovered images for visual comparison.</p>
 </section>
 <section id="recovered-images">
 <h2>Recovered Images<a class="headerlink" href="#recovered-images" title="Link to this heading">#</a></h2>
+<p>Resize both small images back to the original dimensions to compare their
+reconstruction quality.</p>
 <section id="antialiasing-pipeline">
 <h3>Antialiasing Pipeline<a class="headerlink" href="#antialiasing-pipeline" title="Link to this heading">#</a></h3>
+<p>Inspect the recovered image after projection-based shrinking and enlargement.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="tuple"><span class="n">_</span></a> <span class="o">=</span> <span class="n">show_roi_zoom</span><span class="p">(</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recovered_2d_aa</span></a><span class="p">,</span><span class="w">
 </span>    <span class="n">ax_titles</span><span class="o">=</span><span class="p">(</span><span class="w">
@@ -559,9 +575,10 @@ recovered images for visual comparison.</p>
 </span>    <span class="o">*</span><span class="o">*</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">roi_kwargs</span></a><span class="p">,</span><span class="w">
 </span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img alt="Recovered Image (antialiased, 1.9 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_006.png" srcset="../../_images/sphx_glr_04_antialiasing_006.png"/></section>
+<img alt="Recovered Image (antialiased, 2.1 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_006.png" srcset="../../_images/sphx_glr_04_antialiasing_006.png"/></section>
 <section id="id4">
 <h3>Standard Interpolation<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Inspect the cubic-interpolation result without an antialiasing prefilter.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="tuple"><span class="n">_</span></a> <span class="o">=</span> <span class="n">show_roi_zoom</span><span class="p">(</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recovered_2d_std</span></a><span class="p">,</span><span class="w">
 </span>    <span class="n">ax_titles</span><span class="o">=</span><span class="p">(</span><span class="w">
@@ -571,10 +588,12 @@ recovered images for visual comparison.</p>
 </span>    <span class="o">*</span><span class="o">*</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">roi_kwargs</span></a><span class="p">,</span><span class="w">
 </span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img alt="Recovered Image (standard interpolation, 0.7 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_007.png" srcset="../../_images/sphx_glr_04_antialiasing_007.png"/></section>
+<img alt="Recovered Image (standard interpolation, 0.8 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_04_antialiasing_007.png" srcset="../../_images/sphx_glr_04_antialiasing_007.png"/></section>
 </section>
 <section id="difference-images">
 <h2>Difference Images<a class="headerlink" href="#difference-images" title="Link to this heading">#</a></h2>
+<p>Visualize reconstruction errors to reveal details that are harder to distinguish
+in the recovered images.</p>
 <section id="id5">
 <h3>Antialiasing<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>Difference with original image on ROI (SNR/MSE numbers are from the
@@ -614,7 +633,7 @@ central-region metrics computed earlier).</p>
 standard interpolation and antialiased shrink/expand.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="list"><span class="n">methods</span></a> <span class="o">=</span> <span class="p">[</span><span class="w">
 </span>    <span class="p">(</span><span class="s2">"</span><span class="s2">Standard Interpolation (cubic)</span><span class="s2">"</span><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">snr_2d_std</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">mse_2d_std</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">time_2d_std</span></a><span class="p">)</span><span class="p">,</span><span class="w">
-</span>    <span class="p">(</span><span class="s2">"</span><span class="s2">Antialiasing (cubic shrink, cubic up)</span><span class="s2">"</span><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">snr_2d_aa</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">mse_2d_aa</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">time_2d_aa</span></a><span class="p">)</span><span class="p">,</span><span class="w">
+</span>    <span class="p">(</span><span class="s2">"</span><span class="s2">Cubic antialiasing (shrink + up)</span><span class="s2">"</span><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">snr_2d_aa</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">mse_2d_aa</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">time_2d_aa</span></a><span class="p">)</span><span class="p">,</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span><span class="w">
 </span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">header_line</span></a> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'</span><span class="s1">Method</span><span class="s1">'</span><span class="si">:</span><span class="s2">&lt;40</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'</span><span class="s1">SNR (dB)</span><span class="s1">'</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'</span><span class="s1">MSE</span><span class="s1">'</span><span class="si">:</span><span class="s2">&gt;16</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'</span><span class="s1">Time (s)</span><span class="s1">'</span><span class="si">:</span><span class="s2">&gt;12</span><span class="si">}</span><span class="s2">"</span><span class="w">
@@ -626,25 +645,17 @@ standard interpolation and antialiased shrink/expand.</p>
 </span></pre></div></div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Method                                     SNR (dB)              MSE     Time (s)
 ---------------------------------------------------------------------------------
-Standard Interpolation (cubic)                15.51         6.34e-03       0.0015
-Antialiasing (cubic shrink, cubic up)         17.48         4.03e-03       0.0037
+Standard Interpolation (cubic)                15.51         6.34e-03       0.0016
+Cubic antialiasing (shrink + up)              17.48         4.03e-03       0.0036
 </pre></div>
 </div>
 </section>
 <section id="least-squares-vs-antialiasing">
 <h2>Least-Squares vs Antialiasing<a class="headerlink" href="#least-squares-vs-antialiasing" title="Link to this heading">#</a></h2>
-<p>We can also compare the antialiasing pipeline
-against a full <strong>Least-Squares</strong> projection of degree 3 using the low-level
-<code class="xref py py-func docutils literal notranslate"><span class="pre">resize_degrees()</span></code> API. We don’t change any of the figures above; we only
-print SNR / MSE / time numbers here.</p>
-<p>In this particular example, the Least-Squares variant often achieves very
-good metrics (SNR/MSE) and can even look slightly “cleaner” numerically.
-However, in practice we generally recommend the <strong>Antialiasing</strong> preset:</p>
-<ul class="simple">
-<li><p>it is extremely stable and robust across a wide range of zooms and images,</p></li>
-<li><p>it is faster than full Least-Squares,</p></li>
-<li><p>and the visual quality is usually very close.</p></li>
-</ul>
+<p>Compare the oblique antialiasing preset with a full cubic <strong>Least-Squares</strong>
+projection through <code class="xref py py-func docutils literal notranslate"><span class="pre">resize_degrees()</span></code>. Both use projection for shrinking
+and enlargement. The table reports SNR, MSE, and total roundtrip time; their
+trade-off depends on image content, shape, and zoom factor.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">t0</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function reference external" href="https://docs.python.org/3/library/time.html#time.perf_counter" title="time.perf_counter"><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span></a><span class="p">(</span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">resized_2d_ls</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops sphx-glr-backref-type-py-function reference internal" href="../../api/02_resize.html#splineops.resize.resize_degrees" title="splineops.resize_degrees"><span class="n">resize_degrees</span></a><span class="p">(</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">input_image_normalized</span></a><span class="p">,</span><span class="w">
@@ -674,7 +685,7 @@ However, in practice we generally recommend the <strong>Antialiasing</strong> pr
 </span><span class="p">)</span><span class="w">
 </span><span class="w">
 </span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="list"><span class="n">methods_ls_vs_aa</span></a> <span class="o">=</span> <span class="p">[</span><span class="w">
-</span>    <span class="p">(</span><span class="s2">"</span><span class="s2">Antialiasing (cubic shrink, cubic up)</span><span class="s2">"</span><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">snr_2d_aa</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">mse_2d_aa</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">time_2d_aa</span></a><span class="p">)</span><span class="p">,</span><span class="w">
+</span>    <span class="p">(</span><span class="s2">"</span><span class="s2">Cubic antialiasing (shrink + up)</span><span class="s2">"</span><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">snr_2d_aa</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">mse_2d_aa</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">time_2d_aa</span></a><span class="p">)</span><span class="p">,</span><span class="w">
 </span>    <span class="p">(</span><span class="s2">"</span><span class="s2">Least-Squares (cubic) shrink+up</span><span class="s2">"</span><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">snr_2d_ls</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64"><span class="n">mse_2d_ls</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">time_2d_ls</span></a><span class="p">)</span><span class="p">,</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span><span class="w">
@@ -688,11 +699,11 @@ However, in practice we generally recommend the <strong>Antialiasing</strong> pr
 </span></pre></div></div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Method                                     SNR (dB)              MSE     Time (s)
 ---------------------------------------------------------------------------------
-Antialiasing (cubic shrink, cubic up)         17.48         4.03e-03       0.0037
-Least-Squares (cubic) shrink+up               17.53         3.98e-03       0.0050
+Cubic antialiasing (shrink + up)              17.48         4.03e-03       0.0036
+Least-Squares (cubic) shrink+up               17.53         3.98e-03       0.0054
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.309 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.290 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

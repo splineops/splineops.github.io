@@ -5,9 +5,8 @@
 End-to-end workflows
 ====================
 
-These examples combine independent SplineOps modules in realistic pipelines.
-They demonstrate explicit reuse and buffer contracts without merging the
-modules or hiding their mathematical boundaries.
+Combine reusable operators in complete pipelines. Share saved coefficients across
+rotations or write selected volume features into explicit output buffers.
 
 
 .. raw:: html
@@ -23,7 +22,7 @@ modules or hiding their mathematical boundaries.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="An affine coefficient field depends on the sampled frame, spline degree, boundary mode, precision, and input grid.  It does not depend on the output geometry, so registration or augmentation pipelines can prepare it once and evaluate several compatible transforms concurrently.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Save one frame&#x27;s spline coefficients and reuse them for several affine geometries.">
 
 .. only:: html
 
@@ -40,7 +39,7 @@ modules or hiding their mathematical boundaries.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This pipeline applies one 3-D affine transform and then requests only gradient and Laplacian outputs.  Exact structured buffers make allocation ownership explicit while Affine and Differentials remain independent modules.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Warp a synthetic 3-D volume and compute selected differential features into reusable output buffers.">
 
 .. only:: html
 

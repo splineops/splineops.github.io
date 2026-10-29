@@ -21,16 +21,17 @@
 Spline Bases
 ============
 
-Plotting the spline bases of the library and several transformations and operations.
+Explore B-spline, O-MOMS, and Keys bases, then combine shifted and weighted copies
+into continuous models.
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-17
+.. GENERATED FROM PYTHON SOURCE LINES 14-18
 
 Imports and Utilities
 ---------------------
 
 Define helper functions to visualize the spline bases and derived splines.
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-95
+.. GENERATED FROM PYTHON SOURCE LINES 18-96
 
 .. code-block:: Python
 
@@ -119,19 +120,22 @@ Define helper functions to visualize the spline bases and derived splines.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 96-98
+.. GENERATED FROM PYTHON SOURCE LINES 97-102
 
 Bases
 -----
 
-.. GENERATED FROM PYTHON SOURCE LINES 100-104
+Compare the supported basis families before combining their shifted and weighted
+copies into splines.
+
+.. GENERATED FROM PYTHON SOURCE LINES 104-108
 
 B-Spline Bases
 ~~~~~~~~~~~~~~
 
 Plot B-spline basis functions for degree 0 to 9.
 
-.. GENERATED FROM PYTHON SOURCE LINES 104-111
+.. GENERATED FROM PYTHON SOURCE LINES 108-115
 
 .. code-block:: Python
 
@@ -154,14 +158,14 @@ Plot B-spline basis functions for degree 0 to 9.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 112-116
+.. GENERATED FROM PYTHON SOURCE LINES 116-120
 
 OMOMS Bases
 ~~~~~~~~~~~
 
 Plot OMOMS basis functions for degree 0 to 5.
 
-.. GENERATED FROM PYTHON SOURCE LINES 116-123
+.. GENERATED FROM PYTHON SOURCE LINES 120-127
 
 .. code-block:: Python
 
@@ -184,14 +188,14 @@ Plot OMOMS basis functions for degree 0 to 5.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 124-128
+.. GENERATED FROM PYTHON SOURCE LINES 128-132
 
 Keys Basis
 ~~~~~~~~~~
 
 Plot the Keys basis function (legend omitted, title is enough).
 
-.. GENERATED FROM PYTHON SOURCE LINES 128-136
+.. GENERATED FROM PYTHON SOURCE LINES 132-140
 
 .. code-block:: Python
 
@@ -215,17 +219,22 @@ Plot the Keys basis function (legend omitted, title is enough).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 137-139
+.. GENERATED FROM PYTHON SOURCE LINES 141-145
 
 Transforming Cubic B-Splines
 ----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 141-143
+See how shifting, scaling, and weighting change one cubic basis function.
+
+.. GENERATED FROM PYTHON SOURCE LINES 147-152
 
 Helper for Cubic B-Spline
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 143-152
+Define a reusable evaluator for the centered cubic basis used in the following
+plots.
+
+.. GENERATED FROM PYTHON SOURCE LINES 152-161
 
 .. code-block:: Python
 
@@ -245,7 +254,7 @@ Helper for Cubic B-Spline
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 153-158
+.. GENERATED FROM PYTHON SOURCE LINES 162-167
 
 Single Cubic B-Spline
 ~~~~~~~~~~~~~~~~~~~~~
@@ -253,7 +262,7 @@ Single Cubic B-Spline
 Start from the centered cubic B-spline β(x, 3), which is the basic
 building block for the following plots.
 
-.. GENERATED FROM PYTHON SOURCE LINES 158-168
+.. GENERATED FROM PYTHON SOURCE LINES 167-177
 
 .. code-block:: Python
 
@@ -279,7 +288,7 @@ building block for the following plots.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 169-174
+.. GENERATED FROM PYTHON SOURCE LINES 178-183
 
 Shifted Cubic B-Spline
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -287,7 +296,7 @@ Shifted Cubic B-Spline
 Shift the cubic B-spline horizontally by one third. This only affects
 the argument of β, not its shape.
 
-.. GENERATED FROM PYTHON SOURCE LINES 174-186
+.. GENERATED FROM PYTHON SOURCE LINES 183-195
 
 .. code-block:: Python
 
@@ -315,7 +324,7 @@ the argument of β, not its shape.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 187-192
+.. GENERATED FROM PYTHON SOURCE LINES 196-201
 
 Shrunk Cubic B-Spline
 ~~~~~~~~~~~~~~~~~~~~~
@@ -323,7 +332,7 @@ Shrunk Cubic B-Spline
 Shrink the spline horizontally by 60%. This is done by scaling the
 argument of β, which changes the effective width of its support.
 
-.. GENERATED FROM PYTHON SOURCE LINES 192-205
+.. GENERATED FROM PYTHON SOURCE LINES 201-214
 
 .. code-block:: Python
 
@@ -352,7 +361,7 @@ argument of β, which changes the effective width of its support.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 206-211
+.. GENERATED FROM PYTHON SOURCE LINES 215-220
 
 Weighted Cubic B-Spline
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -360,7 +369,7 @@ Weighted Cubic B-Spline
 Multiply the shrunk and shifted spline by a constant factor. This
 operation is called weighting.
 
-.. GENERATED FROM PYTHON SOURCE LINES 211-225
+.. GENERATED FROM PYTHON SOURCE LINES 220-234
 
 .. code-block:: Python
 
@@ -390,7 +399,7 @@ operation is called weighting.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 226-231
+.. GENERATED FROM PYTHON SOURCE LINES 235-240
 
 Several Transformed B-Splines
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -398,7 +407,7 @@ Several Transformed B-Splines
 Use several combinations of (shift, shrink, weight) to obtain different
 functions, all of which are still cubic B-splines up to their parameters.
 
-.. GENERATED FROM PYTHON SOURCE LINES 231-269
+.. GENERATED FROM PYTHON SOURCE LINES 240-278
 
 .. code-block:: Python
 
@@ -452,7 +461,7 @@ functions, all of which are still cubic B-splines up to their parameters.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 270-275
+.. GENERATED FROM PYTHON SOURCE LINES 279-284
 
 Sum of B-Splines
 ~~~~~~~~~~~~~~~~
@@ -460,7 +469,7 @@ Sum of B-Splines
 Sum these functions together to obtain a new combined function. It is
 built from cubic B-splines but is itself no longer a basis function.
 
-.. GENERATED FROM PYTHON SOURCE LINES 275-289
+.. GENERATED FROM PYTHON SOURCE LINES 284-298
 
 .. code-block:: Python
 
@@ -490,12 +499,15 @@ built from cubic B-splines but is itself no longer a basis function.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 290-292
+.. GENERATED FROM PYTHON SOURCE LINES 299-304
 
 Building Splines
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 294-299
+Combine shifted basis functions, sample the resulting spline, and connect those
+samples back to its coefficients.
+
+.. GENERATED FROM PYTHON SOURCE LINES 306-311
 
 Helpers for Spline Decomposition
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -503,7 +515,7 @@ Helpers for Spline Decomposition
 These helpers are used for the uniform spline, its samples, and their
 decomposition into shifted and weighted cubic B-splines.
 
-.. GENERATED FROM PYTHON SOURCE LINES 299-331
+.. GENERATED FROM PYTHON SOURCE LINES 311-343
 
 .. code-block:: Python
 
@@ -546,7 +558,7 @@ decomposition into shifted and weighted cubic B-splines.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 332-341
+.. GENERATED FROM PYTHON SOURCE LINES 344-353
 
 Sum of Shifted Cubic B-Splines
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -558,7 +570,7 @@ Build a regular (uniform) spline as
 using integer shifts and fixed coefficients c[k]. The thick curve is the
 full spline; the thin curves are the individual terms c[k] β³(x - k).
 
-.. GENERATED FROM PYTHON SOURCE LINES 341-369
+.. GENERATED FROM PYTHON SOURCE LINES 353-381
 
 .. code-block:: Python
 
@@ -602,7 +614,7 @@ full spline; the thin curves are the individual terms c[k] β³(x - k).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 370-376
+.. GENERATED FROM PYTHON SOURCE LINES 382-388
 
 Sampling a Spline
 ~~~~~~~~~~~~~~~~~
@@ -611,7 +623,7 @@ Sample the spline at integer locations x = k. These samples define
 a discrete sequence f[k] that we may want to reconstruct from a
 spline interpolant.
 
-.. GENERATED FROM PYTHON SOURCE LINES 376-403
+.. GENERATED FROM PYTHON SOURCE LINES 388-415
 
 .. code-block:: Python
 
@@ -654,7 +666,7 @@ spline interpolant.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 404-412
+.. GENERATED FROM PYTHON SOURCE LINES 416-424
 
 From Samples to Splines
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -665,7 +677,7 @@ Illustrate the relationship between:
 - the shifted and weighted basis functions c[k] β³(x - k) (middle),
 - and the resulting spline f(x) that interpolates the samples (right).
 
-.. GENERATED FROM PYTHON SOURCE LINES 412-480
+.. GENERATED FROM PYTHON SOURCE LINES 424-492
 
 .. code-block:: Python
 
@@ -752,7 +764,7 @@ Illustrate the relationship between:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.066 seconds)
+   **Total running time of the script:** (0 minutes 1.293 seconds)
 
 
 .. _sphx_glr_download_auto_examples_01_spline_interpolation_02_spline_bases.py:

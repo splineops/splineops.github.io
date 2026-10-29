@@ -21,8 +21,8 @@
 Lambda Sweep Animation
 ======================
 
-This example animates the fidelity–sparsity trade-off of the adaptive regression
-splines module by sweeping the regularization parameter :math:`\lambda`.
+Animate the trade-off between data fidelity and knot sparsity while increasing
+regularization.
 
 Each frame shows:
     - Original samples (fixed).
@@ -30,18 +30,19 @@ Each frame shows:
     - Sparsest piecewise-linear spline (changes with :math:`\lambda`).
     - Detected knots (changes with :math:`\lambda`).
 
-.. GENERATED FROM PYTHON SOURCE LINES 20-22
+.. GENERATED FROM PYTHON SOURCE LINES 20-25
 
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-36
+Import the regression solver and helpers for fitting and visualizing sparse
+splines.
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-37
 
 .. code-block:: Python
 
 
-    import os
-    from pathlib import Path
 
     import numpy as np
     import matplotlib.pyplot as plt
@@ -60,14 +61,14 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-42
+.. GENERATED FROM PYTHON SOURCE LINES 39-43
 
 Data
 ----
 
 Embedded (x, y) dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-109
+.. GENERATED FROM PYTHON SOURCE LINES 43-110
 
 .. code-block:: Python
 
@@ -150,12 +151,15 @@ Embedded (x, y) dataset.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 110-112
+.. GENERATED FROM PYTHON SOURCE LINES 111-116
 
 Animation Helper
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 112-207
+Update the fitted spline and knot markers together as the regularization parameter
+changes.
+
+.. GENERATED FROM PYTHON SOURCE LINES 116-211
 
 .. code-block:: Python
 
@@ -261,14 +265,14 @@ Animation Helper
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 208-212
+.. GENERATED FROM PYTHON SOURCE LINES 212-216
 
 Build the Animation
 -------------------
 
 Geometric spacing gives a nice “slow-to-fast” transition.
 
-.. GENERATED FROM PYTHON SOURCE LINES 212-218
+.. GENERATED FROM PYTHON SOURCE LINES 216-222
 
 .. code-block:: Python
 
@@ -2077,12 +2081,15 @@ Geometric spacing gives a nice “slow-to-fast” transition.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 219-221
+.. GENERATED FROM PYTHON SOURCE LINES 223-228
 
 Export the Animation
 --------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 221-231
+Save the animation for the documentation build; normal interactive runs keep the
+preview without exporting it.
+
+.. GENERATED FROM PYTHON SOURCE LINES 228-238
 
 .. code-block:: Python
 
@@ -2112,7 +2119,7 @@ Export the Animation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.688 seconds)
+   **Total running time of the script:** (0 minutes 3.482 seconds)
 
 
 .. _sphx_glr_download_auto_examples_04_adaptive_regression_splines_02_lambda_sweep_animation.py:

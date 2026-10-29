@@ -6,22 +6,24 @@
 Antialiasing
 ============
 
-Interpolate 2D images with an **antialiased** down-sampling step and compare
-the result to standard interpolation.
+Compare image detail and reconstruction error after shrinking with and without
+projection antialiasing.
 
 We shrink the image with either:
 
 - plain cubic interpolation (no explicit low-pass),
 - cubic antialiasing (oblique projection low-pass) via ``"cubic-antialiasing"``,
 
-then up-sample both back to the original size using standard cubic
-interpolation. SNR and MSE are computed only on a central region to
+then up-sample both back to the original size using each pipeline's same
+resize preset. SNR and MSE are computed only on a central region to
 exclude boundary artifacts.
 """
 
 # %%
 # Imports
 # -------
+#
+# Import the resize, array, and plotting tools used in the comparison.
 
 import numpy as np
 import time
@@ -31,7 +33,6 @@ from urllib.request import urlopen
 from PIL import Image
 import matplotlib.pyplot as plt
 
-from scipy.ndimage import zoom as _scipy_zoom  # only if you want extra comparisons
 from splineops.resize import resize, resize_degrees
 from splineops.utils.metrics import compute_snr_and_mse_region
 from splineops.utils.plotting import plot_difference_image, show_roi_zoom
@@ -50,6 +51,9 @@ DTYPE = np.float32
 # %%
 # Pipeline Diagram
 # ----------------
+#
+# Compare the two shrink-and-reconstruct pipelines before examining their images and
+# errors.
 
 _ = draw_two_method_comparisons(
     "Standard Interpolation",
@@ -63,6 +67,9 @@ _ = draw_two_method_comparisons(
 # %%
 # Load and Normalize an Image
 # ---------------------------
+#
+# Load a Kodak image, convert it to grayscale, and select a shared region of
+# interest for visual comparisons.
 
 url = "https://r0k.us/graphics/kodak/kodak/kodim14.png"
 with urlopen(url, timeout=10) as resp:
@@ -113,6 +120,9 @@ roi_w_res = max(1, int(round(ROI_SIZE_PX * zoom_c)))
 # %%
 # Standard Interpolation
 # ----------------------
+#
+# Shrink with standard cubic interpolation, enlarge back to the original size, and
+# measure error on a central crop.
 
 t0 = time.perf_counter()
 resized_2d_std = resize(
@@ -142,6 +152,9 @@ snr_2d_std, mse_2d_std = compute_snr_and_mse_region(
 # %%
 # Antialiasing
 # ------------
+#
+# Use the antialiasing preset for both resize passes, keeping the output dimensions
+# and metric region unchanged.
 
 t0 = time.perf_counter()
 resized_2d_aa = resize(
@@ -220,6 +233,8 @@ plt.show()
 # %%
 # Original with ROI
 # -----------------
+#
+# Locate the selected region of interest in the full-resolution reference image.
 
 _ = show_roi_zoom(
     input_image_normalized, ax_titles=("Original Image", None), **roi_kwargs
@@ -228,10 +243,15 @@ _ = show_roi_zoom(
 # %%
 # Resized Images
 # --------------
+#
+# Compare the smaller images produced by the two downsampling methods.
 
 # %%
 # Antialiasing
 # ~~~~~~~~~~~~
+#
+# Inspect the projection-based antialiasing result and compare the retained image
+# detail.
 
 h_res_aa, w_res_aa = resized_2d_aa.shape
 
@@ -261,6 +281,8 @@ _ = show_roi_zoom(
 # %%
 # Standard Interpolation
 # ~~~~~~~~~~~~~~~~~~~~~~
+#
+# Inspect the cubic-interpolation result without an antialiasing prefilter.
 
 h_res_std, w_res_std = resized_2d_std.shape
 
@@ -288,10 +310,15 @@ _ = show_roi_zoom(
 # %%
 # Recovered Images
 # ----------------
+#
+# Resize both small images back to the original dimensions to compare their
+# reconstruction quality.
 
 # %%
 # Antialiasing Pipeline
 # ~~~~~~~~~~~~~~~~~~~~~
+#
+# Inspect the recovered image after projection-based shrinking and enlargement.
 
 _ = show_roi_zoom(
     recovered_2d_aa,
@@ -305,6 +332,8 @@ _ = show_roi_zoom(
 # %%
 # Standard Interpolation
 # ~~~~~~~~~~~~~~~~~~~~~~
+#
+# Inspect the cubic-interpolation result without an antialiasing prefilter.
 
 _ = show_roi_zoom(
     recovered_2d_std,
@@ -318,6 +347,9 @@ _ = show_roi_zoom(
 # %%
 # Difference Images
 # -----------------
+#
+# Visualize reconstruction errors to reveal details that are harder to distinguish
+# in the recovered images.
 
 # %%
 # Antialiasing
@@ -364,7 +396,7 @@ plot_difference_image(
 
 methods = [
     ("Standard Interpolation (cubic)", snr_2d_std, mse_2d_std, time_2d_std),
-    ("Antialiasing (cubic shrink, cubic up)", snr_2d_aa, mse_2d_aa, time_2d_aa),
+    ("Cubic antialiasing (shrink + up)", snr_2d_aa, mse_2d_aa, time_2d_aa),
 ]
 
 header_line = f"{'Method':<40} {'SNR (dB)':>10} {'MSE':>16} {'Time (s)':>12}"
@@ -378,18 +410,10 @@ for name, snr_val, mse_val, t in methods:
 # Least-Squares vs Antialiasing
 # -----------------------------
 #
-# We can also compare the antialiasing pipeline
-# against a full **Least-Squares** projection of degree 3 using the low-level
-# :func:`resize_degrees` API. We don't change any of the figures above; we only
-# print SNR / MSE / time numbers here.
-#
-# In this particular example, the Least-Squares variant often achieves very
-# good metrics (SNR/MSE) and can even look slightly “cleaner” numerically.
-# However, in practice we generally recommend the **Antialiasing** preset:
-#
-# - it is extremely stable and robust across a wide range of zooms and images,
-# - it is faster than full Least-Squares,
-# - and the visual quality is usually very close.
+# Compare the oblique antialiasing preset with a full cubic **Least-Squares**
+# projection through :func:`resize_degrees`. Both use projection for shrinking
+# and enlargement. The table reports SNR, MSE, and total roundtrip time; their
+# trade-off depends on image content, shape, and zoom factor.
 
 t0 = time.perf_counter()
 resized_2d_ls = resize_degrees(
@@ -420,7 +444,7 @@ snr_2d_ls, mse_2d_ls = compute_snr_and_mse_region(
 )
 
 methods_ls_vs_aa = [
-    ("Antialiasing (cubic shrink, cubic up)", snr_2d_aa, mse_2d_aa, time_2d_aa),
+    ("Cubic antialiasing (shrink + up)", snr_2d_aa, mse_2d_aa, time_2d_aa),
     ("Least-Squares (cubic) shrink+up", snr_2d_ls, mse_2d_ls, time_2d_ls),
 ]
 

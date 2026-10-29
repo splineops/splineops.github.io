@@ -21,16 +21,17 @@
 Standard Interpolation
 ======================
 
-Interpolate 2D images with standard interpolation. Compare them to SciPy zoom.
-We compute SNR and MSE on a *face ROI* (not the whole frame) to focus on detail
-and avoid boundary artifacts.
+Compare SplineOps cubic interpolation with SciPy using matched image roundtrips and
+detail regions.
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-17
+.. GENERATED FROM PYTHON SOURCE LINES 14-18
 
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-39
+Import the resize, array, and plotting tools used in the comparison.
+
+.. GENERATED FROM PYTHON SOURCE LINES 18-40
 
 .. code-block:: Python
 
@@ -63,7 +64,7 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-46
+.. GENERATED FROM PYTHON SOURCE LINES 42-47
 
 Pipeline Diagram
 ----------------
@@ -71,7 +72,7 @@ Pipeline Diagram
 These experiments validate the standard interpolation against SciPy's by
 showing they produce (nearly) the same result, and where tiny differences are.
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-54
+.. GENERATED FROM PYTHON SOURCE LINES 47-55
 
 .. code-block:: Python
 
@@ -95,7 +96,7 @@ showing they produce (nearly) the same result, and where tiny differences are.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-60
+.. GENERATED FROM PYTHON SOURCE LINES 56-61
 
 Load and Normalize an Image
 ---------------------------
@@ -103,7 +104,7 @@ Load and Normalize an Image
 Here, we load an example image from an online repository and convert to
 grayscale in [0, 1].
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-109
+.. GENERATED FROM PYTHON SOURCE LINES 61-110
 
 .. code-block:: Python
 
@@ -168,7 +169,7 @@ grayscale in [0, 1].
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 110-115
+.. GENERATED FROM PYTHON SOURCE LINES 111-116
 
 Standard Interpolation
 ----------------------
@@ -176,7 +177,7 @@ Standard Interpolation
 We use our standard interpolation method (cubic). SNR/MSE are computed on
 the face ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-143
+.. GENERATED FROM PYTHON SOURCE LINES 116-144
 
 .. code-block:: Python
 
@@ -215,14 +216,14 @@ the face ROI.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 144-148
+.. GENERATED FROM PYTHON SOURCE LINES 145-149
 
 Resized Image
 ~~~~~~~~~~~~~
 
 Show the resized image pasted on a white canvas (for zoom-out), plus the ROI zoom.
 
-.. GENERATED FROM PYTHON SOURCE LINES 148-184
+.. GENERATED FROM PYTHON SOURCE LINES 149-185
 
 .. code-block:: Python
 
@@ -274,14 +275,14 @@ Show the resized image pasted on a white canvas (for zoom-out), plus the ROI zoo
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 185-189
+.. GENERATED FROM PYTHON SOURCE LINES 186-190
 
 Recovered Image (Standard)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We plot the recovered image (after reversing the zoom) with the same ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 189-196
+.. GENERATED FROM PYTHON SOURCE LINES 190-197
 
 .. code-block:: Python
 
@@ -296,7 +297,7 @@ We plot the recovered image (after reversing the zoom) with the same ROI.
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_004.png
-   :alt: Recovered Image (standard, 0.8 ms)
+   :alt: Recovered Image (standard, 1.0 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_004.png
    :class: sphx-glr-single-img
 
@@ -304,7 +305,7 @@ We plot the recovered image (after reversing the zoom) with the same ROI.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 197-202
+.. GENERATED FROM PYTHON SOURCE LINES 198-203
 
 SciPy Interpolation
 -------------------
@@ -312,7 +313,7 @@ SciPy Interpolation
 For comparison, we also use SciPy's zoom method. Metrics are computed on the ROI.
 SciPy preserves the input dtype, so it will also run in DTYPE here.
 
-.. GENERATED FROM PYTHON SOURCE LINES 202-228
+.. GENERATED FROM PYTHON SOURCE LINES 203-229
 
 .. code-block:: Python
 
@@ -349,12 +350,15 @@ SciPy preserves the input dtype, so it will also run in DTYPE here.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 229-231
+.. GENERATED FROM PYTHON SOURCE LINES 230-235
 
 Recovered Image (SciPy)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 231-238
+Inspect the image after the SciPy resize roundtrip using the same region of
+interest as the SplineOps result.
+
+.. GENERATED FROM PYTHON SOURCE LINES 235-242
 
 .. code-block:: Python
 
@@ -369,7 +373,7 @@ Recovered Image (SciPy)
 
 
 .. image-sg:: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_005.png
-   :alt: Recovered Image (SciPy, 22.1 ms)
+   :alt: Recovered Image (SciPy, 26.0 ms)
    :srcset: /auto_examples/02_resize/images/sphx_glr_03_standard_interpolation_005.png
    :class: sphx-glr-single-img
 
@@ -377,19 +381,22 @@ Recovered Image (SciPy)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 239-241
+.. GENERATED FROM PYTHON SOURCE LINES 243-248
 
 Difference Images
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 243-247
+Visualize reconstruction errors to reveal details that are harder to distinguish
+in the recovered images.
+
+.. GENERATED FROM PYTHON SOURCE LINES 250-254
 
 Standard vs SciPy
 ~~~~~~~~~~~~~~~~~
 
 Compare the two recovered images on the face ROI and plot that difference.
 
-.. GENERATED FROM PYTHON SOURCE LINES 247-261
+.. GENERATED FROM PYTHON SOURCE LINES 254-268
 
 .. code-block:: Python
 
@@ -419,7 +426,7 @@ Compare the two recovered images on the face ROI and plot that difference.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 262-267
+.. GENERATED FROM PYTHON SOURCE LINES 269-274
 
 Original vs Standard
 ~~~~~~~~~~~~~~~~~~~~
@@ -427,7 +434,7 @@ Original vs Standard
 For completeness, show the difference image
 (original - recovered with standard interpolation) on the ROI.
 
-.. GENERATED FROM PYTHON SOURCE LINES 267-277
+.. GENERATED FROM PYTHON SOURCE LINES 274-284
 
 .. code-block:: Python
 
@@ -453,7 +460,7 @@ For completeness, show the difference image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 278-284
+.. GENERATED FROM PYTHON SOURCE LINES 285-291
 
 Alternative using TensorSpline
 ------------------------------
@@ -462,7 +469,7 @@ As an alternative, we can replicate the same interpolation manually using the
 independent ``TensorSpline`` class.  It can reproduce this interpolation
 configuration, but resize keeps its own specialized implementation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 284-344
+.. GENERATED FROM PYTHON SOURCE LINES 291-351
 
 .. code-block:: Python
 
@@ -543,7 +550,7 @@ configuration, but resize keeps its own specialized implementation.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.331 seconds)
+   **Total running time of the script:** (0 minutes 1.375 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_03_standard_interpolation.py:

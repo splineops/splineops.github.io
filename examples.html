@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=f56efcf3" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=28575662" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
@@ -53,7 +53,7 @@
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <link rel="icon" href="_static/logo.ico"/>
+    <link rel="icon" href="_static/favicon.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Examples" href="auto_examples/index.html" />
@@ -133,8 +133,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt=""/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
   
   
     <p class="title logo__title">SplineOps</p>
@@ -174,14 +174,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -272,10 +272,6 @@
   
 
   
-    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
 </div>
 
     </header>
@@ -325,14 +321,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -484,12 +480,14 @@
                   
   <section id="examples">
 <h1>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h1>
-<p>The gallery is organized by module so stable resize examples are easy to find
-without hiding the broader research package.</p>
+<p>Explore the plots below, then open a module to find its executable examples.
+Start with Resize for antialiased resizing, or browse the full gallery to
+explore all seven numerical modules and the workflows that combine them.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-3 sd-row-cols-xs-3 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-3 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover example-preview docutils">
+<img alt="B-spline basis curves of different degrees." class="sd-card-img-top" src="_images/sphx_glr_02_spline_bases_thumb.png" />
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Spline interpolation</div>
@@ -498,7 +496,8 @@ Spline interpolation</div>
 <a class="sd-stretched-link sd-hide-link-text reference internal" href="auto_examples/01_spline_interpolation/index.html"><span class="doc">Spline Interpolation Examples</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover example-preview docutils">
+<img alt="A resized image compared with and without antialiasing." class="sd-card-img-top" src="_images/sphx_glr_04_antialiasing_thumb.png" />
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Resize</div>
@@ -507,7 +506,8 @@ Resize</div>
 <a class="sd-stretched-link sd-hide-link-text reference internal" href="auto_examples/02_resize/index.html"><span class="doc">Resize Examples</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover example-preview docutils">
+<img alt="An image rotated using spline interpolation." class="sd-card-img-top" src="_images/sphx_glr_01_rotate_image_thumb.png" />
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Affine</div>
@@ -516,7 +516,8 @@ Affine</div>
 <a class="sd-stretched-link sd-hide-link-text reference internal" href="auto_examples/03_affine/index.html"><span class="doc">Affine Examples</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover example-preview docutils">
+<img alt="A spline regression fit through noisy observations." class="sd-card-img-top" src="_images/sphx_glr_01_adaptive_regression_splines_module_thumb.png" />
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Adaptive regression</div>
@@ -525,7 +526,8 @@ Adaptive regression</div>
 <a class="sd-stretched-link sd-hide-link-text reference internal" href="auto_examples/04_adaptive_regression_splines/index.html"><span class="doc">Adaptive Regression Splines Examples</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover example-preview docutils">
+<img alt="An original image, its noisy version, and the smoothed result." class="sd-card-img-top" src="_images/sphx_glr_02_2d_image_smoothing_thumb.png" />
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Smoothing</div>
@@ -534,7 +536,8 @@ Smoothing</div>
 <a class="sd-stretched-link sd-hide-link-text reference internal" href="auto_examples/05_smoothing_splines/index.html"><span class="doc">Smoothing Splines Examples</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover example-preview docutils">
+<img alt="Gradient magnitude highlights the edges in an image." class="sd-card-img-top" src="_images/sphx_glr_01_differentials_module_thumb.png" />
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Differentials</div>
@@ -543,7 +546,8 @@ Differentials</div>
 <a class="sd-stretched-link sd-hide-link-text reference internal" href="auto_examples/06_differentials/index.html"><span class="doc">Differentials Examples</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover example-preview docutils">
+<img alt="An image decomposed into wavelet approximation and detail bands." class="sd-card-img-top" src="_images/sphx_glr_02_wavelet_decomposition_thumb.png" />
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Multiscale</div>
@@ -552,7 +556,8 @@ Multiscale</div>
 <a class="sd-stretched-link sd-hide-link-text reference internal" href="auto_examples/07_multiscale/index.html"><span class="doc">Multiscale Examples</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover example-preview docutils">
+<img alt="One synthetic frame and two rotations sharing spline coefficients." class="sd-card-img-top" src="_images/sphx_glr_01_registration_fanout_thumb.png" />
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Complete workflows</div>
@@ -561,7 +566,8 @@ Complete workflows</div>
 <a class="sd-stretched-link sd-hide-link-text reference internal" href="auto_examples/08_workflows/index.html"><span class="doc">End-to-end workflows</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover example-preview docutils">
+<img alt="Discrete two-dimensional samples and their continuous spline interpolation." class="sd-card-img-top" src="_images/sphx_glr_01_tensorspline_class_thumb.png" />
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Full gallery</div>
@@ -609,21 +615,6 @@ Full gallery</div>
             </div>
             
             
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-
-  <div class="tocsection sourcelink">
-    <a href="_sources/examples.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
-
-</div></div>
               
             
           </div>

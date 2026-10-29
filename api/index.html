@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=f56efcf3" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=28575662" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
@@ -53,11 +53,11 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/index';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="icon" href="../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Spline Interpolation" href="01_spline_interpolation.html" />
-    <link rel="prev" title="Release validation" href="../releasing.html" />
+    <link rel="prev" title="Progress so far" href="../progress.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
@@ -133,8 +133,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt=""/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt=""/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
   
   
     <p class="title logo__title">SplineOps</p>
@@ -174,14 +174,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -325,14 +325,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -482,6 +482,10 @@
                   
   <section id="api-reference">
 <span id="api-index"></span><h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">#</a></h1>
+<p>The documented NumPy/CPU APIs below are stable in SplineOps 2.3. See
+<a class="reference internal" href="../project-status.html"><span class="doc">API stability and support</span></a> for precision, shape, boundary, and compatibility
+contracts. Experimental CuPy interoperability is described separately in
+<a class="reference internal" href="../backend-support.html"><span class="doc">Backend support contract</span></a>.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 25.0%" />
@@ -497,7 +501,7 @@
 <td><p>Extensible Python-based interpolation class for multidimensional data.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="02_resize.html#api-resize"><span class="std std-ref">Resize</span></a></p></td>
-<td><p>Fast, top quality projection methods to resample multidimensional data.</p></td>
+<td><p>N-D interpolation and projection antialiasing with reusable native plans.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="03_affine.html#api-affine"><span class="std std-ref">Affine</span></a></p></td>
 <td><p>Affine transforms on 2D/3D data using spline interpolation.</p></td>
@@ -509,7 +513,7 @@
 <td><p>Fit splines to noisy data.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="06_differentials.html#api-differentials"><span class="std std-ref">Differentials</span></a></p></td>
-<td><p>Compute first and second-order derivatives on 2D images.</p></td>
+<td><p>Compute first and second-order spline derivatives on 2-D/3-D arrays.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="07_multiscale.html#api-multiscale"><span class="std std-ref">Multiscale</span></a></p></td>
 <td><p>Analyze 1D signals and 2D images at multiple scales.</p></td>
@@ -532,12 +536,12 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../releasing.html"
+       href="../progress.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Release validation</p>
+        <p class="prev-next-title">Progress so far</p>
       </div>
     </a>
     <a class="right-next"

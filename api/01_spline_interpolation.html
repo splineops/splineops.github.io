@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=f56efcf3" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=28575662" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
@@ -53,7 +53,7 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/01_spline_interpolation';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="icon" href="../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Resize" href="02_resize.html" />
@@ -133,8 +133,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt=""/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt=""/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
   
   
     <p class="title logo__title">SplineOps</p>
@@ -174,14 +174,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -325,14 +325,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -696,7 +696,7 @@ If False, treats the input coordinates as a list of points at which to evaluate 
 <dt class="sig sig-object py" id="splineops.spline_interpolation.tensor_spline.TensorSpline.query_plan">
 <span class="sig-name descname"><span class="pre">query_plan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NDArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.15)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><span class="pre">NDArray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_retained_bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">268435456</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.query_plan" title="Link to this definition">#</a></dt>
 <dd><p>Precompute support geometry for repeated fixed-coordinate queries.</p>
-<p>Query plans are experimental geometry objects compatible with any
+<p>Query plans are reusable geometry objects compatible with any
 spline created through <a class="reference internal" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.with_data" title="splineops.spline_interpolation.tensor_spline.TensorSpline.with_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">with_data()</span></code></a> or <a class="reference internal" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.with_coefficients" title="splineops.spline_interpolation.tensor_spline.TensorSpline.with_coefficients"><code class="xref py py-meth docutils literal notranslate"><span class="pre">with_coefficients()</span></code></a>.
 They trade explicit, capped retained memory for faster repeated
 evaluation.  Ordinary calls remain the right choice for coordinates
@@ -706,7 +706,7 @@ that are evaluated only once.</p>
 </dd></dl>
 
 <section id="module-splineops.spline_interpolation.query_plan">
-<span id="experimental-query-plans"></span><h2>Experimental query plans<a class="headerlink" href="#module-splineops.spline_interpolation.query_plan" title="Link to this heading">#</a></h2>
+<span id="reusable-query-plans"></span><h2>Reusable query plans<a class="headerlink" href="#module-splineops.spline_interpolation.query_plan" title="Link to this heading">#</a></h2>
 <p>Reusable fixed-coordinate geometry plans for <code class="xref py py-class docutils literal notranslate"><span class="pre">TensorSpline</span></code>.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan">
@@ -857,7 +857,7 @@ with the original experimental API.</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.tensor_spline.TensorSpline.query_plan"><code class="docutils literal notranslate"><span class="pre">TensorSpline.query_plan()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-splineops.spline_interpolation.query_plan">Experimental query plans</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-splineops.spline_interpolation.query_plan">Reusable query plans</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan"><code class="docutils literal notranslate"><span class="pre">TensorSplineGeometryPlan</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.retained_bytes"><code class="docutils literal notranslate"><span class="pre">TensorSplineGeometryPlan.retained_bytes</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.spline_interpolation.query_plan.TensorSplineGeometryPlan.output_shape"><code class="docutils literal notranslate"><span class="pre">TensorSplineGeometryPlan.output_shape</span></code></a></li>

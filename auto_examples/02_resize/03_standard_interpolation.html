@@ -28,7 +28,7 @@
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css?v=28575662" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script defer="" src="../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,7 +43,7 @@
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/02_resize/03_standard_interpolation';</script>
 <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-<link href="../../_static/logo.ico" rel="icon"/>
+<link href="../../_static/favicon.svg" rel="icon"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="04_antialiasing.html" rel="next" title="Antialiasing"/>
@@ -79,8 +79,8 @@
 <div class="col-lg-3 navbar-header-items__start">
 <div class="navbar-item">
 <a class="navbar-brand logo" href="../../index.html">
-<img alt="" class="logo__image only-light" src="../../_static/logo.png"/>
-<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.png"/>
+<img alt="" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
 <p class="title logo__title">SplineOps</p>
 </a></div>
 </div>
@@ -106,12 +106,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -191,12 +191,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -283,11 +283,11 @@
 
 <section class="sphx-glr-example-title" id="standard-interpolation">
 <span id="sphx-glr-auto-examples-02-resize-03-standard-interpolation-py"></span><h1>Standard Interpolation<a class="headerlink" href="#standard-interpolation" title="Link to this heading">#</a></h1>
-<p>Interpolate 2D images with standard interpolation. Compare them to SciPy zoom.
-We compute SNR and MSE on a <em>face ROI</em> (not the whole frame) to focus on detail
-and avoid boundary artifacts.</p>
+<p>Compare SplineOps cubic interpolation with SciPy using matched image roundtrips and
+detail regions.</p>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>Import the resize, array, and plotting tools used in the comparison.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="w">
 </span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span><span class="w">
 </span><span class="w">
@@ -454,7 +454,7 @@ the face ROI.</p>
 </span>    <span class="o">*</span><span class="o">*</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">roi_kwargs</span></a><span class="p">,</span><span class="w">
 </span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img alt="Recovered Image (standard, 0.8 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_standard_interpolation_004.png" srcset="../../_images/sphx_glr_03_standard_interpolation_004.png"/></section>
+<img alt="Recovered Image (standard, 1.0 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_standard_interpolation_004.png" srcset="../../_images/sphx_glr_03_standard_interpolation_004.png"/></section>
 </section>
 <section id="scipy-interpolation">
 <h2>SciPy Interpolation<a class="headerlink" href="#scipy-interpolation" title="Link to this heading">#</a></h2>
@@ -487,16 +487,20 @@ SciPy preserves the input dtype, so it will also run in DTYPE here.</p>
 </span></pre></div></div>
 <section id="recovered-image-scipy">
 <h3>Recovered Image (SciPy)<a class="headerlink" href="#recovered-image-scipy" title="Link to this heading">#</a></h3>
+<p>Inspect the image after the SciPy resize roundtrip using the same region of
+interest as the SplineOps result.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="tuple"><span class="n">_</span></a> <span class="o">=</span> <span class="n">show_roi_zoom</span><span class="p">(</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">recovered_2d_scipy</span></a><span class="p">,</span><span class="w">
 </span>    <span class="n">ax_titles</span><span class="o">=</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="s2">Recovered Image (SciPy, </span><span class="si">{</span><span class="n">fmt_ms</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">time_2d_scipy_back</span></a><span class="p">)</span><span class="si">}</span><span class="s2">)</span><span class="s2">"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="p">,</span><span class="w">
 </span>    <span class="o">*</span><span class="o">*</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">roi_kwargs</span></a><span class="p">,</span><span class="w">
 </span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img alt="Recovered Image (SciPy, 22.1 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_standard_interpolation_005.png" srcset="../../_images/sphx_glr_03_standard_interpolation_005.png"/></section>
+<img alt="Recovered Image (SciPy, 26.0 ms)" class="sphx-glr-single-img" src="../../_images/sphx_glr_03_standard_interpolation_005.png" srcset="../../_images/sphx_glr_03_standard_interpolation_005.png"/></section>
 </section>
 <section id="difference-images">
 <h2>Difference Images<a class="headerlink" href="#difference-images" title="Link to this heading">#</a></h2>
+<p>Visualize reconstruction errors to reveal details that are harder to distinguish
+in the recovered images.</p>
 <section id="standard-vs-scipy">
 <h3>Standard vs SciPy<a class="headerlink" href="#standard-vs-scipy" title="Link to this heading">#</a></h3>
 <p>Compare the two recovered images on the face ROI and plot that difference.</p>
@@ -598,7 +602,7 @@ configuration, but resize keeps its own specialized implementation.</p>
 MSE (TensorSpline vs. resize()) recovered: 2.140313e-14
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.331 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.375 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

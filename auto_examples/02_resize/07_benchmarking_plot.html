@@ -28,7 +28,7 @@
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css?v=28575662" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script defer="" src="../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -44,7 +44,7 @@
 <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/02_resize/07_benchmarking_plot';</script>
 <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-<link href="../../_static/logo.ico" rel="icon"/>
+<link href="../../_static/favicon.svg" rel="icon"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="08_benchmarking_animation.html" rel="next" title="Benchmarking Animation"/>
@@ -80,8 +80,8 @@
 <div class="col-lg-3 navbar-header-items__start">
 <div class="navbar-item">
 <a class="navbar-brand logo" href="../../index.html">
-<img alt="" class="logo__image only-light" src="../../_static/logo.png"/>
-<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.png"/>
+<img alt="" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
 <p class="title logo__title">SplineOps</p>
 </a></div>
 </div>
@@ -107,12 +107,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -192,12 +192,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -284,8 +284,9 @@
 
 <section class="sphx-glr-example-title" id="benchmarking-plot">
 <span id="sphx-glr-auto-examples-02-resize-07-benchmarking-plot-py"></span><h1>Benchmarking Plot<a class="headerlink" href="#benchmarking-plot" title="Link to this heading">#</a></h1>
-<p>This example performs a 1D sweep of zoom factors and evaluates how different
-2D interpolation / downsampling methods behave in terms of</p>
+<p>Sweep zoom factors and compare the speed and reconstruction quality of linear and
+cubic resize methods.</p>
+<p>The plots report:</p>
 <ul class="simple">
 <li><p><strong>round-trip runtime</strong> (downsample then upsample back to the original size),</p></li>
 <li><p><strong>round-trip SNR</strong> between the original and the recovered image,</p></li>
@@ -444,6 +445,11 @@ float64 by changing the <code class="docutils literal notranslate"><span class="
 </span><span class="c1"># ------------------------</span><span class="w">
 </span><span class="c1"># Small helpers</span><span class="w">
 </span><span class="c1"># ------------------------</span><span class="w">
+</span><span class="c1">#</span><span class="w">
+</span><span class="c1"># Define compact utilities for formatting measurements and handling the shared image</span><span class="w">
+</span><span class="c1"># geometry.</span><span class="w">
+</span><span class="w">
+</span><span class="w">
 </span><span class="k">def</span><span class="w"> </span><span class="nf">fmt_ms</span><span class="p">(</span><span class="n">seconds</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-</span><span class="o">&gt;</span> <span class="nb">str</span><span class="p">:</span><span class="w">
 </span><span class="w">    </span><span class="sd">"""Format seconds as a short 'X.X ms' or 'X.XXX s' string."""</span><span class="w">
 </span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">seconds</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000.0</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ms</span><span class="s2">"</span> <span class="k">if</span> <span class="n">seconds</span> <span class="o">&lt;</span> <span class="mf">1.0</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">seconds</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> s</span><span class="s2">"</span><span class="w">
@@ -806,6 +812,8 @@ size after a forward/backward round-trip (using simple rounding).</p>
 </section>
 <section id="method-construction">
 <h2>Method Construction<a class="headerlink" href="#method-construction" title="Link to this heading">#</a></h2>
+<p>Group the available implementations by interpolation degree and antialiasing
+choice.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="k">def</span><span class="w"> </span><span class="nf">build_methods_for_degree</span><span class="p">(</span><span class="w">
 </span>    <span class="n">degree</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span><span class="w">
 </span><span class="p">)</span> <span class="o">-</span><span class="o">&gt;</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-data reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="typing.Tuple"><span class="n">Tuple</span></a><span class="p">[</span><a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="typing.Dict"><span class="n">Dict</span></a><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-data reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="typing.Tuple"><span class="n">Tuple</span></a><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span><span class="p">]</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span><span class="p">:</span><span class="w">
@@ -938,6 +946,8 @@ size after a forward/backward round-trip (using simple rounding).</p>
 </section>
 <section id="plotting-helpers">
 <h2>Plotting Helpers<a class="headerlink" href="#plotting-helpers" title="Link to this heading">#</a></h2>
+<p>Create consistent timing and quality plots from the measurements collected across
+zoom factors.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="k">def</span><span class="w"> </span><span class="nf">_plot_timing</span><span class="p">(</span><span class="w">
 </span>    <span class="n">results</span><span class="p">:</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="typing.Dict"><span class="n">Dict</span></a><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="typing.Dict"><span class="n">Dict</span></a><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <a class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="typing.List"><span class="n">List</span></a><span class="p">[</span><span class="nb">float</span><span class="p">]</span><span class="p">]</span><span class="p">]</span><span class="p">,</span><span class="w">
 </span>    <span class="n">degree_label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span><span class="w">
@@ -1134,6 +1144,8 @@ size after a forward/backward round-trip (using simple rounding).</p>
 </section>
 <section id="benchmark-for-cubic-degree">
 <h2>Benchmark for Cubic Degree<a class="headerlink" href="#benchmark-for-cubic-degree" title="Link to this heading">#</a></h2>
+<p>Run the zoom sweep with cubic methods before comparing their runtime and
+reconstruction quality.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_cubic</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">degree_label_cubic</span></a> <span class="o">=</span> <span class="n">run_sweep_for_degree</span><span class="p">(</span><span class="s2">"</span><span class="s2">cubic</span><span class="s2">"</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Done for degree=Cubic.
@@ -1141,38 +1153,51 @@ size after a forward/backward round-trip (using simple rounding).</p>
 </div>
 <section id="time-comparison-downsampling-only">
 <h3>Time Comparison (Downsampling Only)<a class="headerlink" href="#time-comparison-downsampling-only" title="Link to this heading">#</a></h3>
+<p>Compare roundtrip runtimes for zoom factors below one, where the first resize
+shrinks the image.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_cubic_down</span></a> <span class="o">=</span> <span class="n">_filter_results_z_range</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_cubic</span></a><span class="p">,</span> <span class="n">z_min</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">z_max</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span><span class="w">
 </span><span class="n">_plot_timing</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_cubic_down</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">degree_label_cubic</span></a><span class="p">,</span> <span class="n">zoom_label</span><span class="o">=</span><span class="s2">"</span><span class="s2">0 &lt; z &lt; 1</span><span class="s2">"</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
 <img alt="Round-Trip Timing vs Zoom  (H×W = 768×512, dtype=float32, degree=Cubic)" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_benchmarking_plot_002.png" srcset="../../_images/sphx_glr_07_benchmarking_plot_002.png"/></section>
 <section id="time-comparison-full">
 <h3>Time Comparison (Full)<a class="headerlink" href="#time-comparison-full" title="Link to this heading">#</a></h3>
+<p>Compare roundtrip runtimes across the full zoom range, including shrinking and
+enlargement.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">_plot_timing</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_cubic</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">degree_label_cubic</span></a><span class="p">)</span><span class="w">
 </span></pre></div></div>
 <img alt="Round-Trip Timing vs Zoom  (H×W = 768×512, dtype=float32, degree=Cubic)" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_benchmarking_plot_003.png" srcset="../../_images/sphx_glr_07_benchmarking_plot_003.png"/></section>
 <section id="snr-comparison-downsampling-only">
 <h3>SNR Comparison (Downsampling Only)<a class="headerlink" href="#snr-comparison-downsampling-only" title="Link to this heading">#</a></h3>
+<p>Compare reconstruction SNR for zoom factors below one, where aliasing is a
+particular concern.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">_plot_snr</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_cubic_down</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">degree_label_cubic</span></a><span class="p">,</span> <span class="n">zoom_label</span><span class="o">=</span><span class="s2">"</span><span class="s2">0 &lt; z &lt; 1</span><span class="s2">"</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
 <img alt="Round-Trip SNR vs Zoom  (H×W = 768×512, dtype=float32, degree=Cubic)" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_benchmarking_plot_004.png" srcset="../../_images/sphx_glr_07_benchmarking_plot_004.png"/></section>
 <section id="snr-comparison-full">
 <h3>SNR Comparison (Full)<a class="headerlink" href="#snr-comparison-full" title="Link to this heading">#</a></h3>
+<p>Compare reconstruction SNR across the full zoom range; higher values mean less
+error relative to the reference.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">_plot_snr</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_cubic</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">degree_label_cubic</span></a><span class="p">)</span><span class="w">
 </span></pre></div></div>
 <img alt="Round-Trip SNR vs Zoom  (H×W = 768×512, dtype=float32, degree=Cubic)" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_benchmarking_plot_005.png" srcset="../../_images/sphx_glr_07_benchmarking_plot_005.png"/></section>
 <section id="ssim-comparison-downsampling-only">
 <h3>SSIM Comparison (Downsampling Only)<a class="headerlink" href="#ssim-comparison-downsampling-only" title="Link to this heading">#</a></h3>
+<p>Compare structural similarity after shrink-and-reconstruct roundtrips.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">_plot_ssim</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_cubic_down</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">degree_label_cubic</span></a><span class="p">,</span> <span class="n">zoom_label</span><span class="o">=</span><span class="s2">"</span><span class="s2">0 &lt; z &lt; 1</span><span class="s2">"</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
 <img alt="Round-Trip SSIM vs Zoom  (H×W = 768×512, dtype=float32, degree=Cubic)" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_benchmarking_plot_006.png" srcset="../../_images/sphx_glr_07_benchmarking_plot_006.png"/></section>
 <section id="ssim-comparison-full">
 <h3>SSIM Comparison (Full)<a class="headerlink" href="#ssim-comparison-full" title="Link to this heading">#</a></h3>
+<p>Compare structural similarity across all tested zoom factors; values closer to one
+indicate greater similarity.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">_plot_ssim</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_cubic</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">degree_label_cubic</span></a><span class="p">)</span><span class="w">
 </span></pre></div></div>
 <img alt="Round-Trip SSIM vs Zoom  (H×W = 768×512, dtype=float32, degree=Cubic)" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_benchmarking_plot_007.png" srcset="../../_images/sphx_glr_07_benchmarking_plot_007.png"/></section>
 </section>
 <section id="benchmark-for-linear-degree">
 <h2>Benchmark for Linear Degree<a class="headerlink" href="#benchmark-for-linear-degree" title="Link to this heading">#</a></h2>
+<p>Repeat the zoom sweep with linear methods to show the effect of interpolation
+degree.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_linear</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">degree_label_linear</span></a> <span class="o">=</span> <span class="n">run_sweep_for_degree</span><span class="p">(</span><span class="s2">"</span><span class="s2">linear</span><span class="s2">"</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Done for degree=Linear.
@@ -1180,32 +1205,43 @@ size after a forward/backward round-trip (using simple rounding).</p>
 </div>
 <section id="id1">
 <h3>Time Comparison (Downsampling Only)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Compare roundtrip runtimes for zoom factors below one, where the first resize
+shrinks the image.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_linear_down</span></a> <span class="o">=</span> <span class="n">_filter_results_z_range</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_linear</span></a><span class="p">,</span> <span class="n">z_min</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">z_max</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span><span class="w">
 </span><span class="n">_plot_timing</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_linear_down</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">degree_label_linear</span></a><span class="p">,</span> <span class="n">zoom_label</span><span class="o">=</span><span class="s2">"</span><span class="s2">0 &lt; z &lt; 1</span><span class="s2">"</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
 <img alt="Round-Trip Timing vs Zoom  (H×W = 768×512, dtype=float32, degree=Linear)" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_benchmarking_plot_008.png" srcset="../../_images/sphx_glr_07_benchmarking_plot_008.png"/></section>
 <section id="id2">
 <h3>Time Comparison (Full)<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Compare roundtrip runtimes across the full zoom range, including shrinking and
+enlargement.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">_plot_timing</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_linear</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">degree_label_linear</span></a><span class="p">)</span><span class="w">
 </span></pre></div></div>
 <img alt="Round-Trip Timing vs Zoom  (H×W = 768×512, dtype=float32, degree=Linear)" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_benchmarking_plot_009.png" srcset="../../_images/sphx_glr_07_benchmarking_plot_009.png"/></section>
 <section id="id3">
 <h3>SNR Comparison (Downsampling Only)<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Compare reconstruction SNR for zoom factors below one, where aliasing is a
+particular concern.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">_plot_snr</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_linear_down</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">degree_label_linear</span></a><span class="p">,</span> <span class="n">zoom_label</span><span class="o">=</span><span class="s2">"</span><span class="s2">0 &lt; z &lt; 1</span><span class="s2">"</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
 <img alt="Round-Trip SNR vs Zoom  (H×W = 768×512, dtype=float32, degree=Linear)" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_benchmarking_plot_010.png" srcset="../../_images/sphx_glr_07_benchmarking_plot_010.png"/></section>
 <section id="id4">
 <h3>SNR Comparison (Full)<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Compare reconstruction SNR across the full zoom range; higher values mean less
+error relative to the reference.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">_plot_snr</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_linear</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">degree_label_linear</span></a><span class="p">)</span><span class="w">
 </span></pre></div></div>
 <img alt="Round-Trip SNR vs Zoom  (H×W = 768×512, dtype=float32, degree=Linear)" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_benchmarking_plot_011.png" srcset="../../_images/sphx_glr_07_benchmarking_plot_011.png"/></section>
 <section id="id5">
 <h3>SSIM Comparison (Downsampling Only)<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Compare structural similarity after shrink-and-reconstruct roundtrips.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">_plot_ssim</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_linear_down</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">degree_label_linear</span></a><span class="p">,</span> <span class="n">zoom_label</span><span class="o">=</span><span class="s2">"</span><span class="s2">0 &lt; z &lt; 1</span><span class="s2">"</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
 <img alt="Round-Trip SSIM vs Zoom  (H×W = 768×512, dtype=float32, degree=Linear)" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_benchmarking_plot_012.png" srcset="../../_images/sphx_glr_07_benchmarking_plot_012.png"/></section>
 <section id="id6">
 <h3>SSIM Comparison (Full)<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>Compare structural similarity across all tested zoom factors; values closer to one
+indicate greater similarity.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">_plot_ssim</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">results_linear</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">degree_label_linear</span></a><span class="p">)</span><span class="w">
 </span></pre></div></div>
 <img alt="Round-Trip SSIM vs Zoom  (H×W = 768×512, dtype=float32, degree=Linear)" class="sphx-glr-single-img" src="../../_images/sphx_glr_07_benchmarking_plot_013.png" srcset="../../_images/sphx_glr_07_benchmarking_plot_013.png"/></section>
@@ -1222,7 +1258,7 @@ dtype used for the benchmark.</p>
   Python      : 3.12.15 (CPython)
   OS          : Linux 7.0.0-1017-azure (x86_64)
   CPU         : x86_64 | logical cores: 4
-  Process     : pid=2500 | Python threads=1 | OS threads=17
+  Process     : pid=2646 | Python threads=1 | OS threads=17
   NumPy/SciPy : 2.5.4/1.18.1
   Matplotlib  : 3.11.2 | backend: agg
   splineops   : 2.3.0 | native ext present: True
@@ -1232,7 +1268,7 @@ dtype used for the benchmark.</p>
 Benchmark storage dtype: float32
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (5 minutes 30.124 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (5 minutes 34.421 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

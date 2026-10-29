@@ -21,18 +21,21 @@
 Interpolate 1D Samples
 ======================
 
-Interpolate 1D samples with standard interpolation.
+Reconstruct a 1-D signal with cubic and linear splines, and compare TensorSpline with
+Resize.
 
 1. Assume that a user-provided 1D list of samples :math:`f[k]` has been obtained by sampling a spline on a unit grid.
 
 2. From the samples, recover the continuously defined spline :math:`f(x)`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-19
+.. GENERATED FROM PYTHON SOURCE LINES 18-22
 
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-36
+Import the array, plotting, and spline tools used in the steps below.
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-39
 
 .. code-block:: Python
 
@@ -60,7 +63,7 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-47
+.. GENERATED FROM PYTHON SOURCE LINES 41-50
 
 Helper for Basis Decomposition
 ------------------------------
@@ -72,7 +75,7 @@ The grid is constructed with a rational step 1 / samples_per_unit so
 that all integer positions k are *exactly* included, i.e. we always
 sample each basis function at its center x = k.
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-107
+.. GENERATED FROM PYTHON SOURCE LINES 50-110
 
 .. code-block:: Python
 
@@ -143,7 +146,7 @@ sample each basis function at its center x = k.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 108-116
+.. GENERATED FROM PYTHON SOURCE LINES 111-119
 
 Initial 1D Samples
 ------------------
@@ -154,7 +157,7 @@ Let :math:`\mathbf{f} = (f[0], f[1], f[2], \dots, f[K-1])` be a 1D array of data
 
 These are the input samples that we are going to interpolate.
 
-.. GENERATED FROM PYTHON SOURCE LINES 116-171
+.. GENERATED FROM PYTHON SOURCE LINES 119-174
 
 .. code-block:: Python
 
@@ -225,7 +228,7 @@ These are the input samples that we are going to interpolate.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 172-178
+.. GENERATED FROM PYTHON SOURCE LINES 175-181
 
 Cubic Spline Decomposition
 --------------------------
@@ -234,7 +237,7 @@ Visualize the shifted cubic B-spline basis functions β(x - k) that serve
 as the building blocks of the interpolant. Here we use the true spline
 coefficients c[k] computed internally by TensorSpline.
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-195
+.. GENERATED FROM PYTHON SOURCE LINES 181-198
 
 .. code-block:: Python
 
@@ -267,7 +270,7 @@ coefficients c[k] computed internally by TensorSpline.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 196-212
+.. GENERATED FROM PYTHON SOURCE LINES 199-215
 
 Cubic Spline Interpolation
 --------------------------
@@ -286,7 +289,7 @@ where
 
 Let us now plot :math:`f`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 212-220
+.. GENERATED FROM PYTHON SOURCE LINES 215-223
 
 .. code-block:: Python
 
@@ -305,14 +308,14 @@ Let us now plot :math:`f`.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 221-225
+.. GENERATED FROM PYTHON SOURCE LINES 224-228
 
 TensorSpline
 ~~~~~~~~~~~~
 
 Here is one way to perform the standard interpolation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 225-235
+.. GENERATED FROM PYTHON SOURCE LINES 228-238
 
 .. code-block:: Python
 
@@ -333,14 +336,14 @@ Here is one way to perform the standard interpolation.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 236-240
+.. GENERATED FROM PYTHON SOURCE LINES 239-243
 
 Resize Method
 ~~~~~~~~~~~~~
 
 The resize method with standard interpolation yields the same result.
 
-.. GENERATED FROM PYTHON SOURCE LINES 240-264
+.. GENERATED FROM PYTHON SOURCE LINES 243-267
 
 .. code-block:: Python
 
@@ -381,12 +384,15 @@ The resize method with standard interpolation yields the same result.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 265-267
+.. GENERATED FROM PYTHON SOURCE LINES 268-273
 
 Plot of the Spline f
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 267-286
+Overlay the two interpolants to check that TensorSpline and Resize evaluate the
+same continuous model.
+
+.. GENERATED FROM PYTHON SOURCE LINES 273-292
 
 .. code-block:: Python
 
@@ -421,7 +427,7 @@ Plot of the Spline f
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 287-293
+.. GENERATED FROM PYTHON SOURCE LINES 293-299
 
 Linear Spline Decomposition
 ---------------------------
@@ -430,7 +436,7 @@ Repeat the same visualization, now using the linear B-spline basis
 instead of the cubic one, and the corresponding linear spline
 coefficients c[k].
 
-.. GENERATED FROM PYTHON SOURCE LINES 293-309
+.. GENERATED FROM PYTHON SOURCE LINES 299-315
 
 .. code-block:: Python
 
@@ -462,7 +468,7 @@ coefficients c[k].
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 310-315
+.. GENERATED FROM PYTHON SOURCE LINES 316-321
 
 Linear Spline Interpolation
 ---------------------------
@@ -470,7 +476,7 @@ Linear Spline Interpolation
 We now build the interpolant using the linear B-spline basis
 instead of the cubic one, and plot it together with the samples.
 
-.. GENERATED FROM PYTHON SOURCE LINES 315-343
+.. GENERATED FROM PYTHON SOURCE LINES 321-349
 
 .. code-block:: Python
 
@@ -517,7 +523,7 @@ instead of the cubic one, and plot it together with the samples.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.482 seconds)
+   **Total running time of the script:** (0 minutes 0.581 seconds)
 
 
 .. _sphx_glr_download_auto_examples_01_spline_interpolation_04_interpolate_1d_samples.py:

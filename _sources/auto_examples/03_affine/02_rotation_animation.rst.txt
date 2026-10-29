@@ -21,14 +21,16 @@
 Rotation Animation
 ==================
 
-We use the rotate module to rotate a 2D image.
+Animate a full image rotation and explore how spline degree affects interpolation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-15
+.. GENERATED FROM PYTHON SOURCE LINES 13-17
 
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-25
+Import image-loading, plotting, and affine-rotation tools.
+
+.. GENERATED FROM PYTHON SOURCE LINES 17-27
 
 .. code-block:: Python
 
@@ -49,7 +51,7 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-33
+.. GENERATED FROM PYTHON SOURCE LINES 29-35
 
 Load and Preprocess the Image
 -----------------------------
@@ -58,7 +60,7 @@ Load a Kodak image, convert it to grayscale, normalize it,
 and then resize it by a factor of (0.5, 0.5). After that,
 scale its intensity back to [0, 255] before rotation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-68
+.. GENERATED FROM PYTHON SOURCE LINES 35-70
 
 .. code-block:: Python
 
@@ -109,14 +111,14 @@ scale its intensity back to [0, 255] before rotation.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-73
+.. GENERATED FROM PYTHON SOURCE LINES 71-75
 
 Create an Animation
 -------------------
 
 Create the animation of the image being rotated from 0 to 360 degrees. Explore the effect of the spline degree.
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-168
+.. GENERATED FROM PYTHON SOURCE LINES 75-170
 
 .. code-block:: Python
 
@@ -3926,8 +3928,8 @@ Create the animation of the image being rotated from 0 to 360 degrees. Explore t
      1+YhWljxudVwuPSgdia4LuVxAviL92Bp9SfuHGcyywwulPxYlxLgH5sc12RaPat6A2dxcz3KQtHM
      eHQBhWXdE1z46R2+OZpptG02NaMCIJh6nq1o3pAf1PrfpnHRocGze8Oq/Pwe9VskUFf4ruNtnQNf
      pQaEUqPMp20d4K3ayibM+gTMNDi7M9AWLKUFD++Yyxra+jIAzMrME4RYLo5/5ZBBx3HSuqwvaNsH
-     dtaLsWentMEAsDQDnWH3+qnmO1jBSBqFkLQxsDy03FGSVRbH6vqp0UBe1r/DwuB2m5NMXJOKi1f3
-     tvGqF1W/W017KbW51IPYo7HX1vSceGTRQIFwyPp8xyBj+DZRYmeFstW5dlJdHqgyt1q35RjHsbs3
+     dtaLsWentMEAsDQDnWH3+qnmO1jBSBqFkLQxsDy03FGSVRbH6vqp0UBe1r/DwuB2m5NMXJOMS1f3
+     tvGqF1y/W017KbW51IPYo7HX1vSceGTRQIFwyPp8xyBj+DZRYmeFstW5dlJdHqgyt1q35RjHsbs3
      HYjJlYZK0xgja3fm4cy/MlUwooaFE2IOjaE6946G5tQxSbPq9OgEeHzdvnANIiGUDE1memYe+o5k
      rspt/DmEr3TvZ9GL/uso310r6DU9Nr24AmKvKnwCvepxAj6Cjz65ZJa5qGr/1/tJ84BMp1YNKIkv
      J/8aTEy79+/gDO8U/zgETxJ+ai56miWATlh7yV+kaNER7Uw9eIn4+Equ0+QpPafZ04bIaQFjSbY2
@@ -31460,7 +31462,7 @@ Create the animation of the image being rotated from 0 to 360 degrees. Explore t
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 169-174
+.. GENERATED FROM PYTHON SOURCE LINES 171-176
 
 Export the Animation
 --------------------
@@ -31468,7 +31470,7 @@ Export the Animation
 Writes into: <sphinx outdir>/_static/animations/
 Does nothing when the file is run normally by users.
 
-.. GENERATED FROM PYTHON SOURCE LINES 174-184
+.. GENERATED FROM PYTHON SOURCE LINES 176-186
 
 .. code-block:: Python
 
@@ -31498,7 +31500,7 @@ Does nothing when the file is run normally by users.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 29.630 seconds)
+   **Total running time of the script:** (0 minutes 33.213 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_affine_02_rotation_animation.py:

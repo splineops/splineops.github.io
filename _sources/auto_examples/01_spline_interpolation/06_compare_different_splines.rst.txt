@@ -21,7 +21,8 @@
 Compare Different Splines
 =========================
 
-Obtain a spline through different methods and compare the results.
+Compare spline reconstruction methods by expanding coarse samples and measuring error
+against the original model.
 
 1. Assume that a user-provided 1D list of samples :math:`f[k]` has been obtained by sampling a spline on a unit grid.
 
@@ -35,12 +36,14 @@ Obtain a spline through different methods and compare the results.
 
 6. Compute the mean squared error (MSE) between :math:`f` and :math:`h`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-27
+.. GENERATED FROM PYTHON SOURCE LINES 26-30
 
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-111
+Import the array, plotting, and spline tools used in the steps below.
+
+.. GENERATED FROM PYTHON SOURCE LINES 30-114
 
 .. code-block:: Python
 
@@ -135,7 +138,7 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 112-125
+.. GENERATED FROM PYTHON SOURCE LINES 115-128
 
 Expand g to obtain h
 --------------------
@@ -151,7 +154,7 @@ where :math:`g` is the continuously defined spline built from the
 discrete points :math:`g[k]`. Hence, :math:`h` and :math:`f` have the same support
 and can be directly compared (e.g., by computing an MSE).
 
-.. GENERATED FROM PYTHON SOURCE LINES 125-244
+.. GENERATED FROM PYTHON SOURCE LINES 128-247
 
 .. code-block:: Python
 
@@ -286,7 +289,7 @@ and can be directly compared (e.g., by computing an MSE).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 245-265
+.. GENERATED FROM PYTHON SOURCE LINES 248-268
 
 MSE Between f and h
 -------------------
@@ -309,7 +312,7 @@ Summing across all points produces the approximation
 
 The normalization by :math:`(b-a)` yields the MSE.
 
-.. GENERATED FROM PYTHON SOURCE LINES 265-286
+.. GENERATED FROM PYTHON SOURCE LINES 268-289
 
 .. code-block:: Python
 
@@ -347,7 +350,7 @@ The normalization by :math:`(b-a)` yields the MSE.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 287-292
+.. GENERATED FROM PYTHON SOURCE LINES 290-295
 
 Variation with Linear Splines
 -----------------------------
@@ -355,7 +358,7 @@ Variation with Linear Splines
 We repeat exactly everything with linear splines. As the MSE increases, we conclude that splines of degree 3 provide a better representation
 of the original signal than splines of degree 1.
 
-.. GENERATED FROM PYTHON SOURCE LINES 292-430
+.. GENERATED FROM PYTHON SOURCE LINES 295-433
 
 .. code-block:: Python
 
@@ -518,7 +521,7 @@ of the original signal than splines of degree 1.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.735 seconds)
+   **Total running time of the script:** (0 minutes 0.916 seconds)
 
 
 .. _sphx_glr_download_auto_examples_01_spline_interpolation_06_compare_different_splines.py:

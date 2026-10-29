@@ -28,7 +28,7 @@
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css?v=28575662" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script defer="" src="../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,7 +43,7 @@
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/06_differentials/01_differentials_module';</script>
 <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-<link href="../../_static/logo.ico" rel="icon"/>
+<link href="../../_static/favicon.svg" rel="icon"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="../07_multiscale/index.html" rel="next" title="Multiscale Examples"/>
@@ -79,8 +79,8 @@
 <div class="col-lg-3 navbar-header-items__start">
 <div class="navbar-item">
 <a class="navbar-brand logo" href="../../index.html">
-<img alt="" class="logo__image only-light" src="../../_static/logo.png"/>
-<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.png"/>
+<img alt="" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
 <p class="title logo__title">SplineOps</p>
 </a></div>
 </div>
@@ -106,12 +106,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -191,12 +191,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -283,12 +283,14 @@
 
 <section class="sphx-glr-example-title" id="differentials-module">
 <span id="sphx-glr-auto-examples-06-differentials-01-differentials-module-py"></span><h1>Differentials Module<a class="headerlink" href="#differentials-module" title="Link to this heading">#</a></h1>
-<p>In this example, we demonstrate how to use the differentiate module to compute different
-differential operations on an image.</p>
+<p>Visualize image gradients, the Laplacian, and Hessian features using spline-based
+derivatives.</p>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>Import image-loading helpers and the differential operators used below.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="w">
 </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="nn">.</span><span class="nn">pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span><span class="w">
+</span><span class="w">
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits</span><span class="nn">.</span><span class="nn">axes_grid1</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_axes_locatable</span><span class="w">
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">urllib</span><span class="nn">.</span><span class="nn">request</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-urllib-request sphx-glr-backref-type-py-function reference external" href="https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen" title="urllib.request.urlopen"><span class="n">urlopen</span></a><span class="w">
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="w">
@@ -319,6 +321,8 @@ and normalize its intensities to the [0,1] range.</p>
 </section>
 <section id="helper-visualization-functions">
 <h2>Helper Visualization Functions<a class="headerlink" href="#helper-visualization-functions" title="Link to this heading">#</a></h2>
+<p>Use consistent color scales and colorbars when displaying scalar responses and
+angular maps.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="k">def</span><span class="w"> </span><span class="nf">show_result_with_colorbar</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">"</span><span class="s2">Value</span><span class="s2">"</span><span class="p">,</span> <span class="n">percentile_range</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">95</span><span class="p">)</span><span class="p">)</span><span class="p">:</span><span class="w">
 </span><span class="w">    </span><span class="sd">"""
     Displays a 2D result with a colorbar scaled using the given percentile range.
@@ -407,6 +411,7 @@ and normalize its intensities to the [0,1] range.</p>
 <img alt="Original Image" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_differentials_module_001.png" srcset="../../_images/sphx_glr_01_differentials_module_001.png"/></section>
 <section id="gradient-magnitude">
 <h2>Gradient Magnitude<a class="headerlink" href="#gradient-magnitude" title="Link to this heading">#</a></h2>
+<p>Measure the strength of local intensity changes to highlight image edges.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials" title="splineops.differentials.Differentials"><span class="n">diff</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-class reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials" title="splineops.differentials.Differentials"><span class="n">differentials</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">grad_magnitude_result</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-method reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials.run" title="splineops.differentials.Differentials.run"><span class="n">diff</span><span class="o">.</span><span class="n">run</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">differentials</span><span class="o">.</span><span class="n">GRADIENT_MAGNITUDE</span></a><span class="p">)</span><span class="w">
 </span><span class="w">
@@ -415,6 +420,8 @@ and normalize its intensities to the [0,1] range.</p>
 <img alt="Gradient Magnitude" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_differentials_module_002.png" srcset="../../_images/sphx_glr_01_differentials_module_002.png"/></section>
 <section id="gradient-direction">
 <h2>Gradient Direction<a class="headerlink" href="#gradient-direction" title="Link to this heading">#</a></h2>
+<p>Display the direction of increasing intensity as an angle, using a cyclic color
+scale.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials" title="splineops.differentials.Differentials"><span class="n">diff</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-class reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials" title="splineops.differentials.Differentials"><span class="n">differentials</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">grad_direction_result</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-method reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials.run" title="splineops.differentials.Differentials.run"><span class="n">diff</span><span class="o">.</span><span class="n">run</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">differentials</span><span class="o">.</span><span class="n">GRADIENT_DIRECTION</span></a><span class="p">)</span><span class="w">
 </span><span class="w">
@@ -433,6 +440,7 @@ and normalize its intensities to the [0,1] range.</p>
 <img alt="Gradient Direction" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_differentials_module_003.png" srcset="../../_images/sphx_glr_01_differentials_module_003.png"/></section>
 <section id="laplacian">
 <h2>Laplacian<a class="headerlink" href="#laplacian" title="Link to this heading">#</a></h2>
+<p>Sum the second derivatives to highlight local curvature and changes across edges.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials" title="splineops.differentials.Differentials"><span class="n">diff</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-class reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials" title="splineops.differentials.Differentials"><span class="n">differentials</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">laplacian_result</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-method reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials.run" title="splineops.differentials.Differentials.run"><span class="n">diff</span><span class="o">.</span><span class="n">run</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">differentials</span><span class="o">.</span><span class="n">LAPLACIAN</span></a><span class="p">)</span><span class="w">
 </span><span class="w">
@@ -441,6 +449,8 @@ and normalize its intensities to the [0,1] range.</p>
 <img alt="Laplacian" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_differentials_module_004.png" srcset="../../_images/sphx_glr_01_differentials_module_004.png"/></section>
 <section id="largest-hessian">
 <h2>Largest Hessian<a class="headerlink" href="#largest-hessian" title="Link to this heading">#</a></h2>
+<p>Display the larger Hessian eigenvalue, which describes curvature along one
+principal direction.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials" title="splineops.differentials.Differentials"><span class="n">diff</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-class reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials" title="splineops.differentials.Differentials"><span class="n">differentials</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">largest_hessian_result</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-method reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials.run" title="splineops.differentials.Differentials.run"><span class="n">diff</span><span class="o">.</span><span class="n">run</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">differentials</span><span class="o">.</span><span class="n">LARGEST_HESSIAN</span></a><span class="p">)</span><span class="w">
 </span><span class="w">
@@ -451,6 +461,8 @@ and normalize its intensities to the [0,1] range.</p>
 <img alt="Largest Hessian Eigenvalue" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_differentials_module_005.png" srcset="../../_images/sphx_glr_01_differentials_module_005.png"/></section>
 <section id="smallest-hessian">
 <h2>Smallest Hessian<a class="headerlink" href="#smallest-hessian" title="Link to this heading">#</a></h2>
+<p>Display the smaller Hessian eigenvalue to complement the other principal-curvature
+response.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials" title="splineops.differentials.Differentials"><span class="n">diff</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-class reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials" title="splineops.differentials.Differentials"><span class="n">differentials</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">smallest_hessian_result</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-method reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials.run" title="splineops.differentials.Differentials.run"><span class="n">diff</span><span class="o">.</span><span class="n">run</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">differentials</span><span class="o">.</span><span class="n">SMALLEST_HESSIAN</span></a><span class="p">)</span><span class="w">
 </span><span class="w">
@@ -461,6 +473,8 @@ and normalize its intensities to the [0,1] range.</p>
 <img alt="Smallest Hessian Eigenvalue" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_differentials_module_006.png" srcset="../../_images/sphx_glr_01_differentials_module_006.png"/></section>
 <section id="hessian-orientation">
 <h2>Hessian Orientation<a class="headerlink" href="#hessian-orientation" title="Link to this heading">#</a></h2>
+<p>Map the principal-curvature orientation as an angle; weak or isotropic responses
+need cautious interpretation.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials" title="splineops.differentials.Differentials"><span class="n">diff</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-class reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials" title="splineops.differentials.Differentials"><span class="n">differentials</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">image_gray</span></a><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">hessian_orientation_result</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-splineops-differentials sphx-glr-backref-type-py-method reference internal" href="../../api/06_differentials.html#splineops.differentials.differentials.Differentials.run" title="splineops.differentials.Differentials.run"><span class="n">diff</span><span class="o">.</span><span class="n">run</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">differentials</span><span class="o">.</span><span class="n">HESSIAN_ORIENTATION</span></a><span class="p">)</span><span class="w">
 </span><span class="w">
@@ -472,7 +486,7 @@ and normalize its intensities to the [0,1] range.</p>
 </span>    <span class="n">units</span><span class="o">=</span><span class="s2">"</span><span class="s2">Orientation (radians)</span><span class="s2">"</span><span class="p">,</span><span class="w">
 </span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img alt="Hessian Orientation" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_differentials_module_007.png" srcset="../../_images/sphx_glr_01_differentials_module_007.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.357 seconds)</p>
+<img alt="Hessian Orientation" class="sphx-glr-single-img" src="../../_images/sphx_glr_01_differentials_module_007.png" srcset="../../_images/sphx_glr_01_differentials_module_007.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.417 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

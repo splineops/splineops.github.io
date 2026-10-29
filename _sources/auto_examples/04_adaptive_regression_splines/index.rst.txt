@@ -7,7 +7,9 @@
 Adaptive Regression Splines Examples
 ====================================
 
-Examples using the Adaptive regression splines module.
+Fit sparse piecewise-linear models to noisy observations. Compare fixed
+regularization strengths or watch the fit and knot count change in an animation.
+
 
 .. raw:: html
 
@@ -22,7 +24,7 @@ Examples using the Adaptive regression splines module.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to fit a piecewise-linear, knot-sparse model to 1-D data using the adaptive regression splines module.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Fit sparse piecewise-linear models and compare how regularization changes the fit and knot count.">
 
 .. only:: html
 
@@ -39,7 +41,7 @@ Examples using the Adaptive regression splines module.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example animates the fidelity–sparsity trade-off of the adaptive regression splines module by sweeping the regularization parameter \lambda.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Animate the trade-off between data fidelity and knot sparsity while increasing regularization.">
 
 .. only:: html
 

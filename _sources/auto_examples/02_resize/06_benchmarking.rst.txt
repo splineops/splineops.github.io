@@ -21,8 +21,10 @@
 Benchmarking
 ============
 
-This example benchmarks several 2D downsampling methods over a *set* of test
-images. For each image we:
+Compare resize methods across several Kodak images using detail views, reconstruction
+quality, and runtime.
+
+For each image, we:
 
 1. Downsample by an image-specific zoom factor, then upsample back (round-trip).
 2. Measure the runtime of the round-trip (forward + backward).
@@ -50,12 +52,15 @@ Notes
 - Methods with missing deps are marked "unavailable" in the console and skipped
   from the ROI montages.
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-42
+.. GENERATED FROM PYTHON SOURCE LINES 42-47
 
 Imports and Configuration
 -------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-148
+Load the available comparison libraries and set shared precision and timing
+options.
+
+.. GENERATED FROM PYTHON SOURCE LINES 47-152
 
 .. code-block:: Python
 
@@ -64,7 +69,6 @@ Imports and Configuration
 
     import math
     import os
-    import sys
     import time
     from typing import Dict, List, Tuple, Optional
 
@@ -172,12 +176,15 @@ Imports and Configuration
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 150-152
+.. GENERATED FROM PYTHON SOURCE LINES 154-159
 
 Kodak Test Set Configuration
 ----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 152-233
+Choose test images, zoom factors, and regions of interest so every method sees the
+same data.
+
+.. GENERATED FROM PYTHON SOURCE LINES 159-240
 
 .. code-block:: Python
 
@@ -269,12 +276,15 @@ Kodak Test Set Configuration
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 234-236
+.. GENERATED FROM PYTHON SOURCE LINES 241-246
 
 Utilities (Metrics, ROI, Plotting)
 ----------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 236-644
+Define common quality metrics, image crops, and displays used throughout the
+benchmark.
+
+.. GENERATED FROM PYTHON SOURCE LINES 246-654
 
 .. code-block:: Python
 
@@ -693,12 +703,15 @@ Utilities (Metrics, ROI, Plotting)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 645-647
+.. GENERATED FROM PYTHON SOURCE LINES 655-660
 
 Round-Trip Backends and Time
 ----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 647-1000
+Wrap each library in the same downsample-and-reconstruct experiment and measure
+its complete runtime.
+
+.. GENERATED FROM PYTHON SOURCE LINES 660-1013
 
 .. code-block:: Python
 
@@ -1062,12 +1075,15 @@ Round-Trip Backends and Time
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1001-1003
+.. GENERATED FROM PYTHON SOURCE LINES 1014-1019
 
 Benchmarking Helpers
 --------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 1003-1664
+Collect timings and quality scores, then assemble comparable plots for one image
+at a time.
+
+.. GENERATED FROM PYTHON SOURCE LINES 1019-1680
 
 .. code-block:: Python
 
@@ -1739,12 +1755,15 @@ Benchmarking Helpers
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1665-1667
+.. GENERATED FROM PYTHON SOURCE LINES 1681-1686
 
 Color ROI Montage Helpers
 -------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 1667-1971
+Build RGB detail views so color artifacts can be compared alongside grayscale
+metrics.
+
+.. GENERATED FROM PYTHON SOURCE LINES 1686-1990
 
 .. code-block:: Python
 
@@ -2059,12 +2078,15 @@ Color ROI Montage Helpers
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 1972-1974
+.. GENERATED FROM PYTHON SOURCE LINES 1991-1996
 
 Load All Images
 ---------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 1974-2028
+Fetch the configured images once and prepare shared grayscale and RGB arrays for
+all methods.
+
+.. GENERATED FROM PYTHON SOURCE LINES 1996-2050
 
 .. code-block:: Python
 
@@ -2144,12 +2166,15 @@ Load All Images
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2029-2031
+.. GENERATED FROM PYTHON SOURCE LINES 2051-2056
 
 Image: kodim05
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 2031-2048
+Run the configured comparison on kodim05, then inspect its image detail, errors,
+runtime, and quality scores.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2056-2073
 
 .. code-block:: Python
 
@@ -2183,25 +2208,28 @@ Image: kodim05
 
     Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
     ---------------------------------------------------------------------------------------------
-    SplineOps Standard cubic                 1.8 ms     0.1 ms       7.29      1.768e-02   0.3098
-    SplineOps Antialiasing cubic             2.9 ms     0.1 ms       9.58      1.045e-02   0.3683
-    OpenCV INTER_CUBIC                       0.5 ms     0.1 ms       7.53      1.672e-02   0.3285
-    SciPy cubic                             31.4 ms     0.1 ms       7.36      1.740e-02   0.3106
-    Pillow BICUBIC                           3.4 ms     0.1 ms       9.35      1.101e-02   0.3368
-    scikit-image cubic                      32.3 ms     0.1 ms       7.52      1.678e-02   0.3233
-    scikit-image cubic (AA)                 40.0 ms     0.3 ms       9.17      1.147e-02   0.3185
-    PyTorch bicubic (CPU)                    2.2 ms     0.0 ms       7.53      1.672e-02   0.3285
-    PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms       9.35      1.101e-02   0.3368
+    SplineOps Standard cubic                 2.0 ms     0.3 ms       7.29      1.768e-02   0.3098
+    SplineOps Antialiasing cubic             3.0 ms     0.1 ms       9.58      1.045e-02   0.3683
+    OpenCV INTER_CUBIC                       0.4 ms     0.0 ms       7.53      1.672e-02   0.3285
+    SciPy cubic                             31.9 ms     0.1 ms       7.36      1.740e-02   0.3106
+    Pillow BICUBIC                           3.0 ms     0.0 ms       9.35      1.101e-02   0.3368
+    scikit-image cubic                      33.1 ms     0.3 ms       7.52      1.678e-02   0.3233
+    scikit-image cubic (AA)                 39.7 ms     0.1 ms       9.17      1.147e-02   0.3185
+    PyTorch bicubic (CPU)                    2.4 ms     0.0 ms       7.53      1.672e-02   0.3285
+    PyTorch bicubic (AA, CPU)                1.3 ms     0.0 ms       9.35      1.101e-02   0.3368
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2049-2051
+.. GENERATED FROM PYTHON SOURCE LINES 2074-2079
 
 Original and Resized
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2051-2054
+View the original color image, its selected detail, and the downsampled result
+before comparing methods.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2079-2082
 
 .. code-block:: Python
 
@@ -2220,12 +2248,15 @@ Original and Resized
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2055-2057
+.. GENERATED FROM PYTHON SOURCE LINES 2083-2088
 
 ROI Comparison
 ~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2057-2060
+Compare reconstructed details from the standard interpolation methods at the same
+display scale.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2088-2091
 
 .. code-block:: Python
 
@@ -2244,12 +2275,14 @@ ROI Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2061-2063
+.. GENERATED FROM PYTHON SOURCE LINES 2092-2096
 
 ROI Comparison Error
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2063-2066
+Inspect the standard methods' difference images against the original detail.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2096-2099
 
 .. code-block:: Python
 
@@ -2268,12 +2301,15 @@ ROI Comparison Error
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2067-2069
+.. GENERATED FROM PYTHON SOURCE LINES 2100-2105
 
 ROI Comparison (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2069-2072
+Compare reconstructed details from methods that apply antialiasing during
+downsampling.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2105-2108
 
 .. code-block:: Python
 
@@ -2292,12 +2328,15 @@ ROI Comparison (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2073-2075
+.. GENERATED FROM PYTHON SOURCE LINES 2109-2114
 
 ROI Comparison Error (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2075-2078
+Inspect the antialiased methods' reconstruction errors on the same region of
+interest.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2114-2117
 
 .. code-block:: Python
 
@@ -2316,12 +2355,15 @@ ROI Comparison Error (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2079-2081
+.. GENERATED FROM PYTHON SOURCE LINES 2118-2123
 
 ROI Color Comparison
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2081-2084
+Compare RGB detail from standard interpolation methods to reveal color and edge
+artifacts.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2123-2126
 
 .. code-block:: Python
 
@@ -2340,12 +2382,14 @@ ROI Color Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2085-2087
+.. GENERATED FROM PYTHON SOURCE LINES 2127-2131
 
 ROI Color Comparison (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2087-2090
+Compare RGB detail after antialiased downsampling and reconstruction.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2131-2134
 
 .. code-block:: Python
 
@@ -2364,12 +2408,15 @@ ROI Color Comparison (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2091-2093
+.. GENERATED FROM PYTHON SOURCE LINES 2135-2140
 
 Timing Comparison
 ~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2093-2096
+Compare measured roundtrip runtimes; these timings describe this workload and
+machine.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2140-2143
 
 .. code-block:: Python
 
@@ -2388,12 +2435,15 @@ Timing Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2097-2099
+.. GENERATED FROM PYTHON SOURCE LINES 2144-2149
 
 SNR/SSIM Comparison
 ~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2099-2102
+Compare signal-to-noise ratio and structural similarity against the original
+image; higher scores indicate closer reconstruction.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2149-2152
 
 .. code-block:: Python
 
@@ -2412,12 +2462,15 @@ SNR/SSIM Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2103-2105
+.. GENERATED FROM PYTHON SOURCE LINES 2153-2158
 
 Image: kodim07
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 2105-2122
+Run the configured comparison on kodim07, then inspect its image detail, errors,
+runtime, and quality scores.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2158-2175
 
 .. code-block:: Python
 
@@ -2451,25 +2504,28 @@ Image: kodim07
 
     Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
     ---------------------------------------------------------------------------------------------
-    SplineOps Standard cubic                 1.9 ms     0.1 ms      13.48      9.393e-03   0.4988
-    SplineOps Antialiasing cubic             2.8 ms     0.1 ms      15.71      5.618e-03   0.5281
-    OpenCV INTER_CUBIC                       0.5 ms     0.0 ms      13.52      9.304e-03   0.5022
-    SciPy cubic                             31.5 ms     0.1 ms      13.48      9.393e-03   0.4988
-    Pillow BICUBIC                           3.4 ms     0.1 ms      15.51      5.882e-03   0.5091
-    scikit-image cubic                      32.4 ms     0.3 ms      13.49      9.372e-03   0.4960
-    scikit-image cubic (AA)                 39.9 ms     0.5 ms      15.29      6.191e-03   0.4948
-    PyTorch bicubic (CPU)                    2.2 ms     0.1 ms      13.52      9.304e-03   0.5022
-    PyTorch bicubic (AA, CPU)                1.4 ms     0.1 ms      15.51      5.882e-03   0.5091
+    SplineOps Standard cubic                 2.1 ms     0.0 ms      13.48      9.393e-03   0.4988
+    SplineOps Antialiasing cubic             3.0 ms     0.1 ms      15.71      5.618e-03   0.5281
+    OpenCV INTER_CUBIC                       0.4 ms     0.0 ms      13.52      9.304e-03   0.5022
+    SciPy cubic                             32.9 ms     0.1 ms      13.48      9.393e-03   0.4988
+    Pillow BICUBIC                           3.0 ms     0.0 ms      15.51      5.882e-03   0.5091
+    scikit-image cubic                      33.2 ms     0.2 ms      13.49      9.372e-03   0.4960
+    scikit-image cubic (AA)                 39.7 ms     0.2 ms      15.29      6.191e-03   0.4948
+    PyTorch bicubic (CPU)                    2.3 ms     0.0 ms      13.52      9.304e-03   0.5022
+    PyTorch bicubic (AA, CPU)                1.3 ms     0.0 ms      15.51      5.882e-03   0.5091
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2123-2125
+.. GENERATED FROM PYTHON SOURCE LINES 2176-2181
 
 Original and Resized
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2125-2128
+View the original color image, its selected detail, and the downsampled result
+before comparing methods.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2181-2184
 
 .. code-block:: Python
 
@@ -2488,12 +2544,15 @@ Original and Resized
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2129-2131
+.. GENERATED FROM PYTHON SOURCE LINES 2185-2190
 
 ROI Comparison
 ~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2131-2134
+Compare reconstructed details from the standard interpolation methods at the same
+display scale.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2190-2193
 
 .. code-block:: Python
 
@@ -2512,12 +2571,14 @@ ROI Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2135-2137
+.. GENERATED FROM PYTHON SOURCE LINES 2194-2198
 
 ROI Comparison Error
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2137-2140
+Inspect the standard methods' difference images against the original detail.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2198-2201
 
 .. code-block:: Python
 
@@ -2536,12 +2597,15 @@ ROI Comparison Error
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2141-2143
+.. GENERATED FROM PYTHON SOURCE LINES 2202-2207
 
 ROI Comparison (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2143-2146
+Compare reconstructed details from methods that apply antialiasing during
+downsampling.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2207-2210
 
 .. code-block:: Python
 
@@ -2560,12 +2624,15 @@ ROI Comparison (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2147-2149
+.. GENERATED FROM PYTHON SOURCE LINES 2211-2216
 
 ROI Comparison Error (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2149-2152
+Inspect the antialiased methods' reconstruction errors on the same region of
+interest.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2216-2219
 
 .. code-block:: Python
 
@@ -2584,12 +2651,15 @@ ROI Comparison Error (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2153-2155
+.. GENERATED FROM PYTHON SOURCE LINES 2220-2225
 
 ROI Color Comparison
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2155-2158
+Compare RGB detail from standard interpolation methods to reveal color and edge
+artifacts.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2225-2228
 
 .. code-block:: Python
 
@@ -2608,12 +2678,14 @@ ROI Color Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2159-2161
+.. GENERATED FROM PYTHON SOURCE LINES 2229-2233
 
 ROI Color Comparison (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2161-2164
+Compare RGB detail after antialiased downsampling and reconstruction.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2233-2236
 
 .. code-block:: Python
 
@@ -2632,12 +2704,15 @@ ROI Color Comparison (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2165-2167
+.. GENERATED FROM PYTHON SOURCE LINES 2237-2242
 
 Timing Comparison
 ~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2167-2170
+Compare measured roundtrip runtimes; these timings describe this workload and
+machine.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2242-2245
 
 .. code-block:: Python
 
@@ -2656,12 +2731,15 @@ Timing Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2171-2173
+.. GENERATED FROM PYTHON SOURCE LINES 2246-2251
 
 SNR/SSIM Comparison
 ~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2173-2176
+Compare signal-to-noise ratio and structural similarity against the original
+image; higher scores indicate closer reconstruction.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2251-2254
 
 .. code-block:: Python
 
@@ -2680,12 +2758,15 @@ SNR/SSIM Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2177-2179
+.. GENERATED FROM PYTHON SOURCE LINES 2255-2260
 
 Image: kodim14
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 2179-2196
+Run the configured comparison on kodim14, then inspect its image detail, errors,
+runtime, and quality scores.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2260-2277
 
 .. code-block:: Python
 
@@ -2719,25 +2800,28 @@ Image: kodim14
 
     Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
     ---------------------------------------------------------------------------------------------
-    SplineOps Standard cubic                 1.3 ms     0.1 ms      14.61      6.942e-03   0.6010
-    SplineOps Antialiasing cubic             2.8 ms     0.1 ms      16.58      4.416e-03   0.6799
-    OpenCV INTER_CUBIC                       0.5 ms     0.1 ms      14.64      6.909e-03   0.6114
-    SciPy cubic                             33.0 ms     0.2 ms      14.68      6.844e-03   0.6021
-    Pillow BICUBIC                           3.8 ms     0.1 ms      16.31      4.698e-03   0.6390
-    scikit-image cubic                      34.0 ms     0.1 ms      14.61      6.954e-03   0.6022
-    scikit-image cubic (AA)                 40.6 ms     0.1 ms      16.26      4.757e-03   0.6368
-    PyTorch bicubic (CPU)                    2.6 ms     0.8 ms      14.64      6.909e-03   0.6114
-    PyTorch bicubic (AA, CPU)                1.5 ms     0.1 ms      16.31      4.698e-03   0.6390
+    SplineOps Standard cubic                 1.2 ms     0.1 ms      14.61      6.942e-03   0.6010
+    SplineOps Antialiasing cubic             2.7 ms     0.1 ms      16.58      4.416e-03   0.6799
+    OpenCV INTER_CUBIC                       0.4 ms     0.0 ms      14.64      6.909e-03   0.6114
+    SciPy cubic                             33.8 ms     0.4 ms      14.68      6.844e-03   0.6021
+    Pillow BICUBIC                           3.3 ms     0.0 ms      16.31      4.698e-03   0.6390
+    scikit-image cubic                      34.2 ms     0.2 ms      14.61      6.954e-03   0.6022
+    scikit-image cubic (AA)                 38.5 ms     0.1 ms      16.26      4.757e-03   0.6368
+    PyTorch bicubic (CPU)                    2.5 ms     0.0 ms      14.64      6.909e-03   0.6114
+    PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      16.31      4.698e-03   0.6390
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2197-2199
+.. GENERATED FROM PYTHON SOURCE LINES 2278-2283
 
 Original and Resized
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2199-2202
+View the original color image, its selected detail, and the downsampled result
+before comparing methods.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2283-2286
 
 .. code-block:: Python
 
@@ -2756,12 +2840,15 @@ Original and Resized
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2203-2205
+.. GENERATED FROM PYTHON SOURCE LINES 2287-2292
 
 ROI Comparison
 ~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2205-2208
+Compare reconstructed details from the standard interpolation methods at the same
+display scale.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2292-2295
 
 .. code-block:: Python
 
@@ -2780,12 +2867,14 @@ ROI Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2209-2211
+.. GENERATED FROM PYTHON SOURCE LINES 2296-2300
 
 ROI Comparison Error
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2211-2214
+Inspect the standard methods' difference images against the original detail.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2300-2303
 
 .. code-block:: Python
 
@@ -2804,12 +2893,15 @@ ROI Comparison Error
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2215-2217
+.. GENERATED FROM PYTHON SOURCE LINES 2304-2309
 
 ROI Comparison (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2217-2220
+Compare reconstructed details from methods that apply antialiasing during
+downsampling.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2309-2312
 
 .. code-block:: Python
 
@@ -2828,12 +2920,15 @@ ROI Comparison (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2221-2223
+.. GENERATED FROM PYTHON SOURCE LINES 2313-2318
 
 ROI Comparison Error (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2223-2226
+Inspect the antialiased methods' reconstruction errors on the same region of
+interest.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2318-2321
 
 .. code-block:: Python
 
@@ -2852,12 +2947,15 @@ ROI Comparison Error (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2227-2229
+.. GENERATED FROM PYTHON SOURCE LINES 2322-2327
 
 ROI Color Comparison
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2229-2232
+Compare RGB detail from standard interpolation methods to reveal color and edge
+artifacts.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2327-2330
 
 .. code-block:: Python
 
@@ -2876,12 +2974,14 @@ ROI Color Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2233-2235
+.. GENERATED FROM PYTHON SOURCE LINES 2331-2335
 
 ROI Color Comparison (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2235-2238
+Compare RGB detail after antialiased downsampling and reconstruction.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2335-2338
 
 .. code-block:: Python
 
@@ -2900,12 +3000,15 @@ ROI Color Comparison (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2239-2241
+.. GENERATED FROM PYTHON SOURCE LINES 2339-2344
 
 Time Comparison
 ~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2241-2244
+Compare measured roundtrip runtimes; these timings describe this workload and
+machine.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2344-2347
 
 .. code-block:: Python
 
@@ -2924,12 +3027,15 @@ Time Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2245-2247
+.. GENERATED FROM PYTHON SOURCE LINES 2348-2353
 
 SNR/SSIM Comparison
 ~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2247-2250
+Compare signal-to-noise ratio and structural similarity against the original
+image; higher scores indicate closer reconstruction.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2353-2356
 
 .. code-block:: Python
 
@@ -2948,12 +3054,15 @@ SNR/SSIM Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2251-2253
+.. GENERATED FROM PYTHON SOURCE LINES 2357-2362
 
 Image: kodim15
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 2253-2270
+Run the configured comparison on kodim15, then inspect its image detail, errors,
+runtime, and quality scores.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2362-2379
 
 .. code-block:: Python
 
@@ -2987,25 +3096,28 @@ Image: kodim15
 
     Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
     ---------------------------------------------------------------------------------------------
-    SplineOps Standard cubic                 1.5 ms     0.2 ms      17.97      2.034e-03   0.7223
-    SplineOps Antialiasing cubic             2.9 ms     0.3 ms      19.90      1.307e-03   0.7792
-    OpenCV INTER_CUBIC                       0.7 ms     0.3 ms      18.08      1.987e-03   0.7288
-    SciPy cubic                             35.5 ms     2.2 ms      17.97      2.034e-03   0.7223
-    Pillow BICUBIC                           4.0 ms     0.1 ms      19.36      1.479e-03   0.7627
-    scikit-image cubic                      34.4 ms     0.2 ms      17.99      2.025e-03   0.7231
-    scikit-image cubic (AA)                 40.8 ms     0.4 ms      19.31      1.494e-03   0.7624
-    PyTorch bicubic (CPU)                    2.3 ms     0.0 ms      18.08      1.987e-03   0.7288
-    PyTorch bicubic (AA, CPU)                1.5 ms     0.1 ms      19.36      1.479e-03   0.7627
+    SplineOps Standard cubic                 1.1 ms     0.0 ms      17.97      2.034e-03   0.7223
+    SplineOps Antialiasing cubic             2.7 ms     0.1 ms      19.90      1.307e-03   0.7792
+    OpenCV INTER_CUBIC                       0.4 ms     0.0 ms      18.08      1.987e-03   0.7288
+    SciPy cubic                             33.7 ms     0.1 ms      17.97      2.034e-03   0.7223
+    Pillow BICUBIC                           3.3 ms     0.0 ms      19.36      1.479e-03   0.7627
+    scikit-image cubic                      34.3 ms     0.2 ms      17.99      2.025e-03   0.7231
+    scikit-image cubic (AA)                 38.6 ms     0.2 ms      19.31      1.494e-03   0.7624
+    PyTorch bicubic (CPU)                    2.4 ms     0.1 ms      18.08      1.987e-03   0.7288
+    PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      19.36      1.479e-03   0.7627
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2271-2273
+.. GENERATED FROM PYTHON SOURCE LINES 2380-2385
 
 Original and Resized
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2273-2276
+View the original color image, its selected detail, and the downsampled result
+before comparing methods.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2385-2388
 
 .. code-block:: Python
 
@@ -3024,12 +3136,15 @@ Original and Resized
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2277-2279
+.. GENERATED FROM PYTHON SOURCE LINES 2389-2394
 
 ROI Comparison
 ~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2279-2282
+Compare reconstructed details from the standard interpolation methods at the same
+display scale.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2394-2397
 
 .. code-block:: Python
 
@@ -3048,12 +3163,14 @@ ROI Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2283-2285
+.. GENERATED FROM PYTHON SOURCE LINES 2398-2402
 
 ROI Comparison Error
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2285-2288
+Inspect the standard methods' difference images against the original detail.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2402-2405
 
 .. code-block:: Python
 
@@ -3072,12 +3189,15 @@ ROI Comparison Error
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2289-2291
+.. GENERATED FROM PYTHON SOURCE LINES 2406-2411
 
 ROI Comparison (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2291-2294
+Compare reconstructed details from methods that apply antialiasing during
+downsampling.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2411-2414
 
 .. code-block:: Python
 
@@ -3096,12 +3216,15 @@ ROI Comparison (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2295-2297
+.. GENERATED FROM PYTHON SOURCE LINES 2415-2420
 
 ROI Comparison Error (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2297-2300
+Inspect the antialiased methods' reconstruction errors on the same region of
+interest.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2420-2423
 
 .. code-block:: Python
 
@@ -3120,12 +3243,15 @@ ROI Comparison Error (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2301-2303
+.. GENERATED FROM PYTHON SOURCE LINES 2424-2429
 
 ROI Color Comparison
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2303-2306
+Compare RGB detail from standard interpolation methods to reveal color and edge
+artifacts.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2429-2432
 
 .. code-block:: Python
 
@@ -3144,12 +3270,14 @@ ROI Color Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2307-2309
+.. GENERATED FROM PYTHON SOURCE LINES 2433-2437
 
 ROI Color Comparison (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2309-2312
+Compare RGB detail after antialiased downsampling and reconstruction.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2437-2440
 
 .. code-block:: Python
 
@@ -3168,12 +3296,15 @@ ROI Color Comparison (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2313-2315
+.. GENERATED FROM PYTHON SOURCE LINES 2441-2446
 
 Time Comparison
 ~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2315-2318
+Compare measured roundtrip runtimes; these timings describe this workload and
+machine.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2446-2449
 
 .. code-block:: Python
 
@@ -3192,12 +3323,15 @@ Time Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2319-2321
+.. GENERATED FROM PYTHON SOURCE LINES 2450-2455
 
 SNR/SSIM Comparison
 ~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2321-2324
+Compare signal-to-noise ratio and structural similarity against the original
+image; higher scores indicate closer reconstruction.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2455-2458
 
 .. code-block:: Python
 
@@ -3216,12 +3350,15 @@ SNR/SSIM Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2325-2327
+.. GENERATED FROM PYTHON SOURCE LINES 2459-2464
 
 Image: kodim19
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 2327-2344
+Run the configured comparison on kodim19, then inspect its image detail, errors,
+runtime, and quality scores.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2464-2481
 
 .. code-block:: Python
 
@@ -3255,25 +3392,28 @@ Image: kodim19
 
     Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
     ---------------------------------------------------------------------------------------------
-    SplineOps Standard cubic                 1.8 ms     0.2 ms      11.44      2.413e-02   0.4145
-    SplineOps Antialiasing cubic             3.3 ms     0.2 ms      13.82      1.393e-02   0.4538
-    OpenCV INTER_CUBIC                       0.5 ms     0.0 ms      11.52      2.367e-02   0.4287
-    SciPy cubic                             35.0 ms     1.9 ms      11.44      2.413e-02   0.4145
-    Pillow BICUBIC                           4.0 ms     0.3 ms      13.69      1.438e-02   0.4299
-    scikit-image cubic                      34.2 ms     0.1 ms      11.47      2.396e-02   0.4216
-    scikit-image cubic (AA)                 40.7 ms     0.1 ms      13.55      1.483e-02   0.4189
-    PyTorch bicubic (CPU)                    2.4 ms     0.2 ms      11.52      2.367e-02   0.4287
+    SplineOps Standard cubic                 1.7 ms     0.1 ms      11.44      2.413e-02   0.4145
+    SplineOps Antialiasing cubic             3.1 ms     0.0 ms      13.82      1.393e-02   0.4538
+    OpenCV INTER_CUBIC                       0.4 ms     0.0 ms      11.52      2.367e-02   0.4287
+    SciPy cubic                             38.0 ms     0.2 ms      11.44      2.413e-02   0.4145
+    Pillow BICUBIC                           3.0 ms     0.1 ms      13.69      1.438e-02   0.4299
+    scikit-image cubic                      38.3 ms     0.2 ms      11.47      2.396e-02   0.4216
+    scikit-image cubic (AA)                 45.0 ms     0.1 ms      13.55      1.483e-02   0.4189
+    PyTorch bicubic (CPU)                    2.4 ms     0.0 ms      11.52      2.367e-02   0.4287
     PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      13.69      1.438e-02   0.4299
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2345-2347
+.. GENERATED FROM PYTHON SOURCE LINES 2482-2487
 
 Original and Resized
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2347-2350
+View the original color image, its selected detail, and the downsampled result
+before comparing methods.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2487-2490
 
 .. code-block:: Python
 
@@ -3292,12 +3432,15 @@ Original and Resized
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2351-2353
+.. GENERATED FROM PYTHON SOURCE LINES 2491-2496
 
 ROI Comparison
 ~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2353-2356
+Compare reconstructed details from the standard interpolation methods at the same
+display scale.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2496-2499
 
 .. code-block:: Python
 
@@ -3316,12 +3459,14 @@ ROI Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2357-2359
+.. GENERATED FROM PYTHON SOURCE LINES 2500-2504
 
 ROI Comparison Error
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2359-2362
+Inspect the standard methods' difference images against the original detail.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2504-2507
 
 .. code-block:: Python
 
@@ -3340,12 +3485,15 @@ ROI Comparison Error
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2363-2365
+.. GENERATED FROM PYTHON SOURCE LINES 2508-2513
 
 ROI Comparison (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2365-2368
+Compare reconstructed details from methods that apply antialiasing during
+downsampling.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2513-2516
 
 .. code-block:: Python
 
@@ -3364,12 +3512,15 @@ ROI Comparison (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2369-2371
+.. GENERATED FROM PYTHON SOURCE LINES 2517-2522
 
 ROI Comparison Error (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2371-2374
+Inspect the antialiased methods' reconstruction errors on the same region of
+interest.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2522-2525
 
 .. code-block:: Python
 
@@ -3388,12 +3539,15 @@ ROI Comparison Error (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2375-2377
+.. GENERATED FROM PYTHON SOURCE LINES 2526-2531
 
 ROI Color Comparison
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2377-2380
+Compare RGB detail from standard interpolation methods to reveal color and edge
+artifacts.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2531-2534
 
 .. code-block:: Python
 
@@ -3412,12 +3566,14 @@ ROI Color Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2381-2383
+.. GENERATED FROM PYTHON SOURCE LINES 2535-2539
 
 ROI Color Comparison (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2383-2386
+Compare RGB detail after antialiased downsampling and reconstruction.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2539-2542
 
 .. code-block:: Python
 
@@ -3436,12 +3592,15 @@ ROI Color Comparison (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2387-2389
+.. GENERATED FROM PYTHON SOURCE LINES 2543-2548
 
 Time Comparison
 ~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2389-2392
+Compare measured roundtrip runtimes; these timings describe this workload and
+machine.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2548-2551
 
 .. code-block:: Python
 
@@ -3460,12 +3619,15 @@ Time Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2393-2395
+.. GENERATED FROM PYTHON SOURCE LINES 2552-2557
 
 SNR/SSIM Comparison
 ~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2395-2398
+Compare signal-to-noise ratio and structural similarity against the original
+image; higher scores indicate closer reconstruction.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2557-2560
 
 .. code-block:: Python
 
@@ -3484,12 +3646,15 @@ SNR/SSIM Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2399-2401
+.. GENERATED FROM PYTHON SOURCE LINES 2561-2566
 
 Image: kodim22
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 2401-2418
+Run the configured comparison on kodim22, then inspect its image detail, errors,
+runtime, and quality scores.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2566-2583
 
 .. code-block:: Python
 
@@ -3524,24 +3689,27 @@ Image: kodim22
     Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
     ---------------------------------------------------------------------------------------------
     SplineOps Standard cubic                 1.5 ms     0.1 ms      12.26      8.970e-03   0.4499
-    SplineOps Antialiasing cubic             3.4 ms     0.1 ms      14.70      5.118e-03   0.5097
-    OpenCV INTER_CUBIC                       0.5 ms     0.1 ms      12.46      8.567e-03   0.4574
-    SciPy cubic                             35.4 ms     1.5 ms      12.26      8.970e-03   0.4499
-    Pillow BICUBIC                           3.5 ms     0.2 ms      14.49      5.370e-03   0.4823
-    scikit-image cubic                      33.0 ms     0.1 ms      12.40      8.688e-03   0.4482
-    scikit-image cubic (AA)                 41.3 ms     2.0 ms      14.40      5.482e-03   0.4728
-    PyTorch bicubic (CPU)                    2.2 ms     0.0 ms      12.46      8.567e-03   0.4574
+    SplineOps Antialiasing cubic             3.2 ms     0.0 ms      14.70      5.118e-03   0.5097
+    OpenCV INTER_CUBIC                       0.4 ms     0.0 ms      12.46      8.567e-03   0.4574
+    SciPy cubic                             32.3 ms     0.2 ms      12.26      8.970e-03   0.4499
+    Pillow BICUBIC                           3.1 ms     0.2 ms      14.49      5.370e-03   0.4823
+    scikit-image cubic                      32.9 ms     0.1 ms      12.40      8.688e-03   0.4482
+    scikit-image cubic (AA)                 38.4 ms     0.1 ms      14.40      5.482e-03   0.4728
+    PyTorch bicubic (CPU)                    2.4 ms     0.1 ms      12.46      8.567e-03   0.4574
     PyTorch bicubic (AA, CPU)                1.4 ms     0.0 ms      14.49      5.370e-03   0.4823
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2419-2421
+.. GENERATED FROM PYTHON SOURCE LINES 2584-2589
 
 Original and Resized
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2421-2424
+View the original color image, its selected detail, and the downsampled result
+before comparing methods.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2589-2592
 
 .. code-block:: Python
 
@@ -3560,12 +3728,15 @@ Original and Resized
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2425-2427
+.. GENERATED FROM PYTHON SOURCE LINES 2593-2598
 
 ROI Comparison
 ~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2427-2430
+Compare reconstructed details from the standard interpolation methods at the same
+display scale.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2598-2601
 
 .. code-block:: Python
 
@@ -3584,12 +3755,14 @@ ROI Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2431-2433
+.. GENERATED FROM PYTHON SOURCE LINES 2602-2606
 
 ROI Comparison Error
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2433-2436
+Inspect the standard methods' difference images against the original detail.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2606-2609
 
 .. code-block:: Python
 
@@ -3608,12 +3781,15 @@ ROI Comparison Error
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2437-2439
+.. GENERATED FROM PYTHON SOURCE LINES 2610-2615
 
 ROI Comparison (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2439-2442
+Compare reconstructed details from methods that apply antialiasing during
+downsampling.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2615-2618
 
 .. code-block:: Python
 
@@ -3632,12 +3808,15 @@ ROI Comparison (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2443-2445
+.. GENERATED FROM PYTHON SOURCE LINES 2619-2624
 
 ROI Comparison Error (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2445-2448
+Inspect the antialiased methods' reconstruction errors on the same region of
+interest.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2624-2627
 
 .. code-block:: Python
 
@@ -3656,12 +3835,15 @@ ROI Comparison Error (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2449-2451
+.. GENERATED FROM PYTHON SOURCE LINES 2628-2633
 
 ROI Color Comparison
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2451-2454
+Compare RGB detail from standard interpolation methods to reveal color and edge
+artifacts.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2633-2636
 
 .. code-block:: Python
 
@@ -3680,12 +3862,14 @@ ROI Color Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2455-2457
+.. GENERATED FROM PYTHON SOURCE LINES 2637-2641
 
 ROI Color Comparison (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2457-2460
+Compare RGB detail after antialiased downsampling and reconstruction.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2641-2644
 
 .. code-block:: Python
 
@@ -3704,12 +3888,15 @@ ROI Color Comparison (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2461-2463
+.. GENERATED FROM PYTHON SOURCE LINES 2645-2650
 
 Time Comparison
 ~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2463-2466
+Compare measured roundtrip runtimes; these timings describe this workload and
+machine.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2650-2653
 
 .. code-block:: Python
 
@@ -3728,12 +3915,15 @@ Time Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2467-2469
+.. GENERATED FROM PYTHON SOURCE LINES 2654-2659
 
 SNR/SSIM Comparison
 ~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2469-2473
+Compare signal-to-noise ratio and structural similarity against the original
+image; higher scores indicate closer reconstruction.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2659-2663
 
 .. code-block:: Python
 
@@ -3753,12 +3943,15 @@ SNR/SSIM Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2474-2476
+.. GENERATED FROM PYTHON SOURCE LINES 2664-2669
 
 Image: kodim23
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 2476-2493
+Run the configured comparison on kodim23, then inspect its image detail, errors,
+runtime, and quality scores.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2669-2686
 
 .. code-block:: Python
 
@@ -3792,25 +3985,28 @@ Image: kodim23
 
     Method                              Time (mean)       ± SD   SNR (dB)            MSE     SSIM
     ---------------------------------------------------------------------------------------------
-    SplineOps Standard cubic                 1.8 ms     0.1 ms      16.45      4.817e-03   0.6700
-    SplineOps Antialiasing cubic             2.8 ms     0.1 ms      18.58      2.947e-03   0.7029
+    SplineOps Standard cubic                 1.9 ms     0.0 ms      16.45      4.817e-03   0.6700
+    SplineOps Antialiasing cubic             2.9 ms     0.1 ms      18.58      2.947e-03   0.7029
     OpenCV INTER_CUBIC                       0.4 ms     0.0 ms      16.39      4.885e-03   0.6758
-    SciPy cubic                             31.8 ms     0.7 ms      16.45      4.817e-03   0.6700
-    Pillow BICUBIC                           3.3 ms     0.1 ms      18.29      3.155e-03   0.6917
-    scikit-image cubic                      34.5 ms     2.3 ms      16.39      4.878e-03   0.6714
-    scikit-image cubic (AA)                 41.0 ms     1.7 ms      18.07      3.316e-03   0.6852
-    PyTorch bicubic (CPU)                    2.1 ms     0.1 ms      16.39      4.885e-03   0.6758
+    SciPy cubic                             33.7 ms     1.5 ms      16.45      4.817e-03   0.6700
+    Pillow BICUBIC                           3.0 ms     0.1 ms      18.29      3.155e-03   0.6917
+    scikit-image cubic                      32.9 ms     0.1 ms      16.39      4.878e-03   0.6714
+    scikit-image cubic (AA)                 39.5 ms     0.3 ms      18.07      3.316e-03   0.6852
+    PyTorch bicubic (CPU)                    2.7 ms     0.8 ms      16.39      4.885e-03   0.6758
     PyTorch bicubic (AA, CPU)                1.3 ms     0.0 ms      18.29      3.155e-03   0.6917
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2494-2496
+.. GENERATED FROM PYTHON SOURCE LINES 2687-2692
 
 Original and Resized
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2496-2499
+View the original color image, its selected detail, and the downsampled result
+before comparing methods.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2692-2695
 
 .. code-block:: Python
 
@@ -3829,12 +4025,15 @@ Original and Resized
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2500-2502
+.. GENERATED FROM PYTHON SOURCE LINES 2696-2701
 
 ROI Comparison
 ~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2502-2505
+Compare reconstructed details from the standard interpolation methods at the same
+display scale.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2701-2704
 
 .. code-block:: Python
 
@@ -3853,12 +4052,14 @@ ROI Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2506-2508
+.. GENERATED FROM PYTHON SOURCE LINES 2705-2709
 
 ROI Comparison Error
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2508-2511
+Inspect the standard methods' difference images against the original detail.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2709-2712
 
 .. code-block:: Python
 
@@ -3877,12 +4078,15 @@ ROI Comparison Error
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2512-2514
+.. GENERATED FROM PYTHON SOURCE LINES 2713-2718
 
 ROI Comparison (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2514-2517
+Compare reconstructed details from methods that apply antialiasing during
+downsampling.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2718-2721
 
 .. code-block:: Python
 
@@ -3901,12 +4105,15 @@ ROI Comparison (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2518-2520
+.. GENERATED FROM PYTHON SOURCE LINES 2722-2727
 
 ROI Comparison Error (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2520-2523
+Inspect the antialiased methods' reconstruction errors on the same region of
+interest.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2727-2730
 
 .. code-block:: Python
 
@@ -3925,12 +4132,15 @@ ROI Comparison Error (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2524-2526
+.. GENERATED FROM PYTHON SOURCE LINES 2731-2736
 
 ROI Color Comparison
 ~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2526-2529
+Compare RGB detail from standard interpolation methods to reveal color and edge
+artifacts.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2736-2739
 
 .. code-block:: Python
 
@@ -3949,12 +4159,14 @@ ROI Color Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2530-2532
+.. GENERATED FROM PYTHON SOURCE LINES 2740-2744
 
 ROI Color Comparison (Antialiased)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2532-2535
+Compare RGB detail after antialiased downsampling and reconstruction.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2744-2747
 
 .. code-block:: Python
 
@@ -3973,12 +4185,15 @@ ROI Color Comparison (Antialiased)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2536-2538
+.. GENERATED FROM PYTHON SOURCE LINES 2748-2753
 
 Time Comparison
 ~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2538-2541
+Compare measured roundtrip runtimes; these timings describe this workload and
+machine.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2753-2756
 
 .. code-block:: Python
 
@@ -3997,12 +4212,15 @@ Time Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2542-2544
+.. GENERATED FROM PYTHON SOURCE LINES 2757-2762
 
 SNR/SSIM Comparison
 ~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 2544-2547
+Compare signal-to-noise ratio and structural similarity against the original
+image; higher scores indicate closer reconstruction.
+
+.. GENERATED FROM PYTHON SOURCE LINES 2762-2765
 
 .. code-block:: Python
 
@@ -4021,7 +4239,7 @@ SNR/SSIM Comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 2548-2553
+.. GENERATED FROM PYTHON SOURCE LINES 2766-2771
 
 Runtime Context
 ---------------
@@ -4029,7 +4247,7 @@ Runtime Context
 Finally, we print a short summary of the runtime environment and the storage
 dtype used for the benchmark.
 
-.. GENERATED FROM PYTHON SOURCE LINES 2553-2557
+.. GENERATED FROM PYTHON SOURCE LINES 2771-2775
 
 .. code-block:: Python
 
@@ -4049,7 +4267,7 @@ dtype used for the benchmark.
       Python      : 3.12.15 (CPython)
       OS          : Linux 7.0.0-1017-azure (x86_64)
       CPU         : x86_64 | logical cores: 4
-      Process     : pid=2500 | Python threads=1 | OS threads=17
+      Process     : pid=2646 | Python threads=1 | OS threads=17
       NumPy/SciPy : 2.5.4/1.18.1
       Matplotlib  : 3.11.2 | backend: agg
       splineops   : 2.3.0 | native ext present: True
@@ -4064,7 +4282,7 @@ dtype used for the benchmark.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 35.290 seconds)
+   **Total running time of the script:** (0 minutes 33.990 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_06_benchmarking.py:

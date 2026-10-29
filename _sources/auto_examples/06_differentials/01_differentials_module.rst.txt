@@ -21,21 +21,24 @@
 Differentials Module
 ====================
 
-In this example, we demonstrate how to use the differentiate module to compute different
-differential operations on an image.
+Visualize image gradients, the Laplacian, and Hessian features using spline-based
+derivatives.
 
-.. GENERATED FROM PYTHON SOURCE LINES 14-16
+.. GENERATED FROM PYTHON SOURCE LINES 14-18
 
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 16-26
+Import image-loading helpers and the differential operators used below.
+
+.. GENERATED FROM PYTHON SOURCE LINES 18-29
 
 .. code-block:: Python
 
 
     import numpy as np
     import matplotlib.pyplot as plt
+
     from mpl_toolkits.axes_grid1 import make_axes_locatable
     from urllib.request import urlopen
     from PIL import Image
@@ -50,7 +53,7 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-32
+.. GENERATED FROM PYTHON SOURCE LINES 31-36
 
 Data Preparation
 ----------------
@@ -58,7 +61,7 @@ Data Preparation
 We retrieve an example color image, convert it to grayscale,
 and normalize its intensities to the [0,1] range.
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-48
+.. GENERATED FROM PYTHON SOURCE LINES 36-52
 
 .. code-block:: Python
 
@@ -85,12 +88,15 @@ and normalize its intensities to the [0,1] range.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-51
+.. GENERATED FROM PYTHON SOURCE LINES 53-58
 
 Helper Visualization Functions
 ------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-136
+Use consistent color scales and colorbars when displaying scalar responses and
+angular maps.
+
+.. GENERATED FROM PYTHON SOURCE LINES 58-143
 
 .. code-block:: Python
 
@@ -186,11 +192,11 @@ Helper Visualization Functions
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 137-138
+.. GENERATED FROM PYTHON SOURCE LINES 144-145
 
 Show the original grayscale image with a colorbar
 
-.. GENERATED FROM PYTHON SOURCE LINES 138-140
+.. GENERATED FROM PYTHON SOURCE LINES 145-147
 
 .. code-block:: Python
 
@@ -208,14 +214,17 @@ Show the original grayscale image with a colorbar
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 141-143
+.. GENERATED FROM PYTHON SOURCE LINES 148-152
 
 Gradient Magnitude
 ------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 143-148
+Measure the strength of local intensity changes to highlight image edges.
+
+.. GENERATED FROM PYTHON SOURCE LINES 152-158
 
 .. code-block:: Python
+
 
     diff = differentials(image_gray.copy())
     grad_magnitude_result = diff.run(differentials.GRADIENT_MAGNITUDE)
@@ -234,12 +243,15 @@ Gradient Magnitude
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 149-151
+.. GENERATED FROM PYTHON SOURCE LINES 159-164
 
 Gradient Direction
 ------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 151-167
+Display the direction of increasing intensity as an angle, using a cyclic color
+scale.
+
+.. GENERATED FROM PYTHON SOURCE LINES 164-180
 
 .. code-block:: Python
 
@@ -271,14 +283,17 @@ Gradient Direction
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 168-170
+.. GENERATED FROM PYTHON SOURCE LINES 181-185
 
 Laplacian
 ---------
 
-.. GENERATED FROM PYTHON SOURCE LINES 170-175
+Sum the second derivatives to highlight local curvature and changes across edges.
+
+.. GENERATED FROM PYTHON SOURCE LINES 185-191
 
 .. code-block:: Python
+
 
     diff = differentials(image_gray.copy())
     laplacian_result = diff.run(differentials.LAPLACIAN)
@@ -297,14 +312,18 @@ Laplacian
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 176-178
+.. GENERATED FROM PYTHON SOURCE LINES 192-197
 
 Largest Hessian
 ---------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-185
+Display the larger Hessian eigenvalue, which describes curvature along one
+principal direction.
+
+.. GENERATED FROM PYTHON SOURCE LINES 197-205
 
 .. code-block:: Python
+
 
     diff = differentials(image_gray.copy())
     largest_hessian_result = diff.run(differentials.LARGEST_HESSIAN)
@@ -325,14 +344,18 @@ Largest Hessian
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 186-188
+.. GENERATED FROM PYTHON SOURCE LINES 206-211
 
 Smallest Hessian
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 188-195
+Display the smaller Hessian eigenvalue to complement the other principal-curvature
+response.
+
+.. GENERATED FROM PYTHON SOURCE LINES 211-219
 
 .. code-block:: Python
+
 
     diff = differentials(image_gray.copy())
     smallest_hessian_result = diff.run(differentials.SMALLEST_HESSIAN)
@@ -353,12 +376,15 @@ Smallest Hessian
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 196-198
+.. GENERATED FROM PYTHON SOURCE LINES 220-225
 
 Hessian Orientation
 -------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 198-209
+Map the principal-curvature orientation as an angle; weak or isotropic responses
+need cautious interpretation.
+
+.. GENERATED FROM PYTHON SOURCE LINES 225-236
 
 .. code-block:: Python
 
@@ -388,7 +414,7 @@ Hessian Orientation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.357 seconds)
+   **Total running time of the script:** (0 minutes 1.417 seconds)
 
 
 .. _sphx_glr_download_auto_examples_06_differentials_01_differentials_module.py:

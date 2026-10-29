@@ -21,7 +21,8 @@
 Resample a 1D Spline
 ====================
 
-Resample a 1D spline with different sampling rate.
+Move a continuous spline to a coarser sampling grid and inspect how its
+representation changes.
 
 1. Assume that a user-provided 1D list of samples :math:`f[k]` has been obtained by sampling a spline on a unit grid.
 
@@ -31,12 +32,14 @@ Resample a 1D spline with different sampling rate.
 
 4. Create a new spline :math:`g(x)` from the samples :math:`g[k]`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 21-23
+.. GENERATED FROM PYTHON SOURCE LINES 22-26
 
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-40
+Import the array, plotting, and spline tools used in the steps below.
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-43
 
 .. code-block:: Python
 
@@ -64,7 +67,7 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-46
+.. GENERATED FROM PYTHON SOURCE LINES 44-49
 
 Initial 1D Samples
 ------------------
@@ -72,7 +75,7 @@ Initial 1D Samples
 Define a 1D discrete signal :math:`f[k]` on a unit grid, which we will treat as
 samples of an underlying spline.
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-98
+.. GENERATED FROM PYTHON SOURCE LINES 49-101
 
 .. code-block:: Python
 
@@ -135,7 +138,7 @@ samples of an underlying spline.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-104
+.. GENERATED FROM PYTHON SOURCE LINES 102-107
 
 Coarsening of f
 ---------------
@@ -143,7 +146,7 @@ Coarsening of f
 Sample the fine spline :math:`f(x)` on a coarser grid to obtain the new
 discrete sequence :math:`g[k] = f(Tk)`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 104-208
+.. GENERATED FROM PYTHON SOURCE LINES 107-211
 
 .. code-block:: Python
 
@@ -263,7 +266,7 @@ discrete sequence :math:`g[k] = f(Tk)`.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 209-217
+.. GENERATED FROM PYTHON SOURCE LINES 212-220
 
 Coarse-Grid Basis Functions
 ---------------------------
@@ -274,7 +277,7 @@ weight :math:`\varphi(x - k)`. On the coarse grid, the coefficients
 :math:`c_T[k]` weight :math:`\varphi(x/T - k)`. In this example,
 :math:`\varphi = \beta^{3}` is the cubic B-spline.
 
-.. GENERATED FROM PYTHON SOURCE LINES 217-289
+.. GENERATED FROM PYTHON SOURCE LINES 220-292
 
 .. code-block:: Python
 
@@ -362,7 +365,7 @@ weight :math:`\varphi(x - k)`. On the coarse grid, the coefficients
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 290-295
+.. GENERATED FROM PYTHON SOURCE LINES 293-298
 
 Spline g
 --------
@@ -370,7 +373,7 @@ Spline g
 Compare the original spline :math:`f` and the coarse spline g on the same
 physical domain, using the coarse grid on the x-axis.
 
-.. GENERATED FROM PYTHON SOURCE LINES 295-365
+.. GENERATED FROM PYTHON SOURCE LINES 298-368
 
 .. code-block:: Python
 
@@ -459,7 +462,7 @@ physical domain, using the coarse grid on the x-axis.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.653 seconds)
+   **Total running time of the script:** (0 minutes 0.808 seconds)
 
 
 .. _sphx_glr_download_auto_examples_01_spline_interpolation_05_resample_a_1d_spline.py:

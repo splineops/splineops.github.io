@@ -28,7 +28,7 @@
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css?v=28575662" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script defer="" src="../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -44,7 +44,7 @@
 <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/01_spline_interpolation/05_resample_a_1d_spline';</script>
 <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-<link href="../../_static/logo.ico" rel="icon"/>
+<link href="../../_static/favicon.svg" rel="icon"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="06_compare_different_splines.html" rel="next" title="Compare Different Splines"/>
@@ -80,8 +80,8 @@
 <div class="col-lg-3 navbar-header-items__start">
 <div class="navbar-item">
 <a class="navbar-brand logo" href="../../index.html">
-<img alt="" class="logo__image only-light" src="../../_static/logo.png"/>
-<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.png"/>
+<img alt="" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
 <p class="title logo__title">SplineOps</p>
 </a></div>
 </div>
@@ -107,12 +107,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -192,12 +192,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -284,7 +284,8 @@
 
 <section class="sphx-glr-example-title" id="resample-a-1d-spline">
 <span id="sphx-glr-auto-examples-01-spline-interpolation-05-resample-a-1d-spline-py"></span><h1>Resample a 1D Spline<a class="headerlink" href="#resample-a-1d-spline" title="Link to this heading">#</a></h1>
-<p>Resample a 1D spline with different sampling rate.</p>
+<p>Move a continuous spline to a coarser sampling grid and inspect how its
+representation changes.</p>
 <ol class="arabic simple">
 <li><p>Assume that a user-provided 1D list of samples <span class="math notranslate nohighlight">\(f[k]\)</span> has been obtained by sampling a spline on a unit grid.</p></li>
 <li><p>From the samples, recover the continuously defined spline <span class="math notranslate nohighlight">\(f(x)\)</span>.</p></li>
@@ -293,6 +294,7 @@
 </ol>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>Import the array, plotting, and spline tools used in the steps below.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="w">
 </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="nn">.</span><span class="nn">pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span><span class="w">
 </span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="nn">.</span><span class="nn">gridspec</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-matplotlib-gridspec sphx-glr-backref-type-py-class reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.gridspec.GridSpec.html#matplotlib.gridspec.GridSpec" title="matplotlib.gridspec.GridSpec"><span class="n">GridSpec</span></a><span class="w">
@@ -627,7 +629,7 @@ physical domain, using the coarse grid on the x-axis.</p>
 </span><a class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-method reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.tight_layout.html#matplotlib.figure.Figure.tight_layout" title="matplotlib.figure.Figure.tight_layout"><span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">(</span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">(</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img alt="Interpolated f spline, Interpolated g spline" class="sphx-glr-single-img" src="../../_images/sphx_glr_05_resample_a_1d_spline_003.png" srcset="../../_images/sphx_glr_05_resample_a_1d_spline_003.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.653 seconds)</p>
+<img alt="Interpolated f spline, Interpolated g spline" class="sphx-glr-single-img" src="../../_images/sphx_glr_05_resample_a_1d_spline_003.png" srcset="../../_images/sphx_glr_05_resample_a_1d_spline_003.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.808 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

@@ -28,7 +28,7 @@
 <link href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/css/custom.css?v=f56efcf3" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css?v=28575662" rel="stylesheet" type="text/css"/>
 <!-- So that users can add custom icons -->
 <script defer="" src="../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
 <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,7 +43,7 @@
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/01_spline_interpolation/02_spline_bases';</script>
 <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-<link href="../../_static/logo.ico" rel="icon"/>
+<link href="../../_static/favicon.svg" rel="icon"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="03_extension_modes.html" rel="next" title="Extension Modes"/>
@@ -79,8 +79,8 @@
 <div class="col-lg-3 navbar-header-items__start">
 <div class="navbar-item">
 <a class="navbar-brand logo" href="../../index.html">
-<img alt="" class="logo__image only-light" src="../../_static/logo.png"/>
-<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.png"/>
+<img alt="" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
 <p class="title logo__title">SplineOps</p>
 </a></div>
 </div>
@@ -106,12 +106,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -191,12 +191,12 @@
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../project.html">
-    Project
+    About
   </a>
 </li>
 <li class="nav-item">
@@ -283,7 +283,8 @@
 
 <section class="sphx-glr-example-title" id="spline-bases">
 <span id="sphx-glr-auto-examples-01-spline-interpolation-02-spline-bases-py"></span><h1>Spline Bases<a class="headerlink" href="#spline-bases" title="Link to this heading">#</a></h1>
-<p>Plotting the spline bases of the library and several transformations and operations.</p>
+<p>Explore B-spline, O-MOMS, and Keys bases, then combine shifted and weighted copies
+into continuous models.</p>
 <section id="imports-and-utilities">
 <h2>Imports and Utilities<a class="headerlink" href="#imports-and-utilities" title="Link to this heading">#</a></h2>
 <p>Define helper functions to visualize the spline bases and derived splines.</p>
@@ -366,6 +367,8 @@
 </section>
 <section id="bases">
 <h2>Bases<a class="headerlink" href="#bases" title="Link to this heading">#</a></h2>
+<p>Compare the supported basis families before combining their shifted and weighted
+copies into splines.</p>
 <section id="b-spline-bases">
 <h3>B-Spline Bases<a class="headerlink" href="#b-spline-bases" title="Link to this heading">#</a></h3>
 <p>Plot B-spline basis functions for degree 0 to 9.</p>
@@ -400,8 +403,11 @@
 </section>
 <section id="transforming-cubic-b-splines">
 <h2>Transforming Cubic B-Splines<a class="headerlink" href="#transforming-cubic-b-splines" title="Link to this heading">#</a></h2>
+<p>See how shifting, scaling, and weighting change one cubic basis function.</p>
 <section id="helper-for-cubic-b-spline">
 <h3>Helper for Cubic B-Spline<a class="headerlink" href="#helper-for-cubic-b-spline" title="Link to this heading">#</a></h3>
+<p>Define a reusable evaluator for the centered cubic basis used in the following
+plots.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">beta3_basis</span> <span class="o">=</span> <span class="n">create_basis</span><span class="p">(</span><span class="s2">"</span><span class="s2">bspline3</span><span class="s2">"</span><span class="p">)</span><span class="w">
 </span><span class="w">
 </span><span class="w">
@@ -531,6 +537,8 @@ built from cubic B-splines but is itself no longer a basis function.</p>
 </section>
 <section id="building-splines">
 <h2>Building Splines<a class="headerlink" href="#building-splines" title="Link to this heading">#</a></h2>
+<p>Combine shifted basis functions, sample the resulting spline, and connect those
+samples back to its coefficients.</p>
 <section id="helpers-for-spline-decomposition">
 <h3>Helpers for Spline Decomposition<a class="headerlink" href="#helpers-for-spline-decomposition" title="Link to this heading">#</a></h3>
 <p>These helpers are used for the uniform spline, its samples, and their
@@ -708,7 +716,7 @@ spline interpolant.</p>
 </span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="matplotlib.pyplot.tight_layout"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">(</span><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">(</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img alt="Samples f[k], Weighted terms $c[k]\beta^3(x-k)$, Resulting spline f(x)" class="sphx-glr-single-img" src="../../_images/sphx_glr_02_spline_bases_012.png" srcset="../../_images/sphx_glr_02_spline_bases_012.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.066 seconds)</p>
+<img alt="Samples f[k], Weighted terms $c[k]\beta^3(x-k)$, Resulting spline f(x)" class="sphx-glr-single-img" src="../../_images/sphx_glr_02_spline_bases_012.png" srcset="../../_images/sphx_glr_02_spline_bases_012.png"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.293 seconds)</p>
 
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>

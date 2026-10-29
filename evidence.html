@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Evidence &#8212; splineops 2.3.0 documentation</title>
+    <title>Benchmarks &#8212; splineops 2.3.0 documentation</title>
   
   
   
@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=f56efcf3" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=28575662" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
@@ -53,10 +53,10 @@
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'evidence';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <link rel="icon" href="_static/logo.ico"/>
+    <link rel="icon" href="_static/favicon.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Claims and evidence" href="claims.html" />
+    <link rel="next" title="Performance evidence" href="performance.html" />
     <link rel="prev" title="Warp a volume and write selected differential features" href="auto_examples/08_workflows/02_volume_features.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
@@ -133,8 +133,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt=""/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
   
   
     <p class="title logo__title">SplineOps</p>
@@ -174,14 +174,14 @@
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="#" aria-current="page">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -272,10 +272,6 @@
   
 
   
-    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
 </div>
 
     </header>
@@ -325,14 +321,14 @@
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="#" aria-current="page">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -416,15 +412,13 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="claims.html">Claims and evidence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="selma3d-demo.html">Interactive SELMA3D comparison</a></li>
-<li class="toctree-l1"><a class="reference internal" href="selma3d-vessels-study.html">3-D microvessel quality-at-speed validation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wavefield3d-study.html">Controlled 3-D spectral-coarsening validation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bbbc050-study.html">BBBC050 segmentation validation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cells3d-study.html">3-D microscopy downsampling study</a></li>
 <li class="toctree-l1"><a class="reference internal" href="performance.html">Performance evidence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project-status.html">Project status and evidence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="backend-support.html">Backend support contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wavefield3d-study.html">Controlled 3-D spectral-coarsening validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cells3d-study.html">3-D microscopy downsampling study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bbbc050-study.html">BBBC050 segmentation validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selma3d-vessels-study.html">3-D microvessel quality-at-speed validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selma3d-demo.html">Interactive SELMA3D comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="claims.html">Claims and evidence</a></li>
 </ul>
 </div>
 </nav></div>
@@ -465,7 +459,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Evidence</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Benchmarks</span></li>
   </ul>
 </nav>
 </div>
@@ -482,72 +476,77 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="evidence">
-<h1>Evidence<a class="headerlink" href="#evidence" title="Link to this heading">#</a></h1>
-<p>Claims are tied to reproducible artifacts, including negative results and
-scope limitations.  Start with the claims registry before reusing benchmark
-language elsewhere.</p>
+  <section id="benchmarks">
+<h1>Benchmarks<a class="headerlink" href="#benchmarks" title="Link to this heading">#</a></h1>
+<p>Compare accuracy, speed, and memory on reproducible workloads. Start with
+the performance report for practical trade-offs, or choose a study below to
+see how the methods behave on a particular kind of data.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-3 sd-row-cols-xs-3 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
 <div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover example-preview docutils">
+<img alt="Quality-versus-scale curves from the resize benchmark." class="sd-card-img-top" src="_images/sphx_glr_07_benchmarking_plot_thumb.png" />
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
-Claims and evidence</div>
-<p class="sd-card-text">Canonical public wording, supporting studies, and explicit nonclaims.</p>
-</div>
-<a class="sd-stretched-link sd-hide-link-text reference internal" href="claims.html"><span class="doc">Claims and evidence</span></a></div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Interactive microscopy demo</div>
-<p class="sd-card-text">Compare one checksum-pinned patch in napari with local and frozen
-evidence kept separate.</p>
-</div>
-<a class="sd-stretched-link sd-hide-link-text reference internal" href="selma3d-demo.html"><span class="doc">Interactive SELMA3D comparison</span></a></div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-SELMA3D microvessels</div>
-<p class="sd-card-text">The flagship 18-patch held-out quality-at-speed result.</p>
-</div>
-<a class="sd-stretched-link sd-hide-link-text reference internal" href="selma3d-vessels-study.html"><span class="doc">3-D microvessel quality-at-speed validation</span></a></div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Controlled 3-D fields</div>
-<p class="sd-card-text">Analytical-target accuracy, including the post-hoc polyphase reversal.</p>
-</div>
-<a class="sd-stretched-link sd-hide-link-text reference internal" href="wavefield3d-study.html"><span class="doc">Controlled 3-D spectral-coarsening validation</span></a></div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Performance evidence</div>
-<p class="sd-card-text">Internal acceleration, external comparisons, wins, and losses.</p>
+Performance and memory</div>
+<p class="sd-card-text">Compare complete workflows, reusable plans, native acceleration,
+and memory use. Includes workloads where another method is faster.</p>
 </div>
 <a class="sd-stretched-link sd-hide-link-text reference internal" href="performance.html"><span class="doc">Performance evidence</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover example-preview docutils">
+<img alt="Accuracy comparison against analytical three-dimensional fields." class="sd-card-img-top" src="_images/wavefield3d-study-accuracy.png" />
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
-Capability status</div>
-<p class="sd-card-text">Stable, stabilizing, and experimental support boundaries.</p>
+Controlled 3-D fields</div>
+<p class="sd-card-text">Measure resampling error against an analytical target, including
+the stronger polyphase reference added after the original study.</p>
 </div>
-<a class="sd-stretched-link sd-hide-link-text reference internal" href="project-status.html"><span class="doc">Project status and evidence</span></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="wavefield3d-study.html"><span class="doc">Controlled 3-D spectral-coarsening validation</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover example-preview docutils">
+<img alt="Image slices comparing microscopy downsampling methods." class="sd-card-img-top" src="_images/cells3d-study-montage.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Microscopy volumes</div>
+<p class="sd-card-text">Inspect a two-channel volume and compare visual detail, accuracy
+metrics, and local runtime.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="cells3d-study.html"><span class="doc">3-D microscopy downsampling study</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover example-preview docutils">
+<img alt="Example images from the labelled segmentation study." class="sd-card-img-top" src="_images/bbbc050-study-example.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Segmentation validation</div>
+<p class="sd-card-text">Check downstream results against manual labels. This study did
+not meet its predeclared quality-superiority criterion.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="bbbc050-study.html"><span class="doc">BBBC050 segmentation validation</span></a></div>
 </div>
 </div>
 </div>
+<section id="microvessel-case-study">
+<h2>Microvessel case study<a class="headerlink" href="#microvessel-case-study" title="Link to this heading">#</a></h2>
+<p>The <a class="reference internal" href="selma3d-vessels-study.html"><span class="doc">3-D microvessel quality-at-speed validation</span></a> compares named downsampling pipelines on
+18 held-out labelled 3-D patches. It reports a specific quality-and-speed
+result for voxel ranking; it does not establish segmentation superiority.
+Use the <a class="reference internal" href="selma3d-demo.html"><span class="doc">Interactive SELMA3D comparison</span></a> to explore one patch interactively in napari.</p>
+</section>
+<section id="reproduce-and-interpret-the-results">
+<h2>Reproduce and interpret the results<a class="headerlink" href="#reproduce-and-interpret-the-results" title="Link to this heading">#</a></h2>
+<p>Each report records its data, geometry, methods, environment, and limitations.
+Timings are machine-dependent. Coordinate and boundary conventions must match
+before an output difference can be interpreted as numerical error.</p>
+<p>For a concise record of what the studies support, see <a class="reference internal" href="claims.html"><span class="doc">Claims and evidence</span></a>.
+For numerical API guarantees and tested configurations, see
+<a class="reference internal" href="project-status.html"><span class="doc">API stability and support</span></a> and <a class="reference internal" href="backend-support.html"><span class="doc">Backend support contract</span></a>.</p>
 <div class="toctree-wrapper compound">
 </div>
+</section>
 </section>
 
 
@@ -570,11 +569,11 @@ Capability status</div>
       </div>
     </a>
     <a class="right-next"
-       href="claims.html"
+       href="performance.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Claims and evidence</p>
+        <p class="prev-next-title">Performance evidence</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -584,21 +583,6 @@ Capability status</div>
             </div>
             
             
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-
-  <div class="tocsection sourcelink">
-    <a href="_sources/evidence.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
-
-</div></div>
               
             
           </div>

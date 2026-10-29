@@ -21,8 +21,7 @@
 Resize Module 1D
 ================
 
-Starting from a 1D signal :math:`f[k]` on a unit grid, we perform a 1D resize
-directly on the samples and compare:
+Compare standard cubic resizing and projection antialiasing on a 1-D signal.
 
 - a coarse spline built from ``resize(..., method="cubic")``,
 - a coarse spline built from ``resize(..., method="cubic-antialiasing")``,
@@ -36,12 +35,14 @@ We build up the visualization step-by-step:
 4. The coarse spline from ``resize(..., "cubic-antialiasing")``.
 5. Everything together on one plot.
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-28
+.. GENERATED FROM PYTHON SOURCE LINES 25-29
 
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-43
+Import the resize, array, and plotting tools used in the comparison.
+
+.. GENERATED FROM PYTHON SOURCE LINES 29-44
 
 .. code-block:: Python
 
@@ -67,7 +68,7 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-54
+.. GENERATED FROM PYTHON SOURCE LINES 46-55
 
 1D Resize-Based Coarsening
 --------------------------
@@ -79,7 +80,7 @@ directly on the samples. We then compare:
 - a coarse spline built from `resize(..., method="cubic-antialiasing")`,
 - the interpolating spline f(x) of the original samples for reference.
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-91
+.. GENERATED FROM PYTHON SOURCE LINES 55-92
 
 .. code-block:: Python
 
@@ -127,14 +128,14 @@ directly on the samples. We then compare:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 92-96
+.. GENERATED FROM PYTHON SOURCE LINES 93-97
 
 Original Samples
 ----------------
 
 We start by visualizing only the discrete samples :math:`f[k]` on the unit grid.
 
-.. GENERATED FROM PYTHON SOURCE LINES 96-107
+.. GENERATED FROM PYTHON SOURCE LINES 97-108
 
 .. code-block:: Python
 
@@ -161,7 +162,7 @@ We start by visualizing only the discrete samples :math:`f[k]` on the unit grid.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 108-113
+.. GENERATED FROM PYTHON SOURCE LINES 109-114
 
 Fine Spline f(x)
 ----------------
@@ -169,7 +170,7 @@ Fine Spline f(x)
 Next, we build the fine interpolating spline :math:`f(x)` on the unit grid
 using cubic B-splines, and sample it densely for visualization.
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-152
+.. GENERATED FROM PYTHON SOURCE LINES 114-153
 
 .. code-block:: Python
 
@@ -224,7 +225,7 @@ using cubic B-splines, and sample it densely for visualization.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 153-158
+.. GENERATED FROM PYTHON SOURCE LINES 154-159
 
 Coarse Grid and Resize
 ----------------------
@@ -232,7 +233,7 @@ Coarse Grid and Resize
 We now choose a coarser grid and obtain coarse samples by resizing the
 original discrete signal with two different methods.
 
-.. GENERATED FROM PYTHON SOURCE LINES 158-214
+.. GENERATED FROM PYTHON SOURCE LINES 159-215
 
 .. code-block:: Python
 
@@ -305,7 +306,7 @@ original discrete signal with two different methods.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 215-220
+.. GENERATED FROM PYTHON SOURCE LINES 216-221
 
 Coarse Cubic Spline
 -------------------
@@ -313,7 +314,7 @@ Coarse Cubic Spline
 We now show the coarse spline built from the ``"cubic"`` resize together
 with the original samples and fine spline.
 
-.. GENERATED FROM PYTHON SOURCE LINES 220-272
+.. GENERATED FROM PYTHON SOURCE LINES 221-273
 
 .. code-block:: Python
 
@@ -381,7 +382,7 @@ with the original samples and fine spline.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 273-278
+.. GENERATED FROM PYTHON SOURCE LINES 274-279
 
 Coarse Cubic Antialiasing Spline
 --------------------------------
@@ -389,7 +390,7 @@ Coarse Cubic Antialiasing Spline
 Similarly, we show the coarse spline obtained with the antialiasing
 preset, which inserts a low-pass step before decimation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 278-329
+.. GENERATED FROM PYTHON SOURCE LINES 279-330
 
 .. code-block:: Python
 
@@ -456,7 +457,7 @@ preset, which inserts a low-pass step before decimation.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 330-335
+.. GENERATED FROM PYTHON SOURCE LINES 331-336
 
 All Splines Together
 --------------------
@@ -464,7 +465,7 @@ All Splines Together
 Finally, we overlay both coarse splines on top of the fine spline and
 original samples for a direct comparison.
 
-.. GENERATED FROM PYTHON SOURCE LINES 335-408
+.. GENERATED FROM PYTHON SOURCE LINES 336-409
 
 .. code-block:: Python
 
@@ -556,7 +557,7 @@ original samples for a direct comparison.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.558 seconds)
+   **Total running time of the script:** (0 minutes 0.666 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_resize_01_resize_module_1d.py:

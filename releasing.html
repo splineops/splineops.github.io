@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=f56efcf3" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=28575662" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
@@ -53,11 +53,11 @@
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'releasing';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <link rel="icon" href="_static/logo.ico"/>
+    <link rel="icon" href="_static/favicon.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="API Reference" href="api/index.html" />
-    <link rel="prev" title="Internal numerical contracts" href="internal-contracts.html" />
+    <link rel="next" title="2.3 numerical API review" href="graduation-audits.html" />
+    <link rel="prev" title="Method and source provenance" href="provenance.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
@@ -133,8 +133,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt=""/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
   
   
     <p class="title logo__title">SplineOps</p>
@@ -174,14 +174,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -325,14 +325,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -416,13 +416,15 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="project-status.html">API stability and support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backend-support.html">Backend support contract</a></li>
 <li class="toctree-l1"><a class="reference internal" href="provenance.html">Method and source provenance</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Release validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graduation-audits.html">2.3 numerical API review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal-contracts.html">Internal numerical contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stability-soak.html">Stability-soak workflows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roadmap.html">Development roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="progress.html">Progress so far</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stability-soak.html">Stability-soak workflows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="graduation-audits.html">Affine and Differentials graduation audits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internal-contracts.html">Internal numerical contracts</a></li>
-<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Release validation</a></li>
 </ul>
 </div>
 </nav></div>
@@ -464,7 +466,7 @@
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="project.html" class="nav-link">Project</a></li>
+    <li class="breadcrumb-item"><a href="project.html" class="nav-link">About</a></li>
     
     <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Release validation</span></li>
   </ul>
@@ -533,6 +535,21 @@ script rejects source imports and verifies the version against this checkout.
 An audit without <code class="docutils literal notranslate"><span class="pre">--complete</span></code> validates a local build; it does not claim
 coverage of the full release wheel matrix.</p>
 </section>
+<section id="visual-documentation-checks">
+<h2>Visual documentation checks<a class="headerlink" href="#visual-documentation-checks" title="Link to this heading">#</a></h2>
+<p>Build the complete gallery when reviewing thumbnails, figures, or branding:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="s2">".[docs]"</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">sphinx</span> <span class="o">-</span><span class="n">b</span> <span class="n">html</span> <span class="n">docs</span> <span class="n">docs</span><span class="o">/</span><span class="n">_build</span><span class="o">/</span><span class="n">html</span> <span class="o">-</span><span class="n">W</span> <span class="o">--</span><span class="n">keep</span><span class="o">-</span><span class="n">going</span>
+</pre></div>
+</div>
+<p>Open <code class="docutils literal notranslate"><span class="pre">examples.html</span></code> and the module gallery pages in both themes and at a
+narrow viewport. Every example should have its own generated preview. The
+quality workflow’s parse-only build (<code class="docutils literal notranslate"><span class="pre">plot_gallery=0</span></code>) checks documentation
+structure but creates placeholder thumbnails; a build that executes only a
+subset of examples is also not a complete visual preview.
+Use a fresh checkout for release screenshots: generated thumbnails under
+<code class="docutils literal notranslate"><span class="pre">docs/auto_examples</span></code> can retain placeholders from a previous parse-only run.</p>
+</section>
 <section id="publishing">
 <h2>Publishing<a class="headerlink" href="#publishing" title="Link to this heading">#</a></h2>
 <p>After review and successful checks, finalize the version and changelog, then
@@ -559,20 +576,20 @@ with their environment and revision so release claims remain reproducible.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="internal-contracts.html"
+       href="provenance.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Internal numerical contracts</p>
+        <p class="prev-next-title">Method and source provenance</p>
       </div>
     </a>
     <a class="right-next"
-       href="api/index.html"
+       href="graduation-audits.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">API Reference</p>
+        <p class="prev-next-title">2.3 numerical API review</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -597,6 +614,7 @@ with their environment and revision so release claims remain reproducible.</p>
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-request-checks">Pull-request checks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-without-publication">Validation without publication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-documentation-checks">Visual documentation checks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publishing">Publishing</a></li>
 </ul>
   </nav></div>

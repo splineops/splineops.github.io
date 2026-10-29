@@ -21,8 +21,8 @@
 Adaptive Regression Splines Module
 ==================================
 
-This example shows how to fit a piecewise-linear, knot-sparse model to 1-D data
-using the adaptive regression splines module.
+Fit sparse piecewise-linear models and compare how regularization changes the fit and
+knot count.
 
 What we do
 ----------
@@ -45,12 +45,15 @@ Notes
 * Larger :math:`\lambda` → smoother trend (fewer knots, eventually a line).
 * The helper cell below runs the full pipeline for any given :math:`\lambda`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-37
+.. GENERATED FROM PYTHON SOURCE LINES 35-40
 
 Imports
 -------
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-47
+Import the regression solver and helpers for fitting and visualizing sparse
+splines.
+
+.. GENERATED FROM PYTHON SOURCE LINES 40-50
 
 .. code-block:: Python
 
@@ -71,14 +74,14 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-53
+.. GENERATED FROM PYTHON SOURCE LINES 52-56
 
 Data Preparation
 ----------------
 
 Create a dataset as (x,y) coordinates.
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-121
+.. GENERATED FROM PYTHON SOURCE LINES 56-124
 
 .. code-block:: Python
 
@@ -162,14 +165,14 @@ Create a dataset as (x,y) coordinates.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 122-126
+.. GENERATED FROM PYTHON SOURCE LINES 125-129
 
 Helpers
 -------
 
 The original, denoised, and sparsest spline solutions are plotted for comparison.
 
-.. GENERATED FROM PYTHON SOURCE LINES 126-155
+.. GENERATED FROM PYTHON SOURCE LINES 129-158
 
 .. code-block:: Python
 
@@ -209,14 +212,17 @@ The original, denoised, and sparsest spline solutions are plotted for comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 156-158
+.. GENERATED FROM PYTHON SOURCE LINES 159-163
 
 Smallest Lambda
 ---------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 158-160
+Use very weak regularization to retain most of the observed detail and knots.
+
+.. GENERATED FROM PYTHON SOURCE LINES 163-166
 
 .. code-block:: Python
+
 
     _run_lambda(1e-4)
 
@@ -232,14 +238,18 @@ Smallest Lambda
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 161-163
+.. GENERATED FROM PYTHON SOURCE LINES 167-172
 
 Small Lambda
 ------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 163-165
+Increase regularization slightly and inspect the first reductions in noise and
+knot count.
+
+.. GENERATED FROM PYTHON SOURCE LINES 172-175
 
 .. code-block:: Python
+
 
     _run_lambda(1e-3)
 
@@ -255,14 +265,18 @@ Small Lambda
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 166-168
+.. GENERATED FROM PYTHON SOURCE LINES 176-181
 
 Medium Lambda
 -------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 168-170
+Inspect an intermediate balance between fidelity to the observations and model
+sparsity.
+
+.. GENERATED FROM PYTHON SOURCE LINES 181-184
 
 .. code-block:: Python
+
 
     _run_lambda(1e-2)
 
@@ -278,14 +292,18 @@ Medium Lambda
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 171-173
+.. GENERATED FROM PYTHON SOURCE LINES 185-190
 
 Big Lambda
 ----------
 
-.. GENERATED FROM PYTHON SOURCE LINES 173-175
+Apply stronger regularization to remove smaller bends and emphasize the broad
+trend.
+
+.. GENERATED FROM PYTHON SOURCE LINES 190-193
 
 .. code-block:: Python
+
 
     _run_lambda(5e-2)
 
@@ -301,14 +319,18 @@ Big Lambda
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 176-178
+.. GENERATED FROM PYTHON SOURCE LINES 194-199
 
 Biggest Lambda
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-179
+Inspect the strongest regularization in this comparison, approaching the least-
+squares straight-line fit.
+
+.. GENERATED FROM PYTHON SOURCE LINES 199-201
 
 .. code-block:: Python
+
 
     _run_lambda(2e-1)
 
@@ -326,7 +348,7 @@ Biggest Lambda
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.455 seconds)
+   **Total running time of the script:** (0 minutes 0.587 seconds)
 
 
 .. _sphx_glr_download_auto_examples_04_adaptive_regression_splines_01_adaptive_regression_splines_module.py:

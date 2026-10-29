@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=f56efcf3" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=28575662" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
@@ -53,7 +53,7 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/04_adaptive_regression_splines';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="icon" href="../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Smoothing Splines" href="05_smoothing_splines.html" />
@@ -133,8 +133,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt=""/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt=""/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
   
   
     <p class="title logo__title">SplineOps</p>
@@ -174,14 +174,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -325,14 +325,14 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../evidence.html">
-    Evidence
+    Benchmarks
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../project.html">
-    Project
+    About
   </a>
 </li>
 
@@ -550,6 +550,12 @@ regularization-parameter sweep.</p>
 storage that SciPy does not expose through a stable byte-count API.</p>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="splineops.adaptive_regression_splines.denoising.DenoisingPlan.rho">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">rho</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><span class="pre">float</span></a></span><a class="headerlink" href="#splineops.adaptive_regression_splines.denoising.DenoisingPlan.rho" title="Link to this definition">#</a></dt>
+<dd><p>Fixed ADMM penalty; construct another plan to change it.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="splineops.adaptive_regression_splines.denoising.DenoisingPlan.solve">
 <span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">lamb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_tol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-07</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_diagnostics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#splineops.adaptive_regression_splines.denoising.DenoisingDiagnostics" title="splineops.adaptive_regression_splines.denoising.DenoisingDiagnostics"><span class="pre">DenoisingDiagnostics</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splineops.adaptive_regression_splines.denoising.DenoisingPlan.solve" title="Link to this definition">#</a></dt>
@@ -565,6 +571,12 @@ carried only within this method call, so the plan remains free of
 hidden mutable warm-start state and independent calls are repeatable.</p>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="splineops.adaptive_regression_splines.denoising.DenoisingPlan.x">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">x</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#splineops.adaptive_regression_splines.denoising.DenoisingPlan.x" title="Link to this definition">#</a></dt>
+<dd><p>Read-only sample coordinates used by the fixed factorization.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py function">
@@ -576,7 +588,7 @@ preserving sharp transitions. The method is based on the Alternating Direction M
 of Multipliers (ADMM), a powerful approach for distributed optimization.</p>
 <p>The optimization problem solved is:</p>
 <blockquote>
-<div><p>minimize  || y - y_lambda ||_2^2 + λ || Dy ||_1</p>
+<div><p>minimize  0.5 * || y - y_lambda ||_2^2 + λ || D y_lambda ||_1</p>
 </div></blockquote>
 <p>where <cite>D</cite> is a discrete difference operator, enforcing piecewise smoothness.</p>
 <dl class="field-list simple">
@@ -716,8 +728,10 @@ solutions with the fewest number of knots while maintaining fidelity to the data
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.adaptive_regression_splines.denoising.DenoisingPlan"><code class="docutils literal notranslate"><span class="pre">DenoisingPlan</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.adaptive_regression_splines.denoising.DenoisingPlan.configuration"><code class="docutils literal notranslate"><span class="pre">DenoisingPlan.configuration</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.adaptive_regression_splines.denoising.DenoisingPlan.retained_array_bytes"><code class="docutils literal notranslate"><span class="pre">DenoisingPlan.retained_array_bytes</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.adaptive_regression_splines.denoising.DenoisingPlan.rho"><code class="docutils literal notranslate"><span class="pre">DenoisingPlan.rho</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.adaptive_regression_splines.denoising.DenoisingPlan.solve"><code class="docutils literal notranslate"><span class="pre">DenoisingPlan.solve()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.adaptive_regression_splines.denoising.DenoisingPlan.solve_path"><code class="docutils literal notranslate"><span class="pre">DenoisingPlan.solve_path()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.adaptive_regression_splines.denoising.DenoisingPlan.x"><code class="docutils literal notranslate"><span class="pre">DenoisingPlan.x</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splineops.adaptive_regression_splines.denoising.denoise_y"><code class="docutils literal notranslate"><span class="pre">denoise_y()</span></code></a></li>
