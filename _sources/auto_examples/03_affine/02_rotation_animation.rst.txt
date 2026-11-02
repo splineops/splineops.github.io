@@ -3928,7 +3928,7 @@ Create the animation of the image being rotated from 0 to 360 degrees. Explore t
      uC7lcQL4i/dgafUn7hxnMssMLpT8WJcS4B+bHNdkWj2regNncXM9ykLRzHh0AYVl3RNc+Okdvjma
      abRtNjWjAiCYep6taN6QH9T636Zx0aHBs3vDqvz8HvVbJFBX+K7jbZ0DX6UGhFKjzKdtHeCt2som
      zPoEzDQ4uzPQFiylBQ/vmMsa2voyAMzKzBOEWC6Of+WQQcdx0rqsL2jbB3bWi7Fnp7TBALA0A51h
-     9/qp5jtYwUgahZC0MbA8tNxRklUWx+r6qdFAXta/w8LgdpuTTFyTiotX97bxqhdVv1tNeym1udSD
+     9/qp5jtYwUgahZC0MbA8tNxRklUWx+r6qdFAXta/w8LgdpuTTFyTjEtX97bxqhdcv1tNeym1udSD
      2KOx19b0nHhk0UCBcMj6fMcgY/g2UWJnhbLVuXZSXR6oMrdat+UYx7G7Nx2IyZWGStMYI2t35uHM
      vzJVMKKGhRNiDo2hOveOhubUMUmz6vToBHh83b5wDSIhlAxNZnpmHvqOZK7Kbfw5hK9072fRi/7r
      KN9dK+g1PTa9uAJiryp8Ar3qcQI+go8+uWSWuahq/9f7SfOATKdWDSiJLyf/GkxMu/fv4AzvFP84
@@ -31499,7 +31499,7 @@ Does nothing when the file is run normally by users.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 24.880 seconds)
+   **Total running time of the script:** (0 minutes 34.176 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_affine_02_rotation_animation.py:
